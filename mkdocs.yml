@@ -1,8 +1,8 @@
 #--content Project Information
 site_name: NCAR HPC Documentation
-site_description: NCAR HPC Docs website (Proof of Concept)
-repo_url: https://github.com/negin513/hpc-docs-demo
-site_url: https://negin513.github.io/hpc-docs-demo/
+site_description: NCAR HPC Docs website
+repo_url: https://github.com/NCAR/HPC-Docs/
+site_url: https://NCAR.github.io/HPC-Docs/
 site_author: CISL
 edit_uri: edit/main/docs/
 
