@@ -1,0 +1,92 @@
+.md-logo img {
+    width: px !important;
+    height: 50px !important;
+}
+[data-md-color-scheme="cisl_default"] {
+  --md-primary-fg-color:               rgb(0,127,163);  /* header background color */
+  --md-primary-bg-color:               rgb(255,255,255);  /* header font color */
+  --md-default-fg-color--light:        rgb(11,33,57,0.8);
+  --md-primary-fg-color--dark:         #012169;
+
+
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 213; 
+}
+
+:root {
+
+  /* Default color shades */
+  --md-default-fg-color:               rgb(11,33,57);
+  --md-default-fg-color--light:        rgb(11,33,57,0.8);
+  --md-default-fg-color--lighter:      rgb(11,33,57,0.5);
+  --md-default-fg-color--lightest:     rgb(11,33,57,0.1);
+
+  --md-default-bg-color:               rgb(255,255,255);
+  --md-default-bg-color--light:        rgb(255,255,255);
+  --md-default-bg-color--lighter:      rgb(255,255,255);
+  --md-default-bg-color--lightest:     rgb(255,255,255);
+
+
+  /* Primary color shades */
+  --md-primary-fg-color:               rgb(0,143,184);
+  --md-primary-fg-color--light:        rgb(162, 20, 155);
+  --md-primary-fg-color--dark:         #dbe2e9;
+
+  --md-primary-bg-color:               rgb(255,255,255);
+  --md-primary-bg-color--light:        rgb(255,255,255);
+ 
+
+  /* Accent color shades */
+  
+  --md-accent-fg-color:                rgb(248,150,29);
+  --md-accent-fg-color--transparent:   rgb(248,150,29,0.25);
+
+  --md-accent-bg-color:                rgb(210,227,235);
+  --md-accent-bg-color--light:         rgb(210,227,235,0.85);
+
+
+  /* Code block color shades */
+  --md-code-bg-color:                  rgb(210,227,235,0.3);
+  --md-code-fg-color:                  rgb(11,33,57);
+}
+
+
+
+.md-footer-social {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* siteimprove accessibility tweaks */
+.md-nav__link.md-nav__link--active {
+    font-weight: bold;
+}	
+
+.md-content a {
+    text-decoration:underline;
+}
+
+.logo-wrapper h1 {
+  font-size: 2rem;
+  line-height: .8
+}
+
+.logo-wrapper h2 {
+  line-height: 0;
+  margin: 0 .5rem 0 0;
+  padding-right: .5rem
+}
+
+.grid-x {
+  background-color: #012169;
+  justify-content: center
+  max-width: 80%;
+}
+
+.md-footer-meta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

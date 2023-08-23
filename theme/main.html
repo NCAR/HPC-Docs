@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block libs %}
+{{ super() }}
+<script async src="https://siteimproveanalytics.com/js/siteanalyze_6025767.js"></script>
+{% endblock %}
+
+
+{% block config %}
+{{ super() }}
+<script>
+  var __search = {
+    transform: function (query) {
+      return query
+    }
+  }
+</script>
+{% endblock %}
