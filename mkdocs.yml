@@ -1,0 +1,209 @@
+#--content Project Information
+site_name: NCAR HPC Documentation
+site_description: NCAR HPC Docs website (Proof of Concept)
+repo_url: https://github.com/negin513/hpc-docs-demo
+site_url: https://negin513.github.io/hpc-docs-demo/
+site_author: CISL
+edit_uri: edit/main/docs/
+
+# ------------------------------------
+#-- content
+nav:
+  - Home : index.md
+  - Getting Started: 
+    - getting-started.md
+    - Environment Modules: general/environment-modules.md
+    - Starting and Managing Jobs with PBS: general/managing-jobs.md
+  - Casper:
+     - casper/index.md
+     - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
+  - Cheyenne:
+     - cheyenne/index.md
+     - Quick Start on Cheyenne: cheyenne/Quick+start+on+Cheyenne.md
+     - Cheyenne Use Policies: cheyenne/Cheyenne+use+policies.md
+     - Starting Cheyenne Jobs:
+       - Job-submission Queues and Charges: cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
+       - Managing and monitoring PBS jobs: cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
+       - Cheyenne Job Script Examples: 
+          - cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
+  - Derecho: 
+      - derecho/index.md
+      - Batch job script examples - Derecho : derecho/Batch+job+script+examples-Derecho.md
+  - Allocations:
+     - allocations/index.md
+     - NCAR Allocations: 
+        - allocations/ncar_allocations/index.md
+     - University Allocations: allocations/university-allocations.md
+     
+  - User Support: 
+    - user-support.md
+  - NCAR User Group: 
+    - nhug/index.md
+    - nhug/upcoming-events.md
+  - FAQ: 
+    - esds/faq.md
+  - About : contributing.md
+
+# ------------------------------------
+# -- configurations
+
+
+theme:
+  name: material
+  custom_dir: theme
+
+  # -- additional features
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil 
+    view: material/eye
+    
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tabs.link       # all content tabs across the docs will be linked
+    - content.code.annotation # add anotations (advanced)
+    - content.code.annotate 
+    - content.code.copy       
+    - content.action.edit     # edit the page
+    - content.action.view     # view the source page
+    #- content.tooltips        # Adding tooltip for hovering over links
+
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.top          # back to top button
+    - navigation.path         # adding path to the top
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.sections
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.top
+    - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
+    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile. 
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - toc.follow
+    #- toc.integrate   # one toc on left only
+
+  #logo: assets/images/ncar_cisl.png
+  #logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
+  logo : assets/images/CISL-contemp-logo-white-square.png
+  #logo: https://raw.githubusercontent.com/negin513/hpc-docs-demo/main/assets/images/CISL-contemp-logo-blue-square.png
+  favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
+  
+  palette:
+    - scheme: cisl_default
+      primary: green 
+      accent: white
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to dark mode
+    - scheme: slate
+      primary: idigo
+      accent: white
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+  font: 
+        text: Google Sans
+        code: Regular
+
+  highlightjs: true
+
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+
+#copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
+copyright: "&copy; 2023 UCAR"
+
+
+markdown_extensions:
+  - meta
+  - attr_list
+  - footnotes
+  - admonition
+  - md_in_html
+  - def_list
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols:
+      fractions: false
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      prebuild_index: false
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+  - minify:
+      minify_html: true
+
+
+extra:
+  social:
+    - icon: material/home-circle
+      link: https://arc.ucar.edu/
+    - icon: material/help-circle
+      link: https://ithelp.ucar.edu/plugins/servlet/desk/site/rc
+    - icon: fontawesome/brands/github
+      link: https://github.com/NCAR
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/ncarhpcusergroup/shared_invite/zt-1z00napom-SU0X8CzJWVY90C2GzRvUCg
