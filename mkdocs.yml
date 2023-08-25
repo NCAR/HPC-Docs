@@ -17,6 +17,7 @@ nav:
       - Compiler Diagnostic Flags: getting-started/compiling-code/Compiler+diagnostic+flags.md
     - Environment Modules: getting-started/environment-modules.md
     - Starting and Managing Jobs with PBS: getting-started/managing-jobs.md
+    - Managing Your Allocation: getting-started/Managing+your+allocation.md
   - Casper:
      - casper/index.md
      - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
