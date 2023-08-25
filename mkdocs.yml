@@ -1,10 +1,9 @@
-# ------------------------------------
 #--content Project Information
 site_name: NCAR HPC Documentation
 site_description: NCAR HPC Docs website
 repo_url: https://github.com/NCAR/HPC-Docs/
 site_url: https://NCAR.github.io/HPC-Docs/
-site_author: CISL CSG
+site_author: CISL
 edit_uri: edit/main/docs/
 
 # ------------------------------------
@@ -15,38 +14,34 @@ nav:
     - getting-started.md
     - Environment Modules: general/environment-modules.md
     - Starting and Managing Jobs with PBS: general/managing-jobs.md
-
-  - NCAR HPC Documentation :
-    - Casper:
-      - casper/index.md
-      - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
-    - Cheyenne:
-      - cheyenne/index.md
-      - Quick Start on Cheyenne: cheyenne/Quick+start+on+Cheyenne.md
-      - Cheyenne Use Policies: cheyenne/Cheyenne+use+policies.md
-      - Starting Cheyenne Jobs:
-        - Job-submission Queues and Charges: cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
-        - Managing and monitoring PBS jobs: cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
-        - Cheyenne Job Script Examples: 
-            - cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
-    - Derecho: 
-        - derecho/index.md
-        - Batch job script examples - Derecho : derecho/Batch+job+script+examples-Derecho.md
-  
-    - Allocations:
-      - allocations/index.md
-      - NCAR Allocations: 
-          - allocations/ncar_allocations/index.md
-      - University Allocations: allocations/university-allocations.md
-    - FAQ: 
-      - esds/faq.md
-    - User Support: 
-      - user-support.md
-    
-  - NCAR HPC User Group: 
+  - Casper:
+     - casper/index.md
+     - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
+  - Cheyenne:
+     - cheyenne/index.md
+     - Quick Start on Cheyenne: cheyenne/Quick+start+on+Cheyenne.md
+     - Cheyenne Use Policies: cheyenne/Cheyenne+use+policies.md
+     - Starting Cheyenne Jobs:
+       - Job-submission Queues and Charges: cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
+       - Managing and monitoring PBS jobs: cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
+       - Cheyenne Job Script Examples: 
+          - cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
+  - Derecho: 
+      - derecho/index.md
+      - Batch job script examples - Derecho : derecho/Batch+job+script+examples-Derecho.md
+  - Allocations:
+     - allocations/index.md
+     - NCAR Allocations: 
+        - allocations/ncar_allocations/index.md
+     - University Allocations: allocations/university-allocations.md
+     
+  - User Support: 
+    - user-support.md
+  - NCAR User Group: 
     - nhug/index.md
     - nhug/upcoming-events.md
-
+  - FAQ: 
+    - esds/faq.md
   - About : contributing.md
 
 # ------------------------------------
@@ -83,8 +78,8 @@ theme:
     # - navigation.instant
     # - navigation.prune
     # - navigation.sections
-    - navigation.tabs
-    - navigation.tabs.sticky
+    # - navigation.tabs
+    # - navigation.tabs.sticky
     # - navigation.top
     - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
     # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile. 
