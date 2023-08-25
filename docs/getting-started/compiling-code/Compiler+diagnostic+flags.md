@@ -20,67 +20,59 @@ HPC environment that CISL manages.
 
 #### Page contents
 
-- [Cray](#Compilerdiagnosticflags-Cray)
-
-- [Intel](#Compilerdiagnosticflags-Intel)
-
-- [GNU](#Compilerdiagnosticflags-GNU)
-
-- [NVIDIA HPC SDK](#Compilerdiagnosticflags-NVIDIAHPCSDK)
+  - [Cray](#cray)
+  - [Intel](#intel)
+  - [GNU](#gnu)
+  - [NVIDIA HPC SDK](#nvidia-hpc-sdk)
 
 ## Cray
 
 The following compiler flags may be helpful for debugging your code: 
 
-- **-G0 –** provide complete debugging information with optimizations
-  disabled (i.e. **-O0**, **-O ipa0**, **-O scale0**, **-O vector0**).
+- `-G0` – provide complete debugging information with optimizations
+  disabled (i.e. `-O0`, `-O ipa0`, `-O scale0`, `-O vector0`).
   Breakpoints can be set at different sections of the code for easier
   debugging.  
 
-- **-G01 –** generate debugging report with partial optimization.
+- `-G01` – generate debugging report with partial optimization.
 
-- **-G02 –** generate debugging report with full optimization.
+- `-G02` – generate debugging report with full optimization.
 
-- **-g –** generate debugging report (equivalent to **-G0**).
+- `-g`  – generate debugging report (equivalent to `-G0`).
 
-- **-h bounds** - Enables checking of array bounds, pointer and array
-  references at runtime.
+- `-h bounds` - Enables checking of array bounds, pointer and array references at runtime.
 
 Also see [Cray C/C++ debug
 options](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=a00115116en_us&page=Debug_Options.html).
 
 ## Intel
 
-- **-debug all** – provides complete debugging information.
+- `-debug all` – provides complete debugging information.
 
-- **-g** – places symbolic debugging information in the executable
+- `-g` – places symbolic debugging information in the executable
   program.
 
-- **-check all** – performs all runtime checks (includes bounds
-  checking).
+- `-check all` – performs all runtime checks (includes bounds checking).
 
-- **-warn all** – enables all warnings.
+- `-warn all` – enables all warnings.
 
-- **-stand f08** – warns of usage that does not conform to the Fortran
-  2008 standard.
+- `-stand f08` – warns of usage that does not conform to the Fortran 2008 standard.
 
-- **-traceback** – enables stack trace if the program crashes.
+- `-traceback` – enables stack trace if the program crashes.
 
 Also see [Intel C++ diagnostic
 options](https://software.intel.com/en-us/cpp-compiler-developer-guide-and-reference-compiler-diagnostic-options).
 
 ## GNU
 
-- **-ggdb** – places symbolic debugging information in the executable
+- `-ggdb` – places symbolic debugging information in the executable
   program for use by GDB.
 
-- **-fcheck=all** – performs all runtime checks (includes bounds
-  checking).
+- `-fcheck=all` – performs all runtime checks (includes bounds checking).
 
-- **-Wall** – enables all warnings.
+- `-Wall` – enables all warnings.
 
-- **-std=f2008** – warns of usage that does not conform to the Fortran
-  2008 standard.
+- `-std=f2008` – warns of usage that does not conform to the Fortran 2008 standard.
 
 Also see [GCC diagnostic warning
 options](http://gcc.gnu.org/onlinedocs/gcc-3.4.4/gcc/Warning-Options.html).
@@ -90,18 +82,15 @@ options](http://gcc.gnu.org/onlinedocs/gcc-3.4.4/gcc/Warning-Options.html).
 The following compiler flags may be helpful for debugging your code
 using NVIDIA HPC SDK. 
 
-- **-g **– Include symbolic debugging information in the object modules
-  with optimization disabled (**-O0**).
+- `-g` – Include symbolic debugging information in the object modules with optimization disabled (`-O0`).
 
-- **-gopt** –  Include symbolic debugging information in the object
-  modules without affecting any optimizations. 
+- `-gopt` –  Include symbolic debugging information in the object modules without affecting any optimizations. 
 
-- **-C or -Mbounds** – Add array bounds checking.
+- `-C` or `-Mbounds` – Add array bounds checking.
 
-- **-Mchkptr **– Check for unintended de-referencing of NULL pointers.
+- `-Mchkptr` – Check for unintended de-referencing of NULL pointers.
 
-- **-Minform=inform** - Display all the error messages of any severity
-  (inform, warn, severe and fatal) during compilation phase.
+- `-Minform=inform` - Display all the error messages of any severity (inform, warn, severe and fatal) during compilation phase.
 
 Also see [NVIDIA HPC SDK
 documentation](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/#freq-used-options). 
