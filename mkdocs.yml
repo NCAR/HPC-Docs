@@ -12,6 +12,9 @@ nav:
   - Home : index.md
   - Getting Started: 
     - getting-started/index.md
+    - Compiling Code on NCAR Systems: 
+      - getting-started/compiling-code/index.md
+      - Compiler Diagnostic Flags: getting-started/compiling-code/Compiler+diagnostic+flags.md
     - Environment Modules: getting-started/environment-modules.md
     - Starting and Managing Jobs with PBS: getting-started/managing-jobs.md
   - Casper:
