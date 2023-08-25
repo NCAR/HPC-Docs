@@ -5,9 +5,6 @@ systems. The information on this page applies to all of those systems
 except where noted.
 
 #### Page contents
-
-- [Compiling code on NCAR systems](#compiling-code-on-ncar-systems)
-      - [Page contents](#page-contents)
   - [Compiler Commands](#compiler-commands)
     - [Compiler man pages](#compiler-man-pages)
   - [Where to compile](#where-to-compile)
@@ -563,9 +560,9 @@ system. Flags that are commonly used on Cheyenne might cause Derecho
 jobs to fail or run much more slowly than otherwise possible.
 
 !!! tip "Flags to use and avoid on Derecho"
-    - **DO use on Derecho: `-march=core-avx2`
+    - **DO use on Derecho: `-march=core-avx2`**
 
-    - **Do NOT use on Derecho:** `-xHost` , `-axHost` , `-xCORE-AVX2` , `-axCORE-AVX2`
+    - **Do NOT use on Derecho: `-xHost` , `-axHost` , `-xCORE-AVX2` , `-axCORE-AVX2`**
 
 ##### Examples
 
