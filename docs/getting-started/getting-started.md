@@ -5,16 +5,14 @@
 	supercomputers, storage systems, and services.
 
 
-
-
 Once you are authorized to use NCAR compute and storage resources, and you have [an account and the necessary software](https://arc.ucar.edu/knowledge_base/74317885), you can follow the procedures described below to log in.
 
 
 These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
 
-* [Compiling Code](general/compiling.md)
-* [Starting and Managing Jobs with PBS](general/environment-module.md)
-* [Managing Your Allocation](general/managing-jobs.md)
+* [Compiling Code](compiling.md)
+* [Starting and Managing Jobs with PBS](environment-modules.md)
+* [Managing Your Allocation](managing-jobs.md)
 
 ---
 
@@ -52,6 +50,7 @@ ssh -X system_name.ucar.edu
 ```
 After running the `ssh` command, you will be asked to authenticate to finish logging in.
 
+
 ---
-This page is just a copy of https://arc.ucar.edu/knowledge_base/87655186 in mkdown for demonstrations. 
+This page is just a copy of https://arc.ucar.edu/knowledge_base/87655186 in mkdown for demonstrations with slight modifications.
 

@@ -11,9 +11,9 @@ edit_uri: edit/main/docs/
 nav:
   - Home : index.md
   - Getting Started: 
-    - getting-started.md
-    - Environment Modules: general/environment-modules.md
-    - Starting and Managing Jobs with PBS: general/managing-jobs.md
+    - getting-started/index.md
+    - Environment Modules: getting-started/environment-modules.md
+    - Starting and Managing Jobs with PBS: getting-started/managing-jobs.md
   - Casper:
      - casper/index.md
      - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
