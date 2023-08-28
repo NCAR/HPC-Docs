@@ -93,7 +93,8 @@ theme:
     - search.suggest
     # - toc.follow
     #- toc.integrate   # one toc on left only
-
+    - announce.dismiss
+  
   #logo: assets/images/ncar_cisl.png
   #logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
   logo : assets/images/CISL-contemp-logo-white-square.png
@@ -115,7 +116,7 @@ theme:
         name: Switch to light mode
 
   font: 
-        text: Google Sans
+        text: Poppins
         code: Regular
 
   highlightjs: true
