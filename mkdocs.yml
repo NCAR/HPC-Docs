@@ -1,9 +1,9 @@
 #--content Project Information
 site_name: NCAR HPC Documentation
-site_description: NCAR HPC Docs website (Proof of Concept)
-repo_url: https://github.com/negin513/hpc-docs-demo
-site_url: https://negin513.github.io/hpc-docs-demo/
-site_author: CISL
+site_description: NCAR HPC Docs website
+repo_url: https://github.com/NCAR/HPC-Docs/
+site_url: https://NCAR.github.io/HPC-Docs/
+site_author: CISL CSG
 edit_uri: edit/main/docs/
 
 # ------------------------------------
@@ -12,8 +12,12 @@ nav:
   - Home : index.md
   - Getting Started: 
     - getting-started.md
-    - Environment Modules: general/environment-modules.md
-    - Starting and Managing Jobs with PBS: general/managing-jobs.md
+    - Compiling Code on NCAR Systems: 
+      - getting-started/compiling-code/index.md
+      - Compiler Diagnostic Flags: getting-started/compiling-code/Compiler+diagnostic+flags.md
+    - Environment Modules: getting-started/environment-modules.md
+    - Starting and Managing Jobs with PBS: getting-started/managing-jobs.md
+    - Managing Your Allocation: getting-started/Managing+your+allocation.md
   - Casper:
      - casper/index.md
      - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
@@ -33,7 +37,8 @@ nav:
      - allocations/index.md
      - NCAR Allocations: 
         - allocations/ncar_allocations/index.md
-     - University Allocations: allocations/university-allocations.md
+     - University Allocations: 
+        - allocations/university-allocations/index.md
      
   - User Support: 
     - user-support.md
