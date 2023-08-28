@@ -1,7 +1,6 @@
 # University allocations
 
-**The next university deadline for submitting Large Allocation Requests
-is September 12, 2023.**
+!!! tip " The next university deadline for submitting Large Allocation Requests is September 12, 2023."
 
 University use of the NCAR HPC environment is intended to support Earth
 system science and related research by researchers at U.S. institutions.
@@ -9,21 +8,22 @@ The emphasis is on projects that may be beyond the scope of a
 researcher’s local university computing capabilities. Eligible
 researchers and activities incur no costs for the use of NCAR resources.
 
-**Recent changes:** We have recently updated these policies, both to
-prepare for Derecho and to expand opportunities for University
-researchers. Most notably, we have created a new Data Analysis
-opportunity to allow more researchers to analyze NCAR-hosted data sets,
-and we have redefined “new faculty” to be any faculty member who has not
-computed at NCAR before. We have also called out options for expanding
-or extending the smaller-scale projects and clarified the eligibility
-language to emphasize the range of post-secondary institutions welcome
-to use NCAR’s resources.
+!!! info " Recent Changes"
+    We have recently updated these policies, both to
+    prepare for Derecho and to expand opportunities for University
+    researchers. Most notably, we have created a new Data Analysis
+    opportunity to allow more researchers to analyze NCAR-hosted data sets,
+    and we have redefined “new faculty” to be any faculty member who has not
+    computed at NCAR before. We have also called out options for expanding
+    or extending the smaller-scale projects and clarified the eligibility
+    language to emphasize the range of post-secondary institutions welcome
+    to use NCAR’s resources.
 
 While we often distinguish between the allocation opportunities based on
 the size of the HPC resource needs, most of these options allow you to
-request data analysis, visualization, and storage resources. *To see
-what HPC resource limits apply to each type of allocation, refer to
-**the table below***.
+request data analysis, visualization, and storage resources. 
+
+*To see what HPC resource limits apply to each type of allocation, refer to **the table below**.
 
 **Small Derecho allocation requests** will be accepted after the system
 enters production later this year. In the meantime, interested
@@ -88,20 +88,19 @@ Derecho GPU: 1,500 GPU-hours</td>
 </tbody>
 </table>
 
-*\*For Small, Exploratory, and Classroom projects, the amounts shown are
-the limits for requests on **one** system. For requests to use more than
+*For Small, Exploratory, and Classroom projects, the amounts shown are
+the limits for requests on one system. For requests to use more than
 one system, proportionally smaller limits apply–e.g., up to half the
 Derecho limit and half the Derecho GPU limit can be requested
 together. *
 
-**Submitting Your Request**
-
-For all types of university allocations, including any subsequent
-extension or supplement requests, requests should be submitted via the
-[ARC portal’s Allocations
-section](https://arc.ucar.edu/xras_submit/opportunities). If you have
-questions about these options, please contact us via the [Research
-Computing help](https://rchelp.ucar.edu) desk.
+!!! warning "Submitting Your Request"
+    For all types of university allocations, including any subsequent
+    extension or supplement requests, requests should be submitted via the
+    [ARC portal’s Allocations
+    section](https://arc.ucar.edu/xras_submit/opportunities). If you have
+    questions about these options, please contact us via the [Research
+    Computing help](https://rchelp.ucar.edu) desk.
 
 #### Page contents
 
@@ -132,12 +131,13 @@ announced approximately two months in advance. The CISL HPC Allocations
 Panel ([CHAP](https://arc.ucar.edu/knowledge_base/70549827)) reviews
 requests in April and October, and projects begin in May and November.
 
-***NOTE:*** We strongly recommend that researchers begin any new project
-by submitting a Small allocation request first. With a Small allocation,
-you can get started quickly and conduct benchmark and test runs to
-confirm the estimated computational costs of your planned model
-configurations. Such preparatory work will maximize your success during
-CHAP review.
+!!! note
+    We strongly recommend that researchers begin any new project
+    by submitting a Small allocation request first. With a Small allocation,
+    you can get started quickly and conduct benchmark and test runs to
+    confirm the estimated computational costs of your planned model
+    configurations. Such preparatory work will maximize your success during
+    CHAP review.
 
 The panel recommends awards on the basis of the computational
 experimental design, computational effectiveness, and availability of
@@ -190,8 +190,7 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 ## Exploratory Allocations
 
-**Exploratory requests can be submitted at any time and decisions are
-typically made within a few days. **
+!!! info "Exploratory requests can be submitted at any time and decisions are typically made within a few days."
 
 *Resources for unsponsored graduate students, postdocs, and new faculty*
 
@@ -234,8 +233,7 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 ## Data Analysis Allocations (NEW!)
 
-**Data Analysis allocation requests can be submitted at any time and
-decisions are typically made within a few days.**
+!!! info "Data Analysis allocation requests can be submitted at any time and decisions are typically made within a few days."
 
 Earth system scientists can request access to NCAR’s [Casper data
 analysis cluster](https://arc.ucar.edu/knowledge_base/70549550) and the
@@ -264,8 +262,7 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 ## Classroom Allocations
 
-**Classroom Allocation Requests can be submitted at any time and
-decisions are generally made within a few days. **
+!!! info "Classroom Allocation Requests can be submitted at any time and decisions are generally made within a few days."
 
 CISL offers opportunities to undergraduate and graduate faculty and
 instructors at U.S. 2- and 4-year institutions to use NCAR HPC and
