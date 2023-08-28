@@ -88,17 +88,16 @@ theme:
     - search.suggest
     # - toc.follow
     #- toc.integrate   # one toc on left only
-
+    - announce.dismiss
+  
   #logo: assets/images/ncar_cisl.png
   #logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
-  logo : assets/images/CISL-contemp-logo-white-square.png
+  logo : assets/images/CISL-contemp-logo-blue-square.png
   #logo: https://raw.githubusercontent.com/negin513/hpc-docs-demo/main/assets/images/CISL-contemp-logo-blue-square.png
   favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
   
   palette:
     - scheme: cisl_default
-      primary: green 
-      accent: white
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
@@ -110,7 +109,7 @@ theme:
         name: Switch to light mode
 
   font: 
-        text: Google Sans
+        text: Poppins
         code: Regular
 
   highlightjs: true

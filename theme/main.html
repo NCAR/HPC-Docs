@@ -1,18 +1,11 @@
 {% extends "base.html" %}
 
-{% block libs %}
-{{ super() }}
-<script async src="https://siteimproveanalytics.com/js/siteanalyze_6025767.js"></script>
+{% block htmltitle %}
+  <title>NCAR HPC Documentation</title>
 {% endblock %}
 
 
-{% block config %}
-{{ super() }}
-<script>
-  var __search = {
-    transform: function (query) {
-      return query
-    }
-  }
-</script>
+<!-- Announcement bar -->
+{% block announce %}
+  <strong>This site is currently under ACTIVE DEVELOPMENT!</strong> 
 {% endblock %}
