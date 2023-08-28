@@ -37,7 +37,8 @@ nav:
      - allocations/index.md
      - NCAR Allocations: 
         - allocations/ncar_allocations/index.md
-     - University Allocations: allocations/university-allocations.md
+     - University Allocations: 
+        - allocations/university-allocations/index.md
      
   - User Support: 
     - user-support.md
