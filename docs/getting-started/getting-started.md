@@ -33,6 +33,8 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 
 === "Derecho"
     ``` shell
+	ssh -X username@derecho.hpc.ucar.edu
+	```
 === "Casper"
 	``` shell
 	ssh -X username@casper.ucar.edu 
