@@ -32,8 +32,8 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
     workspace](https://www.nersc.gov/users/NUG/nersc-users-slack/).
 
 !!! info "CISL welcomes your contributions"
-    This project is hosted on [GitHub](https://gitlab.com/NERSC/nersc.gitlab.io) and your
-    [contributions](https://gitlab.com/NERSC/nersc.gitlab.io/blob/main/CONTRIBUTING.md)
+    This project is hosted on [GitHub](https://github.com/NCAR/HPC-Docs) and your
+    [contributions](https://github.com/NCAR/HPC-Docs/blob/main/contributing.md)
     are welcome!
 
 ---

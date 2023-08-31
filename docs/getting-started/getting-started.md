@@ -30,24 +30,51 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 To log in, start your terminal or Secure Shell client and run an `ssh` command as shown here:
 
-```
-ssh -X username@system_name.ucar.edu 
-```
-OR 
-```
-ssh -X username@system_name.ucar.edu
-```
-Some users (particularly on Macs) need to use `-Y` instead of `-X` when calling `SSH` to enable `X11` forwarding.
+
+=== "Derecho"
+    ``` shell
+	ssh -X username@derecho.hpc.ucar.edu
+	```
+=== "Casper"
+	``` shell
+	ssh -X username@casper.ucar.edu 
+	```
+=== "Cheyenne"
+	``` shell
+	ssh -X username@cheyenne.ucar.edu
+	```
+
+!!! tip 
+		Some users (particularly on Macs) need to use `-Y` instead of `-X` when calling `SSH` to enable `X11` forwarding.
+
+		=== "Derecho"
+			``` shell
+			ssh -Y username@derecho.hpc.ucar.edu
+			```
+		=== "Casper"
+			``` shell
+			ssh -Y username@casper.ucar.edu 
+			```
+		=== "Cheyenne"
+			``` shell
+			ssh -Y username@cheyenne.ucar.edu
+			```
 
 You can use this shorter command if your username for the system is the same as your username on your local computer:
 
-```
-ssh -X system_name.ucar.edu 
-```
-OR 
-```
-ssh -X system_name.ucar.edu
-```
+=== "Derecho"
+    ``` shell
+	ssh -X derecho.hpc.ucar.edu
+	```
+=== "Casper"
+	``` shell
+	ssh -X casper.ucar.edu 
+	```
+=== "Cheyenne"
+	``` shell
+	ssh -X cheyenne.ucar.edu
+	```
+
 After running the `ssh` command, you will be asked to authenticate to finish logging in.
 
 
