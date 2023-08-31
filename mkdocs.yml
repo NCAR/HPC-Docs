@@ -41,7 +41,7 @@ nav:
         - allocations/university-allocations/index.md
      
   - User Support: 
-    - user-support.md
+    - user-support/user-support.md
   - NCAR User Group: 
     - nhug/index.md
     - nhug/upcoming-events.md
