@@ -11,7 +11,7 @@ edit_uri: edit/main/docs/
 nav:
   - Home : index.md
   - Getting Started: 
-    - getting-started.md
+    - getting-started/index.md
     - Compiling Code on NCAR Systems: 
       - getting-started/compiling-code/index.md
       - Compiler Diagnostic Flags: getting-started/compiling-code/Compiler+diagnostic+flags.md
