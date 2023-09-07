@@ -4,15 +4,34 @@
 }
 [data-md-color-scheme="cisl_default"] {
   --md-primary-fg-color:               #DBE2E9  ;  /* header background color */
-  --md-primary-bg-color:               #012169;  /* header font color */
-  --md-default-fg-color--light:        rgb(11,33,57,0.8);
-  --md-primary-fg-color--dark:         #012169;
+  --md-primary-bg-color:               #012169  ;  /* header font color */
 
   --md-default-bg-color:               #f1f4f7;
   --md-default-fg-color:               #012169;
 
   --md-text-font:                      "Poppins";
+}
 
+[data-md-color-scheme="cisl_default_dark"] {
+  --md-primary-fg-color:               #1A658F  ;  /* header background color --- > NCAR blue */
+  --md-primary-bg-color:               #DBE2E9  ;  /* header font color */
+
+  --md-default-bg-color:               #53565A;
+  --md-default-fg-color:               #f1f4f7;
+  --md-default-fg-color:               #DBE2E9;
+
+  /* Primary color shades */
+
+  --md-primary-bg-color:               rgb(255,255,255);
+
+    /* Accent color shades */
+  
+  --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
+  --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
+
+  --md-accent-bg-color:                rgb(214, 79, 30);
+
+  --md-text-font:                      "Poppins";
 }
 
 
@@ -34,33 +53,26 @@ body {
 :root {
 
   /* Default color shades */
-  --md-default-fg-color:               rgb(57, 11, 51);
+  --md-default-fg-color:               rgb(3, 3, 3);
   --md-default-fg-color--light:        rgb(11,33,57,0.8);
   --md-default-fg-color--lighter:      rgb(11,33,57,0.5);
   --md-default-fg-color--lightest:     rgb(11,33,57,0.1);
 
   --md-default-bg-color:               rgb(255, 255, 255);
-  --md-default-bg-color--light:        rgb(255, 255, 255);
-  --md-default-bg-color--lighter:      rgb(255,255,255);
-  --md-default-bg-color--lightest:     rgb(255,255,255);
 
 
   /* Primary color shades */
   --md-primary-fg-color:               rgb(0,143,184);
-  --md-primary-fg-color--light:        rgb(162, 20, 155);
-  --md-primary-fg-color--dark:         #dbe2e9;
 
   --md-primary-bg-color:               rgb(255,255,255);
-  --md-primary-bg-color--light:        rgb(255,255,255);
  
 
   /* Accent color shades */
   
-  --md-accent-fg-color:                rgb(248,150,29);
-  --md-accent-fg-color--transparent:   rgb(248,150,29,0.25);
+  --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
+  --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
 
-  --md-accent-bg-color:                rgb(210,227,235);
-  --md-accent-bg-color--light:         rgb(210,227,235,0.85);
+  --md-accent-bg-color:                rgb(32, 91, 118);
 
 
   /* Code block color shades */
