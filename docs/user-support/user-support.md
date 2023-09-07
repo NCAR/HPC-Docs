@@ -1,6 +1,6 @@
 # User Support
 
-<iframe frameborder="1" height="420" scrolling="no" src="https://www.cisl.ucar.edu/csg/cod-status/cod.html" width="800"></iframe>
+<iframe frameborder="1" height="420" scrolling="no" src="https://www.cisl.ucar.edu/csg/cod-status/cod.html" width="800" style="background-color: #FFFFFF; frameborder=0"></iframe>
 
 ## Documentation
 
