@@ -14,21 +14,22 @@ nav:
     - quick-start/index.md
     - Environment Modules: quick-start/environment-modules.md
     - Starting and Managing Jobs with PBS: quick-start/managing-jobs.md
-    - Compiling Code on NCAR Systems: 
+    - Compiling Code on NCAR Systems:
       - quick-start/compiling-code/index.md
       - Compiler Diagnostic Flags: quick-start/compiling-code/Compiler+diagnostic+flags.md
+    - Best Practices for Supercomputer Users: quick-start/Best+practices+for+supercomputer+users.md
 
   - Getting Started: 
     - getting-started/index.md
     - Accounts: 
       - getting-started/accounts/index.md
-      - CIT Passwords : getting-started/accounts/CIT+passwords.md
-      - Getting started with 2-factor authentication : getting-started/accounts/Duo_+Getting+started+with+two-factor+authentication.md
-      - Duo Authentication and the User Portal : 
+      - CIT Passwords: getting-started/accounts/CIT+passwords.md
+      - Getting started with 2-factor authentication: getting-started/accounts/Duo_+Getting+started+with+two-factor+authentication.md
+      - Duo Authentication and the User Portal: 
         - getting-started/accounts/duo/Duo+authentication+and+user+portal.md
         - Authentication with Duo: getting-started/accounts/duo/Authenticating+with+Duo.md
-        - Enrolling your phone or tablet for Duo 2FA : getting-started/accounts/duo/Enrolling+your+phone+or+tablet+for+Duo+2FA.md
-      - SAM : getting-started/accounts/Systems+Accounting+Manager.md
+        - Enrolling your phone or tablet for Duo 2FA: getting-started/accounts/duo/Enrolling+your+phone+or+tablet+for+Duo+2FA.md
+      - SAM: getting-started/accounts/Systems+Accounting+Manager.md
     - Allocations:
       - allocations/index.md # -- https://arc.ucar.edu/knowledge_base/74317835
       - Managing Your Allocation: getting-started/Managing+your+allocation.md
@@ -41,49 +42,74 @@ nav:
         
       - Determining computational resource needs: allocations/Determining+computational+resource+needs.md
       - CISL HPC Allocations Panel: 
-          - allocations/cisl-hpc-allocations-panel/index.md
-          - Allocation Review Criteria: allocations/cisl-hpc-allocations-panel/CHAP_+Allocation+Review+Criteria.md
-          - Conflict of Interest Policy : allocations/cisl-hpc-allocations-panel/CHAP_+Conflict+of+Interest+Policy.md
-
+          - allocations/chap/index.md
+          - Allocation Review Criteria: allocations/chap/CHAP_+Allocation+Review+Criteria.md
+          - Conflict of Interest Policy: allocations/chap/CHAP_+Conflict+of+Interest+Policy.md
     - VPN access : getting-started/VPN+access.md
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md 
 
   - Compute Systems and Services:
-    - Casper:
-      - casper/index.md
-      - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
-    - Cheyenne:
-      - cheyenne/index.md
-      - Quick Start on Cheyenne: cheyenne/Quick+start+on+Cheyenne.md
-      - Cheyenne Use Policies: cheyenne/Cheyenne+use+policies.md
-      - Starting Cheyenne Jobs:
-        - Job-submission Queues and Charges: cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
-        - Managing and monitoring PBS jobs: cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
-        - Cheyenne Job Script Examples: 
-            - cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
     - Derecho: 
-        - derecho/index.md
-        - Batch job script examples - Derecho : derecho/Batch+job+script+examples-Derecho.md
-
+      - compute-systems/derecho/index.md
+      - Batch job script examples - Derecho : compute-systems/derecho/Batch+job+script+examples-Derecho.md
+    - Casper:
+      - compute-systems/casper/index.md
+      - Compiling GPU Code on Casper Nodes: compute-systems/casper/Compiling+GPU+code+on+Casper+nodes.md
+    - Cheyenne:
+      - compute-systems/cheyenne/index.md
+      - Quick Start on Cheyenne: compute-systems/cheyenne/Quick+start+on+Cheyenne.md
+      - Cheyenne Use Policies: compute-systems/cheyenne/Cheyenne+use+policies.md
+      - Starting Cheyenne Jobs:
+        - Job-submission Queues and Charges: compute-systems/cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
+        - Managing and monitoring PBS jobs: compute-systems/cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
+        - Cheyenne Job Script Examples: 
+            - compute-systems/cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
+    - JupyterHub: 
+      - compute-systems/jupyterhub/index.md
 
   - Storage Systems and Data Transfer:
-        - storage_systems/index.md
         - GLADE:
-          - storage_systems/glade/index.md
-        - Quasar:
-          - storage_systems/quasar/index.md
+          - storage-systems/glade/index.md
+          - Campaign storage file system: storage-systems/glade/campaign.md 
+          - Lustre file systems: storage-systems/glade/lustre.md
         - Stratus:
           - storage_systems/stratus/index.md
-        - Data Access Nodes:
-          - storage_systems/data-access-nodes/index.md
-        - Globus:
-          - storage_systems/globus/index.md
+          - Getting started with an object storage admin account: 
+            - storage_systems/stratus/Getting+started+with+an+object+storage+admin+account.md
+        - Quasar:
+          - storage-systems/quasar/index.md
+          - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
+
+        - Data Transfer:
+          - storage-systems/data-transfer/index.md
+          - Globus: storage-systems/data-transfer/globus.md
+          - BBCP : storage-systems/data-transfer/bbcp.md
+          - Sharing data and making unattended transfers: storage-systems/data-transfer/Sharing+data+and+making+unattended+transfers.md
+          - Transferring files to Google Drive or DropBox: storage-systems/data-transfer/Transferring+files+to+Google+Drive+or+DropBox.md
+          - PSCP and PSFTP: storage-systems/data-transfer/PSCP+and+PSFTP.md
+          - SCP and SFTP: storage-systems/data-transfer/SCP+and+SFTP.md
+          - WinSCP: storage-systems/data-transfer/WinSCP.md
+
+        - Setting File and Directory Permissions: storage-systems/Setting+file+and+directory+permissions.md
+        - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
+        - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
+        - Removing large number of files : storage-systems/Removing+large+number+of+files.md
+        - Data Access Nodes: storage-systems/data-access-nodes.md
+        - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
+
 
   - User Environment:
       - user-environment/index.md
       - User Environment Modules: user-environment/user-environment-modules.md
-      - User Environment Variables: user-environment/user-environment-variables.md
+      - Conda: user-environment/conda.md
+      - Singularity: user-environment/singularity.md
+      - Utilities: user-environment/utilities.md
+      - Customizing User Environment: user-environment/customizing-user-environment.md
+
+  - Software and Libraries:
+      - software-and-libraries/index.md
+      - Math Kernel Library: software-and-libraries/math-kernel-library.md
 
   - Tutorials:
     - tutorials/index.md
@@ -93,14 +119,16 @@ nav:
     - Advanced PBS: tutorials/advanced-pbs.md
     - JupyterHub:  tutorials/jupyterhub.md
     - Containers: tutorials/containers.md
-    - GPU Workshop: tutorials/gpu-workshop.md   
+    - GPU Workshop: tutorials/gpu-workshop.md
+
   - User Support: 
     - user-support/index.md
     - Submitting Support Tickets: user-support/submitting-support-tickets.md
     - Virtual Consulting: user-support/virtual-consulting.md
     - NCAR's Slack Workspaces: user-support/ncars-slack-workspaces.md
     - Contributing to the Documentation: contributing.md
-  - NCAR User Group: 
+
+  - NCAR User Group (NHUG): 
     - nhug/index.md
     - nhug/upcoming-events.md
 
