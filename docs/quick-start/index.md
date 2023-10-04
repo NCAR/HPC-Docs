@@ -1,1 +1,1 @@
-getting-started.md
+quick-start.md
