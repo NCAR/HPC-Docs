@@ -67,6 +67,7 @@ nav:
             - compute-systems/cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
     - JupyterHub: 
       - compute-systems/jupyterhub/index.md
+      - Jupyter and IPython: compute-systems/jupyterhub/Jupyter+and+IPython.md
 
   - Storage Systems and Data Transfer:
         - GLADE:
@@ -91,11 +92,11 @@ nav:
           - SCP and SFTP: storage-systems/data-transfer/SCP+and+SFTP.md
           - WinSCP: storage-systems/data-transfer/WinSCP.md
 
+        - Data Access Nodes: storage-systems/data-access-nodes.md
         - Setting File and Directory Permissions: storage-systems/Setting+file+and+directory+permissions.md
         - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
         - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
         - Removing large number of files : storage-systems/Removing+large+number+of+files.md
-        - Data Access Nodes: storage-systems/data-access-nodes.md
         - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
 
@@ -106,6 +107,8 @@ nav:
       - Singularity: user-environment/singularity.md
       - Utilities: user-environment/utilities.md
       - Customizing User Environment: user-environment/customizing-user-environment.md
+      - Spack: user-environment/spack/index.md
+      - Spack DownStream: user-environment/spack/spack-downstream.md
 
   - Software and Libraries:
       - software-and-libraries/index.md
@@ -123,15 +126,17 @@ nav:
 
   - User Support: 
     - user-support/index.md
-    - Submitting Support Tickets: user-support/submitting-support-tickets.md
+    - Submitting Support Tickets: 
+      - user-support/submitting-support-tickets/index.md
+      - How to report a job failure?: user-support/submitting-support-tickets/How+to+report+a+job+failure.md
     - Virtual Consulting: user-support/virtual-consulting.md
     - NCAR's Slack Workspaces: user-support/ncars-slack-workspaces.md
-    - Contributing to the Documentation: contributing.md
 
   - NCAR User Group (NHUG): 
     - nhug/index.md
     - nhug/upcoming-events.md
 
+  - Contributing to the Documentation: contributing.md
 
 # ------------------------------------
 # -- configurations
