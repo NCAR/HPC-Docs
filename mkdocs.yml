@@ -7,9 +7,11 @@ site_author: CISL CSG (Consulting Services Group)
 edit_uri: edit/main/docs/
 
 # ------------------------------------
-#-- content
+# ----------- content ----------------
+# ------------------------------------
 nav:
   - Home : index.md
+
   - Quick Start:
     - quick-start/index.md
     - Environment Modules: quick-start/environment-modules.md
@@ -45,13 +47,16 @@ nav:
           - allocations/chap/index.md
           - Allocation Review Criteria: allocations/chap/CHAP_+Allocation+Review+Criteria.md
           - Conflict of Interest Policy: allocations/chap/CHAP_+Conflict+of+Interest+Policy.md
-    - VPN access : getting-started/VPN+access.md
+    - VPN access : getting-started/vpn-access.md
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md 
-
+    - User Responsibilities: getting-started/user-responsibilities.md
+    - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
   - Compute Systems and Services:
     - Derecho: 
       - compute-systems/derecho/index.md
+      - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
+      - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
       - Batch job script examples - Derecho : compute-systems/derecho/Batch+job+script+examples-Derecho.md
     - Casper:
       - compute-systems/casper/index.md
@@ -99,7 +104,6 @@ nav:
         - Removing large number of files : storage-systems/Removing+large+number+of+files.md
         - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
-
   - User Environment:
       - user-environment/index.md
       - User Environment Modules: user-environment/user-environment-modules.md
@@ -107,12 +111,14 @@ nav:
       - Singularity: user-environment/singularity.md
       - Utilities: user-environment/utilities.md
       - Customizing User Environment: user-environment/customizing-user-environment.md
-      - Spack: user-environment/spack/index.md
+      - Spack: 
+        - user-environment/spack/index.md
       - Spack DownStream: user-environment/spack/spack-downstream.md
 
   - Software and Libraries:
       - software-and-libraries/index.md
       - Math Kernel Library: software-and-libraries/math-kernel-library.md
+
 
   - Tutorials:
     - tutorials/index.md
