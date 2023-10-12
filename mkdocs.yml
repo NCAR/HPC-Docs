@@ -52,15 +52,31 @@ nav:
     - Data Retention Policies: getting-started/data-retention-policies.md 
     - User Responsibilities: getting-started/user-responsibilities.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
+
   - Compute Systems and Services:
     - Derecho: 
       - compute-systems/derecho/index.md
       - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
-      - Batch job script examples - Derecho : compute-systems/derecho/Batch+job+script+examples-Derecho.md
+  
+      - Starting Derecho Jobs:
+        - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
+        - Derecho Job Script Examples:
+            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/index.md 
+            - Derecho Advanced Job Script Examples: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/derecho-advanced-examples.md
+            - Job Preemption with PBS: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/job-preemption-with-pbs.md
+            - Process Binding : compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/process-binding.md
+        - Managing and monitoring PBS jobs: compute-systems/derecho/starting-derecho-jobs/managing-and-monitoring-pbs-jobs.md
+
     - Casper:
       - compute-systems/casper/index.md
+      - Quick Start on Casper: compute-systems/casper/quick-start-on-casper.md
+      - Casper Use Policies: compute-systems/casper/casper-use-policies.md
+      - Starting Casper Jobs:
+            - compute-systems/casper/starting-casper-jobs/index.md
+            - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
       - Compiling GPU Code on Casper Nodes: compute-systems/casper/Compiling+GPU+code+on+Casper+nodes.md
+
     - Cheyenne:
       - compute-systems/cheyenne/index.md
       - Quick Start on Cheyenne: compute-systems/cheyenne/Quick+start+on+Cheyenne.md
@@ -72,7 +88,7 @@ nav:
             - compute-systems/cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
     - JupyterHub: 
       - compute-systems/jupyterhub/index.md
-      - Jupyter and IPython: compute-systems/jupyterhub/Jupyter+and+IPython.md
+      - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
 
   - Storage Systems and Data Transfer:
         - GLADE:
