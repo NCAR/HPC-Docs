@@ -1,1 +1,1 @@
-University+allocations.md
+university-allocations.md

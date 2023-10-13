@@ -1,1 +1,1 @@
-CISL+HPC+Allocations+Panel.md
+cisl-hpc-allocations-panel.md
