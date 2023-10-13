@@ -115,22 +115,23 @@ nav:
         - Removing large number of files : storage-systems/Removing+large+number+of+files.md
         - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
-  - User Environment:
-      - user-environment/index.md
-      - Environment Modules: 
-        - user-environment/environment-modules.md
-        - Caper Modules: compute-systems/casper/casper-modules.md
-        - Derecho Modules: compute-systems/derecho/derecho-modules.md
-      - Conda: user-environment/conda.md
-      - Singularity: user-environment/singularity.md
-      - Utilities: user-environment/utilities.md
-      - Customizing User Environment: user-environment/customizing-user-environment.md
-      - Spack: 
-        - user-environment/spack/index.md
-        - Spack Downstream: user-environment/spack/spack-downstream.md
-
   - Software and Libraries:
       - software-and-libraries/index.md
+      
+      - User Environment:
+        - user-environment/index.md
+        - Environment Modules: 
+          - user-environment/environment-modules.md
+          - Caper Modules: compute-systems/casper/casper-modules.md
+          - Derecho Modules: compute-systems/derecho/derecho-modules.md
+        - Conda: user-environment/conda.md
+        - Singularity: user-environment/singularity.md
+        - Utilities: user-environment/utilities.md
+        - Customizing User Environment: user-environment/customizing-user-environment.md
+        - Spack: 
+          - user-environment/spack/index.md
+          - Spack Downstream: user-environment/spack/spack-downstream.md
+
       - Community Models: software-and-libraries/community-models.md
       - NCL : software-and-libraries/ncl.md
       - MATLAB Parallel Computing Toolbox: software-and-libraries/matlab-parallel-computing-toolbox.md
@@ -142,6 +143,11 @@ nav:
         - software-and-libraries/benchmarks/index.md
         - NCAR Benchmarking applications - 2015 release: software-and-libraries/benchmarks/ncar-benchmarking-2015.md
         - NCAR Benchmarking applications - 2019-2020 release: software-and-libraries/benchmarks/ncar-benchmarking-2019-2020.md
+
+      - Profiling & Debuggers: # -- tentative placement
+        - Intel Parallel Studio XE: profiling-and-debuggers/intel-parallel-studio-xe.md
+        - Running DDT, MAP, and PR Jobs : profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+        - Debugging and Profiling with Forge Tools on Derecho: profiling-and-debuggers/debugging-and-profiling-with-forge-tools-on-derecho.md
 
   - Running Jobs (PBS):
       - pbs/index.md
