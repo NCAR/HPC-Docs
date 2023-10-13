@@ -81,9 +81,6 @@ nav:
       - Using Remote Desktops on Casper with VNC: compute-systems/casper/using-remote-desktops-on-casper-with-vnc.md
       - ssh tunneling with PuTTY: compute-systems/casper/ssh-tunneling-with-putty.md
       - Using FastX for remote Desktops: compute-systems/casper/using-fastx-for-remote-desktops.md
-
-    - Cheyenne:
-      - compute-systems/cheyenne/index.md
     
     - JupyterHub: 
       - compute-systems/jupyterhub/index.md
