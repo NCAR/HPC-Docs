@@ -14,7 +14,6 @@ nav:
 
   - Quick Start:
     - quick-start/index.md
-    - Best Practices for Supercomputer Users: quick-start/Best+practices+for+supercomputer+users.md
 
   - Getting Started: 
     - getting-started/index.md
@@ -45,6 +44,7 @@ nav:
     - VPN access : getting-started/vpn-access.md
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md 
+    - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
     - User Responsibilities: getting-started/user-responsibilities.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
@@ -66,7 +66,6 @@ nav:
             - compute-systems/derecho/compiling-code-on-derecho/index.md
             - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
 
-
     - Casper:
       - compute-systems/casper/index.md
       - Quick Start on Casper: compute-systems/casper/quick-start-on-casper.md
@@ -80,8 +79,6 @@ nav:
             - Compiling GPU Code on Casper Nodes: compute-systems/casper/compiling-code-on-casper/compiling-gpu-code-on-casper-nodes.md
             - Compiling multi-GPU MPI-CUDA code on Casper: compute-systems/casper/compiling-code-on-casper/compiling-multigpu-multicuda-casper.md
             - Using NVIDIA MPS in Casper GPU jobs: compute-systems/casper/compiling-code-on-casper/using-nvidia-mps-in-casper-gpu.md
-      - Starting and managing jobs with PBS: compute-systems/casper/starting-and-managing-jobs-with-pbs.md
-
 
     - Cheyenne:
       - compute-systems/cheyenne/index.md
@@ -142,9 +139,27 @@ nav:
 
   - Software and Libraries:
       - software-and-libraries/index.md
-
+      - Community Models: software-and-libraries/community-models.md
+      - NCL : software-and-libraries/ncl.md
+      - MATLAB Parallel Computing Toolbox: software-and-libraries/matlab-parallel-computing-toolbox.md
       - Math Kernel Library: software-and-libraries/math-kernel-library.md
+      - Data Analysis and Visualization : software-and-libraries/data-analysis-and-visualization.md
+      - Machine Learning and Deep Learning : software-and-libraries/machine-learning-and-deep-learning.md
+      - NCAR Classic Libraries for Geophysics: software-and-libraries/ncar-classic-libraries-for-geophysics.md
+      - Benchmarks:
+        - software-and-libraries/benchmarks/index.md
+        - NCAR Benchmarking applications - 2015 release: software-and-libraries/benchmarks/ncar-benchmarking-2015.md
+        - NCAR Benchmarking applications - 2019-2020 release: software-and-libraries/benchmarks/ncar-benchmarking-2019-2020.md
 
+  - Running Jobs (PBS):
+      - pbs/index.md
+      - Managing and monitoring PBS jobs: pbs/managing-and-monitoring-pbs-jobs.md
+      - Peer Scheduling: pbs/peer-scheduling.md
+      - Propagating environment settings to a PBS job: pbs/propagating-environment-settings-to-a-pbs-job.md
+      - Checking Memory Use: 
+        - pbs/checking-memory-use/index.md
+        - peak_memusage: pbs/checking-memory-use/peak_memusage.md
+      - Storing temporary files: pbs/storing-temporary-files.md
 
   - Tutorials:
     - tutorials/index.md
