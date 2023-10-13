@@ -84,13 +84,7 @@ nav:
 
     - Cheyenne:
       - compute-systems/cheyenne/index.md
-      - Quick Start on Cheyenne: compute-systems/cheyenne/Quick+start+on+Cheyenne.md
-      - Cheyenne Use Policies: compute-systems/cheyenne/Cheyenne+use+policies.md
-      - Starting Cheyenne Jobs:
-        - Job-submission Queues and Charges: compute-systems/cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
-        - Managing and monitoring PBS jobs: compute-systems/cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
-        - Cheyenne Job Script Examples: 
-            - compute-systems/cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
+    
     - JupyterHub: 
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
