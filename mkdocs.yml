@@ -59,7 +59,6 @@ nav:
             - Derecho Advanced Job Script Examples: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/derecho-advanced-examples.md
             - Job Preemption with PBS: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/job-preemption-with-pbs.md
             - Process Binding : compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/process-binding.md
-            - Managing and monitoring PBS jobs: compute-systems/derecho/starting-derecho-jobs/managing-and-monitoring-pbs-jobs.md
         - Compiling Code on Derecho : 
             - compute-systems/derecho/compiling-code-on-derecho/index.md
             - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
@@ -117,7 +116,7 @@ nav:
 
   - Software and Libraries:
       - software-and-libraries/index.md
-      
+
       - User Environment:
         - user-environment/index.md
         - Environment Modules: 
