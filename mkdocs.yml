@@ -3,51 +3,196 @@ site_name: NCAR HPC Documentation
 site_description: NCAR HPC Docs website
 repo_url: https://github.com/NCAR/HPC-Docs/
 site_url: https://NCAR.github.io/HPC-Docs/
-site_author: CISL CSG
+site_author: CISL CSG (Consulting Services Group)
 edit_uri: edit/main/docs/
 
 # ------------------------------------
-#-- content
+# ----------- content ----------------
+# ------------------------------------
 nav:
   - Home : index.md
+
+  - Quick Start:
+    - quick-start/index.md
+
   - Getting Started: 
     - getting-started/index.md
-    - Compiling Code on NCAR Systems: 
-      - getting-started/compiling-code/index.md
-      - Compiler Diagnostic Flags: getting-started/compiling-code/Compiler+diagnostic+flags.md
-    - Environment Modules: getting-started/environment-modules.md
-    - Starting and Managing Jobs with PBS: getting-started/managing-jobs.md
-    - Managing Your Allocation: getting-started/Managing+your+allocation.md
-  - Casper:
-     - casper/index.md
-     - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
-  - Cheyenne:
-     - cheyenne/index.md
-     - Quick Start on Cheyenne: cheyenne/Quick+start+on+Cheyenne.md
-     - Cheyenne Use Policies: cheyenne/Cheyenne+use+policies.md
-     - Starting Cheyenne Jobs:
-       - Job-submission Queues and Charges: cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
-       - Managing and monitoring PBS jobs: cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
-       - Cheyenne Job Script Examples: 
-          - cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
-  - Derecho: 
-      - derecho/index.md
-      - Batch job script examples - Derecho : derecho/Batch+job+script+examples-Derecho.md
-  - Allocations:
-     - allocations/index.md
-     - NCAR Allocations: 
-        - allocations/ncar_allocations/index.md
-     - University Allocations: 
-        - allocations/university-allocations/index.md
-     
+    - Accounts: 
+      - getting-started/accounts/index.md
+      - CIT Passwords: getting-started/accounts/cit-passwords.md
+      - Getting started with 2-factor authentication: getting-started/accounts/duo-getting-started-with-two-factor-authentication.md
+      - Duo Authentication and the User Portal: 
+        - getting-started/accounts/duo/duo-authentication-and-user-portal.md
+        - Authentication with Duo: getting-started/accounts/duo/authenticating-with-duo.md
+        - Enrolling your phone or tablet for Duo 2FA: getting-started/accounts/duo/enrolling-your-phone-or-tablet-for-duo-2fa.md
+      - SAM: getting-started/accounts/systems-accounting-manager.md
+    - Allocations:
+      - allocations/index.md # -- https://arc.ucar.edu/knowledge_base/74317835
+      - Managing Your Allocation: getting-started/managing-your-allocation.md
+      - NCAR Allocations: 
+          - allocations/ncar-allocations/index.md
+          - NCAR Strategic Capability (NSC) projects: allocations/ncar-allocations/ncar-strategic-capability-nsc-projects.md
+      - University Allocations: 
+          - allocations/university-allocations/index.md
+          - University Large Allocation Request Preparation Instructions : allocations/university-allocations/university-large-allocation-request-preparation-instructions.md        
+      - Determining computational resource needs: allocations/determining-computational-resource-needs.md
+      - CISL HPC Allocations Panel: 
+          - allocations/chap/index.md
+          - Allocation Review Criteria: allocations/chap/chap-allocation-review-criteria.md
+          - Conflict of Interest Policy: allocations/chap/chap-conflict-of-interest-policy.md
+    - VPN access : getting-started/vpn-access.md
+    - System Usage Policies: getting-started/system-usage-policies.md
+    - Data Retention Policies: getting-started/data-retention-policies.md 
+    - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
+    - User Responsibilities: getting-started/user-responsibilities.md
+    - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
+
+  - Compute Systems and Services:
+    - Derecho: 
+      - compute-systems/derecho/index.md
+      - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
+      - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
+      - Starting Derecho Jobs:
+        - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
+        - Derecho Job Script Examples:
+            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/index.md 
+            - Derecho Advanced Job Script Examples: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/derecho-advanced-examples.md
+            - Job Preemption with PBS: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/job-preemption-with-pbs.md
+            - Process Binding : compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/process-binding.md
+        - Compiling Code on Derecho : 
+            - compute-systems/derecho/compiling-code-on-derecho/index.md
+            - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
+
+    - Casper:
+      - compute-systems/casper/index.md
+      - Quick Start on Casper: compute-systems/casper/quick-start-on-casper.md
+      - Casper Use Policies: compute-systems/casper/casper-use-policies.md
+      - Starting Casper Jobs:
+            - compute-systems/casper/starting-casper-jobs/index.md
+            - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
+      - Compiling Code on Casper : 
+            - compute-systems/casper/compiling-code-on-casper/index.md
+            - Compiler Diagnostic Flags: compute-systems/casper/compiling-code-on-casper/compiler-diagnostic-flags.md
+            - Compiling GPU Code on Casper Nodes: compute-systems/casper/compiling-code-on-casper/compiling-gpu-code-on-casper-nodes.md
+            - Compiling multi-GPU MPI-CUDA code on Casper: compute-systems/casper/compiling-code-on-casper/compiling-multigpu-multicuda-casper.md
+            - Using NVIDIA MPS in Casper GPU jobs: compute-systems/casper/compiling-code-on-casper/using-nvidia-mps-in-casper-gpu.md
+
+      - Using Remote Desktops on Casper with VNC: compute-systems/casper/using-remote-desktops-on-casper-with-vnc.md
+      - ssh tunneling with PuTTY: compute-systems/casper/ssh-tunneling-with-putty.md
+      - Using FastX for remote Desktops: compute-systems/casper/using-fastx-for-remote-desktops.md
+    
+    - JupyterHub: 
+      - compute-systems/jupyterhub/index.md
+      - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
+
+  - Storage Systems and Data Transfer:
+        - GLADE:
+          - storage-systems/glade/index.md
+          - Campaign storage file system: storage-systems/glade/campaign.md 
+          - Lustre file systems: storage-systems/glade/lustre.md
+        - Stratus:
+          - storage_systems/stratus/index.md
+          - Getting started with an object storage admin account: storage_systems/stratus/getting-started-with-an-object-storage-admin-account.md
+        - Quasar:
+          - storage-systems/quasar/index.md
+          - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
+
+        - Data Transfer:
+          - storage-systems/data-transfer/index.md
+          - Globus: storage-systems/data-transfer/globus.md
+          - BBCP : storage-systems/data-transfer/bbcp.md
+          - Sharing data and making unattended transfers: storage-systems/data-transfer/Sharing+data+and+making+unattended+transfers.md
+          - Transferring files to Google Drive or DropBox: storage-systems/data-transfer/Transferring+files+to+Google+Drive+or+DropBox.md
+          - PSCP and PSFTP: storage-systems/data-transfer/PSCP+and+PSFTP.md
+          - SCP and SFTP: storage-systems/data-transfer/SCP+and+SFTP.md
+          - WinSCP: storage-systems/data-transfer/WinSCP.md
+
+        - Data Access Nodes: storage-systems/data-access-nodes.md
+        - Setting File and Directory Permissions: storage-systems/Setting+file+and+directory+permissions.md
+        - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
+        - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
+        - Removing large number of files : storage-systems/Removing+large+number+of+files.md
+        - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
+
+  - Software and Libraries:
+      - software-and-libraries/index.md
+
+      - User Environment:
+        - user-environment/index.md
+        - Environment Modules: 
+          - user-environment/environment-modules.md
+          - Caper Modules: compute-systems/casper/casper-modules.md
+          - Derecho Modules: compute-systems/derecho/derecho-modules.md
+        - Conda: user-environment/conda.md
+        - Singularity: user-environment/singularity.md
+        - Utilities: user-environment/utilities.md
+        - Customizing User Environment: user-environment/customizing-user-environment.md
+        - Spack: 
+          - user-environment/spack/index.md
+          - Spack Downstream: user-environment/spack/spack-downstream.md
+
+      - Community Models: software-and-libraries/community-models.md
+      - NCL : software-and-libraries/ncl.md
+      - MATLAB Parallel Computing Toolbox: software-and-libraries/matlab-parallel-computing-toolbox.md
+      - Math Kernel Library: software-and-libraries/math-kernel-library.md
+      - Data Analysis and Visualization : software-and-libraries/data-analysis-and-visualization.md
+      - Machine Learning and Deep Learning : software-and-libraries/machine-learning-and-deep-learning.md
+      - NCAR Classic Libraries for Geophysics: software-and-libraries/ncar-classic-libraries-for-geophysics.md
+      - Benchmarks:
+        - software-and-libraries/benchmarks/index.md
+        - NCAR Benchmarking applications - 2015 release: software-and-libraries/benchmarks/ncar-benchmarking-2015.md
+        - NCAR Benchmarking applications - 2019-2020 release: software-and-libraries/benchmarks/ncar-benchmarking-2019-2020.md
+
+      - Profiling & Debuggers: # -- tentative placement
+        - Intel Parallel Studio XE: profiling-and-debuggers/intel-parallel-studio-xe.md
+        - Running DDT, MAP, and PR Jobs : profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+        - Debugging and Profiling with Forge Tools on Derecho: profiling-and-debuggers/debugging-and-profiling-with-forge-tools-on-derecho.md
+
+  - Running Jobs (PBS):
+      - pbs/index.md
+      - Managing and monitoring PBS jobs: pbs/managing-and-monitoring-pbs-jobs.md
+      - Peer Scheduling: pbs/peer-scheduling.md
+      - Propagating environment settings to a PBS job: pbs/propagating-environment-settings-to-a-pbs-job.md
+      - Checking Memory Use: 
+        - pbs/checking-memory-use/index.md
+        - peak_memusage: pbs/checking-memory-use/peak_memusage.md
+      - Storing temporary files: pbs/storing-temporary-files.md
+      - PBS Job Arrays : pbs/pbs-job-arrays.md # include mdmp or seperate?
+      - PBS Dependent Jobs: pbs/pbs-job-dependencies.md
+
+  - Tutorials:
+    - tutorials/index.md
+    - New User Training: tutorials/new-user-training.md
+    - Dask Tutorial: tutorials/dask-tutorial.md
+    - Profiling and Debugging: tutorials/profiling-and-debugging.md
+    - Advanced PBS: tutorials/advanced-pbs.md
+    - JupyterHub:  tutorials/jupyterhub.md
+    - Containers: tutorials/containers.md
+    - GPU Workshop: tutorials/gpu-workshop.md
+
   - User Support: 
-    - user-support/user-support.md
-  - NCAR User Group: 
+    - user-support/index.md
+    - Submitting Support Tickets: 
+      - user-support/submitting-support-tickets/index.md
+      - How to report a job failure?: user-support/submitting-support-tickets/how-to-submit-a-job-failure.md
+    - Virtual Consulting: user-support/virtual-consulting.md
+    - Troubleshooting Tips:
+      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+      - peak_memusage output fails: user-support/troubleshooting-tips/peak_memusage-output-fails.md
+    - Additional Resources:
+      - Thunder test system: user-support/additional-resources/thunder-test-system.md
+    - How to Join CISL on Sundog?: user-support/how-to-join-cisl-on-sundog.md
+    - How to subscribe to CISL Daily Bulletin: user-support/how-to-subscribe-to-cisl-daily-bulletin.md
+
+  - NCAR User Group (NHUG): 
     - nhug/index.md
-    - nhug/upcoming-events.md
-  - FAQ: 
-    - esds/faq.md
-  - Contributing : contributing.md
+    - Archive of Past Meetings:
+      - nhug/archive/index.md
+    - NHUG Upcoming Events: nhug/upcoming-events.md
+
+  - Contributing to the Documentation: contributing.md
 
 # ------------------------------------
 # -- configurations
@@ -106,9 +251,7 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-    - scheme: slate
-      primary: idigo
-      accent: white
+    - scheme: cisl_default_dark
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode

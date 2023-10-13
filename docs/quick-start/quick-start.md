@@ -1,7 +1,5 @@
 # Getting started with NCAR HPC Resources
 
-NS: This page is repeated again in quick-start... Different content should be written here... 
-
 !!! info "About this page"
 	This document will guide you through the basics of using NCAR's
 	supercomputers, storage systems, and services.
