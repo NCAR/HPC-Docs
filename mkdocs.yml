@@ -52,7 +52,6 @@ nav:
       - compute-systems/derecho/index.md
       - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
-  
       - Starting Derecho Jobs:
         - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
         - Derecho Job Script Examples:
@@ -60,7 +59,7 @@ nav:
             - Derecho Advanced Job Script Examples: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/derecho-advanced-examples.md
             - Job Preemption with PBS: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/job-preemption-with-pbs.md
             - Process Binding : compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/process-binding.md
-        - Managing and monitoring PBS jobs: compute-systems/derecho/starting-derecho-jobs/managing-and-monitoring-pbs-jobs.md
+            - Managing and monitoring PBS jobs: compute-systems/derecho/starting-derecho-jobs/managing-and-monitoring-pbs-jobs.md
         - Compiling Code on Derecho : 
             - compute-systems/derecho/compiling-code-on-derecho/index.md
             - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
@@ -78,6 +77,10 @@ nav:
             - Compiling GPU Code on Casper Nodes: compute-systems/casper/compiling-code-on-casper/compiling-gpu-code-on-casper-nodes.md
             - Compiling multi-GPU MPI-CUDA code on Casper: compute-systems/casper/compiling-code-on-casper/compiling-multigpu-multicuda-casper.md
             - Using NVIDIA MPS in Casper GPU jobs: compute-systems/casper/compiling-code-on-casper/using-nvidia-mps-in-casper-gpu.md
+
+      - Using Remote Desktops on Casper with VNC: compute-systems/casper/using-remote-desktops-on-casper-with-vnc.md
+      - ssh tunneling with PuTTY: compute-systems/casper/ssh-tunneling-with-putty.md
+      - Using FastX for remote Desktops: compute-systems/casper/using-fastx-for-remote-desktops.md
 
     - Cheyenne:
       - compute-systems/cheyenne/index.md
