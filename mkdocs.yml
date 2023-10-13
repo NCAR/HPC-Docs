@@ -19,24 +19,23 @@ nav:
     - getting-started/index.md
     - Accounts: 
       - getting-started/accounts/index.md
-      - CIT Passwords: getting-started/accounts/CIT+passwords.md
-      - Getting started with 2-factor authentication: getting-started/accounts/Duo_+Getting+started+with+two-factor+authentication.md
+      - CIT Passwords: getting-started/accounts/cit-passwords.md
+      - Getting started with 2-factor authentication: getting-started/accounts/duo-getting-started-with-two-factor-authentication.md
       - Duo Authentication and the User Portal: 
-        - getting-started/accounts/duo/Duo+authentication+and+user+portal.md
-        - Authentication with Duo: getting-started/accounts/duo/Authenticating+with+Duo.md
-        - Enrolling your phone or tablet for Duo 2FA: getting-started/accounts/duo/Enrolling+your+phone+or+tablet+for+Duo+2FA.md
-      - SAM: getting-started/accounts/Systems+Accounting+Manager.md
+        - getting-started/accounts/duo/duo-authentication-and-user-portal.md
+        - Authentication with Duo: getting-started/accounts/duo/authenticating-with-duo.md
+        - Enrolling your phone or tablet for Duo 2FA: getting-started/accounts/duo/enrolling-your-phone-or-tablet-for-duo-2fa.md
+      - SAM: getting-started/accounts/systems-accounting-manager.md
     - Allocations:
       - allocations/index.md # -- https://arc.ucar.edu/knowledge_base/74317835
-      - Managing Your Allocation: getting-started/Managing+your+allocation.md
+      - Managing Your Allocation: getting-started/managing-your-allocation.md
       - NCAR Allocations: 
-          - allocations/ncar_allocations/index.md
-          - NCAR Strategic Capability (NSC) projects: allocations/ncar_allocations/NCAR+Strategic+Capability+\(NSC\)+projects.md
+          - allocations/ncar-allocations/index.md
+          - NCAR Strategic Capability (NSC) projects: allocations/ncar-allocations/ncar-strategic-capability-nsc-projects.md
       - University Allocations: 
           - allocations/university-allocations/index.md
-          - University Large Allocation Request Preparation Instructions : university-allocations/University+Large+Allocation+Request+Preparation+Instructions.md
-        
-      - Determining computational resource needs: allocations/Determining+computational+resource+needs.md
+          - University Large Allocation Request Preparation Instructions : allocations/university-allocations/university-large-allocation-request-preparation-instructions.md        
+      - Determining computational resource needs: allocations/determining-computational-resource-needs.md
       - CISL HPC Allocations Panel: 
           - allocations/chap/index.md
           - Allocation Review Criteria: allocations/chap/CHAP_+Allocation+Review+Criteria.md
