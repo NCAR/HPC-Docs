@@ -38,8 +38,8 @@ nav:
       - Determining computational resource needs: allocations/determining-computational-resource-needs.md
       - CISL HPC Allocations Panel: 
           - allocations/chap/index.md
-          - Allocation Review Criteria: allocations/chap/CHAP_+Allocation+Review+Criteria.md
-          - Conflict of Interest Policy: allocations/chap/CHAP_+Conflict+of+Interest+Policy.md
+          - Allocation Review Criteria: allocations/chap/chap-allocation-review-criteria.md
+          - Conflict of Interest Policy: allocations/chap/chap-conflict-of-interest-policy.md
     - VPN access : getting-started/vpn-access.md
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md 
