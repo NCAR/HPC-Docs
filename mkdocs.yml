@@ -102,8 +102,7 @@ nav:
           - Lustre file systems: storage-systems/glade/lustre.md
         - Stratus:
           - storage_systems/stratus/index.md
-          - Getting started with an object storage admin account: 
-            - storage_systems/stratus/Getting+started+with+an+object+storage+admin+account.md
+          - Getting started with an object storage admin account: storage_systems/stratus/getting-started-with-an-object-storage-admin-account.md
         - Quasar:
           - storage-systems/quasar/index.md
           - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
@@ -162,6 +161,8 @@ nav:
         - pbs/checking-memory-use/index.md
         - peak_memusage: pbs/checking-memory-use/peak_memusage.md
       - Storing temporary files: pbs/storing-temporary-files.md
+      - PBS Job Arrays : pbs/pbs-job-arrays.md # include mdmp or seperate?
+      - PBS Dependent Jobs: pbs/pbs-job-dependencies.md
 
   - Tutorials:
     - tutorials/index.md
@@ -186,11 +187,14 @@ nav:
       - peak_memusage output fails: user-support/troubleshooting-tips/peak_memusage-output-fails.md
     - Additional Resources:
       - Thunder test system: user-support/additional-resources/thunder-test-system.md
-    - How to Join CISL on Sundog: user-support/how-to-join-cisl-on-sundog.md
+    - How to Join CISL on Sundog?: user-support/how-to-join-cisl-on-sundog.md
+    - How to subscribe to CISL Daily Bulletin: user-support/how-to-subscribe-to-cisl-daily-bulletin.md
 
   - NCAR User Group (NHUG): 
     - nhug/index.md
-    - nhug/upcoming-events.md
+    - Archive of Past Meetings:
+    - nhug/archive/index.md
+    - NHUG Upcoming Events: nhug/upcoming-events.md
 
   - Contributing to the Documentation: contributing.md
 
