@@ -15,13 +15,13 @@ nav:
   - Quick Start:
     - quick-start/index.md
 
-  - Getting Started: 
+  - Getting Started:
     - getting-started/index.md
-    - Accounts: 
+    - Accounts:
       - getting-started/accounts/index.md
       - CIT Passwords: getting-started/accounts/cit-passwords.md
       - Getting started with 2-factor authentication: getting-started/accounts/duo-getting-started-with-two-factor-authentication.md
-      - Duo Authentication and the User Portal: 
+      - Duo Authentication and the User Portal:
         - getting-started/accounts/duo/duo-authentication-and-user-portal.md
         - Authentication with Duo: getting-started/accounts/duo/authenticating-with-duo.md
         - Enrolling your phone or tablet for Duo 2FA: getting-started/accounts/duo/enrolling-your-phone-or-tablet-for-duo-2fa.md
@@ -29,37 +29,37 @@ nav:
     - Allocations:
       - allocations/index.md # -- https://arc.ucar.edu/knowledge_base/74317835
       - Managing Your Allocation: getting-started/managing-your-allocation.md
-      - NCAR Allocations: 
+      - NCAR Allocations:
           - allocations/ncar-allocations/index.md
           - NCAR Strategic Capability (NSC) projects: allocations/ncar-allocations/ncar-strategic-capability-nsc-projects.md
-      - University Allocations: 
+      - University Allocations:
           - allocations/university-allocations/index.md
-          - University Large Allocation Request Preparation Instructions : allocations/university-allocations/university-large-allocation-request-preparation-instructions.md        
+          - University Large Allocation Request Preparation Instructions : allocations/university-allocations/university-large-allocation-request-preparation-instructions.md
       - Determining computational resource needs: allocations/determining-computational-resource-needs.md
-      - CISL HPC Allocations Panel: 
+      - CISL HPC Allocations Panel:
           - allocations/chap/index.md
           - Allocation Review Criteria: allocations/chap/chap-allocation-review-criteria.md
           - Conflict of Interest Policy: allocations/chap/chap-conflict-of-interest-policy.md
     - VPN access : getting-started/vpn-access.md
     - System Usage Policies: getting-started/system-usage-policies.md
-    - Data Retention Policies: getting-started/data-retention-policies.md 
+    - Data Retention Policies: getting-started/data-retention-policies.md
     - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
     - User Responsibilities: getting-started/user-responsibilities.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
   - Compute Systems and Services:
-    - Derecho: 
+    - Derecho:
       - compute-systems/derecho/index.md
       - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
       - Starting Derecho Jobs:
         - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
         - Derecho Job Script Examples:
-            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/index.md 
+            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/index.md
             - Derecho Advanced Job Script Examples: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/derecho-advanced-examples.md
             - Job Preemption with PBS: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/job-preemption-with-pbs.md
             - Process Binding : compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/process-binding.md
-        - Compiling Code on Derecho : 
+        - Compiling Code on Derecho :
             - compute-systems/derecho/compiling-code-on-derecho/index.md
             - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
 
@@ -70,7 +70,7 @@ nav:
       - Starting Casper Jobs:
             - compute-systems/casper/starting-casper-jobs/index.md
             - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
-      - Compiling Code on Casper : 
+      - Compiling Code on Casper :
             - compute-systems/casper/compiling-code-on-casper/index.md
             - Compiler Diagnostic Flags: compute-systems/casper/compiling-code-on-casper/compiler-diagnostic-flags.md
             - Compiling GPU Code on Casper Nodes: compute-systems/casper/compiling-code-on-casper/compiling-gpu-code-on-casper-nodes.md
@@ -80,15 +80,15 @@ nav:
       - Using Remote Desktops on Casper with VNC: compute-systems/casper/using-remote-desktops-on-casper-with-vnc.md
       - ssh tunneling with PuTTY: compute-systems/casper/ssh-tunneling-with-putty.md
       - Using FastX for remote Desktops: compute-systems/casper/using-fastx-for-remote-desktops.md
-    
-    - JupyterHub: 
+
+    - JupyterHub:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
 
   - Storage Systems and Data Transfer:
         - GLADE:
           - storage-systems/glade/index.md
-          - Campaign storage file system: storage-systems/glade/campaign.md 
+          - Campaign storage file system: storage-systems/glade/campaign.md
           - Lustre file systems: storage-systems/glade/lustre.md
         - Stratus:
           - storage_systems/stratus/index.md
@@ -114,12 +114,12 @@ nav:
         - Removing large number of files : storage-systems/Removing+large+number+of+files.md
         - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
-  - Software and Libraries:
+  - HPC Software and User Environment:
       - software-and-libraries/index.md
 
       - User Environment:
         - user-environment/index.md
-        - Environment Modules: 
+        - Environment Modules:
           - user-environment/environment-modules.md
           - Caper Modules: compute-systems/casper/casper-modules.md
           - Derecho Modules: compute-systems/derecho/derecho-modules.md
@@ -127,7 +127,7 @@ nav:
         - Singularity: user-environment/singularity.md
         - Utilities: user-environment/utilities.md
         - Customizing User Environment: user-environment/customizing-user-environment.md
-        - Spack: 
+        - Spack:
           - user-environment/spack/index.md
           - Spack Downstream: user-environment/spack/spack-downstream.md
 
@@ -153,7 +153,7 @@ nav:
       - Managing and monitoring PBS jobs: pbs/managing-and-monitoring-pbs-jobs.md
       - Peer Scheduling: pbs/peer-scheduling.md
       - Propagating environment settings to a PBS job: pbs/propagating-environment-settings-to-a-pbs-job.md
-      - Checking Memory Use: 
+      - Checking Memory Use:
         - pbs/checking-memory-use/index.md
         - peak_memusage: pbs/checking-memory-use/peak_memusage.md
       - Storing temporary files: pbs/storing-temporary-files.md
@@ -170,9 +170,9 @@ nav:
     - Containers: tutorials/containers.md
     - GPU Workshop: tutorials/gpu-workshop.md
 
-  - User Support: 
+  - User Support:
     - user-support/index.md
-    - Submitting Support Tickets: 
+    - Submitting Support Tickets:
       - user-support/submitting-support-tickets/index.md
       - How to report a job failure?: user-support/submitting-support-tickets/how-to-submit-a-job-failure.md
     - Virtual Consulting: user-support/virtual-consulting.md
@@ -186,7 +186,7 @@ nav:
     - How to Join CISL on Sundog?: user-support/how-to-join-cisl-on-sundog.md
     - How to subscribe to CISL Daily Bulletin: user-support/how-to-subscribe-to-cisl-daily-bulletin.md
 
-  - NCAR User Group (NHUG): 
+  - NCAR User Group (NHUG):
     - nhug/index.md
     - Archive of Past Meetings:
       - nhug/archive/index.md
@@ -205,16 +205,16 @@ theme:
   # -- additional features
   icon:
     repo: fontawesome/brands/github
-    edit: material/pencil 
+    edit: material/pencil
     view: material/eye
-    
+
   features:
     - search.suggest
     - search.highlight
     - content.tabs.link       # all content tabs across the docs will be linked
     - content.code.annotation # add anotations (advanced)
-    - content.code.annotate 
-    - content.code.copy       
+    - content.code.annotate
+    - content.code.copy
     - content.action.edit     # edit the page
     - content.action.view     # view the source page
     #- content.tooltips        # Adding tooltip for hovering over links
@@ -232,31 +232,31 @@ theme:
     # - navigation.tabs.sticky
     # - navigation.top
     - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
-    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile. 
+    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
     - search.highlight
     - search.share
     - search.suggest
     # - toc.follow
     #- toc.integrate   # one toc on left only
     - announce.dismiss
-  
+
   #logo: assets/images/ncar_cisl.png
   #logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
   logo : assets/images/CISL-contemp-logo-blue-square.png
   #logo: https://raw.githubusercontent.com/negin513/hpc-docs-demo/main/assets/images/CISL-contemp-logo-blue-square.png
   favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
-  
+
   palette:
     - scheme: cisl_default
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: cisl_default_dark
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
 
-  font: 
+  font:
         text: Poppins
         code: Regular
 
