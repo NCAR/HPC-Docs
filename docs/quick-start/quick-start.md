@@ -26,7 +26,7 @@ These pages provide information on compiling your code, submitting jobs, and per
 	If you need help with tasks that you think require `sudo` privileges, or if you aren’t sure, please contact HPC User Support before trying to run sudo yourself. The command fails when unauthorized users run it and sends a security alert to system administrators.
 
 
-## Logging In 
+## Logging In
 
 To log in, start your terminal or Secure Shell client and run an `ssh` command as shown here:
 
@@ -37,28 +37,15 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 	```
 === "Casper"
 	``` shell
-	ssh -X username@casper.ucar.edu 
+	ssh -X username@casper.ucar.edu
 	```
 === "Cheyenne"
 	``` shell
 	ssh -X username@cheyenne.ucar.edu
 	```
 
-!!! tip 
+!!! tip
 		Some users (particularly on Macs) need to use `-Y` instead of `-X` when calling `SSH` to enable `X11` forwarding.
-
-		=== "Derecho"
-			``` shell
-			ssh -Y username@derecho.hpc.ucar.edu
-			```
-		=== "Casper"
-			``` shell
-			ssh -Y username@casper.ucar.edu 
-			```
-		=== "Cheyenne"
-			``` shell
-			ssh -Y username@cheyenne.ucar.edu
-			```
 
 You can use this shorter command if your username for the system is the same as your username on your local computer:
 
@@ -68,7 +55,7 @@ You can use this shorter command if your username for the system is the same as 
 	```
 === "Casper"
 	``` shell
-	ssh -X casper.ucar.edu 
+	ssh -X casper.ucar.edu
 	```
 === "Cheyenne"
 	``` shell
@@ -80,4 +67,3 @@ After running the `ssh` command, you will be asked to authenticate to finish log
 
 ---
 This page is just a copy of https://arc.ucar.edu/knowledge_base/87655186 in mkdown for demonstrations with slight modifications.
-
