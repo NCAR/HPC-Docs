@@ -25,7 +25,7 @@
   --md-primary-bg-color:               rgb(255,255,255);
 
     /* Accent color shades */
-  
+
   --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
   --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
 
@@ -45,7 +45,7 @@ body {
 }
 
 [data-md-color-scheme="slate"] {
-  --md-hue: 213; 
+  --md-hue: 213;
 }
 
 
@@ -65,10 +65,10 @@ body {
   --md-primary-fg-color:               rgb(0,143,184);
 
   --md-primary-bg-color:               rgb(255,255,255);
- 
+
 
   /* Accent color shades */
-  
+
   --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
   --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
 
@@ -90,11 +90,13 @@ body {
 /* siteimprove accessibility tweaks */
 .md-nav__link.md-nav__link--active {
     font-weight: bold;
-}	
+}
 
+/*
 .md-content a {
     text-decoration:underline;
 }
+*/
 
 .logo-wrapper h1 {
   font-size: 2rem;
