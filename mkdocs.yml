@@ -115,7 +115,7 @@ nav:
         - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
   - HPC Software and User Environment:
-      - software-and-libraries/index.md
+      - environment-and-software/index.md
 
       - User Environment:
         - user-environment/index.md
@@ -131,17 +131,17 @@ nav:
           - user-environment/spack/index.md
           - Spack Downstream: user-environment/spack/spack-downstream.md
 
-      - Community Models: software-and-libraries/community-models.md
-      - NCL : software-and-libraries/ncl.md
-      - MATLAB Parallel Computing Toolbox: software-and-libraries/matlab-parallel-computing-toolbox.md
-      - Math Kernel Library: software-and-libraries/math-kernel-library.md
-      - Data Analysis and Visualization : software-and-libraries/data-analysis-and-visualization.md
-      - Machine Learning and Deep Learning : software-and-libraries/machine-learning-and-deep-learning.md
-      - NCAR Classic Libraries for Geophysics: software-and-libraries/ncar-classic-libraries-for-geophysics.md
+      - Community Models: environment-and-software/community-models.md
+      - NCL : environment-and-software/ncl.md
+      - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
+      - Math Kernel Library: environment-and-software/math-kernel-library.md
+      - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
+      - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
+      - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
       - Benchmarks:
-        - software-and-libraries/benchmarks/index.md
-        - NCAR Benchmarking applications - 2015 release: software-and-libraries/benchmarks/ncar-benchmarking-2015.md
-        - NCAR Benchmarking applications - 2019-2020 release: software-and-libraries/benchmarks/ncar-benchmarking-2019-2020.md
+        - environment-and-software/benchmarks/index.md
+        - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+        - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
 
       - Profiling & Debuggers: # -- tentative placement
         - Intel Parallel Studio XE: profiling-and-debuggers/intel-parallel-studio-xe.md
