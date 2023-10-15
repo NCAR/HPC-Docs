@@ -2,7 +2,7 @@
 
 In this space we curate our proceedings and more persistent materials. Since March 2022 we are opening up NHUG participation to all of our current users of supercomputers and data analysis systems.
 
-Please use NHUG Slido for your questions and/or ideas during upcoming meeting. 
+Please use NHUG Slido for your questions and/or ideas during upcoming meeting.
 
 !!! note "Tell us what you want us to cover during the meeting, suggest any focussed topics that you feel is not getting enough of our attention."
 

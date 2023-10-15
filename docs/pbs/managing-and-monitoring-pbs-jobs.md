@@ -58,7 +58,7 @@ qhist -u $USER -r x0
 
 ----
 ## <a name="managingandmonitoringpbsjobs-qstat"></a>**`qstat`**
-Run this to see the status of all of your own unfinished jobs. 
+Run this to see the status of all of your own unfinished jobs.
 ```
 qstat -u $USER
 ```
@@ -71,13 +71,13 @@ In the status (S) column, most jobs are either `queued (Q)` or `running (R)`. So
 
 Job ID         Username Queue   Jobname SessID NDS TSK Memory Time  S Time
 
-\------         -------- -----   ------- ------ --- --- ------ ----- - ---- 
+\------         -------- -----   ------- ------ --- --- ------ ----- - ----
 
-657237\.chadmin apatelsm economy ens603   46100 60  216   --   02:30 R 01:24 
+657237\.chadmin apatelsm economy ens603   46100 60  216   --   02:30 R 01:24
 
-657238\.chadmin apatelsm regular ens605     --   1   36   --   00:05 H   -- 
+657238\.chadmin apatelsm regular ens605     --   1   36   --   00:05 H   --
 
-657466\.chadmin apatelsm economy ens701    5189 60  216   --   02:30 R 00:46 
+657466\.chadmin apatelsm economy ens701    5189 60  216   --   02:30 R 00:46
 
 657467\.chadmin apatelsm regular ens703     --   1   36   --   00:10 H   --
 
@@ -114,4 +114,4 @@ qstat -x -u $USER
     ```
 
 ------
-This page is just a copy of https://arc.ucar.edu/knowledge_base/68878389 in `mkdown` for demonstrations. 
+This page is just a copy of https://arc.ucar.edu/knowledge_base/68878389 in `mkdown` for demonstrations.

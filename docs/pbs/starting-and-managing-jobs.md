@@ -118,12 +118,12 @@ Job ID         Username Queue   Jobname SessID NDS TSK Memory Time  S Time
 
 Following are examples of `qstat` with some other commonly used options and arguments.
 
-Get a long-form summary of the status of an unfinished job. 
+Get a long-form summary of the status of an unfinished job.
 
 ```
 qstat -f jobID
 ```
-!!! warning 
+!!! warning
     Use the above command only sparingly; it places a high load on PBS.
 
 
@@ -159,5 +159,4 @@ qstat -w -u $USER @derecho
 
 
 ---
-This page is just a copy of https://arc.ucar.edu/knowledge_base/124518554#StartingandmanagingjobswithPBS-Managingjobs in mkdown for demonstrations. 
-
+This page is just a copy of https://arc.ucar.edu/knowledge_base/124518554#StartingandmanagingjobswithPBS-Managingjobs in mkdown for demonstrations.

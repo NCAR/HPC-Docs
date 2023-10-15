@@ -9,7 +9,7 @@ potential problems. Since the compiler is going to analyze your code
 anyway, it pays to take advantage of the diagnostic options to learn as
 much as you can from the analysis. Please note that some compilers
 disable the default optimization when you switch on certain debugging
-flags. 
+flags.
 
 Because of differences in compilers, it also is good practice to compile
 your code with each compiler that is available on the system, note any
@@ -27,12 +27,12 @@ HPC environment that CISL manages.
 
 ## Cray
 
-The following compiler flags may be helpful for debugging your code: 
+The following compiler flags may be helpful for debugging your code:
 
 - `-G0` – provide complete debugging information with optimizations
   disabled (i.e. `-O0`, `-O ipa0`, `-O scale0`, `-O vector0`).
   Breakpoints can be set at different sections of the code for easier
-  debugging.  
+  debugging.
 
 - `-G01` – generate debugging report with partial optimization.
 
@@ -80,11 +80,11 @@ options](http://gcc.gnu.org/onlinedocs/gcc-3.4.4/gcc/Warning-Options.html).
 ## NVIDIA HPC SDK
 
 The following compiler flags may be helpful for debugging your code
-using NVIDIA HPC SDK. 
+using NVIDIA HPC SDK.
 
 - `-g` – Include symbolic debugging information in the object modules with optimization disabled (`-O0`).
 
-- `-gopt` –  Include symbolic debugging information in the object modules without affecting any optimizations. 
+- `-gopt` –  Include symbolic debugging information in the object modules without affecting any optimizations.
 
 - `-C` or `-Mbounds` – Add array bounds checking.
 
@@ -93,4 +93,4 @@ using NVIDIA HPC SDK. 
 - `-Minform=inform` - Display all the error messages of any severity (inform, warn, severe and fatal) during compilation phase.
 
 Also see [NVIDIA HPC SDK
-documentation](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/#freq-used-options). 
+documentation](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/#freq-used-options).

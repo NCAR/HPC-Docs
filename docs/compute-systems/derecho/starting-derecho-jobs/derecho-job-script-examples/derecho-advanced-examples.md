@@ -8,7 +8,7 @@ When using these examples to create your own job scripts to run on Derecho, reme
 - [Binding MPI ranks to CPU cores and GPU devices](#batchjobscriptexamplesderecho-bindingmpirankstocpucoresandgpudevices)
 -----
 ## <a name="batchjobscriptexamplesderecho-runningahybridcpuprogramwithmpiandopenmp"></a>**Running a hybrid CPU program with MPI and OpenMP**
-In this example, we run a hybrid application that uses both MPI tasks and OpenMP threads. The executable was compiled using default modules (Intel compilers and MPI). We use a 2 nodes with 32 MPI ranks on each node and 4 OpenMP threads per MPI rank. 
+In this example, we run a hybrid application that uses both MPI tasks and OpenMP threads. The executable was compiled using default modules (Intel compilers and MPI). We use a 2 nodes with 32 MPI ranks on each node and 4 OpenMP threads per MPI rank.
 
 Whenever you run a program that compiled with OpenMP support, it is important to provide a value for ompthreads in the select statement; PBS will use that value to define the `OMP_NUM_THREADS` environment variable.
 
@@ -16,8 +16,8 @@ Whenever you run a program that compiled with OpenMP support, it is important to
 #!/bin/bash
 #PBS -A project_code
 #PBS -N hybrid_job
-#PBS -q main 
-#PBS -l walltime=01:00:00 
+#PBS -q main
+#PBS -l walltime=01:00:00
 #PBS -l select=2:ncpus=128:mpiprocs=32:ompthreads=4
 
 # Use scratch for temporary files to avoid space limits in /tmp
@@ -45,7 +45,7 @@ Please ensure that you have the `cuda` module loaded as shown below when attem
 #PBS -N gpu_job
 #PBS -q main
 #PBS -l walltime=01:00:00
-#PBS -l select=2:ncpus=64:mpiprocs=4:ngpus=4  
+#PBS -l select=2:ncpus=64:mpiprocs=4:ngpus=4
 
 # Use scratch for temporary files to avoid space limits in /tmp
 export TMPDIR=/glade/scratch/$USER/temp
@@ -55,21 +55,21 @@ mkdir -p $TMPDIR
 module purge
 module load nvhpc cuda cray-mpich
 
-# (Optional: Enable GPU managed memory if required.)  
-#   From ‘man mpi’: This setting will allow MPI to properly 
-#   handle unify memory addresses. This setting has performance 
-#   penalties as MPICH will perform buffer query on each buffer 
+# (Optional: Enable GPU managed memory if required.)
+#   From ‘man mpi’: This setting will allow MPI to properly
+#   handle unify memory addresses. This setting has performance
+#   penalties as MPICH will perform buffer query on each buffer
 #   that is handled by MPI)
 # If you see runtime errors like
-# (GTL DEBUG: 0) cuIpcGetMemHandle: invalid argument, 
+# (GTL DEBUG: 0) cuIpcGetMemHandle: invalid argument,
 #  CUDA_ERROR_INVALID_VALUE
 # make sure this variable is set
 export MPICH_GPU_MANAGED_MEMORY_SUPPORT_ENABLED=1
 
 # Run application using the cray-mpich MPI
-#   The ‘get_local_rank’ command is a script that sets several GPU- 
-#   related environment variables to allow MPI-enabled GPU 
-#   applications to run. The get_local_rank script is detailed 
+#   The ‘get_local_rank’ command is a script that sets several GPU-
+#   related environment variables to allow MPI-enabled GPU
+#   applications to run. The get_local_rank script is detailed
 #   in the binding section below, and is also made available
 #   via the ncarenv module.
 mpiexec -n 8 -ppn 4 get_local_rank ./executable_name
@@ -78,12 +78,12 @@ mpiexec -n 8 -ppn 4 get_local_rank ./executable_name
 -----
 
 ## <a name="batchjobscriptexamplesderecho-bindingmpirankstocpucoresandgpudevices"></a>**Binding MPI ranks to CPU cores and GPU devices**
-For some GPU applications, you may need to explicitly control the mapping between MPI ranks and GPU devices (see man mpi). One approach is to manually control the `CUDA_VISIBLE_DEVICES` environment variable so a given MPI rank only “sees” a subset of the GPU devices on a node. 
+For some GPU applications, you may need to explicitly control the mapping between MPI ranks and GPU devices (see man mpi). One approach is to manually control the `CUDA_VISIBLE_DEVICES` environment variable so a given MPI rank only “sees” a subset of the GPU devices on a node.
 
 Consider the following shell script:
 ```bash
 get_local_rank
-#!/bin/bash  
+#!/bin/bash
 
 export MPICH_GPU_SUPPORT_ENABLED=1
 export LOCAL_RANK=${PMI_LOCAL_RANK}
@@ -109,7 +109,3 @@ Binding MPI ranks to CPU cores can also be an important performance consideratio
 ```
 mpiexec -n 8 -ppn 4 --cpu-bind verbose,list:0:16:32:48 ./get_local_rank ./executable_name
 ```
-
-
-
-

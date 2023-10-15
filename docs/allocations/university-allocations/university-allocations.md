@@ -21,7 +21,7 @@ researchers and activities incur no costs for the use of NCAR resources.
 
 While we often distinguish between the allocation opportunities based on
 the size of the HPC resource needs, most of these options allow you to
-request data analysis, visualization, and storage resources. 
+request data analysis, visualization, and storage resources.
 
 *To see what HPC resource limits apply to each type of allocation, refer to **the table below**.
 
@@ -172,7 +172,7 @@ request an initial small allocation of up to 400,000 core-hours on
 Cheyenne; up to 1 million core-hours on Derecho; and up to 2,500
 GPU-hours on Derecho for each NSF award. These allocations can be used
 to complete small projects or to conduct initial runs in preparation for
-submitting a request for a large allocation. 
+submitting a request for a large allocation.
 
 If needed to complete your work, you can request a *one-time supplement*
 to a small allocation – as much as doubling the total hours available
@@ -199,7 +199,7 @@ U.S. university can request a one-time allocation of up to 400,000
 Cheyenne core-hours; 500,000 Derecho core-hours; and 1,500 Derecho
 GPU-hours. These awards typically support dissertations, help foster
 early career research, or provide seed resources for pursuing funded
-research. 
+research.
 
 An individual can request a new exploratory project at each stage of
 their career path. A new faculty member is any eligible researcher who
@@ -221,7 +221,7 @@ eligibility requirements (below):
 If needed to complete your work, you can request a one-time supplement
 of the allocation, up to twice the original amount, with a brief
 statement acknowledging that you will finish within the supplemental
-amount. 
+amount.
 
 Exploratory requests are accepted at any time and decisions are
 typically made within a few days. Exploratory allocations are made for
@@ -255,7 +255,7 @@ Data Analysis allocations are made for one year, but may be extended up
 to two additional years to complete the original project.
 
 Requests for the CMIP Analysis Platform, unless the work requires use of
-NCAR’s HPC resource, fall within the scope of a Data Analysis project. 
+NCAR’s HPC resource, fall within the scope of a Data Analysis project.
 
 [Submit a Data Analysis Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
@@ -304,12 +304,12 @@ social processes throughout the Earth system, which includes the
 atmosphere, hydrosphere, geosphere, cryosphere, biosphere, as well as
 the individuals, institutions, and technologies that respond to and
 influence these dynamics and their interactions and feedback through
-time. 
+time.
 
 Because scientific progress often relies on contributions from many
 fields, NCAR resources are also available to support Earth
 system–related work from other domains – that is, work that has a
-demonstrable benefit to or reliance on Earth system science. 
+demonstrable benefit to or reliance on Earth system science.
 
 ### 2. Affiliation
 
@@ -334,7 +334,7 @@ resources.
 students, postdocs, and new faculty at eligible institutions for work
 not within the scope of a funded research grant. For this purpose, “new
 faculty” includes any faculty member who has not previously had a
-university allocation at NCAR. 
+university allocation at NCAR.
 
 - The work must be the individual's own research project rather than a
   project assigned by the institution that is hosting the grad student,
@@ -362,5 +362,3 @@ The [University of Wyoming allocation
 opportunity](http://www.uwyo.edu/nwsc/) has eligibility criteria that
 permit funding by sources other than NSF, for projects involving U
 Wyoming collaborators.
-
- 

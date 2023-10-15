@@ -18,7 +18,7 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 ```
 ssh -X username@system_name.ucar.edu
 ```
-OR 
+OR
 ```
 ssh -X username@system_name.ucar.edu
 ```
@@ -27,9 +27,9 @@ Some users (particularly on Macs) need to use `-Y` instead of `-X` when calling 
 
 You can use this shorter command if your username for the system is the same as your username on your local computer:
 ```
-ssh -X system_name.ucar.edu 
+ssh -X system_name.ucar.edu
 ```
-OR 
+OR
 ```
 ssh -X system_name.ucar.edu
 ```

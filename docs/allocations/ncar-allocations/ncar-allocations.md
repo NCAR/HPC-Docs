@@ -82,7 +82,3 @@ NCAR policies and guidelines for co-sponsorship are not affected by these revise
 -----
 
  Just a copy of https://arc.ucar.edu/knowledge_base/75694354
-
-
-
-
