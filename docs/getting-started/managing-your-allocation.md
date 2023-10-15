@@ -10,7 +10,7 @@ The sections below describe how to perform basic administrative tasks
 and use the Systems Accounting Manager
 ([SAM](https://sam.ucar.edu/app/home)) to monitor charges against your
 allocation. All authorized users on a project can manage their own
-preferences and review their own usage reports in SAM. 
+preferences and review their own usage reports in SAM.
 
 To get the most from your allocation, be sure to fully utilize the
 compute resources you request and use available memory efficiently. Also
@@ -53,7 +53,7 @@ See these pages for more information:
 The project lead may authorize a project administrator (project admin)
 to perform some tasks on behalf of the project, such as adding or
 removing users. To designate a project admin, submit a request through
-the [NCAR Research Computing help desk](https://rchelp.ucar.edu/). 
+the [NCAR Research Computing help desk](https://rchelp.ucar.edu/).
 
 Here are some guidelines for managing user access to an allocation:
 

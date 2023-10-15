@@ -38,5 +38,4 @@ NCAR investigators have access to CISL resources through allocations to the NCAR
 See [NCAR allocations](#) for more details.
 
 ------
-Just a copy of https://arc.ucar.edu/knowledge_base/74317835. 
-
+Just a copy of https://arc.ucar.edu/knowledge_base/74317835.

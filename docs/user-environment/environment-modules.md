@@ -126,7 +126,7 @@ The previously saved environment will be renamed automatically with the addition
 
 !!! tip "Troubleshooting tips"
 
-    **Situation:** You load a custom default module collection (for example, `module restore myenvironment`). 
+    **Situation:** You load a custom default module collection (for example, `module restore myenvironment`).
     You receive a warning similar to this:
     ```
     Lmod Warning: The following modules have changed: pgi
@@ -138,4 +138,3 @@ The previously saved environment will be renamed automatically with the addition
     ```
     module save myenvironment
     ```
-

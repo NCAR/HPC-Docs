@@ -4,8 +4,8 @@ A copy of ESDS FAQ page: https://ncar.github.io/esds/faq/
 
 This contains relevant questions and answers from common workflow issues and questions posted on Zulip.
 
-!!! note 
-      This page is meant to be a list of FAQ regarding climate datasets, movivated by a variety of employees across UCAR/NCAR. 
+!!! note
+      This page is meant to be a list of FAQ regarding climate datasets, movivated by a variety of employees across UCAR/NCAR.
 
 ## I need help with this!
 
@@ -56,7 +56,7 @@ is a wonderful quick reference.
 
 ### Using conda on NCAR HPC resources
 
-!!! warning 
+!!! warning
       Since 12 December 2022, it is no longer recommended to install your own version of miniconda on the HPC system.
       To export your existing environments to the recommended installation of miniconda, refer to the "How can I export my environments?" section.
 

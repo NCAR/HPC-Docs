@@ -20,7 +20,7 @@ field. Enter only your username.)
 Follow the documented procedures for using your [authentication token or
 app](file:////display/RC/Authentication+and+security) (for example, CIT
 password and Duo push). Use **gp.ucar.edu** as the portal name if it
-doesn't appear already.  
+doesn't appear already.
 
 ![](media/image1.png)
 

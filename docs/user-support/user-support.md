@@ -12,4 +12,3 @@ Contact [the help desk](https://rchelp.ucar.edu/) for assistance with Cheyenne, 
 
 ## Enterprise Service Desk staff support
 The [Enterprise Service Desk portal](https://help.ucar.edu/) is for NCAR/UCAR staff who need support for internal IT services.
-

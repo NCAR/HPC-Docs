@@ -11,7 +11,7 @@ You can also enroll a landline telephone or iOS/Android tablets.
 
 After you [request
 enrollment](file:////display/RC/Authenticating+with+Duo) and receive an
-email from Duo Security, follow these steps to enroll your device. 
+email from Duo Security, follow these steps to enroll your device.
 
 ### Step 1: Click Start setup
 

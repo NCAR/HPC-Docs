@@ -55,7 +55,7 @@ Also, before you run the applications, be sure you have loaded the
 same [module/version
 environment](Environment+modules.md) in which you
 created the applications. This will help you avoid job failures that can
-result from missing MPI launchers and library routines. 
+result from missing MPI launchers and library routines.
 
 ### Compiler `man` pages
 
@@ -75,7 +75,7 @@ ifort -help
 nvfortran -help\[=option\]
 
 ```
-!!! tip 
+!!! tip
     Use compiler [diagnostic
     flags](Compiler+diagnostic+flags.md) to identify
     potential problems while compiling the code.
@@ -155,7 +155,7 @@ nodes.
 You can compile your code in a batch job submitted to any queue using
 your login environment (**not** on a login node). To ensure smooth
 operation for everyone, CISL recommends users avoid building their
-complex codes (e.g. WRF, MPAS, CESM) on login nodes. 
+complex codes (e.g. WRF, MPAS, CESM) on login nodes.
 
 ## Changing compilers
 
@@ -258,7 +258,7 @@ The primary settings you will need are:
 
 - binding options (`--cpu-bind / PALS_CPU_BIND`)
 
-!!! tip 
+!!! tip
     **Cray MPICH** has many tunable parameters you can set through
     environment variables. Run **man mpi** for a complete listing of these
     environment variables.
@@ -466,7 +466,7 @@ languages) as a convenience.</strong></td>
 
 The Intel compiler suite is available via the **intel** module. It
 includes compilers for C, C++, and Fortran codes. It is **NOT** loaded
-by default. 
+by default.
 
 To see which versions are available, use the `module avail` command.
 ```sh
@@ -480,7 +480,7 @@ module load intel
 ```
 
 To load a different version, specify the version number when loading the
-module. 
+module.
 
 Similarly, you can swap your current compiler module to Intel by using
 the `module swap` command.
@@ -582,7 +582,7 @@ ifort -qopenmp filename.f90 -o filename.exe
 
 On Derecho, GPU applications should be built with either the Cray
 compilers or the NVIDIA HPC SDK compilers and libraries. In the
-following examples, we demonstrate the use of NVIDIA’s tools. 
+following examples, we demonstrate the use of NVIDIA’s tools.
 
 Additional compilation flags for GPU code will depend in large part on
 which GPU-programming paradigm is being used (e.g., OpenACC, OpenMP,

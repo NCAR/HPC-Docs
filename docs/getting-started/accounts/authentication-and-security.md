@@ -51,13 +51,13 @@ will no longer be using NCAR/CISL computing and storage resources. Place
 it in a protective envelope and include a note with your name, username,
 and reason for returning the token.
 
-CISL charges a fee for lost or unreturned YubiKey 4 tokens. 
+CISL charges a fee for lost or unreturned YubiKey 4 tokens.
 
 Return your authentication token to:
 
-> **UCAR Shipping and Receiving**  
-> **c/o Research Computing Help Desk - Mesa Lab**  
-> **3090 Center Green Drive**  
+> **UCAR Shipping and Receiving**
+> **c/o Research Computing Help Desk - Mesa Lab**
+> **3090 Center Green Drive**
 > **Boulder, CO 80301**
 
 ### Token pick-up, drop-off at the Mesa Lab

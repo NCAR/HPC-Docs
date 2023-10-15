@@ -8,7 +8,7 @@ When you use any of these examples, remember to substitute your own job name and
 - If your code was compiled with the GNU or Intel compiler using the `-f openmp` option.
 - If your code was compiled with a PGI compiler with option `-mp`.
 
-!!! tip 
+!!! tip
     For a parallel job that does not use OpenMP threads – for a pure MPI job, for example – specify `ompthreads=1` in your PBS select statement as shown below. Failure to do so may result in the job oversubscribing its nodes, resulting in poor performance or puzzling behavior such as exceeding its wallclock limit.
 
 **Load all modules** that are necessary to run your program at the start of your batch scripts by including a line like this:
@@ -18,7 +18,7 @@ module load intel mpt
 ```
 
 If you think you might run a particular compiled executable well into the future, we advise that you load specific versions of desired modules to ensure reproducibility. Follow this example:
-```sh 
+```sh
 module load intel/19.1.1 mpt/2.25
 ```
 !!! note "**These examples are based on the following assumptions:**"
@@ -45,7 +45,7 @@ When your script is ready, submit your batch job for scheduling as shown [here]
 
     ``` tcsh
     #!/bin/tcsh
-    
+
     ### Job Name
     #PBS -N mpi_job
     ### Project code
@@ -84,7 +84,7 @@ When your script is ready, submit your batch job for scheduling as shown [here]
     #PBS -j oe
     #PBS -k eod
     ### Select 2 nodes with 36 CPUs each for a total of 72 MPI processes
-    #PBS -l select=2:ncpus=36:mpiprocs=36:ompthreads=1 
+    #PBS -l select=2:ncpus=36:mpiprocs=36:ompthreads=1
     ### Send email on abort, begin and end
     #PBS -m abe
     ### Specify mail recipient
@@ -96,13 +96,13 @@ When your script is ready, submit your batch job for scheduling as shown [here]
     ### Run the executable
     mpiexec_mpt ./executable_name.exe
     ```
-    
+
 
 -----
 ## <a name="cheyennejobscriptexamples-batchscripttorunapureopenmpjob"></a>**Batch script to run a pure OpenMP job**
 To run a pure OpenMP job, specify the number of CPUs you want from the node (`ncpus`). Also specify the number of threads (`ompthreads`) or `OMP_NUM_THREADS` will default to the value of ncpus, possibly resulting in poor performance.
 
-!!! warning 
+!!! warning
     You will be charged for use of all CPUs on the node when using an exclusive queue.
 
 === "tcsh"
@@ -157,7 +157,7 @@ If you want to run a hybrid MPI/OpenMP configuration where each node uses thread
 
 Specify the number of CPUs you want from each node (`ncpus`). Also specify the number of threads (`ompthreads`) or `OMP_NUM_THREADS` will default to the value of ncpus, possibly resulting in poor performance.
 
-!!! warning 
+!!! warning
     You will be charged for use of all CPUs on the node when using an exclusive queue.
 
 
@@ -178,7 +178,7 @@ Specify the number of CPUs you want from each node (`ncpus`). Also specify the n
 
     setenv TMPDIR /glade/scratch/$USER/temp
     mkdir -p $TMPDIR
-    
+
     ### Run the hybrid OpenMP/MPI program
     mpiexec_mpt omplace ./executable_name
 
@@ -201,7 +201,7 @@ Specify the number of CPUs you want from each node (`ncpus`). Also specify the n
 
     export TMPDIR=/glade/scratch/$USER/temp
     mkdir -p $TMPDIR
-    
+
     ### Run the hybrid OpenMP/MPI program
     mpiexec_mpt omplace ./executable_name
     ```
@@ -217,7 +217,7 @@ Job arrays are useful when you want to run the same program repeatedly on differ
 
     ``` tcsh
     #!/bin/tcsh
-    ### Job Name 
+    ### Job Name
     #PBS -N job_arrays
     ### Project code
     #PBS -A project_code
@@ -243,7 +243,7 @@ Job arrays are useful when you want to run the same program repeatedly on differ
 
     ``` sh
     #!/bin/bash
-    ### Job Name 
+    ### Job Name
     #PBS -N job_arrays
     ### Project code
     #PBS -A project_code
@@ -264,7 +264,7 @@ Job arrays are useful when you want to run the same program repeatedly on differ
     cmd input.$PBS_ARRAY_INDEX > output.$PBS_ARRAY_INDEX
     ```
 
-!!! tip 
+!!! tip
     If you need to include a job ID in a subsequent `qsub` command as in the following example, be sure to use quotation marks to preserve the **`[]`** brackets:
 
     ``
@@ -289,7 +289,7 @@ The job will produce output files that reside in the directory in which the job 
 
 In place of executables, you can specify independent shell scripts, MATLAB scripts, or others, or you can mix and match executables with scripts. Each task should execute in about the same wall-clock time as the others.
 
-!!! tip 
+!!! tip
     If any of your command file lines invoke a utility such as IDL, MATLAB, NCL, R and so on, invoke it in batch mode rather than interactive mode or your job will hang until it reaches the specified walltime limit. See the user guide for the utility for how to invoke it in batch mode.
 
 === "tcsh"
@@ -306,12 +306,12 @@ In place of executables, you can specify independent shell scripts, MATLAB scrip
     #PBS -l walltime=01:00:00
     ### Request one chunk with ncpus and mpiprocs set to
     ### the number of lines in the command file
-    #PBS -l select=1:ncpus=4:mpiprocs=4:ompthreads=1 
+    #PBS -l select=1:ncpus=4:mpiprocs=4:ompthreads=1
 
     setenv TMPDIR /glade/scratch/$USER/temp
     mkdir -p $TMPDIR
 
-    # yyyy-mm-dd Context: Cheyenne MPT command file job. 
+    # yyyy-mm-dd Context: Cheyenne MPT command file job.
     # Do not propagate this use of MPI_SHEPHERD
     # to other MPT jobs as it may cause
     # significant slowdown or timeout.
@@ -343,7 +343,7 @@ In place of executables, you can specify independent shell scripts, MATLAB scrip
     export TMPDIR=/glade/scratch/$USER/temp
     mkdir -p $TMPDIR
 
-    # yyyy-mm-dd Context: Cheyenne MPT command file job. 
+    # yyyy-mm-dd Context: Cheyenne MPT command file job.
     # Do not propagate this use of MPI_SHEPHERD
     # to other MPT jobs as it may cause
     # significant slowdown or timeout.

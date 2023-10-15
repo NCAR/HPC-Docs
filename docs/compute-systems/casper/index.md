@@ -36,9 +36,9 @@ Some users (particularly on Macs) need to use -Y instead of -X when calling SSH 
 
 You can use this shorter command if your username for the system is the same as your username on your local computer:
 ```
-ssh -X system_name.ucar.edu 
+ssh -X system_name.ucar.edu
 ```
-OR 
+OR
 ```
 ssh -X system_name.ucar.edu
 ```

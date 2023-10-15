@@ -30,21 +30,21 @@ device to increase security.
 
 Four ways of logging in with Duo:
 
-1.  **Push notification (preferred)**  
+1.  **Push notification (preferred)**
     The app sends a request (a "push" notification) to your phone or
     tablet, asking you to approve or deny the login request.
 
-2.  **Rolling passcode**  
+2.  **Rolling passcode**
     When you can't receive a push notification, enter both your CIT
     password and a numerical passcode from the Duo app, separated by a
     comma. Example: **password,passcode**
 
-3.  **Phone callback**  
+3.  **Phone callback**
     Enter your CIT password and the word "phone," separated by a comma,
     then follow instructions you receive in a phone call. Example:
     **password,phone**
 
-4.  **Duo/YubiKey 4**  
+4.  **Duo/YubiKey 4**
     Some NCAR/UCAR staff use Duo authentication with a YubiKey 4 token.
     After inserting the token in your USB port, enter your CIT password
     and a comma, then lightly touch the gold button on your token.

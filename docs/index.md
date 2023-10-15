@@ -1,6 +1,6 @@
 # User Documentation for NCAR High Performance Computing
 
-[![Jupyter Build](https://shields.api-test.nl/github/workflow/status/negin513/hpc-docs-demo/ci?label=Docs&logo=GitHub&style=flat-square)](https://negin513.github.io/hpc-docs-demo/)     
+[![Jupyter Build](https://shields.api-test.nl/github/workflow/status/negin513/hpc-docs-demo/ci?label=Docs&logo=GitHub&style=flat-square)](https://negin513.github.io/hpc-docs-demo/)
 
 This is the home of user documentation for the NCAR high-performance computing (HPC) and storage resources that CISL manages.
 
@@ -26,7 +26,7 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
 * [JupyterHub](https://jupyter.nersc.gov)
 
 !!! tip
-    The NCAR HPC Users Group (NHUG) is a reouce group for all users of NCAR HPC resources. 
+    The NCAR HPC Users Group (NHUG) is a reouce group for all users of NCAR HPC resources.
 
     All users are welcome to [join the NHUG Slack
     workspace](https://www.nersc.gov/users/NUG/nersc-users-slack/).
@@ -37,4 +37,4 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
     are welcome!
 
 ---
-This page is just a copy of https://arc.ucar.edu/knowledge_base_documentation in `mkdown` for demonstrations purposes. 
+This page is just a copy of https://arc.ucar.edu/knowledge_base_documentation in `mkdown` for demonstrations purposes.

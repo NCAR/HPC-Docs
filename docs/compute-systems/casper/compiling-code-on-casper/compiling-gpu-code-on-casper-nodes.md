@@ -2,7 +2,7 @@
 
 Below is an example of how to compile and run a GPU code interactively on Casper. You can use the CUDA C source code below to make your own `hello_world.cu` file.
 
-Any libraries you build to support an application should be built with the same compiler, compiler version, and compatible flags that were used to compile the other parts of the application, including the main executable(s). Also, when you run the applications, be sure you have loaded the same [module/version environment]() in which you created the applications. This will avoid job failures that can result from missing mpi launchers and library routines. 
+Any libraries you build to support an application should be built with the same compiler, compiler version, and compatible flags that were used to compile the other parts of the application, including the main executable(s). Also, when you run the applications, be sure you have loaded the same [module/version environment]() in which you created the applications. This will avoid job failures that can result from missing mpi launchers and library routines.
 
 -----
 Log in to either Casper or Cheyenne and run `execcasper` with a GPU resource request to start an interactive job on a GPU-accelerated Casper node.

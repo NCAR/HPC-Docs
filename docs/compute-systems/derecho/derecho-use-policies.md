@@ -15,7 +15,7 @@ However, the login nodes **may not** be used to run processes that consume exces
 
 
 !!! warning
-    The login nodes **should not** be used to run processes that consume excessive resources. 
+    The login nodes **should not** be used to run processes that consume excessive resources.
 
     This applies to individual processes that consume excessive amounts of CPU time, more than a few GB of memory, or excessive I/O resources. It also applies collectively to multiple concurrent tasks that an individual user runs.
 
@@ -53,12 +53,12 @@ Note that a high-priority job might be delayed by one of the limits on the list
 
 If your job is waiting in the queue, you can run the `qstat` command as shown to obtain information that can indicate why it has not started running. (Use this command only sparingly.)
 ```
-qstat -s jobID 
+qstat -s jobID
 ```
 
 !!! note
     To prevent jobs from languishing in the queues for an indefinite time, PBS reserves resources for the top-priority jobs and doesn't allow lower-priority jobs to start if they would delay the start time of a higher-priority job.
-    
+
 ### **PBS sorting order**
 ##### **Stakeholder shares**
 CISL manages scheduling priorities to ensure fair access to the system by these stakeholder groups: the university community, the NCAR community, the Climate Simulation Laboratory, and the Wyoming community.
@@ -70,7 +70,7 @@ When jobs are sorted, jobs from groups that are using less of their share are pi
 ##### **Job priority**
 Job priority has three components.
 
-- native priority 
+- native priority
 - queue priority
 - waiting time
 
@@ -85,9 +85,3 @@ Jobs asking for more nodes are favored over jobs asking for fewer. The reasoning
 As mentioned above, when PBS cannot start a job immediately, if it is one of the first such jobs, PBS sets aside resources for it before examining other jobs to see if any of them can run as backfill. That is, PBS looks at running jobs to determine when they will finish based on wall-time requested. From those finish times, PBS decides when enough resources (such as CPUs, memory, and job limits) will become available to run the top job. PBS then reserves the resources that the job requests at that identified time.
 
 When PBS looks at other jobs to see if they can start immediately, it also checks whether starting any of them would collide with one of these resource reservations. Only if there are no collisions will PBS start the lower-priority jobs.
-
-
-
-
-
-

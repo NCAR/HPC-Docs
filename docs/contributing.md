@@ -47,9 +47,9 @@ Before you start, make sure you have the following installed on your local machi
 Please note, for larger changes, it's often a good idea to discuss your plans in an issue before investing a lot of time in implementation. This helps to ensure that your efforts align with the project's direction and your changes have a higher chance of being accepted.
 
 #### Building the Documentation Locally
-If you want to build the documentation locally to see the changes you've made, you can do so by following these steps: 
+If you want to build the documentation locally to see the changes you've made, you can do so by following these steps:
 
-1. **Create an Environment:** 
+1. **Create an Environment:**
 To build the documentation locally, you'll need to install certain dependencies. Although this step is optional, we strongly recommend it. The example provided here utilizes a conda environment, but feel free to use any Python 3 environment of your preference.
 
 ```sh
@@ -57,7 +57,7 @@ To build the documentation locally, you'll need to install certain dependencies.
     conda activate docs
     pip install -r requirements.txt
 ```
-2. Preview Documentation Locally: 
+2. Preview Documentation Locally:
 
 You can preview your documentation locally to make sure that your changes do not introduce any errors. With MkDocs, you can preview your changes by running mkdocs serve in your terminal. This starts a local server where you can preview your work.
 

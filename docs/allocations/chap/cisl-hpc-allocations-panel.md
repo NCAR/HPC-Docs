@@ -19,7 +19,7 @@ CHAP members, most of whom are from the university community, are
 appointed to three-year terms by the CISL Director. Meetings are
 scheduled twice a year, usually in May and October. NSF's program
 coordinator for the NCAR and Facilities Section attends the semi-annual
-meetings and provides guidance from the NSF. 
+meetings and provides guidance from the NSF.
 
 ### Core-hours Allocated and Used by University Projects, FY2013-present
 

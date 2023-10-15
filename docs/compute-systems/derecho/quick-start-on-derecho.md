@@ -24,9 +24,9 @@ To run data analysis and visualization jobs on the Casper system's nodes, follow
 ## <a name="quickstartoncheyenne-logginginonanncarsystem"></a>**Logging in on an NCAR system**
 To log in, start your terminal or Secure Shell client and run an `ssh` command as shown here:
 ```
-ssh -X username@cheyenne.ucar.edu 
+ssh -X username@cheyenne.ucar.edu
 ```
-OR 
+OR
 ```
 ssh -X username@casper.ucar.edu
 ```
@@ -35,7 +35,7 @@ Some users (particularly on Macs) need to use `-Y` instead of `-X` when call
 
 You can use this shorter command if your username for the system is the same as your username on your local computer:
 ```
-ssh -X cheyenne.ucar.edu 
+ssh -X cheyenne.ucar.edu
 ```
 
 After running the `ssh` command, you will be asked to authenticate to finish logging in.

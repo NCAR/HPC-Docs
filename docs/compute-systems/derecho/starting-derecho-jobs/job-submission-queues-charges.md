@@ -6,7 +6,7 @@ The `regular` queue, which has a 12-hour wall-clock limit, meets most users' nee
 -----
 #### **Page contents**
 - [Cheyenne queue details](#jobsubmissionqueuesandcharges-cheyennequeuedetails)
-- [Calculating charges](#jobsubmissionqueuesandcharges-calculatingcharges) 
+- [Calculating charges](#jobsubmissionqueuesandcharges-calculatingcharges)
     - [Exclusive nodes](#jobsubmissionqueuesandcharges-exclusivenodes)
     - [Shared nodes (Cheyenne and Casper)](#jobsubmissionqueuesandcharges-sharednodes\(cheyenneandcasper\))
 - [Checking and managing charges](#jobsubmissionqueuesandcharges-checkingandmanagingcharges)
@@ -22,7 +22,7 @@ The `regular` queue, which has a 12-hour wall-clock limit, meets most users' nee
 
 Some additional queues on the system are for dedicated purposes and accessible only to authorized users.
 
-!!! info " " 
+!!! info " "
     **Casper:** See [this page](file:///C:/display/RC/Starting+Casper+jobs+with+PBS) for information on running jobs on Casper nodes.
 
 ## <a name="jobsubmissionqueuesandcharges-calculatingcharges"></a>**Calculating charges**
@@ -53,4 +53,4 @@ CISL can refund core-hours if system failures cause jobs to fail and the failed 
 
 
 -----
-This page is just a copy of https://arc.ucar.edu/knowledge_base/72581495 in `mkdown` for demonstrations. 
+This page is just a copy of https://arc.ucar.edu/knowledge_base/72581495 in `mkdown` for demonstrations.

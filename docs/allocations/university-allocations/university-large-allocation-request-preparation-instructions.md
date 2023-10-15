@@ -72,7 +72,7 @@ Storage</u>](file:////display/RC/Campaign+Storage+file+system).
 
 - Title of NSF award (if different from project title) supporting the
   computational experiments. **Important:** The NSF award must
-  explicitly support the computational experiments being proposed. 
+  explicitly support the computational experiments being proposed.
 
 - NSF award number. Due to high demand for resources, the CHAP no longer
   reviews requests for pending awards. Submit your request only after
@@ -97,11 +97,11 @@ and include:
   published NSF award abstract does not clearly describe the
   computational component of the work funded.
 
-**C. Science objectives**  
+**C. Science objectives**
 The science objectives should be described *briefly*. This section
 should give sufficient information for understanding the computational
 plan in section D; it is not necessary to justify the science objectives
-as they must have already passed NSF review. 
+as they must have already passed NSF review.
 
 *Advice for preparing your request. *"Brief" is the operative word for
 your science description. The panel is not judging your science, only
@@ -109,7 +109,7 @@ trying to understand how and if your computational experiments
 (described in Section D) will help you find answers to your science
 questions. This section should be between 1/2 and 1 page long.
 
-**D. Computational experiments and resource requirements**  
+**D. Computational experiments and resource requirements**
 The bulk of the Request Summary should focus on Section D. Discuss your
 planned computational experiments and the resources needed to conduct
 the work in this section. Please cover these topics and follow the
@@ -165,7 +165,7 @@ must include the number of core-hours needed and the data output volume.
 The table should be accompanied by a narrative that elaborates on how
 you arrived at the numbers in the table and describes how you will use
 appropriate storage options or data analysis and visualization resources
-as detailed below. 
+as detailed below.
 
 With the petascale systems’ ability to generate vast amounts of data,
 CISL allocation requests require users to consider their data workflows
@@ -289,7 +289,7 @@ Include publications submitted or published that resulted from use of
 CISL resources. List graduate students who used these computational
 resources and indicate if these resources supported their thesis or
 dissertation research. If so, please include the thesis or dissertation
-title(s). 
+title(s).
 
 **G. References. **Please limit to those directly related to the
 proposed project and referenced in your Request Summary document.
