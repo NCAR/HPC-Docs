@@ -90,10 +90,10 @@ nav:
           - storage-systems/glade/index.md
           - Campaign storage file system: storage-systems/glade/campaign.md
           - Lustre file systems: storage-systems/glade/lustre.md
-        - Stratus:
-          - storage_systems/stratus/index.md
-          - Getting started with an object storage admin account: storage_systems/stratus/getting-started-with-an-object-storage-admin-account.md
-        - Quasar:
+        - Stratus (Object Storage):
+          - storage-systems/stratus/index.md
+          - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+        - Quasar (Tape Storgae):
           - storage-systems/quasar/index.md
           - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
 

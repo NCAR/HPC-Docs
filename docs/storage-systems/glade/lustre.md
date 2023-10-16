@@ -41,11 +41,14 @@ accessible from two different servers, providing fault tolerance and
 failover capabilities. A typical Lustre file system is shown in Figure 1
 below.
 
-![](media/image1.png)
 
+
+![](media/image1.png)
 **Figure 1:** Sample Lustre file system: 4 metadata servers (MDS), 4
 object storage servers (OSS). Credit: [*Introduction to Lustre
 Wiki*](https://wiki.lustre.org/Introduction_to_Lustre).
+
+
 
 A file system may employ several metadata servers for scalability and
 load balancing, and several object storage servers for capacity and
@@ -74,22 +77,28 @@ the same size while the fifth is smaller and contains the "remainder" of
 the file. This introduces an important striping concept: the ***stripe
 size***.
 
-![](media/image2.jpeg)
 
+
+![](media/image2.jpeg)
 **Figure 2:** Logical view of a file, broken into five "stripe"
 segments. The first four are the same size while the fifth is smaller
 and contains the "remainder" of the file. Credit: [*Lustre User
 Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
 
+
+
 Figure 3 shows how the stripes can be mapped onto several OSTs as
 defined by the *stripe count*. In this example, the stripe count is four
 and the stripe segments are assigned in a round-robin fashion.
 
-![](media/image3.jpeg)
 
+
+![](media/image3.jpeg)
 **Figure 3:** Physical view of a file broken into five stripes across
 four OST devices. Credit: [*Lustre User
 Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
+
+
 
 Striping has important benefits as well as some drawbacks. Striping over
 more OSTs allows for more bandwidth. In general, as more OSTs are used,
@@ -115,11 +124,14 @@ introduction of ***progressive file layouts*** (PFLs) in modern Lustre
 versions, however, extended the striping concept to multiple,
 progressive segments of files, as shown in Figure 4.
 
-![](media/image4.png)
 
+
+![](media/image4.png)
 **Figure 4:** Sample progressive file layout with three components of
 different stripe patterns. Credit: [*PFL Prototype High Level
 Design*](https://wiki.lustre.org/PFL_Prototype_High_Level_Design).
+
+
 
 In Figure 4, a single file is mapped to three separate components, each
 with a different striping layout. The first component has a stripe size
@@ -222,23 +234,16 @@ Use the familiar `df` utility to query overall file system capacity.
 For example, `df -h` shows the *data size* of a file system in a
 human-readable format:
 ```pre
-df -h /glade/gust/scratch
-
-Filesystem                            Size  Used Avail Use% Mounted on
-
-10.13.64.3@tcp:10.13.64.4@tcp:/gusc1  1.2P   35T  1.1P   4%
-/glade/gust/scratch
+df -h /glade/derecho/scratch
+Filesystem                            Size  Used Avail Use% Mounted on
+10.14.64.3@tcp:10.14.64.4@tcp:/desc1   55P  5.9P   49P  11% /glade/derecho/scratch
 ```
 
 Use `df -ih` to get the corresponding *metadata* information:
 ```pre
-df -ih /glade/gust/scratch
-
-
-Filesystem                           Inodes IUsed IFree IUse% Mounted on
-
-10.13.64.3@tcp:10.13.64.4@tcp:/gusc1   1.2G   19M  1.2G    2%
-/glade/gust/scratch
+df -ih /glade/derecho/scratch
+Filesystem                           Inodes IUsed IFree IUse% Mounted on
+10.14.64.3@tcp:10.14.64.4@tcp:/desc1    16G  105M   16G    1% /glade/derecho/scratch
 ```
 
 In the example, the file system overall capacity is 1.2 PB, of which 35
@@ -251,31 +256,26 @@ component level. For example, `lfs df -h` shows the data size broken
 down by MDS and OST components:
 
 ```pre
-lfs df -h /glade/gust/scratch
+lfs df -h /glade/derecho/scratch
+UUID                       bytes        Used   Available Use% Mounted on
+desc1-MDT0000_UUID         11.8T       26.9G       11.6T   1% /glade/derecho/scratch[MDT:0]
+desc1-MDT0001_UUID         11.8T       29.7G       11.6T   1% /glade/derecho/scratch[MDT:1]
+desc1-MDT0002_UUID         11.8T       32.7G       11.6T   1% /glade/derecho/scratch[MDT:2]
+desc1-MDT0003_UUID         11.8T       22.9G       11.6T   1% /glade/derecho/scratch[MDT:3]
+desc1-OST0000_UUID        581.4T       62.3T      513.2T  11% /glade/derecho/scratch[OST:0]
+desc1-OST0001_UUID        581.4T       61.7T      513.9T  11% /glade/derecho/scratch[OST:1]
+desc1-OST0002_UUID        581.4T       62.2T      513.3T  11% /glade/derecho/scratch[OST:2]
+desc1-OST0003_UUID        581.4T       62.0T      513.5T  11% /glade/derecho/scratch[OST:3]
+...
+desc1-OST005c_UUID        581.4T       61.7T      513.8T  11% /glade/derecho/scratch[OST:92]
+desc1-OST005d_UUID        581.4T       62.2T      513.3T  11% /glade/derecho/scratch[OST:93]
+desc1-OST005e_UUID        581.4T       61.8T      513.7T  11% /glade/derecho/scratch[OST:94]
+desc1-OST005f_UUID        581.4T       62.4T      513.1T  11% /glade/derecho/scratch[OST:95]
 
-
-
-UUID                       bytes        Used   Available Use% Mounted on
-
-gusc1-MDT0000_UUID         11.8T       12.6G       11.6T   1%
-/glade/gust/scratch\[MDT:0\]
-
-gusc1-MDT0001_UUID         11.8T       12.7G       11.6T   1%
-/glade/gust/scratch\[MDT:1\]
-
-gusc1-OST0000_UUID        581.4T       17.3T      558.2T   4%
-/glade/gust/scratch\[OST:0\]
-
-gusc1-OST0001_UUID        581.4T       17.3T      558.2T   4%
-/glade/gust/scratch\[OST:1\]
-
-
-
-filesystem_summary:         1.1P       34.6T        1.1P   4%
-/glade/gust/scratch
+filesystem_summary:        54.5P        5.8P       48.1P  11% /glade/derecho/scratch
 ```
 
-This sample file system is composed of two MDTs and two OSTs, and `lfs
+This sample file system is composed of four MDTs and 96 OSTs, and `lfs
 df` shows the data size of each component. Administrators typically
 monitor this information to ensure overall file system health, but it
 can provide useful user diagnostics as well. If one or more of the OSTs

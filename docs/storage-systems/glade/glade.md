@@ -8,103 +8,93 @@ technology to give users a common view of their data across the HPC,
 analysis, and visualization resources that CISL manages.
 
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 10%" />
-<col style="width: 12%" />
-<col style="width: 9%" />
-<col style="width: 8%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>File space</strong></th>
-<th><p><strong>User quota</strong></p>
-<p><strong>(Data volume)</strong></p></th>
-<th><p><strong>User quota</strong></p>
-<p><strong>(File count)</strong></p></th>
-<th><strong>Backup</strong></th>
-<th><strong>Purge<br />
-policy</strong></th>
-<th><strong>Descriptions/notices</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Home:</strong><br />
-/glade/u/home/&ltusername&gt</td>
-<td>50 GB</td>
-<td>N/A</td>
-<td>Yes</td>
-<td>Not purged</td>
-<td>User home directory<br />
-Access: POSIX</td>
-</tr>
-<tr class="even">
-<td><strong>Scratch: (Cheyenne)</strong><br />
-/glade/scratch/&ltusername&gt</td>
-<td>10 TB</td>
-<td>N/A</td>
-<td>No</td>
-<td>120 days</td>
-<td>Temporary computational space<br />
-Access: POSIX</td>
-</tr>
-<tr class="odd">
-<td><strong>Scratch: (Derecho)<br />
-</strong>/glade/derecho/scratch/&ltusername&gt</td>
-<td>30 TB</td>
-<td>10 M</td>
-<td>No</td>
-<td>180 days</td>
-<td>Derecho's scratch file system also includes a limit on a users'
-total number of files </td>
-</tr>
-<tr class="even">
-<td><strong>Work:</strong><br />
-/glade/work/&ltusername&gt</td>
-<td>1 TB</td>
-<td>N/A</td>
-<td>No</td>
-<td>Not purged</td>
-<td>User work space<br />
-Access: POSIX</td>
-</tr>
-<tr class="odd">
-<td><strong>Project:</strong><br />
-/glade/p/<em>entity/project_code</em></td>
-<td>N/A</td>
-<td>N/A</td>
-<td>No</td>
-<td>Not purged</td>
-<td><strong>Deprecated; will be migrated to Campaign Storage in
-2023</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Collections:</strong><br />
-/glade/collections</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>No</td>
-<td>Not purged</td>
-<td>Curated collections (CMIP, RDA, others)<br />
-Access: POSIX</td>
-</tr>
-<tr class="odd">
-<td><strong>Campaign Storage:</strong><br />
-/glade/campaign</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>No</td>
-<td>Not purged</td>
-<td>Project space allocations (via allocation request)</td>
-</tr>
-<tr class="even">
-<td colspan="6"><a
-href="https://arc.ucar.edu/system_status"><strong>GLADE system status
-report</strong></a></td>
-</tr>
-</tbody>
+  <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 15%" />
+    <col style="width: 9%" />
+    <col style="width: 8%" />
+    <col style="width: 35%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th><strong>File space</strong></th>
+      <th><p><strong>User quota</strong></p>
+        <p><strong>(Size/Count)</strong></p></th>
+      <th><strong>Backup</strong></th>
+      <th><strong>Purge<br />
+          policy</strong></th>
+      <th><strong>Descriptions/notices</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd">
+      <td><strong>Home:</strong><br />
+        /glade/u/home/&ltusername&gt</td>
+      <td>50 GB</td>
+      <td>Yes</td>
+      <td>Not purged</td>
+      <td>User home directory<br />
+        Access: POSIX</td>
+    </tr>
+    <tr class="even">
+      <td><strong>Scratch: (Cheyenne)</strong><br />
+        /glade/scratch/&ltusername&gt</td>
+      <td>10 TB</td>
+      <td><font color="#ff0000">No</font></td>
+      <td>120 days</td>
+      <td>Temporary computational space<br />
+        Access: POSIX</td>
+    </tr>
+    <tr class="odd">
+      <td><strong>Scratch: (Derecho)<br />
+        </strong>/glade/derecho/scratch/&ltusername&gt</td>
+      <td>30TB / 10M</td>
+      <td><font color="#ff0000">No</font></td>
+      <td>180 days</td>
+      <td>Derecho's scratch file system also includes a limit on a users'
+        total number of files </td>
+    </tr>
+    <tr class="even">
+      <td><strong>Work:</strong><br />
+        /glade/work/&ltusername&gt</td>
+      <td>1 TB</td>
+      <td><font color="#ff0000">No</font></td>
+      <td>Not purged</td>
+      <td>User work space<br />
+        Access: POSIX</td>
+    </tr>
+    <tr class="odd">
+      <td><strong>Project:</strong><br />
+        /glade/p/<em>entity/project_code</em></td>
+      <td>N/A</td>
+      <td><font color="#ff0000">No</font></td>
+      <td>Not purged</td>
+      <td><strong>Deprecated; will be migrated to Campaign Storage in
+          2023</strong></td>
+    </tr>
+    <tr class="even">
+      <td><strong>Collections:</strong><br />
+        /glade/collections</td>
+      <td>N/A</td>
+      <td><font color="#ff0000">No</font></td>
+      <td>Not purged</td>
+      <td>Curated collections (CMIP, RDA, others)<br />
+        Access: POSIX</td>
+    </tr>
+    <tr class="odd">
+      <td><strong>Campaign Storage:</strong><br />
+        /glade/campaign</td>
+      <td>N/A</td>
+      <td><font color="#ff0000">No</font></td>
+      <td>Not purged</td>
+      <td>Project space allocations (via allocation request)</td>
+    </tr>
+    <tr class="even">
+      <td colspan="5"><a
+                        href="https://arc.ucar.edu/system_status"><strong>GLADE system status
+            report</strong></a></td>
+    </tr>
+  </tbody>
 </table>
 
 CISL backs up the GLADE **home** file space several times a week and
