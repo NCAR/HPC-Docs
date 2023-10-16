@@ -20,11 +20,9 @@ nav:
     - Accounts:
       - getting-started/accounts/index.md
       - CIT Passwords: getting-started/accounts/cit-passwords.md
-      - Getting started with 2-factor authentication: getting-started/accounts/duo-getting-started-with-two-factor-authentication.md
-      - Duo Authentication and the User Portal:
-        - getting-started/accounts/duo/duo-authentication-and-user-portal.md
-        - Authentication with Duo: getting-started/accounts/duo/authenticating-with-duo.md
-        - Enrolling your phone or tablet for Duo 2FA: getting-started/accounts/duo/enrolling-your-phone-or-tablet-for-duo-2fa.md
+      - Duo Two-Factor Authentication:
+        - getting-started/accounts/duo/index.md
+        - Enrolling with Duo: getting-started/accounts/duo/enrolling.md
       - SAM: getting-started/accounts/systems-accounting-manager.md
     - Allocations:
       - allocations/index.md # -- https://arc.ucar.edu/knowledge_base/74317835
@@ -100,7 +98,7 @@ nav:
     - Data Transfer:
       - storage-systems/data-transfer/index.md
       - Globus: storage-systems/data-transfer/globus/index.md
-      - Sharing data with Globus:  storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
+      - Sharing data with Globus: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
 
       - BBCP : storage-systems/data-transfer/bbcp.md
       - Transferring files to Google Drive or DropBox: storage-systems/data-transfer/Transferring+files+to+Google+Drive+or+DropBox.md

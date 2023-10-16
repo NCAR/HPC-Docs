@@ -20,16 +20,13 @@ or use copyrighted or proprietary software without proper authorization.
 ## Duo two-factor authentication
 
 Logging in with the Duo two-factor authentication (2FA) service requires
-the user to enter a "CIT" password in conjunction with the **Duo
-Mobile** app or a landline phone. See [Authenticating with
-Duo](file:////display/RC/Authenticating+with+Duo) for details.
+the user to enter a [CIT password](cit-passwords.md) in conjunction with the **Duo
+Mobile** app or a landline phone. See [Authenticating with Duo](duo/index.md) for details.
 
 ## Security overview
 
 All users must comply with UCAR computer security policies and
-procedures. See [<u>Access to and Use of Information Systems and
-Technology
-Infrastructure</u>](https://sundog.ucar.edu/Interact/Pages/Content/Document.aspx?id=5141)
+procedures. See [Access to and Use of Information Systems and Technology Infrastructure](https://sundog.ucar.edu/Interact/Pages/Content/Document.aspx?id=5141)
 (staff login required).
 
 We strive to maximize the availability and value of our computer and
