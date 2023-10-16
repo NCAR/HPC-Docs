@@ -16,14 +16,14 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 ---
 
-## New User's Resources
+## New User Resources
 * [New User Orientation](https://arc.ucar.edu/knowledge_base/68878414)
 * [:fontawesome-brands-youtube: New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
 
 ---
 
-!!!warning "Don’t run `sudo` on NCAR systems!"
-	If you need help with tasks that you think require `sudo` privileges, or if you aren’t sure, please contact HPC User Support before trying to run sudo yourself. The command fails when unauthorized users run it and sends a security alert to system administrators.
+!!!danger "Don’t run `sudo` on NCAR systems!"
+    If you need help with tasks that you think require `sudo` privileges, or if you aren’t sure, please contact HPC User Support before trying to run `sudo` yourself. The command fails when unauthorized users run it and sends a security alert to system administrators.
 
 
 ## Logging In
@@ -46,7 +46,7 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 The `-X` is optional and requests simple `X11` graphics forwarding to your client.
 
 !!! tip
-		Some users (particularly on Macs) need to use -Y instead of -X when calling ssh to enable X11 forwarding.
+    Some users (particularly on Macs) need to use -Y instead of -X when calling ssh to enable X11 forwarding.
 
 You can use this shorter command if your username for the system is the same as your username on your local computer:
 
@@ -64,7 +64,3 @@ You can use this shorter command if your username for the system is the same as 
 	```
 
 After running the `ssh` command, you will be asked to authenticate to finish logging in.
-
-
----
-This page is just a copy of https://arc.ucar.edu/knowledge_base/87655186 in mkdown for demonstrations with slight modifications.

@@ -1,11 +1,11 @@
 # Globus file transfers
 
 !!! info " Updated 4/25/2023:"
-         CISL has enabled the *Globus for Google Drive
-         connector service to facilitate file transfers to NCAR's Google Drive by
-         NCAR and UCAR staff. University users and others who are interested in
-         using the connector service are advised to consult with their own
-         institutional IT experts.
+    CISL has enabled the *Globus for Google Drive
+    connector service to facilitate file transfers to NCAR's Google Drive by
+    NCAR and UCAR staff. University users and others who are interested in
+    using the connector service are advised to consult with their own
+    institutional IT experts.
 
 Globus is the most efficient way to transfer files – large files, in
 particular – between NCAR file systems such as Campaign Storage, GLADE,
@@ -33,8 +33,7 @@ for transferring files to and from NCAR storage systems. These include:
 
 - **NCAR Data Sharing Service**
 
-Users can also create their own *guest collections* [as described
-here](file:////display/RC/Sharing+data+and+making+unattended+transfers)
+Users can also create their own *guest collections* [as described here](Sharing+data+and+making+unattended+transfers.md)
 in order to facilitate data sharing with colleagues and to accommodate
 unattended workflows.
 
@@ -97,8 +96,7 @@ interface and will be notified when they are complete.
 ## Using mapped collections for CLI transfers
 
 The Globus CLI application, an installable Python package, can be used
-to make both manual and [unattended file
-transfers](file:////display/RC/Sharing+data+and+making+unattended+transfers).
+to make both manual and [unattended file transfers](Sharing+data+and+making+unattended+transfers.md).
 
 The application is:
 
@@ -148,12 +146,11 @@ Click **Allow** to give the CLI app the necessary access and you will
 receive an authorization code.
 
 After entering the code at the terminal prompt, you will be logged in to
-the Globus CLI and in your **/glade/u/home** directory. You can use this
+the Globus CLI and in your `/glade/u/home` directory. You can use this
 authentication credential for 30 days before you will need to reactivate
 a *mapped* collection. Workflows that need longer collection access – to
 facilitate unattended file transfers, for example – can instead use
-[*<u>guest
-collections</u>*](file:////display/RC/Sharing+data+and+making+unattended+transfers).
+[guest collections](Sharing+data+and+making+unattended+transfers.md).
 
 Using the CLI, it is possible to query your current mapped collection
 activation and also force Globus to reactivate it (thus extending your
@@ -270,3 +267,12 @@ Personal:
 
 Your local system should now appear as an endpoint that can be used for
 transferring files.
+
+## Using Globus to sharing data and making unattended transfers
+
+Some users need unauthenticated access of data from NCAR storage systems to share that data or to accommodate their workflows.  *Guest collections* enable unauthenticated data access by pointing to a
+specified subset of data stored in a mapped collection like *NCAR
+GLADE*. They can be created by anyone with authenticated access to NCAR
+storage systems.
+
+[Usage of Globus Guest Collection for data sharing is described here](Sharing+data+and+making+unattended+transfers.md).

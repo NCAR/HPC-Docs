@@ -86,33 +86,34 @@ nav:
       - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
 
   - Storage Systems and Data Transfer:
-        - GLADE:
-          - storage-systems/glade/index.md
-          - Campaign storage file system: storage-systems/glade/campaign.md
-          - Lustre file systems: storage-systems/glade/lustre.md
-        - Stratus (Object Storage):
-          - storage-systems/stratus/index.md
-          - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
-        - Quasar (Tape Storgae):
-          - storage-systems/quasar/index.md
-          - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
+    - GLADE:
+      - storage-systems/glade/index.md
+      - Campaign storage file system: storage-systems/glade/campaign.md
+      - Lustre file systems: storage-systems/glade/lustre.md
+    - Stratus (Object Storage):
+      - storage-systems/stratus/index.md
+      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+    - Quasar (Tape Storgae):
+      - storage-systems/quasar/index.md
+      - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
 
-        - Data Transfer:
-          - storage-systems/data-transfer/index.md
-          - Globus: storage-systems/data-transfer/globus.md
-          - BBCP : storage-systems/data-transfer/bbcp.md
-          - Sharing data and making unattended transfers: storage-systems/data-transfer/Sharing+data+and+making+unattended+transfers.md
-          - Transferring files to Google Drive or DropBox: storage-systems/data-transfer/Transferring+files+to+Google+Drive+or+DropBox.md
-          - PSCP and PSFTP: storage-systems/data-transfer/PSCP+and+PSFTP.md
-          - SCP and SFTP: storage-systems/data-transfer/SCP+and+SFTP.md
-          - WinSCP: storage-systems/data-transfer/WinSCP.md
+    - Data Transfer:
+      - storage-systems/data-transfer/index.md
+      - Globus: storage-systems/data-transfer/globus/index.md
+      - Sharing data with Globus:  storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
 
-        - Data Access Nodes: storage-systems/data-access-nodes.md
-        - Setting File and Directory Permissions: storage-systems/Setting+file+and+directory+permissions.md
-        - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
-        - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
-        - Removing large number of files : storage-systems/Removing+large+number+of+files.md
-        - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
+      - BBCP : storage-systems/data-transfer/bbcp.md
+      - Transferring files to Google Drive or DropBox: storage-systems/data-transfer/Transferring+files+to+Google+Drive+or+DropBox.md
+      - PSCP and PSFTP: storage-systems/data-transfer/PSCP+and+PSFTP.md
+      - SCP and SFTP: storage-systems/data-transfer/SCP+and+SFTP.md
+      - WinSCP: storage-systems/data-transfer/WinSCP.md
+
+    - Data Access Nodes: storage-systems/data-access-nodes.md
+    - Setting File and Directory Permissions: storage-systems/Setting+file+and+directory+permissions.md
+    - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
+    - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
+    - Removing large number of files : storage-systems/Removing+large+number+of+files.md
+    - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
   - HPC Software and User Environment:
       - environment-and-software/index.md
