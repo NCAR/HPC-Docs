@@ -323,6 +323,8 @@ circumstances, queries of storage utilization
 from `du` and `ls` will also report a duplicated data footprint in
 your home directory for the same reason.
 
+---
+
 ## General data retention policies and procedures
 
 ### Project data

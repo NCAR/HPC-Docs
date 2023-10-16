@@ -14,18 +14,17 @@ token or app, you can connect to the VPN as described below.**
 
 Start by clicking the **GlobalProtect** icon on your desktop or taskbar.
 
-Enter your username. (Remove **CIT\\** if it appears in the password
+Enter your username. (Remove `CIT\` if it appears in the password
 field. Enter only your username.)
 
-Follow the documented procedures for using your [authentication token or
-app](file:////display/RC/Authentication+and+security) (for example, CIT
-password and Duo push). Use **gp.ucar.edu** as the portal name if it
+Follow the documented procedures for using your [authentication token or app](file:////display/RC/Authentication+and+security) (for example, CIT
+password and Duo push). Use `gp.ucar.edu` as the portal name if it
 doesn't appear already.
 
-![](media/image1.png)
+![](vpn-access/media/image1.png)
 
 A box like the one below will confirm that you are connected to the VPN.
 
-![](media/image2.png)
+![](vpn-access/media/image2.png)
 
 Click **Disconnect** when you are finished.
