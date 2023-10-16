@@ -25,15 +25,15 @@ Before you start, make sure you have the following installed on your local machi
 1. **Fork the repository:** Go to the repository page and click the "Fork" button to create a copy of the repository in your GitHub account.
 
 2. **Clone the forked repository to your local machine:** This can be done by running the following command in your terminal:
-    ```bash
-    git clone https://github.com/<YOUR_USERNAME>/hpc-docs-demo.git
-    ```
+```bash
+git clone https://github.com/<YOUR_USERNAME>/hpc-docs-demo.git
+```
     Replace `<YOUR_USERNAME>` with your GitHub username.
 
 3. **Create a new branch:** It's a good practice to create a new branch before you start making changes. This can be done by running:
-    ```bash
-    git checkout -b <BRANCH_NAME>
-    ```
+```bash
+git checkout -b <BRANCH_NAME>
+```
     Replace `<BRANCH_NAME>` with a name that gives a hint about the changes you're about to make.
 
 4. **Make your changes:** With your new branch checked out, you can start making changes to the documentation. Remember to save your work regularly.
@@ -49,23 +49,23 @@ Please note, for larger changes, it's often a good idea to discuss your plans in
 #### Building the Documentation Locally
 If you want to build the documentation locally to see the changes you've made, you can do so by following these steps:
 
-1. **Create an Environment:**
+##### Create an Environment
 To build the documentation locally, you'll need to install certain dependencies. Although this step is optional, we strongly recommend it. The example provided here utilizes a conda environment, but feel free to use any Python 3 environment of your preference.
 
-```sh
-    conda create -n docs pip
-    conda activate docs
-    pip install -r requirements.txt
-```
-2. Preview Documentation Locally:
+  ```bash
+  conda create -n docs pip
+  conda activate docs
+  pip install -r requirements.txt
+  ```
 
+##### Preview Documentation Locally
 You can preview your documentation locally to make sure that your changes do not introduce any errors. With MkDocs, you can preview your changes by running mkdocs serve in your terminal. This starts a local server where you can preview your work.
 
-```
-mkdocs serve
-```
+  ```
+  mkdocs serve
+  ```
 
-### Simple Contributions
+#### Simple Contributions
 
 If you're looking to make a minor adjustment to our documentation, such as fixing a typo or adding minor enhancements to a few documents, GitHub's built-in web editor and web IDE make it easy.
 

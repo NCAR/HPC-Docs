@@ -24,22 +24,6 @@ We encourage researchers to estimate GPU-hour needs by making
 test/benchmark runs on Casper GPUs, but will accept estimates based on
 runs on comparable non-NCAR, GPU-based systems.
 
-#### Page contents
-
-- [CESM and WRF](#Determiningcomputationalresourceneeds-C)
-
-  - [Community Earth System
-    Model](#Determiningcomputationalresourceneeds-C)
-
-  - [Weather Research and Forecasting
-    Model](#Determiningcomputationalresourceneeds-W)
-
-- [Other codes and models](#Determiningcomputationalresourceneeds-O)
-
-- [Strong vs. weak scaling](#Determiningcomputationalresourceneeds-S)
-
-- [Reporting on performance](#Determiningcomputationalresourceneeds-R)
-
 You can use a chart like this as a starting point. Review the
 documentation for the relevant [allocation
 opportunity](file:////display/RC/Allocations) to learn what else is

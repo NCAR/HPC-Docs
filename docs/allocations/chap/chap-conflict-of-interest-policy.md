@@ -39,20 +39,6 @@ create an appearance that the ethical standards outlined in this
 document have been violated shall be determined from the perspective of
 a reasonable person with knowledge of the relevant facts.
 
-#### Page contents
-
-- [Responsibilities of
-  members](#CHAP:ConflictofInterestPolicy-Responsib)
-
-  - [Disclosure](#CHAP:ConflictofInterestPolicy-Disclosur)
-
-  - [Avoidance](#CHAP:ConflictofInterestPolicy-Avoidance)
-
-  - [Removal](#CHAP:ConflictofInterestPolicy-Removal)
-
-- [Examples of conflict of interest
-  situations](#CHAP:ConflictofInterestPolicy-Exampleso)
-
 ## Responsibilities of members
 
 Appointment as a CHAP member requires awareness of COI situations that

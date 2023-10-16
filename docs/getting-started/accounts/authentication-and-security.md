@@ -17,59 +17,16 @@ to misuse these resources, and you accept responsibility for activity
 associated with your username and token. You also agree not to duplicate
 or use copyrighted or proprietary software without proper authorization.
 
-#### Page contents
-
-- [Duo two-factor
-  authentication](#Authenticationandsecurity-Duotwo-factor)
-
-- [Using tokens](#Authenticationandsecurity-Usingtokens)
-
-- [Returning your YubiKey 4
-  token](#Authenticationandsecurity-Returningyour)
-
-- [Security overview](#Authenticationandsecurity-Securityoverv)
-
 ## Duo two-factor authentication
 
 Logging in with the Duo two-factor authentication (2FA) service requires
-the user to enter a "CIT" password in conjunction with the **Duo
-Mobile** app or a landline phone. See [Authenticating with
-Duo](file:////display/RC/Authenticating+with+Duo) for details.
-
-## Using tokens
-
-Some users log in with a **YubiKey 4** authentication token and CIT
-password.
-
-See the [YubiKey](file:////display/RC/YubiKey+authentication+token) web
-page for how to use the token.
-
-## Returning your YubiKey 4 token
-
-You must return your YubiKey 4 token when your project ends or when you
-will no longer be using NCAR/CISL computing and storage resources. Place
-it in a protective envelope and include a note with your name, username,
-and reason for returning the token.
-
-CISL charges a fee for lost or unreturned YubiKey 4 tokens.
-
-Return your authentication token to:
-
-> **UCAR Shipping and Receiving**
-> **c/o Research Computing Help Desk - Mesa Lab**
-> **3090 Center Green Drive**
-> **Boulder, CO 80301**
-
-### Token pick-up, drop-off at the Mesa Lab
-
-Call 303-497-2400 to make arrangements.
+the user to enter a [CIT password](cit-passwords.md) in conjunction with the **Duo
+Mobile** app or a landline phone. See [Authenticating with Duo](duo/index.md) for details.
 
 ## Security overview
 
 All users must comply with UCAR computer security policies and
-procedures. See [<u>Access to and Use of Information Systems and
-Technology
-Infrastructure</u>](https://sundog.ucar.edu/Interact/Pages/Content/Document.aspx?id=5141)
+procedures. See [Access to and Use of Information Systems and Technology Infrastructure](https://sundog.ucar.edu/Interact/Pages/Content/Document.aspx?id=5141)
 (staff login required).
 
 We strive to maximize the availability and value of our computer and

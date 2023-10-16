@@ -3,13 +3,6 @@ A new generation of NCAR supercomputing resources began when the Yellowstone sys
 
 NCAR’s portion of the Community Computing pool amounts to ~29% of these resources. For the Cheyenne system alone, this represents an estimated 350 million core-hours per year (compared to 170 million on Yellowstone and fewer than 9 million core-hours per year on Bluefire). Similar portions of the data analysis and visualization resources and GLADE storage system also are available to NCAR users.
 
-#### **Page contents**
-- [NCAR Strategic Capability (NSC) projects](#ncarallocations-ncarstrategiccapability\(nsc\)projects)
-- [NCAR Director's Reserve](#ncarallocations-ncardirector'sreserve)
-- [NCAR Lab Grants](#ncarallocations-ncarlabgrants)
-- [NCAR and university use](#ncarallocations-ncaranduniversityuse)
-
-
 -----
 ### Allocation categories
 
