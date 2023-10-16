@@ -19,35 +19,6 @@ proactive in identifying reasons for failures (and contact the [NCAR
 Research Computing help desk](https://rchelp.ucar.edu/) if you need
 assistance).
 
-See these pages for more information:
-
-- [Checking memory use](file:////display/RC/Checking+memory+use)
-
-- [Common causes of job
-  failures](file:////display/RC/Common+causes+of+job+failures)
-
-#### Page contents
-
-- [Guidelines and allocation
-  management](#Managingyourallocation-Guidelinesandall)
-
-  - [Adding and removing user
-    accounts](#Managingyourallocation-Addingandremovin)
-
-  - [Specifying project to be
-    charged](#Managingyourallocation-Specifyingprojec)
-
-  - [Charges for computing](#Managingyourallocation-Chargesforcomput)
-
-  - [Tracking usage](#Managingyourallocation-Trackingusage)
-
-- [Using the Systems Accounting
-  Manager](#Managingyourallocation-UsingtheSystemsA)
-
-  - [User preferences](#Managingyourallocation-Userpreferences)
-
-  - [SAM reports](#Managingyourallocation-SAMreports)
-
 ## Guidelines and allocation management
 
 The project lead may authorize a project administrator (project admin)
@@ -153,6 +124,7 @@ your allocations. Charges for computing are calculated and updated
 daily; storage use reports are updated weekly.
 
 ## Using the Systems Accounting Manager
+![sam](managing-your-allocation/media/sam.png)
 
 ### User preferences
 
@@ -200,7 +172,7 @@ your project’s computing and storage allocation and the usage associated
 with it. If you are authorized to charge usage to more than one project,
 you will have an account statement for each project.
 
-![overall-usage-sam](../../images/overall-usage-sam.png)
+![overall-usage-sam](managing-your-allocation/media/image1.png)
 
 The overall usage report on project activity shows your allocations’
 start and end dates, amounts allocated, and remaining balances.
@@ -232,4 +204,4 @@ If you search by your username, you will see a list of any projects you
 are associated with and you can select any of them to get an account
 statement.
 
-![project-search](../../images/project_search.png)
+![project-search](managing-your-allocation/media/image2.png)

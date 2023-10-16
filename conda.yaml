@@ -1,0 +1,9 @@
+# create a minimal 'mkdocs' conda env, with a pinned python version
+# and all pip dependencies taken from 'requirements.txt'
+
+name: mkdocs
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - -r requirements.txt
