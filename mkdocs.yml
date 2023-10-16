@@ -84,6 +84,7 @@ nav:
       - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
 
   - Storage Systems and Data Transfer:
+    - storage-systems/index.md
     - GLADE:
       - storage-systems/glade/index.md
       - Campaign storage file system: storage-systems/glade/campaign.md
@@ -107,7 +108,7 @@ nav:
       - WinSCP: storage-systems/data-transfer/WinSCP.md
 
     - Data Access Nodes: storage-systems/data-access-nodes.md
-    - Setting File and Directory Permissions: storage-systems/Setting+file+and+directory+permissions.md
+    - Setting File and Directory Permissions: storage-systems/setting-file-directory-permissions.md
     - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
     - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
     - Removing large number of files : storage-systems/Removing+large+number+of+files.md
