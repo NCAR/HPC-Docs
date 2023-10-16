@@ -102,21 +102,6 @@ together. *
     questions about these options, please contact us via the [Research
     Computing help](https://rchelp.ucar.edu) desk.
 
-#### Page contents
-
-- [Large Allocations](#Universityallocations-LargeAllocations)
-
-- [Small Allocations](#Universityallocations-SmallAllocations)
-
-- [Exploratory Allocations](#Universityallocations-ExploratoryAlloca)
-
-- [Data Analysis Allocations
-  (NEW!)](#Universityallocations-DataAnalysisAlloc)
-
-- [Classroom Allocations](#Universityallocations-ClassroomAllocati)
-
-- [Eligibility Details](#Universityallocations-EligibilityDetail)
-
 ## Large Allocations
 
 A university researcher may submit a large request for work that is

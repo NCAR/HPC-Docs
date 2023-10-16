@@ -8,14 +8,6 @@ Applications are reviewed and time is allocated according to the needs of the pr
 !!! info
 	The next university deadline for submitting Large Allocation Requests is March 13, 2023.
 
-## Page contents
-
-- [Allocations](#allocations)
-	- [Page contents](#page-contents)
-	- [University allocation opportunities](#university-allocation-opportunities)
-	- [Wyoming-NCAR Alliance](#wyoming-ncar-alliance)
-	- [NCAR lab allocation opportunities](#ncar-lab-allocation-opportunities)
-
 ## University allocation opportunities
 
 NCAR provides computing resources to the university community for investigations that are beyond the scope of university computing centers. The CISL HPC Advisory Panel (CHAP) accepts requests for large allocations of NCAR resources every six months, in March and September.

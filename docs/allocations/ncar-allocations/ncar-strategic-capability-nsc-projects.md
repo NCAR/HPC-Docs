@@ -19,8 +19,7 @@ the NSC projects review panel is scrutinizing requests for disk and tape
 storage closely. As with poorly justified requests for computing time,
 poorly justified requests for storage resources will result in reduced
 storage allocation awards. See additional guidance in these
-[instructions for preparing proposal
-documents](file:////display/RC/University+Large+Allocation+Request+Preparation+Instructions),
+[instructions for preparing proposal documents](../university-allocations/university-large-allocation-request-preparation-instructions.md),
 which apply to NSC project requests as well as to large university
 requests.
 
@@ -45,20 +44,6 @@ Because of the competitive nature of these allocations, labs may have
 chosen to coordinate submissions from each lab. Potential applicants are
 encouraged to contact their lab's or division's allocation
 representative before submitting a request.
-
-#### Page contents
-
-- [NSC allocations](#NCARStrategicCapability(NSC)projects-NS)
-
-- [NSC eligibility](#NCARStrategicCapability(NSC)projects-NS)
-
-- [Request format](#NCARStrategicCapability(NSC)projects-Re)
-
-- [Review process](#NCARStrategicCapability(NSC)projects-Re)
-
-- [Review schedule](#NCARStrategicCapability(NSC)projects-Re)
-
-- [Continuation and reporting](#NCARStrategicCapability(NSC)projects-Co)
 
 ## NSC allocations
 
@@ -121,8 +106,8 @@ out of the same lab to meet the minimum request limit.
 ## Request format
 
 NSC requests must prepare Proposal Documents, which should follow the
-guidance and structure for [large allocation requests for
-universities](file:////display/RC/University+Large+Allocation+Request+Preparation+Instructions).
+guidance and structure for [large allocation requests for
+universities](../university-allocations/university-large-allocation-request-preparation-instructions.md).
 Notably, NSC requests must include a five-page summary along with
 relevant supporting documentation.
 
@@ -136,8 +121,7 @@ The panel conducting this review is composed of representatives of each
 NCAR lab and program who are appointed by the lab and program directors.
 This panel evaluates proposals according to several criteria:
 
-- The [three criteria used by the
-  CHAP](file:////display/RC/CHAP%253A+Allocation+Review+Criteria) in its
+- The [three criteria used by the CHAP](../chap/chap-allocation-review-criteria.md) in its
   evaluation of large university requests – the effectiveness of the
   methodology, the appropriateness of the research plan, and the
   efficiency of resource use. The technical readiness assessment
