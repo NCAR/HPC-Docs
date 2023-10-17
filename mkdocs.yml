@@ -45,6 +45,73 @@ nav:
     - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
+  - Storage Systems and Data Transfer:
+    - storage-systems/index.md
+    - GLADE (POSIX File Systems):
+      - storage-systems/glade/index.md
+      - Campaign storage file system: storage-systems/glade/campaign.md
+      - Lustre file systems: storage-systems/glade/lustre.md
+      - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
+      - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
+      - Recovering files from snapshots : storage-systems/glade/Recovering+files+from+snapshots.md
+      - Removing large number of files : storage-systems/glade/Removing+large+number+of+files.md
+
+    - Stratus (Object Storage):
+      - storage-systems/stratus/index.md
+      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+    - Quasar (Tape Storgae):
+      - storage-systems/quasar/index.md
+      - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
+
+    - Data Transfer:
+      - storage-systems/data-transfer/index.md
+      - Globus: storage-systems/data-transfer/globus/index.md
+      - Sharing data with Globus: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
+
+      - BBCP : storage-systems/data-transfer/bbcp.md
+      - Transferring files to Google Drive or DropBox: storage-systems/data-transfer/Transferring+files+to+Google+Drive+or+DropBox.md
+      - PSCP and PSFTP: storage-systems/data-transfer/PSCP+and+PSFTP.md
+      - SCP and SFTP: storage-systems/data-transfer/SCP+and+SFTP.md
+      - WinSCP: storage-systems/data-transfer/WinSCP.md
+
+    - Data Access Nodes: storage-systems/data-access-nodes.md
+    - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
+
+  - User Environment and HPC Software:
+      - environment-and-software/index.md
+
+      - User Environment:
+        - user-environment/index.md
+        - Environment Modules:
+          - environment-and-software/user-environment/environment-modules.md
+          - Caper Modules: compute-systems/casper/casper-modules.md
+          - Derecho Modules: compute-systems/derecho/derecho-modules.md
+        - Conda: environment-and-software/user-environment/conda.md
+        - Singularity: environment-and-software/user-environment/singularity.md
+        - Utilities: environment-and-software/user-environment/utilities.md
+        - Customizing User Environment: environment-and-software/user-environment/customizing-user-environment.md
+        - Spack:
+          - environment-and-software/user-environment/spack/index.md
+          - Spack Downstream: environment-and-software/user-environment/spack/spack-downstream.md
+
+      - HPC Software:
+        - environment-and-software/hpc-software/index.md
+        - Community Models: environment-and-software/community-models.md
+        - NCL : environment-and-software/ncl.md
+        - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
+        - Math Kernel Library: environment-and-software/math-kernel-library.md
+        - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
+        - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
+        - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
+        - Profiling & Debuggers: # -- tentative placement
+          - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
+          - Running DDT, MAP, and PR Jobs : environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+          - Debugging and Profiling with Forge Tools on Derecho: environment-and-software/hpc-software/profiling-and-debuggers/debugging-and-profiling-with-forge-tools-on-derecho.md
+      - Benchmarks:
+        - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+        - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
+
+
   - Compute Systems and Services:
     - Derecho:
       - compute-systems/derecho/index.md
@@ -82,71 +149,6 @@ nav:
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
-
-  - Storage Systems and Data Transfer:
-    - storage-systems/index.md
-    - GLADE (POSIX File Systems):
-      - storage-systems/glade/index.md
-      - Campaign storage file system: storage-systems/glade/campaign.md
-      - Lustre file systems: storage-systems/glade/lustre.md
-      - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
-      - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
-      - Recovering files from snapshots : storage-systems/glade/Recovering+files+from+snapshots.md
-      - Removing large number of files : storage-systems/glade/Removing+large+number+of+files.md
-
-    - Stratus (Object Storage):
-      - storage-systems/stratus/index.md
-      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
-    - Quasar (Tape Storgae):
-      - storage-systems/quasar/index.md
-      - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
-
-    - Data Transfer:
-      - storage-systems/data-transfer/index.md
-      - Globus: storage-systems/data-transfer/globus/index.md
-      - Sharing data with Globus: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
-
-      - BBCP : storage-systems/data-transfer/bbcp.md
-      - Transferring files to Google Drive or DropBox: storage-systems/data-transfer/Transferring+files+to+Google+Drive+or+DropBox.md
-      - PSCP and PSFTP: storage-systems/data-transfer/PSCP+and+PSFTP.md
-      - SCP and SFTP: storage-systems/data-transfer/SCP+and+SFTP.md
-      - WinSCP: storage-systems/data-transfer/WinSCP.md
-
-    - Data Access Nodes: storage-systems/data-access-nodes.md
-    - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
-
-  - HPC Software and User Environment:
-      - environment-and-software/index.md
-
-      - User Environment:
-        - user-environment/index.md
-        - Environment Modules:
-          - user-environment/environment-modules.md
-          - Caper Modules: compute-systems/casper/casper-modules.md
-          - Derecho Modules: compute-systems/derecho/derecho-modules.md
-        - Conda: user-environment/conda.md
-        - Singularity: user-environment/singularity.md
-        - Utilities: user-environment/utilities.md
-        - Customizing User Environment: user-environment/customizing-user-environment.md
-        - Spack:
-          - user-environment/spack/index.md
-          - Spack Downstream: user-environment/spack/spack-downstream.md
-
-      - Community Models: environment-and-software/community-models.md
-      - NCL : environment-and-software/ncl.md
-      - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
-      - Math Kernel Library: environment-and-software/math-kernel-library.md
-      - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
-      - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
-      - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
-      - Benchmarks:
-        - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
-        - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
-
-      - Profiling & Debuggers: # -- tentative placement
-        - Intel Parallel Studio XE: profiling-and-debuggers/intel-parallel-studio-xe.md
-        - Running DDT, MAP, and PR Jobs : profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
-        - Debugging and Profiling with Forge Tools on Derecho: profiling-and-debuggers/debugging-and-profiling-with-forge-tools-on-derecho.md
 
   - Running Jobs (PBS):
       - pbs/index.md
