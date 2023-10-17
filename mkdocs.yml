@@ -143,15 +143,10 @@ nav:
 
   - Running Jobs (PBS):
       - pbs/index.md
-      - Managing and monitoring PBS jobs: pbs/managing-and-monitoring-pbs-jobs.md
-      - Peer Scheduling: pbs/peer-scheduling.md
-      - Propagating environment settings to a PBS job: pbs/propagating-environment-settings-to-a-pbs-job.md
       - Checking Memory Use:
         - pbs/checking-memory-use/index.md
         - peak_memusage: pbs/checking-memory-use/peak_memusage.md
       - Storing temporary files: pbs/storing-temporary-files.md
-      - PBS Job Arrays : pbs/pbs-job-arrays.md # include mdmp or seperate?
-      - PBS Dependent Jobs: pbs/pbs-job-dependencies.md
 
   - Tutorials:
     - tutorials/index.md

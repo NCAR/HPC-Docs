@@ -320,7 +320,7 @@ nvfortran -Mcuda -o cf_bin cf_code.f90
 
 The sample below demonstrates how to compile CUDA C code on casper.
 
-??? info "`hello_world.cu` on Casper with CUDA"
+??? example "`hello_world.cu` on Casper with CUDA"
     **`hello_world.cu` source file:**
 
     ```c
