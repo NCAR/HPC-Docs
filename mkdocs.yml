@@ -81,15 +81,15 @@ nav:
       - environment-and-software/index.md
 
       - User Environment:
-        - user-environment/index.md
+        - environment-and-software/user-environment/index.md
         - Environment Modules:
           - environment-and-software/user-environment/environment-modules.md
           - Caper Modules: compute-systems/casper/casper-modules.md
           - Derecho Modules: compute-systems/derecho/derecho-modules.md
         - Conda: environment-and-software/user-environment/conda.md
-        - Singularity: environment-and-software/user-environment/singularity.md
+        - Containers: environment-and-software/user-environment/containers.md
         - Utilities: environment-and-software/user-environment/utilities.md
-        - Customizing User Environment: environment-and-software/user-environment/customizing-user-environment.md
+        - Customizing User Environment: environment-and-software/user-environment/customizing.md
         - Spack:
           - environment-and-software/user-environment/spack/index.md
           - Spack Downstream: environment-and-software/user-environment/spack/spack-downstream.md
@@ -107,9 +107,9 @@ nav:
           - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
           - Running DDT, MAP, and PR Jobs : environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
           - Debugging and Profiling with Forge Tools on Derecho: environment-and-software/hpc-software/profiling-and-debuggers/debugging-and-profiling-with-forge-tools-on-derecho.md
-      - Benchmarks:
-        - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
-        - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
+        - Benchmarks:
+          - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+          - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
 
 
   - Compute Systems and Services:
@@ -141,10 +141,7 @@ nav:
       - Starting Casper Jobs:
             - compute-systems/casper/starting-casper-jobs/index.md
             - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
-
-      - Using Remote Desktops on Casper with VNC: compute-systems/casper/using-remote-desktops-on-casper-with-vnc.md
-      - ssh tunneling with PuTTY: compute-systems/casper/ssh-tunneling-with-putty.md
-      - Using FastX for remote Desktops: compute-systems/casper/using-fastx-for-remote-desktops.md
+      - Using Remote Desktops: compute-systems/casper/remote-desktops.md
 
     - JupyterHub:
       - compute-systems/jupyterhub/index.md

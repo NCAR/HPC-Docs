@@ -1,4 +1,4 @@
-# System use policies
+# Casper use policies
 
 ## Appropriate use of login nodes
 Users may run short, non-memory-intensive processes interactively on the
@@ -19,21 +19,6 @@ automatically. Affected users are informed by email that their sessions
 were terminated. They are also advised to run such processes in batch or
 interactive jobs on the Casper cluster.
 
-## Fair share policy
-
-CISL manages scheduling priorities to ensure fair access to the system
-by all of these stakeholder groups: the university community, the NCAR
-community, the Community Earth System Model (CESM) community,
-the Antarctic Mesoscale Prediction System (AMPS), and the Wyoming
-community.
-
-The **fair-share policy** takes the community-wide usage balance into
-account along with several additional factors. These include the
-submitting users' currently running jobs and recently completed jobs.
-The scheduling system uses a dynamic-priority formula to weigh these
-factors, calculate each job's priority, and make scheduling decisions.
-
-![](system-usage-policies/media/image1.png){width="350"}
 
 ## Job scheduling priorities
 
@@ -103,19 +88,6 @@ share are picked before jobs from groups using more of their shares.
 Shares are evaluated based on usage over the past week with usage the
 prior week being decayed by half.
 
-#### Job priority
-
-Users can set job priority to one of three values. Jobs with higher
-priority are charged against the user's allocation at higher rates than
-others.
-
-| **Job priority** | **Priority order** | **Priority factor** | **Description**                                                |
-|------------------|--------------------|---------------------|----------------------------------------------------------------|
-| premium          | 1                  | 1.5                 | Jobs are charged at 150% of the regular rate.                  |
-| regular          | 2                  | 1                   | All production jobs default to this priority.                  |
-| economy          | 3                  | 0.7                 | Production batch jobs are charged at 70% of regular rate.      |
-| preempt          | 4                  | 0                   | Automatically selected when job is submitted to preempt queue. |
-
 #### Job size
 
 Jobs asking for more nodes are favored over jobs asking for fewer. The
@@ -143,19 +115,3 @@ When PBS looks at other jobs to see if they can start immediately, it
 also checks whether starting any of them would collide with one of these
 resource reservations. Only if there are no collisions will PBS start
 the lower-priority jobs.
-
-#### Preemption
-
-Derecho has a preemption routing queue that can be used to submit jobs
-that will run when the required resources are not in use for
-higher-priority work in the *main* or *develop* execution queues. In
-order to take advantage of preemption, submit your job to the *preempt*
-routing queue and it job will run when the necessary resources are
-available.
-
-When resources for any *preempt* jobs are needed by higher-priority
-work, the scheduler sends a `SIGTERM` signal that can be detected by your
-job. After the `SIGTERM` signal is sent to the job, there is a five-minute
-window in which the job has a chance to checkpoint or save any work that
-was accomplished. After the five-minute window, the job will be killed
-by the scheduler and deleted.
