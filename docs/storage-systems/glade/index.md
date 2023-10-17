@@ -108,10 +108,9 @@ announced in advance.
 CISL does not provide backups of other spaces. You are responsible for
 the safe storage of any data that must be preserved.
 
-***Best practice:*** Check your space usage regularly
-with `gladequota` as described below, and [remove
-data](https://arc.ucar.edu/knowledge_base/68878480) that you no longer
-need.
+!!! tip "Best practice: Check your space usage regularly with `gladequota`"
+    Check your space usage regularly with `gladequota` as described below, and [remove data](https://arc.ucar.edu/knowledge_base/68878480) that you no longer
+    need.
 
 You can conserve GLADE space by storing large files, such as tar files,
 rather than numerous small, individual files. This is because the system
@@ -144,7 +143,7 @@ space to enable users to recover deleted files quickly and easily.
   from one to five digits).
 
 - CISL does not purge or scrub your home directory, and deletes files
-  only as stated in the following data retention policy.
+  only as stated in the following [data retention policy](index.md#general-data-retention-policies-and-procedures).
 
 ### Data retention policy
 
@@ -171,7 +170,7 @@ The default quota for these spaces is 1 TB.
 ### Purge policy
 
 - This space is not purged or scrubbed. CISL deletes files only as
-  stated in the following data retention policy.
+  stated in the following [data retention policy](index.md#general-data-retention-policies-and-procedures).
 
 ### Data retention policy
 
@@ -312,16 +311,34 @@ usage as shown below.
 
 This command will generate a report showing your quota and usage
 information:
-```bash
+```pre
 gladequota
+
+Current GLADE space usage: csgteam
+
+  Space                                       Used        Quota      % Full    # Files
+----------------------------------------- ------------ ------------ --------- -----------
+/glade/derecho/scratch/csgteam              111.03 TiB   400.00 TiB   27.76 %    10226778
+/glade/cheyenne/scratch/csgteam             152.70 GiB   100.00 TiB    0.15 %      439076
+/glade/work/csgteam                           1.40 TiB     4.00 TiB   35.02 %     9153458
+/glade/u/home/csgteam                        68.27 GiB   100.00 GiB   68.27 %      237251
+----------------------------------------- ------------ ------------ --------- -----------
+/glade/collections/cmip                       1.26 PiB     2.93 PiB   42.95 %     3326866
+/glade/p/cisl/CSG                             1.69 TiB     5.00 TiB   33.79 %     8168998
+/glade/u/apps                                 2.02 TiB    10.00 TiB   20.19 %    20038473
+----------------------------------------- ------------ ------------ --------- -----------
+Campaign: csgteam (user total)                1.41 TiB          n/a       n/a     9891104
+/glade/campaign/cisl/csg                      7.94 TiB    23.00 TiB   34.54 %        2859
+/glade/campaign/cisl/sssg0001               217.15 TiB   250.00 TiB   86.86 %    50606617
 ```
 
-\* Output from the `gladequota` command will show the home space quota
-as 100 GB instead of 50 GB. This is because the system stores dual
-copies of users' data for increased data integrity and safety. In some
-circumstances, queries of storage utilization
-from `du` and `ls` will also report a duplicated data footprint in
-your home directory for the same reason.
+!!! note
+    Output from the `gladequota` command will show the home space quota
+    as 100 GB instead of 50 GB. This is because the system stores dual
+    copies of users' data for increased data integrity and safety. In some
+    circumstances, queries of storage utilization
+    from `du` and `ls` will also report a duplicated data footprint in
+    your home directory for the same reason.
 
 ---
 

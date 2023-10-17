@@ -17,6 +17,7 @@ nav:
 
   - Getting Started:
     - getting-started/index.md
+    - User Responsibilities: getting-started/user-responsibilities.md
     - Accounts:
       - getting-started/accounts/index.md
       - CIT Passwords: getting-started/accounts/cit-passwords.md
@@ -42,7 +43,6 @@ nav:
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md
     - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
-    - User Responsibilities: getting-started/user-responsibilities.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
   - Compute Systems and Services:
@@ -85,10 +85,15 @@ nav:
 
   - Storage Systems and Data Transfer:
     - storage-systems/index.md
-    - GLADE:
+    - GLADE (POSIX File Systems):
       - storage-systems/glade/index.md
       - Campaign storage file system: storage-systems/glade/campaign.md
       - Lustre file systems: storage-systems/glade/lustre.md
+      - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
+      - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
+      - Recovering files from snapshots : storage-systems/glade/Recovering+files+from+snapshots.md
+      - Removing large number of files : storage-systems/glade/Removing+large+number+of+files.md
+
     - Stratus (Object Storage):
       - storage-systems/stratus/index.md
       - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
@@ -108,10 +113,6 @@ nav:
       - WinSCP: storage-systems/data-transfer/WinSCP.md
 
     - Data Access Nodes: storage-systems/data-access-nodes.md
-    - Setting File and Directory Permissions: storage-systems/setting-file-directory-permissions.md
-    - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
-    - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
-    - Removing large number of files : storage-systems/Removing+large+number+of+files.md
     - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
   - HPC Software and User Environment:
