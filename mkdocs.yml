@@ -117,9 +117,7 @@ nav:
       - compute-systems/derecho/index.md
       - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
-      - Compiling Code on Derecho :
-          - compute-systems/derecho/compiling-code-on-derecho/index.md
-          - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
+      - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
       - Starting Derecho Jobs:
         - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
         - Derecho Job Script Examples:
@@ -132,15 +130,11 @@ nav:
       - compute-systems/casper/index.md
       - Quick Start on Casper: compute-systems/casper/quick-start-on-casper.md
       - Casper Use Policies: compute-systems/casper/casper-use-policies.md
-      - Compiling Code on Casper :
-            - compute-systems/casper/compiling-code-on-casper/index.md
-            - Compiler Diagnostic Flags: compute-systems/casper/compiling-code-on-casper/compiler-diagnostic-flags.md
-            - Compiling GPU Code on Casper Nodes: compute-systems/casper/compiling-code-on-casper/compiling-gpu-code-on-casper-nodes.md
-            - Compiling multi-GPU MPI-CUDA code on Casper: compute-systems/casper/compiling-code-on-casper/compiling-multigpu-multicuda-casper.md
-            - Using NVIDIA MPS in Casper GPU jobs: compute-systems/casper/compiling-code-on-casper/using-nvidia-mps-in-casper-gpu.md
+      - Compiling Code on Casper: compute-systems/casper/compiling-code-on-casper/index.md
       - Starting Casper Jobs:
             - compute-systems/casper/starting-casper-jobs/index.md
             - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
+            - Using NVIDIA MPS in Casper GPU jobs: compute-systems/casper/starting-casper-jobs/using-nvidia-mps-in-casper-gpu.md
       - Using Remote Desktops: compute-systems/casper/remote-desktops.md
 
     - JupyterHub:
