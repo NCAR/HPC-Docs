@@ -43,7 +43,7 @@ below.
 
 
 
-![](media/image1.png)
+![](lustre/media/image1.png)
 **Figure 1:** Sample Lustre file system: 4 metadata servers (MDS), 4
 object storage servers (OSS). Credit: [*Introduction to Lustre
 Wiki*](https://wiki.lustre.org/Introduction_to_Lustre).
@@ -79,7 +79,7 @@ size***.
 
 
 
-![](media/image2.jpeg)
+![](lustre/media/image2.jpeg)
 **Figure 2:** Logical view of a file, broken into five "stripe"
 segments. The first four are the same size while the fifth is smaller
 and contains the "remainder" of the file. Credit: [*Lustre User
@@ -93,7 +93,7 @@ and the stripe segments are assigned in a round-robin fashion.
 
 
 
-![](media/image3.jpeg)
+![](lustre/media/image3.jpeg)
 **Figure 3:** Physical view of a file broken into five stripes across
 four OST devices. Credit: [*Lustre User
 Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
@@ -126,7 +126,7 @@ progressive segments of files, as shown in Figure 4.
 
 
 
-![](media/image4.png)
+![](lustre/media/image4.png)
 **Figure 4:** Sample progressive file layout with three components of
 different stripe patterns. Credit: [*PFL Prototype High Level
 Design*](https://wiki.lustre.org/PFL_Prototype_High_Level_Design).

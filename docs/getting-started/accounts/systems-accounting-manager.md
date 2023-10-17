@@ -9,7 +9,7 @@ computational and storage resources that CISL manages.
 Log in at [sam.ucar.edu](https://sam.ucar.edu/app/home) and
 select **User**, then **Preferences**.
 
-![](media/sam.png)
+![](systems-accounting-manager/media/sam.png)
 
 From there, you can:
 
@@ -49,7 +49,7 @@ your project’s computing and storage allocation and the usage associated
 with it. If you are authorized to charge usage to more than one project,
 you will have an Account Statement for each project.
 
-![](media/image1.png)
+![](systems-accounting-manager/media/image1.png)
 
 The overall usage report on project activity shows your allocations’
 start and end dates, amounts allocated, and remaining balances.
@@ -81,4 +81,4 @@ If you search by your username, you will see a list of any projects you
 are associated with and you can select any of them to get an Account
 Statement.
 
-![](media/image2.png){width="300"}
+![](systems-accounting-manager/media/image2.png){width="300"}

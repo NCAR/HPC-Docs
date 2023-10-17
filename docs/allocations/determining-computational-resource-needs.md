@@ -164,7 +164,7 @@ will want to illustrate in a graph that your code performs well at
 increasingly higher scale, showing **at least four points** indicating
 the results of your runs (as in Figure 1).
 
-![](media/image1.png)
+![](determining-computational-resource-needs/media/image1.png)
 
 If your application’s performance is not already well documented, you
 may need to establish a baseline by running it on a single node before
@@ -216,7 +216,7 @@ more than 5,000 cores. If you identify such a point in your test runs,
 it would make little sense to base your allocation request on higher
 numbers of cores.
 
-![](media/image2.png)
+![](determining-computational-resource-needs/media/image2.png)
 
 ## Reporting on performance
 

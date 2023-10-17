@@ -17,7 +17,7 @@ email from Duo Security, follow these steps to enroll your device.
 Click the personalized enrollment link in your email from Duo Security,
 then click **Start setup**.
 
-![](media/step1.png)
+![](enrolling/media/step1.png)
 
 ### Step 2: Enter your phone number
 
@@ -31,13 +31,13 @@ check the box to confirm that the number is correct, and
 click **Continue**. (If you are enrolling a tablet, you aren't prompted
 to enter a phone number.)
 
-![](media/step2.png)
+![](enrolling/media/step2.png)
 
 ### Step 3: Choose your platform
 
 Choose the type of phone you have and click **Continue**.
 
-![](media/step3.png)
+![](enrolling/media/step3.png)
 
 ### Step 4: Install the Duo Mobile app
 
@@ -45,7 +45,7 @@ Follow the platform-specific instructions on the screen to install Duo
 Mobile. After installing the app, return to the enrollment window and
 click **I have Duo Mobile installed**.
 
-![](media/step4.png)
+![](enrolling/media/step4.png)
 
 ### Step 5: Activate Duo Mobile
 
@@ -56,14 +56,14 @@ To activate Duo Mobile on an iPhone, Android, or Windows Phone, scan the
 barcode with the app's built-in barcode scanner. Follow the
 platform-specific instructions for your device.
 
-![](media/step5-1.png)
+![](enrolling/media/step5-1.png)
 
 The "Continue" button is clickable after you scan the barcode.
 
 If you can’t scan the barcode, click **Email me an activation link
 instead** and follow the instructions.
 
-![](media/step5-2.png)
+![](enrolling/media/step5-2.png)
 
 ### Step 6: Configure device options (optional)
 
@@ -74,7 +74,7 @@ automatically receive a push or a call instead of being asked every
 time. To do that, make your selection from the dropdown menu and
 click **Saved**.
 
-![](media/step6.png)
+![](enrolling/media/step6.png)
 
 ### Step 7: Finish
 
@@ -85,7 +85,7 @@ Duo automatically sends an authentication request via a push
 notification to the Duo Mobile app on your smartphone or a phone call to
 your device (depending on your selection).
 
-![](media/step7.png)
+![](enrolling/media/step7.png)
 
 ### Congratulations!
 
@@ -93,4 +93,4 @@ Your device is ready to approve Duo push authentication requests.
 Click **Send me a Push** to give it a try. All you need to do is
 tap **Approve** on the Duo login request you get on your phone.
 
-![](media/step8.png)
+![](enrolling/media/step8.png)

@@ -18,13 +18,6 @@ diagnostic messages you get, and revise your code accordingly.
 The following options can be helpful as you compile code to run in the
 HPC environment that CISL manages.
 
-#### Page contents
-
-  - [Cray](#cray)
-  - [Intel](#intel)
-  - [GNU](#gnu)
-  - [NVIDIA HPC SDK](#nvidia-hpc-sdk)
-
 ## Cray
 
 The following compiler flags may be helpful for debugging your code:

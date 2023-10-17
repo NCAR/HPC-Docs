@@ -17,6 +17,7 @@ nav:
 
   - Getting Started:
     - getting-started/index.md
+    - User Responsibilities: getting-started/user-responsibilities.md
     - Accounts:
       - getting-started/accounts/index.md
       - CIT Passwords: getting-started/accounts/cit-passwords.md
@@ -42,7 +43,6 @@ nav:
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md
     - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
-    - User Responsibilities: getting-started/user-responsibilities.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
   - Compute Systems and Services:
@@ -50,6 +50,9 @@ nav:
       - compute-systems/derecho/index.md
       - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
+      - Compiling Code on Derecho :
+          - compute-systems/derecho/compiling-code-on-derecho/index.md
+          - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
       - Starting Derecho Jobs:
         - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
         - Derecho Job Script Examples:
@@ -57,23 +60,20 @@ nav:
             - Derecho Advanced Job Script Examples: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/derecho-advanced-examples.md
             - Job Preemption with PBS: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/job-preemption-with-pbs.md
             - Process Binding : compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/process-binding.md
-        - Compiling Code on Derecho :
-            - compute-systems/derecho/compiling-code-on-derecho/index.md
-            - Compiler Diagnostic Flags: compute-systems/derecho/compiling-code-on-derecho/compiler-diagnostic-flags.md
 
     - Casper:
       - compute-systems/casper/index.md
       - Quick Start on Casper: compute-systems/casper/quick-start-on-casper.md
       - Casper Use Policies: compute-systems/casper/casper-use-policies.md
-      - Starting Casper Jobs:
-            - compute-systems/casper/starting-casper-jobs/index.md
-            - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
       - Compiling Code on Casper :
             - compute-systems/casper/compiling-code-on-casper/index.md
             - Compiler Diagnostic Flags: compute-systems/casper/compiling-code-on-casper/compiler-diagnostic-flags.md
             - Compiling GPU Code on Casper Nodes: compute-systems/casper/compiling-code-on-casper/compiling-gpu-code-on-casper-nodes.md
             - Compiling multi-GPU MPI-CUDA code on Casper: compute-systems/casper/compiling-code-on-casper/compiling-multigpu-multicuda-casper.md
             - Using NVIDIA MPS in Casper GPU jobs: compute-systems/casper/compiling-code-on-casper/using-nvidia-mps-in-casper-gpu.md
+      - Starting Casper Jobs:
+            - compute-systems/casper/starting-casper-jobs/index.md
+            - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
 
       - Using Remote Desktops on Casper with VNC: compute-systems/casper/using-remote-desktops-on-casper-with-vnc.md
       - ssh tunneling with PuTTY: compute-systems/casper/ssh-tunneling-with-putty.md
@@ -84,10 +84,16 @@ nav:
       - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
 
   - Storage Systems and Data Transfer:
-    - GLADE:
+    - storage-systems/index.md
+    - GLADE (POSIX File Systems):
       - storage-systems/glade/index.md
       - Campaign storage file system: storage-systems/glade/campaign.md
       - Lustre file systems: storage-systems/glade/lustre.md
+      - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
+      - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
+      - Recovering files from snapshots : storage-systems/glade/Recovering+files+from+snapshots.md
+      - Removing large number of files : storage-systems/glade/Removing+large+number+of+files.md
+
     - Stratus (Object Storage):
       - storage-systems/stratus/index.md
       - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
@@ -107,10 +113,6 @@ nav:
       - WinSCP: storage-systems/data-transfer/WinSCP.md
 
     - Data Access Nodes: storage-systems/data-access-nodes.md
-    - Setting File and Directory Permissions: storage-systems/Setting+file+and+directory+permissions.md
-    - Using Access Control Lists : storage-systems/Using+Access+Control+Lists.md
-    - Recovering files from snapshots : storage-systems/Recovering+files+from+snapshots.md
-    - Removing large number of files : storage-systems/Removing+large+number+of+files.md
     - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
   - HPC Software and User Environment:

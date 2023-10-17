@@ -1,11 +1,5 @@
 # Sharing data and making unattended transfers with Globus
 
-As announced in [the Daily
-Bulletin](https://arc.ucar.edu/daily_b_posts/331), InCommon certificates
-that have been used to make unattended transfers will no longer work
-after the update to Globus version 5. Users will need to follow the new,
-simplified procedures described below to accommodate their workflows.
-
 Some users need unauthenticated access of data from NCAR storage systems
 to share that data or to accommodate their workflows. Common use cases
 include:

@@ -3,7 +3,7 @@
 The practices described below will help you make the most of your
 computing and storage allocations.
 
-![](media/image1.png){width="350"}
+![](best-practices-for-supercomputer-users/media/image1.png){width="350"}
 
 ## Using shared resources
 
