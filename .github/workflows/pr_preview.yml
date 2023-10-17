@@ -1,9 +1,6 @@
-name: ci 
+name: pr_preview
 on:
-  push:
-    branches:
-      - master 
-      - main
+  pull_requests:
 
 permissions:
   contents: write
@@ -23,4 +20,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r requirements.txt 
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs build
