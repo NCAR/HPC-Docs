@@ -55,13 +55,12 @@ nav:
       - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
       - Recovering files from snapshots : storage-systems/glade/Recovering+files+from+snapshots.md
       - Removing large number of files : storage-systems/glade/Removing+large+number+of+files.md
-
-    - Stratus (Object Storage):
-      - storage-systems/stratus/index.md
-      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
     - Quasar (Tape Storgae):
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
+    - Stratus (Object Storage):
+      - storage-systems/stratus/index.md
+      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
     - Data Access Nodes: storage-systems/data-access-nodes.md
     - Data Transfer:
       - storage-systems/data-transfer/index.md
@@ -69,7 +68,6 @@ nav:
          - storage-systems/data-transfer/globus/index.md
          - Sharing data and making unattended transfers: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
       - SCP, SFTP and other tools: storage-systems/data-transfer/scp-and-sftp.md
-
     - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
   - User Environment and HPC Software:
