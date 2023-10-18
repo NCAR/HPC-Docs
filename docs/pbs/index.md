@@ -57,7 +57,7 @@ Most of these commands will only modify or query data from jobs that are active 
 Run any command followed by `-h` to get help, as in `qhist -h`.
 
 ### `qdel`
-Run qdel with the job ID to kill a pending or running job.
+Run `qdel` with the job ID to kill a pending or running job.
 
 ```bash
 qdel jobID
@@ -166,11 +166,12 @@ qstat -w -u $USER @derecho
 ```
 
 !!! tip
-    Query jobs running on one system by specifying `@cheyenne` or `@casper` from either system as shown here. (Only these options are supported when running `qstat` in this cross-server mode: `-x`, `-u`, `-w`, `-n`, `-s`).
+    Query jobs running on one system by specifying `@derecho`, `@cheyenne`, or `@casper` from either system as shown here.
     ```sh
-    qstat -w -u $USER @cheyenne
-
+    qstat -w -u $USER @derecho
+    qstat -w -u $USER @casper
     ```
+    Only these options are supported when running `qstat` in this cross-server mode: `-x`, `-u`, `-w`, `-n`, `-s`
 
 ## Job Dependencies
 
@@ -190,8 +191,6 @@ Let's say you have you have three scripts to submit and run consecutively:
  3. `post.pbs`: a post-processing job
 
 The main job can be run only when the preprocessing job finishes, and the post-processing job can be run only when the computation job finishes.
-
-Follow this example, making sure to use **backticks** as shown.
 
 Submit the first job, placing it on hold. (If it starts before the dependent jobs are submitted, the dependent jobs might never start.):
 ```bash
@@ -228,9 +227,9 @@ The complete sequence is shown below for additional clarity:
     ```
 
 In the example above, the clause `afterok` is used to indicate the subsequent jobs should only begin after the preceding job completes successfully.
-This is likely the most common use case, however other clauses are available, and jobs may depend on multiple predecessors. See `man qsub` for a full listing.
+This is likely the most common use case, however other clauses are available, and jobs may depend on multiple predecessors.
 Some of the more commmon dependency clauses are listed below, where `<arg_list>` is usually a single PBS job id as shown above, but can be a colon-separated
-list of IDs if appropriate.
+list of IDs if appropriate.  See `man qsub` for a full listing and additional details.
 
 |  Clause | Effect |
 |---------|--------|

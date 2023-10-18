@@ -35,9 +35,81 @@ After running the `ssh` command, you will be [asked to authenticate](../../getti
 
 ## **Hardware**
 
-| **Capability** | **Resource** |
-| :-             | :-           |
-| **Data Analysis<br>& Visualization nodes** | **22 Supermicro 7049GP-TRT SuperWorkstation nodes**<br>Up to 384 GB DDR4-2666 memory per node<br>2 18-core 2.3-GHz Intel Xeon Gold 6140 (Skylake) processors per node<br>2 TB local NVMe Solid State Disk<br>1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>1 Mellanox ConnectX-6 HDR100 InfiniBand link<br>1 NVIDIA Quadro GP100 GPU 16GB PCIe on each of 9 nodes<br>1 NVIDIA Ampere A100 GPU 40 GB PCIe on each of 3 nodes|
-| **Machine Learning/Deep Learning <br>& General Purpose GPU (GPGPU) nodes** | **4 Supermicro SuperServer nodes with 4 V100 GPUs**<br>768 GB DDR4-2666 memory per node<br>2 18-core 2.3-GHz Intel Xeon Gold 6140 (Skylake) processors per node<br>2 18-core 2.6-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>2 TB local NVMe Solid State Disk<br>1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>2 Mellanox ConnectX-6 HDR200 InfiniBand adapters. HDR100 link on each CPU socket<br>4 NVIDIA Tesla V100 32GB SXM2 GPUs with NVLink<br><br>**6 Supermicro SuperServer nodes with 8 V100 GPUs**<br>1152 GB DDR4-2666 memory per node<br>2 18-core 2.3-GHz Intel Xeon Gold 6140 (Skylake) processors per node<br>2 TB local NVMe Solid State Disk<br>1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>2 Mellanox ConnectX-6 HDR200 InfiniBand adapters, HDR100 link on each CPU socket<br>8 NVIDIA Tesla V100 32GB SXM2 GPUs with NVLink<br><br>**4 Supermicro SuperServer nodes with 4 A100 GPUs**<br>768 GB DDR4-2666 memory per node<br>2 18-core 2.3-GHz Intel Xeon Gold 6140 (Skylake) processors per node<br>2 18-core 2.6-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>2 TB local NVMe Solid State Disk<br>1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>2 Mellanox ConnectX-6 HDR200 InfiniBand adapters. HDR100 link on each CPU socket<br>4 NVIDIA Tesla A100 80GB SXM2 GPUs with NVLink|
-| **High-Throughput Computing nodes** | **62 small-memory workstation nodes**<br>384 GB DDR4-2666 memory per node <br>2 18-core 2.6-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>1\.6 TB local NVMe Solid State Disk<br>1 Mellanox ConnectX-5 100Gb Ethernet VPI adapter (GLADE, Campaign Storage, external connectivity)<br>1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter. HDR100 link on each CPU socket<br><br>**2 large-memory workstation nodes**<br>1\.5 TB DDR4-2666 memory per node <br>2 18-core 2.3-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>1\.6 TB local NVMe Solid State Disk<br>1 Mellanox ConnectX-5 100Gb Ethernet VPI adapter (GLADE, Campaign Storage, external connectivity)<br>1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter, HDR100 link on each CPU socket|
-| **Research Data Archive<br>nodes (reserved for<br>RDA use)** | **4 Supermicro Workstation nodes**<br>94 GB DDR4-2666 memory per node<br>2 16-core 2.3-GHz Intel Xeon Gold 5218 (Cascade Lake) processors per node<br>1\.92 TB local Solid State Disk<br>1 Mellanox ConnectX-6 VPI 100Gb Ethernet connection (GLADE, Campaign Storage, internal connectivity)|
+<table>
+  <tbody>
+    <tr>
+      <td style="text-align: left;">
+        <strong>Data Analysis<br>&amp; Visualization nodes</strong></td>
+      <td style="text-align: left;">
+        <strong>22 Supermicro 7049GP-TRT SuperWorkstation nodes</strong><br>
+        Up to 384 GB DDR4-2666 memory per node<br>
+        2 18-core 2.3-GHz Intel Xeon Gold 6140 (Skylake) processors per node<br>
+        2 TB local NVMe Solid State Disk<br>
+        1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>
+        1 Mellanox ConnectX-6 HDR100 InfiniBand link<br>
+        1 NVIDIA Quadro GP100 GPU 16GB PCIe on each of 9 nodes<br>
+        1 NVIDIA Ampere A100 GPU 40 GB PCIe on each of 3 nodes
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <strong>Machine Learning/Deep Learning <br>&amp; General Purpose GPU (GPGPU) nodes</strong>
+      </td>
+      <td style="text-align: left;">
+        <strong>4 Supermicro SuperServer nodes with 4 V100 GPUs</strong><br>
+        768 GB DDR4-2666 memory per node<br>
+        2 18-core 2.6-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>
+        2 TB local NVMe Solid State Disk<br>
+        1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>
+        2 Mellanox ConnectX-6 HDR200 InfiniBand adapters. HDR100 link on each CPU socket<br>
+        4 NVIDIA Tesla V100 32GB SXM2 GPUs with NVLink<br><br>
+
+        <strong>6 Supermicro SuperServer nodes with 8 V100 GPUs</strong><br>
+        1152 GB DDR4-2666 memory per node<br>
+        2 18-core 2.6-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>
+        2 TB local NVMe Solid State Disk<br>
+        1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>
+        2 Mellanox ConnectX-6 HDR200 InfiniBand adapters, HDR100 link on each CPU socket<br>
+        8 NVIDIA Tesla V100 32GB SXM2 GPUs with NVLink<br><br>
+
+        <strong>4 Supermicro nodes with 4 A100 GPUs</strong><br>
+        1024 GB memory per node<br>
+        2 64-core 2.45-GHz AMD EPYC Milan 7763 processors per node<br>
+        1.5 TB local NVMe Solid State Disk<br>
+        4 Mellanox ConnectX-6 network adapters<br>
+        4 NVIDIA Ampere A100 80GB SXM4 GPUs with NVLink</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <strong>High-Throughput Computing nodes</strong>
+      </td>
+      <td style="text-align: left;">
+        <strong>62 small-memory workstation nodes</strong><br>
+        384 GB DDR4-2666 memory per node <br>
+        2 18-core 2.6-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>
+        1.6 TB local NVMe Solid State Disk<br>
+        1 Mellanox ConnectX-5 100Gb Ethernet VPI adapter (GLADE, Campaign Storage, external connectivity)<br>
+        1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter. HDR100 link on each CPU socket<br><br>
+
+        <strong>2 large-memory workstation nodes</strong><br>
+        1.5 TB DDR4-2666 memory per node <br>
+        2 18-core 2.3-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>
+        1.6 TB local NVMe Solid State Disk<br>
+        1 Mellanox ConnectX-5 100Gb Ethernet VPI adapter (GLADE, Campaign Storage, external connectivity)<br>
+        1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter, HDR100 link on each CPU socket
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <strong>Research Data Archive<br>nodes (reserved for<br>RDA use)</strong>
+      </td>
+      <td style="text-align: left;">
+        <strong>4 Supermicro Workstation nodes</strong><br>
+        94 GB DDR4-2666 memory per node<br>
+        2 16-core 2.3-GHz Intel Xeon Gold 5218 (Cascade Lake) processors per node<br>
+        1.92 TB local Solid State Disk<br>
+        1 Mellanox ConnectX-6 VPI 100Gb Ethernet connection (GLADE, Campaign Storage, internal connectivity)
+      </td>
+    </tr>
+  </tbody>
+</table>

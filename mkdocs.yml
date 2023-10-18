@@ -82,8 +82,8 @@ nav:
 
       - User Environment:
         - environment-and-software/user-environment/index.md
-        - Environment Modules:
-          - environment-and-software/user-environment/environment-modules.md
+        - Modules:
+          - environment-and-software/user-environment/modules.md
           - Caper Modules: compute-systems/casper/casper-modules.md
           - Derecho Modules: compute-systems/derecho/derecho-modules.md
         - Conda: environment-and-software/user-environment/conda.md
