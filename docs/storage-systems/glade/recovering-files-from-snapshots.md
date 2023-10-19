@@ -81,8 +81,9 @@ cp /glade/u/home/.snapshots/20200207-100001/username/filename .
 You can use the `diff` command to identify changes that were made
 between snapshots, as in this example.
 ```pre
-diff /glade/u/home/.snapshots/20200208-100001/username/filename /glade/u/home/.snapshots/20200207-180001/username/filename
-``
+diff /glade/u/home/.snapshots/20200208-100001/username/filename \
+     /glade/u/home/.snapshots/20200207-180001/username/filename
+```
 
 This can be useful if you need to roll back to an earlier version of a
 file, but it is not a substitute for following version control best

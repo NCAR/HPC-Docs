@@ -90,16 +90,16 @@ analysis, and visualization resources that CISL manages.
       <td>Project space allocations (via allocation request)</td>
     </tr>
     <tr class="even">
-      <td colspan="5"><a
-                        href="https://arc.ucar.edu/system_status"><strong>GLADE system status
-            report</strong></a></td>
+      <td colspan="5">
+        <a href="https://arc.ucar.edu/system_status"><strong>GLADE system status report</strong></a>
+      </td>
     </tr>
   </tbody>
 </table>
 
 CISL backs up the GLADE **home** file space several times a week and
 also
-creates [snapshots](https://arc.ucar.edu/knowledge_base/68878477) to
+creates [snapshots](./recovering-files-from-snapshots.md) to
 enable users to recover deleted files quickly and easily. Data can
 remain in each of these spaces in accordance with the policies detailed
 below. The policies are subject to change; any changes necessary will be
