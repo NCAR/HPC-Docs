@@ -1,0 +1,11 @@
+name: Spell Checking
+
+on: [pull_request]
+
+jobs:
+  codespell:
+    name: Check spelling of all files with codespell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: codespell-project/actions-codespell@v2
