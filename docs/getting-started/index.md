@@ -10,9 +10,10 @@ Once you are authorized to use NCAR compute and storage resources, and you have 
 
 These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
 
-* [Compiling Code](compiling.md)
-* [Starting and Managing Jobs with PBS](environment-modules.md)
-* [Managing Your Allocation](getting-started/managing-your-allocation.md)
+* Compiling Code on [Derecho](../compute-systems/derecho/compiling-code-on-derecho/index.md) or [Casper](../compute-systems/casper/compiling-code-on-casper/index.md)
+* Understanding and Customizing your [User and Software Environment](../environment-and-software/index.md )
+* [Starting and Managing Jobs with PBS](../pbs/index.md)
+* [Managing Your Resource Allocation](../allocations/index.md)
 
 ---
 
@@ -22,7 +23,7 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 ---
 
-!!!danger "Don’t run `sudo` on NCAR systems!"
+!!! danger "Don’t run `sudo` on NCAR systems!"
     If you need help with tasks that you think require `sudo` privileges, or if you aren’t sure, please contact HPC User Support before trying to run `sudo` yourself. The command fails when unauthorized users run it and sends a security alert to system administrators.
 
 

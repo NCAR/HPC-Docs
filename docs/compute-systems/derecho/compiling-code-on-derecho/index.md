@@ -134,8 +134,7 @@ Build any libraries that you need to support an application with the
 same compiler, compiler version, and compatible flags used to compile
 the other parts of the application, including the main executable(s).
 Also, before you run the applications, be sure you have loaded the
-same [module/version
-environment](Environment+modules.md) in which you
+same [module/version environment](../../../environment-and-software/user-environment/modules.md) in which you
 created the applications. This will help you avoid job failures that can
 result from missing MPI launchers and library routines.
 
