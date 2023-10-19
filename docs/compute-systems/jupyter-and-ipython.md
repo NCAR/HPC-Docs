@@ -1,5 +1,13 @@
 # Jupyter and IPython
 
+!!! danger "Consider NCAR's [JupyterHub instance](./jupyterhub/index.md) first!!"
+    This page describes an older, manual approach for launching Jupyter
+    on NCAR resources, prior to the deployment of our hosted
+    [JupyterHub instance](./jupyterhub/index.md).
+
+    Still. this approach is valid and may be useful in circumstances
+    where the hosted JupyterHub is under maintenane.
+
 The Jupyter package is designed to facilitate interactive computing,
 especially for code editing, mathematical expressions, plots, code/data
 visualization, and parallel computing. The IPython kernel is included in
@@ -8,11 +16,10 @@ language interpreters. See details below.
 
 The instructions below describe how to start the
 browser-based **JupyterLab**, the **IPython shell**, and **Jupyter
-QtConsole** on the Cheyenne system and the Casper data analysis and
+QtConsole** on the NCAR systems.
 visualization nodes.
 
-For additional information, see [JupyterHub at NCAR](file:////display/RC/JupyterHub+at+NCAR) and the
-[Jupyter documentation](https://jupyter.readthedocs.io/en/latest/).
+For additional information, see [Jupyter documentation](https://jupyter.readthedocs.io/en/latest/).
 
 ## Starting JupyterLab
 
