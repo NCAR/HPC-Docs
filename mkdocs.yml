@@ -90,10 +90,10 @@ nav:
       - HPC Software:
         - environment-and-software/hpc-software/index.md
         - Community Models: environment-and-software/community-models.md
+        - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
         - NCL : environment-and-software/ncl.md
         - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
         - Math Kernel Library: environment-and-software/math-kernel-library.md
-        - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
         - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
         - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
         - Profiling & Debuggers: # -- tentative placement
@@ -135,6 +135,8 @@ nav:
 
   - Running Jobs (PBS):
       - pbs/index.md
+      - Job Scripts:
+        - pbs/job-scripts/index.md
       - Common Causes of Job Failures:
         - pbs/common-causes-of-job-failures/index.md
         - Checking Memory Use:
