@@ -33,7 +33,7 @@ submitting users' currently running jobs and recently completed jobs.
 The scheduling system uses a dynamic-priority formula to weigh these
 factors, calculate each job's priority, and make scheduling decisions.
 
-![](media/image1.png){width="350"}
+![](derecho-use-policies/media/image1.png){width="350"}
 
 ## Job scheduling priorities
 
