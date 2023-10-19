@@ -4,7 +4,7 @@ Several mathematical libraries developed in the years 1970-1990 remain
 popular in the geophysics community. These libraries, listed below, are
 available for downloading here on GitHub: [NCAR Classic Libraries for-Geophysics](https://github.com/NCAR/NCAR-Classic-Libraries-for-Geophysics).
 
-![](media/sphere_ncar_classic_libraries.png)
+![](ncar-classic-libraries-for-geophysics/media/sphere_ncar_classic_libraries.png)
 
 - `FFTPACK`: A library of fast Fourier transforms
 

@@ -135,9 +135,10 @@ nav:
 
   - Running Jobs (PBS):
       - pbs/index.md
-      - Checking Memory Use:
-        - pbs/checking-memory-use/index.md
-        - peak_memusage: pbs/checking-memory-use/peak_memusage.md
+      - Common Causes of Job Failures:
+        - pbs/common-causes-of-job-failures/index.md
+        - Checking Memory Use:
+          - pbs/checking-memory-use/index.md
       - Storing temporary files: pbs/storing-temporary-files.md
 
   - Tutorials:
