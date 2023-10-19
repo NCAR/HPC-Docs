@@ -1,9 +1,5 @@
 # Getting started with NCAR HPC Resources
 
-NS: This page is repeated again in quick-start... Different content should be written here...
-
-# Getting started with NCAR HPC Resources
-
 !!! info "About this page"
 	This document will guide you through the basics of using NCAR's
 	supercomputers, storage systems, and services.
@@ -22,7 +18,7 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 ## New User Resources
 * [New User Orientation](https://arc.ucar.edu/knowledge_base/68878414)
-* [:fontawesome-brands-youtube: New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
+* [New User Training for HPC Systems :fontawesome-brands-youtube:](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
 
 ---
 
@@ -47,24 +43,26 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 	``` shell
 	ssh -X username@cheyenne.ucar.edu
 	```
+
+After running the `ssh` command, you will be asked to authenticate to finish logging in.
+
 The `-X` is optional and requests simple `X11` graphics forwarding to your client.
 
 !!! tip
     Some users (particularly on Macs) need to use -Y instead of -X when calling ssh to enable X11 forwarding.
 
-You can use this shorter command if your username for the system is the same as your username on your local computer:
+!!! info
+    You can use this shorter command if your `username` for the NCAR systems is the same as your `username` on your local computer:
 
-=== "Derecho"
-    ``` shell
-	ssh -X derecho.hpc.ucar.edu
-	```
-=== "Casper"
-	``` shell
-	ssh -X casper.ucar.edu
-	```
-=== "Cheyenne"
-	``` shell
-	ssh -X cheyenne.ucar.edu
-	```
-
-After running the `ssh` command, you will be asked to authenticate to finish logging in.
+    === "Derecho"
+        ``` shell
+    	ssh -X derecho.hpc.ucar.edu
+    	```
+    === "Casper"
+    	``` shell
+    	ssh -X casper.ucar.edu
+    	```
+    === "Cheyenne"
+    	``` shell
+    	ssh -X cheyenne.ucar.edu
+    	```
