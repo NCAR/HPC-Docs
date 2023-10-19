@@ -1,4 +1,4 @@
-# Debugging and profiling with Forge tools on Derecho
+# Debugging and profiling with Forge tools
 
 The
 [Linaro Forge](https://docs.linaroforge.com/23.0/html/forge/index.html)
@@ -91,7 +91,7 @@ Install and start the client on your local machine.
 
 From the "Remote Launch" menu (see image), select **Configure**.
 
-![](media/image1.png)
+![](running-ddt-map-and-pr-jobs/media/image1.png)
 
 Configure as shown in the following image. The configuration will apply
 to both DDT and MAP, so you only need to do it once.
@@ -108,7 +108,7 @@ echo $NCAR_ROOT_LINARO_FORGE
 
 Click **OK**.
 
-![](media/image2.png)
+![](running-ddt-map-and-pr-jobs/media/image2.png)
 
 ### Running a script
 
@@ -133,7 +133,7 @@ you created in the previous step.
 When the following dialog box appears, authenticate as usual. (It may be
 necessary to click **Show Terminal** to see the authentication window).
 
-![](media/image3.png)
+![](running-ddt-map-and-pr-jobs/media/image3.png)
 
 After you log in, return to your normal terminal window and load the
 modules you need. (We recommend including `module load` commands in
@@ -157,14 +157,14 @@ qsub my-debug-script.bash
 When your job starts, the GUI will show that a “Reverse Connect Request”
 has been made. Accept the request to continue.
 
-![](media/image4.png)
+![](running-ddt-map-and-pr-jobs/media/image4.png)
 
 A “Run” window will open and display settings imported from your job
 script. Review the settings. If your program uses Cray MPICH, make sure
 the MPI is specified as **Cray PALS** where shown in the following
 image.
 
-![](media/image5.png)
+![](running-ddt-map-and-pr-jobs/media/image5.png)
 
 After reviewing the settings, click **Run** and the DDT or MAP window
 will open.
