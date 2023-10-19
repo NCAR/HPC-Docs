@@ -228,7 +228,7 @@ The complete sequence is shown below for additional clarity:
 
 In the example above, the clause `afterok` is used to indicate the subsequent jobs should only begin after the preceding job completes successfully.
 This is likely the most common use case, however other clauses are available, and jobs may depend on multiple predecessors.
-Some of the more commmon dependency clauses are listed below, where `<arg_list>` is usually a single PBS job id as shown above, but can be a colon-separated
+Some of the more common dependency clauses are listed below, where `<arg_list>` is usually a single PBS job id as shown above, but can be a colon-separated
 list of IDs if appropriate.  See `man qsub` for a full listing and additional details.
 
 |  Clause | Effect |

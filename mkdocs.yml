@@ -195,7 +195,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.tabs.link       # all content tabs across the docs will be linked
-    - content.code.annotation # add anotations (advanced)
+    - content.code.annotation # add annotations (advanced)
     - content.code.annotate
     - content.code.copy
     - content.action.edit     # edit the page

@@ -83,7 +83,7 @@ export AWS_SECRET_ACCESS_KEY='yyy'
 - Admins might want to create a separate user account for themselves
   with just reading (and perhaps writing) capabilities and not admin
   capabilities. This would require use of a different email address,
-  since the system does not allow re-use of existing emails. Admins
+  since the system does not allow reuse of existing emails. Admins
   might use a personal email, or a (group) alias setup in PeopleDB.
 
 #### Click to download

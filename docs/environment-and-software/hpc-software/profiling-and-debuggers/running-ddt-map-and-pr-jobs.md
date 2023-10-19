@@ -143,7 +143,7 @@ module load linaro-forge/23.0
 ```
 
 !!! note "Debugging GPU Jobs"
-    To deug GPU jobs, you may need to set the environment variable
+    To debug GPU jobs, you may need to set the environment variable
     `CUDA_DEBUGGER_SOFTWARE_PREEMPTION` to 1.
     ```bash
     export CUDA_DEBUGGER_SOFTWARE_PREEMPTION=1

@@ -35,6 +35,3 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
     This project is hosted on [GitHub](https://github.com/NCAR/HPC-Docs) and your
     [contributions](https://github.com/NCAR/HPC-Docs/blob/main/contributing.md)
     are welcome!
-
----
-This page is just a copy of https://arc.ucar.edu/knowledge_base_documentation in `mkdown` for demonstrations purposes.
