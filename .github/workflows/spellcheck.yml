@@ -11,5 +11,6 @@ jobs:
       - uses: codespell-project/actions-codespell@v2
         with:
           check_filenames: true
+          check_hidden: true
           ignore_words_file: .github/workflows/codespell.txt
-          skip: "./confluence_migration/*"
+          skip: ./confluence_migration/*
