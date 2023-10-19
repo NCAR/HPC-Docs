@@ -131,7 +131,7 @@ nav:
 
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
-      - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
+      - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
 
   - Running Jobs (PBS):
       - pbs/index.md
