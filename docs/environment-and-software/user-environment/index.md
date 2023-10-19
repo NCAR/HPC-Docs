@@ -66,7 +66,7 @@ this common installation.
     While it is possible for users to install conda into their own
     personal workspaces, we discourage this approach.
 
-    Instead, users shoud investigate the common `conda` environment
+    Instead, users should investigate the common `conda` environment
     module available through the [module system](./modules.md).  Using this common installation
     facilitates sharing environments between colleagues and is
     configured internally to make optimum use of the NCAR [GLADE file spaces](../../storage-systems/glade/index.md).
