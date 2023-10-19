@@ -97,9 +97,8 @@ nav:
         - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
         - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
         - Profiling & Debuggers: # -- tentative placement
+          - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
           - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
-          - Running DDT, MAP, and PR Jobs : environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
-          - Debugging and Profiling with Forge Tools on Derecho: environment-and-software/hpc-software/profiling-and-debuggers/debugging-and-profiling-with-forge-tools-on-derecho.md
         - Benchmarks:
           - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
           - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
