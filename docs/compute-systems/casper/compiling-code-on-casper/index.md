@@ -400,7 +400,7 @@ The sample below demonstrates how to compile CUDA C code on casper.
 
     ```
 
-    **Commpile `hello_world.cu`**
+    **Compile `hello_world.cu`**
 
     === "NVHPC"
         ```pre

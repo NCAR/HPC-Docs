@@ -82,7 +82,7 @@ module unload modulefile_name
 
 ## Customized environments
 
-If you have created your own environment or want to have multiple collections of modules for various tasks, you can save those customized environments for easy re-use.
+If you have created your own environment or want to have multiple collections of modules for various tasks, you can save those customized environments for easy reuse.
 
 To save a customized environment as your default environment, load the modules that you want to use, then simply run `module save` or `module s`.
 
