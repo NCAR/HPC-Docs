@@ -59,7 +59,7 @@ normal environment.
 NCAR system users [access Python via Conda environments](./conda.md), which
 are self-contained installations of Python itself, Python packages,
 and the software dependencies those packages rely on. We provide a
-common `conda` module available through the [module system](environment-modules.md), and encourage all users to leverage
+common `conda` module available through the [module system](./modules.md), and encourage all users to leverage
 this common installation.
 
 !!! tip "Prefer NCAR's common `conda` environment"
@@ -67,7 +67,7 @@ this common installation.
     personal workspaces, we discourage this approach.
 
     Instead, users shoud investigate the common `conda` environment
-    module available through the [module system](environment-modules.md).  Using this common installation
+    module available through the [module system](./modules.md).  Using this common installation
     facilitates sharing environments between colleagues and is
     configured internally to make optimum use of the NCAR [GLADE file spaces](../../storage-systems/glade/index.md).
 

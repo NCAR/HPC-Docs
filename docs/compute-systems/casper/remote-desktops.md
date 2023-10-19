@@ -47,7 +47,7 @@ These basic steps for starting a session are described in detail below:
 
 - Enter a one-time password to access your VNC session.
 
-**If you are connected** to the NCAR Internal Network or using the [NCAR VPN](../../../getting-started/vpn-access), you will be able to connect
+**If you are connected** to the NCAR Internal Network or using the [NCAR VPN](../../getting-started/vpn-access.md), you will be able to connect
 directly to your session on the Casper batch node using the VNC client.
 
 **If you are not** on the NCAR network or VPN, you will need to create

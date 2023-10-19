@@ -10,9 +10,11 @@ Once you are authorized to use NCAR compute and storage resources, and you have 
 
 These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
 
-* [Compiling Code](compiling.md)
-* [Starting and Managing Jobs with PBS](environment-modules.md)
-* [Managing Your Allocation](managing-jobs.md)
+
+* Compiling Code on [Derecho](../compute-systems/derecho/compiling-code-on-derecho/index.md) or [Casper](../compute-systems/casper/compiling-code-on-casper/index.md)
+* Understanding and Customizing your [User and Software Environment](../environment-and-software/index.md )
+* [Starting and Managing Jobs with PBS](../pbs/index.md)
+* [Managing Your Resource Allocation](../allocations/index.md)
 
 ---
 

@@ -57,7 +57,7 @@ nav:
       - Removing large number of files : storage-systems/glade/Removing+large+number+of+files.md
     - Quasar (Tape Storgae):
       - storage-systems/quasar/index.md
-      - Quasar system specifications : storage-systems/quasar/Quasar+system+specifications.md
+      - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
     - Stratus (Object Storage):
       - storage-systems/stratus/index.md
       - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
@@ -90,10 +90,10 @@ nav:
       - HPC Software:
         - environment-and-software/hpc-software/index.md
         - Community Models: environment-and-software/community-models.md
+        - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
         - NCL : environment-and-software/ncl.md
         - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
         - Math Kernel Library: environment-and-software/math-kernel-library.md
-        - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
         - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
         - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
         - Profiling & Debuggers: # -- tentative placement
@@ -131,10 +131,12 @@ nav:
 
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
-      - Jupyter and IPython: compute-systems/jupyterhub/jupyter-and-ipython.md
+      - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
 
   - Running Jobs (PBS):
       - pbs/index.md
+      - Job Scripts:
+        - pbs/job-scripts/index.md
       - Common Causes of Job Failures:
         - pbs/common-causes-of-job-failures/index.md
         - Checking Memory Use:
