@@ -28,6 +28,3 @@ Details of the Wyoming process are available at the [University of Wyoming web s
 NCAR investigators have access to CISL resources through allocations to the NCAR labs and have opportunities to submit requests for larger-scale, project-oriented allocations. Proposals for larger-scale projects are reviewed twice per year to become NCAR Strategic Capability projects.
 
 See [NCAR allocations](#) for more details.
-
-------
-Just a copy of https://arc.ucar.edu/knowledge_base/74317835.

@@ -135,7 +135,6 @@ To submit a Cheyenne *batch* job, use the **qsub** command followed by the n
 
 ```shell
 qsub script_name
-import khar as kh
 ```
 See [this page](file:///C:/display/RC/Cheyenne+job+script+examples) for job script examples.
 

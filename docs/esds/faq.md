@@ -65,7 +65,7 @@ The NCAR High Performance Computing (HPC) system has a conda installation for yo
 instructions can be found on this [Using Conda and Python](https://arc.ucar.edu/knowledge_base/83853599) page.
 
 If you don't want the trouble of making your own conda environment, there are managed environments available. The NCAR
-Package Library (NPL) is an environment containing many common scientific Python pacakges such as Numpy, Xarray, and GeoCAT.
+Package Library (NPL) is an environment containing many common scientific Python packges such as Numpy, Xarray, and GeoCAT.
 You can access the NPL environment through the command line and the NCAR JupyterHub.
 
 #### NPL on the command line
@@ -105,7 +105,7 @@ You can access the NPL environment through the command line and the NCAR Jupyter
 2. Start a [server](https://arc.ucar.edu/knowledge_base/70549913)
 3. With your Jupyter Notebook open, click on the kernel name in the upper right.
    ![The NCAR JupyterHub with a blank JupyterNotebook open. A red arrow is pointing to the upper right where the current kernel is listed.](images/JupyterHub.png)
-4. A dialog will appear with all the verious kernels available to you. These kernels will (generally) have the same
+4. A dialog will appear with all the various kernels available to you. These kernels will (generally) have the same
    name as the conda environment that it uses. This may not be the case if you are managing your own environments and kernels.
    ![After clicking on the current kernel name, a dialog appears saying "Select Kernel" with a drop down menu](images/SelectKernel.png)
 5. Select the "npl (conda)" kernel from the list if you want to use the NCAR-managed NPL environment.
@@ -214,7 +214,7 @@ and use it elsewhere. These are the basic steps:
    where `environment` can be replaced with the file name of your choice. The `--from-history` flag allows you to
    recreate your environment on any system. It is the cross-platform compatible way of exporting an environment.
 
-2. Move the `environment.yml` to the system you want to use it on / activate the appropriate conda installtion you wish to use.
+2. Move the `environment.yml` to the system you want to use it on / activate the appropriate conda installation you wish to use.
 
 3. Use the `.yml` file to create your environment
    ```bash
@@ -282,7 +282,7 @@ Keep an eye on the dask dashboard.
 
 ### Help, my analysis is slow!
 
-1. Try subsetting for **_just_** the variable(s) you need for example, if you are reading in a dataset with ~25 variables, and you only need `temperature`, just read in temperature. You can specificy which variables to read in by using the following syntax, following the example of the temperature variable.
+1. Try subsetting for **_just_** the variable(s) you need for example, if you are reading in a dataset with ~25 variables, and you only need `temperature`, just read in temperature. You can specify which variables to read in by using the following syntax, following the example of the temperature variable.
 
 ```python
 ds = xr.open_dataset(file, data_vars=['temperature'])
