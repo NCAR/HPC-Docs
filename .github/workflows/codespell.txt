@@ -1,3 +1,4 @@
-spac
+slac
 requestor
+requestors
 re-use
