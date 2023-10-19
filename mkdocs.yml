@@ -7,6 +7,19 @@ site_author: CISL CSG (Consulting Services Group)
 edit_uri: edit/main/docs/
 
 # ------------------------------------
+# -------- validation config ---------
+# ------------------------------------
+validation:
+  nav:
+    not_found: warn
+    omitted_files: warn
+  links:
+    absolute_links : ignore
+    unrecognized_links: ignore
+
+  
+
+# ------------------------------------
 # ----------- content ----------------
 # ------------------------------------
 nav:
