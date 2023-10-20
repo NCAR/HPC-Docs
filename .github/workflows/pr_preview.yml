@@ -1,4 +1,4 @@
-name: pr_preview
+name: ci_preview
 on:
   pull_request:
 
