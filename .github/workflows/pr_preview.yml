@@ -1,4 +1,4 @@
-name: pr_preview
+name: ci_preview
 on:
   pull_request:
 
@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -20,4 +22,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r requirements.txt 
-      - run: mkdocs build
+      - run: mkdocs build --strict

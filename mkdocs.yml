@@ -7,6 +7,20 @@ site_author: CISL CSG (Consulting Services Group)
 edit_uri: edit/main/docs/
 
 # ------------------------------------
+# -------- validation config ---------
+# ------------------------------------
+validation:
+  nav:
+    not_found: warn             # check if stubs exist or not!
+    omitted_files: ignore       # check for files that exist without any links to them in nav
+    absolute_links : warn       # check for absolute links -- pointers to outside htmls in nav
+
+  links:
+    not_found: ignore           # check for broken links inside mds. (to be activated later!)
+    absolute_links : ignore     # check for absolute links -- pointers to outside htmls in files (to be activated later!)
+    unrecognized_links: ignore  # unrecognized relative links (to be activated later!)
+
+# ------------------------------------
 # ----------- content ----------------
 # ------------------------------------
 nav:
@@ -293,7 +307,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
-      emoji_index: !!python/name:materialx.emoji.twemoji
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
