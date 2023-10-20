@@ -6,7 +6,7 @@ CISL’s GLADE disk storage resource.
 
 !!! note
     The tables below show which data sets are already available on GLADE.
-    They are updated each Friday.  These data may be located under
+    They are updated each Friday.  These data are be located under
     ```pre
     /glade/collections/cmip/
     ```
