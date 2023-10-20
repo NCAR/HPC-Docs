@@ -2,17 +2,37 @@
 
 !!! info "About this page"
     This documentation provides information for how to use PBS Pro to submit and manage interactive jobs and batch jobs on NCAR systems.
+Computerized batch processing is a method of running software programs
+called jobs in batches automatically. While users are required to
+submit the jobs, no other interaction by the user is required to
+process the batch. Batches may automatically be run at scheduled times
+as well as being run contingent on the availability of computer
+resources. For additional background, see
+[Batch Computng Overview](https://en.wikipedia.org/wiki/Batch_processing).
+NCAR's HPC resources use the [Portable Batch System](https://en.wikipedia.org/wiki/Portable_Batch_System)
+as implemented in Altair's [PBS Pro](https://altair.com/pbs-professional) across shared resources.
 
 The basic PBS commands are the same on each cluster, but refer to these system-specific pages for details that are unique to each of them, including hardware specifications, software, and job-submission queues and procedures:
 
 - Derecho (in development)
 - [Casper](http://casper.ucar.edu)
-- [Cheyenne](http://cheyenne.ucar.edu)
+
+
+## Job scripts
+[Job scripts](./job-scripts/index.md) form the basis of *batch jobs*.
+A job script is simply a text file with instructions of the work to
+execute.  Job scripts are *usally* written in `bash` or `tcsh` and
+thus mimic commands a user would execute interactively through a
+shell; but instead are executed on specific resources allocated by the
+scheduler when available.  Scripts can also be written in other
+languages - commonly Python.  See our [job scripts](./job-scripts/index.md) page for a detailed discussion of job
+scripts and examples.
 
 
 ## Submitting jobs
+In the examples that follow, `script_name`, `job.pbs` etc... represent a job script files submitted for batch execution.
 
-PBS Pro is used to schedule both interactive jobs and batch compute jobs. Detailed examples of how to start both types of jobs are included in the documentation (see links above) for each individual system.
+[PBS Pro](https://altair.com/pbs-professional) is used to schedule both interactive jobs and batch compute jobs. Detailed examples of how to start both types of jobs are included in the documentation (see links above) for each individual system.
 
 Commands for starting interactive jobs are specific to individual systems. The basic command for starting a batch job, however, is the same.
 
