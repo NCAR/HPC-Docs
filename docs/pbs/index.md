@@ -21,7 +21,7 @@ The basic PBS commands are the same on each cluster, but refer to these system-s
 ## Job scripts
 [Job scripts](./job-scripts/index.md) form the basis of *batch jobs*.
 A job script is simply a text file with instructions of the work to
-execute.  Job scripts are *usally* written in `bash` or `tcsh` and
+execute.  Job scripts are *usually* written in `bash` or `tcsh` and
 thus mimic commands a user would execute interactively through a
 shell; but instead are executed on specific resources allocated by the
 scheduler when available.  Scripts can also be written in other
