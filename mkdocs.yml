@@ -137,6 +137,7 @@ nav:
       - pbs/index.md
       - Job Scripts:
         - pbs/job-scripts/index.md
+      - Using Preemption: pbs/preemption.md
       - Common Causes of Job Failures:
         - pbs/common-causes-of-job-failures/index.md
         - Checking Memory Use:
