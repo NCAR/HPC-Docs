@@ -169,6 +169,31 @@ The remaining script contains shell commands that define the job execution workf
 ### Listing of common `#PBS` directives
 <!-- FIXME -->
 
+
+!!! info "`qsub` arguments take precedence over `#PBS` directives"
+    Best practice is to fully specify your PBS queue, job name, and resources in your job script as shown above. This allows for better debugging and facilitates reproducing runs in the future.    When a job's PBS attributes are fully specified, you can usually submit the script with no additional arguments, for example
+    ```bash
+    qsub script.pbs
+    ```
+    (See [Running Jobs](../index.md) for more details on interacting with the scheduler.)
+
+    ---
+
+    On occasion users may want to change some of the PBS parameters
+    without modifying the job script.  A common example may be the
+    account code, the job name (`-N`) or even the `walltime`.
+
+    Any `#PBS` directives specified in the job script can be
+    overridden at submission time by equivalent arguments to `qsub`.
+    For example,
+    ```bash
+     qsub -A <OTHER_ACCOUNT> -N testing script.pbs
+    ```
+    will run `script.pbs` under the specified `<OTHER_ACCOUNT>` and
+    with the job name `testing`, regardless of what other values may be
+    specified in `script.pbs`
+
+
 ## Execution environment variables
 Within the **script contents** of the job script, it is common for the
 specifics of the job to depend slightly on the PBS and specific
