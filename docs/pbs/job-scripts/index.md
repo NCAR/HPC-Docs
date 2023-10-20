@@ -117,7 +117,7 @@ Sample basic PBS scripts are listed below:
 
 ### `#PBS` Directives
 
-The example above containes several **directives#* which are interpreted by the `qsub` submission program:
+The example above contains several **directives#* which are interpreted by the `qsub` submission program:
 
 * `-N hello_pbs` provides a *job name*.  This name will be displayed by the scheduler for diagnostic and file output.  If omitted, and a script is used to submit the job, the job's name is the  name  of  the  script.
 * `-A <project_code>` indicates which *NCAR Project Accounting code* resource allocation will be applicable to this job. (You will want to replace `<project_code>` with your project's specific code.)
@@ -209,7 +209,7 @@ Some of the more useful ones are:
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | <p style="text-align: center;"><strong>Machine and Software Environment</strong></p> {: colspan=2} |
 | `NCAR_HOST`                                              | Specifies the *host class* of machine, e.g. `derecho` or `casper`                                               |
-| `NCAR_BUILD_ENV_COMPILER`                                | A unique string idenitfying the host and compiler+version currently loaded.<br>Example: `casper-oneapi-2023.2.1` |
+| `NCAR_BUILD_ENV_COMPILER`                                | A unique string identifying the host and compiler+version currently loaded.<br>Example: `casper-oneapi-2023.2.1` |
 | `NCAR_BUILD_ENV_MPI`                                     | A unique string identifying the host, compiler+version, and mpi+version currently loaded.<br> Example: `casper-oneapi-2023.2.1-openmpi-4.1.5` |
 | `NCAR_BUILD_ENV`                                         | A unique string identifying the current *build environment*, identical to `NCAR_BUILD_ENV_MPI` when an MPI module is loaded, or `NCAR_BUILD_ENV_COMPILER` if only a compiler is loaded. |
 | `LMOD_FAMILY_COMPILER`<br>`LMOD_FAMILY_COMPILER_VERSION` | Specifies the type and version of compiler currently loaded, if any.<br>Example:`intel`, `gcc`, `nvhpc`         |
