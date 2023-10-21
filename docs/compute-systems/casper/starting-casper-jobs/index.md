@@ -186,5 +186,7 @@ mv /local_scratch/pbs.$PBS_JOBID/output_data ${SCRATCH}
 See this page for many *Casper* PBS job script examples:
 [Casper job script examples](./casper-job-script-examples.md)
 
+When your script is ready, submit your batch job for scheduling as shown [here](../../../pbs/index.md).
+
 <!--  LocalWords:  Casper
  -->

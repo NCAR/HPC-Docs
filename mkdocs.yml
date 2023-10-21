@@ -125,12 +125,11 @@ nav:
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
       - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
       - Starting Derecho Jobs:
+        - compute-systems/derecho/starting-derecho-jobs/index.md
         - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
         - Derecho Job Script Examples:
-            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/index.md
-            - Derecho Advanced Job Script Examples: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/derecho-advanced-examples.md
-            - Job Preemption with PBS: compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/job-preemption-with-pbs.md
-            - Process Binding : compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/process-binding.md
+            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
+            - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md
 
     - Casper:
       - compute-systems/casper/index.md

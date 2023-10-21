@@ -324,6 +324,7 @@ Some of the more useful ones are:
 {% include 'compute-systems/casper/starting-casper-jobs/casper-job-script-examples-content.md' %}
 
 ### Derecho
+{% include 'compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples-content.md' %}
 
 <!--  LocalWords:  mpiprocs MPI ompthreads OpenMP mem ngpus GPUs  ncpus
  -->

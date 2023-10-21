@@ -1,4 +1,4 @@
-﻿# **Job-submission queues and charges**
+# **Job-submission queues and charges**
 Most **Cheyenne** batch queues are for *exclusive* use, so jobs submitted to those queues are charged for all 36 cores on each node that is used. Jobs in the *shared* use `share` queue are charged only for the cores that are used.
 
 The `regular` queue, which has a 12-hour wall-clock limit, meets most users' needs for running batch jobs on Cheyenne.
