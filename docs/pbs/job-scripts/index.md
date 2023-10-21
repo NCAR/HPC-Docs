@@ -115,9 +115,9 @@ Sample basic PBS scripts are listed below:
 2.  The remaining **script contents** are simply `bash` commands that will be run inside the batch environment on the selected resources and define the work to be done in this job.
 
 
-### `#PBS` Directives
+### PBS directives
 
-The example above contains several **directives#* which are interpreted by the `qsub` submission program:
+The example above contains several **directives** which are interpreted by the `qsub` submission program:
 
 * `-N hello_pbs` provides a *job name*.  This name will be displayed by the scheduler for diagnostic and file output.  If omitted, and a script is used to submit the job, the job's name is the  name  of  the  script.
 * `-A <project_code>` indicates which *NCAR Project Accounting code* resource allocation will be applicable to this job. (You will want to replace `<project_code>` with your project's specific code.)
@@ -128,7 +128,7 @@ The example above contains several **directives#* which are interpreted by the `
 * `-l select=2:ncpus=128:mpiprocs=128` is a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes, where each node must have 128 CPU cores, each of which we will use as an MPI rank in our application.
 
 
-### Script Contents
+### Script contents
 
 The remaining script contains shell commands that define the job execution workflow.  The commands here are arbitrary, however we strongly recommend the general structure presented above.  This includes:
 
@@ -158,15 +158,83 @@ The remaining script contains shell commands that define the job execution workf
 
 
 ## Common `#PBS` directives
+
+### Resource requests
+
+#### `select` statements
+Resources are specified through a `select` statement.  The general form of a *homogeneous* selection statement is
+```pre
+select=<# NODES>:ncpus=<# CPU Cores/node>:mpiprocs=<# MPI Ranks/node>:ompthreads=<# OpenMP Threads/rank>:mem=<RAM/node>:ngpus=<# GPUs/node>
+```
+where
+
+*  `<# NODES>` is the total number of compute nodes requested, followed by a colon-separated list of
+
+*  `<# CPU Cores/node>` is the *total* number of CPUs requested *on each node*, which can be a mix of MPI Ranks and/or OpenMP threads,
+
+*  `<# MPI Ranks/node` is the number of MPI Ranks *on each node*,
+
+*  `<# OpenMP Threads/node>` is the number of OpenMP ranks *per MPI Rank on each node*. (Optional, defaults to 1),
+
+*  `<RAM/node>` is how much main memory (RAM) the job will be able to access *on each node*. (Optional, default is system dependent), and
+
+*  `<# GPUs/node>` is the number of GPUs *per node*. (Optional, defaults to 0).
+
+Taken together, this specifies a *resource chunk*. Homogeneous resource chunks are the most common case, however, *heterogeneous* selection statements can be constructed by multiple chunks separated by a **+** (examples below).
+
+##### Examples
+*  4 128-core nodes, each running 128 MPI ranks (4 `x` 128 = 512 MPI ranks total).
+   ```pre
+   select=4:ncpus=128:mpiprocs=128
+   ```
+
+*  4 128-core nodes, each running 32 MPI ranks with 4 OpenMP threads per ranl (4 `x` 32 = 128 MPI ranks total, each with 4 threads = 512 total CPU cores).
+   ```pre
+   select=4:ncpus=128:mpiprocs=32:ompthreads=4
+   ```
+
+*  2 64-core nodes, each running 4 MPI ranks, 4 GPUS, and 384 GB memory (8 GPUs total, with 8 MPI ranks).
+   ```pre
+   select=2:ncpus=64:mpiprocs=4:ngpus=4:mem=384GB
+   ```
+
+*  4 36-core nodes, each running 4 MPI ranks, 4 GPUS configured with NVIDIA's Multi-Process Service (MPS), and 768 GB memory (16 GPUs total, with 16 MPI ranks).
+   ```pre
+   select=4:ncpus=36:mpiprocs=4:ngpus=4:mem=768GB:mps=1
+   ```
+   MPS is simply enabled via `mps=1`, and is disabled by default (`mps=0`)
+
+*  A heterogeneous selection, 96 128-core nodes each with 128 MPI ranks, and 32 128-core nodes each with 16 MPI ranks and 8 OpenMP threads
+   ```pre
+   select=96:ncpus=128:mpiprocs=128+32:ncpus=16:ompthreads=8
+   ```
+
+The particular values for `ncpus`, `mem`, `ngpus` are node-type
+dependent, and most NCAR systems have more than one available node
+type. (See system specific documentation for
+recommended values.)
+
+!!! tip "Always request all `ncpus` when running on exclusive nodes"
+    For large multi-node jobs on machines like *Derecho* nodes are usually assigned exclusively to a single PBS job at a time.  For most use cases, users will request the maximum number of CPUS available via `ncpus`, and consume all through a commbination of `mpiprocs` and `ompthreads`.
+
+    Occasionally...
+    <!-- FIXME -->
+
+#### `walltime`
 <!-- FIXME -->
 
-### Resource `select` statements
+#### Job Priority
 <!-- FIXME -->
+```pre
+job_priority=<regular|premium|economy>
+```
 
-### Job Priority
-<!-- FIXME -->
+#### GPU Type
+```
+gpu_type=<gp100|v100|a100>
+```
 
-### Listing of common `#PBS` directives
+### Listing of frequently used `#PBS` directives
 <!-- FIXME -->
 
 
@@ -187,11 +255,14 @@ The remaining script contains shell commands that define the job execution workf
     overridden at submission time by equivalent arguments to `qsub`.
     For example,
     ```bash
-     qsub -A <OTHER_ACCOUNT> -N testing script.pbs
+     qsub -A <OTHER_ACCOUNT> \
+          -N testing \
+          -l priority=premium \
+          script.pbs
     ```
-    will run `script.pbs` under the specified `<OTHER_ACCOUNT>` and
-    with the job name `testing`, regardless of what other values may be
-    specified in `script.pbs`
+    will run `script.pbs` under the specified `<OTHER_ACCOUNT>`
+    with the job name `testing` and requests `premium` priority,
+    regardless of what other values may be specified in `script.pbs`
 
 
 ## Execution environment variables
@@ -250,3 +321,10 @@ Some of the more useful ones are:
 ## Sample PBS job scripts
 
 <!-- PBS_SELECT=2:ncpus=128:mpiprocs=2:ompthreads=2:mem=200GB:Qlist=cpu:ngpus=0+1:ncpus=128:mpiprocs=4:ompthreads=4:mem=200GB:Qlist=cpu:ngpus=0 -->
+
+### Casper
+
+### Derecho
+
+<!--  LocalWords:  mpiprocs MPI ompthreads OpenMP mem ngpus GPUs  ncpus
+ -->
