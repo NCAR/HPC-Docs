@@ -40,7 +40,7 @@ queue name in your PBS script header as follows:
 !!! example "Requesting the `preempt` queue"
     ```bash
     #!/bin/bash
-    #PBS -A project_code
+    #PBS -A <project_code>
     #PBS -N preemptable_job
     #PBS -q preempt
     #PBS -r n
