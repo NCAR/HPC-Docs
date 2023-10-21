@@ -320,9 +320,8 @@ Some of the more useful ones are:
 
 ## Sample PBS job scripts
 
-<!-- PBS_SELECT=2:ncpus=128:mpiprocs=2:ompthreads=2:mem=200GB:Qlist=cpu:ngpus=0+1:ncpus=128:mpiprocs=4:ompthreads=4:mem=200GB:Qlist=cpu:ngpus=0 -->
-
 ### Casper
+{% include 'compute-systems/casper/starting-casper-jobs/casper-job-script-examples-content.md' %}
 
 ### Derecho
 

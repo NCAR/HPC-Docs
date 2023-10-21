@@ -140,7 +140,6 @@ nav:
       - Starting Casper Jobs:
             - compute-systems/casper/starting-casper-jobs/index.md
             - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
-            - Using NVIDIA MPS in Casper GPU jobs: compute-systems/casper/starting-casper-jobs/using-nvidia-mps-in-casper-gpu.md
       - Using Remote Desktops: compute-systems/casper/remote-desktops.md
 
     - JupyterHub:
