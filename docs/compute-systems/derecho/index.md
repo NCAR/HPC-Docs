@@ -1,26 +1,107 @@
 
 # Derecho
 
-Derecho, the new supercomputer NCAR installed in 2023, features 2,488 compute nodes with 128 AMD Milan cores per node and 82 nodes with four NVIDIA A100 GPUs each. The HPE Cray EX cluster is a 19.87-petaflops system that is expected to deliver about 3.5 times the scientific throughput of the Cheyenne system. Additional hardware details are available below.
+Insalled in 2023, Derecho is NCAR's latest supercomputer.  Derecho features 2,488 compute nodes with 128 AMD Milan cores per node and 82 nodes with four NVIDIA A100 GPUs each. The HPE Cray EX cluster is a 19.87-petaflops system that is expected to deliver about 3.5 times the scientific throughput of the Cheyenne system. Additional [hardware details](./index.md#derecho-hardware) are available below.
 
 
 <img src="https://kb.ucar.edu/download/attachments/embedded-page/RC/User%20documentation%20for%20NCAR%20high-performance%20computing/derecho_logo1600X560.png?api=v2" width="350"/>
 
-See the following pages for user documentation that is relevant to all NCAR systems (compiling code, environment module basics, managing allocations), and the menu on the right of your screen for system-specific information.
-
-* [Getting started with NCAR systems](https://arc.ucar.edu/knowledge_base/87655186)
-* [New user orientation](https://arc.ucar.edu/knowledge_base/68878414)
-* [User support](https://arc.ucar.edu/knowledge_base/74318011)
-
-Additional Derecho documentation is in development.
 
 
--------
 
 !!! note " Estimating Derecho Allocation Needs"
     Derecho users can expect to see a **1.3x** improvement over the Cheyenne system's performance on a core-for-core basis. Therefore, to estimate how many CPU core-hours will be needed for a project on Derecho, multiply the total for a Cheyenne project by **0.77**.
 
 When requesting an allocation for Derecho GPU nodes, please make your request in terms of GPU-hours (number of GPUs used x wallclock hours). We encourage researchers to estimate GPU-hour needs by making test/benchmark runs on Casper GPUs, but will accept estimates based on runs on comparable non-NCAR, GPU-based systems.
+
+
+---
+
+## Quick Start
+### Logging in
+
+Once you have [an account](../../getting-started/accounts/index.md),
+have reviewed the [Derecho Use Policies](./derecho-use-policies.md),
+and have a Derecho [resource allocation](../../getting-started/managing-your-allocation.md)
+you can log in and run jobs on the Derecho data analysis and visualization cluster.
+
+To log in, start your terminal or Secure Shell client and run an ssh command as shown here:
+```
+ssh -X username@derecho.hpc.ucar.edu
+
+```
+
+Some users (particularly on Macs) need to use `-Y` instead of `-X` when calling SSH to enable X11 forwarding.
+
+You can omit `username` in the command above if your Derecho username is the same as your  username on your local computer.
+
+After running the `ssh` command, you will be [asked to authenticate](../../getting-started/accounts/duo/index.md#hpc-and-ssh-logins) to finish logging in.
+
+
+Derecho has full access to [NCAR storage resources](../../storage-systems/index.md),
+including [GLADE](../../storage-systems/glade/index.md).
+Users can [transfer data](../../storage-systems/data-transfer/index.md) to and from Derecho.
+
+
+To run data analysis and visualization jobs on the Derecho system's nodes, follow the
+[procedures described here](./starting-derecho-jobs/index.md).
+There is no need to transfer output files from Derecho for this since
+Derecho and Casper mount the same `GLADE` file systems.
+
+
+!!! danger "Don’t run `sudo` on NCAR systems!"
+    If you need help with tasks that you think require `sudo`
+    privileges, or if you aren’t sure, please contact HPC User Support
+    before trying to run `sudo` yourself. The command fails when
+    unauthorized users run it and sends a security alert to system
+    administrators.
+
+-----
+
+### Environment
+The Derecho HPC system uses a Cray variant of **SUSE Enterprise Linux** and supports
+widely used shells on its login and compute nodes. Users also have
+several compiler and MPI library choices.
+
+#### Shells
+The default login shell for new Derecho users is `bash`. You can
+change the default after logging in to the Systems Accounting Manager
+[(SAM)](../../getting-started/managing-your-allocation.md#using-the-systems-accounting-manager).
+It may take several hours for a change you make to take effect. You
+can confirm which shell is set as your default by entering `echo $SHELL`
+on your Derecho command line.
+
+#### Environment modules
+The Derecho `module` utility enables users to easily load and unload
+compilers and compatible software packages as needed, and to create
+multiple customized environments for various tasks. See the
+[Environment modules page](../../environment-and-software/user-environment/modules.md) for
+a general discussion of `module` usage.  Derecho's default module
+environment is listed [here](./derecho-modules.md).
+
+-----
+
+
+### Accessing software and compiling code
+Derecho users have access to Intel, NVIDIA, and GNU compilers. The **Intel** compiler and **OpenMPI** modules are loaded by default and provide access to pre-compiled [HPC Software](../../environment-and-software/hpc-software/index.md) and [Data Analysis and Visualization Resources](../../environment-and-software/data-analysis-and-visualization.md).
+
+See this page for [a full discussion of compiling on Derecho](./compiling-code-on-derecho/index.md).
+
+Many Derecho data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+
+-----
+
+### Running jobs on Derecho
+Users can run a variety of types of jobs on Derecho, including both traditional
+[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and/or graphics-intensive analysis, often through [remote desktops on Derecho](./remote-desktop.md).
+
+#### Job scripts
+Job scripts are discussed broadly [here](../../pbs/job-scripts/index.md).
+Users already familiar with PBS and batch submission may find [Derecho-specific PBS job scripts](./starting-derecho-jobs/derecho-job-script-examples.md) helpful in porting their work.
+
+
+
+---
 
 ## Derecho Hardware
 

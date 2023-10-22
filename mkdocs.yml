@@ -121,7 +121,6 @@ nav:
   - Compute Systems and Services:
     - Derecho:
       - compute-systems/derecho/index.md
-      - Quick Start on Derecho: compute-systems/derecho/quick-start-on-derecho.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
       - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
       - Starting Derecho Jobs:

@@ -70,7 +70,7 @@ several compiler and MPI library choices.
 #### Shells
 The default login shell for new Casper users is `bash`. You can
 change the default after logging in to the Systems Accounting Manager
-[(SAM)](../../getting-started/managing-your-allocation/index.md#using-the-systems-accounting-manager).
+[(SAM)](../../getting-started/managing-your-allocation.md#using-the-systems-accounting-manager).
 It may take several hours for a change you make to take effect. You
 can confirm which shell is set as your default by entering `echo $SHELL`
 on your Casper command line.
