@@ -8,59 +8,59 @@
     GPU.
 
     === "bash"
-    ```bash
-    #!/bin/bash -l
-    ### Job Name
-    #PBS -N htc_job
-    ### Charging account
-    #PBS -A <project_code>
-    ### Request one chunk of resources with 1 CPU and 10 GB of memory
-    #PBS -l select=1:ncpus=1:mem=10GB
-    ### Allow job to run up to 30 minutes
-    #PBS -l walltime=30:00
-    ### Route the job to the casper queue
-    #PBS -q casper
-    ### Join output and error streams into single file
-    #PBS -j oe
+        ```bash
+        #!/bin/bash -l
+        ### Job Name
+        #PBS -N htc_job
+        ### Charging account
+        #PBS -A <project_code>
+        ### Request one chunk of resources with 1 CPU and 10 GB of memory
+        #PBS -l select=1:ncpus=1:mem=10GB
+        ### Allow job to run up to 30 minutes
+        #PBS -l walltime=30:00
+        ### Route the job to the casper queue
+        #PBS -q casper
+        ### Join output and error streams into single file
+        #PBS -j oe
 
-    export TMPDIR=${SCRATCH}/temp
-    mkdir -p ${TMPDIR}
+        export TMPDIR=${SCRATCH}/temp
+        mkdir -p ${TMPDIR}
 
-    ### Load Conda/Python module and activate NPL environment
-    module load conda
-    conda activate npl
+        ### Load Conda/Python module and activate NPL environment
+        module load conda
+        conda activate npl
 
-    ### Run analysis script
-    python myscript.py datafile.dat
-    ```
+        ### Run analysis script
+        python myscript.py datafile.dat
+        ```
 
 
     === "tcsh"
-    ```tcsh
-    #!/bin/tcsh
-    ### Job Name
-    #PBS -N htc_job
-    ### Charging account
-    #PBS -A <project_code>
-    ### Request one chunk of resources with 1 CPU and 10 GB of memory
-    #PBS -l select=1:ncpus=1:mem=10GB
-    ### Allow job to run up to 30 minutes
-    #PBS -l walltime=30:00
-    ### Route the job to the casper queue
-    #PBS -q casper
-    ### Join output and error streams into single file
-    #PBS -j oe
+        ```tcsh
+        #!/bin/tcsh
+        ### Job Name
+        #PBS -N htc_job
+        ### Charging account
+        #PBS -A <project_code>
+        ### Request one chunk of resources with 1 CPU and 10 GB of memory
+        #PBS -l select=1:ncpus=1:mem=10GB
+        ### Allow job to run up to 30 minutes
+        #PBS -l walltime=30:00
+        ### Route the job to the casper queue
+        #PBS -q casper
+        ### Join output and error streams into single file
+        #PBS -j oe
 
-    setenv TMPDIR ${SCRATCH}/temp
-    mkdir -p ${TMPDIR}
+        setenv TMPDIR ${SCRATCH}/temp
+        mkdir -p ${TMPDIR}
 
-    ### Load Conda/Python module and activate NPL environment
-    module load conda
-    conda activate npl
+        ### Load Conda/Python module and activate NPL environment
+        module load conda
+        conda activate npl
 
-    ### Run analysis script
-    python myscript.py datafile.dat
-    ```
+        ### Run analysis script
+        python myscript.py datafile.dat
+        ```
 
 !!! example "Batch script to run an MPI GPU job on *Casper*"
 
