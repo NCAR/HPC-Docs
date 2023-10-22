@@ -109,12 +109,12 @@ Users can set job priority to one of three values. Jobs with higher
 priority are charged against the user's allocation at higher rates than
 others.
 
-| **Job priority** | **Priority order** | **Priority factor** | **Description**                                                |
-|------------------|--------------------|---------------------|----------------------------------------------------------------|
-| premium          | 1                  | 1.5                 | Jobs are charged at 150% of the regular rate.                  |
-| regular          | 2                  | 1                   | All production jobs default to this priority.                  |
-| economy          | 3                  | 0.7                 | Production batch jobs are charged at 70% of regular rate.      |
-| preempt          | 4                  | 0                   | Automatically selected when job is submitted to preempt queue. |
+| **Job priority** | **Priority order** | **Priority factor** | **Description**                                                  |
+|------------------|--------------------|---------------------|------------------------------------------------------------------|
+| premium          | 1                  | 1.5                 | Jobs are charged at 150% of the regular rate.                    |
+| regular          | 2                  | **1**               | All production jobs default to this priority.                    |
+| economy          | 3                  | 0.7                 | Production batch jobs are charged at 70% of regular rate.        |
+| preempt          | 4                  | 0.2                 | Automatically selected when job is submitted to `preempt` queue. |
 
 #### Job size
 
@@ -159,3 +159,4 @@ job. After the `SIGTERM` signal is sent to the job, there is a five-minute
 window in which the job has a chance to checkpoint or save any work that
 was accomplished. After the five-minute window, the job will be killed
 by the scheduler and deleted.
+See [this page](../../pbs/preemption.md) for additional preemption details.

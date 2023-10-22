@@ -101,10 +101,11 @@ conda env list
 The output will include both managed environments and any personal
 environments you have created, provided they are in Conda’s search path.
 
-Our primary managed environment is the NPL, which contains a large
-collection of packages related to geoscience and data processing. (It
-does not currently contain GPU or machine learning packages.) The NPL
-can be accessed as follows:
+#### The NCAR Python Library
+Our primary managed environment is the NCAR Python Library (**NPL**),
+which contains a large collection of packages related to geoscience
+and data processing. (It does not currently contain GPU or machine
+learning packages.) The NPL can be accessed as follows:
 ```bash
 conda activate npl
 ```
@@ -121,7 +122,7 @@ following command:
 conda list --name npl-2022b
 ```
 
-#### Update schedule for the NCAR Python Library
+##### Update schedule for the NCAR Python Library
 
 The NPL is updated twice a year and identified with environment names
 such as `npl-2022b` and `npl-2023a`. New NPL versions contain the

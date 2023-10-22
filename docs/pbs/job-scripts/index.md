@@ -153,13 +153,25 @@ The remaining script contains shell commands that define the job execution workf
 
     In the example above, we first compile and then execute `hello_world_mpi.C`, a simple MPI program.
 
-
 ---
-
 
 ## Common `#PBS` directives
 
 ### Resource requests
+Resources (compute node configuration, job duration) are requested
+through a combination of *resource selection* flags, each preceded
+with `-l`.
+
+For example:
+```pre
+#PBS -l walltime=00:05:00
+#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=400GB
+#PBS -l gpu_type=a100
+#PBS -l job_priority=economy
+```
+specifies job `walltime`, compute node selection, GPU type, and job
+priority.  See more details below.
+
 
 #### `select` statements
 Resources are specified through a `select` statement.  The general form of a *homogeneous* selection statement is
@@ -214,28 +226,68 @@ dependent, and most NCAR systems have more than one available node
 type. (See system specific documentation for
 recommended values.)
 
-!!! tip "Always request all `ncpus` when running on exclusive nodes"
-    For large multi-node jobs on machines like *Derecho* nodes are usually assigned exclusively to a single PBS job at a time.  For most use cases, users will request the maximum number of CPUS available via `ncpus`, and consume all through a commbination of `mpiprocs` and `ompthreads`.
+!!! tip "Request all `ncpus` when running on exclusive nodes"
+    For large multi-node jobs on machines like *Derecho* nodes are
+    usually assigned exclusively to a single PBS job at a time.  For
+    most use cases, users will request the maximum number of CPUS
+    available via `ncpus`, and consume all through a combination of
+    `mpiprocs` and `ompthreads`.
 
-    Occasionally...
-    <!-- FIXME -->
+    Occasionally users may want fewer than the maximum CPUs for
+    computation, "under-subscribing" compute nodes.  This is usually
+    done for memory intensive applications, where some cores are
+    intentionally left idle in order to increase the memory available
+    for the running cores.  In such circumstances users should still
+    request access to all CPUs, but only use a subset.  For example
+    ```bash
+    select=4:ncpus=128:mpiprocs=64:ompthreads=1:mem=235GB
+    ```
+    requests access to all 128 CPUs on a dedicated node, but only
+    assigns 64 for MPI use.
+
+    By requesting access to all `ncpus=128` is
+    recommended for this case because it allows optimally locating the
+    actually used `mpiprocs=64` across the compute node via *process
+    binding*.
 
 #### `walltime`
-<!-- FIXME -->
+The `-l walltime=HH:MM:SS` resource directive specifies maximum job
+duration. Jobs still running when this wall time is exceeded will be
+terminated automatically by the scheduler.
+```pre
+walltime=HH:MM:SS
+```
 
-#### Job Priority
-<!-- FIXME -->
+#### `job_priority`
+Users may request a specific job priority with the `-l job_priority=...` resource directive.
+Valid options are:
 ```pre
 job_priority=<regular|premium|economy>
 ```
+Job priority impacts both scheduling and resource accounting, allowing users to run at a higher/lower priority in exchange for additional/reduced allocation consumption.  See [here](../../compute-systems/derecho/derecho-use-policies.md#job-priority) for additional information.
 
-#### GPU Type
+
+#### `gpu_type`
+For highly heterogeneous systems such as Casper, a resource chunk
+statement including GPUS may match more than one particular GPU type.
+The resource specification `-l gpu_type=...` requests a particular GPU
+type, removing such ambiguity.  Valid options are:
 ```
 gpu_type=<gp100|v100|a100>
 ```
 
 ### Listing of frequently used `#PBS` directives
-<!-- FIXME -->
+<!-- FIXME -- add a table -->
+
+| <div style="width:120px">Directive</div> | Impact |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-A <project_code>` | NCAR Project Accounting  string  associated  with  the  job.                                                                                                                                                                                                                                                                                                                                                                           |
+| `-a <date at time>`  | Allows users to request a future  *eligible time* for job execution.<br>(By default jobs are considered immediately eligible for execution.)<br> Format: `[[[YY]MM]DD]hhmm[.SS]`                                                                                                                                                                                                                                                       |
+| `-h`                | Holds the job.<br><Held jobs can be released with `qrls`.                                                                                                                                                                                                                                                                                                                                                                                |
+| `-I`                | Specifies **interactive** execution.<br>Interactive jobs place the user a login session on the first compute node.<br>Interactive jobs terminate when the shell exits, or `walltime` is exceeded.                                                                                                                                                                                                                                      |
+| `-J <range>`        | Specifies an **array job**.<br>Use  the range argument to specify the indices of the sub jobs of the array.  range is specified in the form `X-Y[:Z]` where `X` is the first index, `Y` is the upper bound on the indices, and `Z`  is  the  stepping factor. Indices must be greater than or equal to zero.<br><br>Use the optional `%max_subjobs` argument to set a limit on the number of subjobs that can be running  at  one time. |
+| `-m <mail events>`   | Sends email on specific events (may be combined).<br>`n`: No mail is sent<br>`a`: Mail is sent when the job is aborted by the batch system<br>`b`: Mail is sent when the job begins execution<br>`e`:  Mail is sent when the job terminates<br><br>Example: `-m abe` |
+| `-M <address(es)>` | List of users to whom mail about the job is sent.<br>The user list argument has the form: `<username>[@<hostname>][,<username>[@<hostname>],...]` |
 
 
 !!! info "`qsub` arguments take precedence over `#PBS` directives"
@@ -257,7 +309,7 @@ gpu_type=<gp100|v100|a100>
     ```bash
      qsub -A <OTHER_ACCOUNT> \
           -N testing \
-          -l priority=premium \
+          -l job_priority=premium \
           script.pbs
     ```
     will run `script.pbs` under the specified `<OTHER_ACCOUNT>`
