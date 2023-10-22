@@ -102,55 +102,61 @@ request, your submission will be classified as shown in the table.
   <colgroup>
     <col style="width: 17%" />
     <col style="width: 17%" />
-    <col style="width: 20%" />
-    <col style="width: 44%" />
+    <col style="width: 30%" />
+    <col style="width: 50%" />
   </colgroup>
   <thead>
     <tr class="header">
       <th><strong>Submission queue</strong></th>
-      <th><strong>Job category (execution queue)</strong></th>
+      <th><strong>Job category</strong><br>(execution queue)</th>
       <th><strong>Job resource requests</strong></th>
       <th><strong>Limits</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr class="odd">
-      <td rowspan="4"><strong>casper</strong><br />
+      <td rowspan="4"><strong><pre>casper</pre></strong><br />
         24-hour wallclock limit</td>
-      <td><strong>largemem</strong></td>
-      <td>mem &gt; 361 GB<br />
-        ncpus &lt;= 36<br />
-        ngpus = 0</td>
+      <td><pre>largemem</pre></td>
+      <td>
+        <pre>mem>361 GB</pre>
+        <pre>ncpus<=36</pre>
+        <pre>ngpus=0</pre>
+      </td>
       <td>Up to 5 jobs eligible for execution at any one time (more can be
         queued)</td>
     </tr>
     <tr class="even">
-      <td><strong>htc</strong></td>
-      <td>mem &lt;= 361 GB<br />
-        ncpus &lt;= 144<br />
-        ngpus = 0</td>
-      <td>Up to 468 CPUs in use per user at any one time<br />
-        Up to 4680 GB memory per user at any one time<br />
+      <td><pre>htc</pre></td>
+      <td>
+        <pre>mem<=361 GB</pre>
+        <pre>ncpus<=36</pre>
+        <pre>ngpus=0</pre>
+      </td>
+      <td>Up to 468 CPUs in use per user at any one time.<br><br>
+        Up to 4680 GB memory per user at any one time
         (across all jobs in category)</td>
     </tr>
     <tr class="odd">
-      <td><strong>vis</strong></td>
-      <td>gpu_type=gp100</td>
+      <td><pre>vis</pre></td>
+      <td><pre>gpu_type=gp100</pre></td>
       <td>Up to 2 GPUs in use per user at any one time<br />
         Individual jobs are limited to a single gp100 (no multi-GPU jobs)</td>
     </tr>
     <tr class="even">
-      <td><strong>gpgpu</strong></td>
-      <td>gpu_type=v100</td>
+      <td><pre>gpgpu</pre></td>
+      <td><pre>gpu_type=v100|a100</pre></td>
       <td>Up to 32 GPUs in use per user at any one time; users may submit jobs
         requesting more than 32 GPUs for execution on weekends.</td>
     </tr>
     <tr class="odd">
-      <td><strong>gpudev</strong><br />
+      <td><strong><pre>gpudev</pre></strong><br/>
         30-minute wallclock limit</td>
       <td></td>
-      <td>ncpus &lt;= 36<br />
-        1 &lt;= ngpus &lt;= 4</td>
+      <td>
+        <pre>ncpus<=36</pre>
+        <pre>1<=ngpus<=4</pre>
+      </td>
       <td>Queue is only operational from 8 a.m. to 5:30 p.m. Mountain time,
         Monday to Friday. Users may have only one active job in the queue at any
         time.</td>
