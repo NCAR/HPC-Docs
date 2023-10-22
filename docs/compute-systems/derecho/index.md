@@ -1,7 +1,7 @@
 
 # Derecho
 
-Insalled in 2023, Derecho is NCAR's latest supercomputer.  Derecho features 2,488 compute nodes with 128 AMD Milan cores per node and 82 nodes with four NVIDIA A100 GPUs each. The HPE Cray EX cluster is a 19.87-petaflops system that is expected to deliver about 3.5 times the scientific throughput of the Cheyenne system. Additional [hardware details](./index.md#derecho-hardware) are available below.
+Installed in 2023, Derecho is NCAR's latest supercomputer.  Derecho features 2,488 compute nodes with 128 AMD Milan cores per node and 82 nodes with four NVIDIA A100 GPUs each. The HPE Cray EX cluster is a 19.87-petaflops system that is expected to deliver about 3.5 times the scientific throughput of the Cheyenne system. Additional [hardware details](./index.md#derecho-hardware) are available below.
 
 
 <img src="https://kb.ucar.edu/download/attachments/embedded-page/RC/User%20documentation%20for%20NCAR%20high-performance%20computing/derecho_logo1600X560.png?api=v2" width="350"/>
