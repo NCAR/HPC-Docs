@@ -251,22 +251,43 @@ recommended values.)
     binding*.
 
 #### `walltime`
-<!-- FIXME -->
+The `-l walltime=HH:MM:SS` resource directive specifies maximum job
+duration. Jobs still running when this wall time is exceeded will be
+terminated automatically by the scheduler.
+```pre
+walltime=HH:MM:SS
+```
 
-#### Job Priority
-<!-- FIXME -->
+#### `job_priority`
+Users may request a specific job priority with the `-l job_priority=...` resource directive.
+Valid options are:
 ```pre
 job_priority=<regular|premium|economy>
 ```
+Job priority impacts both scheduling and resource accounting, allowing users to run at a higher/lower priority in exchange for additional/reduced allocation consumption.  See [here](../../compute-systems/derecho/derecho-use-policies.md#job-priority) for additional information.
 
-#### GPU Type
-For highly heterogeneous systems
+
+#### `gpu_type`
+For highly heterogeneous systems such as Casper, a resource chunk
+statement including GPUS may match more than one particular GPU type.
+The resource specification `-l gpu_type=...` requests a particular GPU
+type, removing such ambiguity.  Valid options are:
 ```
 gpu_type=<gp100|v100|a100>
 ```
 
 ### Listing of frequently used `#PBS` directives
-<!-- FIXME -->
+<!-- FIXME -- add a table -->
+
+| <div style="width:120px">Directive</div> | Impact |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-A <project_code>` | NCAR Project Accounting  string  associated  with  the  job.                                                                                                                                                                                                                                                                                                                                                                           |
+| `-a <date at time>`  | Allows users to request a future  *eligible time* for job execution.<br>(By default jobs are considered immediately eligible for execution.)<br> Format: `[[[YY]MM]DD]hhmm[.SS]`                                                                                                                                                                                                                                                       |
+| `-h`                | Holds the job.<br><Held jobs can be released with `qrls`.                                                                                                                                                                                                                                                                                                                                                                                |
+| `-I`                | Specifies **interactive** execution.<br>Interactive jobs place the user a login session on the first compute node.<br>Interactive jobs terminate when the shell exits, or `walltime` is exceeded.                                                                                                                                                                                                                                      |
+| `-J <range>`        | Specifies an **array job**.<br>Use  the range argument to specify the indices of the sub jobs of the array.  range is specified in the form `X-Y[:Z]` where `X` is the first index, `Y` is the upper bound on the indices, and `Z`  is  the  stepping factor. Indices must be greater than or equal to zero.<br><br>Use the optional `%max_subjobs` argument to set a limit on the number of subjobs that can be running  at  one time. |
+| `-m <mail events>`   | Sends email on specific events (may be combined).<br>`n`: No mail is sent<br>`a`: Mail is sent when the job is aborted by the batch system<br>`b`: Mail is sent when the job begins execution<br>`e`:  Mail is sent when the job terminates<br><br>Example: `-m abe` |
+| `-M <address(es)>` | List of users to whom mail about the job is sent.<br>The user list argument has the form: `<username>[@<hostname>][,<username>[@<hostname>],...]` |
 
 
 !!! info "`qsub` arguments take precedence over `#PBS` directives"
