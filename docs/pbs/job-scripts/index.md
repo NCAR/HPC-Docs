@@ -260,7 +260,7 @@ job_priority=<regular|premium|economy>
 ```
 
 #### GPU Type
-for higly heterogeneous systems
+For highly heterogeneous systems
 ```
 gpu_type=<gp100|v100|a100>
 ```
