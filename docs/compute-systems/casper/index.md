@@ -2,24 +2,32 @@
 
 The Casper cluster is a system of specialized data analysis and visualization resources; large-memory, multi-GPU nodes; and high-throughput computing nodes.
 
-Casper is composed ofover 100 nodes featuring a mixture of Intel Skylake or Cascade Lake processors.
+Casper is composed of over 100 nodes featuring a mixture of Intel and AMD processors, with a variety of NVIDIA General Purpose Graphical Processing Units.
 
-- 22 Supermicro SuperWorkstation nodes are used for data analysis and visualization jobs. Each node has 36 cores and up to 384 GB memory.
-    - 9 of these nodes also feature an NVIDIA Quadro GP100 GPU.
-    - 3 nodes feature a single NVIDIA Ampere A100 GPU.
-- 18 nodes feature large-memory, dense GPU configurations to support explorations in machine learning (ML) and deep learning (DL) and general-purpose GPU (GPGPU) computing in atmospheric and related sciences.
-    - 4 of these nodes feature 4 NVIDIA Tesla V100 GPUs.
-    - 6 of these nodes feature 8 NVIDIA Tesla V100 GPUs.
-    - 8 of these nodes feature 4 NVIDIA Ampere A100 GPUs.
-- 64 high-throughput computing (HTC) nodes for small computing tasks using 1 or 2 CPUs.
-    - 62 HTC nodes have 384 GB of available memory.
-    - 2 HTC nodes have 1.5 TB of available memory.
-- 4 nodes are reserved for Research Data Archive workflows.
+<!-- - 22 Supermicro SuperWorkstation nodes are used for data analysis and visualization jobs. Each node has 36 cores and up to 384 GB memory. -->
+<!--     - 9 of these nodes also feature an NVIDIA Quadro GP100 GPU. -->
+<!--     - 3 nodes feature a single NVIDIA Ampere A100 GPU. -->
+<!-- - 18 nodes feature large-memory, dense GPU configurations to support explorations in machine learning (ML) and deep learning (DL) and general-purpose GPU (GPGPU) computing in atmospheric and related sciences. -->
+<!--     - 4 of these nodes feature 4 NVIDIA Tesla V100 GPUs. -->
+<!--     - 6 of these nodes feature 8 NVIDIA Tesla V100 GPUs. -->
+<!--     - 8 of these nodes feature 4 NVIDIA Ampere A100 GPUs. -->
+<!-- - 64 high-throughput computing (HTC) nodes for small computing tasks using 1 or 2 CPUs. -->
+<!--     - 62 HTC nodes have 384 GB of available memory. -->
+<!--     - 2 HTC nodes have 1.5 TB of available memory. -->
+<!-- - 4 nodes are reserved for Research Data Archive workflows. -->
 
 Please refer to the [hardware summary table](#hardware) below for detailed specifications.
 
 
-## Logging in to Casper
+---
+
+## Quick Start
+### Logging in
+
+Once you have [an account](../../getting-started/accounts/index.md),
+have reviewed the [Casper Use Policies](./casper-use-policies.md),
+and have a Casper [resource allocation](../../getting-started/managing-your-allocation.md)
+you can log in and run jobs on the Casper data analysis and visualization cluster.
 
 To log in, start your terminal or Secure Shell client and run an ssh command as shown here:
 ```
@@ -33,7 +41,72 @@ You can omit `username` in the command above if your Casper username is the same
 
 After running the `ssh` command, you will be [asked to authenticate](../../getting-started/accounts/duo/index.md#hpc-and-ssh-logins) to finish logging in.
 
-## **Hardware**
+
+Casper has full access to [NCAR storage resources](../../storage-systems/index.md),
+including [GLADE](../../storage-systems/glade/index.md).
+Users can [transfer data](../../storage-systems/data-transfer/index.md) to and from Casper.
+
+
+To run data analysis and visualization jobs on the Casper system's nodes, follow the
+[procedures described here](./starting-casper-jobs/index.md).
+There is no need to transfer output files from Derecho for this since
+Derecho and Casper mount the same `GLADE` file systems.
+
+
+!!! danger "Don’t run `sudo` on NCAR systems!"
+    If you need help with tasks that you think require `sudo`
+    privileges, or if you aren’t sure, please contact HPC User Support
+    before trying to run `sudo` yourself. The command fails when
+    unauthorized users run it and sends a security alert to system
+    administrators.
+
+-----
+
+### Environment
+The Casper HPC system uses **OpenSUSE Linux Version 15** and supports
+widely used shells on its login and compute nodes. Users also have
+several compiler and MPI library choices.
+
+#### Shells
+The default login shell for new Casper users is `bash`. You can
+change the default after logging in to the Systems Accounting Manager
+[(SAM)](../../getting-started/managing-your-allocation/index.md#using-the-systems-accounting-manager).
+It may take several hours for a change you make to take effect. You
+can confirm which shell is set as your default by entering `echo $SHELL`
+on your Casper command line.
+
+#### Environment modules
+The Casper `module` utility enables users to easily load and unload
+compilers and compatible software packages as needed, and to create
+multiple customized environments for various tasks. See the
+[Environment modules page](../../environment-and-software/user-environment/modules.md) for
+a general discussion of `module` usage.  Casper's default module
+environment is listed [here](./casper-modules.md).
+
+-----
+
+
+### Accessing software and compiling code
+Casper users have access to Intel, NVIDIA, and GNU compilers. The **Intel** compiler and **OpenMPI** modules are loaded by default and provide access to pre-compiled [HPC Software](../../environment-and-software/hpc-software/index.md) and [Data Analysis and Visualization Resources](../../environment-and-software/data-analysis-and-visualization.md).
+
+See this page for [a full discussion of compiling on Casper](./compiling-code-on-casper/index.md).
+
+Many Casper data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+
+-----
+
+### Running jobs on Casper
+Users can run a variety of types of jobs on Casper, including both traditional
+[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and/or graphics-intensive analysis, often through [remote desktops on Casper](./remote-desktop.md).
+
+#### Job scripts
+Job scripts are discussed broadly [here](../../pbs/job-scripts/index.md).
+Users already familiar with PBS and batch submission may find [Casper-specific PBS job scripts](./starting-casper-jobs/casper-job-script-examples.md) helpful in porting their work.
+
+
+---
+
+## Casper hardware
 
 <table>
   <tbody>
@@ -113,3 +186,6 @@ After running the `ssh` command, you will be [asked to authenticate](../../getti
     </tr>
   </tbody>
 </table>
+
+<!--  LocalWords:  Casper Derecho
+ -->
