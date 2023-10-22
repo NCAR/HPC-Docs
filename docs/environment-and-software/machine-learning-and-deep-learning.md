@@ -1,14 +1,12 @@
 # Machine learning and deep learning
 
 CISL provides several libraries for users' machine learning and deep
-learning (ML/DL) work **on Casper nodes**.
+learning (ML/DL) work.
 
 These libraries have been compiled from source to use native CUDA (GPU)
 and MPI libraries, increasing the capabilities over downloadable
 distributions that are available online. The ML/DL library installations
-can be found in NPL versions for Python 3.7.9.
-
-Users load them by activating the NCAR Python Library [NPL](./user-environment/conda.md).
+can be found in the [NCAR Python Library](./user-environment/conda.md#the-ncar-python-library).
 
 The libraries available are:
 
@@ -24,14 +22,3 @@ The libraries available are:
   v0.21.0
 
 - [Keras](https://keras.io/) deep learning library v2.4.3
-
-## Starting a job
-
-ML/DL workloads are most likely targeted toward NVIDIA's Tesla V100
-hardware. To start an interactive job on a Casper node using a V100 GPU,
-run the `execcasper` command with
-the `ngpus=#` **and `gpu_type=v100` resources set as shown in [this
-documentation](file:////display/RC/Starting+Casper+jobs+with+PBS).
-
-Then load the modules you need, including Python version 3.7.9,
-and [activate the NPL](./user-environment/conda.md).
