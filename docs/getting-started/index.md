@@ -10,6 +10,7 @@ Once you are authorized to use NCAR compute and storage resources, and you have 
 
 These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
 
+
 * Compiling Code on [Derecho](../compute-systems/derecho/compiling-code-on-derecho/index.md) or [Casper](../compute-systems/casper/compiling-code-on-casper/index.md)
 * Understanding and Customizing your [User and Software Environment](../environment-and-software/index.md )
 * [Starting and Managing Jobs with PBS](../pbs/index.md)
@@ -17,13 +18,7 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 ---
 
-## New User Resources
-* [New User Orientation](https://arc.ucar.edu/knowledge_base/68878414)
-* [New User Training for HPC Systems :fontawesome-brands-youtube:](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
-
----
-
-!!! danger "Don’t run `sudo` on NCAR systems!"
+!!!danger "Don’t run `sudo` on NCAR systems!"
     If you need help with tasks that you think require `sudo` privileges, or if you aren’t sure, please contact HPC User Support before trying to run `sudo` yourself. The command fails when unauthorized users run it and sends a security alert to system administrators.
 
 
@@ -47,23 +42,17 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 
 After running the `ssh` command, you will be asked to authenticate to finish logging in.
 
-The `-X` is optional and requests simple `X11` graphics forwarding to your client.
+
+The `-X` is optional and requests simple `X11` graphics forwarding to your client.  You can omit `username` in the command above if your Casper username is the same as your  username on your local computer.
+
 
 !!! tip
     Some users (particularly on Macs) need to use -Y instead of -X when calling ssh to enable X11 forwarding.
 
-!!! info
-    You can use this shorter command if your `username` for the NCAR systems is the same as your `username` on your local computer:
+---
 
-    === "Derecho"
-        ``` shell
-    	ssh -X derecho.hpc.ucar.edu
-    	```
-    === "Casper"
-    	``` shell
-    	ssh -X casper.ucar.edu
-    	```
-    === "Cheyenne"
-    	``` shell
-    	ssh -X cheyenne.ucar.edu
-    	```
+## New User Resources
+* [New User Orientation](https://arc.ucar.edu/knowledge_base/68878414)
+* [New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
+* [Getting Started on Derecho](../compute-systems/derecho/index.md)
+* [Getting Started on Casper](../compute-systems/casper/index.md)

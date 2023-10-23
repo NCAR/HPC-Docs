@@ -107,4 +107,4 @@ Science Foundation.*
 We ask that you cite the dataset(s) used. Citations templates are
 provided on the relevant RDA dataset home pages. For an example, see the
 "How to Cite This Dataset" section
-on <https://rda.ucar.edu/datasets/ds094.0/#!description>.
+on <https://rda.ucar.edu/datasets/ds094.0/citation>.
