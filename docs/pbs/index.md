@@ -2,6 +2,12 @@
 
 !!! info "About this page"
     This documentation provides information for how to use PBS Pro to submit and manage interactive jobs and batch jobs on NCAR systems.
+
+    The basic PBS commands are the same on each cluster, but refer to these system-specific pages for details that are unique to each of them, including hardware specifications, software, and job-submission queues and procedures:
+
+    - [Derecho](../compute-systems/derecho/index.md )
+    - [Casper](../compute-systems/casper/index.md )
+
 Computerized batch processing is a method of running software programs
 called jobs in batches automatically. While users are required to
 submit the jobs, no other interaction by the user is required to
@@ -12,11 +18,8 @@ resources. For additional background, see
 NCAR's HPC resources use the [Portable Batch System](https://en.wikipedia.org/wiki/Portable_Batch_System)
 as implemented in Altair's [PBS Pro](https://altair.com/pbs-professional) across shared resources.
 
-The basic PBS commands are the same on each cluster, but refer to these system-specific pages for details that are unique to each of them, including hardware specifications, software, and job-submission queues and procedures:
 
-- Derecho (in development)
-- [Casper](http://casper.ucar.edu)
-
+---
 
 ## Job scripts
 [Job scripts](./job-scripts/index.md) form the basis of *batch jobs*.
