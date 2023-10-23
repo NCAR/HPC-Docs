@@ -282,7 +282,7 @@ gpu_type=<gp100|v100|a100>
 | `-a <date at time>`  | Allows users to request a future  *eligible time* for job execution.<br>(By default jobs are considered immediately eligible for execution.)<br> Format: `[[[YY]MM]DD]hhmm[.SS]`                                                                                                                                                                                                                                                       |
 | `-h`                | Holds the job.<br><Held jobs can be released with `qrls`.                                                                                                                                                                                                                                                                                                                                                                                |
 | `-I`                | Specifies **interactive** execution.<br>Interactive jobs place the user a login session on the first compute node.<br>Interactive jobs terminate when the shell exits, or `walltime` is exceeded.                                                                                                                                                                                                                                      |
-| `-J <range>`        | Specifies an **array job**.<br>Use  the range argument to specify the indices of the sub jobs of the array.  range is specified in the form `X-Y[:Z]` where `X` is the first index, `Y` is the upper bound on the indices, and `Z`  is  the  stepping factor. Indices must be greater than or equal to zero.<br><br>Use the optional `%max_subjobs` argument to set a limit on the number of subjobs that can be running  at  one time. |
+| `-J <range>`        | Specifies an **array job**.<br>Use  the range argument to specify the indices of the sub jobs of the array.  range is specified in the form `X-Y[:Z]` where `X` is the first index, `Y` is the upper bound on the indices, and `Z`  is  the  stepping factor. Indices must be greater than or equal to zero.<br><br>Use the optional `%max_subjobs` argument to set a limit on the number of subjobs that can be running  at  one time.<br><br>[more details on array jobs](#pbs-job-arrays) |
 | `-m <mail events>`   | Sends email on specific events (may be combined).<br>`n`: No mail is sent<br>`a`: Mail is sent when the job is aborted by the batch system<br>`b`: Mail is sent when the job begins execution<br>`e`:  Mail is sent when the job terminates<br><br>Example: `-m abe` |
 | `-M <address(es)>` | List of users to whom mail about the job is sent.<br>The user list argument has the form: `<username>[@<hostname>][,<username>[@<hostname>],...]` |
 
@@ -367,6 +367,176 @@ Some of the more useful ones are:
 
 ---
 
+## PBS Job Arrays
+Occasionally users may want to execute a large number of similar jobs.
+Such workflows may arise when post-processing a large number of
+similar files, for example, often with a serial post-processing tool.
+One approach is simply to create a unique job script for each.  While
+simple, this approach has some drawbacks, namely scheduler overhead
+and job management complexity.
+
+PBS provides a convenient **job array** mechanism for such cases. When
+using job arrays, the queue script contents can be thought of as a
+template that is applied repeatedly, for different instances of the
+`PBS_ARRAY_INDEX`.  Consider the following example:
+
+!!! example "PBS job array"
+
+    Suppose your working directory contains a number of files `data.year-2010`, `data.year-2011`, ..., `data.year-2020`.  You would like to run `./executable_name` on each.
+    ```bash title="job_array.pbs"
+	#PBS -N job_array
+	#PBS -A <project_code>
+	### Each array sub-job will be assigned a single CPU with 4 GB of memory
+	#PBS -l select=1:ncpus=1:mem=4GB
+	#PBS -l walltime=00:10:00
+	#PBS -q casper
+	### Request 11 sub-jobs with array indices spanning 2010-2020 (input year)
+	#PBS -J 2010-2020
+	#PBS -j oe
+
+	export TMPDIR=${SCRATCH}/temp
+	mkdir -p ${TMPDIR}
+
+	### Run program on a specific input file:
+	./executable_name data.year-${PBS_ARRAY_INDEX}
+	```
+
+    The directive `-J 2010-2020` instructs the scheduler to launch a number of *sub-jobs*, each with a distinct value of `PBS_ARRAY_INDEX` spanning from 2010 to 2020 (inclusive).
+
+    The `-l select=1:ncpus=1:mem=4GB` resource chunk and `-l walltime=00:10:00` run time limit **applies to each sub-job**.
+
+PBS job arrays provide a convenient mechanism to launch a large number
+of small, similar jobs. The approach outlined above is particularly
+suitable for Casper, where nodes are typically shared and individual
+CPU cores are scheduled.  This allows a job array sub-job to be as small as a single core.
+
+When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slightly different approach.
+
+### Using job arrays to launch a "command file"
+Multiple Program, Multiple Data (MPMD) jobs run multiple independent,
+typically serial executables simultaneously. Such jobs can easily be
+dispatched with PBS job arrays, even on machines like Derecho where
+compute nodes are exclusively and entirely assigned to a users'
+job. This process is outlined in the example below.
+
+!!! example "Command File / MPMD jobs with PBS Job Arrays"
+    For this example, executable commands appear in a command file (`cmdfile`).
+
+    ```bash title="cmdfile"
+    # this is a comment line for demonstration
+    ./cmd1.exe < input1
+    ./cmd2.exe < input2
+    ./cmd3.exe < input3
+    ...
+    ./cmdN.exe < inputN
+    ```
+
+    The command file, executables, and input files should all reside
+    in the directory from which the job is submitted. If they don't,
+    you need to specify adequate relative or full paths in both your
+    command file and job scripts.  The sub-jobs will produce output
+    files that reside in the directory in which the job was submitted.
+
+    In the following PBS script, we use job arrays to execute the
+    contents of the command file.  We will handle the general
+    case where the requested resource chunk is an entire, dedicated
+    node (as would be the case on Derecho).  This requires a little
+    bit of complexity, as we can no longer assume a single
+    `PBS_ARRAY_INDEX` will perform a single MPMD step.  Rather, each
+    `PBS_ARRAY_INDEX` has access to potentially an entire compute
+    node's worth of CPUs.  So we take some effort to allow each
+    `PBS_ARRAY_INDEX` to run many steps, one per assigned CPU.
+    ```bash title="cmdfile_job_array.pbs"
+	#!/bin/bash
+	#PBS -N array_example
+	#PBS -j oe
+	#PBS -l walltime=00:10:00
+	## PBS_ARRAY_INDEX range, inclusive:  (can be overridden by qsub command line arguments)
+	#PBS -J 0-3
+
+	### Set temp to scratch
+	export TMPDIR=${SCRATCH}/tmp && mkdir -p ${TMPDIR}
+
+	## determine the number of nodes, and processors per node we were assigned
+	## (inferred from the ${PBS_NODEFILE})
+	nodeslist=( $(cat ${PBS_NODEFILE} | sort | uniq | cut -d'.' -f1) )
+	nnodes=$(cat ${PBS_NODEFILE} | sort | uniq | wc -l)
+	nranks=$(cat ${PBS_NODEFILE} | sort | wc -l)
+	nranks_per_node=$((${nranks} / ${nnodes}))
+
+	[ ${nnodes} -eq 1 ] || { echo "ERROR: this example is intended to be run on 1 node, but with perhaps many array steps"; exit 1; }
+
+	echo "${nranks} ${nnodes}x${nranks_per_node}"
+
+	nsteps=$( cat cmdfile | grep -v '#' | wc -l )
+
+	# this PBS_ARRAY_INDEX will compute multiple "steps" from cmdfile, up to ppn
+	start_idx=$(( ${PBS_ARRAY_INDEX} * ${nranks_per_node} ))
+	stop_idx=$(( ${start_idx} + ${nranks_per_node} - 1 ))
+
+	echo "nsteps: ${nsteps}, array index: ${PBS_ARRAY_INDEX}"
+	echo "start_idx=${start_idx} stop_idx=${stop_idx}"
+
+    #------------------------------------------------------------------
+    # bash function to extract the desired line number from a text file
+	getline ()
+	{
+	    # ref: https://www.baeldung.com/linux/read-specific-line-from-file
+	    FILE="${1}"
+	    LINE_NO=${2}
+
+	    i=0
+	    while read line; do
+	        # skip comment lines beginning with "#"
+	        [[ ${line:0:1} == "#" ]] && continue
+
+	        i=$((i + 1))
+	        test ${i} = ${LINE_NO} && echo "${line}" && return
+	    done < "${FILE}"
+
+	    echo "ERROR: line ${LINE_NO} not found, is ${FILE} too short? (only found ${i} non-comment lines)"
+	    exit 1
+	}
+    #------------------------------------------------------------------
+
+	# create a 'logs/ directory to hold stdout from each process
+	mkdir -p ./logs/
+
+	# loop over each 'step' for which we are responsible.
+	# launch our ./cmdfile lines, in the background
+	for step in $(seq ${start_idx} ${stop_idx}); do
+
+	    # the last PBS_ARRAY_INDEX could go past nsteps if the number of cmdfile
+	    # is not evenly divisible by ppn - don't let it
+	    [ ${step} -ge ${nsteps} ] && break
+
+	    # get the command line arguments from cmdfile for this step
+	    # (note that the step counter is 0 based, so add 1)
+	    step_cmd=$(getline ./cmdfile $(( ${step} + 1)) )
+	    echo "   PBS_ARRAY_INDEX=${PBS_ARRAY_INDEX} launching step ${step} / ${step_cmd}"
+
+	    # finally, launch our desired application with the requested arguments.  Redirect stdout/stderr to
+	    # the ./logs/ directory.
+	    eval ${step_cmd} > ./logs/stdout-$(printf '%04d' $((${step}+1))).log 2>&1 &
+	done
+
+	# wait for all the background processes to complete.
+	# (otherwise, when this script exits, PBS thinks it is done and will kill any remaining processes...)
+	wait
+
+	echo "Done: PBS_ARRAY_INDEX=${PBS_ARRAY_INDEX} finished on $(date)"
+    ```
+
+    ```bash title="launch_cf"
+    # benkirk FIXME!
+    ```
+
+    ---
+
+    **Discussion**
+
+---
+
 ## Sample PBS job scripts
 
 ### Casper
@@ -374,6 +544,8 @@ Some of the more useful ones are:
 
 ### Derecho
 ---8<--- "docs/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples-content.md"
+
+
 
 <!--  LocalWords:  mpiprocs MPI ompthreads OpenMP mem ngpus GPUs  ncpus
  -->

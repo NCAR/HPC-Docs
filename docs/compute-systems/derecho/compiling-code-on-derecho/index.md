@@ -180,10 +180,9 @@ load` to load the library as in this example:
 module load netcdf
 ```
 
-Then, you can invoke the desired compilation command without adding link
-options such as `-l netcdf`. Here's an example:
+Then you can invoke the desired compilation command, including any library linking options such as `-lnetcdf`. Here's an example:
 ```sh
-mpif90 foo.f90
+mpif90-o foo.exe foo.f90 -lnetcdf
 ```
 
 ## Compiling CPU code
@@ -369,6 +368,36 @@ as in this example:
 man ifort
 ```
 
+!!! note "What's the difference between the `intel`, `intel-oneapi`, `intel-classic` modules?"
+    Users migrating from Cheyenne and previous Casper deployments may
+    note there are several "flavors" of the Intel compiler available
+    through the module system.
+
+    Intel is currently moving from their "classic" compiler suite to
+    the new "OneAPI" family.  During this process both sets of
+    compilers are available, but through different commands under different `module` selections:
+
+    |  Module         | **Fortran** | **C** | **C++** |
+    |-----------------|-------------|-------|---------|
+    | `intel-classic` | `ifort`     | `icc` | `icpc`  |
+    | `intel-oneapi`  | `ifx`       | `icx` | `icpx`  |
+    | `intel`<br>(default) | `ifort` | `icx` | `icpx` |
+
+    The `intel-classic` module makes the familiar `ifort/icc/icpc`
+    compilers available, however it is expected these will be
+    deprecated during Casper's lifetime.  At this stage we expect to
+    keep existing compiler versions available, however there will be
+    no further updates.
+
+    The `intel-oneapi` module uses the new `ifx/icx/icpx` compilers.
+
+    The default `intel` module presently uses the older `ifort`
+    Fortran compiler along with the newer `icx/icpx` C/C++ compilers.
+    This choice is intentional as the newer `ifx` does not reliably
+    match the performance of `ifort` in all cases.  We will continue
+    to monitor the progress of the OneAPI compilers and will change
+    this behavior in the future.
+
 ##### Optimizing your code with Intel compilers
 
 Intel compilers provide several different optimization and vectorization
@@ -491,21 +520,22 @@ if you prefer to invoke the compilers directly without the `ncarcompilers` wrapp
     that remain loaded, as shown in the following examples of invoking
     compilers directly to compile a Fortran program.
 
+
     === "Intel compiler"
         ```sh
-        ifort -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        ifort -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "NVIDIA HPC compiler"
         ```sh
-         nvfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        nvfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "GNU compiler collection (GCC)"
         ```sh
-        gfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        gfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "Cray Compilers (CPE)"
         ```sh
-        ftn -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        ftn -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
 
 ## Multiple Compiler Versions and User Applications

@@ -154,19 +154,43 @@ load` to load the library as in this example:
 module load netcdf
 ```
 
-Then, you can invoke the desired compilation command without adding link
-options such as `-l netcdf`. Here's an example:
+Then you can invoke the desired compilation command, including any library linking options such as `-lnetcdf`. Here's an example:
 ```sh
-mpif90 foo.f90
+mpif90-o foo.exe foo.f90 -lnetcdf
 ```
 
 ## Compiling CPU code
+<!-- FIXME -->
+!!! danger "Optimizing code for multiple types of CPUs"
+    Be aware that compiling CPU code on Casper
+    can be complicated by the heterogeneous nature of the nodes.
+    (Casper nodes contain a mixture of Intel Skylake, Intel
+    Cascade Lake, and AMD Milan CPUs.)
+
+    In general users will want to compile binaries that can execute on
+    any of the CPU types.  This can be accomplished by manually
+    specifying the target CPU architecture:
+
+    === "Intel Compilers"
+        `-march=core-avx2`
+
+    === "GCC Compilers"
+        `-march=core-avx2`
+
+    === "NVHPC Compilers"
+        `-tp=zen3`
+
+    If your application fails to run with an `illegal instruction`
+    message, this indicates the compiled binary contains instructions
+    incompatible with the current CPU.  Try compiling with flags as
+    indicated above, or
+    [reach out to consulting](../../../user-support/index.md) for help.
 
 ### Using the default Intel compiler collection
 
-The Intel compiler suite is available via the `intel` module. It
-includes compilers for C, C++, and Fortran codes.
-by default.
+The Intel compiler suite is available via the `intel` module, which is loaded by default.
+It includes compilers for C, C++, and Fortran codes.
+
 
 To see which versions are available, use the `module avail` command.
 ```sh
@@ -195,6 +219,37 @@ as in this example:
 man ifort
 ```
 
+!!! note "What's the difference between the `intel`, `intel-oneapi`, `intel-classic` modules?"
+    Users migrating from Cheyenne and previous Casper deployments may
+    note there are several "flavors" of the Intel compiler available
+    through the module system.
+
+    Intel is currently moving from their "classic" compiler suite to
+    the new "OneAPI" family.  During this process both sets of
+    compilers are available, but through different commands under different `module` selections:
+
+    |  Module         | **Fortran** | **C** | **C++** |
+    |-----------------|-------------|-------|---------|
+    | `intel-classic` | `ifort`     | `icc` | `icpc`  |
+    | `intel-oneapi`  | `ifx`       | `icx` | `icpx`  |
+    | `intel`<br>(default) | `ifort` | `icx` | `icpx` |
+
+    The `intel-classic` module makes the familiar `ifort/icc/icpc`
+    compilers available, however it is expected these will be
+    deprecated during Casper's lifetime.  At this stage we expect to
+    keep existing compiler versions available, however there will be
+    no further updates.
+
+    The `intel-oneapi` module uses the new `ifx/icx/icpx` compilers.
+
+    The default `intel` module presently uses the older `ifort`
+    Fortran compiler along with the newer `icx/icpx` C/C++ compilers.
+    This choice is intentional as the newer `ifx` does not reliably
+    match the performance of `ifort` in all cases.  We will continue
+    to monitor the progress of the OneAPI compilers and will change
+    this behavior in the future.
+
+
 ##### Optimizing your code with Intel compilers
 
 Intel compilers provide several different optimization and vectorization
@@ -208,18 +263,6 @@ compile time significantly.
 
 You can also disable any optimization by using `-O0`.
 
-Be aware that compiling CPU code with the Intel compiler on Derecho is
-significantly different from using the Intel compiler on the Cheyenne
-system. Flags that are commonly used on Cheyenne might cause Derecho
-jobs to fail or run much more slowly than otherwise possible.
-
-!!! tip "CPU Architecture Flags to use  on Derecho"
-    **DO use on Derecho: `-march=core-avx2`**
-
-!!! danger "Do NOT use on Derecho:"
-    **Do NOT use on Derecho: `-xHost` , `-axHost` , `-xCORE-AVX2` , `-axCORE-AVX2`**
-
-    These flags will generate code that may not run, or will run suboptimally on Derecho.
 
 ##### Examples
 
@@ -275,8 +318,8 @@ nvfortran -o acc_bin -acc acc_code.f90
 You can gather more insight into GPU acceleration decisions made by the
 compiler by adding `-Minfo=accel` to your invocation. Using compiler
 options, you can also specify which GPU architecture to target. This
-example will request compilation for both V100 (as on Casper) and A100
-GPUs (as on Derecho):
+example will request compilation for both V100 and A100
+GPUs:
 ```sh
 nvfortran -o acc_bin -acc -gpu=cc70,cc80 acc_code.f90
 ```
@@ -442,15 +485,15 @@ if you prefer to invoke the compilers directly without the `ncarcompilers` wrapp
 
     === "Intel compiler"
         ```sh
-        ifort -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        ifort -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "NVIDIA HPC compiler"
         ```sh
-         nvfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        nvfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "GNU compiler collection (GCC)"
         ```sh
-        gfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        gfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
 
 ## Multiple Compiler Versions and User Applications

@@ -1,8 +1,9 @@
 # Lustre scratch file system
 
-The Derecho scratch file system is a Lustre-based [Cray ClusterStor
-E1000](https://buy.hpe.com/us/en/enterprise-solutions/storage-solutions/cray-clusterstor-storage-systems/cray-clusterstor-e1000-storage-systems/cray-clusterstor-e1000-storage-systems/p/1012842049) product
-configured as shown in the table below. An open-source, parallel system,
+The <strong>De</strong>recho <strong>Stor</strong>age subsystsem (**Destor**)
+scratch file system is a Lustre-based
+[Cray ClusterStor E1000](https://buy.hpe.com/us/en/enterprise-solutions/storage-solutions/cray-clusterstor-storage-systems/cray-clusterstor-e1000-storage-systems/cray-clusterstor-e1000-storage-systems/p/1012842049) product
+configured as shown in the table below. An open-source, parallel system,
 Lustre will be familiar to users of similar POSIX-compliant file
 systems. This documentation provides a high-level overview of important
 Lustre concepts and terminology to help users achieve optimal
@@ -18,6 +19,7 @@ Total capacity of the system is 40 TB of metadata and 60 PB of data.
 | Metadata targets (MDT)       | 4            | Each metadata server has a single 12 TB MDT composed of 11 drives in a RAID-10 configuration formatted with `ldiskfs` (~40 TB usable metadata across the entire file system). |
 | Object storage servers (OSS) | 24           | Each OSS has a single 200 GbE CX6 Cassini network interface.                                                                                                                        |
 | Object storage targets (OST) | 96           | Each OSS has four 582 TB OSTs. Each OST is composed of 53 drives in a GridRAID configuration formatted with `ldiskfs` (~60PB usable data across the entire file system).          |
+| (Additional hardware details are [provided below](#configuration)). {: colspan=3} |
 
 ## Terminology
 
@@ -44,9 +46,9 @@ below.
 
 
 ![](lustre/media/image1.png)
-**Figure 1:** Sample Lustre file system: 4 metadata servers (MDS), 4
-object storage servers (OSS). Credit: [*Introduction to Lustre
-Wiki*](https://wiki.lustre.org/Introduction_to_Lustre).
+<br>**Figure 1:** Sample Lustre file system: 4 metadata servers (MDS), 4
+object storage servers (OSS).
+Credit: [*Introduction to Lustre Wiki*](https://wiki.lustre.org/Introduction_to_Lustre).
 
 
 
@@ -79,24 +81,24 @@ size***.
 
 
 
-![](lustre/media/image2.jpeg)
-**Figure 2:** Logical view of a file, broken into five "stripe"
+![](lustre/media/image2.jpeg){width="400"}
+<br>**Figure 2:** Logical view of a file, broken into five "stripe"
 segments. The first four are the same size while the fifth is smaller
-and contains the "remainder" of the file. Credit: [*Lustre User
-Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
+and contains the "remainder" of the file.
+Credit: [*Lustre User Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
 
 
 
 Figure 3 shows how the stripes can be mapped onto several OSTs as
-defined by the *stripe count*. In this example, the stripe count is four
+defined by the *stripe count*. In this example, the stripe count is four
 and the stripe segments are assigned in a round-robin fashion.
 
 
 
-![](lustre/media/image3.jpeg)
-**Figure 3:** Physical view of a file broken into five stripes across
-four OST devices. Credit: [*Lustre User
-Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
+![](lustre/media/image3.jpeg){width="400"}
+<br>**Figure 3:** Physical view of a file broken into five stripes across
+four OST devices.
+Credit: [*Lustre User Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
 
 
 
@@ -127,9 +129,9 @@ progressive segments of files, as shown in Figure 4.
 
 
 ![](lustre/media/image4.png)
-**Figure 4:** Sample progressive file layout with three components of
-different stripe patterns. Credit: [*PFL Prototype High Level
-Design*](https://wiki.lustre.org/PFL_Prototype_High_Level_Design).
+<br>**Figure 4:** Sample progressive file layout with three components of
+different stripe patterns.
+Credit: [*PFL Prototype High Level Design*](https://wiki.lustre.org/PFL_Prototype_High_Level_Design).
 
 
 
@@ -178,15 +180,22 @@ volume *and* the file count.
 ---
 
 ## Derecho's *Destor* Lustre scratch file system
+With the background provided [above](#terminology), we can now discuss
+Derecho's **Destor** Lustre file system specific storage
+configuration.
 
 ### Configuration
-Derecho's **Destor** Lustre file system hardware configuration is shown schematically below.
+Derecho's **Destor** Lustre file system hardware configuration is
+shown schematically below.  The system has 4 MDS servers (each with a
+single MDT), and 24 OSS servers (each with 4 OSTs).
 
 ![](lustre/media/destor1.png)
 
 #### Default Striping
 
 !!! info "Destor default striping configuration"
+
+    Destor uses *progressive file layouts* (PFLs) to accommodate a wide variety of file sizes and access patterns.
 
     | File Segment | Stripe Count | Stripe Size |
     |--------------|--------------|-------------|
@@ -195,6 +204,13 @@ Derecho's **Destor** Lustre file system hardware configuration is shown schemati
     | 16GB-64GB    | 12           | 16MB        |
     | 64GB+        | 24           | 16MB        |
 
+
+    This default PFL was created at the base of the file system and is inherited by default for all sub-directories.
+    Users may apply alternate striping patterns for any directory or file they own.  (File striping must be set prior to creation and cannot be changed on existing files.)
+
+    **Note that per-directory file striping is inherited by new files and sub-directories created within.**
+
+    The default Destor stripe configuration can be applied if needed with the `lfs setstripe` command:
     ```bash
     lfs setstripe \
               -E 16M -c 1  -S  1M \
@@ -216,6 +232,13 @@ Key points:
 *  **Large files can be effectively spread across the storage cluster.**
     *  **5,088 hard drives** spread across **96 OSTs** served up by **24 OSSes**.
     * *Destor* can deliver over 300 GB/sec of large file access bandwdth.
+
+### Jobstats
+Lustre provides a mechanism to collate I/O statistics for reporting purposes using the [job stats](https://doc.lustre.org/lustre_manual.xhtml#jobstats) mechanism.
+On Destor we collect job statistics according to `PBS_JOBID`.  These statistics are then presented in a
+[graphana dashboard](https://grafana.hpc.ucar.edu/d/luNSUtmIz/lustre-jobstats-derecho?orgId=1&refresh=30m),
+where users can optionally query the statistics for a particular job.
+
 
 ---
 
@@ -436,3 +459,6 @@ the `chgrp` example.
 
 - [Oak Ridge Leadership Computing Facility Lustre 101
   resources](https://lustre.ornl.gov/lustre101-courses/)
+
+<!--  LocalWords:  Destor graphana
+ -->
