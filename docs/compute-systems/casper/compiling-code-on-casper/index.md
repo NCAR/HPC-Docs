@@ -154,10 +154,9 @@ load` to load the library as in this example:
 module load netcdf
 ```
 
-Then, you can invoke the desired compilation command without adding link
-options such as `-l netcdf`. Here's an example:
+Then you can invoke the desired compilation command, including any library linking options such as `-lnetcdf`. Here's an example:
 ```sh
-mpif90 foo.f90
+mpif90-o foo.exe foo.f90 -lnetcdf
 ```
 
 ## Compiling CPU code
