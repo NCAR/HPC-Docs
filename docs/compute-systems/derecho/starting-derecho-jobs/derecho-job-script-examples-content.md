@@ -66,12 +66,12 @@
     export MPICH_GPU_MANAGED_MEMORY_SUPPORT_ENABLED=1
 
     # Run application using the cray-mpich MPI
-    #   The ‘get_local_rank’ command is a script that sets several GPU-
+    #   The ‘set_gpu_rank’ command is a script that sets several GPU-
     #   related environment variables to allow MPI-enabled GPU
-    #   applications to run. The get_local_rank script is detailed
+    #   applications to run. The set_gpu_rank script is detailed
     #   in the binding section below, and is also made available
     #   via the ncarenv module.
-    mpiexec -n 8 -ppn 4 get_local_rank ./executable_name
+    mpiexec -n 8 -ppn 4 set_gpu_rank ./executable_name
     ```
 
 
@@ -83,8 +83,7 @@
     the GPU devices on a node.
 
     Consider the following shell script:
-    ```bash
-    get_local_rank
+    ```bash title="set_gpu_rank"
     #!/bin/bash
 
     export MPICH_GPU_SUPPORT_ENABLED=1
@@ -95,14 +94,15 @@
     echo "Global Rank ${GLOBAL_RANK} / Local Rank ${LOCAL_RANK} / CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES} / $(hostname)"
 
     exec $*
-
+    ```
     It can be used underneath mpiexec to bind an MPI process to a particular GPU:
 
+    ```bash
     #PBS -l select=2:ncpus=64:mpiprocs=4:ngpus=4
     ...
     # Run application using the cray-mpich MPI, binding the local
     # mpi rank [0-3] to corresponding GPU index [0-3]:
-    mpiexec -n 8 -ppn 4 ./get_local_rank ./executable_name
+    mpiexec -n 8 -ppn 4 ./set_gpu_rank ./executable_name
     ```
 
     The command above will launch a total of 8 MPI ranks across 2
@@ -118,5 +118,5 @@
     NUMA domains within a node is likely to be optimal for
     performance. This could be done as follows:
     ```
-    mpiexec -n 8 -ppn 4 --cpu-bind verbose,list:0:16:32:48 ./get_local_rank ./executable_name
+    mpiexec -n 8 -ppn 4 --cpu-bind verbose,list:0:16:32:48 ./set_gpu_rank ./executable_name
     ```
