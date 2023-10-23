@@ -276,7 +276,7 @@ gpu_type=<gp100|v100|a100>
 ### Listing of frequently used `#PBS` directives
 <!-- FIXME -- add a table -->
 
-| <div style="width:120px">Directive</div> | Impact |
+| <div style="width:160px">Directive</div> | Impact |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `-A <project_code>` | NCAR Project Accounting  string  associated  with  the  job.                                                                                                                                                                                                                                                                                                                                                                           |
 | `-a <date at time>`  | Allows users to request a future  *eligible time* for job execution.<br>(By default jobs are considered immediately eligible for execution.)<br> Format: `[[[YY]MM]DD]hhmm[.SS]`                                                                                                                                                                                                                                                       |
@@ -370,10 +370,10 @@ Some of the more useful ones are:
 ## Sample PBS job scripts
 
 ### Casper
-{% include 'compute-systems/casper/starting-casper-jobs/casper-job-script-examples-content.md' %}
+---8<--- "docs/compute-systems/casper/starting-casper-jobs/casper-job-script-examples-content.md"
 
 ### Derecho
-{% include 'compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples-content.md' %}
+---8<--- "docs/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples-content.md"
 
 <!--  LocalWords:  mpiprocs MPI ompthreads OpenMP mem ngpus GPUs  ncpus
  -->

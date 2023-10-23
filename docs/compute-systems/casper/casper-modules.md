@@ -1,3 +1,3 @@
 # Casper Modules
 
-{% include 'compute-systems/casper/casper-modules-list.md' %}
+---8<--- "docs/compute-systems/casper/casper-modules-list.md"

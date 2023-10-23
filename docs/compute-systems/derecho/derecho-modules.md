@@ -1,3 +1,3 @@
 # Derecho Modules
 
-{% include 'compute-systems/derecho/derecho-modules-list.md' %}
+---8<--- "docs/compute-systems/derecho/derecho-modules-list.md"
