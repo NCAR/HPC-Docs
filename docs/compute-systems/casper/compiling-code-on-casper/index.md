@@ -161,12 +161,37 @@ mpif90 foo.f90
 ```
 
 ## Compiling CPU code
+<!-- FIXME -->
+!!! danger "Optimizing code for multiple types of CPUs"
+    Be aware that compiling CPU code on Casper
+    can be complicated by the heterogeneous nature of the nodes.
+    (Casper nodes contain a mixture of Intel Skylake, Intel
+    Cascade Lake, and AMD Milan CPUs.)
+
+    In general users will want to compile binaries that can execute on
+    any of the CPU types.  This can be accomplished by manually
+    specifying the target CPU architecture:
+
+    === "Intel Compilers"
+        `-march=core-avx2`
+
+    === "GCC Compilers"
+        `-march=core-avx2`
+
+    === "NVHPC Compilers"
+        `-tp=zen3`
+
+    If your application fails to run with an `illegal instruction`
+    message, this indicates the compiled binary contains instructions
+    incompatible with the current CPU.  Try compiling with flags as
+    indicated above, or
+    [reach out to consulting](../../../user-support/index.md) for help.
 
 ### Using the default Intel compiler collection
 
-The Intel compiler suite is available via the `intel` module. It
-includes compilers for C, C++, and Fortran codes.
-by default.
+The Intel compiler suite is available via the `intel` module, which is loaded by default.
+It includes compilers for C, C++, and Fortran codes.
+
 
 To see which versions are available, use the `module avail` command.
 ```sh
@@ -222,7 +247,7 @@ man ifort
     Fortran compiler along with the newer `icx/icpx` C/C++ compilers.
     This choice is intentional as the newer `ifx` does not reliably
     match the performance of `ifort` in all cases.  We will continue
-    to monitor the progress of the OneAPI compilers and may change
+    to monitor the progress of the OneAPI compilers and will change
     this behavior in the future.
 
 
@@ -239,23 +264,6 @@ compile time significantly.
 
 You can also disable any optimization by using `-O0`.
 
-<!-- FIXME -->
-!!! warning "Optimizing code for multiple types of CPUs"
-    Be aware that compiling CPU code with the Intel compiler on Casper
-    can be complicated by the heterogeneous nature of the nodes.
-    (Casper nodes contain a mixture of Intel Skylake, Intel
-    Cascade Lake, and AMD Milan CPUs.) In general users will want to
-    compile binaries that can execute on any of the CPU types.
-
-    **DO use on Casper: `-march=core-avx2`**
-
-    ---
-
-    If your application fails to run with an `illegal instruction`
-    message, this indicates the compiled binary contains instructions
-    incompatible with the current CPU.  Try compiling as indicated
-    above, or
-    [reach out to consulting](../../../user-support/index.md) for help.
 
 ##### Examples
 
@@ -311,8 +319,8 @@ nvfortran -o acc_bin -acc acc_code.f90
 You can gather more insight into GPU acceleration decisions made by the
 compiler by adding `-Minfo=accel` to your invocation. Using compiler
 options, you can also specify which GPU architecture to target. This
-example will request compilation for both V100 (as on Casper) and A100
-GPUs (as on Derecho):
+example will request compilation for both V100 and A100
+GPUs:
 ```sh
 nvfortran -o acc_bin -acc -gpu=cc70,cc80 acc_code.f90
 ```
@@ -478,15 +486,15 @@ if you prefer to invoke the compilers directly without the `ncarcompilers` wrapp
 
     === "Intel compiler"
         ```sh
-        ifort -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        ifort -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "NVIDIA HPC compiler"
         ```sh
-         nvfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        nvfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "GNU compiler collection (GCC)"
         ```sh
-        gfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        gfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
 
 ## Multiple Compiler Versions and User Applications
