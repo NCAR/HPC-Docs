@@ -521,21 +521,22 @@ if you prefer to invoke the compilers directly without the `ncarcompilers` wrapp
     that remain loaded, as shown in the following examples of invoking
     compilers directly to compile a Fortran program.
 
+
     === "Intel compiler"
         ```sh
-        ifort -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        ifort -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "NVIDIA HPC compiler"
         ```sh
-         nvfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        nvfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "GNU compiler collection (GCC)"
         ```sh
-        gfortran -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        gfortran -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
     === "Cray Compilers (CPE)"
         ```sh
-        ftn -o a.out $NCAR_INC_<PROGRAM> program_name.f $NCAR_LDFLAGS_<PROGRAM> $NCAR_LIBS_<PROGRAM>
+        ftn -o a.out $NCAR_INC_<PACKAGE> program_name.f $NCAR_LDFLAGS_<PACKAGE> -l<package_library>
         ```
 
 ## Multiple Compiler Versions and User Applications
