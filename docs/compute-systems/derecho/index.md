@@ -116,7 +116,3 @@ Users already familiar with PBS and batch submission may find [Derecho-specific 
 |**HPE Slingshot v11 high-speed interconnect**|Dragonfly topology, 200 Gb/sec per port per direction<br>1\.7-2.6 usec MPI latency<br>CPU-only nodes - one Slingshot injection port<br>GPU nodes - 4 Slingshot injection ports per node|
 |**~3.5 times Cheyenne computational capacity**|Comparison based on the relative performance of CISL's High Performance Computing Benchmarks run on each system.|
 |**> 3.5 times Cheyenne peak performance**|19\.87 peak petaflops (vs 5.34)|
-
-----
-
-Just proof of concept for https://arc.ucar.edu/knowledge_base/74317833

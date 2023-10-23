@@ -12,7 +12,7 @@ change notices that you need to be aware of, in the [CISL Daily Bulletin](https
     You may simply need to request more memory per node. Other potential
     solutions are to either spread your job across more nodes/GPUs (with
     fewer processes per resource) or shrink your problem size.
-    See [Checking memory use](file:////display/RC/Checking+memory+use) to determine how much
+    See [Checking memory use](../checking-memory-use/index.md) to determine how much
     memory your program or script requires to run.
 
 
@@ -32,7 +32,7 @@ change notices that you need to be aware of, in the [CISL Daily Bulletin](https
     your job is reduced. You'll probably look at your batch job, not see
     anything wrong with it, and be puzzled, not realizing the problem is
     rooted in your dotfiles. In fact, it is best not to specify *any
-    modules* in your dotfiles. Instead, include your [environment modifications](file:////display/RC/Environment+modules) –
+    modules* in your dotfiles. Instead, include your [environment modifications](../../environment-and-software/user-environment/modules.md) –
     any `module load` commands, for example – in your job script.
 
 
@@ -61,4 +61,4 @@ change notices that you need to be aware of, in the [CISL Daily Bulletin](https
     users' programs failing when no more space is available. Set `TMPDIR`
     to point to your GLADE scratch space (or the fast NVMe local scratch
     on Casper) in every script for all batch jobs.
-    See [Storing temporary files with TMPDIR](file:////display/RC/Storing+temporary+files+with+TMPDIR).
+    See [Storing temporary files with `TMPDIR`](../../pbs/storing-temporary-files.md).

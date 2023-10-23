@@ -175,6 +175,50 @@ file system before its storage capacity by creating many tiny files, so
 it is important to manage both the overall file system data
 volume *and* the file count.
 
+---
+
+## Derecho's *Destor* Lustre scratch file system
+
+### Configuration
+Derecho's **Destor** Lustre file system hardware configuration is shown schematically below.
+
+![](lustre/media/destor1.png)
+
+#### Default Striping
+
+!!! info "Destor default striping configuration"
+
+    | File Segment | Stripe Count | Stripe Size |
+    |--------------|--------------|-------------|
+    | 0-16MB       | 1            | 1MB         |
+    | 16MB-16GB    | 4            | 16MB        |
+    | 16GB-64GB    | 12           | 16MB        |
+    | 64GB+        | 24           | 16MB        |
+
+    ```bash
+    lfs setstripe \
+              -E 16M -c 1  -S  1M \
+              -E 16G -c 4  -S 16M \
+              -E 64G -c 12 -S 16M \
+              -E  -1 -c 24 -S 16M
+    ```
+
+    See `man lfs-setstripe` for additional details.
+
+### Performance expectations
+Lustre in general, and on Derecho specifically, is designed for high-speed, parallel access to **large files**.
+
+Key points:
+
+*  Derecho has >2400 compute nodes (each a Lustre client),
+*  All scratch metadata traffic, for all users, is served by only 4 MDS servers
+    *  **Tiny files do not effectively use the primary performance potential.**
+*  **Large files can be effectively spread across the storage cluster.**
+    *  **5,088 hard drives** spread across **96 OSTs** served up by **24 OSSes**.
+    * *Destor* can deliver over 300 GB/sec of large file access bandwdth.
+
+---
+
 ## Best practices
 
 ### Manage your file count and file volume
@@ -225,6 +269,8 @@ Lustre's `lfs find` is an optimized implementation of the
 familiar `find` command. It will request only the data required to
 perform the specified action, and so should be preferred whenever
 possible. See the examples and use cases below.
+
+---
 
 ## Examples, tools, tips, tricks
 

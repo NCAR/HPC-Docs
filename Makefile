@@ -10,6 +10,18 @@ derecho_modules_list: utils/update_module_list.sh
 	@./$< derecho > derecho_modules_list.tmp
 	@mv -f derecho_modules_list.tmp docs/compute-systems/derecho/derecho-modules-list.md
 
+
+tags TAGS etags:
+	if [ "x$(STR)" != "x" ]; then \
+	  echo "Tagging files containing $(STR)" ; \
+	  git grep -l $(STR) ; \
+	  etags $$(git grep -l $(STR)) ; \
+	else \
+	  echo "Tagging all git managed files:" ; \
+	  git ls-tree -r HEAD --name-only | egrep ".md|.yaml" | grep -v "confluence_migration"; \
+	  etags $$(git ls-tree -r HEAD --name-only | egrep ".md|.yaml" | grep -v "confluence_migration") ; \
+	fi
+
 # this rule invokes emacs on each source file to remove trailing whitespace.
 delete-trailing-whitespace:
 	for file in *.txt *.yaml $$(find ./docs -name "*.md" -type f); do \

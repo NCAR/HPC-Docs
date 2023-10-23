@@ -13,4 +13,4 @@ jobs:
           check_filenames: true
           check_hidden: true
           ignore_words_file: .github/workflows/codespell.txt
-          skip: "./git/,./confluence_migration"
+          skip: "./git/,./confluence_migration,./utils"
