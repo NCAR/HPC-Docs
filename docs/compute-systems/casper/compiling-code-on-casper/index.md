@@ -195,6 +195,37 @@ as in this example:
 man ifort
 ```
 
+!!! note "What's the difference between the `intel`, `intel-oneapi`, `intel-classic` modules?"
+    Users migrating from Cheyenne and previous Casper deployments may
+    note there are several "flavors" of the Intel compiler available
+    through the module system.
+
+    Intel is currently moving from their "classic" compiler suite to
+    the new "OneAPI" family.  During this process both sets of
+    compilers are available, but through different commands under different `module` selections:
+
+    |  Module         | **Fortran** | **C** | **C++** |
+    |-----------------|-------------|-------|---------|
+    | `intel-classic` | `ifort`     | `icc` | `icpc`  |
+    | `intel-oneapi`  | `ifx`       | `icx` | `icpx`  |
+    | `intel`<br>(default) | `ifort` | `icx` | `icpx` |
+
+    The `intel-classic` module makes the familiar `ifort/icc/icpc`
+    compilers available, however it is expected these will be
+    deprecated during Casper's lifetime.  At this stage we expect to
+    keep existing compiler versions available, however there will be
+    no further updates.
+
+    The `intel-oneapi` module uses the new `ifx/icx/icpx` compilers.
+
+    The default `intel` module presently uses the older `ifort`
+    Fortran compiler along with the newer `icx/icpx` C/C++ compilers.
+    This choice is intentional as the newer `ifx` does not reliably
+    match the performance of `ifort` in all cases.  We will continue
+    to monitor the progress of the OneAPI compilers and may change
+    this behavior in the future.
+
+
 ##### Optimizing your code with Intel compilers
 
 Intel compilers provide several different optimization and vectorization
@@ -208,18 +239,23 @@ compile time significantly.
 
 You can also disable any optimization by using `-O0`.
 
-Be aware that compiling CPU code with the Intel compiler on Derecho is
-significantly different from using the Intel compiler on the Cheyenne
-system. Flags that are commonly used on Cheyenne might cause Derecho
-jobs to fail or run much more slowly than otherwise possible.
+<!-- FIXME -->
+!!! warning "Optimizing code for multiple types of CPUs"
+    Be aware that compiling CPU code with the Intel compiler on Casper
+    can be complicated by the heterogeneous nature of the nodes.
+    (Casper nodes contain a mixture of Intel Skylake, Intel
+    Cascade Lake, and AMD Milan CPUs.) In general users will want to
+    compile binaries that can execute on any of the CPU types.
 
-!!! tip "CPU Architecture Flags to use  on Derecho"
-    **DO use on Derecho: `-march=core-avx2`**
+    **DO use on Casper: `-march=core-avx2`**
 
-!!! danger "Do NOT use on Derecho:"
-    **Do NOT use on Derecho: `-xHost` , `-axHost` , `-xCORE-AVX2` , `-axCORE-AVX2`**
+    ---
 
-    These flags will generate code that may not run, or will run suboptimally on Derecho.
+    If your application fails to run with an `illegal instruction`
+    message, this indicates the compiled binary contains instructions
+    incompatible with the current CPU.  Try compiling as indicated
+    above, or
+    [reach out to consulting](../../../user-support/index.md) for help.
 
 ##### Examples
 
