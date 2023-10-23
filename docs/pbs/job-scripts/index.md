@@ -410,7 +410,7 @@ of small, similar jobs. The approach outlined above is particularly
 suitable for Casper, where nodes are typically shared and individual
 CPU cores are scheduled.  This allows a job array sub-job to be as small as a single core.
 
-When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slighty different approach.
+When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slightly different approach.
 
 ### Using job arrays to launch a "command file"
 Multiple Program, Multiple Data (MPMD) jobs run multiple independent,
