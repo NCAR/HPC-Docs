@@ -1,3 +1,3 @@
-### Derecho default module list
+# Derecho Modules
 
 {% include 'compute-systems/derecho/derecho-modules-list.md' %}

@@ -38,12 +38,10 @@ Sample basic PBS scripts are listed below:
 
         ---
 
-        The first line denotes the interpreter to be used for the script.
+        The first line denotes the interpreter to be used for the script:
         ```bash
         #!/bin/bash
         ```
-        indicates this is a `bash` script, and that the `bash` shell will be used to parse its contents.
-
 
     === "tcsh"
         ```tcsh
@@ -73,11 +71,10 @@ Sample basic PBS scripts are listed below:
 
         ---
 
-        The first line denotes the interpreter to be used for the script.
+        The first line denotes the interpreter to be used for the script:
         ```tcsh
         #!/bin/tcsh
         ```
-        indicates this is a `tcsh` script, and that the `tcsh` shell will be used to parse its contents.
 
     === "Python"
         ```python
@@ -101,11 +98,11 @@ Sample basic PBS scripts are listed below:
 
         ---
 
-        The  first line denotes the interpreter to be used for the script.
+        The  first line denotes the interpreter to be used for the script:
         ```python
         #!/glade/u/apps/opt/conda/envs/npl/bin/python
         ```
-        indicates this is a `python` script (and, specifically, the NCAR NPL instance), and that the `python` interpreter will be used to parse its contents.
+        indicates this is a `python` script (and, specifically, the NCAR NPL instance).
 
 **Focusing on the `bash` example for discussion**, the remainder of the script contains two main sections:
 

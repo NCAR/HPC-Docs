@@ -1,3 +1,3 @@
-### Casper default module list
+# Casper Modules
 
 {% include 'compute-systems/casper/casper-modules-list.md' %}
