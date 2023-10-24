@@ -1,4 +1,4 @@
-﻿# Cheyenne job script examples
+# Cheyenne job script examples
 
 When you use any of these examples, remember to substitute your own job name and project code, and customize the other directives and commands as necessary. That includes the commands shown for setting TMPDIR in your batch scripts as recommended here: [Storing temporary files with TMPDIR](file:///C:/display/RC/Storing+temporary+files+with+TMPDIR).
 

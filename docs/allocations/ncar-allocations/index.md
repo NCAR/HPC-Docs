@@ -1,4 +1,4 @@
-﻿# **NCAR allocations**
+# **NCAR allocations**
 A new generation of NCAR supercomputing resources began when the Yellowstone system was installed at the NCAR-Wyoming Supercomputing Center (NWSC) in 2012. With the subsequent introduction of the Cheyenne HPC system in 2017 and now [Derecho](../../compute-systems/derecho/index.md) in 2023, the capabilities and capacity of this resource environment expanded significantly.
 
 NCAR’s portion of the Community Computing pool amounts to ~29% of these resources. For the Cheyenne system alone, this represents an estimated 350 million core-hours per year (compared to 170 million on Yellowstone and fewer than 9 million core-hours per year on Bluefire). Similar portions of the data analysis and visualization resources and GLADE storage system also are available to NCAR users.

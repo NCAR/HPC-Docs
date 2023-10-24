@@ -28,3 +28,9 @@ delete-trailing-whitespace:
 	  echo $$file ; \
 	  emacs -batch $$file --eval '(delete-trailing-whitespace)' -f save-buffer 2>/dev/null ; \
 	done
+
+dos2unix:
+	for file in *.yaml $$(find ./docs -name "*.md" -type f); do \
+	  echo $$file ; \
+	  dos2unix $$file ; \
+	done
