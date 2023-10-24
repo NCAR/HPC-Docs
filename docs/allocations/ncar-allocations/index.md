@@ -1,7 +1,7 @@
 ﻿# **NCAR allocations**
-A new generation of NCAR supercomputing resources began when the Yellowstone system was installed at the NCAR-Wyoming Supercomputing Center (NWSC) in 2012. With the subsequent introduction of the [Cheyenne HPC system](file:///C:/display/RC/Cheyenne+supercomputer) in 2017, the capabilities and capacity of this resource environment expanded significantly.
+A new generation of NCAR supercomputing resources began when the Yellowstone system was installed at the NCAR-Wyoming Supercomputing Center (NWSC) in 2012. With the subsequent introduction of the Cheyenne HPC system in 2017 and now [Derecho](../../compute-systems/derecho/index.md) in 2023, the capabilities and capacity of this resource environment expanded significantly.
 
-NCAR’s portion of the Community Computing pool amounts to ~29% of these resources. For the Cheyenne system alone, this represents an estimated 350 million core-hours per year (compared to 170 million on Yellowstone and fewer than 9 million core-hours per year on Bluefire). Similar portions of the data analysis and visualization resources and GLADE storage system also are available to NCAR users.
+NCAR’s portion of the Community Computing pool amounts to ~29% of these resources. For the Cheyenne system alone, this represents an estimated 350 million core-hours per year (compared to 170 million on Yellowstone and fewer than 9 million core-hours per year on Bluefire). Similar portions of the data analysis and visualization resources and GLADE storage system also are available to NCAR users.
 
 -----
 ### Allocation categories
@@ -18,7 +18,7 @@ Joint NCAR/university allocations have been discontinued, although projects with
 ## <a name="ncarallocations-ncarstrategiccapability(nsc)projects"></a>**NCAR Strategic Capability (NSC) projects**
 After review of scientific merit, strategic importance, technical readiness, and broader impact, these large-scale, high-priority projects receive 17% of the core-hours available to NCAR.
 
-See the [NSC Projects](file:///C:/display/RC/NCAR+Strategic+Capability+%28NSC%29+projects) page for details, including the next deadline for submitting requests.
+See the [NSC Projects](./ncar-strategic-capability-nsc-projects.md) page for details, including the next deadline for submitting requests.
 
 -----
 ## <a name="ncarallocations-ncardirector'sreserve"></a>**NCAR Director's Reserve**
@@ -40,7 +40,7 @@ Reserve requests also should also meet at least some of the following six criter
 
 Projects that may be suitable for an NSC allocation but that cannot wait until the next NSC round can request a startup allocation from the Director’s Reserve; such requests still must explain why they satisfy the criteria for a Director’s Reserve allocation.
 
-To request a Director’s Reserve allocation, the NCAR Lab Allocation administrator should submit a brief write-up (approximately one page) from the prospective project lead that describes the project to be conducted and its computing requirements. The NCAR Lab Allocation administrator should include a statement describing why the work should be considered for a Director’s Reserve allocation. The request should be submitted to <alloc@ucar.edu>.
+To request a Director’s Reserve allocation, the NCAR Lab Allocation administrator should submit a brief write-up (approximately one page) from the prospective project lead that describes the project to be conducted and its computing requirements. The NCAR Lab Allocation administrator should include a statement describing why the work should be considered for a Director’s Reserve allocation. The request should be submitted to <alloc@ucar.edu>.
 
 Director’s Reserve requests are reviewed as they are submitted, and decisions generally are made within a few days.
 ### **Reporting**
@@ -64,14 +64,10 @@ The NWSC resources are shared among several allocation “facilities,” includi
 
 To support this NCAR/University balance, we offer the following guidelines for appropriate use of the NCAR and university resource pools.
 
-- NCAR *visitors* (visiting scientists, post-docs, and so on) who are not permanent UCAR staff are eligible to apply for university allocations, subject to the eligibility policies for university allocations.
+- NCAR *visitors* (visiting scientists, post-docs, and so on) who are not permanent UCAR staff are eligible to apply for university allocations, subject to the eligibility policies for university allocations.
 - UCAR/UCP (that is, non-NCAR) permanent staff may request university allocations, subject to the university eligibility policies.
 - NCAR Labs and NSC projects may choose to allow visitors and collaborators to use those allocations as part of collaborative projects.
 - For joint university/NCAR work in which permanent NCAR staff will be responsible for a significant amount of computational usage or a significant fraction of the project’s total computational work, the preferred approach is for NCAR staff to request the necessary resources from the NCAR pool, while the university researchers request the necessary resources for their activities from the university pool.
 - A university principal investigator with a university allocation in support of an NSF award may elect to permit an NCAR collaborator on that award to access an incidental amount of the awarded allocation in support of the collaboration.
 
 NCAR policies and guidelines for co-sponsorship are not affected by these revised allocation policies. Co-sponsorship remains a transaction between a lab and the proposer, and the process is monitored by UCAR Budget and Planning and PACUR. The UCAR B&P office has approved rates for use in the proposal process.
-
------
-
- Just a copy of https://arc.ucar.edu/knowledge_base/75694354

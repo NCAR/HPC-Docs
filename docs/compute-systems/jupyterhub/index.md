@@ -52,11 +52,7 @@ If you choose a **batch node**, use the form provided (images below) to
 specify your project code, set the necessary PBS job options, and launch
 the appropriate server. The name of your batch job will be `STDIN`.
 
-For more information about the options, see:
-
-- [Submitting Cheyenne jobs with PBS](file:////display/RC/Starting+Cheyenne+jobs)
-
-- [Starting Casper jobs with PBS](file:////display/RC/Starting+Casper+jobs+with+PBS)
+For more information about the options, see: [Submitting jobs with PBS](../../pbs/job-scripts/index.md).
 
 Launch your job when ready. This job only gives you access to the
 JupyterLab instance. If you need more resources, you can launch another

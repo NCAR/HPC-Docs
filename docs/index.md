@@ -8,22 +8,18 @@ The knowledge base includes searchable information specific to HPC resources, st
 
 #![Derecho](https://kb.ucar.edu/download/attachments/embedded-page/RC/User%20documentation%20for%20NCAR%20high-performance%20computing/derecho_logo1600X560.png?api=v2 width="150")
 
-# Selected Links
+## Selected Links
 
-* [Derecho](https://arc.ucar.edu/knowledge_base/74317833)
-* [Casper](https://arc.ucar.edu/knowledge_base/70549550)
-* [Cheyenne](https://arc.ucar.edu/knowledge_base/70549542)
+* [Getting Started](./getting-started/index.md)
+* [Using Derecho](./compute-systems/derecho/index.md)
+* [Using Casper](./compute-systems/casper/index.md)
+* [Using JupyterHub](./compute-systems/jupyterhub/index.md)
+* [Getting Help](./user-support/index.md)
 
-Don't find what you need? Log in here to submit a help request: [NCAR Research Computing](https://rchelp.ucar.edu/)
+Don't find what you need? Log in here to submit a help request: [NCAR Research Computing](https://rchelp.ucar.edu/).
 
 You need a CIT password to submit a request. Call **303-497-2400** if you don't have one.
 
-
-## Other CISL web pages
-
-* [CISL Home page](https://nersc.gov)
-* [Help Portal](https://help.nersc.gov)
-* [JupyterHub](https://jupyter.nersc.gov)
 
 !!! tip
     The NCAR HPC Users Group (NHUG) is a reouce group for all users of NCAR HPC resources.

@@ -150,5 +150,4 @@ interest guidelines at any time. For UCAR/NCAR employees other policies
 may apply, including: Conflict of Interest (1-1-4), Ethical Conduct
 (1-1-23), and Investigator Financial Disclosure (1-1-27).
 
-[Download the Conflict of Interest policy
-(pdf)](file:////download/attachments/70549839/CHAP_COI_Policy_0.pdf%3fversion=1&modificationDate=1627405650000&api=v2).
+[Download the Conflict of Interest policy (pdf)](https://kb.ucar.edu/download/attachments/70549839/CHAP_COI_Policy_0.pdf?version=1&modificationDate=1627405650000&api=v2).

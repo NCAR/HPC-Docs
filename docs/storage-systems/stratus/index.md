@@ -56,8 +56,7 @@ Contact CISL to request an account. You will be asked to:
 ## Documentation and additional information
 
 This related page will help you get started as an object storage
-admin: [Getting started with object storage admin
-account](file:////display/RC/Getting+started+with+an+object+storage+admin+account).
+admin: [Getting started with object storage admin account](./getting-started-with-an-object-storage-admin-account.md).
 
 - Additional documentation is attached below.
 
@@ -88,6 +87,6 @@ export AWS_SECRET_ACCESS_KEY='yyy'
 
 #### Click to download
 
-[Object_Storage_S3_API_Reference.pdf](file:////download/attachments/70549594/Object_Storage_S3_API_Reference.pdf%3fversion=1&modificationDate=1627579030000&api=v2)
+- [Object_Storage_S3_API_Reference.pdf](https://kb.ucar.edu/download/attachments/70549594/Object_Storage_S3_API_Reference.pdf?version=1&modificationDate=1627579030000&api=v2)
 
-[Object_Storage_View_User_Guide.pdf](file:////download/attachments/70549594/Object_Storage_View_User_Guide.pdf%3fversion=1&modificationDate=1627579077000&api=v2)
+- [Object_Storage_View_User_Guide.pdf](https://kb.ucar.edu/download/attachments/70549594/Object_Storage_View_User_Guide.pdf?version=1&modificationDate=1627579077000&api=v2)

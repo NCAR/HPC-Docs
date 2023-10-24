@@ -68,7 +68,7 @@ nav:
       - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
       - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
       - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
-      - Removing large number of files : storage-systems/glade/Removing+large+number+of+files.md
+      - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
     - Quasar (Tape Storgae):
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md

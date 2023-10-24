@@ -3,7 +3,7 @@
 The practices described below will help you make the most of your
 computing and storage allocations.
 
-![](best-practices-for-supercomputer-users/media/image1.png){width="350"}
+![](best-practices-for-supercomputer-users/media/image1.png){width="450"}
 
 ## Using shared resources
 
@@ -17,14 +17,14 @@ You can run short, non-memory-intensive processes on the login nodes.
 These include tasks such as text editing or running small serial scripts
 or programs. Memory-intensive processes that slow login node performance
 for all users are killed automatically and the responsible parties are
-notified by email. See [Appropriate use of login
-nodes](file:////display/RC/Cheyenne+use+policies) for more
+notified by email. See
+[Appropriate use of login nodes](../compute-systems/derecho/derecho-use-policies.md#appropriate-use-of-login-nodes)0 for more
 information.
 
-#### Use the Cheyenne and Casper nodes that best meet your needs
+#### Use the Derecho and Casper nodes that best meet your needs
 
-The Cheyenne system and Casper nodes are configured for distinct
-purposes. Cheyenne is best used for running climate and weather models
+The Derecho system and Casper nodes are configured for distinct
+purposes. Derecho is best used for running climate and weather models
 and simulations while the Casper cluster of nodes is for other
 specialized work. Most Casper nodes are used for analyzing and
 visualizing data while others feature large-memory, dense GPU
@@ -35,11 +35,11 @@ This documentation explains how to get jobs running on the most
 appropriate system for your work and on the individual types of nodes
 that will best meet your needs:
 
-- [Submitting Cheyenne jobs with
-  PBS](file:////display/RC/Starting+Cheyenne+jobs)
-
-- [Starting Casper jobs with
-  PBS](file:////display/RC/Starting+Casper+jobs+with+PBS)
+-  [Derecho Overview](../compute-systems/derecho/index.md)
+-  [Casper Overview](../compute-systems/casper/index.md)
+-  [Submitting jobs with PBS](../pbs/index.md)
+    -  [Sample Derecho PBS job scripts](../compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md)
+    -  [Sample Casper PBS job scripts](../compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md)
 
 For expert assistance or guidance in using these resources, contact
 the [NCAR Research Computing help desk](https://rchelp.ucar.edu/).
@@ -58,8 +58,8 @@ necessary to ensure fair access for all users.
 
 Users share a limited number of licenses for running IDL, MATLAB,
 Mathematica, and some other applications. Be familiar with and follow
-the established [license-use
-guidelines](file:////display/RC/Data+analysis+and+visualization) to
+the established
+[license-use guidelines](../environment-and-software/data-analysis-and-visualization.md) to
 ensure fair access for all users. CISL reserves the right to kill
 jobs/tasks of users who monopolize these licenses.
 
@@ -72,8 +72,8 @@ CISL resources as efficiently as possible. Also make sure that others
 who are authorized to charge against your allocation understand how to
 use them efficiently. Understand how your choice of queues affects
 charges against your computing allocation and be aware of other
-allocation-related policies. See [Managing your
-allocation](file:////display/RC/Managing+your+allocation).
+allocation-related policies. See
+[Managing your allocation](../allocations/index.md).
 
 If you are authorized to charge your work against multiple projects,
 check your usage charges and storage holdings for each project on a
@@ -95,8 +95,8 @@ storage allocation and makes these systems more efficient for everyone.
 #### Contact CISL consultants
 
 Before you run a set of jobs that will consume a large portion of your
-allocation – a long experiment, for example – contact the [NCAR Research
-Computing help desk](https://rchelp.ucar.edu/) to request a review of
+allocation – a long experiment, for example – contact the
+[NCAR Research Computing help desk](https://rchelp.ucar.edu/) to request a review of
 your job configuration. One of the consultants may be able to suggest an
 economical workflow that will help you conserve computing resources.
 This is especially important if you are unfamiliar with job
@@ -114,12 +114,12 @@ run your code as themselves.
 
 Here’s one simple example of what not to do in your script:
 ```bash
-cd /glade/scratch/joe/code/running_directory
+cd /glade/derecho/scratch/joe/code/running_directory
 ```
 
 Instead, replace your hardcoded username with `$USER`:
 ```bash
-cd /glade/scratch/$USER/code/running_directory
+cd /glade/derecho/scratch/$USER/code/running_directory
 ```
 
 Better yet, assume that you will launch the job from your working
@@ -156,7 +156,7 @@ consultant to copy and run the code themselves.
 
 #### Set permissions when you create files
 
-Set [permissions](file:////display/RC/Setting+file+and+directory+permissions) when
+Set [permissions](../storage-systems/glade/setting-file-directory-permissions.md) when
 you create a file. While you can change file ownership and permissions
 after the fact, establishing them when you create the file will simplify
 your life and save you time and effort later.
@@ -170,28 +170,24 @@ GLADE file spaces when they are no longer needed. Configuring jobs to
 place no more than 2,000 to 3,000 files in a single directory will make
 them easier to manage.
 
-See [Removing large numbers of
-files](file:////display/RC/Removing+large+numbers+of+files) for how
+See [Removing large numbers of files](../storage-systems/glade/removing-large-number-of-files.md) for how
 to remove massive accumulations of files.
 
 #### Use scratch space for temporary files
 
-The [GLADE scratch](file:////display/RC/GLADE+file+spaces) file
+The [GLADE scratch](../storage-systems/glade/index.md) file
 space is a **temporary** space for data that will be analyzed and
 removed within a short amount of time. It is also the recommended space
 for **temporary files** that would otherwise reside in small /tmp or
-/var/tmp directories that many users share. See [Storing temporary
-files with
-TMPDIR](file:////display/RC/Storing+temporary+files+with+TMPDIR) for
+/var/tmp directories that many users share.
+See [Storing temporary files with TMPDIR](../pbs/storing-temporary-files.md) for
 more information.
 
 #### Use the most appropriate storage system
 
-Review and understand the intended uses of the [GLADE file
-spaces](file:////display/RC/GLADE+file+spaces) and the [NCAR
-Campaign
-Storage](file:////display/RC/Campaign+Storage+file+system) file
-system. For example, use your **/glade/wor**k space to work with data
+Review and understand the intended uses of the [GLADE file spaces](../storage-systems/glade/index.md)
+and the [NCAR Campaign Storage](../storage-systems/glade/campaign.md) file
+system. For example, use your `/glade/work` space to work with data
 sets over time periods greater than what is permitted in the scratch
 space. Individual NCAR labs and project leads for universities that have
 Campaign Storage allocations establish their own workflows and storage
@@ -203,13 +199,12 @@ Storing large files, such as tar files, is more efficient than storing
 numerous small files. In the case of GLADE disk storage, this is because
 the system allocates a minimum amount of space for each file, no matter
 how small. That amount varies depending on which of several file spaces
-holds the file. See [this GLADE
-documentation](file:////display/RC/GLADE+file+spaces) for details.
+holds the file. See [this GLADE documentation](../storage-systems/glade/index.md) for details.
 
 #### Avoid sharing home spaces
 
 If you have an account for using the supercomputers, analysis, and
-visualization systems that CISL manages, you have your own /glade/u/home
+visualization systems that CISL manages, you have your own `/glade/u/home`
 directory. Other users have their own home directories, too, so there is
 no need to share by giving others write permission. Sharing often leads
 to unnecessary confusion over file ownership as your work progresses.
@@ -222,14 +217,14 @@ consider using a work space or project space.
 Organize your files and keep them that way. Arrange them in same-purpose
 trees, for example. Say you have 20 TB of Mount Pinatubo volcanic
 aerosols data. Keep the files in a subdirectory such as
-/glade/u/home/\$USER/pinatubo rather than scattered among unrelated
+`/glade/u/home/$USER/pinatubo` rather than scattered among unrelated
 files or in multiple directories. Specialized trees are easier to share
 with other users and to transfer to other users or projects as
 necessary.
 
 #### Back up critical files
 
-With the exception of users' /glade/u/home spaces, the GLADE and NCAR
+With the exception of users' `/glade/u/home` spaces, the GLADE and NCAR
 Campaign Storage file systems are not backed up. You are responsible for
 replicating any data that you feel should be stored at an additional
 location.
@@ -245,15 +240,14 @@ of them.
 #### Use Globus to transfer files
 
 CISL recommends
-using [Globus](file:////display/RC/Globus+file+transfers) to
+using [Globus](../storage-systems/data-transfer/globus/index.md) to
 transfer large files or data sets between the GLADE centralized file
-service, the [NCAR Campaign
-Storage](file:////display/RC/Campaign+Storage+file+system) file
+service, the [NCAR Campaign Storage](../storage-systems/glade/campaign.md) file
 system, and remote destinations such as university facilities. In
 addition to web and command line interfaces, Globus offers a feature
 called Globus Connect Personal that enables users to move files easily
 to and from laptop or desktop computers and other systems.
 
-Secure Copy Protocol ([SCP](file:////display/RC/SCP+and+SFTP))
+Secure Copy Protocol ([SCP](../storage-systems/data-transfer/scp-and-sftp.md))
 works well for transferring a few relatively small files between most
 systems.
