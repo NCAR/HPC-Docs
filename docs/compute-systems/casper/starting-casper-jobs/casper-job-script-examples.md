@@ -22,4 +22,4 @@ qsub script_name
 <!-- qsubcasper script_name -->
 <!-- ``` -->
 
-{% include 'compute-systems/casper/starting-casper-jobs/casper-job-script-examples-content.md' %}
+---8<--- "docs/compute-systems/casper/starting-casper-jobs/casper-job-script-examples-content.md"
