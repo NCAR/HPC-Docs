@@ -282,8 +282,7 @@ of shared file spaces, for example:
 As disk space is a limited resource shared by the entire community,
 permanent storage of infrequently accessed data should be avoided. These
 spaces should be used as efficiently as possible so that other projects
-can take advantage of the resource. The [Quasar tape storage
-system](file:////display/RC/Quasar+archive+for+data+collections) is more
+can take advantage of the resource. The [Quasar tape storage system](../quasar/index.md) is more
 appropriate for long-term storage of infrequently accessed data.
 
 ## Checking space usage

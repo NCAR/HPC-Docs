@@ -76,7 +76,7 @@ Follow these steps to transfer files. See the image below for reference.
 5.  Specify the path where your source files are located.
 
 6.  Enter your username
-    and [authenticate](file:////display/RC/Authenticating+with+Duo) as
+    and [authenticate](../../../getting-started/accounts/duo/index.md#logging-in-with-duo) as
     you do when logging in to NCAR systems. You will not need to
     authenticate to access the collection for the next 30 days.
 
@@ -100,8 +100,7 @@ to make both manual and [unattended file transfers](Sharing+data+and+making+unat
 
 The application is:
 
-- installed on the NCAR/CISL [data-access
-  nodes](file:////display/RC/Using+data-access+nodes).
+- installed on the NCAR/CISL [data-access nodes](../../data-access-nodes.md).
 
 - available within the NCAR Python Library conda environment.
 
@@ -184,9 +183,7 @@ transfers, manage endpoints, and more, see these resources:
 NCAR and UCAR researchers can use the *Globus for Google
 Drive* connector service to transfer files to the *NCAR Google
 Drive* collection on Globus for sharing and storage purposes by
-following the instructions below. (To transfer files to
-a *personal* Google Drive, see [Transferring files to Google Drive or
-DropBox](file:////display/RC/Transferring+files+to+Google+Drive+or+DropBox) instead.)
+following the instructions below.
 
 The Globus Google Drive connector *is not designed to transfer Google
 apps products* – such as Google Docs, Sheets, or Slides – between Google

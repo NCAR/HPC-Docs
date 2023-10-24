@@ -25,84 +25,82 @@ test/benchmark runs on Casper GPUs, but will accept estimates based on
 runs on comparable non-NCAR, GPU-based systems.
 
 You can use a chart like this as a starting point. Review the
-documentation for the relevant [allocation
-opportunity](file:////display/RC/Allocations) to learn what else is
+documentation for the relevant [allocation opportunity](./index.md) to learn what else is
 required.
 
 <table style="width:100%;">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 27%" />
-<col style="width: 24%" />
-<col style="width: 17%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Experiment</strong><br />
-<strong>(Experimental configuration)</strong></th>
-<th><strong>Core-hours per simulation</strong></th>
-<th><strong>Number of simulations</strong></th>
-<th><strong>Total core-hours</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Totals</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <colgroup>
+    <col style="width: 30%" />
+    <col style="width: 27%" />
+    <col style="width: 24%" />
+    <col style="width: 17%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th><strong>Experiment</strong><br />
+        <strong>(Experimental configuration)</strong></th>
+      <th><strong>Core-hours per simulation</strong></th>
+      <th><strong>Number of simulations</strong></th>
+      <th><strong>Total core-hours</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="even">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="odd">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="even">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="odd">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="even">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="odd">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="even">
+      <td><strong>Totals</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
 </table>
 
 ## CESM and WRF
 
 ### Community Earth System Model
 
-In the case of **CESM**, see the [<u>timing
-tables</u>](https://csegweb.cgd.ucar.edu/timing/cgi-bin/timings.cgi)
+In the case of **CESM**, see the [timing tables](https://csegweb.cgd.ucar.edu/timing/cgi-bin/timings.cgi)
 provided by the CESM team at NCAR for information that will help you
 develop a statement of resource requirements for your project.
 
@@ -118,8 +116,8 @@ your scientific question(s).
 
 ### Weather Research and Forecasting Model
 
-For **WRF** projects, review the guidance on our [Optimizing WRF
-performance](file:////display/RC/Optimizing+WRF+performance) page.
+For **WRF** projects, review the guidance on our
+[Optimizing WRF performance](file:////display/RC/Optimizing+WRF+performance) page.
 Follow those recommendations as you do some benchmark runs to estimate
 the number of core-hours you will need for each planned simulation. Cite
 that page in your core-hour request and describe for the review panel
@@ -146,7 +144,7 @@ resources, consider these questions:
 - How large is any data set that you need to load?
 
 - How much memory needs to be available for you to complete a run? (The
-  [peak_memusage tool](file:////display/RC/Checking+memory+use) can tell
+  [peak_memusage tool](../pbs/checking-memory-use/index.md) can tell
   you how much memory your program uses.)
 
 Your answers will help you calculate the minimum number of nodes you can
@@ -168,10 +166,8 @@ the results of your runs (as in Figure 1).
 
 If your application’s performance is not already well documented, you
 may need to establish a baseline by running it on a single node before
-scaling. On Cheyenne, your parallel code would be executed on a total of
-36 cores on a single node or the equivalent of 72 cores with
-[hyper-threading
-support](file:////display/RC/Hyper-threading+on+Cheyenne). From that
+scaling. On Derecho, your parallel code would be executed on a total of
+128 cores on a single node. From that
 baseline, you can generate scaling data by making a series of runs on
 progressively greater numbers of nodes to determine the optimum number
 to use.
@@ -232,11 +228,9 @@ with systems that are similar to Cheyenne.
 
 Use these links to download sample proposals:
 
-- [Example proposal
-  1](file:////download/attachments/75694337/Example_Proposal_1_Spring2020%2520%25281%2529.pdf%3fversion=1&modificationDate=1627489242000&api=v2)
+- [Example proposal 1](https://kb.ucar.edu/download/attachments/75694337/Example_Proposal_1_Spring2020%20%281%29.pdf?version=1&modificationDate=1627489242000&api=v2)
 
-- [Example proposal
-  2](file:////download/attachments/75694337/Example_Proposal_2_Fall2019%2520%25281%2529.pdf%3fversion=1&modificationDate=1627489279000&api=v2)
+- [Example proposal 2](https://kb.ucar.edu/download/attachments/75694337/Example_Proposal_2_Fall2019%20%281%29.pdf?version=1&modificationDate=1627489279000&api=v2)
 
 They are specific to large university allocations but are good examples
 of documenting performance that you can follow for other types of

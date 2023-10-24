@@ -22,8 +22,7 @@ local workstation.
 
 Download and install a VNC client on your local machine. CISL recommends
 the [TigerVNC](https://tigervnc.org/) client and provides this video to
-help Mac users install it: [Installing TigerVNC on a Mac
-laptop](https://youtu.be/hVFN4AXLbWQ). (Installing on Windows machines
+help Mac users install it: [Installing TigerVNC on a Mac laptop](https://youtu.be/hVFN4AXLbWQ). (Installing on Windows machines
 is less complex.)
 
 [TurboVNC](https://www.turbovnc.org/) also works, but systems using Java
@@ -124,8 +123,7 @@ authenticate to Caspe every time.
 This demonstrates how to run `vncmgr`, create and configure a
 customized VNC session, and then connect to the session with a VNC
 client. In this example, the user is not connected to the NCAR VPN and
-needs to use an SSH tunnel. ([Alternative for PuTTY
-users](file:////display/RC/SSH+tunneling+with+PuTTY).)
+needs to use an SSH tunnel. ([Alternative for PuTTY users](#ssh-tunneling-with-putty).
 
 1.  Run this command to get started, using your own username:
 ```pre
@@ -252,7 +250,7 @@ To use FastX without installing any software, connect to the NCAR VPN
 and use an updated version of any common browser. See the following
 section for an alternative to using the VPN.
 
-1.  Connect to the [NCAR VPN](file:////display/RC/VPN+access).
+1.  Connect to the [NCAR VPN](../../getting-started/vpn-access.md).
 
 2.  Go to [https://fastx.ucar.edu:3300](https://fastx.ucar.edu:3300/).
 

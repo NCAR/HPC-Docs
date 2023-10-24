@@ -14,8 +14,7 @@ related use policies.
 
 Users store data on Quasar by transferring files via the Globus mapped
 collection named **NCAR Quasar**. For documentation about how to use
-Globus, see [Globus file
-transfers](file:////display/RC/Globus+file+transfers).
+Globus, see [Globus file transfers](../data-transfer/globus/index.md).
 
 !!! info " A note about verifying Globus transfers"
 
@@ -68,8 +67,7 @@ made available for users’ data
 The data are written to a separate pool of tapes from the primary data
 copies. The disaster recovery tapes are moved from the TS4500 library as
 they fill up and are stored in a fireproof vault in Cheyenne, Wyoming.
-See [Quasar system
-specifications](file:////display/RC/Quasar+system+specifications) for
+See [Quasar system specifications](./quasar+system+specifications.md) for
 details.
 
 ## Policies

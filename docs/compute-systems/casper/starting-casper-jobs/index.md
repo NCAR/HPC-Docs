@@ -9,7 +9,7 @@ Casper are described below. Also:
 
 - Compile your code on Casper nodes if you will run it on Casper.
 
-- See [Calculating charges](file:////display/RC/Job-submission+queues+and+charges) to
+- See [Calculating charges](../../derecho/starting-derecho-jobs/job-submission-queues-charges.md) to
   learn how core-hours charges are calculated for jobs that run on
   Casper.
 

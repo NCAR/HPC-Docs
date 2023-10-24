@@ -17,7 +17,7 @@ Start by clicking the **GlobalProtect** icon on your desktop or taskbar.
 Enter your username. (Remove `CIT\` if it appears in the password
 field. Enter only your username.)
 
-Follow the documented procedures for using your [authentication token or app](file:////display/RC/Authentication+and+security) (for example, CIT
+Follow the documented procedures for using your [authentication token or app](./accounts/duo/index.md) (for example, CIT
 password and Duo push). Use `gp.ucar.edu` as the portal name if it
 doesn't appear already.
 

@@ -7,27 +7,24 @@ understand common POSIX-standard commands. Note that:
   rather than the methods described below.
 
 - Some also find access control lists (ACLs) useful for facilitating
-  short-term file sharing among selected users. See [Using access
-  control lists](file:////display/RC/Using+access+control+lists).
+  short-term file sharing among selected users. See [Using access control lists](./using-access-control-lists.md).
 
 #### Existing files and directories
 
 Should you need to change permissions for *existing files or
 directories* – to allow other users to modify or execute them, for
-example – [follow the chmod examples
-below](#Settingfileanddirectorypermissions-chmo).
+example – [follow the chmod examples below](/#changing-permissions-with-chmod).
 
 #### New files and directories
 
 Files and directories that you *create* in your GLADE file spaces have
 certain permissions by default. To change the default settings, use the
-[umask command](#Settingfileanddirectorypermissions-umas) described
+[umask command](#changing-default-permissions-with-umask) described
 below.
 
 !!! danger "Don’t run sudo on NCAR systems"
     If you need help with tasks that you think require `sudo` privileges,
-    or if you aren’t sure, please contact [HPC User
-    Support](file:////display/RC/User+support) before trying to run sudo
+    or if you aren’t sure, please contact [HPC User Support](../../user-support/index.md) before trying to run sudo
     yourself. The command fails when unauthorized users run it and sends a
     security alert to system administrators.
 
@@ -54,14 +51,13 @@ Three additional things to note regarding directory permissions:
 2.  Subdirectories can have less restrictive permissions than their
     parent directories. However, if you change directory permissions
     recursively
-    (see [chmod](#Settingfileanddirectorypermissions-chmo) below), you
+    (see [chmod](#changing-permissions-with-chmod) below), you
     are changing them for all of the files and subdirectories in that
     directory tree.
 
 
 3.  An alternative to changing permissions recursively is to set them
-    selectively as shown in [this
-    example below](#Settingfileanddirectorypermissions-sele).
+    selectively as shown in [this example below](#set-permissions-selectively).
 
 **About execute flags: `X` vs. `x`**
 
@@ -218,15 +214,13 @@ to access them.
 If there is no group that allows you to share as needed with other users
 who have NCAR user accounts:
 
-- Consider using the [setfacl
-  command](file:////display/RC/Using+access+control+lists) to set up an
+- Consider using the [setfacl command](./using-access-control-lists.md) to set up an
   access control list.
 
 - Request creation of a custom group.
 
 To share with colleagues *who do not have NCAR user accounts*,
-see [Sharing data and making unattended
-transfers](file:////display/RC/Sharing+data+and+making+unattended+transfers).
+see [Sharing data and making unattended transfers](../data-transfer/globus/Sharing+data+and+making+unattended+transfers.md).
 
 ### Identifying current group and others - `id`
 

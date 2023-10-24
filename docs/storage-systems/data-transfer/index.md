@@ -30,19 +30,15 @@ ranges from 100 to 200 MBps. [More information.](globus/index.md)
 
 The installed Secure Copy Protocol (SCP) and Secure FTP (SFTP) utilities
 are best suited to transferring small numbers of small files to or from
-a local computer and the resources that CISL manages.
-
-[More information](file:////display/RC/SCP+and+SFTP). Also see the SCP
-and SFTP man pages on the computer from which you will initiate
-transfers.
+a local computer and the resources that CISL manages. [More information](./scp-and-sftp.md).
 
 These other tools also can be used to make secure transfers between your
 local computer and CISL systems:
 
-- [PSCP / PSFTP](file:////display/RC/PSCP+and+PSFTP) – PuTTY utilities
+- [PSCP / PSFTP](./scp-and-sftp.md#pscp-and-psftp) – PuTTY utilities
   including a Windows version
 
-- [WinSCP](file:////display/RC/WinSCP) – SCP and SFTP transfers with a
+- [WinSCP](./scp-and-sftp.md#winscp) – SCP and SFTP transfers with a
   graphical user interface for Windows users
 
 ### BBCP
@@ -50,8 +46,7 @@ local computer and CISL systems:
 BBCP is a multi-streaming utility for transferring large files. It
 splits files into multiple streams that are transferred simultaneously,
 so it is faster than the single-streaming SCP and SFTP utilities.
-
-[More information](file:////display/RC/BBCP).
+[More information](./scp-and-sftp.md#bbcp).
 
 ## Sharing data with colleagues
 

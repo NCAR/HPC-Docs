@@ -55,9 +55,9 @@ others that accept Duo 2FA.
 
 #### HPC and SSH logins
 
-To log in to a system like Cheyenne:
+To log in to a system like Derecho:
 
-  - Enter [your ssh command](file:////display/RC/Quick+start+on+Cheyenne).
+  - Enter [your ssh command](../../../compute-systems/derecho/index.md).
   - Enter your **CIT password** where a token response is requested.
 
 ![](media/image2.png){width="400"}
@@ -70,7 +70,7 @@ When you approve the request, you will be logged in.
 #### Other application logins
 
 Duo authentication with other systems is somewhat different. Logging on
-to the NCAR virtual private network ([VPN](file:////display/RC/VPN+access)) is one example.
+to the NCAR virtual private network ([VPN](../../vpn-access.md)) is one example.
 
 You will:
 

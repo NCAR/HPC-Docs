@@ -24,4 +24,8 @@ meetings and provides guidance from the NSF.
 
 ### Core-hours Allocated and Used by University Projects
 
-<p style="text-align: center;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" draggable="false" alt="Chart showing core-hours allocated and used by university projects" width="640" src="https://kb.ucar.edu/download/attachments/embedded-page/RC/CISL%20HPC%20Allocations%20Panel/Univ%20project%20activity%20to%202021.png?api=v2"></span></p>
+<p style="text-align: center;">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+    <img class="confluence-embedded-image confluence-content-image-border" draggable="false" alt="Chart showing core-hours allocated and used by university projects" width="640" src="https://kb.ucar.edu/download/attachments/embedded-page/RC/CISL%20HPC%20Allocations%20Panel/Univ%20project%20activity%20to%202021.png?api=v2">
+  </span>
+</p>
