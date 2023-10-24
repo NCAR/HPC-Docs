@@ -125,7 +125,6 @@ nav:
       - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
       - Starting Derecho Jobs:
         - compute-systems/derecho/starting-derecho-jobs/index.md
-        - Job-submission Queues and Charges: compute-systems/derecho/starting-derecho-jobs/job-submission-queues-charges.md
         - Derecho Job Script Examples:
             - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
             - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md
@@ -147,6 +146,7 @@ nav:
       - pbs/index.md
       - Job Scripts:
         - pbs/job-scripts/index.md
+      - Charging: pbs/charging.md
       - Using Preemption: pbs/preemption.md
       - Common Causes of Job Failures:
         - pbs/common-causes-of-job-failures/index.md
