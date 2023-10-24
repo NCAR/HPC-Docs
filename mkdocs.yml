@@ -224,9 +224,9 @@ theme:
     # - navigation.sections
     # - navigation.tabs
     # - navigation.tabs.sticky
-    # - navigation.top
+    - navigation.top
     - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
-    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
+    - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
     - search.highlight
     - search.share
     - search.suggest
