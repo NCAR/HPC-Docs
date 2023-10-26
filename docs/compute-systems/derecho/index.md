@@ -15,6 +15,16 @@ Installed in 2023, Derecho is NCAR's latest supercomputer.  Derecho features 2,4
 When requesting an allocation for Derecho GPU nodes, please make your request in terms of GPU-hours (number of GPUs used x wallclock hours). We encourage researchers to estimate GPU-hour needs by making test/benchmark runs on Casper GPUs, but will accept estimates based on runs on comparable non-NCAR, GPU-based systems.
 
 
+## Status
+
+
+<p align="center">
+    <iframe width="680" height="440" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_nodes.html"></iframe>
+
+    <iframe width="680" height="350" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_queues.html"></iframe>
+</p>
+
+
 ---
 
 ## Quick Start
