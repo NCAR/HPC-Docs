@@ -39,8 +39,11 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
 
         **DO use on Derecho**: `-march=core-avx2`
 
+        ---
+
         Be especially careful not to use some other flags commonly used on Cheyenne, as these will create sub-optimal
         code that will run slower than otherwise possible, or may fail to execute altogether.
+
         <strong><font color="#ff0000">Do NOT use on Derecho</font></strong>: `-xHost` , `-axHost` , `-xCORE-AVX2` , `-axCORE-AVX2`
 
 
@@ -84,6 +87,28 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
         at some point in Derecho's lifespan.**
 
 
+    - `ncarcompilers` *and linking with libraries*: We continue to recommend the use of the `ncarcompilers` module to facilitate compilation, particularly when using 3rd-party libraries through the `module` system.  One notable change on Derecho is that `ncarcompilers` no longer assumes which combination of `-l<package_libraries>` the user desires, necessitating manual selection.  For example, to link a simple Fortran application with NetCDF, the process is slightly changed on Derecho vs. Cheyenne:
+
+        !!! note "`ncarcompilers` on Derecho requires specifying particular package libraries"
+
+            The `ncarcompilers` module greatly facilitates linking to 3rd party libraries by injecting `module`-specific linker library search paths into executables.  This results in executables that can find their dependencies without relying on environment variables at execution time.
+
+            === "Derecho"
+                Compiling a simple Fortran program that uses NetCDF requires specifying which `-l<package_libs>` are required:
+                 ```pre
+                 module load netcdf
+                 ifort -o foo.exe foo.f90 -lnetcdf
+                 ```
+                 This change allows for broader support of packages that introduce multiple libraries, resolving ambiguity in the users' intent.
+            === "Cheyenne"
+                Compiling a simple Fortran program that uses NetCDF on Cheyenne assumes which `-l<package_libs>` are required, and this detail is hidden from the user:
+
+                 ```pre
+                 module load netcdf
+                 ifort -o foo.exe foo.f90
+                 ```
+
+
 
 - **PBS Job Submission**:  PBS is use to launch jobs on Derecho similar to Cheyenne.  Job submission and monitoring via `qsub`, `qstat`, `qdel` etc... are similar between the systems.
     - *Queues*: On Derecho the default PBS queue `main` takes the place of the three queues `regular`, `premium`, and `economy` on Cheyenne.
@@ -104,9 +129,19 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
 
     - *MPI Environment Variables*: Any users leveraging MPT-specific environment variables in their job scripts to change default behavior should first test their application first with default configurations to determine if such approaches are still necessary, and if so will need to find `cray-mpich` equivalents - see `man intro_mpi` on Derecho or reach out to consulting for assistance.
 
-    - *Process binding*:
+    - *Process binding*: Derecho does not use the `dmplace` or `omplace` utilities found on Cheyenne for process binding, requiring instead binding selections to be specified through `mpiexec`.  For additional details and examples see [Derecho PBS Script Examples](./starting-derecho-jobs/derecho-job-script-examples.md) and the discussion of the `--cpu-bind` option in the `mpiexec` manual page (`man mpiexec` on Derecho).
+
+- <strong><tt>cron</tt></strong> **automation**: Some users leverage `cron` on Cheyenne to automate workflows.  At this time we encourage continuing using Cheyenne in this capacity.  NCAR/CISL is planning a new `cron` service by the beginning of December that will replace the current Cheyenne implementation, with additional details to come.
+
+## Going Further
+
+Much more information on Derecho hardware, software, and general user
+environment can be found in the
+[Introduction to the Derecho Supercomputer](https://docs.google.com/presentation/d/1ExiYUd6sHNwIQmCoR7aTGZavxjHglDRUDQTeOiHYLQI/edit?usp=sharing)
+training slides.
 
 ---
+
 ## Comparison References
 ### User Environment Comparison
 
@@ -118,5 +153,7 @@ Click on the image below for a detailed comparison of Cheyenne and Derecho key u
 Click on the image below for a detailed comparison of Cheyenne and Derecho hardware.
 ![](media/hw_comp.png)
 
-<!--  LocalWords:  Derecho derecho FQDN
+<!--  LocalWords:  Derecho derecho FQDN Fortran ncarcompilers
+<!--  LocalWords:  executables
+ -->
  -->
