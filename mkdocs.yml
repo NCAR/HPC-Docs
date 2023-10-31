@@ -89,10 +89,7 @@ nav:
 
       - User Environment:
         - environment-and-software/user-environment/index.md
-        - Modules:
-          - environment-and-software/user-environment/modules.md
-          - Caper Modules: compute-systems/casper/casper-modules.md
-          - Derecho Modules: compute-systems/derecho/derecho-modules.md
+        - Modules: environment-and-software/user-environment/modules.md
         - Conda: environment-and-software/user-environment/conda.md
         - Containers: environment-and-software/user-environment/containers.md
         - Utilities: environment-and-software/user-environment/utilities.md
@@ -123,12 +120,12 @@ nav:
       - compute-systems/derecho/index.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
       - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
-      - Starting Derecho Jobs:
+      - Starting Derecho Jobs: 
         - compute-systems/derecho/starting-derecho-jobs/index.md
         - Derecho Job Script Examples:
             - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
             - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md
-
+      - Derecho Software: compute-systems/derecho/derecho-modules.md
     - Casper:
       - compute-systems/casper/index.md
       - Casper Use Policies: compute-systems/casper/casper-use-policies.md
@@ -137,7 +134,7 @@ nav:
             - compute-systems/casper/starting-casper-jobs/index.md
             - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
       - Using Remote Desktops: compute-systems/casper/remote-desktops.md
-
+      - Casper Software: compute-systems/casper/casper-modules.md
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyter-and-ipython.md

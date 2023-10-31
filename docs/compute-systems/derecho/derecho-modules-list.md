@@ -64,6 +64,7 @@ any of the "keys".
 ```
 
 ## Derecho complete module listing
+<!-- --8<-- [start:complete] -->
 ```pre
 ----------------------------------------------------------------------------
 The following is a list of the modules and extensions currently available:
@@ -160,3 +161,4 @@ must specify the version if there is more than one version:
    $ module spider Foo/11.1
 ----------------------------------------------------------------------------
 ```
+<!-- --8<-- [end:complete] -->
