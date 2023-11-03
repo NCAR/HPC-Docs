@@ -331,6 +331,8 @@ If you’re not connected to the NCAR VPN or prefer to use a faster, more
 robust remote desktop service, consider downloading and installing
 the [FastX desktop client](https://www.starnet.com/download/fastx-client).
 
+
+
 !!! note "FastX desktop client for Windows users"
     If you do not have admin privileges to install the client on your machine, choose the “Windows Nonroot” client.
 
@@ -353,7 +355,7 @@ the [FastX desktop client](https://www.starnet.com/download/fastx-client).
 7.  Click the **+** button in the upper-left corner of the next window.
     ![](remote-desktops/media/fastx6.png){width="450"}
 
-8.  Select the **KDE** icon that displays `startkde` in the required command field.
+8.  Select the **KDE** icon that displays `startplasma-x11` in the required command field.
     1.  Double-click the icon to start the KDE desktop. You can then
         right-click on the desktop to get a Kconsole menu, **OR**
     2.  Double-click the **xterm** icon instead to get a single xterm.
