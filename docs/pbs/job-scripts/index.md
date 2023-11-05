@@ -410,7 +410,8 @@ of small, similar jobs. The approach outlined above is particularly
 suitable for Casper, where nodes are typically shared and individual
 CPU cores are scheduled.  This allows a job array sub-job to be as small as a single core.
 
-When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slightly different approach.
+When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slightly different approach,
+as employed in the following use case.
 
 ### Using job arrays to launch a "command file"
 Multiple Program, Multiple Data (MPMD) jobs run multiple independent,
@@ -469,15 +470,8 @@ job. This process is outlined in the example below.
          <command file>
 
     ------------------------------------------------------------------
-    Executes a series of commands in a file.  The filename
-    may be listed as an argument, or defaults to "./cmdfile".
-
-    The optional bash configuration file "./config_env.sh" will
-    be sourced prior to command execution, if found, and ca therefore
-    be used to customize the environment with e.g. "module load" commands.
-
-    All options in "<>" brackets are optional.  Any unrecognized arguments
-    are passed through directly to qsub.
+    All options in "<>" brackets are optional.
+    Any unrecognized arguments are passed through directly to qsub.
     The PBS options -A and -l walltime are required at minimum.
     ```
 
@@ -489,7 +483,17 @@ job. This process is outlined in the example below.
 
     **Discussion**
 
+    This PBS array implementation is a departure from the command file technique
+    [used previously on Cheyenne](https://arc.ucar.edu/knowledge_base/72581486#Cheyennejobscriptexamples-Batchscripttorunacommandfile(MPMD)job),
+    where MPI was used to launch the desired commands on each rank.  While slightly more complex,
+    the array approach has several advantages.  Since the array steps are independent, the job can begin
+    execution as soon as even a single node is available, and can scale to fill the available resources.
 
+    Additionally, the array approach is well suited for when the run times of the specific commands varies.
+    In the previous MPI approach, all nodes were held until the slowest step completed, with the consequence
+    of idle resources for varied command run times. With the array approach each node completes independently,
+    when the slowest of its unique steps has completed.  Thus the utilization of *each node* is controlled by
+    the run times of its own steps, rather than all steps.
 
     ---
 
