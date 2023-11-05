@@ -127,7 +127,7 @@ needs to use an SSH tunnel. ([Alternative for PuTTY users](#ssh-tunneling-with-p
 
 1.  Run this command to get started, using your own username:
 ```pre
-ssh -t username@casper.ucar.edu /glade/u/apps/opt/vncmgr/vncmgr
+ssh -t -l username casper.hpc.ucar.edu /glade/u/apps/opt/vncmgr/bin/vncmgr
 ```
     You will be prompted to authenticate, after which you will have access
     to the vncmgr menu. (If you exit vncmgr, you will have to rerun the
