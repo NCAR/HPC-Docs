@@ -17,9 +17,8 @@ When requesting an allocation for Derecho GPU nodes, please make your request in
 
 ## Status
 
-
-<p align="center">
-    <iframe width="680" height="440" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_nodes.html"></iframe>
+<p align="left">
+    <iframe width="680" height="480" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_nodes.html"></iframe>
 
     <iframe width="680" height="350" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_queues.html"></iframe>
 </p>
