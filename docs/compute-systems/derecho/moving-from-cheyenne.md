@@ -127,7 +127,7 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
       ```
       see `man mpiexec` on Derecho for additional details.
 
-    - *MPI Environment Variables*: Any users leveraging MPT-specific environment variables in their job scripts to change default behavior should first test their application first with default configurations to determine if such approaches are still necessary, and if so will need to find `cray-mpich` equivalents - see `man intro_mpi` on Derecho or reach out to consulting for assistance.
+    - *MPI Environment Variables*: Any users leveraging MPT-specific environment variables in their job scripts to change default behavior should first test their application with default configurations to determine if such approaches are still necessary, and if so will need to find `cray-mpich` equivalents - see `man intro_mpi` on Derecho or reach out to consulting for assistance.
 
     - *Process binding*: Derecho does not use the `dmplace` or `omplace` utilities found on Cheyenne for process binding, requiring instead binding selections to be specified through `mpiexec`.  For additional details and examples see [Derecho PBS Script Examples](./starting-derecho-jobs/derecho-job-script-examples.md) and the discussion of the `--cpu-bind` option in the `mpiexec` manual page (`man mpiexec` on Derecho).
 
