@@ -410,7 +410,8 @@ of small, similar jobs. The approach outlined above is particularly
 suitable for Casper, where nodes are typically shared and individual
 CPU cores are scheduled.  This allows a job array sub-job to be as small as a single core.
 
-When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slightly different approach.
+When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slightly different approach,
+as employed in the following use case.
 
 ### Using job arrays to launch a "command file"
 Multiple Program, Multiple Data (MPMD) jobs run multiple independent,
@@ -424,7 +425,7 @@ job. This process is outlined in the example below.
 
     ```bash title="cmdfile"
     # this is a comment line for demonstration
-    ./cmd1.exe < input1
+    ./cmd1.exe < input1 # comments are allowed for steps too, but not required
     ./cmd2.exe < input2
     ./cmd3.exe < input3
     ...
@@ -436,104 +437,71 @@ job. This process is outlined in the example below.
     you need to specify adequate relative or full paths in both your
     command file and job scripts.  The sub-jobs will produce output
     files that reside in the directory in which the job was submitted.
+    The command file can then be executed with the `launch_cf` command.
 
-    In the following PBS script, we use job arrays to execute the
-    contents of the command file.  We will handle the general
-    case where the requested resource chunk is an entire, dedicated
-    node (as would be the case on Derecho).  This requires a little
-    bit of complexity, as we can no longer assume a single
-    `PBS_ARRAY_INDEX` will perform a single MPMD step.  Rather, each
-    `PBS_ARRAY_INDEX` has access to potentially an entire compute
-    node's worth of CPUs.  So we take some effort to allow each
-    `PBS_ARRAY_INDEX` to run many steps, one per assigned CPU.
-    ```bash title="cmdfile_job_array.pbs"
-	#!/bin/bash
-	#PBS -N array_example
-	#PBS -j oe
-	#PBS -l walltime=00:10:00
-	## PBS_ARRAY_INDEX range, inclusive:  (can be overridden by qsub command line arguments)
-	#PBS -J 0-3
+    **Examples**:
+    ```pre
+    # launches the commands listed in ./cmdfile:
+    launch_cf -A PBS_ACCOUNT -l walltime=1:00:00
 
-	### Set temp to scratch
-	export TMPDIR=${SCRATCH}/tmp && mkdir -p ${TMPDIR}
-
-	## determine the number of nodes, and processors per node we were assigned
-	## (inferred from the ${PBS_NODEFILE})
-	nodeslist=( $(cat ${PBS_NODEFILE} | sort | uniq | cut -d'.' -f1) )
-	nnodes=$(cat ${PBS_NODEFILE} | sort | uniq | wc -l)
-	nranks=$(cat ${PBS_NODEFILE} | sort | wc -l)
-	nranks_per_node=$((${nranks} / ${nnodes}))
-
-	[ ${nnodes} -eq 1 ] || { echo "ERROR: this example is intended to be run on 1 node, but with perhaps many array steps"; exit 1; }
-
-	echo "${nranks} ${nnodes}x${nranks_per_node}"
-
-	nsteps=$( cat cmdfile | grep -v '#' | wc -l )
-
-	# this PBS_ARRAY_INDEX will compute multiple "steps" from cmdfile, up to ppn
-	start_idx=$(( ${PBS_ARRAY_INDEX} * ${nranks_per_node} ))
-	stop_idx=$(( ${start_idx} + ${nranks_per_node} - 1 ))
-
-	echo "nsteps: ${nsteps}, array index: ${PBS_ARRAY_INDEX}"
-	echo "start_idx=${start_idx} stop_idx=${stop_idx}"
-
-    #------------------------------------------------------------------
-    # bash function to extract the desired line number from a text file
-	getline ()
-	{
-	    # ref: https://www.baeldung.com/linux/read-specific-line-from-file
-	    FILE="${1}"
-	    LINE_NO=${2}
-
-	    i=0
-	    while read line; do
-	        # skip comment lines beginning with "#"
-	        [[ ${line:0:1} == "#" ]] && continue
-
-	        i=$((i + 1))
-	        test ${i} = ${LINE_NO} && echo "${line}" && return
-	    done < "${FILE}"
-
-	    echo "ERROR: line ${LINE_NO} not found, is ${FILE} too short? (only found ${i} non-comment lines)"
-	    exit 1
-	}
-    #------------------------------------------------------------------
-
-	# create a 'logs/ directory to hold stdout from each process
-	mkdir -p ./logs/
-
-	# loop over each 'step' for which we are responsible.
-	# launch our ./cmdfile lines, in the background
-	for step in $(seq ${start_idx} ${stop_idx}); do
-
-	    # the last PBS_ARRAY_INDEX could go past nsteps if the number of cmdfile
-	    # is not evenly divisible by ppn - don't let it
-	    [ ${step} -ge ${nsteps} ] && break
-
-	    # get the command line arguments from cmdfile for this step
-	    # (note that the step counter is 0 based, so add 1)
-	    step_cmd=$(getline ./cmdfile $(( ${step} + 1)) )
-	    echo "   PBS_ARRAY_INDEX=${PBS_ARRAY_INDEX} launching step ${step} / ${step_cmd}"
-
-	    # finally, launch our desired application with the requested arguments.  Redirect stdout/stderr to
-	    # the ./logs/ directory.
-	    eval ${step_cmd} > ./logs/stdout-$(printf '%04d' $((${step}+1))).log 2>&1 &
-	done
-
-	# wait for all the background processes to complete.
-	# (otherwise, when this script exits, PBS thinks it is done and will kill any remaining processes...)
-	wait
-
-	echo "Done: PBS_ARRAY_INDEX=${PBS_ARRAY_INDEX} finished on $(date)"
+    # launches the OpenMP-threaded commands listed in ./omp_cmdfile:
+    #  (requires ppn=128 = (32 steps/node) * (4 threads/step)
+    launch_cf -A PBS_ACCOUNT -l walltime=1:00:00 --nthreads 4 --steps-per-node 32 ./omp_cmdfile
     ```
 
-    ```bash title="launch_cf"
-    # benkirk FIXME!
+    The jobs listed in the `cmdfile` will be launched from a `bash` shell in the
+    users default environment.  The optional file `config_env.sh` will be "sourced"
+    from the run directory in case environment modification is required, for example to
+    load a particular `module` environment, to set file paths, etc...
+
+    The command will assume reasonable defaults on Derecho and Casper for the number of
+    job "steps" from the `cmdfile` to run per node, memory per node, PBS queues, etc...
+    Each of these parameters can be controlled via `launch_cf` command line arguments,
+    see `launch_cf --help`:
+    ```pre title="launch_cf command line options"
+    launch_cf <-h|--help>
+         <--queue PBS_QUEUE>
+         <--ppn|--processors-per-node #CPUS>
+         <--steps-per-node #Steps/node>
+         <--nthreads|--threads-per-step #Threads/step>
+         <--mem|--memory RAM/node>
+         -A PBS_ACCOUNT -l walltime=01:00:00
+         ... other PBS args ...
+         <command file>
+
+    ------------------------------------------------------------------
+    All options in "<>" brackets are optional.
+    Any unrecognized arguments are passed through directly to qsub.
+    The PBS options -A and -l walltime are required at minimum.
     ```
+
+    The two PBS required arguments are `-A <project_code>` and `-l walltime=...`.
+    Any command line argument not interpreted directly by `launch_cf` are assumed PBS
+    arguments and are passed along to `qsub`.
 
     ---
 
     **Discussion**
+
+    This PBS array implementation is a departure from the command file technique
+    [used previously on Cheyenne](https://arc.ucar.edu/knowledge_base/72581486#Cheyennejobscriptexamples-Batchscripttorunacommandfile(MPMD)job),
+    where MPI was used to launch the desired commands on each rank.  While slightly more complex,
+    the array approach has several advantages.  Since the array steps are independent, the job can begin
+    execution as soon as even a single node is available, and can scale to fill the available resources.
+
+    Additionally, the array approach is well suited for when the run times of the specific commands varies.
+    In the previous MPI approach, all nodes were held until the slowest step completed, with the consequence
+    of idle resources for varied command run times. With the array approach each node completes independently,
+    when the slowest of its unique steps has completed.  Thus the utilization of *each node* is controlled by
+    the run times of its own steps, rather than all steps.
+
+    ---
+
+    The implementation details are unimportant for general users exercising this
+    capability, however may be interesting for advanced users wishing to leverage
+    PBS job arrays in different scenarios.  See the
+    [hpc-demos GitHub repository](https://github.com/NCAR/hpc-demos/tree/main/PBS/job_arrays/command_files)
+    for source code.
 
 ---
 

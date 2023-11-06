@@ -97,6 +97,8 @@ analysis, and visualization resources that CISL manages.
   </tbody>
 </table>
 
+---
+
 CISL backs up the GLADE **home** file space several times a week and
 also
 creates [snapshots](./recovering-files-from-snapshots.md) to
@@ -118,6 +120,12 @@ allocates a minimum amount of space for each file (currently configured
 to 16 KB), no matter how small the file is.  Thus 16KB is the smallest
 amount of space the system can allocate to a file, including empty
 files, directories and symlinks.
+
+### Status
+
+<p align="left">
+    <iframe width="680" height="340" frameborder="0" src="https://www.cisl.ucar.edu/uss/glade_status/glade_status_BSK.html"></iframe>
+</p>
 
 ## Home space
 

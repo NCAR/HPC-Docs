@@ -33,7 +33,7 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 	```
 === "Casper"
 	``` shell
-	ssh -X username@casper.ucar.edu
+	ssh -X username@casper.hpc.ucar.edu
 	```
 === "Cheyenne"
 	``` shell
