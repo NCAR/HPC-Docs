@@ -252,7 +252,7 @@ theme:
 
   font:
         text: Poppins
-        code: Regular
+        code: Roboto Mono
 
   highlightjs: true
 
