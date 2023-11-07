@@ -187,5 +187,18 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
   </tbody>
 </table>
 
+---
+
+## Status
+### Nodes
+<p align="left"><iframe width="680" height="1100" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/casper_nodes_BSK.html"></iframe></p>
+
+#### GPU Usage
+<p align="left"><iframe width="680" height="835" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/casper_gpu_status_BSK.html"></iframe></p>
+
+### Queues
+<p align="left"><iframe width="680" height="440" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/casper_queues_BSK.html"></iframe></p>
+
+
 <!--  LocalWords:  Casper Derecho
  -->
