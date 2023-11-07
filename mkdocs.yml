@@ -205,7 +205,7 @@ theme:
     - search.highlight
     - content.tabs.link       # all content tabs across the docs will be linked
     - content.code.annotation # add annotations (advanced)
-    - content.code.annotate
+    - content.code.annotate 
     - content.code.copy
     - content.action.edit     # edit the page
     - content.action.view     # view the source page
@@ -265,9 +265,9 @@ markdown_extensions:
   - md_in_html
   - def_list
   - codehilite:
-      guess_lang: false
+      guess_lang: false 
   - toc:
-      permalink: true
+      permalink: true 
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -341,7 +341,7 @@ plugins:
 
 
 extra:
-  social:
+  social: 
     - icon: material/home-circle
       link: https://arc.ucar.edu/
     - icon: material/help-circle
