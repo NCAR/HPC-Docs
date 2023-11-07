@@ -14,18 +14,6 @@ Installed in 2023, Derecho is NCAR's latest supercomputer.  Derecho features 2,4
 
 When requesting an allocation for Derecho GPU nodes, please make your request in terms of GPU-hours (number of GPUs used x wallclock hours). We encourage researchers to estimate GPU-hour needs by making test/benchmark runs on Casper GPUs, but will accept estimates based on runs on comparable non-NCAR, GPU-based systems.
 
-
-## Status
-
-<p align="left">
-    <iframe width="680" height="660" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_nodes.html"></iframe>
-
-    <iframe width="680" height="440" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_queues.html"></iframe>
-</p>
-
-
----
-
 ## Quick Start
 ### Logging in
 
@@ -125,3 +113,14 @@ Users already familiar with PBS and batch submission may find [Derecho-specific 
 |**HPE Slingshot v11 high-speed interconnect**|Dragonfly topology, 200 Gb/sec per port per direction<br>1\.7-2.6 usec MPI latency<br>CPU-only nodes - one Slingshot injection port<br>GPU nodes - 4 Slingshot injection ports per node|
 |**~3.5 times Cheyenne computational capacity**|Comparison based on the relative performance of CISL's High Performance Computing Benchmarks run on each system.|
 |**> 3.5 times Cheyenne peak performance**|19\.87 peak petaflops (vs 5.34)|
+
+
+---
+
+##  Status
+
+### Nodes
+<p align="left"><iframe width="680" height="650" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_nodes.html"></iframe></p>
+
+### Queues
+<p align="left"><iframe width="680" height="440" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_queues.html"></iframe></p>
