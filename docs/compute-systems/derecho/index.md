@@ -15,6 +15,8 @@ Installed in 2023, Derecho is NCAR's latest supercomputer.  Derecho features 2,4
 When requesting an allocation for Derecho GPU nodes, please make your request in terms of GPU-hours (number of GPUs used x wallclock hours). We encourage researchers to estimate GPU-hour needs by making test/benchmark runs on Casper GPUs, but will accept estimates based on runs on comparable non-NCAR, GPU-based systems.
 
 ## Quick Start
+###This is Shira's first pull request.
+
 ### Logging in
 
 Once you have [an account](../../getting-started/accounts/index.md),
