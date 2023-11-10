@@ -164,10 +164,6 @@ nav:
 
   - User Support:
     - user-support/index.md
-    - Submitting Support Tickets:
-      - user-support/submitting-support-tickets/index.md
-      - How to report a job failure?: user-support/submitting-support-tickets/how-to-submit-a-job-failure.md
-    - Virtual Consulting: user-support/virtual-consulting.md
     - Troubleshooting Tips:
       - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
       - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md

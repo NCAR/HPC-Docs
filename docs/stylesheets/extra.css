@@ -98,6 +98,12 @@ body {
 }
 */
 
+
+/* Maximum space for text block (https://github.com/squidfunk/mkdocs-material/discussions/3692) */
+.md-grid {
+    max-width: 100%;
+}
+
 .logo-wrapper h1 {
   font-size: 2rem;
   line-height: .8
