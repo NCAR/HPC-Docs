@@ -1,5 +1,6 @@
 # User Documentation for NCAR High Performance Computing
 
+
 [![Jupyter Build](https://shields.api-test.nl/github/workflow/status/negin513/hpc-docs-demo/ci?label=Docs&logo=GitHub&style=flat-square)](https://negin513.github.io/hpc-docs-demo/)
 
 This is the home of user documentation for the NCAR high-performance computing (HPC) and storage resources that CISL manages.
@@ -31,3 +32,6 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
     This project is hosted on [GitHub](https://github.com/NCAR/HPC-Docs) and your
     [contributions](https://github.com/NCAR/HPC-Docs/blob/main/contributing.md)
     are welcome!
+
+---
+![](media/CISL-contemp-logo-blue.png){width="640"}
