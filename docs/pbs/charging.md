@@ -33,7 +33,7 @@ Charges for use of Derecho are calculated in terms of core-hours. Jobs run in De
         ```
         #PBS -l select=2:ncpus=128:mpiprocs=128
         ```
-        Your job will be charged for the use of 256 cores.
+        **Your job will be charged for the use of 256 cores.**
 
 
     === "Fully Subscribed CPU Node (Hybrid)"
@@ -41,7 +41,7 @@ Charges for use of Derecho are calculated in terms of core-hours. Jobs run in De
         ```
         #PBS -l select=4:ncpus=128:mpiprocs=32:ompthreads=4
         ```
-        Your job will be charged for the use of 512 cores.
+        **Your job will be charged for the use of 512 cores.**
 
 
     === "Under-subscribed CPU Node "
@@ -51,7 +51,7 @@ Charges for use of Derecho are calculated in terms of core-hours. Jobs run in De
         ```
         **Your job will be charged for all 256 cores, even though you are only using 128** (assuming your code has no hybrid parallel capability - e.g OpenMP or other threading).
 
-    !!! danger "Exclusive nodes are charged by resource allocation, not utilizaion"
+    !!! danger "Exclusive nodes are charged by resource allocation, not utilization"
         Most Derecho batch queues are for *exclusive* use, so *jobs submitted to Derecho queues are charged for all 128 CPU cores on each node that is used* regardless of how many CPUs are used.
         Requesting a Derecho CPU node for 1 hour will result in a 128 core hour charge, even if left idle by the user.
 
