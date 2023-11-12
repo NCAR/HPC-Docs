@@ -139,12 +139,14 @@ nav:
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
+    - Additional Resources:
+      - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
 
   - Running Jobs (PBS):
       - pbs/index.md
       - Job Scripts:
         - pbs/job-scripts/index.md
-      - Charging: pbs/charging.md
+      - Queues and Charging: pbs/charging.md
       - Using Preemption: pbs/preemption.md
       - Common Causes of Job Failures:
         - pbs/common-causes-of-job-failures/index.md
@@ -168,11 +170,6 @@ nav:
       - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
       - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
       - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
-      - peak_memusage output fails: user-support/troubleshooting-tips/peak_memusage-output-fails.md
-    - Additional Resources:
-      - Thunder test system: user-support/additional-resources/thunder-test-system.md
-    - How to Join CISL on Sundog?: user-support/how-to-join-cisl-on-sundog.md
-    - How to subscribe to CISL Daily Bulletin: user-support/how-to-subscribe-to-cisl-daily-bulletin.md
 
   - NCAR User Group (NHUG):
     - nhug/index.md
