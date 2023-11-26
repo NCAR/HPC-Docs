@@ -332,7 +332,7 @@ plugins:
       type: timeago
   - minify:
       minify_html: true
-
+  - open-in-new-tab
 
 extra:
   social:

@@ -16,3 +16,4 @@ mkdocs-material==8.*
 mkdocs-minify-plugin
 mkdocs-git-revision-date-plugin
 mkdocs-git-revision-date-localized-plugin
+mkdocs-open-in-new-tab
