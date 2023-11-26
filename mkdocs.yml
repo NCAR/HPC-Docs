@@ -329,7 +329,7 @@ plugins:
       caption_position: bottom
   - minify:
       minify_html: true
-
+  - open-in-new-tab
 
 extra:
   social: 
