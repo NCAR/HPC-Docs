@@ -26,9 +26,6 @@ validation:
 nav:
   - Home : index.md
 
-  - Quick Start:
-    - quick-start/index.md
-
   - Getting Started:
     - getting-started/index.md
     - User Responsibilities: getting-started/user-responsibilities.md
@@ -104,13 +101,14 @@ nav:
         - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
         - NCL : environment-and-software/ncl.md
         - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
-        - Math Kernel Library: environment-and-software/math-kernel-library.md
+        - Numerical Libraries: environment-and-software/numerical-libraries.md
         - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
         - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
         - Profiling & Debuggers: # -- tentative placement
           - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
           - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
         - Benchmarks:
+          - environment-and-software/benchmarks/index.md
           - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
           - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
 
@@ -120,12 +118,13 @@ nav:
       - compute-systems/derecho/index.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
       - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
-      - Starting Derecho Jobs: 
+      - Starting Derecho Jobs:
         - compute-systems/derecho/starting-derecho-jobs/index.md
         - Derecho Job Script Examples:
             - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
             - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md
       - Derecho Software: compute-systems/derecho/derecho-modules.md
+      - Moving to Derecho from Cheyenne: compute-systems/derecho/moving-from-cheyenne.md
     - Casper:
       - compute-systems/casper/index.md
       - Casper Use Policies: compute-systems/casper/casper-use-policies.md
@@ -138,12 +137,14 @@ nav:
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
+    - Additional Resources:
+      - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
 
   - Running Jobs (PBS):
       - pbs/index.md
       - Job Scripts:
         - pbs/job-scripts/index.md
-      - Charging: pbs/charging.md
+      - Queues and Charging: pbs/charging.md
       - Using Preemption: pbs/preemption.md
       - Common Causes of Job Failures:
         - pbs/common-causes-of-job-failures/index.md
@@ -163,19 +164,10 @@ nav:
 
   - User Support:
     - user-support/index.md
-    - Submitting Support Tickets:
-      - user-support/submitting-support-tickets/index.md
-      - How to report a job failure?: user-support/submitting-support-tickets/how-to-submit-a-job-failure.md
-    - Virtual Consulting: user-support/virtual-consulting.md
     - Troubleshooting Tips:
       - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
       - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
       - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
-      - peak_memusage output fails: user-support/troubleshooting-tips/peak_memusage-output-fails.md
-    - Additional Resources:
-      - Thunder test system: user-support/additional-resources/thunder-test-system.md
-    - How to Join CISL on Sundog?: user-support/how-to-join-cisl-on-sundog.md
-    - How to subscribe to CISL Daily Bulletin: user-support/how-to-subscribe-to-cisl-daily-bulletin.md
 
   - NCAR User Group (NHUG):
     - nhug/index.md
@@ -330,6 +322,19 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
   - minify:
       minify_html: true
   - open-in-new-tab

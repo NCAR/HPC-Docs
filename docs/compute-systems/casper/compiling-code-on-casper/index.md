@@ -156,7 +156,7 @@ module load netcdf
 
 Then you can invoke the desired compilation command, including any library linking options such as `-lnetcdf`. Here's an example:
 ```sh
-mpif90-o foo.exe foo.f90 -lnetcdf
+mpif90 -o foo.exe foo.f90 -lnetcdf
 ```
 
 ## Compiling CPU code
