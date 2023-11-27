@@ -119,7 +119,7 @@ In the examples below we will work incrementally through a simple but realistic 
     === "Apptainer"
         **Pulling & listing images**
 
-        We will use the command `singularity pull` from the `apptainer` module to pull our image ans save it in Singularity Image Format (SIF):
+        We will use the command `singularity pull` from the `apptainer` module to pull our image and save it in Singularity Image Format (SIF):
         ```console title="singularity pull"
         casper$ singularity pull ./rocky9.sif docker://rockylinux/rockylinux:9
         INFO:    Converting OCI blobs to SIF format

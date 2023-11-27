@@ -11,7 +11,7 @@ A container is a unit of software that packages code with its required dependenc
 
  - **Container Image**: An image is a read-only template that contains all the code, dependencies, libraries, and supporting files that are required to launch a container. This is a unit of software that packages code with its required dependencies in order to run in an isolated, controlled environment. *Container images virtualize an OS, but not a kernel* (in contrast to heavier-weight virtual machine technology).  Images can be built manually, or retrieved from one of several *Image Registries*.
 
-    - **Image Registry**: This is a solution for container image storage and sharing. Several popular examlpes are  [Docker Hub](https://hub.docker.com/), [Quay.io](https://quay.io/) and [GitHub's container registry](https://github.blog/2021-06-21-github-packages-container-registry-generally-available/).  Additionally, private image registries can be implemented.
+    - **Image Registry**: This is a solution for container image storage and sharing. Several popular examples are  [Docker Hub](https://hub.docker.com/), [Quay.io](https://quay.io/) and [GitHub's container registry](https://github.blog/2021-06-21-github-packages-container-registry-generally-available/).  Additionally, private image registries can be implemented.
 
     - **Image Repository**: This is a specific location for a container image within an image registry. It contains the latest image along with the history of it within a registry.
 
