@@ -196,7 +196,7 @@ theme:
     - search.highlight
     - content.tabs.link       # all content tabs across the docs will be linked
     - content.code.annotation # add annotations (advanced)
-    - content.code.annotate
+    - content.code.annotate 
     - content.code.copy
     - content.action.edit     # edit the page
     - content.action.view     # view the source page
@@ -231,13 +231,6 @@ theme:
 
   palette:
     - scheme: cisl_default
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    - scheme: cisl_default_dark
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
 
   font:
         text: Poppins
@@ -252,8 +245,7 @@ extra_css:
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
-#copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
-copyright: "&copy; 2023 UCAR"
+#copyright: "&copy; 2023 UCAR"
 
 
 markdown_extensions:
@@ -264,7 +256,7 @@ markdown_extensions:
   - md_in_html
   - def_list
   - codehilite:
-      guess_lang: false
+      guess_lang: false 
   - toc:
       permalink: true
       title: "Page Outline"
@@ -341,7 +333,7 @@ plugins:
   - open-in-new-tab
 
 extra:
-  social:
+  social: 
     - icon: material/home-circle
       link: https://arc.ucar.edu/
     - icon: material/help-circle
