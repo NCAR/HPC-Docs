@@ -18,7 +18,7 @@ In the examples below we will work incrementally through a simple but realistic 
 3. Demonstrate sharing the resulting image.
 
 
-## Pulling a container from Docker Hub
+## Pulling a container
 
 !!! example "Pulling & converting a simple container image"
     === "Charliecloud"
@@ -221,8 +221,10 @@ In the examples below we will work incrementally through a simple but realistic 
 
 
 ## Building a container from a definition file
+In the examples above, we pulled a ready-made container image.  For many practical applications we will want instead to build our own container image, often beginning with a base image from a public repository as shown above but extending it to meet a specific need.
 
-## Pushing a container to Docker Hub
+
+## Pushing a container
 
 <!--  LocalWords:  Charliecloud's SquashFUSE casper
  -->

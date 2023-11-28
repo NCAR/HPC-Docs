@@ -11,7 +11,7 @@ A container is a unit of software that packages code with its required dependenc
 
  - **Container Image**: An image is a read-only template that contains all the code, dependencies, libraries, and supporting files that are required to launch a container. This is a unit of software that packages code with its required dependencies in order to run in an isolated, controlled environment. *Container images virtualize an OS, but not a kernel* (in contrast to heavier-weight virtual machine technology).  Images can be built manually, or retrieved from one of several *Image Registries*.
 
-    - **Image Registry**: This is a solution for container image storage and sharing. Several popular examples are  [Docker Hub](https://hub.docker.com/), [Quay.io](https://quay.io/) and [GitHub's container registry](https://github.blog/2021-06-21-github-packages-container-registry-generally-available/).  Additionally, private image registries can be implemented.
+    - **Image Registry**: This is a solution for container image storage and sharing. Several popular examples are [Docker Hub](https://hub.docker.com/), [Quay.io](https://quay.io/) and [GitHub's container registry](https://github.blog/2021-06-21-github-packages-container-registry-generally-available/).  Additionally, private image registries can be implemented.
 
     - **Image Repository**: This is a specific location for a container image within an image registry. It contains the latest image along with the history of it within a registry.
 
@@ -24,6 +24,19 @@ A container is a unit of software that packages code with its required dependenc
 The most poplar container runtime is [Docker](https://www.docker.com/), and nearly all other container platforms seek to be compatible with Docker.  Unfortunately, Docker's original design required elevated privileges and therefore was incompatible with shared HPC systems from a security perspective.  (These limitations have been addressed to some extent with recent developments in "rootless" Docker, however it is still rare to find Docker installed on HPC systems.)  Due to Docker's ubiquity and common tooling we will discuss it later as a viable platform for *local* container image development, for example when running Docker on a laptop or external system.
 
 To address Docker's security concerns, a number of alternative runtimes better suited for HPC use have been developed.  Some notable examples include [Apptainer](https://apptainer.org/) (formerly, Singularity), [Charliecloud](https://hpc.github.io/charliecloud/), and [Podman](https://podman.io/), which are all currently installed on NCAR's HPC resources and available through the [module](../modules.md) system.
+
+??? info "Charliecloud vs. Apptainer vs. Podman - Which is right for me?"
+    Unfortunately, with the current state of container technology on HPC systems it is difficult to provide a single reccomended runtime.  If you are familiar with one of thes tools already, by all means use it - we will strive to maintain the most popular tools that are compatible with our security requirements.
+
+    For users beginning to work with containers, here are some general considerations:
+
+    - **Apptainer** and the Singularity family of tools that precedes it was created from the outset to run complex applications on HPC clusters in a simple, portable, and reproducible way. It is well documented, stable, and mature.  Probably the most significant drawback to Apptainer is *building* images, as it relies on its own recipe [definition file format](https://apptainer.org/docs/user/main/definition_files.html) - known as "`def` files" -  somewhat limiting build interoperability with other tools, including Docker.  If you have an existing Singularity `def` file, use Apptainer.  If you have relatively complex Docker build recipes (e.g. `Dockerfiles`) or want easy interoperability with other tools in the build stage, you may consider one of the other alternatives.
+
+    - **Charliecloud** similarly runs containers with no privileged operations or daemons and minimal configuration changes on HPC center resources, and is also designed for HPC from the outset.  Charliecloud's build steps are largely compatible with `Dockerfile` definition recipes, making it a good choice for users already invested in the Docker build process.  By default Charliecloud stores container images in a directory tree, which can be performance limiting for large scale jobs on parallel file systems (see [this paper](https://par.nsf.gov/servlets/purl/10167819) for more information), however this limitation is largely overcome when using compressed SqushFUSE image files.  Perhaps the one drawback to Charliecloud is that it appears less widely deployed across HPC sites that Apptainer, with a smaller community support base.
+
+    - **Podman** is envisioned as a complete replacement for Docker, which has benefits and drawbacks in an HPC environment.  If you have a complex Docker workflow, Podman *might* be a drop-in replacement.  The caveat is that some features supported in Podman are not implemented in an HPC environment due to security concerns, such as switching user IDs within a `Dockerfile`, etc...  Podman has widespread industry support beyond just the HPC community.  One downside to Podman is at present containers are straightforward to install at an individual level, but somewhat difficult to share within a group of users, as Podman does not easily support running containers from single compressed image files, limiting scalability when used under MPI.
+
+    NCAR CISL staff will attempt to support containerized workflows using at least one of the tools mentioned above, and may recommend one tool over others given a specific use case.  Due to technical and personnel resource limitations we cannot force-fit any particular tool simply based on a users' personal preference.
 
 ## Use Cases
 
@@ -60,5 +73,5 @@ We address all of these use cases in our discussion of [building](./building_con
  2. [DigitalOcean's Introduction to Containers](https://www.digitalocean.com/community/conceptual-articles/introduction-to-containers)
  3. [Open Container Initiative](https://opencontainers.org/about/overview/)
 
-<!--  LocalWords:  runtime runtimes
+<!--  LocalWords:  runtime runtimes Apptainer HPC
  -->
