@@ -26,7 +26,7 @@ The most poplar container runtime is [Docker](https://www.docker.com/), and near
 To address Docker's security concerns, a number of alternative runtimes better suited for HPC use have been developed.  Some notable examples include [Apptainer](https://apptainer.org/) (formerly, Singularity), [Charliecloud](https://hpc.github.io/charliecloud/), and [Podman](https://podman.io/), which are all currently installed on NCAR's HPC resources and available through the [module](../modules.md) system.
 
 ??? info "Charliecloud vs. Apptainer vs. Podman - Which is right for me?"
-    Unfortunately, with the current state of container technology on HPC systems it is difficult to provide a single reccomended runtime.  If you are familiar with one of thes tools already, by all means use it - we will strive to maintain the most popular tools that are compatible with our security requirements.
+    Unfortunately, with the current state of container technology on HPC systems it is difficult to provide a single recommended runtime.  If you are familiar with one of these tools already, by all means use it - we will strive to maintain the most popular tools that are compatible with our security requirements.
 
     For users beginning to work with containers, here are some general considerations:
 
@@ -36,7 +36,8 @@ To address Docker's security concerns, a number of alternative runtimes better s
 
     - **Podman** is envisioned as a complete replacement for Docker, which has benefits and drawbacks in an HPC environment.  If you have a complex Docker workflow, Podman *might* be a drop-in replacement.  The caveat is that some features supported in Podman are not implemented in an HPC environment due to security concerns, such as switching user IDs within a `Dockerfile`, etc...  Podman has widespread industry support beyond just the HPC community.  One downside to Podman is at present containers are straightforward to install at an individual level, but somewhat difficult to share within a group of users, as Podman does not easily support running containers from single compressed image files, limiting scalability when used under MPI.
 
-    NCAR CISL staff will attempt to support containerized workflows using at least one of the tools mentioned above, and may recommend one tool over others given a specific use case.  Due to technical and personnel resource limitations we cannot force-fit any particular tool simply based on a users' personal preference.
+    !!! danger "We cannot support all use cases for each runtime"
+        NCAR CISL staff will attempt to support containerized workflows using at least one of the tools mentioned above, and may recommend one tool over others given a specific use case.  Due to both technical and personnel resource limitations we cannot force-fit any particular tool simply based on a users' personal preference.
 
 ## Use Cases
 

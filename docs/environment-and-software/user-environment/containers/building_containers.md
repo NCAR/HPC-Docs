@@ -1,26 +1,79 @@
 !!! note
-    This page is intended for users who need to fetch container images from an external repository, and/or build a container from a definition file.  If you simply want to run a container that has been shared with you through a GLADE file system path see [Running Containers](./running.md).
+    This page is intended for users who need to fetch container images from an external repository, and/or build a container for a specific use case.  If you simply want to run a container that has been shared with you through a GLADE file system path see [Running Containers](./running_containers.md).
 
 
 ## Introduction
-The first steps in running a container are usually (i) to "pull" a pre-existing container from an external repository, or (ii) to build a container according to a recipe. When a container is built locally, it is often desirable to then share it with a larger community, often by "pushing" the resulting image to an external repository.
+The first step in running a container is usually (i) to "pull" a pre-existing container from an external repository, or (ii) to build a container according to a recipe. When a container is built locally, it is usually desirable to then share it with a larger community, often by "pushing" the resulting image to an external repository.  We cover these topics generally in the next section, which will be valuable both for users unfamiliar with containers and to others familiar with a tool such as Docker but unclear on how to execute these steps specifically in one of our supported runtimes.
 
-The concepts are common regardless of container run-time, however the specifics vary. We will highlight these specific steps for each supported run time in the examples below.
+Additionally, we provide special support infrastructure for users wishing to create a container that mimics the NCAR environment and document these processes [later in this page](#building-a-container-specifically-to-mimic-the-ncar-user-environment).
 
-### Example scenario
+---
 
-In the examples below we will work incrementally through a simple but realistic example use case: building a container using the latest version of a different operating system to provide tools not available on the host.  Specifically, we will:
+## General container workflows
 
-1. Begin with a basic [Rocky Linux 9 container image](https://hub.docker.com/_/rockylinux) fetched from Docker Hub,
+The concepts of pull, build, and push are common regardless of container run-time, however the specifics vary. We will highlight these specific steps for each supported run time in the examples below.
 
-2. Demonstrate building our own derived container image with additional packages and tools, and
+!!! info "Example scenario"
+    In the examples below we will work incrementally through a simple but realistic example use case: building a container using the latest version of a different operating system to provide tools not available on the host.  Specifically, we will:
 
-3. Demonstrate sharing the resulting image.
+    1. Begin with a basic [Rocky Linux 9 container image](https://hub.docker.com/_/rockylinux) fetched from Docker Hub,
 
+    2. Demonstrate building our own derived container image with additional packages and tools, and
 
-## Pulling a container
+    3. Demonstrate sharing the resulting image.
+
+### Pulling a container
 
 !!! example "Pulling & converting a simple container image"
+    === "Apptainer"
+        **Pulling & listing images**
+
+        We will use the command `singularity pull` from the `apptainer` module to pull our image and save it in Singularity Image Format (SIF):
+        ```console title="singularity pull"
+        casper$ singularity pull ./rocky9.sif docker://rockylinux/rockylinux:9
+        INFO:    Converting OCI blobs to SIF format
+        INFO:    Starting build...
+        Getting image source signatures
+        Copying blob 4031b0359885 done
+        Copying config 175264fac6 done
+        Writing manifest to image destination
+        Storing signatures
+        2023/11/27 15:12:32  info unpack layer: sha256:4031b03598854f77c4ae1e53c2fdca86fdb41eb95f1f051416ce2e363fc8cdd2
+        INFO:    Creating SIF file...
+        ```
+        !!! tip "Prefer Apptainer's SIF image format"
+            Apptainer supports several image formats, including unpacked directory tree "sandboxes" and compressed read-only image bundles in Singularity Image Format (SIF). SIF images are much better suited for use on large parallel file systems than large directory trees, and can easily be shared with other users.
+
+        **Running a simple command from the container**
+
+        We cover running containers in much more detail [here](./running_containers.md), however below we will use the command `ch-run` to inspect the contents of the file `/etc/os-release` *inside the container*:
+        ```console title="singularity exec"
+        casper$ singularity exec ./rocky9.sif cat /etc/os-release
+        NAME="Rocky Linux"
+        VERSION="9.2 (Blue Onyx)"
+        ID="rocky"
+        ID_LIKE="rhel centos fedora"
+        VERSION_ID="9.2"
+        PLATFORM_ID="platform:el9"
+        PRETTY_NAME="Rocky Linux 9.2 (Blue Onyx)"
+        ANSI_COLOR="0;32"
+        LOGO="fedora-logo-icon"
+        CPE_NAME="cpe:/o:rocky:rocky:9::baseos"
+        HOME_URL="https://rockylinux.org/"
+        BUG_REPORT_URL="https://bugs.rockylinux.org/"
+        SUPPORT_END="2032-05-31"
+        ROCKY_SUPPORT_PRODUCT="Rocky-Linux-9"
+        ROCKY_SUPPORT_PRODUCT_VERSION="9.2"
+        REDHAT_SUPPORT_PRODUCT="Rocky Linux"
+        REDHAT_SUPPORT_PRODUCT_VERSION="9.2"
+        ```
+        This is functionally a `hello-world` type demonstration, and can be compared to the same file on the host to show we are indeed running in a different environment.
+
+        ---
+
+        !!! note "`apptainer` vs. `singularity`"
+            As of version 3, the commands `apptainer` and `singularity` are synonymous.  We will use the latter as there is a wide array of existing documentation referencing the `singularity` executable across the internet.
+
     === "Charliecloud"
         **Pulling & listing images**
 
@@ -93,7 +146,7 @@ In the examples below we will work incrementally through a simple but realistic 
 
         **Running a simple command from the container**
 
-        We cover [running containers in much more detail here](./running.md), however below we will use the command `ch-run` to inspect the contents of the file `/etc/os-release` *inside the container*:
+        We cover running containers in much more detail [here](./running_containers.md), however below we will use the command `ch-run` to inspect the contents of the file `/etc/os-release` *inside the container*:
         ```console title="ch-run"
         casper$ ch-run ./rocky9.sqfs -- cat /etc/os-release
         NAME="Rocky Linux"
@@ -115,55 +168,6 @@ In the examples below we will work incrementally through a simple but realistic 
         REDHAT_SUPPORT_PRODUCT_VERSION="9.2"
         ```
         This is functionally a `hello-world` type demonstration, and can be compared to the same file on the host to show we are indeed running in a different environment.
-
-    === "Apptainer"
-        **Pulling & listing images**
-
-        We will use the command `singularity pull` from the `apptainer` module to pull our image and save it in Singularity Image Format (SIF):
-        ```console title="singularity pull"
-        casper$ singularity pull ./rocky9.sif docker://rockylinux/rockylinux:9
-        INFO:    Converting OCI blobs to SIF format
-        INFO:    Starting build...
-        Getting image source signatures
-        Copying blob 4031b0359885 done
-        Copying config 175264fac6 done
-        Writing manifest to image destination
-        Storing signatures
-        2023/11/27 15:12:32  info unpack layer: sha256:4031b03598854f77c4ae1e53c2fdca86fdb41eb95f1f051416ce2e363fc8cdd2
-        INFO:    Creating SIF file...
-        ```
-        !!! tip "Prefer Apptainer's SIF image format"
-            Apptainer supports several image formats, including unpacked directory tree "sandboxes" and compressed read-only image bundles in Singularity Image Format (SIF). SIF images are much better suited for use on large parallel file systems than large directory trees, and can easily be shared with other users.
-
-        **Running a simple command from the container**
-
-        We cover [running containers in much more detail here](./running.md), however below we will use the command `ch-run` to inspect the contents of the file `/etc/os-release` *inside the container*:
-        ```console title="singularity exec"
-        casper$ singularity exec ./rocky9.sif cat /etc/os-release
-        NAME="Rocky Linux"
-        VERSION="9.2 (Blue Onyx)"
-        ID="rocky"
-        ID_LIKE="rhel centos fedora"
-        VERSION_ID="9.2"
-        PLATFORM_ID="platform:el9"
-        PRETTY_NAME="Rocky Linux 9.2 (Blue Onyx)"
-        ANSI_COLOR="0;32"
-        LOGO="fedora-logo-icon"
-        CPE_NAME="cpe:/o:rocky:rocky:9::baseos"
-        HOME_URL="https://rockylinux.org/"
-        BUG_REPORT_URL="https://bugs.rockylinux.org/"
-        SUPPORT_END="2032-05-31"
-        ROCKY_SUPPORT_PRODUCT="Rocky-Linux-9"
-        ROCKY_SUPPORT_PRODUCT_VERSION="9.2"
-        REDHAT_SUPPORT_PRODUCT="Rocky Linux"
-        REDHAT_SUPPORT_PRODUCT_VERSION="9.2"
-        ```
-        This is functionally a `hello-world` type demonstration, and can be compared to the same file on the host to show we are indeed running in a different environment.
-
-        ---
-
-        !!! note "`apptainer` vs. `singularity`"
-            As of version 3, the commands `apptainer` and `singularity` are synonymous.  We will use the latter as there is a wide array of existing documentation referencing the `singularity` executable across the internet.
 
     === "Podman"
         **Pulling & listing images**
@@ -189,7 +193,7 @@ In the examples below we will work incrementally through a simple but realistic 
 
         **Running a simple command from the container**
 
-        We cover [running containers in much more detail here](./running.md), however below we will use the command `ch-run` to inspect the contents of the file `/etc/os-release` *inside the container*:
+        We cover running containers in much more detail [here](./running_containers.md), however below we will use the command `ch-run` to inspect the contents of the file `/etc/os-release` *inside the container*:
         ```console title="podman run"
         casper$  podman run rockylinux/rockylinux:9 cat /etc/os-release
         NAME="Rocky Linux"
@@ -220,11 +224,26 @@ In the examples below we will work incrementally through a simple but realistic 
 
 
 
-## Building a container from a definition file
+### Building a container from a definition file
 In the examples above, we pulled a ready-made container image.  For many practical applications we will want instead to build our own container image, often beginning with a base image from a public repository as shown above but extending it to meet a specific need.
 
+!!! example "Building a container from a recipe file"
+    === "Apptainer"
+        Bar
 
-## Pushing a container
+    === "Charliecloud"
+        Foo
 
-<!--  LocalWords:  Charliecloud's SquashFUSE casper
+    === "Podman"
+        Baz
+
+
+
+### Pushing a container
+
+---
+
+## Building a container specifically to mimic the NCAR user environment
+
+<!--  LocalWords:  Charliecloud's SquashFUSE casper Charliecloud
  -->
