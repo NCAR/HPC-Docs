@@ -12,7 +12,7 @@ The `main` queue, which has a 12-hour wall-clock limit, meets most users' needs 
                      |`regular`                                  |1  |Most production batch jobs run in this queue; also accepts interactive jobs.|
                      |`economy`                                  |0.7|Production batch jobs are charged at 70% of the regular rate.|
 |`preempt`           |              |24                          |0.2|Jobs will only run on resources otherwise idle.  Jobs may be [preempted](./preemption.md) with a short grace period to make room for higher priority jobs. |
-|`develop`           |              |6                           |1  |Interactive and serial batch use for debugging and other tasks on a single, shared, 128-GB node. An individual job can use up to 18 cores. A user can run multiple jobs in the share queue concurrently if the total number of cores they require is no more than 18. Additional jobs that the user submits remain in the queue to run later.|
+|`develop`           |              |6                           |1  |Interactive and serial batch use for debugging and other tasks on a single, shared, 256-GB node. An individual job can use up to 256 cores across two nodes. A user can run multiple jobs in the share queue concurrently if the total number of cores used is no more than 256.|
 
 
 Some additional queues on the system are for dedicated purposes and accessible only to authorized users.
