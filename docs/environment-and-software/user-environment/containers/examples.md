@@ -15,7 +15,7 @@
         This is accomplished first by creating a simple Apptainer definition file:
         ```pre title="my_modulus.def"
         Bootstrap: docker
-        From: nvcr.io/nvidia/modulus/modulus:23.11
+        From: nvcr.io/nvidia/modulus/modulus:23.09
 
         %post
             # update pip
@@ -27,6 +27,7 @@
             # Remove cuda compat layer (https://github.com/NVIDIA/nvidia-docker/issues/1256)
             # note that the source container attempts to do this at run-time, but that will
             # fail when launched read-only.  So we do that here instead.
+            # (This issue will likely be resolved with newer versions of nvidia-modulus)
             rm -rf /usr/local/cuda/compat/lib
         ```
         The definition file begins by pulling a specified version of the Modulus container, then modifying it in our `%post` step.  In `%post` we update the `pip` Python package installer, use `pip` to install some additional Python packages, and finally removes a conflicting path from the source container.
