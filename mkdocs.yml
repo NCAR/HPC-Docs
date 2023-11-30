@@ -92,6 +92,7 @@ nav:
           - environment-and-software/user-environment/containers/index.md
           - Pulling, Building, and Sharing Containers: environment-and-software/user-environment/containers/building_containers.md
           - Running Containers: environment-and-software/user-environment/containers/running_containers.md
+          - Example Workflows: environment-and-software/user-environment/containers/examples.md
         - Utilities: environment-and-software/user-environment/utilities.md
         - Customizing User Environment: environment-and-software/user-environment/customizing.md
         - Spack:
