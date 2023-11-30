@@ -30,7 +30,7 @@
             # (This issue will likely be resolved with newer versions of nvidia-modulus)
             rm -rf /usr/local/cuda/compat/lib
         ```
-        The definition file begins by pulling a specified version of the Modulus container, then modifying it in our `%post` step.  In `%post` we update the `pip` Python package installer, use `pip` to install some additional Python packages, and finally removes a conflicting path from the source container.
+        The definition file begins by pulling a specified version of the Modulus container, then modifying it in our `%post` step.  In `%post` we update the `pip` Python package installer, use `pip` to install some additional Python packages not in the base image but required for the examples run later, and finally removes a conflicting path from the source image.
 
 
         Using the `my_modulus.def` file we now create our derived container and store it as a SIF:
