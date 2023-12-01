@@ -63,7 +63,7 @@ To support these needs users must:
 
 -  Run specialized containers within a single node as part of an analysis workflow.
 
-We address all of these use cases in our discussion of [building](./building_containers.md) and [running](./running_containers.md) containers.
+We address all of these use cases in our discussion of [building](./building_containers.md) and [running](./running_containers.md) containers.  Additionally we provide a collection of containerized worflow [examples](./examples.md) building upon this reference foundation.
 
 
 ---

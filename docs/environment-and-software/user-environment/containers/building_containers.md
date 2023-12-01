@@ -225,47 +225,116 @@ The concepts of pull, build, and push are common regardless of container run-tim
 
 
 ### Building a container from a definition file
+
+!!! warning "Container image builds directly on the HPC systems can be fragile"
+    As discussed previously, security concerns in the HPC environment restrict certain container image build operations that require elevated privileges.  Simple operations such as compiling code within a container to augment with a tool, or customizing the execution environment will likely work fine.  Additionally, installing most packages through an operating system package manager usually works as well.
+
+    A common failure, however, is building containers that switch user IDs or change ownership of files within the build process.  This can occur explicitly through a `USER` statement or through installation of some package.  In either case, the underlying issue is that on the host the user has access to only a single user ID  - their own.  Many complex containers violate this restriction.  We cannot support such build processes securely, even with so-called "rootless" container installations.
+
+    ---
+
+    An alternative and popular workflow is to build containers *externally* to the HPC environment on a resource where the user has elevated privileges, likely using Docker.  The finalized images is then pushed to an image repository, and then pulled into the HPC environment.  We will not demonstrate the approach here due to the variability of external environments, however the process is straightforward for the user familiar with the build steps discussed below.
+
 In the examples above, we pulled a ready-made container image.  For most practical applications we will want instead to build our own container image, often beginning with a base image from a public repository as shown above but extending it to meet a specific need.  This process begins with a "recipe" file listing the steps required.  By way of terminology, such recipes are typically referred to as `Dockerfiles` and usually follow a common format.  Charliecloud and Podman support `Dockerfiles` directly.  Apptainer is an outlier in this regard, and supports its own "definition" file format (commonly referred to as `def`-files).
 
 #### Anatomy of build recipes
 
-!!! example "`Dockerfiles` and Apptainer `Definition` files"
-    === "`Dockerfile`"
-        Following from the [Docker documentation](https://docs.docker.com/engine/reference/builder/#dockerfile-reference), a basic `Dockerfile` is
-        ```pre title="Sample Dockerfile"
-        FROM rockylinux/rockylinux:9
+**`Dockerfiles` and Apptainer `Definition` files**
 
-        RUN yum -y install dnf-plugins-core \
+=== "`Dockerfile`"
+    Following from the [Docker documentation](https://docs.docker.com/engine/reference/builder/#dockerfile-reference), a basic `Dockerfile` is
+    ```pre title="Sample Dockerfile"
+    FROM rockylinux/rockylinux:9
+
+    RUN yum -y install dnf-plugins-core \
+        && dnf -y update \
+        && dnf config-manager --set-enabled crb \
+        && dnf -y install epel-release \
+        && dnf -y groupinstall "Development Tools" \
+        && dnf -y install \
+               chrpath \
+               bzip2 autoconf automake libtool \
+               gcc gcc-c++ gcc-gfortran emacs make procps-ng openmpi-devel \
+        && yum clean all
+    ```
+=== "Apptainer `Definition` files"
+    Following from the [Apptainer documentation](https://apptainer.org/docs/user/main/definition_files.html), a basic definition file is
+    ```pre title="Sample Definition File"
+    Bootstrap: docker
+    From: docker.io/rockylinux/rockylinux:9
+
+    %post
+        yum -y install dnf-plugins-core \
             && dnf -y update \
             && dnf config-manager --set-enabled crb \
             && dnf -y install epel-release \
-            && dnf -y groupinstall "Development Tools" \
-            && dnf -y install \
-                   chrpath \
-                   bzip2 autoconf automake libtool \
-                   gcc gcc-c++ gcc-gfortran emacs make procps-ng openmpi-devel \
-            && yum clean all
-        ```
-    === "Apptainer `Definition` files"
-        Bar
+            && dnf -y install gimp \
+            && dnf clean all --verbose
+
+    %environment
+        [...]
+    ```
 
 We can now use the general form of these definition files to demonstrate constructing our own derived container image.
 
 
 !!! example "Building a container from a recipe file"
     === "Apptainer"
-        ```pre
+        ```pre title="Deffile:"
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/Deffile"
+        ```
+        We use the command `singularity build` to create a compressed SIF directly from the `Deffile`:
+        ```pre
+        casper$ TMPDIR=/var/tmp/ singularity build my_rocky9.sif Deffile
+        [...]
         ```
 
     === "Charliecloud"
-        ```pre
+        ```pre title="Dockerfile:"
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/charliecloud/Dockerfile"
+        ```
+        We use the command `ch-image build` to build a container from the `Dockerfile`:
+        ```pre
+        casper$ ch-image build --force fakeroot --tag my_rocky9 .
+        initializing storage directory: v7 /var/tmp/...
+        initializing empty build cache
+          1. FROM rockylinux/rockylinux:9
+        manifest list: downloading: 100%
+        manifest: downloading: 100%
+        config: downloading: 100%
+        layer 1/1: bd51385: downloading: 63.6/63.6 MiB (100%)
+        copying image from cache ...
+        flattening image
+        layer 1/1: bd51385: listing
+        validating tarball members
+        layer 1/1: bd51385: changed 36 absolute symbolic and/or hard links to relative
+        resolving whiteouts
+        layer 1/1: bd51385: extracting
+        image arch: amd64
+          3. RUN.F yum -y install dnf-plugins-core     && dnf -y update...
+                [...]
+        ```
+        Charliecloud builds in its internal format, which requies conversion before running.  As shown above, we will convert the image to our preferred SquashFS format:
+        ```pre
+        casper$ ch-image list
+        my_rocky9
+        rockylinux/rockylinux:9
+
+        benkirk@casper20(61)$ ch-convert my_rocky9 ./my_rocky9.sqfs
+        input:   ch-image  my_rocky9
+        output:  squash    ./my_rocky9.sqfs
+        packing ...
+        [...]
         ```
 
     === "Podman"
-        ```pre
+        ```pre title="Dockerfile:"
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/podman/Dockerfile"
+        ```
+        We use the command `podman build` to build a container from the `Dockerfile`:
+        ```pre
+        casper$ podman build --tag my_rocky9 .
+        [...]
         ```
 
 
@@ -276,7 +345,5 @@ We can now use the general form of these definition files to demonstrate constru
 
 ## Building a container specifically to mimic the NCAR user environment
 
-<!--  LocalWords:  Charliecloud's SquashFUSE casper Charliecloud
-<!--  LocalWords:  Apptainer
- -->
+<!--  LocalWords:  Charliecloud's SquashFUSE casper Charliecloud Apptainer
  -->
