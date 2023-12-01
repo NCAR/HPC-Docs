@@ -62,7 +62,7 @@
        Note the command line arguments to `singularity shell`:
            -  `--nv`: enable Nvidia support,
            - `--cleanenv`: clean environment before running container, causing the container to be launched with no knowledge of environment variables set on the host.  This is default behavior for Docker, and is required in this case to prevent conflicting `CUDA_*` and other environment variable settings from confusing the contanierized PyTorch.
-           - `--bind /glade/work` etc...:  bond host file systems into the container, allowing us to read and write from GLADE.
+           - `--bind /glade/work` etc...:  binds host file systems into the container, allowing us to read and write from GLADE.
 
      4. Now we are inside the container, as evidenced by the `Apptainer>` command line prompt in the final step of this example.  We will run one of the sample problems checked out in step 3:
        ```pre

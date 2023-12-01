@@ -225,17 +225,48 @@ The concepts of pull, build, and push are common regardless of container run-tim
 
 
 ### Building a container from a definition file
-In the examples above, we pulled a ready-made container image.  For many practical applications we will want instead to build our own container image, often beginning with a base image from a public repository as shown above but extending it to meet a specific need.
+In the examples above, we pulled a ready-made container image.  For most practical applications we will want instead to build our own container image, often beginning with a base image from a public repository as shown above but extending it to meet a specific need.  This process begins with a "recipe" file listing the steps required.  By way of terminology, such recipes are typically referred to as `Dockerfiles` and usually follow a common format.  Charliecloud and Podman support `Dockerfiles` directly.  Apptainer is an outlier in this regard, and supports its own "definition" file format (commonly referred to as `def`-files).
+
+#### Anatomy of build recipes
+
+!!! example "`Dockerfiles` and Apptainer `Definition` files"
+    === "`Dockerfile`"
+        Following from the [Docker documentation](https://docs.docker.com/engine/reference/builder/#dockerfile-reference), a basic `Dockerfile` is
+        ```pre title="Sample Dockerfile"
+        FROM rockylinux/rockylinux:9
+
+        RUN yum -y install dnf-plugins-core \
+            && dnf -y update \
+            && dnf config-manager --set-enabled crb \
+            && dnf -y install epel-release \
+            && dnf -y groupinstall "Development Tools" \
+            && dnf -y install \
+                   chrpath \
+                   bzip2 autoconf automake libtool \
+                   gcc gcc-c++ gcc-gfortran emacs make procps-ng openmpi-devel \
+            && yum clean all
+        ```
+    === "Apptainer `Definition` files"
+        Bar
+
+We can now use the general form of these definition files to demonstrate constructing our own derived container image.
+
 
 !!! example "Building a container from a recipe file"
     === "Apptainer"
-        Bar
+        ```pre
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/Deffile"
+        ```
 
     === "Charliecloud"
-        Foo
+        ```pre
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/charliecloud/Dockerfile"
+        ```
 
     === "Podman"
-        Baz
+        ```pre
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/podman/Dockerfile"
+        ```
 
 
 
@@ -246,4 +277,6 @@ In the examples above, we pulled a ready-made container image.  For many practic
 ## Building a container specifically to mimic the NCAR user environment
 
 <!--  LocalWords:  Charliecloud's SquashFUSE casper Charliecloud
+<!--  LocalWords:  Apptainer
+ -->
  -->
