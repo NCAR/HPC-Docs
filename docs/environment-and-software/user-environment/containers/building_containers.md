@@ -225,17 +225,15 @@ The concepts of pull, build, and push are common regardless of container run-tim
 
 
 ### Building a container from a definition file
+In the examples above, we pulled a ready-made container image.  For most practical applications we will want instead to build our own container image, often beginning with a base image from a public repository as shown above but extending it to meet a specific need.  This process begins with a "recipe" file listing the steps required.  By way of terminology, such recipes are typically referred to as `Dockerfiles` and usually follow a common format.  Charliecloud and Podman support `Dockerfiles` directly.  Apptainer is an outlier in this regard, and supports its own "definition" file format (commonly referred to as `def`-files).  In this section we describe the general form of these build recipe files and provide simple build examples for the supported run-times.
 
 !!! warning "Container image builds directly on the HPC systems can be fragile"
     As discussed previously, security concerns in the HPC environment restrict certain container image build operations that require elevated privileges.  Simple operations such as compiling code within a container to augment with a tool, or customizing the execution environment will likely work fine.  Additionally, installing most packages through an operating system package manager usually works as well.
 
     A common failure, however, is building containers that switch user IDs or change ownership of files within the build process.  This can occur explicitly through a `USER` statement or through installation of some package.  In either case, the underlying issue is that on the host the user has access to only a single user ID  - their own.  Many complex containers violate this restriction.  We cannot support such build processes securely, even with so-called "rootless" container installations.
 
-    ---
-
     An alternative and popular workflow is to build containers *externally* to the HPC environment on a resource where the user has elevated privileges, likely using Docker.  The finalized images is then pushed to an image repository, and then pulled into the HPC environment.  We will not demonstrate the approach here due to the variability of external environments, however the process is straightforward for the user familiar with the build steps discussed below.
 
-In the examples above, we pulled a ready-made container image.  For most practical applications we will want instead to build our own container image, often beginning with a base image from a public repository as shown above but extending it to meet a specific need.  This process begins with a "recipe" file listing the steps required.  By way of terminology, such recipes are typically referred to as `Dockerfiles` and usually follow a common format.  Charliecloud and Podman support `Dockerfiles` directly.  Apptainer is an outlier in this regard, and supports its own "definition" file format (commonly referred to as `def`-files).
 
 #### Anatomy of build recipes
 
@@ -314,7 +312,7 @@ We can now use the general form of these definition files to demonstrate constru
           3. RUN.F yum -y install dnf-plugins-core     && dnf -y update...
                 [...]
         ```
-        Charliecloud builds in its internal format, which requies conversion before running.  As shown above, we will convert the image to our preferred SquashFS format:
+        Charliecloud builds in its internal format, which requires conversion before running.  As shown above, we will convert the image to our preferred SquashFS format:
         ```pre
         casper$ ch-image list
         my_rocky9
