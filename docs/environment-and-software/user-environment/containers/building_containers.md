@@ -41,8 +41,10 @@ The concepts of pull, build, and push are common regardless of container run-tim
         2023/11/27 15:12:32  info unpack layer: sha256:4031b03598854f77c4ae1e53c2fdca86fdb41eb95f1f051416ce2e363fc8cdd2
         INFO:    Creating SIF file...
         ```
-        !!! tip "Prefer Apptainer's SIF image format"
-            Apptainer supports several image formats, including unpacked directory tree "sandboxes" and compressed read-only image bundles in Singularity Image Format (SIF). SIF images are much better suited for use on large parallel file systems than large directory trees, and can easily be shared with other users.
+        !!! info inline end "Prefer Apptainer's SIF image format"
+            SIF images are much better suited for use on large parallel file systems than large directory trees, and can easily be shared with other users.
+
+        Like most run times, Apptainer supports several image storage formats, including unpacked directory tree "sandboxes" and compressed read-only image bundles in Singularity Image Format (SIF). We recommend using read-only, compressed SIF images for both performance and best practices reasons. While sandboxes may be tempting to create "writable" containers, they create sprawling directory trees of many small files, which slow container startup time and complicate management especially on shared, parallel file systems.   Furthermore, writable container images undercut the encapsulation and repeatability benefits offered by containerization.  It is possible to run containers on top of SIF images with *temporary* write layers if necessary.
 
         **Running a simple command from the container**
 
@@ -102,10 +104,10 @@ The concepts of pull, build, and push are common regardless of container run-tim
         ```
         See `ch-image --help` for more details and options.
 
-        **Converting the image**
-
-        !!! tip "Prefer Charliecloud's bundled SquashFUSE image format"
+        !!! info inline end "Prefer Charliecloud's bundled SquashFUSE image format"
             After running the two commands above, the requested container has been downloaded and unpacked into Charliecloud's [storage directory tree](https://hpc.github.io/charliecloud/ch-image.html?highlight=storage%20directory#storage-directory) in its native format.  This often is on temporary storage, and it is advisable to use `ch-convert` to convert the image to one of several other [image formats](https://hpc.github.io/charliecloud/ch-convert.html#image-formats) before use.
+
+        **Converting the image**
 
         On NCAR's HPC systems we strive to support the `squash` SquashFS file system archive, which allows the container to be converted to a single, compressed file.  This is much better suited for use on large parallel file systems, and can easily be shared with other users.  The command `ch-convert` can be used to convert images between Charliecloud's [supported formats](https://hpc.github.io/charliecloud/ch-convert.html#image-formats).
 
@@ -339,9 +341,22 @@ We can now use the general form of these definition files to demonstrate constru
 
 ### Pushing a container
 
+<!---
+The final step in the overall container image build process is often "pushing" the container to one of several registries, allowing it to be shared with others and retrieved again in the future.  Several popular container registry examples are [Docker Hub](https://hub.docker.com/), [Quay.io](https://quay.io/) and [GitHub's container registry](https://github.blog/2021-06-21-github-packages-container-registry-generally-available/).  In the examples below we will focus on Docker Hub, however the general process is easily transferable to other registries based on the [Open Container Initiative](https://opencontainers.org/faq/) standards.
+--->
+
+!!! danger "Under Development"
+    The best practices for sharing container images is currently under development.  The availability and pricing models of external repositories is frequently changing, complicating a general recommendation.
+
+    ---
+
+    **NCAR does not currently offer a custom centralized image repository for HPC user access.**
+
+    For sharing on the HPC systems, we currently recommend revision-controlled build processes and sharing resulting compressed imaged files directly.  Alternatively, a popular model for *external* container building is to push the resulting images to Docker Hub, where they can be pulled into the HPC environment using the techniques outlined above.
+
+
 ---
 
 ## Building a container specifically to mimic the NCAR user environment
 
-<!--  LocalWords:  Charliecloud's SquashFUSE casper Charliecloud Apptainer
- -->
+<!--  LocalWords:  Charliecloud's SquashFUSE casper Charliecloud Apptainer SIF -->

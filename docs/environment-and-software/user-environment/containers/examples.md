@@ -8,7 +8,7 @@
 ## Running NVIDIA's Modulus physics-ML optimized container
 [NVIDIA Modulus](https://docs.nvidia.com/modulus/index.html)  is an open source deep-learning framework for building, training, and fine-tuning deep learning models using state-of-the-art Physics-ML methods. NVIDIA provides a frequently updated Docker image with a containerized PyTorch installation that can be run under Apptainer, albeit with some effort.  Because the container is designed for Docker, some additional steps are required as discussed below.
 
-!!! example "Running containerized NVIDIA-Modulus on a single Casper GPU"
+???+ example "Running containerized NVIDIA-Modulus on a single Casper GPU"
 
     1. Rather than pull the container and run as-is, we will create a derived container that allows us to encapsulate our desired changes. The primary reason for this is the Modulus container assumes the container is writable and makes changes during execution.   Since we will run under Apptainer using a compressed, read-only image, this fails. Therefore we will make our own derived image and make the requisite changes during the build process.
 
@@ -97,5 +97,116 @@
 
 
 
-<!--  LocalWords:  Apptainer
+## Building and running containerized FastEddy under MPI on GPUs
+
+This example demonstrates building a containerized version of [FastEddy](https://ral.ucar.edu/fasteddy) from the [open-source variant hosted on GitHub](https://github.com/NCAR/FastEddy-model).  It is provided for demonstration purposes because it demonstrates several common issues encountered when running GPU-aware MPI applications inside containers across multiple nodes, particularly when binding the host MPI into the container, and the source code is open for any interested user to follow along and adapt.
+
+!!! warning
+    While the result of this demonstration is a functional application, we recommend against using this container in production workflows.  **It is much easier to simply build FasyEddy "bare metal" when operating inside the NCAR HPC environment!**
+
+### About FastEddy
+
+FastEddy is a large-eddy simulation (LES) model developed by the Research Applications Laboratory (RAL) at the National Center for Atmospheric Research (NCAR) in Boulder, Colorado, USA. The fundamental premise of FastEddy model development is to leverage the accelerated and more power efficient computing capacity of graphics processing units (GPU)s to enable not only more widespread use of LES in research activities but also to pursue the adoption of microscale and multiscale, turbulence-resolving, atmospheric boundary layer modeling into local scale weather prediction or actionable science and engineering applications.
+
+### Containerization approach
+
+The container is built **off-premises with `docker`** from three sequential, related nested images.  We begin with a
+
+1.  Rockylinux version 8 operating system with OpenHPC version 2 installed, then add
+2.  a CUDA development environment and a CUDA-aware MPICH installation on top, and finally add
+3.  the FastEddy source and compiled program.
+
+A benefit of this layered approach is that the intermediate images created in steps 1 and 2 can be beneficial in their own right, providing base layers for other projects with similar needs. Additionally, by building the image externally with Docker we are able to switch user IDs within the process (discussed further below), which has some benefits when using containers to enable *development* workflows.
+
+### Building the image
+
+!!! info inline end "Build framework"
+    For complete details of the build process, see the Docker-based container build framework described [here](https://github.com/benkirk/containers).
+
+The image was built external to the HPC environment and then pushed to Docker Hub. (For users only interested in the details of *running* such a container, see [instructions for running the container](#running-the-container-on-derecho) below.)
+
+    In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all installed locally was used and the process takes about an hour; any similarly configured system should suffice. No GPU devices are required to build the image.
+
+
+#### The base layer
+
+???+ example "The Rockylinx 8 + OpenHPC base layer"
+    For the base layer we deploy an [OpenHPC v2](https://openhpc.community/openhpc-2-0-released) installation on top of a Rocklinux v8 base image.  OpenHPC provides access to many pre-complied scientific libraries and applications, and supports a matrix of compilers and MPI permutations. and we will select one that works well with Derecho.  Notably, at present OpenHPC does **not** natively support CUDA installations, however we will address this limitation in the subsequent steps.
+
+    ```pre title="rocky8/OpenHPC-mpich/Dockerfile"
+    ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-mpich/Dockerfile"
+    ```
+    **Dockerfile Steps**
+
+    1. The image begins with a minimal Rockylinux v8 image, and adds a utility script `docker-clean` copied from the build host.
+    2. We parameterize several variables with build arguments using the `ARG` instructions.  (Build arguments are available within the image build process as environment variables, but *not* when running the resulting container image; rather `ENV` instructions can be used for those purposes. For a full discussion of `Dockerfiles` and supported instructions see [here](https://docs.docker.com/engine/reference/builder/).)
+    3. We then perform a number of `RUN` steps.  When running `docker`, each `RUN` step creates a subsequent *layer* in the image. (We follow general Docker [guidance](https://docs.docker.com/develop/develop-images/instructions/) and also strive to [combine related commands](https://stackoverflow.com/questions/39223249/multiple-run-vs-single-chained-run-in-dockerfile-which-is-better) inside a handful of `RUN` instructions.)
+
+        1. The first `RUN` instruction takes us from the very basic Rockylinux 8 source image to a full OpenHPC installation.  We add a non-privileged user `plainuser` to leverage later, update the OS image with any available security patches, and then generally follow an [OpenHPC installation recipe](https://github.com/openhpc/ohpc/releases/download/v2.7.GA/Install_guide-Rocky8-Warewulf-SLURM-2.7-aarch64.pdf) to add compilers, MPI, and other useful development tools.
+        2. The second `RUN` step works around an issue we would find later when attempting to run the image on Derecho.  Specifically, the OpenHPC `mpich-ofi` package provides support for the long-deprecated MPI C++ interface.  This is not present on Derecho with the `cray-mpich` implementation we will ultimately use to run the container.  Since we do not need this support, here we hack the `mpicxx` wrapper so that it does not link in `-lmpicxx`, the problematic library.
+        3. The third and following `RUN` instructions steps create a directory space `/opt/local` we can use from our unprivileged `plainuser` account, copy in some more files, and then switch to `plainuser` to test the development environment by installing some common MPI benchmarks.
+
+    **Discussion**
+
+    - OpenHPC v2 supports both OpenSUSE and Rocklinux 8 as its base OS. It would be natural to choose OpenSUSE for similarity to Casper and Derecho, however by choosing instead Rocklinux we gain access to a different build environment, which has benefits for developers looking to improve portability.  This process followed here can also be thought of as a "roadmap" for deploying the application at similarly configured external sites.
+
+    - OpenHPC supports `openmpi` and `mpich` MPI implementations, with the latter in two forms: `mpich-ucx` and `mpich-ofi`.  In this example we intentionally choose `mpich-ofi` with prior knowledge of the target execution environment.  On Derecho the primary MPI implementation is `cray-mpich` (itself forked from `mpich`) which uses an HPE-proprietary `libfabric` interface to the Slingshot v11 high-speed communication fabric.
+
+    - Notice that each `RUN` step is finalized with a [`docker-clean` command](https://github.com/benkirk/containers/blob/main/extras/docker-clean).  This utility script removes temporary files and cached data to minimize the size of the resulting image layers.  One consequence is that the first `dnf` package manager interaction in a `RUN` statement will re-cache these data.  Since cached data are not relevant in the final image - especially when run much later on - we recommend removing it to reduce image bloat.
+
+    - In this example we are intentional switching between `root` (the default user in the build process) and our unprivileged `plainuser` account.  Particularly in development workflows, we want to be sure compilation and installation steps work properly as an unprivileged user, and tools such as the `lmod` module system and `mpiexec` often are intended *not* to be used as `root`.
+
+    - Since MPI container runtime inregration can be a pain point at execution, we install [OSU's](https://mvapich.cse.ohio-state.edu/benchmarks/) and [Intel's](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-mpi-benchmarks.html) MPI benchmark suites to aid in deployment testing, independent of any user application.
+
+    ---
+
+    **Building the image**
+    ```console
+    docker build --tag <dockerhub_username>/rocky8-openhpc-mpich:latest .
+    ```
+
+
+#### Adding CUDA & CUDA-aware MPICH
+
+???+ example "Adding CUDA + CUDA-aware MPICH"
+    Next we add CUDA and add a CUDA-aware MPI installation.  We choose a specific version of the open-source MPICH library (both to closely match what is provided by OpenHPC and for Derecho compatibility) and configure it to use the pre-existing OpenHPC artifacts (`hwloc`, `libfabric`) as dependencies. For both `cuda` and the new `mpich` we also install "modulefiles" so the new additions are available in the typical module environment.  Finally, we re-install one of the MPI benchmark applications, this time with CUDA support.
+    ```pre title="rocky8/OpenHPC-cuda/Dockerfile"
+    ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-cuda/Dockerfile"
+    ```
+
+    **Dockerfile Steps**
+
+    1. We switch back to the `root` user so we can modify the operating system installation within the image.
+
+    2. The first `RUN` instruction installs a full CUDA development environment and some additional development packages required to build MPI later.
+
+    3. The next `RUN` instructions install modulefiles into the image so we can access the CUDA and (upcoming) MPICH installation, and clean up file permissions.  The remaining steps are executed again as our unprivileged `plainuser`.
+
+    4. The fourth `RUN` instruction downloads, configures, and installs MPICH.  The version is chosen to closely match the baseline MPICH already installed in the image and uses some of its dependencies, and we also enable CUDA support.
+
+    5. In the final `RUN` instruction we re-install one of the MPI benchmark applications, this time with CUDA support.
+
+    **Discussion**
+
+    - There are several ways to install CUDA, here we choose a "local repo" installation because it allows us to control versions, but are careful also to remove the downloaded packages after installation, freeing up 3GB+ in the image.
+
+    - The CUDA development environment is very large and it is difficult to separate unnecessary components, so is step increases the size of the image from ~1.2GB to 8.8GB. We leave all components in the development image, including tools we will very likely not need *inside* a container such as `nsight-systems` and `nsight-compute`.  For applications built on top of this image, a user could optionally remove these components later to decrease their final image size.
+
+    ---
+
+    **Building the image**
+    ```console
+    docker build --tag <dockerhub_username>/rocky8-openhpc-cuda:latest .
+    ```
+
+#### Building FastEddy
+
+???+ example "Adding FastEddy"
+    ```pre title="rocky8/OpenHPC-FastEddy/Dockerfile"
+    ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-FastEddy/Dockerfile"
+    ```
+
+### Running the container on Derecho
+
+<!--  LocalWords:  Apptainer OpenHPC
  -->
