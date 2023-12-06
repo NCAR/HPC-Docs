@@ -120,3 +120,11 @@
     ```
     mpiexec -n 8 -ppn 4 --cpu-bind verbose,list:0:16:32:48 ./set_gpu_rank ./executable_name
     ```
+
+!!! example "Running a containerized application  under MPI on GPUs"
+    ```bash
+    ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/FastEddy/run_fasteddy_container.pbs"
+    ```
+
+    ---
+    See [here](../../../environment-and-software/user-environment/containers/examples.md#building-and-running-containerized-fasteddy-under-mpi-on-gpus) for a more complete discussion of the nuances of containerized applications on Derecho.

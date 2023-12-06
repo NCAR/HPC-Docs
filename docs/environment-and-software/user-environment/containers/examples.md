@@ -113,7 +113,7 @@ FastEddy is a large-eddy simulation (LES) model developed by the Research Applic
 
 ### Containerization approach
 
-The container is built **off-premises with `docker`** from three sequential, related nested images.  We begin with a
+The container is built **off-premises** with `docker` from three related images, each providing a foundation for the next.  We begin with a
 
 1.  Rockylinux version 8 operating system with OpenHPC version 2 installed, then add
 2.  a CUDA development environment and a CUDA-aware MPICH installation on top, and finally add
@@ -128,7 +128,7 @@ A benefit of this layered approach is that the intermediate images created in st
 
 The image was built external to the HPC environment and then pushed to Docker Hub. (For users only interested in the details of *running* such a container, see [instructions for running the container](#running-the-container-on-derecho) below.)
 
-    In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all installed locally was used and the process takes about an hour; any similarly configured system should suffice. No GPU devices are required to build the image.
+In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all installed locally was used and the process takes about an hour; any similarly configured system should suffice. No GPU devices are required to build the image.
 
 
 #### The base layer
@@ -193,7 +193,7 @@ The image was built external to the HPC environment and then pushed to Docker Hu
 
     - There are several ways to install CUDA, here we choose a "local repo" installation because it allows us to control versions, but are careful also to remove the downloaded packages after installation, freeing up 3GB+ in the image.
 
-    - The CUDA development environment is very large and it is difficult to separate unnecessary components, so is step increases the size of the image from ~1.2GB to 8.8GB. We leave all components in the development image, including tools we will very likely not need *inside* a container such as `nsight-systems` and `nsight-compute`.  For applications built on top of this image, a user could optionally remove these components later to decrease their final image size.
+    - The CUDA development environment is very large and it is difficult to separate unnecessary components, so is step increases the size of the image from ~1.2GB to 8.8GB. We leave all components in the development image, including tools we will very likely not need *inside* a container such as `nsight-systems` and `nsight-compute`.  For applications built on top of this image, a user could optionally remove these components later to decrease their final image size (demonstrated next).
 
     ---
 
@@ -212,12 +212,13 @@ The image was built external to the HPC environment and then pushed to Docker Hu
 
     1. Again we switch back to `root` for performing operating system level tasks, as our base image left us as `plainuser`.
     2. The first `RUN` instruction installs the development package for NetCDF - an additional application dependency not already satisfied.  We also remove some particularly large CUDA components from the *development* image not required in the final *application* image.
-    3. Then again as `plainuser`, the next `RUN` instruction downloads the FastEddy open-source variant.
-    4. The final `RUN` instruction then builds the
+    3. Then again as `plainuser`, the next `RUN` instruction downloads the FastEddy open-source variant.  We make some changes to the definition of a few hard-coded `make` variables so that we can specify installation paths during linking later.
+    4. The final `RUN` instruction then builds FastEddy.  We build up and use custom `INCLUDE` and `LIBS` variables, specifying some unique paths for the particular build environment.
 
     **Discussion**
 
-    - When building the image locally with Docker, the space savings from step (2) are not immediately apparent.  That is a result of the Docker "layer" approach, the content still exists in the base layer and is only "logically" removed by the commands listed above.  The space savings is realized on the HPC system when we "pull" the image with `singularity`.
+    - When building the image locally with Docker, the space savings from step (2) are not immediately apparent.  This is a result of the Docker "layer" approach: the content still exists in the base layer and is only "logically" removed by the commands listed above.  The space savings is realized on the HPC system when we "pull" the image with `singularity`.
+    - If an even smaller container image is desired, even more components could be stripped: CUDA numerical libraries the application does not need, or even the containerized MPIs after we are done with them.  As we will see next, we replace the container MPI with the host MPI at run-time, so technically no MPI is required inside the container when we are done using it for compilation.
 
     **Building the image**
     ```console
@@ -233,25 +234,46 @@ The image was built external to the HPC environment and then pushed to Docker Hu
 With the container built from the steps above (or simply pulling the resulting image from Docker Hub), we are now ready to run a sample test case on Derecho.  We choose `Example02_CBL.in` from the [FastEddy Tutorial](https://fasteddytutorial.readthedocs.io/en/latest/cases/CBL.html) and modify it to run on 24 GPUs (full steps listed [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial/apptainer/FastEddy)).  The PBS job script listed below shows the steps required to "bind" the host MPI into the container.
 
 ???+ example "Containerized FastEddy PBS Script"
-    ```pre title="run_fasteddy_container.pbs"
+    ```bash title="run_fasteddy_container.pbs"
     ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/FastEddy/run_fasteddy_container.pbs"
     ```
 
     **Discussion**
 
+    The `mpiexec` command is fairly standard.  Note that we are using it to launch `singularity`, which in turn will start up the containerized `FastEddy` executable.
+
+    The `singularity exec` command line is complex, so let's deconstruct it here:
+
+    - We make use of the `--bind` argument first to mount familiar GLADE file systems within the container,
+
+    - and again to "inject" the host MPI into the container (as described [here](./running_containers.md#running-containerized-mpi-applications)).  The `/run` directory necessity is not immediately obvious but is used by Cray-MPICH as part of the launching process.
+
+    - We also need to use the `--env` to set the `LD_LIBRARY_PATH` inside the image so that the application can find the proper host libraries.  Recall when we built the FastEddy executable in the containerized environment it had no knowledge of these host-specific paths.  Similarly, we use `--env` to set the `LD_PRELOAD` environment variable inside the container.  This will cause a particular Cray-MPICH library to be loaded prior to application initialization.  This step is not required for "bare metal" execution.
+
+    - We set some important Cray-MPICH specific `MPICH_*` environment variables as well to enable CUDA-awareness (`MPICH_GPU_*`)  and work around an MPI run-time error  (`MPICH_SMP_SINGLE_COPY_MODE`) that will otherwise appear.
+      - Finally, a note on the `--bind /usr/lib64:/host/lib64` argument.  Injecting the host MPI requires that some shared libraries from the host's `/usr/lib64` directory be visible inside the image.  However, this path also exists inside the image and contains other libraries needed by the application.  We cannot simply bind the hosts directory into the same path, doing so will mask these other libraries.  So we bind the host's `/usr/lib64` into the container image at `/host/lib64`, and make sure this path is set in the `LD_LIBRARY_PATH` variable as well.  Because we want these particular host libraries found as last resort (not taking precedence over similar libraries in the container, we append `/host/lib64` to the `LD_LIBRARY_PATH` search path.
+
+
+    The arguments above were determined iteratively through trial and error.  Such is the reality of containerized MPI applications and proprietary host MPI integration. Feel free to experiment with the PBS file, omitting some of the `--bind` and `--env` arguments and observing the resulting error message, however  **do NOT modify the `MPICH_GPU_*` variables**, doing so may trigger a very unfortunate kernel driver bug and render the GPU compute nodes unusable.
+
+
     **Pulling the image**
+
+    We begin with pulling the image from Docke Hub and constructing a SIF. (If you want to test your own built/pushed image, replace `benjaminkirk` with your own `<dockerhub_username>` as specified in the tag/push operations listed above.)
     ```console
     derecho$ singularity pull rocky8-openhpc-fasteddy.sif docker://benjaminkirk/rocky8-openhpc-fasteddy:latest
-
     [...]
 
-    derecho$ ls -lh
-    ls -lh rocky8-openhpc-fasteddy.sif
+    derecho$ ls -lh rocky8-openhpc-fasteddy.sif
     -rwxr-xr-x 1 someuser ncar 3.1G Dec  5 17:08 rocky8-openhpc-fasteddy.sif
     ```
 
     **Running the job**
+    ```console
+    derecho$ mkdir ./output
+    derecho$ qsub -A <account> run_fasteddy_container.pbs
+    derecho$ tail -f fasteddy_job.log
+    ```
 
-
-<!--  LocalWords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser
+<!--  LocalWords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser CUDA MPICH
  -->
