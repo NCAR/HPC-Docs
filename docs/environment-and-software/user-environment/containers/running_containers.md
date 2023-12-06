@@ -65,11 +65,14 @@ Each run-time  allows for environment variables to be set explicitly from the ru
         ```
 
     ---
-    Full definitions of the test cases can be found [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial).
 
     **Summary**
 
     Each container run-time allows you to pass environment variables in via command line arguments, and have different default behaviors with respect to host-defined variables.  Some allow you to set default values that exist inside the container.  Our best guidance is simply be aware of what is defined in your execution environment, pass critical values via command line arguments to avoid ambiguity, and perform error checking on environment variable values inside your image to be safe.
+
+    ---
+
+    Full definitions of the test cases can be found [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial).
 
 
 ## Running containerized MPI applications
