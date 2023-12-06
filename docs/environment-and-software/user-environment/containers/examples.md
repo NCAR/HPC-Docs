@@ -93,16 +93,19 @@
 
        ---
 
-       While this example demonstrated running the container interactively, alternatively steps 3 and 4 can be combined to be run inside a PBS batch job
+       While this example demonstrated running the container interactively, alternatively steps 3 and 4 can be combined to be run inside a PBS batch job.
 
-
+---
 
 ## Building and running containerized FastEddy under MPI on GPUs
 
-This example demonstrates building a containerized version of [FastEddy](https://ral.ucar.edu/fasteddy) from the [open-source variant hosted on GitHub](https://github.com/NCAR/FastEddy-model).  It is provided for demonstration purposes because it demonstrates several common issues encountered when running GPU-aware MPI applications inside containers across multiple nodes, particularly when binding the host MPI into the container, and the source code is open for any interested user to follow along and adapt.
+!!! warning inline end
+    While the result of this demonstration is a functional application, we recommend against using this container for production FastEddy workflows!
 
-!!! warning
-    While the result of this demonstration is a functional application, we recommend against using this container in production workflows.  **It is much easier to simply build FasyEddy "bare metal" when operating inside the NCAR HPC environment!**
+    **It is much easier to simply build FasyEddy "bare metal" when operating inside the NCAR HPC environment!!**
+
+This example demonstrates building a containerized version of [FastEddy](https://ral.ucar.edu/fasteddy) from the [open-source variant hosted on GitHub](https://github.com/NCAR/FastEddy-model).  It is **_provided for demonstration purposes_** because it demonstrates several common issues encountered when running GPU-aware MPI applications inside containers across multiple nodes, particularly when binding the host MPI into the container, and the source code is open for any interested user to follow along and adapt.
+
 
 ### About FastEddy
 
@@ -205,8 +208,50 @@ The image was built external to the HPC environment and then pushed to Docker Hu
     ```pre title="rocky8/OpenHPC-FastEddy/Dockerfile"
     ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-FastEddy/Dockerfile"
     ```
+    **Dockerfile Steps**
+
+    1. Again we switch back to `root` for performing operating system level tasks, as our base image left us as `plainuser`.
+    2. The first `RUN` instruction installs the development package for NetCDF - an additional application dependency not already satisfied.  We also remove some particularly large CUDA components from the *development* image not required in the final *application* image.
+    3. Then again as `plainuser`, the next `RUN` instruction downloads the FastEddy open-source variant.
+    4. The final `RUN` instruction then builds the
+
+    **Discussion**
+
+    - When building the image locally with Docker, the space savings from step (2) are not immediately apparent.  That is a result of the Docker "layer" approach, the content still exists in the base layer and is only "logically" removed by the commands listed above.  The space savings is realized on the HPC system when we "pull" the image with `singularity`.
+
+    **Building the image**
+    ```console
+    docker build --tag <dockerhub_username>/rocky8-openhpc-fasteddy:latest .
+    ```
+
+    **Pushing the image to Docker Hub**
+    ```console
+    docker push <dockerhub_username>/rocky8-openhpc-fasteddy:latest
+    ```
 
 ### Running the container on Derecho
+With the container built from the steps above (or simply pulling the resulting image from Docker Hub), we are now ready to run a sample test case on Derecho.  We choose `Example02_CBL.in` from the [FastEddy Tutorial](https://fasteddytutorial.readthedocs.io/en/latest/cases/CBL.html) and modify it to run on 24 GPUs (full steps listed [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial/apptainer/FastEddy)).  The PBS job script listed below shows the steps required to "bind" the host MPI into the container.
 
-<!--  LocalWords:  Apptainer OpenHPC
+???+ example "Containerized FastEddy PBS Script"
+    ```pre title="run_fasteddy_container.pbs"
+    ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/FastEddy/run_fasteddy_container.pbs"
+    ```
+
+    **Discussion**
+
+    **Pulling the image**
+    ```console
+    derecho$ singularity pull rocky8-openhpc-fasteddy.sif docker://benjaminkirk/rocky8-openhpc-fasteddy:latest
+
+    [...]
+
+    derecho$ ls -lh
+    ls -lh rocky8-openhpc-fasteddy.sif
+    -rwxr-xr-x 1 someuser ncar 3.1G Dec  5 17:08 rocky8-openhpc-fasteddy.sif
+    ```
+
+    **Running the job**
+
+
+<!--  LocalWords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser
  -->
