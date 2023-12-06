@@ -11,32 +11,47 @@ Different container run-times differ greatly in how they handle environment vari
 
 The Docker/Podman approach makes sense when containerizing small services or pieces of code that you want to run identically everywhere, independent of the host environment.  Conversely, the Apptainer & Charliecloud approach makes more sense when many critical.  Regardless, at some point when working with containers you will undoubtedly find an issue that is traced either to a variable being inherited from the host when you don't want it to be, or missing in the container when you really want it.
 
-Each run-time  allows for environment variables to be set explicitly from the run (or exec) command line invocation:
+Each run-time  allows for environment variables to be set explicitly from the run command line.  Additionally, when building containers you can generally embed environment variables as well.  Again, this behavior is run-time dependent as shown in the following example.
+
 !!! example "Container run-times and environment variables"
     **Host Environment**
+
+    We set the following variables on the host system prior to launching the container:
     ```bash
     ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/config_demo_env_vars.sh"
     ```
 
+    **Container Environment**
+
+    We then construct a tiny container image (<10MB) from the minimal [Alpine Linux](https://www.alpinelinux.org/) distribution. When we run the container it will report the value of several environment variables: `HOST_VAR`, `CONTAINER_VAR`, `TOGGLE_VAR`, and `RANDOM_VAR` (if set).
+
     === "Apptainer"
+        The Apptainer Definition file `%environment` section allows us to define variables that exist *inside* the container.
         ```pre  title="Definition File"
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/my_alpine.def"
         ```
+
         **Container Environment Examples**
+
+        Running the container shows that `HOST_VAR` is passed in by default, and `TOGGLE_VAR` retains its value from inside the container definition unless explicitly passed via the `--env` argument. The argument `--cleanenv` prevents external variables from being passed.
         ```console
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/results/05_env_vars.sh.out"
         ```
 
     === "Charliecloud"
+        The Charliecloud `Dockerfile` `ENV` section allows us to define variables, but its use seems inconsistent in practice.
         ```pre  title="Dockerfile"
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/charliecloud/Dockerfile.my_alpine"
         ```
         **Container Environment Examples**
+
+        Running the container shows that `HOST_VAR` is passed in by default, and `TOGGLE_VAR` always takes its value from the host. The argument `--set-env=VAR=val` allows variables to be passed to the container.  Despite being set with the `ENV` instruction, `CONTAINER_VAR` has disappeared.
         ```console
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/charliecloud/results/05_env_vars.sh.out"
         ```
         **Discussion**
-        Apparently, Charliecloud honors the `ENV` `Dockerfile` instruction but disregards it at run-time.
+
+        Apparently, Charliecloud honors the `ENV` `Dockerfile` instruction at build-time but disregards it at run-time.
 
     === "Podman"
         ```pre title="Dockerfile"
@@ -47,12 +62,26 @@ Each run-time  allows for environment variables to be set explicitly from the ru
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/podman/results/05_env_vars.sh.out"
         ```
 
+    ---
+    Full definitions of the test cases can be found [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial).
 
 
 
 
 ## Running containerized MPI applications
-The interaction between MPI implementations and container run-times is unfortunately the single biggest pain point of running containers in the HPC environment.  If you're drawn to the "simplicity" promised by containerization but need to run on multiple nodes with MPI, we strongly encourage you to fully consider this section before going further. (The issues are well described [here](https://apptainer.org/docs/user/latest/mpi.html).)
+The interaction between MPI implementations and container run-times is unfortunately the single biggest pain point of running containers in the HPC environment.  If you're drawn to the "simplicity" promised by containerization but need to run on multiple nodes with MPI, we strongly encourage you to fully consider this section before going further. (The issues are well described [here](https://apptainer.org/docs/user/latest/mpi.html).) First let us distinguish two use cases:
+
+1. **Running MPI *inside* a container on a single node, using an MPI stack defined within the container**:  While somewhat limited, this case is fairly easy to handle since the complexities of interfacing with a high-speed network are largely eliminated.
+
+2. **Running MPI *across* multiple nodes, launching the run-time with MPI from the host**:  This is the general case, and also where complications arise.  This is the focus of the remainder of this section.
+
+When using MPI on the host to launch an MPI application that was compiled within the container, it is imperative the *host* and *container* MPI implementations be compatible.  In practice this means the pair should be from the same implementation (e.g. OpenMPI, or MPICH) and at similar versions - and the closer the versions the better. This means the container image can rarely be created without knowledge of the execution host environment.
+
+For Casper, where we deploy OpenMPI by default, this is not too terribly complicated since most containerized operating systems can easily install similar versions. For Derecho, however, the default MPI is Cray's MPICH, which is proprietary and therefore difficult in general to install into an arbitrary container image.  In this case we must choose particular versions of MPI for the container image, knowing in advance they share heritage with the target host system.  This allows us to build MPI applications inside the container with a compatible - but readily available -  MPI.
+
+We then follow the ["bind model"](https://apptainer.org/docs/user/latest/mpi.html#id1) approach when running the container in order to "replace" the container MPI with the host MPI, gaining access to the high-speed network and vendor MPI optimizations.  For a full demonstration of this process, see [our containerized FastEddy example](./examples.md#building-and-running-containerized-fasteddy-under-mpi-on-gpus).
+
+
 
 ---
 
@@ -81,5 +110,7 @@ NVIDIA-SMI 545.23.06              Driver Version: 545.23.06    CUDA Version: 12.
 [...]
 ```
 
-<!--  LocalWords:  Podman Charliecloud Apptainer Dockerfile MPI
+<!--  LocalWords:  Podman Charliecloud Apptainer Dockerfile MPI MPICH
+<!--  LocalWords:  OpenMPI FastEddy
+ -->
  -->
