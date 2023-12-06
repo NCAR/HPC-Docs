@@ -30,7 +30,6 @@ Each run-time  allows for environment variables to be set explicitly from the ru
         ```pre  title="Definition File"
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/my_alpine.def"
         ```
-
         **Container Environment Examples**
 
         Running the container shows that `HOST_VAR` is passed in by default, and `TOGGLE_VAR` retains its value from inside the container definition unless explicitly passed via the `--env` argument. The argument `--cleanenv` prevents external variables from being passed.
@@ -54,10 +53,13 @@ Each run-time  allows for environment variables to be set explicitly from the ru
         Apparently, Charliecloud honors the `ENV` `Dockerfile` instruction at build-time but disregards it at run-time.
 
     === "Podman"
+        The Podman `Dockerfile` `ENV` section allows us to define variables that exist *inside* the container.
         ```pre title="Dockerfile"
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/podman/Dockerfile.my_alpine"
         ```
         **Container Environment Examples**
+
+        Running the container shows that `HOST_VAR` is not passed in by default, and `TOGGLE_VAR` retains its value from inside the container definition unless explicitly passed via the `--env` argument.
         ```console
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/podman/results/05_env_vars.sh.out"
         ```
@@ -65,7 +67,9 @@ Each run-time  allows for environment variables to be set explicitly from the ru
     ---
     Full definitions of the test cases can be found [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial).
 
+    **Summary**
 
+    Each container run-time allows you to pass environment variables in via command line arguments, and have different default behaviors with respect to host-defined variables.  Some allow you to set default values that exist inside the container.  Our best guidance is simply be aware of what is defined in your execution environment, pass critical values via command line arguments to avoid ambiguity, and perform error checking on environment variable values inside your image to be safe.
 
 
 ## Running containerized MPI applications
