@@ -39,7 +39,7 @@ Each run-time  allows for environment variables to be set explicitly from the ru
         ```
         **Container Environment Examples**
 
-        Running the container shows that `HOST_VAR` is passed in by default, and `TOGGLE_VAR` always takes its value from the host. The argument `--set-env=VAR=val` allows variables to be passed to the container.  Despite being set with the `ENV` instruction, `CONTAINER_VAR` has disappeared.  The argument `--unset-env` can be passed to prevent certainspecified host varibles from passing into the container, with `--unset-env="*"` preventing any.
+        Running the container shows that `HOST_VAR` is passed in by default, and `TOGGLE_VAR` always takes its value from the host. The argument `--set-env=VAR=val` allows variables to be passed to the container.  Despite being set with the `ENV` instruction, `CONTAINER_VAR` has disappeared.  The argument `--unset-env` can be passed to prevent certain specified host variables from passing into the container, with `--unset-env="*"` preventing any.
         ```console
         ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/charliecloud/results/05_env_vars.sh.out"
         ```
