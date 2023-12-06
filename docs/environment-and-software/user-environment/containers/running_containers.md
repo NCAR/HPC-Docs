@@ -160,7 +160,5 @@ NVIDIA-SMI 545.23.06              Driver Version: 545.23.06    CUDA Version: 12.
 [...]
 ```
 
-<!--  LocalWords:  Podman Charliecloud Apptainer Dockerfile MPI MPICH
-<!--  LocalWords:  OpenMPI FastEddy
- -->
+<!--  LocalWords:  Podman Charliecloud Apptainer Dockerfile MPI MPICH OpenMPI FastEddy
  -->
