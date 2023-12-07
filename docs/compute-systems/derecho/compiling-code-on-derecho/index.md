@@ -1,4 +1,4 @@
-# Compiling code on Dereco
+# Compiling code on Derecho
 
 
 ## Compilers available on Derecho
