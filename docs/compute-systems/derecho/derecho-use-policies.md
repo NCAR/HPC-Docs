@@ -24,7 +24,7 @@ interactive jobs on the Casper cluster.
 CISL manages scheduling priorities to ensure fair access to the system
 by all of these stakeholder groups: the university community, the NCAR
 community, the Community Earth System Model (CESM) community,
-the Antarctic Mesoscale Prediction System (AMPS), and the Wyoming
+the Antarctic Mesoscale Prediction System (AMPS) community, and the Wyoming
 community.
 
 The **fair-share policy** takes the community-wide usage balance into
