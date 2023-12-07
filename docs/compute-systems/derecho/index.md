@@ -90,7 +90,8 @@ Many Derecho data analysis and AI/ML workflows benefit instead from [using Conda
 
 ### Running jobs on Derecho
 Users can run a variety of types of jobs on Derecho, including both traditional
-[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and/or graphics-intensive analysis, often through [remote desktops on Derecho](./remote-desktop.md).
+[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and/or graphics-intensive analysis, often through remote desktops on Derecho.
+<!--[remote desktops on Derecho](./remote-desktop.md).-->
 
 #### Job scripts
 Job scripts are discussed broadly [here](../../pbs/job-scripts/index.md).

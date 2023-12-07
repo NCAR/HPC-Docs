@@ -15,10 +15,11 @@ Some modules are loaded by default. To see which modules those are, run `module 
 Following are descriptions of commonly used module commands.
 
 - `module av` – Show which modules are available for use with the currently loaded compiler.  Typical output:
-![](modules/media/modules1.png)
+![](modules/media/modules1.png)  
+
 In the example above, (`L`) indicates which modules are currently
 loaded.  The modules deployed at NCAR are *hierarchical*, with a base
-of common Compilers and Core Software.  The remainder of the output is dependent
+of common compilers and core software.  The remainder of the output is dependent
 on what core software (namely, compilers) are chosen.
 
 - `module help` – List options and subcommands for the module utility; or specify a modulefile by name for help with an individual module.
