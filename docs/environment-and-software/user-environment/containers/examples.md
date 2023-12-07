@@ -174,7 +174,7 @@ In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all instal
 ???+ example "Adding CUDA + CUDA-aware MPICH"
     Next we add CUDA and add a CUDA-aware MPI installation.  We choose a specific version of the open-source MPICH library (both to closely match what is provided by OpenHPC and for Derecho compatibility) and configure it to use the pre-existing OpenHPC artifacts (`hwloc`, `libfabric`) as dependencies. For both `cuda` and the new `mpich` we also install "modulefiles" so the new additions are available in the typical module environment.  Finally, we re-install one of the MPI benchmark applications, this time with CUDA support.
     ```pre title="rocky8/OpenHPC-cuda/Dockerfile"
-    ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-cuda/Dockerfile"
+    ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-mpich-cuda/Dockerfile"
     ```
 
     **Dockerfile Steps**
@@ -199,7 +199,7 @@ In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all instal
 
     **Building the image**
     ```console
-    docker build --tag <dockerhub_username>/rocky8-openhpc-cuda:latest .
+    docker build --tag <dockerhub_username>/rocky8-openhpc-mpich-cuda:latest .
     ```
 
 #### Building FastEddy
