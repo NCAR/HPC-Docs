@@ -5,7 +5,11 @@
     We do not necessarily endorse or support each use case, rather these examples are provided in hopes they may be useful to demonstrate (i) sample
     containerized workflows, and (ii) solutions to various problems you may encounter.
 
-## Running NVIDIA's Modulus physics-ML optimized container
+## NVIDIA's NGC containers
+
+NVIDIA's [NGC](https://catalog.ngc.nvidia.com) is a catalog of software optimized for GPUs. [NGC containers](https://catalog.ngc.nvidia.com/containers) allow you to run data science projects "out of the box" without installing, configuring, or integrating the infrastructure.
+
+### Running NVIDIA's Modulus physics-ML framework
 [NVIDIA Modulus](https://docs.nvidia.com/modulus/index.html)  is an open source deep-learning framework for building, training, and fine-tuning deep learning models using state-of-the-art Physics-ML methods. NVIDIA provides a frequently updated Docker image with a containerized PyTorch installation that can be run under Apptainer, albeit with some effort.  Because the container is designed for Docker, some additional steps are required as discussed below.
 
 ???+ example "Running containerized NVIDIA-Modulus on a single Casper GPU"
@@ -14,21 +18,7 @@
 
         This is accomplished first by creating a simple Apptainer definition file:
         ```pre title="my_modulus.def"
-        Bootstrap: docker
-        From: nvcr.io/nvidia/modulus/modulus:23.09
-
-        %post
-            # update pip
-            python -m pip install --upgrade pip
-
-            # use pip to install additional packages needed for examples later
-            pip install warp-lang
-
-            # Remove cuda compat layer (https://github.com/NVIDIA/nvidia-docker/issues/1256)
-            # note that the source container attempts to do this at run-time, but that will
-            # fail when launched read-only.  So we do that here instead.
-            # (This issue will likely be resolved with newer versions of nvidia-modulus)
-            rm -rf /usr/local/cuda/compat/lib
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/AI_ML/NGC/apptainer/modulus/modulus.def:1:15"
         ```
         The definition file begins by pulling a specified version of the Modulus container, then modifying it in our `%post` step.  In `%post` we update the `pip` Python package installer, use `pip` to install some additional Python packages not in the base image but required for the examples run later, and finally removes a conflicting path from the source image.
 
@@ -60,7 +50,7 @@
                    ./my_modulus.sif
        ```
        Note the command line arguments to `singularity shell`:
-           -  `--nv`: enable Nvidia support,
+           - `--nv`: enable Nvidia support,
            - `--cleanenv`: clean environment before running container, causing the container to be launched with no knowledge of environment variables set on the host.  This is default behavior for Docker, and is required in this case to prevent conflicting `CUDA_*` and other environment variable settings from confusing the contanierized PyTorch.
            - `--bind /glade/work` etc...:  binds host file systems into the container, allowing us to read and write from GLADE.
 
@@ -94,6 +84,51 @@
        ---
 
        While this example demonstrated running the container interactively, alternatively steps 3 and 4 can be combined to be run inside a PBS batch job.
+
+### Popular AI/ML tools
+Optimized Tensorflow and PyTorch models are available directly from the NGC.
+
+???+ example "Running AI/ML tools from NGC containers"
+
+    **Building an image with Apptainer**
+
+    Anticipating that we may want to make additions to the container, we will build our own derived Apptainer image using a Definition file.
+    === "Tensorflow"
+        ```pre title="ngc_tensorflow.def"
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/AI_ML/NGC/apptainer/tensorflow/tensorflow.def::6"
+
+        [...]
+        ```
+        ```bash
+        module load apptainer
+        TMPDIR=/var/tmp/ singularity build my_image.sif ngc_tensorflow.def
+        ```
+
+    === "PyTorch"
+        ```pre title="ngc_pytorch.def"
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/AI_ML/NGC/apptainer/pytorch/pytorch.def::6"
+
+        [...]
+        ```
+        ```bash
+        module load apptainer
+        TMPDIR=/var/tmp/ singularity build my_image.sif ngc_pytorch.def
+        ```
+
+    **Run the image**
+
+    ```pre
+    module load apptainer
+    singularity shell \
+                --nv --cleanenv \
+                --bind /glade/work \
+                --bind /glade/campaign \
+                --bind /glade/derecho/scratch \
+                ./my_image.sif
+    [...]
+    Apptainer>
+    ```
+    We are now inside the container. Note the command line arguments to `singularity shell`:  `--nv --cleanenv` enables NVIDIA support with a clean environment; `--bind /glade/work` etc...:  binds host file systems into the container, allowing us to read and write from GLADE.
 
 ---
 
@@ -136,7 +171,7 @@ In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all instal
 ???+ example "The Rockylinx 8 + OpenHPC base layer"
     For the base layer we deploy an [OpenHPC v2](https://openhpc.community/openhpc-2-0-released) installation on top of a Rocklinux v8 base image.  OpenHPC provides access to many pre-complied scientific libraries and applications, and supports a matrix of compilers and MPI permutations. and we will select one that works well with Derecho.  Notably, at present OpenHPC does **not** natively support CUDA installations, however we will address this limitation in the subsequent steps.
 
-    ```pre title="rocky8/OpenHPC-mpich/Dockerfile"
+    ```pre title="rocky8/OpenHPC-mpich/Dockerfile" linenums="1"
     ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-mpich/Dockerfile"
     ```
     **Dockerfile Steps**
@@ -173,7 +208,7 @@ In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all instal
 
 ???+ example "Adding CUDA + CUDA-aware MPICH"
     Next we add CUDA and add a CUDA-aware MPI installation.  We choose a specific version of the open-source MPICH library (both to closely match what is provided by OpenHPC and for Derecho compatibility) and configure it to use the pre-existing OpenHPC artifacts (`hwloc`, `libfabric`) as dependencies. For both `cuda` and the new `mpich` we also install "modulefiles" so the new additions are available in the typical module environment.  Finally, we re-install one of the MPI benchmark applications, this time with CUDA support.
-    ```pre title="rocky8/OpenHPC-cuda/Dockerfile"
+    ```pre title="rocky8/OpenHPC-cuda/Dockerfile" linenums="1"
     ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-mpich-cuda/Dockerfile"
     ```
 
@@ -205,7 +240,7 @@ In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all instal
 #### Building FastEddy
 
 ???+ example "Adding FastEddy"
-    ```pre title="rocky8/OpenHPC-FastEddy/Dockerfile"
+    ```pre title="rocky8/OpenHPC-FastEddy/Dockerfile" linenums="1"
     ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-FastEddy/Dockerfile"
     ```
     **Dockerfile Steps**
@@ -275,5 +310,5 @@ With the container built from the steps above (or simply pulling the resulting i
     derecho$ tail -f fasteddy_job.log
     ```
 
-<!--  LocalWords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser CUDA MPICH
+<!--  LocalWords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser CUDA MPICH NGC Casper Tensorflow
  -->
