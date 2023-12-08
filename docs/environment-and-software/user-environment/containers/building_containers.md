@@ -357,6 +357,7 @@ The final step in the overall container image build process is often "pushing" t
 
 ---
 
-## Building a container specifically to mimic the NCAR user environment
+<!-- ## Building a container specifically to mimic the NCAR user environment
+-->
 
 <!--  LocalWords:  Charliecloud's SquashFUSE casper Charliecloud Apptainer SIF -->
