@@ -88,7 +88,11 @@ nav:
         - environment-and-software/user-environment/index.md
         - Modules: environment-and-software/user-environment/modules.md
         - Conda: environment-and-software/user-environment/conda.md
-        - Containers: environment-and-software/user-environment/containers.md
+        - Containers:
+          - environment-and-software/user-environment/containers/index.md
+          - Pulling, Building, and Sharing Containers: environment-and-software/user-environment/containers/building_containers.md
+          - Running Containers: environment-and-software/user-environment/containers/running_containers.md
+          - Example Workflows: environment-and-software/user-environment/containers/examples.md
         - Utilities: environment-and-software/user-environment/utilities.md
         - Customizing User Environment: environment-and-software/user-environment/customizing.md
         - Spack:
@@ -285,7 +289,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - pymdownx.snippets
+  - pymdownx.snippets:
+     url_download: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
