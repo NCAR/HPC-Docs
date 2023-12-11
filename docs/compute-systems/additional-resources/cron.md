@@ -1,5 +1,5 @@
 
-Occasionally users may want to automate a common recurring task.  Common use cases are to initiate batch jobs, transfer input data from an external site, or run some automated testing. The UNIX `cron` service allows users to schedule scripts to be run based on a recurrence rule.  As of December 2023, we have deployed a high-availability `cron` service independent of the individual HPC systems to support these workflows.  This separated, HA solution allows us to perform maintenance on the HPC resources while not interrupting `cron` workflows that can tolerate the downtime.
+Occasionally users may want to automate a common recurring task.  Typical use cases are to initiate batch jobs, transfer input data from an external site, or run some automated testing. The UNIX `cron` service allows users to schedule scripts to be run based on a recurrence rule.  As of December 2023 we have deployed a high-availability `cron` service independent of the individual HPC systems to support these workflows.  This separated, HA solution allows us to perform maintenance on the HPC resources while not interrupting `cron` workflows that can tolerate the downtime.
 
 
 
@@ -41,7 +41,6 @@ To schedule a process with `cron`, a user must establish a `crontab` entry. This
 # │ │ │ │ │
 # │ │ │ │ │
   * * * * * <command to execute>
-
 ```
 That is, 5 fields defining the recurrence rule, and a command to execute.  The syntax also supports ranges and stepping values, some examples:
 
@@ -64,12 +63,12 @@ You can list your current crontab entries via `crontab -l`.
 
 ### `crontab` commands
 
-Keep  your `crontab` commands as simple as possible, and do not make any assumptions regarding the execution environment (paths, initial working directories, environment variables, etc...). We also recommend redirecting script output.   The *command* can be a short sequence of commands chained together with the shell operator `&&` if desired, for example:
+Keep  your `crontab` commands as simple as possible, and do not make any assumptions regarding the execution environment (paths, initial working directories, environment variables, etc...). We also recommend redirecting script output to aid in monitoring and debugging.   The *command* can be a short sequence of commands chained together with the shell operator `&&` if desired, for example:
 ```pre
 # run every night at 23:04 (11:04 PM):
 4 23 * * * cd /glade/work/<username>/my_cron_stuff/ && ./run_nightly.sh  &>> ./run_nightly.log
 ```
-This will run the command `run_nightly.sh` from the directory `/glade/work/<username>/my_cron_stuff/`, appending both standard output *and* standard error into the file `run_nightly.log`
+This will run the command `run_nightly.sh` from within the directory `/glade/work/<username>/my_cron_stuff/`, appending both standard output *and* standard error into the file `run_nightly.log`.
 
 
 
@@ -78,11 +77,13 @@ This will run the command `run_nightly.sh` from the directory `/glade/work/<user
 ## Best practices for cron jobs
 
 ### Locking for exclusive execution
-Many shell scripts are not designed to be run concurrently, and even if so the user may want to ensure only one occurrence of the script is running at a time. Under Linux *file locking* is a convenient mechanism to implement this behavior. This approach is particularly useful under `cron` - if a particular instance of a script is running slow, `cron` could re-launch the same script potentially many times.  File locking prevents such script "pile-up."
+Many shell scripts are not designed to be run concurrently, and even for those that are, concurrent execution is often not the users' intent.  In such scenarios the user should make provisions so that only one occurrence of the script is running at a time.
 
-The utility `lockfile` can be incorporated into shell scripts:
+*File locking* is a convenient mechanism to implement this behavior, whereby a process will only run after it has gained exclusive access to a resource - in this case a "lock file". This approach is particularly useful under `cron` - if a particular instance of a script is running slow, `cron` could re-launch the same script potentially many times.  File locking prevents such script "pile-up."
 
-```bash
+The utility `lockfile` can be incorporated into shell scripts as follows:
+
+```bash title="using lockfile to prevent concurrent execution"
 LOCK="${HOME}/.my_cron_job.lock"
 
 remove_lock()
@@ -103,7 +104,7 @@ trap remove_lock EXIT
 
 We declare two utility functions: `remove_lock` and `another_instance`.  The command `lockfile` will attempt to gain exclusive access to our `${LOCK}` file, retrying 5 times (`-r 5`).  If we cannot acquire the desired lock, `another_instance` prints some information and exits the script. Note that when the script exits - cleanly or not - we want to remove our lock file.  We use the bash `trap` mechanism to accomplish this by calling `remove_lock` at `EXIT`.
 
-In this case we forcibly remove any "stale" lock files when more than an hour old (3,600 seconds, `-l 3600`) as defensive measure.  This would be appropriate for a short running script, when we can assume any leftover lockfiles beyond some threshold age are invalid. See [`man lockfile`](https://linux.die.net/man/1/lockfile) for additional options.
+In this case we forcibly remove any "stale" lock files when more than an hour old (3,600 seconds, `-l 3600`) as defensive measure.  This would be appropriate for a short running script, when we can assume any leftover lock files beyond some threshold age are invalid. See [`man lockfile`](https://linux.die.net/man/1/lockfile) for additional options.
 
 ### Pedantic error checking
 It is always a good idea to perform error checking inside shell scripts, but especially so when running under cron.  For example, when changing directories inside a script:
@@ -119,7 +120,7 @@ This will abort the job if the `cd` fails.  (The `|| exit 1` construct is execut
 In addition to any typical logging of expected output from your automated processes, it is beneficial to capture some information from the system as well.
 
 For example,
-```bash
+```bash title="logging the execution environment"
 timestamp="$(date +%F@%H:%M)"
 cron_logdir="${HOME}/.my_cron_logs/"
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
