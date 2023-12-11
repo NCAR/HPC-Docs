@@ -9,7 +9,7 @@
 
 NVIDIA's [NGC](https://catalog.ngc.nvidia.com) is a catalog of software optimized for GPUs. [NGC containers](https://catalog.ngc.nvidia.com/containers) allow you to run data science projects "out of the box" without installing, configuring, or integrating the infrastructure.
 
-### Running NVIDIA's Modulus physics-ML framework
+### NVIDIA's Modulus physics-ML framework
 [NVIDIA Modulus](https://docs.nvidia.com/modulus/index.html)  is an open source deep-learning framework for building, training, and fine-tuning deep learning models using state-of-the-art Physics-ML methods. NVIDIA provides a frequently updated Docker image with a containerized PyTorch installation that can be run under Apptainer, albeit with some effort.  Because the container is designed for Docker, some additional steps are required as discussed below.
 
 ???+ example "Running containerized NVIDIA-Modulus on a single Casper GPU"
@@ -78,7 +78,7 @@ NVIDIA's [NGC](https://catalog.ngc.nvidia.com) is a catalog of software optimize
        [21:04:46 - train - INFO] Epoch Execution Time:  3.241e+01s, Time/Iter:  1.013e+03ms
        [21:05:14 - train - INFO] Epoch 2 Metrics: Learning Rate =  1.000e-03, loss =  4.255e-02
        [21:05:14 - train - INFO] Epoch Execution Time:  2.812e+01s, Time/Iter:  8.786e+02ms
-       ...
+       [...]
        ```
 
        ---
