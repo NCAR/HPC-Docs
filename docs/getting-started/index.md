@@ -24,7 +24,7 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 ## Logging In
 
-To log in, start your terminal or Secure Shell client and run an `ssh` command as shown here:
+To log in, starttttt yoour terminal or Secure Shell client and run an `ssh` command as shown here:
 
 
 === "Derecho"
