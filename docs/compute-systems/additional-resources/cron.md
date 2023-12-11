@@ -58,13 +58,13 @@ That is, 5 fields defining the recurrence rule, and a command to execute.  The s
 # the first day of every-other month
 0 0 1 */2 * <my infrequent command>
 ```
-The [crontab guru](https://crontab.guru/) is a helpful resource for translating crontab time synatx into human-friendly time specifications.
+The [crontab guru](https://crontab.guru/) is a helpful resource for translating crontab time syntax into human-friendly time specifications.
 
 You can list your current crontab entries via `crontab -l`.
 
 ### `crontab` commands
 
-Keep  your `crontab` commands as simple as possible, and do not make any assumptions regarding the execution envrionment (paths, intial working directories, environment variables, etc...). We also reccommend redirecting script output.   The *command* can be a short sequence of commands chained together with the shell operator `&&` if desired, for example:
+Keep  your `crontab` commands as simple as possible, and do not make any assumptions regarding the execution environment (paths, initial working directories, environment variables, etc...). We also recommend redirecting script output.   The *command* can be a short sequence of commands chained together with the shell operator `&&` if desired, for example:
 ```pre
 # run every night at 23:04 (11:04 PM):
 4 23 * * * cd /glade/work/<username>/my_cron_stuff/ && ./run_nightly.sh  &>> ./run_nightly.log
@@ -106,7 +106,7 @@ We declare two utility functions: `remove_lock` and `another_instance`.  The com
 In this case we forcibly remove any "stale" lock files when more than an hour old (3,600 seconds, `-l 3600`) as defensive measure.  This would be appropriate for a short running script, when we can assume any leftover lockfiles beyond some threshold age are invalid. See [`man lockfile`](https://linux.die.net/man/1/lockfile) for additional options.
 
 ### Pedantic error checking
-It is always a good idea to perform error checking inside shell scripts, but especially so when running under cron.  For example, when changing directories inside a scrpit:
+It is always a good idea to perform error checking inside shell scripts, but especially so when running under cron.  For example, when changing directories inside a script:
 ```bash
 # go to desired directory, exit on failure:
 cd /glade/work/${USER}/mydir || exit 1
@@ -116,7 +116,7 @@ This will abort the job if the `cd` fails.  (The `|| exit 1` construct is execut
 
 ### Logging
 
-In addition to any typcal logging of expected output from your automated processes, it is beneficial to capture some information from the system as well.
+In addition to any typical logging of expected output from your automated processes, it is beneficial to capture some information from the system as well.
 
 For example,
 ```bash
@@ -135,5 +135,5 @@ which can be useful in the future; particularly many years from now if `cron` st
 
 ### Sample Cron script
 
-<!--  LocalWords:  cron HPC
+<!--  LocalWords:  cron HPC crontab lockfile scriptdir
  -->
