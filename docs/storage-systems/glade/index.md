@@ -57,7 +57,7 @@ analysis, and visualization resources that CISL manages.
     <tr class="even">
       <td><strong>Work:</strong><br />
         /glade/work/&ltusername&gt</td>
-      <td>1 TB</td>
+      <td>2 TB</td>
       <td><font color="#ff0000">No</font></td>
       <td>Not purged</td>
       <td>User work space<br />
