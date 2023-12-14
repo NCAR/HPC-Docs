@@ -281,7 +281,7 @@ With the container built from the steps above (or simply pulling the resulting i
 
     - We make use of the `--bind` argument first to mount familiar GLADE file systems within the container,
 
-    - and again to "inject" the host MPI into the container (as described [here](./running_containers.md#running-containerized-mpi-applications)).  The `/run` directory necessity is not immediately obvious but is used by Cray-MPICH as part of the launching process.
+    - and again to "inject" the host MPI into the container (as described [here](./working_with_containers.md#running-containerized-mpi-applications)).  The `/run` directory necessity is not immediately obvious but is used by Cray-MPICH as part of the launching process.
 
     - We also need to use the `--env` to set the `LD_LIBRARY_PATH` inside the image so that the application can find the proper host libraries.  Recall when we built the FastEddy executable in the containerized environment it had no knowledge of these host-specific paths.  Similarly, we use `--env` to set the `LD_PRELOAD` environment variable inside the container.  This will cause a particular Cray-MPICH library to be loaded prior to application initialization.  This step is not required for "bare metal" execution.
 
