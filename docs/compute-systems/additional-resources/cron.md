@@ -6,32 +6,60 @@ Occasionally users may want to automate a common recurring task.  Typical use ca
 ## Logging in
 
 Once you have [an HPC systems account](../../getting-started/accounts/index.md),
-you can log in to `cron.hpc.ucar.edu` via `ssh` command as shown here:
+you can log in to `cron.hpc.ucar.edu` via `ssh` command:
 ```
 ssh username@cron.hpc.ucar.edu
 ```
+This will place you on the high-availability `cron` server.
 
-This will place you on one of the high-availability `cron` servers.
+### Cron server IP address
+For certain automation workflows external sites may need to "allow" access from NCAR's systems based on IP address.
 
-### Cron server IP addresses
-For certain automation workflows, external sites need to "allow" access from NCAR's systems based on IP address.
+- **`cron.hpc.ucar.edu` : `128.117.211.23`**
 
-- `cron1.hpc.ucar.edu`:  XX.YY
-- `cron2.hpc.ucar.edu`:  XX.ZZ
+If you are performing automated connections to *remote sites* and encounter access issues, it may be necessary to work with the remote site's administrators to add this IP address to their trusted connections configuration (details are site- and process-specific, work with your remote site support team).
 
-## User environment and resource restrictions.
+## Appropriate usage, user environment, and resource restrictions
 
-Each user is placed into a *control group* to limit overall system resource utilization.  User `cron` processes are limited to a single CPU core and 1GB of system memory.  The typical [GLADE file systems](../../storage-systems/glade/index.md) are accessible, however there is no default software environment provided.
+The primary use case for this resources is to initiate routine, scheduled work that is primarily performed elsewhere, such as in the HPC batch environment on either Derecho or Casper.  As a result, the user software environment is intentionally sparse, and each user is placed into a *control group* limited to 1GB of system memory to protect system resource utilization. The typical [GLADE file systems](../../storage-systems/glade/index.md) are accessible, however there is no default software environment provided.
+
+
+### Accessing PBS commands
+The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are available by default, and users can access both Derecho and Casper PBS queues from the `cron` system provided that PBS server names are appended to the usual queue specifications (similar to the usual PBS cross-submission described [here](../../pbs/index.md#submitting-a-job-to-a-peer-system)):
+=== "Derecho PBS access"
+    Command-line specification of a Derecho queue:
+    ```console
+    cron$ qsub -q main@desched1 [...]
+    ```
+    PBS Script specification of a Derecho queue:
+    ```bash
+    #PBS -q main@desched1
+    ```
+=== "Casper PBS access"
+    Command-line specification of a Casper queue:
+    ```console
+    cron$ qsub -q casper@casper-pbs [...]
+    ```
+    PBS Script specification of a Casper queue:
+    ```bash
+    #PBS -q casper@casper-pbs
+    ```
+
+### Connecting to other resources
+
+
 
 ---
 
 ## Installing and editing `crontab` entries
-To schedule a process with `cron`, a user must establish a `crontab` entry. This can be done interactively by running the command `crontab -e` to edit your crontab directly, or by creating a file and "installing" it with `crontab <filename>`.  In either case, the `crontab` entry has a very particular, fixed format.
+To schedule a process with `cron`, a user must establish a `crontab` entry. This can be done interactively by running the command `crontab -e` to edit your crontab directly, or by creating a file and "installing" it with `crontab <filename>`. Additionally, you can list your current crontab entries via `crontab -l`.  (See [`man crontab`](https://linux.die.net/man/1/crontab) for more details.)
+
+In either case, the `crontab` entry has a very particular, fixed format.
 
 
 ### `crontab` syntax
 
-```pre title="sample crontab format"
+```pre title="sample crontab entry format"
 # ┌───────────── minute (0–59)
 # │ ┌───────────── hour (0–23)
 # │ │ ┌───────────── day of the month (1–31)
@@ -42,9 +70,9 @@ To schedule a process with `cron`, a user must establish a `crontab` entry. This
 # │ │ │ │ │
   * * * * * <command to execute>
 ```
-That is, 5 fields defining the recurrence rule, and a command to execute.  The syntax also supports ranges and stepping values, some examples:
+That is, 5 fields defining the recurrence rule, and a command to execute.  The syntax also supports ranges and stepping values. Some examples:
 
-```pre title="sample crontab entries"
+```bash title="sample crontab entries"
 # run every 15 minutes:
 */15 * * * * <my rapid command>
 
@@ -59,14 +87,14 @@ That is, 5 fields defining the recurrence rule, and a command to execute.  The s
 ```
 The [crontab guru](https://crontab.guru/) is a helpful resource for translating crontab time syntax into human-friendly time specifications.
 
-You can list your current crontab entries via `crontab -l`.
+
 
 ### `crontab` commands
 
 Keep  your `crontab` commands as simple as possible, and do not make any assumptions regarding the execution environment (paths, initial working directories, environment variables, etc...). We also recommend redirecting script output to aid in monitoring and debugging.   The *command* can be a short sequence of commands chained together with the shell operator `&&` if desired, for example:
-```pre
+```bash
 # run every night at 23:04 (11:04 PM):
-4 23 * * * cd /glade/work/<username>/my_cron_stuff/ && ./run_nightly.sh  &>> ./run_nightly.log
+4 23 * * * cd /glade/work/<username>/my_cron_stuff/ && ./run_nightly.sh &>> ./run_nightly.log
 ```
 This will run the command `run_nightly.sh` from within the directory `/glade/work/<username>/my_cron_stuff/`, appending both standard output *and* standard error into the file `run_nightly.log`.
 
@@ -113,7 +141,7 @@ It is always a good idea to perform error checking inside shell scripts, but esp
 cd /glade/work/${USER}/mydir || exit 1
 [...]
 ```
-This will abort the job if the `cd` fails.  (The `|| exit 1` construct is executed only if the first command exists with a failure status.) Without this type of pedantic error checking the script would continue to run, and the remainder of the script would attempt to run, but in the wrong directory!
+This will abort the job if the `cd` fails.  (The `|| exit 1` construct is executed only if the first command exits with a failure status.) Without this type of pedantic error checking the script would continue to run, and the remainder of the script would attempt to run, but in the wrong directory - especially dangerous if later steps remove files!!
 
 ### Logging
 
@@ -134,7 +162,7 @@ creates the following output:
 ```
 which can be useful in the future; particularly many years from now if `cron` stops working for you and you have forgotten where your `cron` scripts were located.
 
-### Sample Cron script
+## Sample Cron script
 
-<!--  LocalWords:  cron HPC crontab lockfile scriptdir
+<!--  LocalWords:  cron HPC crontab lockfile scriptdir Derecho Casper
  -->
