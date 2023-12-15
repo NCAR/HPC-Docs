@@ -15,7 +15,7 @@ After the usual [two-factor authentication process](../../getting-started/accoun
 ### Cron server IP address
 For certain automation workflows external sites may need to "allow" access from NCAR's systems based on IP address.
 
-- `cron.hpc.ucar.edu` : **`128.117.211.23`**
+- `cron.hpc.ucar.edu` : **`128.117.211.234`**
 
 If you are performing automated connections to *remote sites* and encounter access issues, it may be necessary to work with the remote site's administrators to add this IP address to their trusted connections configuration (details are site- and process-specific, work with your remote site support team).
 
@@ -190,11 +190,15 @@ which can be useful in the future; particularly many years from now if `cron` st
 	```
 
     **Sample `crontab` entries**
+
+    First we prepare a simple text file that contains the entries for all our desired cron processes:
 	```pre title="my_crontab:"
 	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/my_crontab"
 	```
 
     **Installing `crontab` entries**
+
+    We can then install, inspect, and edit our entries with the `crontab` command.
 	```bash
 	# Install my_crontab:
 	cron$ crontab ./my_crontab
