@@ -10,12 +10,12 @@ you can log in to `cron.hpc.ucar.edu` via `ssh` command:
 ```
 ssh username@cron.hpc.ucar.edu
 ```
-This will place you on the high-availability `cron` server.
+After the usual [two-factor authentication process](../../getting-started/accounts/duo/index.md), this will place you on the high-availability `cron` server.
 
 ### Cron server IP address
 For certain automation workflows external sites may need to "allow" access from NCAR's systems based on IP address.
 
-- **`cron.hpc.ucar.edu` : `128.117.211.23`**
+- `cron.hpc.ucar.edu` : **`128.117.211.23`**
 
 If you are performing automated connections to *remote sites* and encounter access issues, it may be necessary to work with the remote site's administrators to add this IP address to their trusted connections configuration (details are site- and process-specific, work with your remote site support team).
 
@@ -23,10 +23,19 @@ If you are performing automated connections to *remote sites* and encounter acce
 
 The primary use case for this resources is to initiate routine, scheduled work that is primarily performed elsewhere, such as in the HPC batch environment on either Derecho or Casper.  As a result, the user software environment is intentionally sparse, and each user is placed into a *control group* limited to 1GB of system memory to protect system resource utilization. The typical [GLADE file systems](../../storage-systems/glade/index.md) are accessible, however there is no default software environment provided.
 
+Typical usage of this `cron` resource is:
+
+1. Interacting with PBS,
+2. Performing small, automated file processing activitirs, and
+3. Connecting to the HPC systems directly through `ssh` to perform additional processing tasks.
+
+
+
+
 
 ### Accessing PBS commands
 The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are available by default, and users can access both Derecho and Casper PBS queues from the `cron` system provided that PBS server names are appended to the usual queue specifications (similar to the usual PBS cross-submission described [here](../../pbs/index.md#submitting-a-job-to-a-peer-system)):
-=== "Derecho PBS access"
+=== "Derecho Access"
     Command-line specification of a Derecho queue:
     ```console
     cron$ qsub -q main@desched1 [...]
@@ -35,7 +44,7 @@ The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are avai
     ```bash
     #PBS -q main@desched1
     ```
-=== "Casper PBS access"
+=== "Casper Access"
     Command-line specification of a Casper queue:
     ```console
     cron$ qsub -q casper@casper-pbs [...]
@@ -45,9 +54,19 @@ The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are avai
     #PBS -q casper@casper-pbs
     ```
 
-### Connecting to other resources
+### Connecting to other NCAR HPC resources
 
-
+The `cron` servers are trusted by other HPC resources, allowing users to `ssh` to other systems *without* additional two-factor authentication.  A common worflow then is for a small, lightweight script to be initiated on the `cron` servers which in turn runs additional commands on Derecho or Casper.
+=== "Derecho Access"
+    ```bash
+    # ssh to a Derecho login node and run a script...
+    ssh derecho [...]
+    ```
+=== "Casper Access"
+    ```bash
+    # ssh to a Casper login node and do something useful...
+    ssh casper "hostname && uptime"
+    ```
 
 ---
 
@@ -72,7 +91,7 @@ In either case, the `crontab` entry has a very particular, fixed format.
 ```
 That is, 5 fields defining the recurrence rule, and a command to execute.  The syntax also supports ranges and stepping values. Some examples:
 
-```bash title="sample crontab entries"
+```pre title="sample crontab entries"
 # run every 15 minutes:
 */15 * * * * <my rapid command>
 
@@ -91,8 +110,8 @@ The [crontab guru](https://crontab.guru/) is a helpful resource for translating 
 
 ### `crontab` commands
 
-Keep  your `crontab` commands as simple as possible, and do not make any assumptions regarding the execution environment (paths, initial working directories, environment variables, etc...). We also recommend redirecting script output to aid in monitoring and debugging.   The *command* can be a short sequence of commands chained together with the shell operator `&&` if desired, for example:
-```bash
+Keep  your `crontab` commands as simple as possible, and do not make any assumptions regarding the execution environment (initial working directories, environment variables, etc...). We also recommend redirecting script output to aid in monitoring and debugging.   The *command* can be a short sequence of commands chained together with the shell operator `&&` if desired, for example:
+```pre
 # run every night at 23:04 (11:04 PM):
 4 23 * * * cd /glade/work/<username>/my_cron_stuff/ && ./run_nightly.sh &>> ./run_nightly.log
 ```
@@ -164,5 +183,41 @@ which can be useful in the future; particularly many years from now if `cron` st
 
 ## Sample Cron script
 
+!!! example "Sample Cron script and `crontab` installation processes"
+
+	```bash title="sample_cron.sh"
+	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/sample_cron_job.sh"
+	```
+
+    **Sample `crontab` entries**
+	```pre title="my_crontab"
+	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/my_crontab"
+	```
+
+    **Installing `crontab` entries**
+	```bash
+	# Install my_crontab:
+	cron$ crontab ./my_crontab
+	```
+
+	```bash
+	# Inspect installed crontab:
+	cron$ crontab -l
+	# run my frequent cron job every 15 minutes
+	*/15 * * * * cd /glade/u/home/benkirk/my_cron/ && mkdir -p logs && ./frequent.sh &>> logs/frequent.log
+
+	# run my hourly cron jobs at 10 minutes past every hour
+	10 * * * * cd /glade/u/home/benkirk/my_cron/ && mkdir -p logs && ./hourly.sh &>> logs/hourly.log
+
+	# run my daily cron jobs at 00:45 am.
+	45 0 * * * cd /glade/u/home/benkirk/my_cron/ && mkdir -p logs && ./daily.sh &>> logs/daily.log
+	```
+
+    **Editing `crontab` entries**
+	```bash
+	# edit my crontab (uses the default editor, or whatever is specified by the EDITOR environment variable)
+	crontab -e
+	[...]
+	```
 <!--  LocalWords:  cron HPC crontab lockfile scriptdir Derecho Casper
  -->
