@@ -26,7 +26,7 @@ The primary use case for this resources is to initiate routine, scheduled work t
 Typical usage of this `cron` resource is:
 
 1. Interacting with PBS,
-2. Performing small, automated file processing activitirs, and
+2. Performing small, automated file processing activities, and
 3. Connecting to the HPC systems directly through `ssh` to perform additional processing tasks.
 
 
