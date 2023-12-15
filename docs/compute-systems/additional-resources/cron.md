@@ -186,7 +186,7 @@ which can be useful in the future; particularly many years from now if `cron` st
 !!! example "Sample Cron script and `crontab` installation processes"
 
 	```bash title="sample_cron.sh"
-	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/sample_cron_job.sh"
+	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/PBS_submissions/cron_driver.sh"
 	```
 
     **Sample `crontab` entries**
