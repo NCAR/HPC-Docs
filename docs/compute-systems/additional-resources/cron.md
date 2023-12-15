@@ -181,7 +181,7 @@ creates the following output:
 ```
 which can be useful in the future; particularly many years from now if `cron` stops working for you and you have forgotten where your `cron` scripts were located.
 
-## Sample Cron script
+## Sample Cron script and `crontab` processes
 
 !!! example "Sample Cron script and `crontab` installation processes"
 
@@ -190,7 +190,7 @@ which can be useful in the future; particularly many years from now if `cron` st
 	```
 
     **Sample `crontab` entries**
-	```pre title="my_crontab"
+	```pre title="my_crontab:"
 	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/my_crontab"
 	```
 
@@ -216,7 +216,7 @@ which can be useful in the future; particularly many years from now if `cron` st
     **Editing `crontab` entries**
 	```bash
 	# edit my crontab (uses the default editor, or whatever is specified by the EDITOR environment variable)
-	crontab -e
+	cron$ crontab -e
 	[...]
 	```
 <!--  LocalWords:  cron HPC crontab lockfile scriptdir Derecho Casper
