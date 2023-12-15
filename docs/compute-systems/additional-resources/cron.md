@@ -56,7 +56,7 @@ The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are avai
 
 ### Connecting to other NCAR HPC resources
 
-The `cron` servers are trusted by other HPC resources, allowing users to `ssh` to other systems *without* additional two-factor authentication.  A common worflow then is for a small, lightweight script to be initiated on the `cron` servers which in turn runs additional commands on Derecho or Casper.
+The `cron` servers are trusted by other HPC resources, allowing users to `ssh` to other systems *without* additional two-factor authentication.  A common workflow then is for a small, lightweight script to be initiated on the `cron` servers which in turn runs additional commands on Derecho or Casper.
 === "Derecho Access"
     ```bash
     # ssh to a Derecho login node and run a script...
