@@ -185,9 +185,12 @@ which can be useful in the future; particularly many years from now if `cron` st
 
 !!! example "Sample Cron script and `crontab` installation processes"
 
-	```bash title="sample_cron.sh"
+    Our `cron_driver.sh` script will submit two PBS batch jobs: one for prepossessing to run on Casper, and another model execution to run on Derecho.
+	```bash title="cron_driver.sh"
 	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/PBS_submissions/cron_driver.sh"
 	```
+    The script begins by establishing an exclusive file lock, performing some logging, and then moving to the intended run directory.
+    The first job (`prep_job.pbs`) will create a file called `INPUT_DATA` which is used by the second job (`run_model.pbs`).  Because the second job depends on the first, we submit the second using a [PBS job dependency](../../pbs/index.md#job-dependencies).
 
     **Sample `crontab` entries**
 
