@@ -192,6 +192,8 @@ which can be useful in the future; particularly many years from now if `cron` st
     The script begins by establishing an exclusive file lock, performing some logging, and then moving to the intended run directory.
     The first job (`prep_job.pbs`) will create a file called `INPUT_DATA` which is used by the second job (`run_model.pbs`).  Because the second job depends on the first, we submit the second using a [PBS job dependency](../../pbs/index.md#job-dependencies).
 
+    We also remove the `INPUT_DATA` at the beginning of the script - since it *should* be created by `prep_job.pbs`, we want to make sure that step functioned as intended.  In this way if `INPUT_DATA` exists when we execute `run_model.pbs` it can only be because the preceding step ran successfully - and our `INPUT_DATA` is not stale.
+
     **Sample `crontab` entries**
 
     First we prepare a simple text file that contains the entries for all our desired cron processes:
@@ -206,8 +208,9 @@ which can be useful in the future; particularly many years from now if `cron` st
 	# Install my_crontab:
 	cron$ crontab ./my_crontab
 	```
+    **Inspecting `crontab` entries**
 
-	```bash
+	```console
 	# Inspect installed crontab:
 	cron$ crontab -l
 	# run my frequent cron job every 15 minutes
@@ -222,9 +225,9 @@ which can be useful in the future; particularly many years from now if `cron` st
 
     **Editing `crontab` entries**
 	```bash
-	# edit my crontab (uses the default editor, or whatever is specified by the EDITOR environment variable)
+	# edit my crontab
+    # (uses the default editor, or whatever is specified by the EDITOR environment variable)
 	cron$ crontab -e
-	[...]
 	```
 <!--  LocalWords:  cron HPC crontab lockfile scriptdir Derecho Casper
  -->
