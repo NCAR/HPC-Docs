@@ -58,14 +58,14 @@ The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are avai
 
 The `cron` servers are trusted by other HPC resources, allowing users to `ssh` to other systems *without* additional two-factor authentication.  A common workflow then is for a small, lightweight script to be initiated on the `cron` servers which in turn runs additional commands on Derecho or Casper.
 === "Derecho Access"
-    ```bash
+    ```console
     # ssh to a Derecho login node and do something useful...
-    ssh derecho "hostname && uptime"
+    cron$ ssh derecho "hostname && uptime"
     ```
 === "Casper Access"
-    ```bash
+    ```console
     # ssh to a Casper login node and do something useful...
-    ssh casper "hostname && uptime"
+    cron$ ssh casper "hostname && uptime"
     ```
 
 ---
