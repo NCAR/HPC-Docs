@@ -78,6 +78,22 @@ body {
   /* Code block color shades */
   --md-code-bg-color:                  rgb(210,227,235,0.3);
   --md-code-fg-color:                  rgb(11,33,57);
+  /*--md-code-hl-color*/
+
+  /* Coloring Code font
+  --md-code-hl-number-color
+  --md-code-hl-special-color
+  --md-code-hl-function-color
+  --md-code-hl-constant-color
+  --md-code-hl-keyword-color
+  --md-code-hl-string-color
+  --md-code-hl-name-color
+  --md-code-hl-operator-color
+  --md-code-hl-punctuation-color
+  --md-code-hl-comment-color
+  --md-code-hl-generic-color
+  --md-code-hl-variable-color
+  */
 }
 
 
@@ -117,7 +133,7 @@ body {
 
 .grid-x {
   background-color: #012169;
-  justify-content: center
+  justify-content: center;
   max-width: 80%;
 }
 
@@ -135,10 +151,54 @@ body {
     overflow: visible !important;
 }
 
-
-
-
 .bolditalic {
   font-weight: bold;
   font-style: italic;
 }
+
+/* Highlight Color*/
+.md-typeset mark {
+  background-color: #ffff0000;
+  animation-name: highlight-ease;
+  animation-duration: 10s;
+}
+
+@keyframes highlight-ease {
+  0% {background-color: #ffff2080;}
+  90% {background-color: #ffff2080;}  
+  100% {background-color: #ffff0000;}  
+}
+
+/*=== Coloring for Asides ===*/
+
+/*Coloring for Tip, Hint, and Important
+.md-typeset :is(.admonition,details):is(.tip,.hint,.important) {
+  border-color: #000000;
+}
+*/
+/*Coloring for header of Tip, Hint, and Important 
+.md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary){
+  background-color: #000000;
+}
+*/
+/*Coloring for icon of Tip, Hint, and Important
+.md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary):before {
+  background-color: #000000;
+}
+/*
+
+/*Coloring for Info and Todo
+.md-typeset :is(.admonition,details):is(.info,.todo) {
+  border-color: #000000;
+}
+*/
+/*Coloring for header of Info and Todo
+.md-typeset :is(.info,.todo)>:is(.admonition-title,summary) {
+    background-color: #00b8d41a;
+}
+*/
+/*Coloring for icon of Info and Todo
+.md-typeset :is(.info,.todo)>:is(.admonition-title,summary):before {
+  background-color: #000000;
+}
+*/
