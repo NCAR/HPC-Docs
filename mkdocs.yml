@@ -141,6 +141,7 @@ nav:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
     - Additional Resources:
+      - Cron services: compute-systems/additional-resources/cron.md
       - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
 
   - Running Jobs (PBS):
