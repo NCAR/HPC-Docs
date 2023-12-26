@@ -1,5 +1,7 @@
 # Contribution Guide
 
+
+
 Welcome to the NCAR HPC Resources GitHub repository!
 
 This guide provides an overview of how to contribute to this documentations and the standards to follow when adding content to this repository. Our goal is to create a comprehensive and user-friendly documentation resource for NCAR's HPC resources.
