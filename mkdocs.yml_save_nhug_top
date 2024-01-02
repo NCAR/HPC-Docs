@@ -1,0 +1,352 @@
+#--content Project Information
+site_name: NCAR HPC Documentation
+site_description: NCAR HPC Docs website
+repo_url: https://github.com/NCAR/HPC-Docs/
+site_url: https://NCAR.github.io/HPC-Docs/
+site_author: CISL CSG (Consulting Services Group)
+edit_uri: edit/main/docs/
+
+# ------------------------------------
+# -------- validation config ---------
+# ------------------------------------
+validation:
+  nav:
+    not_found: warn             # check if stubs exist or not!
+    omitted_files: ignore       # check for files that exist without any links to them in nav
+    absolute_links : warn       # check for absolute links -- pointers to outside htmls in nav
+
+  links:
+    not_found: ignore           # check for broken links inside mds. (to be activated later!)
+    absolute_links : ignore     # check for absolute links -- pointers to outside htmls in files (to be activated later!)
+    unrecognized_links: ignore  # unrecognized relative links (to be activated later!)
+
+# ------------------------------------
+# ----------- content ----------------
+# ------------------------------------
+nav:
+  - NCAR HPC Docs:
+    - Home : index.md
+
+    - Quick Start:
+      - quick-start/index.md
+
+    - Getting Started:
+      - getting-started/index.md
+      - User Responsibilities: getting-started/user-responsibilities.md
+      - Accounts:
+        - getting-started/accounts/index.md
+        - CIT Passwords: getting-started/accounts/cit-passwords.md
+        - Duo Two-Factor Authentication:
+          - getting-started/accounts/duo/index.md
+          - Enrolling with Duo: getting-started/accounts/duo/enrolling.md
+        - SAM: getting-started/accounts/systems-accounting-manager.md
+      - Allocations:
+        - allocations/index.md # -- https://arc.ucar.edu/knowledge_base/74317835
+        - Managing Your Allocation: getting-started/managing-your-allocation.md
+        - NCAR Allocations:
+            - allocations/ncar-allocations/index.md
+            - NCAR Strategic Capability (NSC) projects: allocations/ncar-allocations/ncar-strategic-capability-nsc-projects.md
+        - University Allocations:
+            - allocations/university-allocations/index.md
+            - University Large Allocation Request Preparation Instructions : allocations/university-allocations/university-large-allocation-request-preparation-instructions.md
+        - Determining computational resource needs: allocations/determining-computational-resource-needs.md
+        - CISL HPC Allocations Panel:
+            - allocations/chap/index.md
+            - Allocation Review Criteria: allocations/chap/chap-allocation-review-criteria.md
+            - Conflict of Interest Policy: allocations/chap/chap-conflict-of-interest-policy.md
+      - VPN access : getting-started/vpn-access.md
+      - System Usage Policies: getting-started/system-usage-policies.md
+      - Data Retention Policies: getting-started/data-retention-policies.md
+      - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
+      - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
+
+    - Storage Systems and Data Transfer:
+      - storage-systems/index.md
+      - GLADE (POSIX File Systems):
+        - storage-systems/glade/index.md
+        - Campaign storage file system: storage-systems/glade/campaign.md
+        - Lustre file systems: storage-systems/glade/lustre.md
+        - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
+        - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
+        - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
+        - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
+      - Quasar (Tape Storgae):
+        - storage-systems/quasar/index.md
+        - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
+      - Stratus (Object Storage):
+        - storage-systems/stratus/index.md
+        - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+      - Data Access Nodes: storage-systems/data-access-nodes.md
+      - Transferring Data:
+        - storage-systems/data-transfer/index.md
+        - Globus:
+          - storage-systems/data-transfer/globus/index.md
+          - Sharing data and making unattended transfers: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
+        - SCP, SFTP and other tools: storage-systems/data-transfer/scp-and-sftp.md
+      - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
+
+    - User Environment and HPC Software:
+        - environment-and-software/index.md
+
+        - User Environment:
+          - environment-and-software/user-environment/index.md
+          - Modules:
+            - environment-and-software/user-environment/modules.md
+            - Caper Modules: compute-systems/casper/casper-modules.md
+            - Derecho Modules: compute-systems/derecho/derecho-modules.md
+          - Conda: environment-and-software/user-environment/conda.md
+          - Containers: environment-and-software/user-environment/containers.md
+          - Utilities: environment-and-software/user-environment/utilities.md
+          - Customizing User Environment: environment-and-software/user-environment/customizing.md
+          - Spack:
+            - environment-and-software/user-environment/spack/index.md
+            - Spack Downstream: environment-and-software/user-environment/spack/spack-downstream.md
+
+        - HPC Software:
+          - environment-and-software/hpc-software/index.md
+          - Community Models: environment-and-software/community-models.md
+          - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
+          - NCL : environment-and-software/ncl.md
+          - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
+          - Math Kernel Library: environment-and-software/math-kernel-library.md
+          - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
+          - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
+          - Profiling & Debuggers: # -- tentative placement
+            - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+            - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
+          - Benchmarks:
+            - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+            - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
+
+
+    - Compute Systems and Services:
+      - Derecho:
+        - compute-systems/derecho/index.md
+        - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
+        - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
+        - Starting Derecho Jobs:
+          - compute-systems/derecho/starting-derecho-jobs/index.md
+          - Derecho Job Script Examples:
+              - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
+              - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md
+
+      - Casper:
+        - compute-systems/casper/index.md
+        - Casper Use Policies: compute-systems/casper/casper-use-policies.md
+        - Compiling Code on Casper: compute-systems/casper/compiling-code-on-casper/index.md
+        - Starting Casper Jobs:
+              - compute-systems/casper/starting-casper-jobs/index.md
+              - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
+        - Using Remote Desktops: compute-systems/casper/remote-desktops.md
+
+      - JupyterHub:
+        - compute-systems/jupyterhub/index.md
+        - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
+
+    - Running Jobs (PBS):
+        - pbs/index.md
+        - Job Scripts:
+          - pbs/job-scripts/index.md
+        - Charging: pbs/charging.md
+        - Using Preemption: pbs/preemption.md
+        - Common Causes of Job Failures:
+          - pbs/common-causes-of-job-failures/index.md
+          - Checking Memory Use:
+            - pbs/checking-memory-use/index.md
+        - Storing temporary files: pbs/storing-temporary-files.md
+
+    - Tutorials:
+      - tutorials/index.md
+      - New User Training: tutorials/new-user-training.md
+      - Dask Tutorial: tutorials/dask-tutorial.md
+      - Profiling and Debugging: tutorials/profiling-and-debugging.md
+      - Advanced PBS: tutorials/advanced-pbs.md
+      - JupyterHub:  tutorials/jupyterhub.md
+      - Containers: tutorials/containers.md
+      - GPU Workshop: tutorials/gpu-workshop.md
+
+    - User Support:
+      - user-support/index.md
+      - Submitting Support Tickets:
+        - user-support/submitting-support-tickets/index.md
+        - How to report a job failure?: user-support/submitting-support-tickets/how-to-submit-a-job-failure.md
+      - Virtual Consulting: user-support/virtual-consulting.md
+      - Troubleshooting Tips:
+        - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+        - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+        - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+        - peak_memusage output fails: user-support/troubleshooting-tips/peak_memusage-output-fails.md
+      - Additional Resources:
+        - Thunder test system: user-support/additional-resources/thunder-test-system.md
+      - How to Join CISL on Sundog?: user-support/how-to-join-cisl-on-sundog.md
+      - How to subscribe to CISL Daily Bulletin: user-support/how-to-subscribe-to-cisl-daily-bulletin.md
+
+      - Contributing to the Documentation: contributing.md
+
+  - NCAR HPC User's Group (NHUG):
+    - nhug/index.md
+    - Archive of Past Meetings:
+      - nhug/archive/index.md
+    - NHUG Upcoming Events: nhug/upcoming-events.md
+
+
+
+# ------------------------------------
+# -- configurations
+
+
+theme:
+  name: material
+  custom_dir: theme
+
+  # -- additional features
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tabs.link       # all content tabs across the docs will be linked
+    - content.code.annotation # add annotations (advanced)
+    - content.code.annotate
+    - content.code.copy
+    - content.action.edit     # edit the page
+    - content.action.view     # view the source page
+    #- content.tooltips        # Adding tooltip for hovering over links
+
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.top          # back to top button
+    - navigation.path         # adding path to the top
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.top
+    - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
+    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - toc.follow
+    #- toc.integrate   # one toc on left only
+    - announce.dismiss
+
+  #logo: assets/images/ncar_cisl.png
+  #logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
+  logo : assets/images/CISL-contemp-logo-blue-square.png
+  #logo: https://raw.githubusercontent.com/negin513/hpc-docs-demo/main/assets/images/CISL-contemp-logo-blue-square.png
+  favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
+
+  palette:
+    - scheme: cisl_default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: cisl_default_dark
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+  font:
+        text: Poppins
+        code: Roboto Mono
+
+  highlightjs: true
+
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+
+#copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
+copyright: "&copy; 2023 UCAR"
+
+
+markdown_extensions:
+  - meta
+  - attr_list
+  - footnotes
+  - admonition
+  - md_in_html
+  - def_list
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols:
+      fractions: false
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      prebuild_index: false
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+  - minify:
+      minify_html: true
+
+
+extra:
+  social:
+    - icon: material/home-circle
+      link: https://arc.ucar.edu/
+    - icon: material/help-circle
+      link: https://ithelp.ucar.edu/plugins/servlet/desk/site/rc
+    - icon: fontawesome/brands/github
+      link: https://github.com/NCAR
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/ncarhpcusergroup/shared_invite/zt-1z00napom-SU0X8CzJWVY90C2GzRvUCg
