@@ -10,39 +10,67 @@
   --md-default-fg-color:               #012169;
 
   --md-text-font:                      "Poppins";
+
+  /* Misc colors */
+  --iframe-bg-color:                   #f1f4f7;
+  --table-bg-color:                    #f1f4f7;
+  --table-fg-color:                    rgb(3, 3, 3);;
+
+  --bg-image:                          url('../assets/images/NCAR-Waves.png');
 }
 
 [data-md-color-scheme="cisl_default_dark"] {
-  --md-primary-fg-color:               #1A658F  ;  /* header background color --- > NCAR blue */
+  --md-primary-fg-color:               #131313  ;  /* header background color --- > NCAR blue */
   --md-primary-bg-color:               #DBE2E9  ;  /* header font color */
 
-  --md-default-bg-color:               #53565A;
+  --md-default-bg-color:               #0f1010;
   --md-default-fg-color:               #f1f4f7;
   --md-default-fg-color:               #DBE2E9;
-
-  /* Primary color shades */
-
-  --md-primary-bg-color:               rgb(255,255,255);
-
-    /* Accent color shades */
-
-  --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
-  --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
-
-  --md-accent-bg-color:                rgb(214, 79, 30);
+  --md-default-fg-color--light:        rgb(255,255,255);
+  --md-default-fg-color--lighter:      rgb(255,255,255);
+  
 
   --md-text-font:                      "Poppins";
+  --md-typeset-color:                  rgb(255,255,255);
+
+  /* Primary color shades */
+  --md-primary-bg-color:               rgb(255,255,255);
+
+  /* Accent color shades */
+  --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
+  --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
+  --md-accent-bg-color:                rgb(214, 79, 30);
+
+  /* Code color shades */
+  --md-code-fg-color:                  rgb(255,255,255);
+  --md-code-bg-color:                  #131313;
+  --md-code-hl-generic-color:          rgb(255,255,255);
+  --md-code-hl-variable-color:         rgb(255,255,255);
+
+  /* Admonition color shades */
+  --md-admonition-bg-color:            #0f1010;
+  --md-admonition-fg-color:            rgb(255,255,255);
+
+  /* Misc colors */
+  --iframe-bg-color:                   rgb(255,255,255);
+  --table-bg-color:                    #131313;
+  --table-fg-color:                    rgb(255,255,255);
+
+  /* Background Image */
+  --bg-image:                          url('../assets/images/NCAR-Waves-Dark.png');
 }
 
 
 
 body {
-  background-image: url('../assets/images/NCAR-Waves.png');
+  background-image: var(--bg-image);
   background-size: 50%;
   background-position: right top;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+
 
 [data-md-color-scheme="slate"] {
   --md-hue: 213;
@@ -94,6 +122,8 @@ body {
   --md-code-hl-generic-color
   --md-code-hl-variable-color
   */
+
+  --bg-image:                          url('../assets/images/NCAR-Waves.png');
 }
 
 
@@ -143,6 +173,14 @@ body {
   justify-content: space-between;
 }
 
+table {
+  background-color: var(--table-bg-color);
+  color: var(--table-fg-color);
+}
+
+iframe {
+  background-color: var(--iframe-bg-color);
+}
 
 .wy-table-responsive table td {
     white-space: normal !important;

@@ -1,10 +1,10 @@
 ## Consulting
 ### Consultant on Duty
-<iframe frameborder="0" height="420" scrolling="no" src="https://www.cisl.ucar.edu/csg/cod-status/cod.html" width="800"></iframe>
+<iframe frameborder="0" height="420" scrolling="no" src="https://www.cisl.ucar.edu/csg/cod-status/cod.html" width="100%"></iframe>
 
 ### Virtual Consulting
 
-<iframe frameborder="1" scrolling="no" src="https://app.squarespacescheduling.com/schedule.php?owner=26907589&amp;appointmentType=37576313" title="Schedule Appointment" width="80%" height="800"></iframe><script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
+<iframe frameborder="0" scrolling="no" src="https://app.squarespacescheduling.com/schedule.php?owner=26907589&amp;appointmentType=37576313" title="Schedule Appointment" width="100%" height="800"></iframe><script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 ---
 
