@@ -310,5 +310,91 @@ With the container built from the steps above (or simply pulling the resulting i
     derecho$ tail -f fasteddy_job.log
     ```
 
-<!--  LocalWords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser CUDA MPICH NGC Casper Tensorflow
+---
+
+## "Faking" a native installation of containerized applications
+
+Occasionally it can be beneficial to "hide" the fact that a particular application is containerized, typically to simplify the user interface and usage experience.
+In this section we follow a clever approach deployed by the [NIH Biowulf team](https://hpc.nih.gov/apps/singularity.html) and outlined [here](https://singularity-tutorial.github.io/07-fake-installation/) to enable users to interact transparently with containerized applications without needing to know any details of the run-time (`singularity`, `ch-run`, etc...).
+
+The basic idea is to create a `wrapper.sh` shell script that
+
+1. Infers the name of the containerized command to run,
+2. Invokes the chosen run-time transparently to the user, and
+3. Passes along any command-line arguments to the containerized application.
+
+Consider the following directory tree structure, taken from a production deployment:
+```bash title="Directory tree for 'faking' native installation of containerized applications"
+/glade/u/apps/opt/leap-container/15/
+├── bin/
+│   ├── eog -> ../libexec/wrap_singularity.sh
+│   ├── evince -> ../libexec/wrap_singularity.sh
+│   ├── gedit -> ../libexec/wrap_singularity.sh
+│   ├── geeqie -> ../libexec/wrap_singularity.sh
+│   ├── gimp -> ../libexec/wrap_singularity.sh
+│   ├── gv -> ../libexec/wrap_singularity.sh
+│   ├── smplayer -> ../libexec/wrap_singularity.sh
+│   ├── vlc -> ../libexec/wrap_singularity.sh
+│   └── xfig -> ../libexec/wrap_singularity.sh
+└── libexec/
+    ├── Makefile
+    ├── ncar-casper-gui_tools.sif
+    └── wrap_singularity.sh
+```
+
+
+At the top level, we simply have two directories: `./bin/` (which likely will go into the user's `PATH`) and `./libexec/` (where we will hide implementation details).
+
+**Constructing the `bin` directory**
+
+The `./bin/` directory contains symbolic links to the `wrap_singularity.sh` script, where the name of the symbolic link is the containerized application to run.  For the example above, when a user runs `./bin/gv` for example, it will invoke the `wrap_singularity.sh` "behind the scenes."  In general there can be many application symbolic links in the `./bin/` directory, so long as the desired application exists within the wrapped container image.
+
+**The `wrap_singularity.sh` wrapper script**
+
+The `wrap_singularity.sh` script is written such that  whatever symbolic links you create to it will run inside of the container, inferring the application name from that of the symbolic link.
+```bash  title="wrap_singularity.sh" linenums="1"
+#!/bin/bash
+
+#----------------------------------------------------------------------------
+# environment
+topdir="$(pwd)"
+selfdir="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+requested_command="$(basename ${0})"
+container_img="ncar-casper-gui_tools.sif"
+#----------------------------------------------------------------------------
+
+type module >/dev/null 2>&1 || source /etc/profile.d/z00_modules.sh
+module load apptainer || exit 1
+
+cd ${selfdir} || exit 1
+[ -f ${container_img} ] || { echo "Cannot locate ${container_img}"; exit 1; }
+
+cd ${topdir} || exit 1
+
+singularity \
+    --quiet \
+    exec \
+    -B /glade/campaign \
+    -B /glade/derecho/scratch \
+    -B /glade/work \
+    -B /glade/u \
+    ${selfdir}/${container_img} \
+    ${requested_command} ${@}
+```
+
+Specifically:
+
+- The command to execute is inferred from the shell argument `${0}` - the name of the script being executed.  Here is where the symbolic links from `./bin` are important:  If the symbolic link `./bin/gv` is invoked, for example, the script above will execute with the name `gv`.  This is accessible within the script as `${0}`, and is stored in the `requested_command` variable on line 7.
+- Any command-line arguments passed to the executable are captured in the `${@}` environment variable, and are passed directly through as command-line arguments to the containerized application (line 27).
+- We bind-mount the usual GLADE file systems so that expected data are accessible (lines 22-25).
+- In this example we execute all commands in the same base container `ncar-casper-gui_tools.sif` (specified on line 8).  This is the simplest approach, however strictly not required.  (A more complex treatment could "choose" different base containers for different commands using a `bash` `case` statement, for example, if desired.)
+- The container is launched with the users' directory `topdir` as the working directory.  This is required so that any relative paths specified are handled properly.
+- In order to robustly access the required `apptainer` module, we first check to see if the `module` command is recognized and if not initialize the module environment (line 11), then load the `apptainer` module (line 12).  This allows the script to function properly even when the user does not have the module system initialized in their environment - a rare but an occasional issue.
+
+
+While the example above wraps the Apptainer run-time, a similar approach works for Charliecloud and Podman as well if desired.
+
+
+
+<!--  localwords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser CUDA MPICH NGC Casper Tensorflow
  -->
