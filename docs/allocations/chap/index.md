@@ -14,7 +14,7 @@ computational experimental design, computational effectiveness, and
 availability of computing resources.
 
 !!! note
-    The next university deadline for submitting Large Allocation Requests is March 13, 2023.
+    The next university deadline for submitting Large Allocation Requests is March 12, 2024.
 
 CHAP members, most of whom are from the university community, are
 appointed to three-year terms by the CISL Director. Meetings are
@@ -26,6 +26,6 @@ meetings and provides guidance from the NSF.
 
 <p style="text-align: center;">
   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
-    <img class="confluence-embedded-image confluence-content-image-border" draggable="false" alt="Chart showing core-hours allocated and used by university projects" width="640" src="https://kb.ucar.edu/download/attachments/embedded-page/RC/CISL%20HPC%20Allocations%20Panel/Univ%20project%20activity%20to%202021.png?api=v2">
+    <img class="confluence-embedded-image confluence-content-image-border" draggable="false" alt="Chart showing core-hours allocated and used by university projects" width="800" src="https://kb.ucar.edu/download/attachments/embedded-page/RC/CISL%20HPC%20Allocations%20Panel/Univ_alloc_use_2013_2023.png?api=v2">
   </span>
 </p>

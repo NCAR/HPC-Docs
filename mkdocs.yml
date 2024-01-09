@@ -88,7 +88,10 @@ nav:
         - environment-and-software/user-environment/index.md
         - Modules: environment-and-software/user-environment/modules.md
         - Conda: environment-and-software/user-environment/conda.md
-        - Containers: environment-and-software/user-environment/containers.md
+        - Containers:
+          - environment-and-software/user-environment/containers/index.md
+          - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
+          - Example Workflows: environment-and-software/user-environment/containers/examples.md
         - Utilities: environment-and-software/user-environment/utilities.md
         - Customizing User Environment: environment-and-software/user-environment/customizing.md
         - Spack:
@@ -138,6 +141,7 @@ nav:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
     - Additional Resources:
+      - Cron services: compute-systems/additional-resources/cron.md
       - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
 
   - Running Jobs (PBS):
@@ -196,7 +200,7 @@ theme:
     - search.highlight
     - content.tabs.link       # all content tabs across the docs will be linked
     - content.code.annotation # add annotations (advanced)
-    - content.code.annotate 
+    - content.code.annotate
     - content.code.copy
     - content.action.edit     # edit the page
     - content.action.view     # view the source page
@@ -231,6 +235,13 @@ theme:
 
   palette:
     - scheme: cisl_default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: cisl_default_dark
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
   font:
         text: Poppins
@@ -257,7 +268,7 @@ markdown_extensions:
   - md_in_html
   - def_list
   - codehilite:
-      guess_lang: false 
+      guess_lang: false
   - toc:
       permalink: true
       title: "Page Outline"
@@ -278,7 +289,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - pymdownx.snippets
+  - pymdownx.snippets:
+     url_download: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -312,7 +324,6 @@ markdown_extensions:
 plugins:
   - search:
       prebuild_index: false
-      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
@@ -334,7 +345,7 @@ plugins:
   - open-in-new-tab
 
 extra:
-  social: 
+  social:
     - icon: material/home-circle
       link: https://arc.ucar.edu/
     - icon: material/help-circle
