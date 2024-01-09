@@ -138,29 +138,6 @@ body {
     font-weight: bold;
 }
 
-.md-nav__title {
-  margin-bottom: 0.7rem;
-}
-
-.md-nav__footer {
-  display: flex;  
-  margin-top: 0.5rem;
-  margin-left: 0.3rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  padding-left: 0.3rem;
-  
-  font-weight: bold;
-  font-style: italic;
-  color:#012169;
-
-  border-style: dashed;
-  border-width: 1px;
-  border-color: #012169;
-  border-radius: 0.2rem;
-  
-}
-
 /*
 .md-content a {
     text-decoration:underline;
