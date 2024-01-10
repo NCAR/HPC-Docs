@@ -4,6 +4,49 @@
 }
 
 
+:root {
+
+  /* Default color shades */
+  --md-default-fg-color:               rgb(3,3,3);
+  --md-default-fg-color--light:        rgba(11,33,57,0.8);
+  --md-default-fg-color--lighter:      rgba(11,33,57,0.5);
+  --md-default-fg-color--lightest:     rgba(11,33,57,0.1);
+
+  --md-default-bg-color:               rgb(255,255,255);
+
+
+  /* Primary color shades */
+  --md-primary-fg-color:               rgb(28,101,143); /* PMS 2152 (NCAR Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-primary-bg-color:               rgb(219,226,233); /* PMS 649 (Background Blue 3), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+
+
+  /* Accent color shades */
+  --md-accent-fg-color:                rgb(0,127,163);  /* PMS 314 (NCAR Lighter Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-accent-bg-color:                rgb(1,33,105);   /* PMS 280 (Deep Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-accent-fg-color--transparent:   rgba(76,248,29,0.25);
+
+
+  /*--md-code-hl-color*/
+
+  /* Coloring Code font
+  --md-code-hl-number-color
+  --md-code-hl-special-color
+  --md-code-hl-function-color
+  --md-code-hl-constant-color
+  --md-code-hl-keyword-color
+  --md-code-hl-string-color
+  --md-code-hl-name-color
+  --md-code-hl-operator-color
+  --md-code-hl-punctuation-color
+  --md-code-hl-comment-color
+  --md-code-hl-generic-color
+  --md-code-hl-variable-color
+  */
+
+  --bg-image:                          url('../assets/images/NCAR-Waves.png');
+}
+
+
 
 [data-md-color-scheme="cisl_default"] {
   --md-primary-fg-color:               #DBE2E9  ;  /* header background color */
@@ -115,8 +158,11 @@
   --md-code-hl-variable-color:         rgb(219,226,233); /* PMS 649 (Background Blue 3), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
   --md-code-hl-comment-color:          #e7afa1;            /* ref: https://icolorpalette.com/download/palette/565174_color_palette.jpg */
   --md-code-hl-keyword-color:          rgb(168,199,0);   /* PMS 3570 (Highlight Green), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-punctuation-color:      rgb(168,199,0);   /* PMS 3570 (Highlight Green), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
   --md-code-hl-function-color:         rgb(195,215,238); /* PMS 2707 (Background Blue 1), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
   --md-code-hl-operator-color:         rgb(195,215,238); /* PMS 2707 (Background Blue 1), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-constant-color:         rgb(195,215,238); /* PMS 2707 (Background Blue 1), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-name-color:             rgb(206,217,229); /* PMS 650 (Background Blue 2), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
   --md-code-hl-variable-color:         rgb(0,193,213);   /* PMS 3115 (NCAR Lightest Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
   --md-code-hl-string-color:           rgb(64,193,172);  /* PMS 7465 (UCAR LIghtest Green), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
 
@@ -199,47 +245,6 @@ body {
 
 
 
-:root {
-
-  /* Default color shades */
-  --md-default-fg-color:               rgb(3,3,3);
-  --md-default-fg-color--light:        rgba(11,33,57,0.8);
-  --md-default-fg-color--lighter:      rgba(11,33,57,0.5);
-  --md-default-fg-color--lightest:     rgba(11,33,57,0.1);
-
-  --md-default-bg-color:               rgb(255,255,255);
-
-
-  /* Primary color shades */
-  --md-primary-fg-color:               rgb(28,101,143); /* PMS 2152 (NCAR Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
-  --md-primary-bg-color:               rgb(219,226,233); /* PMS 649 (Background Blue 3), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
-
-
-  /* Accent color shades */
-  --md-accent-fg-color:                rgb(0,127,163);  /* PMS 314 (NCAR Lighter Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
-  --md-accent-bg-color:                rgb(1,33,105);   /* PMS 280 (Deep Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
-  --md-accent-fg-color--transparent:   rgba(76,248,29,0.25);
-
-
-  /*--md-code-hl-color*/
-
-  /* Coloring Code font
-  --md-code-hl-number-color
-  --md-code-hl-special-color
-  --md-code-hl-function-color
-  --md-code-hl-constant-color
-  --md-code-hl-keyword-color
-  --md-code-hl-string-color
-  --md-code-hl-name-color
-  --md-code-hl-operator-color
-  --md-code-hl-punctuation-color
-  --md-code-hl-comment-color
-  --md-code-hl-generic-color
-  --md-code-hl-variable-color
-  */
-
-  --bg-image:                          url('../assets/images/NCAR-Waves.png');
-}
 
 
 
