@@ -7,8 +7,6 @@ This is the home of user documentation for the NCAR high-performance computing (
 
 The knowledge base includes searchable information specific to HPC resources, storage systems, authentication procedures and others, as well as additional how-to articles and troubleshooting articles.
 
-#![Derecho](https://kb.ucar.edu/download/attachments/embedded-page/RC/User%20documentation%20for%20NCAR%20high-performance%20computing/derecho_logo1600X560.png?api=v2 width="150"){width="300"}
-
 ## Selected Links
 
 * [Getting Started](./getting-started/index.md)
