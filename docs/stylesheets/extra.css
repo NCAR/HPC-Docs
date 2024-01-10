@@ -11,30 +11,56 @@
 
   --md-text-font:                      "Poppins";
 
+  /* Code block color shades */
+  --md-code-bg-color:                  rgb(210,227,235,0.3);
+  --md-code-fg-color:                  rgb(11,33,57);
+  --md-code-hl-number-color:           rgb(11,33,57);
+  --md-code-hl-comment-color:          #8F0B0B;           /* ref: https://creativebooster.net/blogs/colors/shades-of-maroon-color */
+  --md-code-hl-variable-color:         rgb(1, 33, 105);   /* PMS 280 (Deep Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-string-color:           rgb(0, 121, 124); /* PMS 3557 (UCAR Green), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+
   /* Misc colors */
   --iframe-bg-color:                   #f1f4f7;
   --table-bg-color:                    #f1f4f7;
   --table-fg-color:                    rgb(3, 3, 3);;
 
   --bg-image:                          url('../assets/images/NCAR-Waves.png');
+
+
+  /* Custom colorind for admonition boxes */
+  /* -------------------------- */
+  /* Coloring for Examples */
+  .md-typeset :is(.admonition,details):is(.example) {
+      border-color: rgb(0, 193, 213);  /* PMS 3115 (NCAR Lightest Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  }
+
+  /* Coloring for header of Examples */
+  .md-typeset :is(.example)>:is(.admonition-title,summary) {
+      background-color: rgba(0, 193, 213, 0.25);   /* PMS 3115 (NCAR Lightest Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  }
+
+  /* Coloring for icon of Examples */
+  .md-typeset :is(.example)>:is(.admonition-title,summary):before {
+      background-color: rgb(28, 101, 143);  /* PMS 2152 (NCAR Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  }
 }
 
 [data-md-color-scheme="cisl_default_dark"] {
-  --md-primary-fg-color:               #131313  ;  /* header background color --- > NCAR blue */
-  --md-primary-bg-color:               #DBE2E9  ;  /* header font color */
+  --md-primary-bg-color:               #DBE2E9;  /* header font color */
 
   --md-default-bg-color:               #0f1010;
   --md-default-fg-color:               #f1f4f7;
   --md-default-fg-color:               #DBE2E9;
-  --md-default-fg-color--light:        rgb(255,255,255);
-  --md-default-fg-color--lighter:      rgb(255,255,255);
-  
+  --md-default-fg-color--light:        rgb(219,226,233);
+  --md-default-fg-color--lighter:      rgb(219,226,233);
+
 
   --md-text-font:                      "Poppins";
-  --md-typeset-color:                  rgb(255,255,255);
+  --md-typeset-color:                  rgb(219,226,233);
 
   /* Primary color shades */
-  --md-primary-bg-color:               rgb(255,255,255);
+  --md-primary-fg-color:               rgb(151,153,155); /* PMS Cool Gray 7, ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-primary-bg-color:               rgb(219,226,233);
 
   /* Accent color shades */
   --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
@@ -42,22 +68,46 @@
   --md-accent-bg-color:                rgb(214, 79, 30);
 
   /* Code color shades */
-  --md-code-fg-color:                  rgb(255,255,255);
+  --md-code-fg-color:                  rgb(219,226,233);
   --md-code-bg-color:                  #131313;
-  --md-code-hl-generic-color:          rgb(255,255,255);
-  --md-code-hl-variable-color:         rgb(255,255,255);
+  --md-code-hl-generic-color:          rgb(219,226,233);
+  --md-code-hl-number-color:           rgb(219,226,233);
+  --md-code-hl-variable-color:         rgb(219,226,233);
+  --md-code-hl-comment-color:          #e7afa1;            /* ref: https://icolorpalette.com/download/palette/565174_color_palette.jpg */
+  --md-code-hl-keyword-color:          rgb(168, 199, 0);   /* PMS 3570 (Highlight Green), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-function-color:         rgb(195, 215, 238); /* PMS 2707 (Background Blue 1), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-operator-color:         rgb(195, 215, 238); /* PMS 2707 (Background Blue 1), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-variable-color:         rgb(0, 193, 213);   /* PMS 3115 (NCAR Lightest Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-code-hl-string-color:           rgb(64, 193, 172);  /* PMS 7465 (UCAR LIghtest Green), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
 
   /* Admonition color shades */
   --md-admonition-bg-color:            #0f1010;
-  --md-admonition-fg-color:            rgb(255,255,255);
+  --md-admonition-fg-color:            rgb(219,226,233);
 
   /* Misc colors */
-  --iframe-bg-color:                   rgb(255,255,255);
+  --iframe-bg-color:                   rgb(219,226,233);
   --table-bg-color:                    #131313;
-  --table-fg-color:                    rgb(255,255,255);
+  --table-fg-color:                    rgb(219,226,233);
 
   /* Background Image */
   --bg-image:                          url('../assets/images/NCAR-Waves-Dark.png');
+
+  /* Custom colorind for admonition boxes */
+  /* -------------------------- */
+  /* Coloring for Examples */
+  .md-typeset :is(.admonition,details):is(.example) {
+    border-color: rgb(28, 101, 143);  /* PMS 2152 (NCAR Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  }
+
+  /* Coloring for header of Examples */
+  .md-typeset :is(.example)>:is(.admonition-title,summary) {
+    background-color: rgba(28, 101, 143, 0.25);  /* PMS 2152 (NCAR Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  }
+
+  /* Coloring for icon of Examples */
+  .md-typeset :is(.example)>:is(.admonition-title,summary):before {
+    background-color: rgb(168, 199, 0);  /* PMS 3570 (Highlight Green), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  }
 }
 
 
@@ -90,22 +140,16 @@ body {
 
 
   /* Primary color shades */
-  --md-primary-fg-color:               rgb(0,143,184);
-
-  --md-primary-bg-color:               rgb(255,255,255);
+  --md-primary-fg-color:               rgb(28, 101, 143); /* PMS 2152 (NCAR Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-primary-bg-color:               rgb(219,226,233);
 
 
   /* Accent color shades */
-
-  --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
+  --md-accent-fg-color:                rgb(0, 127, 163);  /* PMS 314 (NCAR Lighter Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
+  --md-accent-bg-color:                rgb(1, 33, 105);   /* PMS 280 (Deep Blue), ref: https://news.ucar.edu/sites/default/files/documents/related-links/2020-03/NCAR-UCAR_BrandStandards_031020-Spreads.pdf */
   --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
 
-  --md-accent-bg-color:                rgb(32, 91, 118);
 
-
-  /* Code block color shades */
-  --md-code-bg-color:                  rgb(210,227,235,0.3);
-  --md-code-fg-color:                  rgb(11,33,57);
   /*--md-code-hl-color*/
 
   /* Coloring Code font
@@ -203,8 +247,8 @@ iframe {
 
 @keyframes highlight-ease {
   0% {background-color: #ffff2080;}
-  90% {background-color: #ffff2080;}  
-  100% {background-color: #ffff0000;}  
+  90% {background-color: #ffff2080;}
+  100% {background-color: #ffff0000;}
 }
 
 /*=== Coloring for Asides ===*/
@@ -214,7 +258,7 @@ iframe {
   border-color: #000000;
 }
 */
-/*Coloring for header of Tip, Hint, and Important 
+/*Coloring for header of Tip, Hint, and Important
 .md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary){
   background-color: #000000;
 }
@@ -224,19 +268,3 @@ iframe {
   background-color: #000000;
 }
 /*
-
-/*Coloring for Info and Todo
-.md-typeset :is(.admonition,details):is(.info,.todo) {
-  border-color: #000000;
-}
-*/
-/*Coloring for header of Info and Todo
-.md-typeset :is(.info,.todo)>:is(.admonition-title,summary) {
-    background-color: #00b8d41a;
-}
-*/
-/*Coloring for icon of Info and Todo
-.md-typeset :is(.info,.todo)>:is(.admonition-title,summary):before {
-  background-color: #000000;
-}
-*/
