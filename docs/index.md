@@ -1,9 +1,9 @@
+![](media/CISL-contemp-logo-white.png#only-dark){width="640"}
+![](media/CISL-contemp-logo-blue.png#only-light){width="640"}
+
 # User Documentation for NCAR High Performance Computing
 
-
-[![Jupyter Build](https://shields.api-test.nl/github/workflow/status/negin513/hpc-docs-demo/ci?label=Docs&logo=GitHub&style=flat-square)](https://negin513.github.io/hpc-docs-demo/)
-
-This is the home of user documentation for the NCAR high-performance computing (HPC) and storage resources that CISL manages.
+This is the home of user documentation for the NCAR high-performance computing (HPC) and storage resources managed by CISL.
 
 The knowledge base includes searchable information specific to HPC resources, storage systems, authentication procedures and others, as well as additional how-to articles and troubleshooting articles.
 
@@ -32,4 +32,3 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
     are welcome!
 
 ---
-![](media/CISL-contemp-logo-blue.png){width="640"}
