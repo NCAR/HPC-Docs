@@ -10,6 +10,7 @@
 :root {
   /* Default properties & color shades */
     --md-text-font: "Poppins";
+    --md-code-font: "Roboto Mono";
 }
 
 [data-md-color-scheme="default"] {
@@ -18,8 +19,13 @@
   --bg-image:                    url('../assets/images/NCAR-Waves.png');
 
   /* Default properties & color shades */
-  --md-typeset-a-color:          rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
   --md-default-bg-color:         #f1f4f7;
+  --md-typeset-a-color:          rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
+
+  /* the above (--md-typeset-a-color) doesn't seem to work in material>9.5, so duplicate spec here too: */
+  .md-typeset a {
+      color:                     rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
+  }
 
   /* Primary color shades */
   --md-primary-fg-color:         rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
@@ -100,8 +106,10 @@
   --md-typeset-color:                  rgb(217,217,214); /* PMS Cool Gray 1 */
   --md-typeset-a-color:                rgb(195,215,238); /* PMS 2707 (Background Blue 1) */
 
-  /* --md-typeset-color:                  rgb(187,188,188); /* PMS Cool Gray 4 */ /*rgb(217,217,214); /* PMS Cool Gray 1 */
-  /* --md-typeset-a-color:                rgb(0,193,213);   /* PMS 3115 (NCAR Lightest Blue) */
+  /* the above (--md-typeset-a-color) doesn't seem to work in material>9.5, so duplicate spec here too: */
+  .md-typeset a {
+      color:                           rgb(195,215,238); /* PMS 2707 (Background Blue 1) */
+  }
 
   --md-default-bg-color:               #0f1010;
   --md-default-fg-color:               rgb(219,226,233);      /* PMS 649 (Background Blue 3) */
@@ -117,7 +125,7 @@
 
   /* Code color shades */
   --md-code-fg-color:                  rgb(219,226,233); /* PMS 649 (Background Blue 3) */
-  --md-code-bg-color:                  #131313;
+  --md-code-bg-color:                  rgb(30,30,30);
   --md-code-hl-generic-color:          rgb(219,226,233); /* PMS 649 (Background Blue 3) */
   --md-code-hl-number-color:           rgb(219,226,233); /* PMS 649 (Background Blue 3) */
   --md-code-hl-variable-color:         rgb(219,226,233); /* PMS 649 (Background Blue 3) */
@@ -213,6 +221,7 @@ iframe {
 
 /* improve accessibility tweaks: makes the current section bold in the navigation */
 .md-nav__link.md-nav__link--active {
+    color: var(--md-typeset-a-color);
     font-weight: bold;
 }
 

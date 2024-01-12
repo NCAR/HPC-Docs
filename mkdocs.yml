@@ -183,7 +183,7 @@ nav:
 
 # ------------------------------------
 # -- configurations
-
+# ------------------------------------
 
 theme:
   name: material
@@ -231,21 +231,25 @@ theme:
   favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
 
   palette:
-    - scheme: default
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-
-    - scheme: slate
-      toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-auto
         name: Switch to light mode
 
-  font:
-        text: Poppins
-        code: Roboto Mono
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
-  highlightjs: true
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 
 
 extra_css:
@@ -265,11 +269,26 @@ markdown_extensions:
   - admonition
   - md_in_html
   - def_list
-  - codehilite:
-      guess_lang: false
   - toc:
       permalink: true
       title: "Page Outline"
+
+  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+     url_download: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - codehilite:
+      guess_lang: true
+
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -277,7 +296,6 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols:
@@ -287,8 +305,6 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - pymdownx.snippets:
-     url_download: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -297,9 +313,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
@@ -307,11 +320,6 @@ markdown_extensions:
       repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -320,7 +328,7 @@ markdown_extensions:
 
 plugins:
   - search:
-      prebuild_index: false
+      enabled: true
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
