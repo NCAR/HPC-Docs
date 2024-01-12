@@ -1,9 +1,10 @@
 
+![Derecho](media/Derecho_Logo_Landscape_NCARBlue.svg#only-light){width="640"}
+![Derecho](media/Derecho_Logo_Landscape_CoolGray4.svg#only-dark){width="640"}
+
 # Derecho
 
 Installed in 2023, Derecho is NCAR's latest supercomputer.  Derecho features 2,488 compute nodes with 128 AMD Milan cores per node and 82 nodes with four NVIDIA A100 GPUs each. The HPE Cray EX cluster is a 19.87-petaflops system that is expected to deliver about 3.5 times the scientific throughput of the Cheyenne system. Additional [hardware details](./index.md#derecho-hardware) are available below.
-
-<img src="https://kb.ucar.edu/download/attachments/embedded-page/RC/User%20documentation%20for%20NCAR%20high-performance%20computing/derecho_logo1600X560.png?api=v2" width="350"/>
 
 !!! warning "Derecho Monthly Maintenance Windows"
     **The first Tuesday of each month is generally be reserved for Derecho system maintenance**, as required to incorporate updates to Derecho's configuration and software during the early phase of the system lifespan. Scheduled outages may occasionally be extended (or canceled) as necessary on a case by case basis.

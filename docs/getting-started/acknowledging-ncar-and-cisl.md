@@ -109,6 +109,32 @@ it is unique to Derecho.
       }
       ```
 
+### Acknowledgments
+Acknowledgments are more difficult to track
+electronically due to the many possible variations, but you may choose
+to acknowledge support from Derecho if the citation method described
+above is inappropriate. You may modify the following examples as
+appropriate; however, please include at least the DOI in the
+acknowledgment text, as you would include funding agency award numbers.
+
+#### For University/CHAP and NCAR allocations
+*We would like to acknowledge high-performance computing support from
+Derecho ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) provided by NCAR's Computational and
+Information Systems Laboratory, sponsored by the National Science
+Foundation.*
+
+#### For Climate Simulation Lab (CSL) allocations
+*Computing resources ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) were provided by the
+Climate Simulation Laboratory at NCAR's Computational and Information
+Systems Laboratory, sponsored by the National Science Foundation and
+other agencies.*
+
+#### For Wyoming-NCAR Alliance allocations
+*We would like to acknowledge the use of computational resources
+([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) at the NCAR-Wyoming Supercomputing Center
+provided by the National Science Foundation and the State of Wyoming,
+and supported by NCAR's Computational and Information Systems
+Laboratory.*
 
 ## For Cheyenne projects
 ### Citation formats
