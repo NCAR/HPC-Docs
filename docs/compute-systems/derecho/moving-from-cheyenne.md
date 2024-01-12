@@ -143,7 +143,7 @@ environment can be found in the
 [Introduction to the Derecho Supercomputer](https://docs.google.com/presentation/d/1ExiYUd6sHNwIQmCoR7aTGZavxjHglDRUDQTeOiHYLQI/edit?usp=sharing)
 training slides, embedded below.
 
-<iframe src="https://docs.google.com/presentation/d/1ExiYUd6sHNwIQmCoR7aTGZavxjHglDRUDQTeOiHYLQI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="800" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1ExiYUd6sHNwIQmCoR7aTGZavxjHglDRUDQTeOiHYLQI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="836" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ---
 
