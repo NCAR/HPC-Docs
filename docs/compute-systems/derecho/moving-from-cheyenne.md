@@ -141,7 +141,9 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
 Much more information on Derecho hardware, software, and general user
 environment can be found in the
 [Introduction to the Derecho Supercomputer](https://docs.google.com/presentation/d/1ExiYUd6sHNwIQmCoR7aTGZavxjHglDRUDQTeOiHYLQI/edit?usp=sharing)
-training slides.
+training slides, embedded below.
+
+<iframe src="https://docs.google.com/presentation/d/1ExiYUd6sHNwIQmCoR7aTGZavxjHglDRUDQTeOiHYLQI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="800" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ---
 
