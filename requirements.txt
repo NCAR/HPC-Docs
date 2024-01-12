@@ -11,8 +11,7 @@ colorama>=0.4
 regex>=2022.4.24
 requests>=2.26
 
-#mkdocs==1.2.*
-mkdocs-material==8.*
+mkdocs-material>=9.5.3
 mkdocs-minify-plugin
 mkdocs-git-revision-date-plugin
 mkdocs-git-revision-date-localized-plugin
