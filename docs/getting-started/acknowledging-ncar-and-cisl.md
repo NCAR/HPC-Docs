@@ -30,6 +30,86 @@ guidance for Cheyenne below, but use the appropriate calendar year,
 "Derecho: HPE Cray EX System" for the system name, and the Derecho DOI
 (<https://doi.org/10.5065/qx9a-pg09>).
 
+### Citation formats
+We prefer that you *cite* your use of the
+Derecho system (and/or the Casper data analysis and visualization
+cluster) with the following citation formats, based on the source of
+your allocation and modified as needed to conform with citation style
+guidelines. Be sure to use the digital object identifier (DOI) as shown;
+it is unique to Derecho.
+
+=== "Plain Citations"
+    1. Computational and Information Systems Laboratory. 2023. Derecho:
+    HPE Cray EX System (Climate Simulation Laboratory). Boulder, CO:
+    National Center for Atmospheric Research.
+    [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
+
+    2. Computational and Information Systems Laboratory. 2023.
+    Derecho: HPE Cray EX System (University Community Computing).
+    Boulder, CO: National Center for Atmospheric Research.
+    [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
+
+    3. Computational and Information Systems Laboratory. 2023.
+    Derecho: HPE Cray EX System (NCAR Community Computing). Boulder,
+    CO: National Center for Atmospheric Research.
+    [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
+
+    4. Computational and Information Systems Laboratory. 2023.
+    Derecho: HPE Cray EX System (Wyoming-NCAR Alliance). Boulder, CO:
+    National Center for Atmospheric Research.
+    [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
+
+=== "BibTeX"
+
+    - Climate Simulation Laboratory affiliated projects:
+      ```pre
+      @Manual{derecho_CSL,
+        author       = {{Computational and Information Systems Laboratory (CISL)}},
+        organization = {{National Center for Atmospheric Research (NCAR)}},
+        title        = {{Derecho: HPE Cray EX System (Climate Simulation Laboratory)}},
+        note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
+        year         = {2023},
+        address      = {Boulder, CO}
+      }
+      ```
+
+    - University Community Computing affiliated projects:
+      ```pre
+      @Manual{derecho_UCC,
+        author       = {{Computational and Information Systems Laboratory (CISL)}},
+        organization = {{National Center for Atmospheric Research (NCAR)}},
+        title        = {{Derecho: HPE Cray EX System (University Community Computing)}},
+        note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
+        year         = {2023},
+        address      = {Boulder, CO}
+      }
+      ```
+
+    - NCAR Community Computing affiliated projects:
+      ```pre
+      @Manual{derecho_NCC,
+        author       = {{Computational and Information Systems Laboratory (CISL)}},
+        organization = {{National Center for Atmospheric Research (NCAR)}},
+        title        = {{Derecho: HPE Cray EX System (NCAR Community Computing)}},
+        note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
+        year         = {2023},
+        address      = {Boulder, CO}
+      }
+      ```
+
+    - Wyoming-NCAR Alliance affiliated projects:
+      ```pre
+      @Manual{derecho_WY,
+        author       = {{Computational and Information Systems Laboratory (CISL)}},
+        organization = {{National Center for Atmospheric Research (NCAR)}},
+        title        = {Derecho: HPE Cray EX System (Wyoming-NCAR Alliance)}},
+        note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
+        year         = {2023},
+        address      = {Boulder, CO}
+      }
+      ```
+
+
 ## For Cheyenne projects
 ### Citation formats
 We prefer that you *cite* your use of the
