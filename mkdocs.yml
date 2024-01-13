@@ -159,6 +159,7 @@ nav:
   - Tutorials:
     - tutorials/index.md
     - New User Training: tutorials/new-user-training.md
+    - Derecho Overview: tutorials/derecho-overview.md
     - Dask Tutorial: tutorials/dask-tutorial.md
     - Profiling and Debugging: tutorials/profiling-and-debugging.md
     - Advanced PBS: tutorials/advanced-pbs.md
