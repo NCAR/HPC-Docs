@@ -162,6 +162,7 @@ nav:
     - Dask Tutorial: tutorials/dask-tutorial.md
     - Profiling and Debugging: tutorials/profiling-and-debugging.md
     - Advanced PBS: tutorials/advanced-pbs.md
+    - Using Globus v5: tutorials/globus.md
     - JupyterHub:  tutorials/jupyterhub.md
     - Containers: tutorials/containers.md
     - GPU Workshop: tutorials/gpu-workshop.md
