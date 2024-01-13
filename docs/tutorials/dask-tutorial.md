@@ -31,7 +31,7 @@ This tutorial is open to non-UCAR staff. If you don't have access to the HPC sys
 
   <iframe width="1280px" height="800px" frameborder="0"
     src="https://www.youtube.com/embed/wJHosuzqLaU?si=xy-mAOR5bYOU4FfK"
-    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allow="accelerometer; encrypted-media"
     allowfullscreen>
   </iframe>
 
@@ -39,6 +39,6 @@ This tutorial is open to non-UCAR staff. If you don't have access to the HPC sys
 
   <iframe width="1280px" height="800px" frameborder="0"
     src="https://www.youtube.com/embed/E4utSzWgJEo?si=-Na1kAoHyxdJWNid"
-    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allow="accelerometer; encrypted-media"
     allowfullscreen>
   </iframe>
