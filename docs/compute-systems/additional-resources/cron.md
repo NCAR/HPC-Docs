@@ -1,7 +1,7 @@
+!!! info "*Cheyenne* `crontab` archives"
+    Users who previously had `cron` entries on Cheyenne can locate their old `crontab` files under `/glade/u/ssg/ch/archived_crontabs/`
 
 Occasionally users may want to automate a common recurring task.  Typical use cases are to initiate batch jobs, transfer input data from an external site, or run some automated testing. The UNIX `cron` service allows users to schedule scripts to be run based on a recurrence rule.  As of December 2023 we have deployed a high-availability `cron` service independent of the individual HPC systems to support these workflows.  This separated, HA solution allows us to perform maintenance on the HPC resources while not interrupting `cron` workflows that can tolerate the downtime.
-
-
 
 ## Logging in
 
