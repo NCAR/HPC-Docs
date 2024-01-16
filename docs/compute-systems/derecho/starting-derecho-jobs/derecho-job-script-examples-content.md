@@ -10,23 +10,21 @@
     the `OMP_NUM_THREADS` environment variable.
 
     ```bash
-    #!/bin/bash
     #PBS -A <project_code>
     #PBS -N hybrid_job
     #PBS -q main
     #PBS -l walltime=01:00:00
     #PBS -l select=2:ncpus=128:mpiprocs=32:ompthreads=4
 
-    # Use scratch for temporary files to avoid space limits in /tmp
-    export TMPDIR=${SCRATCH}/temp
-    mkdir -p ${TMPDIR}
-
     # Load modules to match compile-time environment
-    module purge
-    module load ncarenv/22.12 oneapi/2022.2.1 craype/2.7.19 cray-mpich/8.1.21
+    module --force purge
+    module load ncarenv/23.09 intel-oneapi craype cray-mpich
 
-    # Run application using cray-mpich with binding
-    mpiexec --cpu-bind depth -n 64 -ppn 32 -d 4 ./executable_name
+    # Run application with MPI binding helper script
+    mpibind ./executable_name
+
+    # Or run application using cray-mpich with explicit binding
+    # mpiexec --cpu-bind depth -n 64 -ppn 32 -d 4 ./executable_name
     ```
 
 !!! example "Running an MPI-enabled GPU application on *Derecho*"
