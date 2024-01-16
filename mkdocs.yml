@@ -352,6 +352,9 @@ plugins:
   - minify:
       minify_html: true
   - open-in-new-tab
+  - redirects:
+      redirect_maps:
+        - 'nhug/index.md':'https://nhug.readthedocs.io/en/latest/'
 
 extra:
   social:
