@@ -39,7 +39,7 @@ product:
 - **MPS (distributed PCT)** - when you need to run a script/function
   across multiple nodes of workers OR you want to run multiple scripts
   on multiple nodes (similar to a [command-file PBS
-  job](https://arc.ucar.edu/knowledge_base/72581486#Cheyennejobscriptexamples-Batchscripttorunacommandfile(MPMD)job))
+  job](../pbs/job-scripts/index.md#using-job-arrays-to-launch-a-command-file))
 
 
 ## Running a simple parallel code on one node using the toolbox
@@ -228,5 +228,5 @@ four examples can be copied from
   using many input parameters.
 
 The last two examples are functionally similar to
-a [command-file](https://arc.ucar.edu/knowledge_base/72581486#Cheyennejobscriptexamples-Batchscripttorunacommandfile(MPMD)job) PBS
+a [command-file](../pbs/job-scripts/index.md#using-job-arrays-to-launch-a-command-file) PBS
 job, but with the licensing benefits of using MPS.

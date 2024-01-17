@@ -111,7 +111,7 @@ CISL does not provide backups of other spaces. You are responsible for
 the safe storage of any data that must be preserved.
 
 !!! tip "Best practice: Check your space usage regularly with `gladequota`"
-    Check your space usage regularly with `gladequota` as described below, and [remove data](https://arc.ucar.edu/knowledge_base/68878480) that you no longer
+    Check your space usage regularly with `gladequota` as described below, and [remove data](./removing-large-number-of-files.md) that you no longer
     need.
 
 You can conserve GLADE space by storing large files, such as tar files,
@@ -132,7 +132,7 @@ files, directories and symlinks.
 Each user has a `/glade/u/home/<username>` space with a quota of 50
 GB\* for managing scripts, source code, and small data sets. It is
 backed up weekly, with backups retained for several months. CISL also
-creates [snapshots](https://arc.ucar.edu/knowledge_base/68878477) of the
+creates [snapshots](./recovering-files-from-snapshots.md) of the
 space to enable users to recover deleted files quickly and easily.
 
 ### Backup policy
@@ -173,7 +173,7 @@ Your `/glade/work/<username>` space is best suited for actively
 working with data sets over time periods greater than what is permitted
 in the scratch space.
 
-The default quota for these spaces is 1 TB.
+The default quota for these spaces is 2 TB.
 
 ### Purge policy
 
@@ -232,8 +232,8 @@ period, please use this space conscientiously.*
 Delete files that you no longer need as soon as you're done with them
 rather than leave large amounts of data sitting untouched for the full
 120 days. If you need to retain data on disk for more than 120 days,
-consider using your `/glade/work` space or [Campaign
-Storage](https://arc.ucar.edu/knowledge_base/70549621) space.
+consider using your `/glade/work` space or
+[Campaign Storage](#campaign-storage-project-space) space.
 
 ### Data retention policy
 
@@ -253,7 +253,7 @@ available through our allocations process to support longer-term disk
 needs that are not easily accommodated by the scratch or work spaces.
 Allocations for project spaces are made to collaborative groups of users
 through the University/CHAP or NCAR [allocations
-processes](https://arc.ucar.edu/knowledge_base/74317835). The
+processes](https://arc.ucar.edu/xras_submit/opportunities). The
 allocations are based on project needs and resource availability.
 Requests are reviewed according to the various allocation schedules.
 
@@ -261,6 +261,8 @@ If you have a user account and project space but lack the directory
 permissions you need for that space, contact the [NCAR Research
 Computing help desk](https://rchelp.ucar.edu/) to request changes.
 Identify the directories and the permissions you are requesting.
+
+See [here](./campaign.md) for additional technical details on the Campaign Storage file system.
 
 ### Access reports
 

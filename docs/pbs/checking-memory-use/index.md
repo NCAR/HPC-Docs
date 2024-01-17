@@ -64,7 +64,7 @@ margin of 2 or 3 percent.
 
 ## Querying memory usage from PBS
 
-The [`qhist`](https://arc.ucar.edu/knowledge_base/68878389#ManagingandmonitoringPBSjobs-qhist) tool
+The [`qhist`](../index.md#qhist) tool
 can be used to display information about completed PBS jobs. By default,
 it will print the node memory the job consumed (the high-water mark
 usage), as in this example:

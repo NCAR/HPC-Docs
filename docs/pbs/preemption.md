@@ -59,7 +59,7 @@ it is preempted; valid options are `y` or `n` for yes or no. All other
 aspects of the PBS script are unchanged by the use of preemption.
 
 Abrupt termination may be entirely acceptable for some workflows. This
-could be the case for [batch removal of a large number of files](https://arc.ucar.edu/knowledge_base/68878480),
+could be the case for [batch removal of a large number of files](../storage-systems/glade/removing-large-number-of-files.md),
 for example, or if the application writes frequent checkpoint files
 and can restart successfully after being interrupted. In other cases,
 it may be beneficial for the application to take a specific action
