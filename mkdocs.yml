@@ -354,6 +354,9 @@ plugins:
   - open-in-new-tab
 
 extra:
+  analytics:
+    provider: google
+    property: G-RZLJ37D0K6
   social:
     - icon: material/home-circle
       link: https://arc.ucar.edu/
