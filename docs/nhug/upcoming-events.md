@@ -1,1 +1,0 @@
-# NHUG Upcoming Events
