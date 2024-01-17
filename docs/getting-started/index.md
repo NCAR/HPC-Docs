@@ -5,7 +5,7 @@
 	supercomputers, storage systems, and services.
 
 
-Once you are authorized to use NCAR compute and storage resources, and you have [an account and the necessary software](https://arc.ucar.edu/knowledge_base/74317885), you can follow the procedures described below to log in.
+Once you are authorized to use NCAR compute and storage resources, and you have [an account](./accounts/index.md) and the [necessary software](../environment-and-software/index.md), you can follow the procedures described below to log in.
 
 
 These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
@@ -52,7 +52,7 @@ The `-X` is optional and requests simple `X11` graphics forwarding to your clien
 ---
 
 ## New User Resources
-* [New User Orientation](https://arc.ucar.edu/knowledge_base/68878414)
+* [New User Orientation](../tutorials/new-user-training.md)
 * [New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
 * [Getting Started on Derecho](../compute-systems/derecho/index.md)
 * [Getting Started on Casper](../compute-systems/casper/index.md)

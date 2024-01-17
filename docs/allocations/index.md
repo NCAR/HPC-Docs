@@ -21,10 +21,10 @@ See University allocations for details.
 
 The NCAR-Wyoming Supercomputing Center represents a collaboration between NCAR and the University of Wyoming. As part of the Wyoming-NCAR Alliance (WNA), a portion of the Cheyenne system – about 160 million core-hours per year – is reserved for Wyoming-led projects and allocated by a University of Wyoming-managed process.
 
-Details of the Wyoming process are available at the [University of Wyoming web site](#).
+Details of the Wyoming process are available at the [University of Wyoming web site](https://www.uwyo.edu/nwsc/index.html).
 
 ## NCAR lab allocation opportunities
 
 NCAR investigators have access to CISL resources through allocations to the NCAR labs and have opportunities to submit requests for larger-scale, project-oriented allocations. Proposals for larger-scale projects are reviewed twice per year to become NCAR Strategic Capability projects.
 
-See [NCAR allocations](#) for more details.
+See [NCAR allocations](https://arc.ucar.edu/xras_submit/opportunities) for more details.

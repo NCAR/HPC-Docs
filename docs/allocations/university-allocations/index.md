@@ -220,12 +220,11 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 !!! info "Data Analysis allocation requests can be submitted at any time and decisions are typically made within a few days."
 
-Earth system scientists can request access to NCAR’s [Casper data
-analysis cluster](https://arc.ucar.edu/knowledge_base/70549550) and the
-[Campaign Storage file
-system](https://arc.ucar.edu/knowledge_base/70549621) to allow them to
-conduct analyses on data sets curated by [NCAR data
-services](https://www2.cisl.ucar.edu/computing-data/data) and accessible
+Earth system scientists can request access to NCAR’s
+[Casper data analysis cluster](../../compute-systems/casper/index.md) and the
+[Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-project-space)
+to allow them to conduct analyses on data sets curated by
+[NCAR data services](https://www2.cisl.ucar.edu/computing-data/data) and accessible
 via our storage systems.
 
 We are pleased to make Data Analysis allocations available to
