@@ -1,1 +1,3 @@
-<iframe src="http://docs.google.com/viewer?url=https://www2.cisl.ucar.edu/sites/default/files/2021-10/fastxnvnc_1.pdf&embedded=true" style="width:100%; height:80vh" width="1280px" height="800px" frameborder="0" loading="lazy"></iframe>
+<iframe src="https://drive.google.com/file/d/161Dx7fFz6GvWqqIkFonWFLYYv2QP0MDZ/preview" style="width:100%; height:80vh" width="1280px" height="800px" frameborder="0" loading="lazy" allowfullscreen="true"></iframe>
+
+[Slides](https://drive.google.com/file/d/161Dx7fFz6GvWqqIkFonWFLYYv2QP0MDZ)
