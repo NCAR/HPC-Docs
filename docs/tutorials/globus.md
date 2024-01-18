@@ -1,1 +1,1 @@
-<iframe src="http://docs.google.com/viewer?url=https://www2.cisl.ucar.edu/sites/default/files/2022-11/11.22%20Globus%20Training%20Slides.pdf&embedded=true" style="width:100%; height:80vh" width="1280px" height="800px" frameborder="0" loading="lazy"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1yFNrYG6FJ_SmZ7jAQmLdo4nR3EM9dAy92eWv_usWiWA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="836" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
