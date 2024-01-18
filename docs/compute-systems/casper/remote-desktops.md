@@ -2,7 +2,7 @@
 
 ## Using VNC
 
-Most programs on Casper and Cheyenne are designed to run in the
+Most programs on Casper and Derecho are designed to run in the
 terminal, but a few either require the use of a graphical interface or
 work best in one. While using the default method – X-forwarding – is
 sufficient for simple programs like text editors, it can be
