@@ -20,6 +20,7 @@
 
   /* Primary color shades */
   --md-primary-fg-color:         rgb(219,226,233); /* PMS 649 (Background Blue 3) */
+  --md-primary-bg-color:         rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
 
   /* Accent color shades */
   --md-accent-fg-color:          rgb(0,121,124);       /* PMS 3557 (UCAR Green) */
