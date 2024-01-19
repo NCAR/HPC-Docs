@@ -1,6 +1,6 @@
 theme:
   name: material
-  custom_dir:  !ENV [MKDOCS_THEME_DIR, 'themes/primary']
+  custom_dir:  !ENV [MKDOCS_THEME_DIR, 'themes/arc_iframe']
 
   # -- additional features
   icon:
@@ -40,7 +40,7 @@ theme:
     #- toc.integrate   # one toc on left only
     - announce.dismiss
 
-  logo : assets/images/CISL-contemp-logo-white-square.png
+  logo : assets/images/CISL-contemp-logo-blue-square.png
   favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
 
   palette:
