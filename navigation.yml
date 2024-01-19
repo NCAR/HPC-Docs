@@ -1,0 +1,158 @@
+nav:
+  - Home : index.md
+
+  - Getting Started:
+    - getting-started/index.md
+    - User Responsibilities: getting-started/user-responsibilities.md
+    - Accounts:
+      - getting-started/accounts/index.md
+      - CIT Passwords: getting-started/accounts/cit-passwords.md
+      - Duo Two-Factor Authentication:
+        - getting-started/accounts/duo/index.md
+        - Enrolling with Duo: getting-started/accounts/duo/enrolling.md
+      - SAM: getting-started/accounts/systems-accounting-manager.md
+    - Allocations:
+      - allocations/index.md
+      - Managing Your Allocation: getting-started/managing-your-allocation.md
+      - NCAR Allocations:
+          - allocations/ncar-allocations/index.md
+          - NCAR Strategic Capability (NSC) projects: allocations/ncar-allocations/ncar-strategic-capability-nsc-projects.md
+      - University Allocations:
+          - allocations/university-allocations/index.md
+          - University Large Allocation Request Preparation Instructions : allocations/university-allocations/university-large-allocation-request-preparation-instructions.md
+      - Determining computational resource needs: allocations/determining-computational-resource-needs.md
+      - CISL HPC Allocations Panel:
+          - allocations/chap/index.md
+          - Allocation Review Criteria: allocations/chap/chap-allocation-review-criteria.md
+          - Conflict of Interest Policy: allocations/chap/chap-conflict-of-interest-policy.md
+    - VPN access : getting-started/vpn-access.md
+    - System Usage Policies: getting-started/system-usage-policies.md
+    - Data Retention Policies: getting-started/data-retention-policies.md
+    - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
+    - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
+
+  - Storage Systems and Data Transfer:
+    - storage-systems/index.md
+    - GLADE (POSIX File Systems):
+      - storage-systems/glade/index.md
+      - Campaign storage file system: storage-systems/glade/campaign.md
+      - Lustre file systems: storage-systems/glade/lustre.md
+      - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
+      - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
+      - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
+      - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
+    - Quasar (Tape Storgae):
+      - storage-systems/quasar/index.md
+      - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
+    - Stratus (Object Storage):
+      - storage-systems/stratus/index.md
+      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+    - Data Access Nodes: storage-systems/data-access-nodes.md
+    - Transferring Data:
+      - storage-systems/data-transfer/index.md
+      - Globus:
+         - storage-systems/data-transfer/globus/index.md
+         - Sharing data and making unattended transfers: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
+      - SCP, SFTP and other tools: storage-systems/data-transfer/scp-and-sftp.md
+    - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
+
+  - User Environment and HPC Software:
+      - environment-and-software/index.md
+
+      - User Environment:
+        - environment-and-software/user-environment/index.md
+        - Modules: environment-and-software/user-environment/modules.md
+        - Conda: environment-and-software/user-environment/conda.md
+        - Containers:
+          - environment-and-software/user-environment/containers/index.md
+          - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
+          - Example Workflows: environment-and-software/user-environment/containers/examples.md
+        - Utilities: environment-and-software/user-environment/utilities.md
+        - Customizing User Environment: environment-and-software/user-environment/customizing.md
+        - Spack:
+          - environment-and-software/user-environment/spack/index.md
+          - Spack Downstream: environment-and-software/user-environment/spack/spack-downstream.md
+
+      - HPC Software:
+        - environment-and-software/hpc-software/index.md
+        - Community Models: environment-and-software/community-models.md
+        - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
+        - NCL : environment-and-software/ncl.md
+        - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
+        - Numerical Libraries: environment-and-software/numerical-libraries.md
+        - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
+        - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
+        - Profiling & Debuggers:
+          - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+          - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
+        - Benchmarks:
+          - environment-and-software/benchmarks/index.md
+          - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+          - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
+
+
+  - Compute Systems and Services:
+    - Derecho:
+      - compute-systems/derecho/index.md
+      - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
+      - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
+      - Starting Derecho Jobs:
+        - compute-systems/derecho/starting-derecho-jobs/index.md
+        - Derecho Job Script Examples:
+            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
+            - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md
+      - Derecho Software: compute-systems/derecho/derecho-modules.md
+      - Moving to Derecho from Cheyenne: compute-systems/derecho/moving-from-cheyenne.md
+    - Casper:
+      - compute-systems/casper/index.md
+      - Casper Use Policies: compute-systems/casper/casper-use-policies.md
+      - Compiling Code on Casper: compute-systems/casper/compiling-code-on-casper/index.md
+      - Starting Casper Jobs:
+            - compute-systems/casper/starting-casper-jobs/index.md
+            - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
+      - Using Remote Desktops: compute-systems/casper/remote-desktops.md
+      - Casper Software: compute-systems/casper/casper-modules.md
+    - JupyterHub:
+      - compute-systems/jupyterhub/index.md
+      - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
+    - Additional Resources:
+      - Cron services: compute-systems/additional-resources/cron.md
+      - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
+
+  - Running Jobs (PBS):
+      - pbs/index.md
+      - Job Scripts:
+        - pbs/job-scripts/index.md
+      - Queues and Charging: pbs/charging.md
+      - Using Preemption: pbs/preemption.md
+      - Common Causes of Job Failures:
+        - pbs/common-causes-of-job-failures/index.md
+        - Checking Memory Use:
+          - pbs/checking-memory-use/index.md
+      - Storing temporary files: pbs/storing-temporary-files.md
+
+  - Tutorials:
+    - tutorials/index.md
+    - New User Training: tutorials/new-user-training.md
+    - Derecho Overview: tutorials/derecho-overview.md
+    - Dask Tutorial: tutorials/dask-tutorial.md
+    - Profiling and Debugging: tutorials/profiling-and-debugging.md
+    - Advanced PBS: tutorials/advanced-pbs.md
+    - Using Globus v5: tutorials/globus.md
+    - NCAR Storage Spaces: tutorials/storage.md
+    - JupyterHub:  tutorials/jupyterhub.md
+    - Remote Desktop Services: tutorials/remote-desktops.md
+    - Containers: tutorials/containers.md
+    - GPU Workshop: tutorials/gpu-workshop.md
+
+  - User Support:
+    - user-support/index.md
+    - Troubleshooting Tips:
+      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+
+  - NCAR User Group (NHUG):
+    - nhug/index.md
+
+  - Contributing to the Documentation: contributing.md
