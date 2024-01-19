@@ -40,7 +40,6 @@ theme:
     #- toc.integrate   # one toc on left only
     - announce.dismiss
 
-  logo: assets/images/CISL-contemp-logo-blue-square.png
   favicon: https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
 
   palette:
