@@ -201,6 +201,13 @@
 }
 
 
+/* styling for section headers */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+    /* font-weight: bold */
+}
+
 body {
   background-image: var(--bg-image);
   background-size: 50%;
@@ -218,21 +225,16 @@ iframe {
   background-color: var(--iframe-bg-color);
 }
 
-
 /* improve accessibility tweaks: makes the current section bold in the navigation */
 .md-nav__link.md-nav__link--active {
     color: var(--md-typeset-a-color);
     font-weight: bold;
 }
 
-
-
-
 /* Maximum space for text block (https://github.com/squidfunk/mkdocs-material/discussions/3692) */
 .md-grid {
     max-width: 100%;
 }
-
 
 /* Highlight Color*/
 .md-typeset mark {

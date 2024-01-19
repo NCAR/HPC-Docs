@@ -10,8 +10,12 @@
   --bg-image:                    url('../assets/images/NCAR-Waves.png');
 
   /* Default properties & color shades */
-  --md-default-bg-color:         #f1f4f7;
-  --md-typeset-a-color:          rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
+  --md-default-bg-color:            #f1f4f7;
+  --md-default-fg-color:            rgb(11,33,57);
+  --md-default-fg-color--light:     rgba(11,33,57,0.8);
+  --md-default-fg-color--lighter:   rgba(11,33,57,0.5);
+  --md-default-fg-color--lightest:  rgba(11,33,57,0.3);
+  --md-typeset-a-color:             rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
 
   /* the above (--md-typeset-a-color) doesn't seem to work in material>9.5, so duplicate spec here too: */
   .md-typeset a {
@@ -87,14 +91,12 @@
   /* standard HTML elements */
 }
 
-
-
-.md-logo img {
-    width: px !important;
-    height: 53px !important;
+/* styling for section headers */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+    font-weight: bold
 }
-
-
 
 body {
   background-image: var(--bg-image);
@@ -104,62 +106,14 @@ body {
   background-attachment: fixed;
 }
 
-
-
-.md-footer-social {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 /* siteimprove accessibility tweaks */
 .md-nav__link.md-nav__link--active {
     font-weight: bold;
 }
 
-.md-nav__title {
-  margin-bottom: 0.7rem;
-}
-
-.md-nav__footer {
-  display: flex;
-  margin-top: 0.5rem;
-  margin-left: 0.3rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  padding-left: 0.3rem;
-
-  font-weight: bold;
-  font-style: italic;
-  color:#012169;
-
-  border-style: dashed;
-  border-width: 1px;
-  border-color: #012169;
-  border-radius: 0.2rem;
-
-}
-
-/*
-.md-content a {
-    text-decoration:underline;
-}
-*/
-
-
 /* Maximum space for text block (https://github.com/squidfunk/mkdocs-material/discussions/3692) */
 .md-grid {
     max-width: 100%;
-}
-
-.logo-wrapper h1 {
-  font-size: 2rem;
-  line-height: .8
-}
-
-.logo-wrapper h2 {
-  line-height: 0;
-  margin: 0 .5rem 0 0;
-  padding-right: .5rem
 }
 
 .grid-x {
@@ -172,15 +126,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-table {
-  background-color: var(--table-bg-color);
-  color: var(--table-fg-color);
-}
-
-iframe {
-  background-color: var(--iframe-bg-color);
 }
 
 .wy-table-responsive table td {

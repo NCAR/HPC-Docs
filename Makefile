@@ -11,15 +11,15 @@ derecho_modules_list: utils/update_module_list.sh
 	@mv -f derecho_modules_list.tmp docs/compute-systems/derecho/derecho-modules-list.md
 
 
-tags TAGS etags:
+tags TAGS etags: Makefile
 	if [ "x$(STR)" != "x" ]; then \
 	  echo "Tagging files containing $(STR)" ; \
 	  git grep -l $(STR) ; \
 	  etags $$(git grep -l $(STR)) ; \
 	else \
 	  echo "Tagging all git managed files:" ; \
-	  git ls-tree -r HEAD --name-only | egrep ".md|.yaml" | grep -v "confluence_migration"; \
-	  etags $$(git ls-tree -r HEAD --name-only | egrep ".md|.yaml" | grep -v "confluence_migration") ; \
+	  git ls-tree -r HEAD --name-only | egrep ".md|.yaml|.yml" | grep -v "confluence_migration"; \
+	  etags $$(git ls-tree -r HEAD --name-only | egrep ".md|.yaml|.yml" | grep -v "confluence_migration") ; \
 	fi
 
 # this rule invokes emacs on each source file to remove trailing whitespace.
