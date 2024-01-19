@@ -1,0 +1,265 @@
+.md-logo img {
+    width: px !important;
+    height: 53px !important;
+}
+[data-md-color-scheme="cisl_default"] {
+  --md-primary-fg-color:               #DBE2E9  ;  /* header background color */
+  --md-primary-bg-color:               #012169  ;  /* header font color */
+
+  --md-default-bg-color:               #f1f4f7;
+  --md-default-fg-color:               #012169;
+
+  --md-text-font:                      "Poppins";
+
+  /* Misc colors */
+  --iframe-bg-color:                   #f1f4f7;
+  --table-bg-color:                    #f1f4f7;
+  --table-fg-color:                    rgb(3, 3, 3);;
+
+  --bg-image:                          url('../assets/images/NCAR-Waves.png');
+}
+
+[data-md-color-scheme="cisl_default_dark"] {
+  --md-primary-fg-color:               #131313  ;  /* header background color --- > NCAR blue */
+  --md-primary-bg-color:               #DBE2E9  ;  /* header font color */
+
+  --md-default-bg-color:               #0f1010;
+  --md-default-fg-color:               #f1f4f7;
+  --md-default-fg-color:               #DBE2E9;
+  --md-default-fg-color--light:        rgb(255,255,255);
+  --md-default-fg-color--lighter:      rgb(255,255,255);
+  
+
+  --md-text-font:                      "Poppins";
+  --md-typeset-color:                  rgb(255,255,255);
+
+  /* Primary color shades */
+  --md-primary-bg-color:               rgb(255,255,255);
+
+  /* Accent color shades */
+  --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
+  --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
+  --md-accent-bg-color:                rgb(214, 79, 30);
+
+  /* Code color shades */
+  --md-code-fg-color:                  rgb(255,255,255);
+  --md-code-bg-color:                  #131313;
+  --md-code-hl-generic-color:          rgb(255,255,255);
+  --md-code-hl-variable-color:         rgb(255,255,255);
+
+  /* Admonition color shades */
+  --md-admonition-bg-color:            #0f1010;
+  --md-admonition-fg-color:            rgb(255,255,255);
+
+  /* Misc colors */
+  --iframe-bg-color:                   rgb(255,255,255);
+  --table-bg-color:                    #131313;
+  --table-fg-color:                    rgb(255,255,255);
+
+  /* Background Image */
+  --bg-image:                          url('../assets/images/NCAR-Waves-Dark.png');
+}
+
+
+
+body {
+  background-image: var(--bg-image);
+  background-size: 50%;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 213;
+}
+
+
+
+:root {
+
+  /* Default color shades */
+  --md-default-fg-color:               rgb(3, 3, 3);
+  --md-default-fg-color--light:        rgb(11,33,57,0.8);
+  --md-default-fg-color--lighter:      rgb(11,33,57,0.5);
+  --md-default-fg-color--lightest:     rgb(11,33,57,0.1);
+
+  --md-default-bg-color:               rgb(255, 255, 255);
+
+
+  /* Primary color shades */
+  --md-primary-fg-color:               rgb(0,143,184);
+
+  --md-primary-bg-color:               rgb(255,255,255);
+
+
+  /* Accent color shades */
+
+  --md-accent-fg-color:                rgb(168, 199, 0);          /* NCAR green */
+  --md-accent-fg-color--transparent:   rgba(76, 248, 29, 0.25);
+
+  --md-accent-bg-color:                rgb(32, 91, 118);
+
+
+  /* Code block color shades */
+  --md-code-bg-color:                  rgb(210,227,235,0.3);
+  --md-code-fg-color:                  rgb(11,33,57);
+  /*--md-code-hl-color*/
+
+  /* Coloring Code font
+  --md-code-hl-number-color
+  --md-code-hl-special-color
+  --md-code-hl-function-color
+  --md-code-hl-constant-color
+  --md-code-hl-keyword-color
+  --md-code-hl-string-color
+  --md-code-hl-name-color
+  --md-code-hl-operator-color
+  --md-code-hl-punctuation-color
+  --md-code-hl-comment-color
+  --md-code-hl-generic-color
+  --md-code-hl-variable-color
+  */
+
+  --bg-image:                          url('../assets/images/NCAR-Waves.png');
+}
+
+
+
+.md-footer-social {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* siteimprove accessibility tweaks */
+.md-nav__link.md-nav__link--active {
+    font-weight: bold;
+}
+
+.md-nav__title {
+  margin-bottom: 0.7rem;
+}
+
+.md-nav__footer {
+  display: flex;  
+  margin-top: 0.5rem;
+  margin-left: 0.3rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 0.3rem;
+  
+  font-weight: bold;
+  font-style: italic;
+  color:#012169;
+
+  border-style: dashed;
+  border-width: 1px;
+  border-color: #012169;
+  border-radius: 0.2rem;
+  
+}
+
+/*
+.md-content a {
+    text-decoration:underline;
+}
+*/
+
+
+/* Maximum space for text block (https://github.com/squidfunk/mkdocs-material/discussions/3692) */
+.md-grid {
+    max-width: 100%;
+}
+
+.logo-wrapper h1 {
+  font-size: 2rem;
+  line-height: .8
+}
+
+.logo-wrapper h2 {
+  line-height: 0;
+  margin: 0 .5rem 0 0;
+  padding-right: .5rem
+}
+
+.grid-x {
+  background-color: #012169;
+  justify-content: center;
+  max-width: 80%;
+}
+
+.md-footer-meta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+table {
+  background-color: var(--table-bg-color);
+  color: var(--table-fg-color);
+}
+
+iframe {
+  background-color: var(--iframe-bg-color);
+}
+
+.wy-table-responsive table td {
+    white-space: normal !important;
+}
+.wy-table-responsive {
+    overflow: visible !important;
+}
+
+.bolditalic {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Highlight Color*/
+.md-typeset mark {
+  background-color: #ffff0000;
+  animation-name: highlight-ease;
+  animation-duration: 10s;
+}
+
+@keyframes highlight-ease {
+  0% {background-color: #ffff2080;}
+  90% {background-color: #ffff2080;}  
+  100% {background-color: #ffff0000;}  
+}
+
+/*=== Coloring for Asides ===*/
+
+/*Coloring for Tip, Hint, and Important
+.md-typeset :is(.admonition,details):is(.tip,.hint,.important) {
+  border-color: #000000;
+}
+*/
+/*Coloring for header of Tip, Hint, and Important 
+.md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary){
+  background-color: #000000;
+}
+*/
+/*Coloring for icon of Tip, Hint, and Important
+.md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary):before {
+  background-color: #000000;
+}
+/*
+
+/*Coloring for Info and Todo
+.md-typeset :is(.admonition,details):is(.info,.todo) {
+  border-color: #000000;
+}
+*/
+/*Coloring for header of Info and Todo
+.md-typeset :is(.info,.todo)>:is(.admonition-title,summary) {
+    background-color: #00b8d41a;
+}
+*/
+/*Coloring for icon of Info and Todo
+.md-typeset :is(.info,.todo)>:is(.admonition-title,summary):before {
+  background-color: #000000;
+}
+*/
