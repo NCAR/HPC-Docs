@@ -37,7 +37,7 @@ nav:
         - Enrolling with Duo: getting-started/accounts/duo/enrolling.md
       - SAM: getting-started/accounts/systems-accounting-manager.md
     - Allocations:
-      - allocations/index.md # -- https://arc.ucar.edu/knowledge_base/74317835
+      - allocations/index.md
       - Managing Your Allocation: getting-started/managing-your-allocation.md
       - NCAR Allocations:
           - allocations/ncar-allocations/index.md
@@ -107,7 +107,7 @@ nav:
         - Numerical Libraries: environment-and-software/numerical-libraries.md
         - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
         - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
-        - Profiling & Debuggers: # -- tentative placement
+        - Profiling & Debuggers:
           - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
           - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
         - Benchmarks:
@@ -183,12 +183,11 @@ nav:
   - Contributing to the Documentation: contributing.md
 
 # ------------------------------------
-# -- configurations
+# -- configuration - themes
 # ------------------------------------
-
 theme:
   name: material
-  custom_dir: theme
+  custom_dir:  !ENV [MKDOCS_THEME, 'themes/primary']
 
   # -- additional features
   icon:
@@ -252,17 +251,17 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
 
-
 extra_css:
-  - stylesheets/extra.css
+  - !ENV [MKDOCS_EXTRA_CSS, 'stylesheets/primary.css']
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
-#copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
 copyright: '&copy; 2023 UCAR, Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>.'
 
-
+# ------------------------------------
+# -- configuration - extensions
+# ------------------------------------
 markdown_extensions:
   - meta
   - attr_list
@@ -327,6 +326,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+# ------------------------------------
+# -- configuration - extensions
+# ------------------------------------
 plugins:
   - search:
       enabled: true
@@ -353,6 +355,9 @@ plugins:
       redirect_maps:
         'nhug/index.md': 'https://nhug.readthedocs.io/en/latest/'
 
+# ------------------------------------
+# -- configuration - extras
+# ------------------------------------
 extra:
   analytics:
     provider: google
