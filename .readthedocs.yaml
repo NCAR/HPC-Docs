@@ -6,9 +6,21 @@ version: 2
 
 # Set the version of Python and other tools you might need
 build:
-  os: "ubuntu-22.04"
+  os: ubuntu-22.04
   tools:
-    python: "mambaforge-22.9"
+    python: mambaforge-22.9
+  jobs:
+    pre_build:
+      # just nice to know what's happening up there...
+      - env | sort | uniq
+
+      # DEPLOY_TARGET is set in our readthedocs admin interface, and should
+      # be one of the supported targets: [ primary, arc_iframe ]
+      - make ${DEPLOY_TARGET}-stylelinks
+
+      # the above may generate a dirty git cache for some committed symbolic links - ignore. ref:
+      # https://docs.readthedocs.io/en/stable/build-customization.html#avoid-having-a-dirty-git-index
+      - git update-index --assume-unchanged theme.yml docs/stylesheets/custom.css
 
 conda:
   environment: conda.yaml
