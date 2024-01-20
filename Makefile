@@ -35,7 +35,7 @@ dos2unix:
 	  dos2unix $$file ; \
 	done
 
-primary-stylelinks arc_iframe-stylelinks:
+NCAR_primary-stylelinks arc_iframe-stylelinks:
 	topdir=$$(pwd) ; \
 	target=$(subst -stylelinks,,$@) ; \
 	cd $${topdir} && ln -sf theme_$${target}.yml default_theme.yml ; \

@@ -1,6 +1,6 @@
 theme:
   name: material
-  custom_dir: themes/primary
+  custom_dir: themes/NCAR_primary
 
   # -- additional features
   icon:
