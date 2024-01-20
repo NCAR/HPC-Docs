@@ -184,9 +184,9 @@ nav:
 
 # ------------------------------------
 # -- configuration - themes
-# (note theme.yml should be a symbolic link to one of several options'
+# (note default_theme.yml should be a symbolic link to one of several options'
 # ------------------------------------
-INHERIT: theme.yml
+INHERIT: default_theme.yml
 
 extra_css:
   - stylesheets/custom.css
