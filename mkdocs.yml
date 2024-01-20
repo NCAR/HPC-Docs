@@ -184,11 +184,12 @@ nav:
 
 # ------------------------------------
 # -- configuration - themes
+# (note theme.yml should be a symbolic link to one of several options'
 # ------------------------------------
-INHERIT: !ENV [MKDOCS_THEME_YML, 'theme_primary.yml']
+INHERIT: theme.yml
 
 extra_css:
-  - !ENV [MKDOCS_EXTRA_CSS, 'stylesheets/primary.css']
+  - stylesheets/custom.css
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
