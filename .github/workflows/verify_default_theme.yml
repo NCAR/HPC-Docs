@@ -12,11 +12,9 @@ jobs:
 
       - name: Verify default_theme.yml
         run: |
-          diff default_theme.yml themes/NCAR_primary.yml >/dev/null && exit 0
-          echo "ERROR: default_theme.yml should -> themes/NCAR_primary.yml"
+          diff default_theme.yml themes/NCAR_primary.yml >/dev/null || { echo "ERROR: default_theme.yml should -> themes/NCAR_primary.yml"; exit 1; }
 
       - name: Verify docs/stylesheets/custom.css
         run: |
           cd docs/stylesheets/
-          diff custom.css NCAR_primary.css >/dev/null && exit 0
-          echo "ERROR: docs/stylesheets/custom.css should -> docs/stylesheets/NCAR_primary.css"
+          diff custom.css NCAR_primary.css >/dev/null || { echo "ERROR: docs/stylesheets/custom.css should -> docs/stylesheets/NCAR_primary.css"; exit 1; }
