@@ -3,6 +3,7 @@
 
 name: mkdocs
 dependencies:
+  - make
   - python=3.9
   - pip
   - pip:
