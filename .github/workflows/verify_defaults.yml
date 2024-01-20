@@ -1,0 +1,22 @@
+name: Verify Default Styles
+
+on: [pull_request]
+
+jobs:
+  check_default_themes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Verify default_theme.yml
+        run: |
+          diff default_theme.yml themes/NCAR_primary.yml >/dev/null && exit 0
+          echo "ERROR: default_theme.yml should -> themes/NCAR_primary.yml"
+
+      - name: Verify docs/stylesheets/custom.css
+        run: |
+          cd docs/stylesheets/
+          diff custom.css NCAR_primary.css >/dev/null && exit 0
+          echo "ERROR: docs/stylesheets/custom.css should -> docs/stylesheets/NCAR_primary.css"
