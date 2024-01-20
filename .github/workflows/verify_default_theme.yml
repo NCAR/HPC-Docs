@@ -12,11 +12,11 @@ jobs:
 
       - name: Verify default_theme.yml
         run: |
-          [[ -L default_theme.yml ]] || { echo "ERROR: default_theme.yml should -> themes/NCAR_primary.yml"; exit 1; }
-          [[ "$(readlink default_theme.yml)" == "themes/NCAR_primary.yml" ]] || { echo "ERROR: default_theme.yml should -> themes/NCAR_primary.yml"; exit 1; }
+          [[ -L default_theme.yml ]] || { echo "ERROR: default_theme.yml should be a symlink -> themes/NCAR_primary.yml"; exit 1; }
+          [[ "$(readlink default_theme.yml)" == "themes/NCAR_primary.yml" ]] || { echo "ERROR: default_theme.yml should be a symlink -> themes/NCAR_primary.yml"; exit 1; }
 
       - name: Verify docs/stylesheets/custom.css
         run: |
           cd docs/stylesheets/
-          [[ -L custom.css ]] || { echo "ERROR: custom.css should -> NCAR_primary.css"; exit 1; }
-          [[ "$(readlink custom.css)" == "NCAR_primary.css" ]] || { echo "ERROR: custom.css should -> NCAR_primary.css"; exit 1; }
+          [[ -L custom.css ]] || { echo "ERROR: custom.css should be a symlink -> NCAR_primary.css"; exit 1; }
+          [[ "$(readlink custom.css)" == "NCAR_primary.css" ]] || { echo "ERROR: custom.css should be a symlink -> NCAR_primary.css"; exit 1; }
