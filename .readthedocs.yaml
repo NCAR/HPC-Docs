@@ -13,7 +13,7 @@ build:
     pre_build:
       # just nice to know what's happening up there...
       - env | sort | uniq
-      - conda --version && conda env --list
+      - conda --version && conda list
 
       # DEPLOY_TARGET is set in our readthedocs admin interface, and should
       # be one of the supported targets: [ primary, arc_iframe ]
