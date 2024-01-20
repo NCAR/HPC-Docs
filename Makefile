@@ -34,3 +34,9 @@ dos2unix:
 	  echo $$file ; \
 	  dos2unix $$file ; \
 	done
+
+primary-links arc_iframe-links:
+	target=$(subst -links,,$@) ; \
+	topdir=$$(pwd) ; \
+	cd $${topdir} && ln -sf theme_$${target}.yml theme.yml ; \
+	cd $${topdir}//docs/stylesheets/ && ln -sf $${target}.css custom.css
