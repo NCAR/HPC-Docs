@@ -38,5 +38,5 @@ dos2unix:
 NCAR_primary-stylelinks arc_iframe-stylelinks:
 	topdir=$$(pwd) ; \
 	target=$(subst -stylelinks,,$@) ; \
-	cd $${topdir} && ln -sf themes/$${target}.yml default_theme.yml ; \
+	cd $${topdir} && ln -sf themes/$${target}.yml theme.yml ; \
 	cd $${topdir}/docs/stylesheets/ && ln -sf $${target}.css custom.css
