@@ -1,10 +1,18 @@
-#--content Project Information
+# ------------------------------------
+# -------- Project Information -------
+# ------------------------------------
 site_name: NCAR HPC Documentation
 site_description: NCAR HPC Docs website
 repo_url: https://github.com/NCAR/HPC-Docs/
 site_url: https://NCAR.github.io/HPC-Docs/
 site_author: CISL CSG (Consulting Services Group)
 edit_uri: edit/main/docs/
+
+# directories to watch for automatic rebuilding when running "mkdocs serve"
+watch:
+  - mkdocs.yml
+  - themes/
+  - docs/
 
 # ------------------------------------
 # -------- validation config ---------
