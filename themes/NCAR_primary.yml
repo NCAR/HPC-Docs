@@ -1,0 +1,65 @@
+theme:
+  name: material
+  custom_dir: themes/NCAR_primary
+
+  # -- additional features
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tabs.link       # all content tabs across the docs will be linked
+    - content.code.annotation # add annotations (advanced)
+    - content.code.annotate
+    - content.code.copy
+    - content.action.edit     # edit the page
+    - content.action.view     # view the source page
+    #- content.tooltips        # Adding tooltip for hovering over links
+
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.top          # back to top button
+    - navigation.path         # adding path to the top
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.sections
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.top
+    - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
+    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - toc.follow
+    #- toc.integrate   # one toc on left only
+    - announce.dismiss
+
+  logo : assets/images/CISL-contemp-logo-white-square.png
+  favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference

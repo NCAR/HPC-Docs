@@ -183,86 +183,19 @@ nav:
   - Contributing to the Documentation: contributing.md
 
 # ------------------------------------
-# -- configurations
+# -- configuration - themes
+# (note theme.yml should be a symbolic link to one of several options'
 # ------------------------------------
-
-theme:
-  name: material
-  custom_dir: theme
-
-  # -- additional features
-  icon:
-    repo: fontawesome/brands/github
-    edit: material/pencil
-    view: material/eye
-
-  features:
-    - search.suggest
-    - search.highlight
-    - content.tabs.link       # all content tabs across the docs will be linked
-    - content.code.annotation # add annotations (advanced)
-    - content.code.annotate
-    - content.code.copy
-    - content.action.edit     # edit the page
-    - content.action.view     # view the source page
-    #- content.tooltips        # Adding tooltip for hovering over links
-
-    # - header.autohide
-    # - navigation.expand
-    - navigation.footer
-    - navigation.indexes
-    - navigation.top          # back to top button
-    - navigation.path         # adding path to the top
-    # - navigation.instant
-    # - navigation.prune
-    # - navigation.sections
-    # - navigation.tabs
-    # - navigation.tabs.sticky
-    # - navigation.top
-    - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
-    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
-    - search.highlight
-    - search.share
-    - search.suggest
-    # - toc.follow
-    #- toc.integrate   # one toc on left only
-    - announce.dismiss
-
-  logo : assets/images/CISL-contemp-logo-white-square.png
-  favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
-
-  palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-
-
-extra_css:
-  - stylesheets/extra.css
+INHERIT: theme.yml
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
-#copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
 copyright: '&copy; 2023 UCAR, Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>.'
 
-
+# ------------------------------------
+# -- configuration - extensions
+# ------------------------------------
 markdown_extensions:
   - meta
   - attr_list
@@ -327,6 +260,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+# ------------------------------------
+# -- configuration - extensions
+# ------------------------------------
 plugins:
   - search:
       enabled: true
@@ -353,6 +289,9 @@ plugins:
       redirect_maps:
         'nhug/index.md': 'https://nhug.readthedocs.io/en/latest/'
 
+# ------------------------------------
+# -- configuration - extras
+# ------------------------------------
 extra:
   analytics:
     provider: google

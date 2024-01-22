@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+<!-- consistent site name across pages -->
+{% block htmltitle %}
+  <title>{{ config.site_name }}</title>
+{% endblock %}
+
+<!-- https://www.mkdocs.org/user-guide/customizing-your-theme/ -->
+{% block libs %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ base_url }}/css/NCAR_primary.css">
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+<!-- consistent site name across pages -->
+{% block htmltitle %}
+  <title>{{ config.site_name }}</title>
+{% endblock %}
+
+<!-- Site-specific header meta content -->
+<!-- our iframed site is a complete duplicate of content on the primary ReadTheDocs site -->
+<!-- so don't allow search engine indexing or caching -->
+<!-- ref: https://www.conductor.com/academy/meta-robots-tag/ -->
+{% block site_meta %}
+  <meta name="robots" content="noindex,nofollow,noarchive">
+{% endblock %}
+
+<!-- Announcement bar -->
+{% block announce %}
+  <strong>This site is currently under ACTIVE DEVELOPMENT!</strong>
+{% endblock %}
+
+<!-- https://www.mkdocs.org/user-guide/customizing-your-theme/ -->
+{% block libs %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ base_url }}/css/arc_iframe.css">
+{% endblock %}

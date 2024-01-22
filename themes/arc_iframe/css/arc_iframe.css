@@ -1,0 +1,178 @@
+:root {
+  /* Default properties & color shades */
+    --md-text-font: "Poppins";
+    --md-code-font: "Roboto Mono";
+}
+
+[data-md-color-scheme="default"] {
+
+  /* Background Image */
+  --bg-image:                    url('../assets/images/NCAR-Waves.png');
+
+  /* Default properties & color shades */
+  --md-default-bg-color:            #f1f4f7;
+  --md-default-fg-color:            rgb(11,33,57);
+  --md-default-fg-color--light:     rgba(11,33,57,0.8);
+  --md-default-fg-color--lighter:   rgba(11,33,57,0.5);
+  --md-default-fg-color--lightest:  rgba(11,33,57,0.3);
+  --md-typeset-a-color:             rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
+
+  /* the above (--md-typeset-a-color) doesn't seem to work in material>9.5, so duplicate spec here too: */
+  .md-typeset a {
+      color:                     rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
+  }
+
+  /* Primary color shades */
+  --md-primary-fg-color:         rgb(219,226,233); /* PMS 649 (Background Blue 3) */
+  --md-primary-bg-color:         rgb(28,101,143); /* PMS 2152 (NCAR Blue) */
+
+  /* Accent color shades */
+  --md-accent-fg-color:          rgb(0,121,124);       /* PMS 3557 (UCAR Green) */
+
+  /* Code color shades */
+  --md-code-bg-color:            rgb(210,227,235,0.3);
+  --md-code-fg-color:            rgb(11,33,57);
+  --md-code-hl-number-color:     rgb(11,33,57);
+  --md-code-hl-comment-color:    #8F0B0B;        /* ref: https://creativebooster.net/blogs/colors/shades-of-maroon-color */
+  --md-code-hl-variable-color:   rgb(1,33,105);  /* PMS 280 (Deep Blue) */
+  --md-code-hl-string-color:     rgb(0,121,124); /* PMS 3557 (UCAR Green) */
+
+
+  /* Custom colorind for admonition boxes */
+  /* -------------------------- */
+  /* Coloring for Examples */
+  .md-typeset :is(.admonition,details):is(.example) {
+      border-color: rgb(0,193,213);  /* PMS 3115 (NCAR Lightest Blue) */
+  }
+
+  /* Coloring for header of Examples */
+  .md-typeset :is(.example)>:is(.admonition-title,summary) {
+      background-color: rgba(0,193,213,0.25);   /* PMS 3115 (NCAR Lightest Blue) */
+  }
+
+  /* Coloring for icon of Examples */
+  .md-typeset :is(.example)>:is(.admonition-title,summary):before {
+      background-color: rgb(28,101,143);  /* PMS 2152 (NCAR Blue) */
+  }
+
+  /* -------------------------- */
+  /* Coloring for Questions */
+  .md-typeset :is(.admonition,details):is(.question) {
+    border-color: rgb(0,127,163);  /* PMS 314 (NCAR Lighter Blue) */
+  }
+
+  /* Coloring for header of Questions */
+  .md-typeset :is(.question)>:is(.admonition-title,summary) {
+    background-color: rgba(0,127,163,0.25);  /* PMS 314 (NCAR Lighter Blue) */
+  }
+
+  /* Coloring for icon of Questions */
+  .md-typeset :is(.question)>:is(.admonition-title,summary):before {
+    background-color: rgb(1,33,105);   /* PMS 280 (Deep Blue) */
+  }
+
+  /* -------------------------- */
+  /* Coloring for Tip,Hint,and Important */
+  .md-typeset :is(.admonition,details):is(.tip,.hint,.important) {
+      border-color: rgb(0,121,124); /* PMS 3557 (UCAR Green) */
+  }
+  /* Coloring for header of Tip,Hint,and Important */
+  .md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary){
+      background-color: rgba(0,121,124,0.25); /* PMS 3557 (UCAR Green) */
+  }
+
+  /* Coloring for icon of Tip,Hint,and Important */
+  .md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary):before {
+      background-color: /* PMS 2707 (Background Blue 1) */
+  }
+
+
+  /* -------------------------- */
+  /* standard HTML elements */
+}
+
+/* styling for section headers */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+    color:       #000000;
+    font-weight: bold
+}
+
+body {
+  background-image: var(--bg-image);
+  background-size: 50%;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* siteimprove accessibility tweaks */
+.md-nav__link.md-nav__link--active {
+    font-weight: bold;
+}
+
+/* notification below the nav elements */
+.md-nav__title {
+    margin-bottom: 0.7rem;
+}
+
+.md-nav__footer {
+    display: flex;
+    margin-top: 0.5rem;
+    margin-left: 0.3rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.3rem;
+
+    font-weight: bold;
+    font-style: italic;
+    color:#012169;
+
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #012169;
+    border-radius: 0.2rem;
+}
+
+/* Maximum space for text block (https://github.com/squidfunk/mkdocs-material/discussions/3692) */
+.md-grid {
+    max-width: 100%;
+}
+
+.grid-x {
+  background-color: #012169;
+  justify-content: center;
+  max-width: 80%;
+}
+
+.md-footer-meta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.wy-table-responsive table td {
+    white-space: normal !important;
+}
+.wy-table-responsive {
+    overflow: visible !important;
+}
+
+.bolditalic {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Highlight Color*/
+.md-typeset mark {
+  background-color: #ffff0000;
+  animation-name: highlight-ease;
+  animation-duration: 10s;
+}
+
+@keyframes highlight-ease {
+  0% {background-color: #ffff2080;}
+  90% {background-color: #ffff2080;}
+  100% {background-color: #ffff0000;}
+}
