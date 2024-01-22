@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
+<!-- consistent site name across pages -->
 {% block htmltitle %}
-  <title>NCAR HPC Documentation</title>
+  <title>{{ config.site_name }}</title>
 {% endblock %}
 
 <!-- Site-specific header meta content -->
@@ -15,4 +16,10 @@
 <!-- Announcement bar -->
 {% block announce %}
   <strong>This site is currently under ACTIVE DEVELOPMENT!</strong>
+{% endblock %}
+
+<!-- https://www.mkdocs.org/user-guide/customizing-your-theme/ -->
+{% block libs %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ base_url }}/css/arc_iframe.css">
 {% endblock %}
