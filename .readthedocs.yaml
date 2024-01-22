@@ -21,7 +21,7 @@ build:
 
       # the above may generate a dirty git cache for some committed symbolic links - ignore. ref:
       # https://docs.readthedocs.io/en/stable/build-customization.html#avoid-having-a-dirty-git-index
-      - git update-index --assume-unchanged theme.yml docs/stylesheets/custom.css
+      - git update-index --assume-unchanged theme.yml
 
 conda:
   environment: conda.yaml
