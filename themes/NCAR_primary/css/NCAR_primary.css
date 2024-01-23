@@ -87,7 +87,7 @@
 
   /* Coloring for icon of Tip,Hint,and Important */
   .md-typeset :is(.tip,.hint,.important)>:is(.admonition-title,summary):before {
-      background-color: /* PMS 2707 (Background Blue 1) */
+      background-color: rgb(195,215,238) /* PMS 2707 (Background Blue 1) */
   }
 
 
