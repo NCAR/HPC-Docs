@@ -7,6 +7,10 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,12 +28,14 @@ jobs:
 
       - run: |
           $CONDA/bin/conda env create -f conda.yaml
-          $CONDA/bin/conda activate mkdocs
+
+      - run: |
+          conda activate mkdocs
           which mkdocs
 
       - run: |
           env | sort | uniq
 
       - run: |
-          $CONDA/bin/conda activate mkdocs
+          conda activate mkdocs
           mkdocs build --strict
