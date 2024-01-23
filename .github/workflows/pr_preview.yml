@@ -14,9 +14,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v4
+      - name: Setup conda
+        uses: s-weigand/setup-conda@v1
         with:
-          python-version: 3.x
+          update-conda: true
+          python-version: 3.9
 
       - uses: actions/cache@v3
         with:
@@ -25,11 +27,6 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      - name: Setup conda
-        uses: s-weigand/setup-conda@v1
-        with:
-          update-conda: true
-          python-version: ${{ matrix.python-version }}
 
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
