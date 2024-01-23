@@ -8,17 +8,14 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
 
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: Setup conda
-        uses: s-weigand/setup-conda@v1
-        with:
-          update-conda: true
-          python-version: 3.9
 
       - uses: actions/cache@v3
         with:
@@ -27,22 +24,21 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: mkdocs
+          environment-file: conda.yaml
+          python-version: 3.9
+          auto-activate-base: false
 
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
-      - run: conda --version
-
-      - run: which python
-
-      - run: |
-          conda env create -f conda.yaml
-          conda activate mkdocs
+      - name: Interrogate Environment
+        run: |
+          env | sort | uniq
+          conda list
           which mkdocs
           mkdocs --version
 
       - run: |
-          env | sort | uniq
-
-      - run: |
-          conda activate mkdocs
           mkdocs build --strict
