@@ -27,6 +27,7 @@ jobs:
             mkdocs-material-
 
       - run: |
+          $CONDA/bin/conda init
           $CONDA/bin/conda env create -f conda.yaml
 
       - run: |
