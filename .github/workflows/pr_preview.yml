@@ -1,6 +1,6 @@
-name: ci_preview
-on:
-  pull_request:
+name: GitHub MkDocs Build Smoke Test
+
+on: [pull_request]
 
 permissions:
   contents: write
