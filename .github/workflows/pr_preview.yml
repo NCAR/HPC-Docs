@@ -34,8 +34,13 @@ jobs:
 
       - name: List Source Tree
         run: |
+          pwd
           find * ! -type d
 
       - name: MkDocs build
         run: |
           mkdocs build --strict
+
+      - name: MkDocs output
+        run: |
+          find site ! -type d
