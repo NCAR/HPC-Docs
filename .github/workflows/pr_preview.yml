@@ -29,14 +29,10 @@ jobs:
       - run: |
           $CONDA/bin/conda init
           $CONDA/bin/conda env create -f conda.yaml
-
-      - run: |
-          conda activate mkdocs
-          which mkdocs
+          bash -l -c "conda activate mkdocs && which mkdocs"
 
       - run: |
           env | sort | uniq
 
       - run: |
-          conda activate mkdocs
-          mkdocs build --strict
+          bash -l -c "conda activate mkdocs && which mkdocs && mkdocs build --strict"
