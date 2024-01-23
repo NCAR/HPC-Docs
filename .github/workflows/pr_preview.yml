@@ -4,21 +4,20 @@ on:
 
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
 
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
       - uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -26,13 +25,27 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
+      - name: Setup conda
+        uses: s-weigand/setup-conda@v1
+        with:
+          update-conda: true
+          python-version: ${{ matrix.python-version }}
+
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - run: conda --version
+
+      - run: which python
+
       - run: |
-          $CONDA/bin/conda init
-          $CONDA/bin/conda env create -f conda.yaml
-          bash -l -c "conda activate mkdocs && which mkdocs"
+          conda env create -f conda.yaml
+          conda activate mkdocs
+          which mkdocs
+          mkdocs --version
 
       - run: |
           env | sort | uniq
 
       - run: |
-          bash -l -c "conda activate mkdocs && which mkdocs && mkdocs build --strict"
+          conda activate mkdocs
+          mkdocs build --strict
