@@ -40,5 +40,6 @@ jobs:
           which mkdocs
           mkdocs --version
 
-      - run: |
+      - name: MkDocs build
+        run: |
           mkdocs build --strict
