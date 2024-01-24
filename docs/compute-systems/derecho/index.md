@@ -1,3 +1,6 @@
+---
+short_title: Derecho Overview
+---
 
 ![Derecho](media/Derecho_Logo_Landscape_NCARBlue.svg#only-light){width="640"}
 ![Derecho](media/Derecho_Logo_Landscape_CoolGray4.svg#only-dark){width="640"}
