@@ -1,3 +1,7 @@
+---
+short_title: Casper Overview
+---
+
 # Casper cluster
 
 The Casper cluster is a system of specialized data analysis and visualization resources; large-memory, multi-GPU nodes; and high-throughput computing nodes.
