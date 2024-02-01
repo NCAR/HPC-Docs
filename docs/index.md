@@ -21,14 +21,12 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
 
 
 !!! tip
-    The NCAR HPC Users Group (NHUG) is a reouce group for all users of NCAR HPC resources.
+    The NCAR HPC Users Group (NHUG) is a resource group for all users of NCAR HPC resources.
 
     All users are welcome to [join the NHUG Slack
     workspace](https://ncarhpcusergroup.slack.com/).
 
 !!! info "CISL welcomes your contributions"
     This project is hosted on [GitHub](https://github.com/NCAR/HPC-Docs) and your
-    [contributions](https://github.com/NCAR/HPC-Docs/blob/main/contributing.md)
+    [contributions](./contributing.md)
     are welcome!
-
----
