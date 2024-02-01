@@ -6,7 +6,7 @@ The Computational and Information Systems Laboratory (CISL) provides large-scale
 Applications are reviewed and time is allocated according to the needs of the projects and the availability of resources. Send questions about the following allocation opportunities to alloc@ucar.edu.
 
 !!! info
-	The next university deadline for submitting Large Allocation Requests is March 13, 2023.
+	The next university deadline for submitting Large Allocation Requests is March 12, 2024.
 
 ## University allocation opportunities
 
