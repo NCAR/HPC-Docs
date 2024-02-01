@@ -30,3 +30,5 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
     This project is hosted on [GitHub](https://github.com/NCAR/HPC-Docs) and your
     [contributions](./contributing.md)
     are welcome!
+
+    Pencils are cool!
