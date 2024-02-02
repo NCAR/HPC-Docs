@@ -1,11 +1,11 @@
 # NCAR Strategic Capability (NSC) projects
 
-**The next NSC submission deadline is September 19, 2023.**
+**The next NSC submission deadline is March 12, 2024.**
 
 NCAR researchers and computational scientists are encouraged to submit
 requests for the first NCAR Strategic Capability (NSC) projects to be
 run on the new Derecho system. Requests will be accepted through March
-6. These allocations should target large-scale projects lasting one year
+12. These allocations should target large-scale projects lasting one year
 and align with NCAR’s scientific priorities and strategic plans.
 
 Requests for Cheyenne core-hours will be accepted but they must indicate
