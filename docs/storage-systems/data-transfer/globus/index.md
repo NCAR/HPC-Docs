@@ -1,12 +1,5 @@
 # Globus file transfers
 
-!!! info " Updated 4/25/2023:"
-    CISL has enabled the *Globus for Google Drive
-    connector service to facilitate file transfers to NCAR's Google Drive by
-    NCAR and UCAR staff. University users and others who are interested in
-    using the connector service are advised to consult with their own
-    institutional IT experts.
-
 Globus is the most efficient way to transfer files – large files, in
 particular – between NCAR file systems such as Campaign Storage, GLADE,
 and non-NCAR resources and storage systems. NCAR and UCAR researchers
@@ -179,6 +172,12 @@ transfers, manage endpoints, and more, see these resources:
 - [Globus CLI Reference](https://docs.globus.org/cli/reference/)
 
 ## Globus for Google Drive
+!!! info
+    CISL has enabled the *Globus for Google Drive
+    connector service to facilitate file transfers to NCAR's Google Drive by
+    NCAR and UCAR staff. University users and others who are interested in
+    using the connector service are advised to consult with their own
+    institutional IT experts.
 
 NCAR and UCAR researchers can use the *Globus for Google
 Drive* connector service to transfer files to the *NCAR Google
