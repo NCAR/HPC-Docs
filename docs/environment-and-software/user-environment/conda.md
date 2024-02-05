@@ -1,11 +1,5 @@
 # Using Conda
 
-!!! note "Updated 12/21/2022"
-    This documentation has been revised to include the
-    new update schedule for the NCAR Python Library as well as information
-    for determining when to use managed environments vs. when to create your
-    own environments.
-
 NCAR system users access Python via
 [Conda](https://docs.conda.io/projects/conda/en/latest/index.html)
 environments, which are self-contained installations of Python itself,
