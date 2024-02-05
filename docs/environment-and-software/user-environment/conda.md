@@ -14,7 +14,7 @@ The Conda environment manager is accessible by loading an environment
 module as described below.
 
 After loading the module, you can create your own environments or use
-NCAR Python Library (NPL) environments, which include Python 3.9 and a
+NCAR Python Library (NPL) environments, which include Python 3.10 and a
 wide array of pre-installed geoscience, math, and computing packages.
 
 ## Python and Conda
@@ -111,7 +111,7 @@ conda activate npl
 
 Once the environment is activated, the `python` command in your shell
 will use the version provided by the NPL. Currently, it is version
-Python 3.8, which is supported by the majority of relevant packages.
+Python 3.10, which is supported by the majority of relevant packages.
 Once package compatibility improves in newer versions, the NPL will be
 updated.
 
@@ -158,11 +158,11 @@ To install your own environment using Conda:
     environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=init#creating-an-environment-with-commands)
     from a set of requirements, as in the following example:
 ```bash
-mamba create -n my-env python=3.9 numpy scipy matplotlib pandas
+mamba create -n my-env python=3.10 numpy scipy matplotlib pandas
 geocat-comp wrf-python
 ```
 That command will create a new environment called `my-env` with a
-recent version of Python 3.9.x. (you can choose a different Python
+recent version of Python 3.10.x. (you can choose a different Python
 version than the NPL when creating your own environments) and a small
 number of useful geoscience packages (plus any dependencies that Mamba
 determines are needed). The environment would be located in
