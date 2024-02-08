@@ -8,12 +8,12 @@ case ${1} in
 
 ## Casper default module environment
 \`\`\`pre
-$(ssh casper01.ucar.edu "module --width=80 avail 2>&1")
+$(ssh casper.hpc.ucar.edu "module --width=80 avail 2>&1")
 \`\`\`
 
 ## Casper complete module listing
 \`\`\`pre
-$(ssh casper01.ucar.edu "module --width=80 spider 2>&1 | grep '\S'")
+$(ssh casper.hpc.ucar.edu "module --width=80 spider 2>&1 | grep '\S'")
 \`\`\`
 EOF
               ;;
