@@ -69,7 +69,7 @@ nav:
     - GLADE (POSIX File Systems):
       - storage-systems/glade/index.md
       - Campaign storage file system: storage-systems/glade/campaign.md
-      - Lustre file systems: storage-systems/glade/lustre.md
+      - Scratch Lustre file system: storage-systems/glade/lustre.md
       - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
       - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
       - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
