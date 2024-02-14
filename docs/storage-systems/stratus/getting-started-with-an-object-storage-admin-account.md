@@ -6,7 +6,7 @@ Stratus object storage system.
 
 ## Using the web GUI to log into your S3 admin account
 
-After connecting to the UCAR internal network or the VPN:
+After connecting to the UCAR StaffNet network or the VPN:
 
 - Set your browser to point to this
   URL: https://stratus-admin.ucar.edu:10443/asview
@@ -18,9 +18,9 @@ After connecting to the UCAR internal network or the VPN:
 
 ## Creating buckets
 
-Figure 2 shows the screen where you'll create buckets.  To create a
+Figure 2 shows the screen where you'll create buckets. To create a
 bucket, press the "Create Bucket" button and you'll be prompted for a
-bucket name.  Note that the bucket name must be globally unique for the
+bucket name. Note that the bucket name must be globally unique for the
 entire system. If a different account holder on the system already has a
 bucket with that name, you'll get an error. This behavior conforms with
 the AWS S3 API. (See also <https://stackoverflow.com/a/59656742/25891>)
@@ -54,7 +54,7 @@ account (not everything has to be done through this web interface).
 
 When connecting to the system with a client to perform S3 operations
 (e.g., transfer data, etc.), use the host name `stratus.ucar.edu` rather
-than `stratus-admin.ucar.edu`. The host
+than `stratus-admin.ucar.edu`. The IP
 name `stratus-admin.ucar.edu` should only be used to connect to the
 administrative web GUI.
 
@@ -116,7 +116,7 @@ Permissions" in the screen that was visited earlier and shown in Figure
 Select the permissions you want to grant, as shown in Figure 7, to
 enable access for *authenticated* users or *anonymous* users. Note that
 the Data Commons System is currently only reachable from devices on the
-internal UCAR network. Devices outside of the UCAR network are not able
+StaffNet network. Devices outside of the UCAR network are not able
 to access the storage system, even for *anonymous* access.
 
 ## Vendor documentation
@@ -134,4 +134,4 @@ Here is a link to vendor documentation that may help you:
 **Cyberduck** - Cloud storage browser
 ([http://cyberduck.io](http://cyberduck.io/))
 
-**Object** - data structure that stores both file metadata and data
+**Object** - Data structure that stores both file metadata and data
