@@ -113,9 +113,13 @@ Permissions" in the screen that was visited earlier and shown in Figure
 6.
 
 ![](getting-started-with-an-object-storage-admin-account/media/image6.png)   
+
 *Figure 6.*
 
+
+
 ![](getting-started-with-an-object-storage-admin-account/media/image7.png)   
+
 *Figure 7.*
 
 Select the permissions you want to grant, as shown in Figure 7, to
