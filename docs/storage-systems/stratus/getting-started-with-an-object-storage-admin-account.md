@@ -83,6 +83,7 @@ access to a specific user.
 
 *Figure 4.*
 
+
 ![](getting-started-with-an-object-storage-admin-account/media/image5.png)
 
 *Figure 5.*
@@ -112,13 +113,13 @@ system. To grant permissions to public users, click on "Public
 Permissions" in the screen that was visited earlier and shown in Figure
 6.
 
-![](getting-started-with-an-object-storage-admin-account/media/image6.png)   
+![](getting-started-with-an-object-storage-admin-account/media/image6.png) 
 
 *Figure 6.*
 
 
 
-![](getting-started-with-an-object-storage-admin-account/media/image7.png)   
+![](getting-started-with-an-object-storage-admin-account/media/image7.png)
 
 *Figure 7.*
 
