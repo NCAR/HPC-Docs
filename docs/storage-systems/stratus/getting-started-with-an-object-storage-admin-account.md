@@ -14,6 +14,7 @@ After connecting to the UCAR StaffNet network or the VPN:
 - Enter your access ID and secret key
 
 ![](getting-started-with-an-object-storage-admin-account/media/image1.png)
+
 *Figure 1.*
 
 ## Creating buckets
@@ -26,12 +27,14 @@ bucket with that name, you'll get an error. This behavior conforms with
 the AWS S3 API. (See also <https://stackoverflow.com/a/59656742/25891>)
 
 ![](getting-started-with-an-object-storage-admin-account/media/image2.png)
+
 *Figure 2.*
 
 Figure 3 shows your new bucket and will show all your buckets as you
 create them.
 
 ![](getting-started-with-an-object-storage-admin-account/media/image3.png)
+
 *Figure 3.*
 
 Now that a bucket has been created, you can write objects to the bucket
@@ -77,9 +80,11 @@ granting access. Selecting “User Permission” will allow you to grant
 access to a specific user.
 
 ![](getting-started-with-an-object-storage-admin-account/media/image4.png)
+
 *Figure 4.*
 
 ![](getting-started-with-an-object-storage-admin-account/media/image5.png)
+
 *Figure 5.*
 
 In the section titled "Add Other Account or User" as shown in Figure 5,
@@ -107,10 +112,10 @@ system. To grant permissions to public users, click on "Public
 Permissions" in the screen that was visited earlier and shown in Figure
 6.
 
-![](getting-started-with-an-object-storage-admin-account/media/image6.png)
+![](getting-started-with-an-object-storage-admin-account/media/image6.png)   
 *Figure 6.*
 
-![](getting-started-with-an-object-storage-admin-account/media/image7.png)
+![](getting-started-with-an-object-storage-admin-account/media/image7.png)   
 *Figure 7.*
 
 Select the permissions you want to grant, as shown in Figure 7, to
