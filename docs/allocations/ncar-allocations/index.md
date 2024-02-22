@@ -13,7 +13,7 @@ Four categories of allocations are available to NCAR researchers, with the resou
 | NCAR External Projects  | 40 million *                    | 45,000 *                       |
 | NCAR Director's Reserve | 40 million                      | 45,000                         |
 
-Projects with NCAR visitors or university-based collaborators are eligible to use or make requests for all four categories of NCAR allocations. See ["NCAR and university collaborations"] (#ncarallocations-ncaranduniversityuse) below.
+Projects with NCAR visitors or university-based collaborators are eligible to use or make requests for all four categories of NCAR allocations. See [NCAR and university collaborations](#ncarallocations-ncaranduniversityuse) below.
 
 -----
 ## <a name="ncarallocations-ncarstrategiccapability(nsc)projects"></a>**NCAR Strategic Capability (NSC) projects**
@@ -37,7 +37,7 @@ The NCAR labs also receive allocations for analysis and visualization resource u
 NCAR External Projects
 NCAR projects supported by a funding award separate from NCAR base funding may request an External Project allocation to support the computational work necessary to accomplish the objectives of the award. 
 
-Small allocations of up to 2 million core-hours can be granted as soon as the external award begins and last through the end of the external award. Requests can be submitted via the Allocations section of the [ARC Portal] (https://arc.ucar.edu). No proposal document is required, but you will need to provide basic project information (title, abstract) and details of the supporting grant.
+Small allocations of up to 2 million core-hours can be granted as soon as the external award begins and last through the end of the external award. Requests can be submitted via the Allocations section of the [ARC Portal](https://arc.ucar.edu). No proposal document is required, but you will need to provide basic project information (title, abstract) and details of the supporting grant.
 
 For larger allocation amounts in support of external awards, researchers are expected to submit requests to the next available NSC proposal opportunity for review. In these cases, the work is deemed to have been confirmed strategic through the proposal process, but the computational plan, alignment with science objectives, and estimated resource costs will be reviewed. If the semi-annual NSC opportunities do not align well with the award timing, contact alloc@ucar.edu to discuss options.
 
