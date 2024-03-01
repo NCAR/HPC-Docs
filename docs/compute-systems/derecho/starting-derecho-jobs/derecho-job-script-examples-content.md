@@ -17,8 +17,8 @@
     #PBS -l select=2:ncpus=128:mpiprocs=32:ompthreads=4
 
     # Load modules to match compile-time environment
-    module --force purge
-    module load ncarenv/23.09 intel-oneapi craype cray-mpich
+    module purge
+    module load ncarenv/23.09 intel-oneapi/2023.2.1 craype/2.7.23 cray-mpich/8.1.27
 
     # Run application with MPI binding helper script
     mpibind ./executable_name
@@ -44,13 +44,9 @@
     #PBS -l walltime=01:00:00
     #PBS -l select=2:ncpus=64:mpiprocs=4:ngpus=4
 
-    # Use scratch for temporary files to avoid space limits in /tmp
-    export TMPDIR=${SCRATCH}/temp
-    mkdir -p ${TMPDIR}
-
     # Load modules to match compile-time environment
     module purge
-    module load nvhpc cuda cray-mpich
+    module load ncarenv/23.09 nvhpc/24.1 cuda/12.2.1 cray-mpich/8.1.27
 
     # (Optional: Enable GPU managed memory if required.)
     #   From ‘man mpi’: This setting will allow MPI to properly
@@ -126,3 +122,58 @@
 
     ---
     See [here](../../../environment-and-software/user-environment/containers/examples.md#building-and-running-containerized-fasteddy-under-mpi-on-gpus) for a more complete discussion of the nuances of containerized applications on Derecho.
+
+!!! example "Running multiple MPI applications in a single job"
+    The larger core counts on Derecho nodes mean that some MPI workflows do not
+    fully utilize an entire node. Some of these workflows can run on Casper, but
+    for those that do not, you can use the `--cpu-bind` to `mpiexec` to launch
+    multiple copies of an application on independent ranks.
+
+    The following script requests two full nodes and launches eight copies of
+    our MPI-enabled model using 32 cores per invocation (and 256 in total).
+
+    ```bash
+    #!/bin/bash
+    #PBS -N multi-mpi
+    #PBS -l select=2:ncpus=128:mpiprocs=128
+    #PBS -l walltime=04:00:00
+    #PBS -q main
+    #PBS -A <project_code>
+
+    # *** Job Configurables ***
+    num_runs=8   # Number of concurrent MPI applications running
+    ppr=32       # Processes per run
+    ppn=128      # Processes per node
+
+    # Load explicit module versions to preserve reproducibility
+    module purge
+    module load ncarenv/23.09 intel/2024.0.2 cray-mpich/8.1.27
+
+    # Define driver function to set up and start model runs
+    function run_model {
+        ni=$((ppr * ($1 - 1) / ppn))    # Index of node to use
+        sc=$((ppr * ($1 - 1) % ppn))    # Starting core of range to bind to
+        ec=$((sc + ppr - 1))            # Ending core of range to bind to
+
+        mkdir run-$1; cd run-$1         # Create unique directory for each run
+        ln -s ../model .                # Reuse same executable via symbolic linking
+        mpiexec -host ${nodes[$ni]} -n $ppr --cpu-bind list:$sc-$ec ./model &> outerr.log
+        cd ../
+    }
+
+    # Store node list in a bash array
+    nodes=( $(uniq $PBS_NODEFILE) )
+
+    # Start our independent runs as background processes
+    for run in $(seq $num_runs); do
+        run_model $run &
+    done
+
+    # Block job exit until all processes are finished
+    wait
+    ```
+
+    When running multiple programs on a node, it is best to choose process counts that
+    divide evenly into the number of cores per CPU. On Derecho, each CPU has 64 cores
+    and each node has two CPUs. So using 32 cores per run means that two runs will
+    execute on each CPU, for a total of four runs per node.
