@@ -33,55 +33,27 @@ analysis, and visualization resources that CISL manages.
       <td>50 GB</td>
       <td>Yes</td>
       <td>Not purged</td>
-      <td>User home directory<br />
-        Access: POSIX</td>
+      <td>User home directory</td>
     </tr>
     <tr class="even">
-      <td><strong>Scratch: (Cheyenne)</strong><br />
-        /glade/scratch/&ltusername&gt</td>
-      <td>10 TB</td>
-      <td><font color="#ff0000">No</font></td>
-      <td>120 days</td>
-      <td>Temporary computational space<br />
-        Access: POSIX</td>
-    </tr>
-    <tr class="odd">
-      <td><strong>Scratch: (Derecho)<br />
+      <td><strong>Scratch:<br />
         </strong>/glade/derecho/scratch/&ltusername&gt</td>
       <td>30TB / 10M</td>
       <td><font color="#ff0000">No</font></td>
-      <td>180 days</td>
-      <td>Derecho's scratch file system also includes a limit on a users'
+      <td><font color="#ff0000">PURGED</font><br>180 days</td>
+      <td>Temporary computational space.<br />
+        Derecho's scratch file system also includes a limit on a users'
         total number of files </td>
     </tr>
-    <tr class="even">
+    <tr class="odd">
       <td><strong>Work:</strong><br />
         /glade/work/&ltusername&gt</td>
       <td>2 TB</td>
       <td><font color="#ff0000">No</font></td>
       <td>Not purged</td>
-      <td>User work space<br />
-        Access: POSIX</td>
-    </tr>
-    <tr class="odd">
-      <td><strong>Project:</strong><br />
-        /glade/p/<em>entity/project_code</em></td>
-      <td>N/A</td>
-      <td><font color="#ff0000">No</font></td>
-      <td>Not purged</td>
-      <td><strong>Deprecated; will be migrated to Campaign Storage in
-          2023</strong></td>
+      <td>User work space</td>
     </tr>
     <tr class="even">
-      <td><strong>Collections:</strong><br />
-        /glade/collections</td>
-      <td>N/A</td>
-      <td><font color="#ff0000">No</font></td>
-      <td>Not purged</td>
-      <td>Curated collections (CMIP, RDA, others)<br />
-        Access: POSIX</td>
-    </tr>
-    <tr class="odd">
       <td><strong>Campaign Storage:</strong><br />
         /glade/campaign</td>
       <td>N/A</td>
@@ -89,7 +61,7 @@ analysis, and visualization resources that CISL manages.
       <td>Not purged</td>
       <td>Project space allocations (via allocation request)</td>
     </tr>
-    <tr class="even">
+    <tr class="odd">
       <td colspan="5">
         <a href="https://arc.ucar.edu/system_status"><strong>GLADE system status report</strong></a>
       </td>
@@ -279,11 +251,6 @@ of shared file spaces, for example:
 
 - `/glade/campaign/group_name/` (or similar, depending on the project)
 
-- `/glade/p/lab_name/group_name/` (or similar, depending on the project)
-
-- `/glade/p/univ/project_code/`
-
-- `/glade/p/uwyo/project_code/`
 
 ### Data retention policy
 
@@ -333,7 +300,6 @@ Current GLADE space usage: csgteam
   Space                                       Used        Quota      % Full    # Files
 ----------------------------------------- ------------ ------------ --------- -----------
 /glade/derecho/scratch/csgteam              111.03 TiB   400.00 TiB   27.76 %    10226778
-/glade/cheyenne/scratch/csgteam             152.70 GiB   100.00 TiB    0.15 %      439076
 /glade/work/csgteam                           1.40 TiB     4.00 TiB   35.02 %     9153458
 /glade/u/home/csgteam                        68.27 GiB   100.00 GiB   68.27 %      237251
 ----------------------------------------- ------------ ------------ --------- -----------
