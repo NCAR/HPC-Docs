@@ -18,6 +18,7 @@ be aware that even failed jobs use some of your allocation, so be
 proactive in identifying reasons for failures.
 
 **Info**
+
 ***The NCAR Research Computing Help Desk can help you with these and other 
 tasks related to managing your project. Visit [https://rchelp.ucar.edu](https://rchelp.ucar.edu) 
 or call 303-497-2400.***
@@ -87,14 +88,14 @@ will have both a core-hours charge and a GPU-hours charge.)
 
 !!! warning "Consider the impact of your choice of queue before you submit a job on these systems."
 
-    - In the "main" submission queue on Derecho, *you will be charged for 
-      all CPUs or GPUs on those nodes regardless of how many cores or GPUs 
-      you request*. Those nodes are for your job's exclusive use. For example, 
-      if your PBS job script requests two nodes with `*ncpus* = 18` on each node, 
-      you will still be charged for all 256 cores (128 cores per node) when running 
-      in the "main" queue. Conversely, when using the "develop" queue on Derecho 
-      or the "casper" queue on Casper, you will be charged only for the CPUs or 
-      GPUs that you requested. Jobs submitted to those queues will share the nodes with other jobs.
+    In the "main" submission queue on Derecho, *you will be charged for 
+    all CPUs or GPUs on those nodes regardless of how many cores or GPUs 
+    you request*. Those nodes are for your job's exclusive use. For example, 
+    if your PBS job script requests two nodes with `*ncpus* = 18` on each node, 
+    you will still be charged for all 256 cores (128 cores per node) when running 
+    in the "main" queue. Conversely, when using the "develop" queue on Derecho 
+    or the "casper" queue on Casper, you will be charged only for the CPUs or 
+    GPUs that you requested. Jobs submitted to those queues will share the nodes with other jobs.
       
 If you are concerned about your usage rate, contact the Help Desk 
 for guidance on running jobs more efficiently and conserving your 
