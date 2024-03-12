@@ -1,7 +1,7 @@
 # Allocations
 
 
-NSF NCAR provides large-scale computing resources for university researchers and NSF NCAR scientists to pursue work in the Earth system sciences and related sciences. To access these supercomputers, storage systems, and other resources, users must apply for allocations via the processes defined for each community.
+The U.S. National Science Foundation National Center for Atmospheric Research (NSF NCAR) provides large-scale computing resources for university researchers and NSF NCAR scientists to pursue work in the Earth system sciences and related sciences. To access these supercomputers, storage systems, and other resources, users must apply for allocations via the processes defined for each community.
 
 Applications are reviewed and time is allocated according to the needs of the projects and the availability of resources. Send questions about the following allocation opportunities to alloc@ucar.edu.
 
@@ -10,7 +10,7 @@ Applications are reviewed and time is allocated according to the needs of the pr
 
 ## University allocations
 
-NCAR provides computing resources to the university community for research and classroom instruction in the Earth system sciences and related areas. Requests for several types of small-scale projects can be submitted anytime and are usually handled within a few days. The CISL HPC Advisory Panel (CHAP) accepts requests for large allocations of NCAR resources every six months, in March and September.
+NSF NCAR provides computing resources to the university community for research and classroom instruction in the Earth system sciences and related areas. Requests for several types of small-scale projects can be submitted anytime and are usually handled within a few days. The CISL HPC Advisory Panel (CHAP) accepts requests for large allocations of NCAR resources every six months, in March and September.
 
 See [University Allocations](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/) for details.
 
@@ -25,6 +25,6 @@ Details of the Wyoming process are available at the [University of Wyoming websi
 
 ## NCAR lab allocations
 
-NCAR investigators have access to CISL resources through allocations to the NCAR labs and have opportunities to submit requests for larger-scale, project-oriented allocations. Proposals for larger-scale projects are reviewed twice per year to become NCAR Strategic Capability projects.
+NSF NCAR investigators have access to CISL resources through allocations to the NSF NCAR labs and have opportunities to submit requests for larger-scale, project-oriented allocations. Proposals for larger-scale projects are reviewed twice per year to become NCAR Strategic Capability projects.
 
-See [NCAR allocations](https://arc.ucar.edu/xras_submit/opportunities) for more details.
+See [NSF NCAR allocations](https://arc.ucar.edu/xras_submit/opportunities) for more details.
