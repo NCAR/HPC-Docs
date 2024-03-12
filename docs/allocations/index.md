@@ -10,7 +10,7 @@ Applications are reviewed and time is allocated according to the needs of the pr
 
 ## University allocations
 
-NSF NCAR provides computing resources to the university community for research and classroom instruction in the Earth system sciences and related areas. Requests for several types of small-scale projects can be submitted anytime and are usually handled within a few days. The CISL HPC Advisory Panel (CHAP) accepts requests for large allocations of NCAR resources every six months, in March and September.
+NSF NCAR provides computing resources to the university community for research and classroom instruction in the Earth system sciences and related areas. Requests for several types of small-scale projects can be submitted anytime and are usually handled within a few days. The CISL HPC Advisory Panel (CHAP) accepts requests for large allocations of NSF NCAR resources every six months, in March and September.
 
 See [University Allocations](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/) for details.
 
@@ -23,7 +23,7 @@ The NSF NCAR-Wyoming Supercomputing Center represents a collaboration between NS
 
 Details of the Wyoming process are available at the [University of Wyoming website](https://www.uwyo.edu/nwsc/index.html).
 
-## NCAR lab allocations
+## NSF NCAR lab allocations
 
 NSF NCAR investigators have access to CISL resources through allocations to the NSF NCAR labs and have opportunities to submit requests for larger-scale, project-oriented allocations. Proposals for larger-scale projects are reviewed twice per year to become NCAR Strategic Capability projects.
 
