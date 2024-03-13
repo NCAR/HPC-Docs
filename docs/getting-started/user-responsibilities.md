@@ -1,6 +1,6 @@
 # User responsibilities
 
-![](user-responsibilities/media/wordcloud.png){width="500"}
+<!-- ![](user-responsibilities/media/wordcloud.png){width="500"} -->
 
 When you are granted access to use NCAR resources, you accept the
 responsibilities listed below.
@@ -14,9 +14,7 @@ responsibilities listed below.
 - You may not use NCAR computer and information systems in any manner
   for any business, professional, or other activity that is unrelated to
   the purpose of your allocation or terms of employment except as
-  otherwise stated in [Access to and Use of Information Systems and
-  Technology
-  Infrastructure](https://sundog.ucar.edu/Interact/Pages/Content/Document.aspx?id=5141)
+  otherwise stated in [Access to and Use of Information Systems and Technology Infrastructure](https://sundog.ucar.edu/Interact/Pages/Content/Document.aspx?id=5141)
   (staff login required).
 
 - You are required to acknowledge the use of NCAR resources, including
@@ -56,5 +54,4 @@ responsibilities listed below.
   students finish their classes. Project leads are responsible for any
   token replacement fees.
 
-Please contact the [NCAR Research Computing help
-desk](https://rchelp.ucar.edu/) if you have questions.
+Please contact the [NCAR Research Computing help desk](https://rchelp.ucar.edu/) if you have questions.

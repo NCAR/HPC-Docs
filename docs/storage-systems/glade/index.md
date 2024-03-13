@@ -40,7 +40,7 @@ analysis, and visualization resources that CISL manages.
         </strong>/glade/derecho/scratch/&ltusername&gt</td>
       <td>30TB / 10M</td>
       <td><font color="#ff0000">No</font></td>
-      <td><font color="#ff0000">PURGED</font><br>180 days</td>
+      <td><font color="#ff0000"><strong>PURGED</strong></font><br>180 days</td>
       <td>Temporary computational space.<br />
         Derecho's scratch file system also includes a limit on a users'
         total number of files </td>
@@ -254,7 +254,9 @@ of shared file spaces, for example:
 
 ### Data retention policy
 
-- Users' files are not deleted from project space after their accounts
+- Data are removed from the system upon project exipration as described below in [General data retention policies and procedures](#general-data-retention-policies-and-procedures).
+
+- Individual users' files are not deleted from project space after their accounts
   become inactive.
 
 - Files are not recoverable from backups, as there are none.
@@ -293,7 +295,7 @@ usage as shown below.
 This command will generate a report showing your quota and usage
 information:
 ```pre
-gladequota
+$ gladequota
 
 Current GLADE space usage: csgteam
 
