@@ -15,11 +15,10 @@ below:
 - from the Derecho and Casper clusters to facilitate data analysis and visualization
   workflows
 
-**Files stored on this system are not backed up. Users are responsible
-for replicating any data they feel should be stored at an additional
-location as backup.**
+!!! danger
+    **Files stored on this system are not backed up. Users are responsible for replicating any data they feel should be stored at an additional location as backup.**
 
-**Files that are deleted or overwritten cannot be recovered.**
+    **Files that are deleted or overwritten cannot be recovered.**
 
 ## Globus transfers
 
@@ -64,14 +63,18 @@ capacity for storing additional, new data. Users are expected to monitor
 their holdings, remove files that are no longer needed, and move
 necessary data to other storage options for longer-term preservation.
 
+### NCAR labs
+
 **NCAR researchers** are expected to collaborate with CISL’s Digital
 Asset Services Hub (log in to [Sundog](https://sundog.ucar.edu/)) to
 develop data migration plans for storage needs that exceed five years.
 
+### Universities
+
 **University researchers** are expected to transfer their project data
-to their home institutions or other alternative storage repositories
-within one year of their NSF grant expiring. CISL will not award storage
-space for researchers to carry data forward from one grant to another.
+to their home institutions or other alternative storage repositories upon expiration of their NSF grant as described in
+[General data retention policies and procedures](./index.md#general-data-retention-policies-and-procedures).
+CISL will not award storage space for researchers to carry data forward from one grant to another.
 
 ## Allocations
 
@@ -97,7 +100,7 @@ these allocations are prioritized based on the following factors.
 #### Higher priority is given to requests if:
 
 - You have an active project, supported by an active NSF award, for
-  using Cheyenne.
+  using Derecho.
 
 - Your request is for a period of no more than three (3) months and to
   support migrating of your data to your home institution.
@@ -118,7 +121,7 @@ The Systems Accounting Manager
 summary information about the use of Campaign Storage allocations and
 other allocations.
 
-CISL is developing additional tools for use in allocation management.
+---
 
 ## Automated data compression
 
