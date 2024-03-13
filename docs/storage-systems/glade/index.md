@@ -254,7 +254,7 @@ of shared file spaces, for example:
 
 ### Data retention policy
 
-- Data are removed from the system upon project exipration as described below in [General data retention policies and procedures](#general-data-retention-policies-and-procedures).
+- Data are removed from the system upon project expiration as described below in [General data retention policies and procedures](#general-data-retention-policies-and-procedures).
 
 - Individual users' files are not deleted from project space after their accounts
   become inactive.
