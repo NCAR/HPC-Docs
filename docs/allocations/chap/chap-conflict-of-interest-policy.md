@@ -1,10 +1,10 @@
 # CHAP: Conflict of Interest Policy
 
-It is NCAR policy that the Computational and Information Systems
+It is NSF NCAR policy that the Computational and Information Systems
 Laboratory (CISL) HPC Allocations Panel (CHAP) procedures for evaluating
 National Science Foundation (NSF) computational resource requests are
-fair and equitable to all requestors and protect the integrity of the
-research, science, the NSF and NCAR. Recommendations are to be based on
+fair and equitable to all requesters and protect the integrity of the
+research, science, the NSF and NSF NCAR. Recommendations are to be based on
 objective judgments of merit without regard to subjective personal
 biases. The guidelines and ethical standards presented here provide a
 framework by which conflict of interest (COI) situations can be
@@ -13,9 +13,9 @@ the provision of high performance computing resources to the NSF
 community.
 
 A conflict of interest is a clash between an individual’s concern for
-the public interest or the best interest of NCAR and his or her private
+the public interest or the best interest of NSF NCAR and his or her private
 interests or allegiances. Conflicts of interest, actual or perceived,
-may compromise NCAR's integrity and standing in the research community,
+may compromise NSF NCAR's integrity and standing in the research community,
 its sponsors, and the professional reputations of individuals. They also
 compromise the effectiveness of the decision-making process by warping
 and biasing such effectiveness. As such, conflicts of interest must be
@@ -27,10 +27,10 @@ may not use their position on CHAP or knowledge gained through CHAP
 activities to obtain a personal advantage either for themselves or for
 any other person or entity in whom or in which they have a financial or
 other vested interest. Potential and actual conflicts of interest, or
-the appearance of such, must be managed so that NCAR’s assessment
-process is not compromised, research conducted through NCAR is free from
-bias, the investment of the public is protected, and confidence in the
-integrity of NCAR’s activities is maintained.
+the appearance of such, must be managed so that NSF NCAR’s assessment
+process is not compromised, research conducted through NSF NCAR is free 
+from bias, the investment of the public is protected, and confidence 
+in the integrity of NSF NCAR’s activities is maintained.
 
 Conflicts of interest are common and even inevitable, so that a
 disqualification to review should be understood to be a positive
@@ -45,14 +45,14 @@ Appointment as a CHAP member requires awareness of COI situations that
 may arise during the evaluation of resource requests.
 
 Conflicts of interest may arise, for example, in the following
-situations: professional and personal relationship with a requestor or
-requestor’s department; use of inside information or access to such
+situations: professional and personal relationship with a requester or
+requester’s department; use of inside information or access to such
 information; financial, investment, or other ownership interests; use of
 confidential information; subcontracts with employees, their immediate
 families, and their business associates; work with UCAR/NCAR
 contractors; involvement in legal actions against the Federal government
-and other sponsors; improper use of the UCAR or NCAR name or
-affiliation; and improper use of NCAR facilities and resources.
+and other sponsors; improper use of the UCAR or NSF NCAR name or
+affiliation; and improper use of NSF NCAR facilities and resources.
 
 The procedures followed with regard to COIs and CHAP activities are
 those of ***Disclosure***, ***Avoidance***, and ***Removal***.
@@ -87,8 +87,7 @@ In those instances in which a CHAP member is a Requesting Scientist on a
 resource request for the current panel meeting, or a Principal
 Investigator (PI), or Co-Principal Investigator (CO-PI) on the NSF award
 supporting the resource request, the resource request will be evaluated
-and a resource allocation recommendation will be made to the CISL
-Director of Operations and Services prior to the panel meeting. The
+and a resource allocation recommendation will be made prior to the panel meeting. The
 resource request will be discussed via email or via a teleconference
 involving those panelists without a COI on any of the requests being
 discussed. In instances where the Chair has judged that a COI exists for
@@ -96,7 +95,9 @@ a CHAP member who is not a PI, CO-PI, or Requesting Scientist for a
 proposal being considered, or if there is a need for further discussion
 of a request that was reviewed in advance to balance the resources
 allocated, the conflicted panel member shall physically leave the room
-during discussion of the proposal. In other instances in which a COI is
+during discussion of the proposal. For virtual or hybrid meetings, the 
+conflicted panel member is placed in a separate virtual room during 
+discussion of the proposal. In other instances in which a COI is
 disclosed, and the Chair has judged it to be minor, the panelist may
 continue to participate in the discussions.
 
@@ -104,17 +105,17 @@ continue to participate in the discussions.
 
 Conflicts of interest exist for any of the relationships below:
 
-1.  Affiliations with a requestor’s institution:
+1.  Affiliations with a requester’s institution:
 
     - Current employment (formal or informal) within the same department
       or institution. In case of UCAR/NCAR employees, conflicts exist
       within the same division, institute or laboratory.
 
-    - Any affiliation with the requestor institution including, but not
+    - Any affiliation with the requester institution including, but not
       limited to, current membership on a visiting committee or similar
-      body at the requestor’s department, holder of any office,
+      body at the requester’s department, holder of any office,
       governing board membership, or relevant committee chairpersonship
-      in the requestor’s department.
+      in the requester’s department.
 
     - Currently seeking employment with the institution.
 
@@ -133,7 +134,7 @@ Conflicts of interest exist for any of the relationships below:
       the past four years or as Principal Investigator and Co-Principal
       Investigator on a current resource request.
 
-3.  Other relationships with the requestor or the request. The interests
+3.  Other relationships with the requester or the request. The interests
     of the following persons are to be treated as if they were the panel
     member’s own:
 
@@ -150,4 +151,3 @@ interest guidelines at any time. For UCAR/NCAR employees other policies
 may apply, including: Conflict of Interest (1-1-4), Ethical Conduct
 (1-1-23), and Investigator Financial Disclosure (1-1-27).
 
-[Download the Conflict of Interest policy (pdf)](https://kb.ucar.edu/download/attachments/70549839/CHAP_COI_Policy_0.pdf?version=1&modificationDate=1627405650000&api=v2).
