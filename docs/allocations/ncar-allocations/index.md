@@ -34,7 +34,7 @@ The only reporting requirements for lab allocations are acknowledgement of NCAR'
 The NCAR labs also receive allocations for analysis and visualization resource use and Campaign Storage space. Storage space requests and allocations are constrained by the growth supported by the CISL budget for system expansion. Within these constraints, NCAR labs and NSC projects will have to make trade-offs and data management decisions, especially when considering storage of data that are generated on resources outside of CISL.
 
 -----
-NCAR External Projects
+## <a name="ncarallocations-ncarexternalprojects"></a>**NCAR External Projects**
 NCAR projects supported by a funding award separate from NCAR base funding may request an External Project allocation to support the computational work necessary to accomplish the objectives of the award. 
 
 Small allocations of up to 2 million core-hours can be granted as soon as the external award begins and last through the end of the external award. Requests can be submitted via the Allocations section of the [ARC Portal](https://arc.ucar.edu). No proposal document is required, but you will need to provide basic project information (title, abstract) and details of the supporting grant.
