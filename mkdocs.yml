@@ -102,9 +102,7 @@ nav:
           - Example Workflows: environment-and-software/user-environment/containers/examples.md
         - Utilities: environment-and-software/user-environment/utilities.md
         - Customizing User Environment: environment-and-software/user-environment/customizing.md
-        - Spack:
-          - environment-and-software/user-environment/spack/index.md
-          - Spack Downstream: environment-and-software/user-environment/spack/spack-downstream.md
+        - Spack: environment-and-software/user-environment/spack/index.md
 
       - HPC Software:
         - environment-and-software/hpc-software/index.md
