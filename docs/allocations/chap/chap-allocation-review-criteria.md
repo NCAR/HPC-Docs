@@ -41,8 +41,8 @@ A request for resources will succinctly state the scientific impact of
 the research to be conducted and the existing merit-reviewed support for
 the research *as demonstrated by current financial support from NSF. The
 scientific merit and approach will not be subject to further review by
-the CHAP.* Since NCAR computing resources are provided specifically for
-Earth system science and related sciences, the request must fall
+the CHAP.* Since NSF NCAR computing resources are provided specifically 
+for Earth system science and related sciences, the request must fall
 within these areas.
 
 ### Merit review criteria
