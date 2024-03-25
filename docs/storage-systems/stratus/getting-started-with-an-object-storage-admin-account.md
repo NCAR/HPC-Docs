@@ -1,3 +1,8 @@
+<!-- OLD CONTENT REMOVE LATER -->
+<!-- OLD CONTENT REMOVE LATER -->
+<!-- OLD CONTENT REMOVE LATER -->
+
+
 # Getting started with an object storage admin account
 
 This page describes and shows how to get started as an admin for the

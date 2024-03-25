@@ -77,9 +77,7 @@ nav:
     - Quasar (Tape Storgae):
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
-    - Stratus (Object Storage):
-      - storage-systems/stratus/index.md
-      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+    - Stratus (Object Storage): storage-systems/stratus/index.md
     - Data Access Nodes: storage-systems/data-access-nodes.md
     - Transferring Data:
       - storage-systems/data-transfer/index.md
