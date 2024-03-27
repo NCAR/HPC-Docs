@@ -312,6 +312,142 @@ With the container built from the steps above (or simply pulling the resulting i
 
 ---
 
+## Building and running containerized WRF under MPI
+
+This example demonstrates building general purpose containers to facilitate compiling old versions of WRF.  While we strongly encourage users to keep up with the latest [WRF releases](https://www.mmm.ucar.edu/models/wrf), we recognize some users may have customized older versions WRF for particular purposes and porting these changes can pose a significant burden.  In such cases containerization offers a viable (if unpalatable) option for running old code that may be difficult or impossible to compile as-is on Derecho.
+
+### Containerization approach
+
+The container is built **off-premises** with `docker` from three related images, each providing a foundation for the next.  We begin with an
+
+1.  OpenSUSE version 15 operating system (chosen to maximize Derecho interoperability) with a number of WRF dependencies installed,
+2.  then add relevant compilers, MPI, and NetCDF,
+3.  then compile various versions of WRF and WPS to demonstrate functionality.
+
+The full set of `Dockerfile`s and associated resources can be found on [GitHub](https://github.com/benkirk/containers/tree/main/containers/NCAR/derecho/WRF).
+#### The base layer
+???+ example "The OpenSUSE 15 base layer"
+    The base layer is the common foundation of components independent of the compiler suite ultimately used for WRF/WPS.  It includes the operating system image along with relevant packages installed from package repositories.
+
+
+    ```pre title="NCAR/derecho/WRF/base/Dockerfile" linenums="1"
+    ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/base/Dockerfile"
+    ```
+    **Dockerfile Steps**
+
+    1. The image begins with a minimal OpenSUSE v15 image, and adds a utility script `docker-clean` copied from the build host.
+    2. The first `RUN` instruction updates the OS image, creates the `/container` workspace, and installs a minimal development environment (compilers, file utilities etc...).
+    3. The second `RUN` instruction installs specific packages required by the WRF & WPS build system and build dependencies. We elect here to install HDF5 from the OpenSUSE package repository as a matter of convenience - it is required later to build NetCDF from source, and the packaged version is entirely adequate for that purpose.  (Should the user want advanced capabilities within HDF5 it may be necessary instead to compile HDF5 from source.)
+    4. The remaining `RUN` instructions modify the image to expose our customization through environment configuration through a "source-able" file (`/container/config_env.sh`) and also to comply with the (occasionally overly restrictive) expectations of the WRF build system.  For example, the base OS image supplies the PNG library as `-L/usr/lib64 -libpng16`, whereas WRF expects `-L/usr/lib64 -libpng`.  We also install an old version of the Jasper library from source using the system `gcc` compiler.  While a newer version of Jasper is available directly from the OpenSUSE package repository, this version is too new for certain older WPS releases.
+    5. Finally, we set several environment variables used by the WRF/WPS build systems later on through `ENV` instructions.
+
+    **Discussion**
+
+    - Notice that each `RUN` step is finalized with a [`docker-clean` command](https://github.com/benkirk/containers/blob/main/extras/docker-clean).  This utility script removes temporary files and cached data to minimize the size of the resulting image layers.  One consequence is that the first `zypper` package manager interaction in a `RUN` statement will re-cache these data.  Since cached data are not relevant in the final image - especially when run much later on - we recommend removing it to reduce image bloat.
+    - We choose `/container` as the base path for all 3rd-party and compiled software so that when running containers from this image it is obvious what files come from the image vs. the host file system.
+
+#### The compiler + dependencies layer
+Next we will extend the base layer to include 3rd-party compilers, a particular MPI (configured for maximum compatibility with Derecho), and NetCDF.  We proceed on three parallel paths:
+
+  1. Installing an old version the Intel "classic" compilers compatible with WRF versions 3 and 4;
+  2. Using the OpenSUSE-provided `gcc` version 7.5.0; and
+  3. Installing a recent version of the `nvhpc` compilers, which provide the legacy Portland Group `pgf90` compiler supported by WRF/WPS.
+
+Testing has shown the `Intel` variant of the following recipes to be the most performant, while the `gcc` version results in the smallest container image. Our intent here with showing all three options is primarily educational, and may provide solutions to issues encountered in related workflows.
+
+
+???+ example "Adding compilers, MPI, and dependencies"
+
+    === "Intel"
+        !!! note
+            Note that the Intel compiler is licensed software and usage is subject to terms of the [End User License Agreements (EULA)](https://www.intel.com/content/www/us/en/developer/articles/license/end-user-license-agreement.html).  As indicated in the `Dockerfile` below, usage of this software is contingent on accepting the terms of the license agreement.
+        ```pre title="NCAR/derecho/WRF/intel-build-environment" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/intel-build-environment/Dockerfile"
+        ```
+        Note that in the first `RUN` instruction we install the Intel C/C++ and Fortran compilers, and also clean up the installation tree by removing unnecessary components (lines 13-15).  By combining these steps into a single `RUN` instruction we reduce the size of the "layer" produced, and the resulting image size.  We can remove these components because they are not required to support WRF/WPS later.  This step may need to be adapted if used to support other codes.
+
+
+    === "GCC"
+        ```pre title="NCAR/derecho/WRF/gcc-build-environment" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/gcc-build-environment/Dockerfile"
+        ```
+
+    === "NVHPC"
+        !!! warning "For demonstration purposes only"
+            Testing has shown the `nvhpc` variant does not offer any performance benefits vs. the Intel or GCC variants, and therefore is not recommended for production runs. It is provided for demonstration purposes only, and in hopes it may prove useful for other projects that have a critical dependency on this particular compiler suite.
+        !!! note
+            Note that the NVHPC compiler is licensed software and usage is subject to terms of the [End User License Agreements (EULA)](https://docs.nvidia.com/hpc-sdk//eula/index.html).
+        ```pre title="NCAR/derecho/WRF/nvhpc-build-environment" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/nvhpc-build-environment/Dockerfile"
+        ```
+        Note that in the first `RUN` instruction we install the NVHPC C/C++ and Fortran compilers, and also clean up the installation tree by removing unnecessary components (lines 20-21).  By combining these steps into a single `RUN` instruction we reduce the size of the "layer" produced, and the resulting image size.  We can remove these components because they are not required to support WRF/WPS later.  This step may need to be adapted if used to support other codes.
+
+    **Dockerfile Steps**
+
+    1. We begin by installing the desired compiler suite (Intel & NVPC cases). For GCC, the compilers already exist from the base layer.
+    2. We then install NetCDF using the chosen compilers. We need to provide the Fortran interface to NetCDF, which is why we install from source here using our chosen compiler rather than selecting available versions from the package repository (as was the case with HDF5).
+    3. Finally, we install MPICH using the chosen compilers.
+
+    **Discussion**
+
+    - Note that MPICH is necessary within the container in order to support building WRF.  At runtime we will ultimately "replace" the container's MPICH with `cray-mpich` on Derecho. For this to work properly, it is important the two implementations be ABI compatible, and that we are able to replace any container MPI shared libraries by their host counterpart.  Since `cray-mpich` is derived from the open-source MPICH-3.x, the version choice and configuration options here are very deliberate.
+
+
+#### The WRF/WPS layer
+
+The final step is to used the development environment built up in the previous two steps to compile WRF and WPS.  As an exercise to assess the completeness of the environment we choose to install the latest versions of WRF/WPS (4.x) as well as the most recent release of the 3.x series, including both default WRF as well as WRF-Chem compilations. Inside the container we build WRF, WRF-Chem, and WPS according to compiler-version specific recipes (listed below).
+
+
+???+ example "Adding WRF & WPS"
+
+    === "Intel"
+        ```pre title="NCAR/derecho/WRF/intel" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/intel/Dockerfile"
+        ```
+        **Build Scripts**
+
+          - [`build_wrf.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/intel/more_extras/build_wrf.sh)
+          - [`build_wrf_chem.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/intel/more_extras/build_wrf_chem.sh)
+          - [`build_wps.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/intel/more_extras/build_wps.sh)
+
+
+    === "GCC"
+        ```pre title="NCAR/derecho/WRF/gcc" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/gcc/Dockerfile"
+        ```
+        **Build Scripts**
+
+          - [`build_wrf.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/gcc/more_extras/build_wrf.sh)
+          - [`build_wrf_chem.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/gcc/more_extras/build_wrf_chem.sh)
+          - [`build_wps.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/gcc/more_extras/build_wps.sh)
+
+
+    === "NVHPC"
+        ```pre title="NCAR/derecho/WRF/nvhpc" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/nvhpc/Dockerfile"
+        ```
+        **Build Scripts**
+
+          - [`build_wrf.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/nvhpc/more_extras/build_wrf.sh)
+          - [`build_wrf_chem.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/nvhpc/more_extras/build_wrf_chem.sh)
+          - [`build_wps.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/nvhpc/more_extras/build_wps.sh)
+
+    **Dockerfile Steps**
+
+    1. We begin by cloning specific versions of WRF/WPS.  To reduce image size, we clone only the relevant branch and not the full `git` repository history.
+    2. Next we install the build recipes for the specific compiler suite.
+    3. Finally, we compile WRF, then WRF-Chem, and WPS, version 3.x then 4.x - taking care at each step to clean intermediate files to limit the size of the container layers.
+
+    ---
+
+    The completed images are then pushed to [DockerHub](https://hub.docker.com/search?q=ncar-derecho-wrf).
+
+### Deploying the container on NCAR's HPC resources with Apptainer
+
+### Running the container on Derecho
+
+---
+
 ## "Faking" a native installation of containerized applications
 
 Occasionally it can be beneficial to "hide" the fact that a particular application is containerized, typically to simplify the user interface and usage experience.
@@ -397,4 +533,9 @@ While the example above wraps the Apptainer run-time, a similar approach works f
 
 
 <!--  localwords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser CUDA MPICH NGC Casper Tensorflow
+ -->
+
+<!--  LocalWords:  NCAR OpenSUSE WRF WPS HDF NetCDF PNG libpng gcc
+<!--  LocalWords:  ENV linenums
+ -->
  -->
