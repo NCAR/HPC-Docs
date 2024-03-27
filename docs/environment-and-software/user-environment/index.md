@@ -72,3 +72,5 @@ this common installation.
     configured internally to make optimum use of the NCAR [GLADE file spaces](../../storage-systems/glade/index.md).
 
 ## Containers
+
+NCAR systems support building and running [containerized applications](containers.md), in which software is packaged along with its required dependencies in order to run in an isolated, controlled environment.
