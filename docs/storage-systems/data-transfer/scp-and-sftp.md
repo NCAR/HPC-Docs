@@ -195,7 +195,7 @@ from [winscp.net](https://winscp.net/eng/index.php).
 Starting the application will bring you to a login screen like the one
 shown here. (Highlights added.)
 
-![](scp-and-sftp/media/winscp1.png)
+![](scp-and-sftp/media/winscp1-new.png)
 
 To start a session, input the **host name** and your **username** for
 that system.
