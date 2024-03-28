@@ -1,4 +1,6 @@
-# Eligibility is simple
+# Accounts
+
+## Eligibility is simple
 
 * To use Derecho, you must be a U.S.-based researcher.
 * Your research must be in the Earth system sciences or related to Earth system science.
@@ -7,7 +9,7 @@
 That’s all — really!
 
 
-# Here's how to start
+## Here's how to start
 
 * Check out [what we offer](https://www2.cisl.ucar.edu/computing-data) to confirm that Derecho meets your project’s needs.
 * Visit the [allocations](https://arc.ucar.edu/xras_submit/opportunities) page on the [ARC Portal](https://arc.ucar.edu/).
@@ -19,7 +21,7 @@ That’s all — really!
 * You can keep track of your request’s status through the [“My Allocations”](https://arc.ucar.edu/xras_submit/opportunities) tab.
 
 
-# We're here to help
+## We're here to help
 
 Having a problem? No worries.
 
