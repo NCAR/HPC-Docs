@@ -270,10 +270,10 @@ The final step is to used the development environment built up in the previous t
     The completed images are then pushed to [DockerHub](https://hub.docker.com/search?q=ncar-derecho-wrf).
 
 ### Deploying the container on NCAR's HPC resources with Apptainer
-All the previous steps were performed off-premesis with a Docker installation.  We can now deploy the resulting container images with Apptainer.  We construct a Singularity Image File (`.sif`) image from the DockerHub image, and also a convenience shell script that allows us to launch the contaier for interactive use.
+All the previous steps were performed off-premises with a Docker installation.  We can now deploy the resulting container images with Apptainer.  We construct a Singularity Image File (`.sif`) image from the DockerHub image, and also a convenience shell script that allows us to launch the container for interactive use.
 
 ???+ example "Constructing SIF images & using the container interactively as a development environment"
-    The `Deffile` below simply pulls the desired image fro DockerHub and performs shell initialization for interactive use.  We also print some information on the configuration that is displayed when the user launches the container via `singularity run`.
+    The `Deffile` below simply pulls the desired image from DockerHub and performs shell initialization for interactive use.  We also print some information on the configuration that is displayed when the user launches the container via `singularity run`.
 
     === "Intel"
         ```pre title="ncar-derecho-wrf-intel.sif" linenums="1"
