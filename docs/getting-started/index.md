@@ -4,7 +4,6 @@
 	This document will guide you through the basics of using NCAR's
 	supercomputers, storage systems, and services.
 
-
 ## Eligibility is simple
 
 * To use Derecho, you must be a U.S.-based researcher.
@@ -35,11 +34,12 @@ Having a problem? No worries.
 
 Getting back on track is quick and easy!
 
+
+## About this page
+
 Once you are authorized to use NCAR compute and storage resources, and you have [an account](./accounts/index.md) and the [necessary software](../environment-and-software/index.md), you can follow the procedures described below to log in.
 
-
 These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
-
 
 * Compiling Code on [Derecho](../compute-systems/derecho/compiling-code-on-derecho/index.md) or [Casper](../compute-systems/casper/compiling-code-on-casper/index.md)
 * Understanding and Customizing your [User and Software Environment](../environment-and-software/index.md )
