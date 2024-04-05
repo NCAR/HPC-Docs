@@ -1,8 +1,4 @@
-# Getting started with NCAR HPC Resources
-
-!!! info "About this page"
-	This document will guide you through the basics of using NCAR's
-	supercomputers, storage systems, and services.
+# Getting Started with NSF NCAR HPC Resources
 
 ## Eligibility is simple
 
@@ -37,9 +33,9 @@ Getting back on track is quick and easy!
 
 ## About this page
 
-Once you are authorized to use NCAR compute and storage resources, and you have [an account](./accounts/index.md) and the [necessary software](../environment-and-software/index.md), you can follow the procedures described below to log in.
+Once you are authorized to use NSF NCAR compute and storage resources, and you have [an account](./accounts/index.md) and the [necessary software](../environment-and-software/index.md), you can follow the procedures described below to log in.
 
-These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
+These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NSF NCAR resources unless otherwise noted:
 
 * Compiling Code on [Derecho](../compute-systems/derecho/compiling-code-on-derecho/index.md) or [Casper](../compute-systems/casper/compiling-code-on-casper/index.md)
 * Understanding and Customizing your [User and Software Environment](../environment-and-software/index.md )
@@ -48,7 +44,7 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 ---
 
-!!!danger "Don’t run `sudo` on NCAR systems!"
+!!!danger "Don’t run `sudo` on NSF NCAR systems!"
     If you need help with tasks that you think require `sudo` privileges, or if you aren’t sure, please contact HPC User Support before trying to run `sudo` yourself. The command fails when unauthorized users run it and sends a security alert to system administrators.
 
 
@@ -64,10 +60,6 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 === "Casper"
 	``` shell
 	ssh -X username@casper.hpc.ucar.edu
-	```
-=== "Cheyenne"
-	``` shell
-	ssh -X username@cheyenne.ucar.edu
 	```
 
 After running the `ssh` command, you will be asked to authenticate to finish logging in.
