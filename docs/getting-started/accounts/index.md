@@ -12,7 +12,7 @@ shared with anyone. If sharing is detected, CISL will disable the
 accounts of those involved. The same applies to passwords that give
 users access to internal UCAR systems.
 
-UCAR and NCAR computers, computing systems, and associated
+UCAR and NSF NCAR computers, computing systems, and associated
 communications systems are to be used for official business only. By
 signing the required authentication acknowledgement form, you agree not
 to misuse these resources, and you accept responsibility for activity
@@ -83,21 +83,21 @@ for other computers and systems.
 
 ### Patch your systems and use anti-virus software
 
-This applies to any computer from which you log in to UCAR and NCAR
+This applies to any computer from which you log in to UCAR and NSF NCAR
 systems. If you are using your own personal computer or another non-UCAR
-or non-NCAR computer, be sure that it is kept up to date with the latest
+or non-NSF NCAR computer, be sure that it is kept up to date with the latest
 software patches and anti-virus protection.
 
 If you are planning to visit UCAR and bringing your own computer,
 discuss wireless and guest network access with your UCAR contact before
 you arrive. Procedures regarding guest network access also apply to
-personally owned computers that UCAR and NCAR staff bring in.
+personally owned computers that UCAR and NSF NCAR staff bring in.
 
 ### Be careful
 
 Be aware of email scams and so-called "social engineering" methods that
 hackers and fraudsters use to gain access to passwords and other
-information. Never give anyone your password. UCAR and NCAR system
+information. Never give anyone your password. UCAR and NSF NCAR system
 administrators will not ask you for your password via phone or email.
 
 ### Other cautions
