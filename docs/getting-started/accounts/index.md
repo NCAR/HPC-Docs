@@ -40,18 +40,12 @@ As a user, you have an important role in ensuring the security of these
 resources. In addition to protecting the passwords, PINS, and tokens
 that give you access to our systems, we ask that you do the following:
 
-### Loss, theft, or compromise
+### Protecting your Duo app
 
-Loss, theft, or compromise of a YubiKey must be reported within 48 hours
-to the Research Computing Help Desk at x2400 (303-497-2400). Quick
-reporting will help the organization minimize security risk.
-
-### Protecting your Duo app or YubiKey token
-
-You must protect your Duo or YubiKey solution by agreeing to the
+You must protect your Duo solution by agreeing to the
 following:
 
-- Your YubiKey token or Duo application will remain in your custody and
+- Your Duo application will remain in your custody and
   is for your use only; it may not be shared.
 
 - You will immediately (within 48 hours) report loss of custody of your
