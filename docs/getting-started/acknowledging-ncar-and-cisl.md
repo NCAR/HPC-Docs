@@ -41,22 +41,22 @@ it is unique to Derecho.
 === "Plain Citations"
     1. Computational and Information Systems Laboratory. 2023. Derecho:
     HPE Cray EX System (Climate Simulation Laboratory). Boulder, CO:
-    National Science Foundation National Center for Atmospheric Research.
+    U.S. National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
     2. Computational and Information Systems Laboratory. 2023.
     Derecho: HPE Cray EX System (University Community Computing).
-    Boulder, CO: National Science Foundation National Center for Atmospheric Research.
+    Boulder, CO: U.S. National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
     3. Computational and Information Systems Laboratory. 2023.
     Derecho: HPE Cray EX System (NSF NCAR Community Computing). Boulder,
-    CO: National Science Foundation National Center for Atmospheric Research.
+    CO: U.S. National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
     4. Computational and Information Systems Laboratory. 2023.
     Derecho: HPE Cray EX System (Wyoming-NCAR Alliance). Boulder, CO:
-    National Science Foundation National Center for Atmospheric Research.
+    U.S. National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
 === "BibTeX"
@@ -65,7 +65,7 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_CSL,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
+        organization = {{U.S. National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
         title        = {{Derecho: HPE Cray EX System (Climate Simulation Laboratory)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
@@ -77,7 +77,7 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_UCC,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
+        organization = {{U.S. National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
         title        = {{Derecho: HPE Cray EX System (University Community Computing)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
@@ -89,7 +89,7 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_NCC,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
+        organization = {{U.S. National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
         title        = {{Derecho: HPE Cray EX System (NSF NCAR Community Computing)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
@@ -101,7 +101,7 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_WY,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
+        organization = {{U.S. National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
         title        = {Derecho: HPE Cray EX System (Wyoming-NCAR Alliance)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
@@ -126,13 +126,13 @@ Foundation.*
 #### For Climate Simulation Lab (CSL) allocations
 *Computing resources ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) were provided by the
 Climate Simulation Laboratory at NSF NCAR's Computational and Information
-Systems Laboratory, sponsored by the National Science Foundation and
+Systems Laboratory, sponsored by the U.S. National Science Foundation and
 other agencies.*
 
 #### For Wyoming-NCAR Alliance allocations
 *We would like to acknowledge the use of computational resources
 ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) at the NCAR-Wyoming Supercomputing Center
-provided by the National Science Foundation and the State of Wyoming,
+provided by the U.S. National Science Foundation and the State of Wyoming,
 and supported by NSF NCAR's Computational and Information Systems
 Laboratory.*
 
@@ -147,20 +147,20 @@ it is unique to Cheyenne.
 
 1. Computational and Information Systems Laboratory. 2019. Cheyenne:
 HPE/SGI ICE XA System (Climate Simulation Laboratory). Boulder, CO:
-National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
+U.S. National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 2. Computational and Information Systems Laboratory. 2019.
 Cheyenne: HPE/SGI ICE XA System (University Community Computing).
-Boulder, CO: National Science Foundation National Center for Atmospheric Research.
+Boulder, CO: U.S. National Science Foundation National Center for Atmospheric Research.
 [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 3. Computational and Information Systems Laboratory. 2019.
 Cheyenne: HPE/SGI ICE XA System (NSF NCAR Community Computing). Boulder,
-CO: National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
+CO: U.S. National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 4. Computational and Information Systems Laboratory. 2019.
 Cheyenne: HPE/SGI ICE XA System (Wyoming-NCAR Alliance). Boulder, CO:
-National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
+U.S. National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 ### Acknowledgments
 Acknowledgments are more difficult to track
@@ -179,13 +179,13 @@ Foundation.*
 #### For Climate Simulation Lab (CSL) allocations
 *Computing resources ([doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX)) were provided by the
 Climate Simulation Laboratory at NSF NCAR's Computational and Information
-Systems Laboratory, sponsored by the National Science Foundation and
+Systems Laboratory, sponsored by the U.S. National Science Foundation and
 other agencies.*
 
 #### For Wyoming-NCAR Alliance allocations
 *We would like to acknowledge the use of computational resources
 ([doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX)) at the NCAR-Wyoming Supercomputing Center
-provided by the National Science Foundation and the State of Wyoming,
+provided by the U.S. National Science Foundation and the State of Wyoming,
 and supported by NSF NCAR's Computational and Information Systems
 Laboratory.*
 
