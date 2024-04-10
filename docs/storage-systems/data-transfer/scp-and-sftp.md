@@ -195,7 +195,7 @@ from [winscp.net](https://winscp.net/eng/index.php).
 Starting the application will bring you to a login screen like the one
 shown here. (Highlights added.)
 
-![](scp-and-sftp/media/winscp1.png)
+![](scp-and-sftp/media/winscp1-new.png)
 
 To start a session, input the **host name** and your **username** for
 that system.
@@ -205,21 +205,21 @@ Leave the password field blank, and click **Login**.
 The first time you log in to a system, you may get a dialog box like
 this:
 
-![](scp-and-sftp/media/winscp2.png)
+![](scp-and-sftp/media/winscp2-new.png)
 
 Click **Yes** to continue.
 
 Next, you will be asked for your **Token_Response**. Follow your
 regular [authentication procedures]().
 
-![](scp-and-sftp/media/winscp3.png)
+![](scp-and-sftp/media/winscp3-new.png)
 
 If you’re using the “Commander” interface (shown below), WinSCP will
 display the contents of your local system on the left side of your
 screen and the contents of your remote system home directory on the
 right. You can manage files using typical Windows commands and tools.
 
-![](scp-and-sftp/media/winscp4.png)
+![](scp-and-sftp/media/winscp4-new.png)
 
 The alternative “Explorer” interface displays only the remote folder,
 and you can transfer files by dragging and dropping from Windows File
