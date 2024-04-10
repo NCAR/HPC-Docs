@@ -46,7 +46,7 @@ You can omit `username` in the command above if your Casper username is the same
 After running the `ssh` command, you will be [asked to authenticate](../../getting-started/accounts/duo/index.md#hpc-and-ssh-logins) to finish logging in.
 
 
-Casper has full access to [NCAR storage resources](../../storage-systems/index.md),
+Casper has full access to [NSF NCAR storage resources](../../storage-systems/index.md),
 including [GLADE](../../storage-systems/glade/index.md).
 Users can [transfer data](../../storage-systems/data-transfer/index.md) to and from Casper.
 
@@ -57,7 +57,7 @@ There is no need to transfer output files from Derecho for this since
 Derecho and Casper mount the same `GLADE` file systems.
 
 
-!!! danger "Don’t run `sudo` on NCAR systems!"
+!!! danger "Don’t run `sudo` on NSF NCAR systems!"
     If you need help with tasks that you think require `sudo`
     privileges, or if you aren’t sure, please contact HPC User Support
     before trying to run `sudo` yourself. The command fails when
@@ -95,7 +95,7 @@ Casper users have access to Intel, NVIDIA, and GNU compilers. The **Intel** comp
 
 See this page for [a full discussion of compiling on Casper](./compiling-code-on-casper/index.md).
 
-Many Casper data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+Many Casper data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NSF NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
 
 -----
 
