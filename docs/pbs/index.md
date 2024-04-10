@@ -1,7 +1,7 @@
 # Starting and managing jobs with PBS
 
 !!! info "About this page"
-    This documentation provides information for how to use PBS Pro to submit and manage interactive jobs and batch jobs on NCAR systems.
+    This documentation provides information for how to use PBS Pro to submit and manage interactive jobs and batch jobs on NSF NCAR systems.
 
     The basic PBS commands are the same on each cluster, but refer to these system-specific pages for details that are unique to each of them, including hardware specifications, software, and job-submission queues and procedures:
 
@@ -15,7 +15,7 @@ process the batch. Batches may automatically be run at scheduled times
 as well as being run contingent on the availability of computer
 resources. For additional background, see
 [Batch Computng Overview](https://en.wikipedia.org/wiki/Batch_processing).
-NCAR's HPC resources use the [Portable Batch System](https://en.wikipedia.org/wiki/Portable_Batch_System)
+NSF NCAR's HPC resources use the [Portable Batch System](https://en.wikipedia.org/wiki/Portable_Batch_System)
 as implemented in Altair's [PBS Pro](https://altair.com/pbs-professional) across shared resources.
 
 
@@ -189,7 +189,7 @@ qstat -w -u $USER @derecho
 ```
 
 !!! tip
-    Query jobs running on one system by specifying `@derecho`, `@cheyenne`, or `@casper` from either system as shown here.
+    Query jobs running on one system by specifying `@derecho` or `@casper` from either system as shown here.
     ```sh
     qstat -w -u $USER @derecho
     qstat -w -u $USER @casper
@@ -273,7 +273,7 @@ list of IDs if appropriate.  See `man qsub` for a full listing and additional de
 ## Peer Scheduling scheduling between systems
 
 !!! info "Peer Scheduling scheduling between HPC Systems"
-    Cheyenne, Derecho,  and Casper use the PBS scheduler, and each system has its own
+    Derecho and Casper use the PBS scheduler, and each system has its own
     dedicated PBS server to manage job submission and execution. These
     "peer" servers can share data between each other, and *jobs can be
     submitted from one system to another*. It is also possible to create
@@ -288,7 +288,6 @@ the PBS servers are:
 
 | **System** | **PBS server name**            |
 |------------|--------------------------------|
-| Cheyenne   | `chadmin1.ib0.cheyenne.ucar.edu` |
 | Casper     | `casper-pbs`                    |
 | Derecho    | `desched1` |
 
@@ -300,13 +299,6 @@ the PBS servers are:
     ```pre
     #PBS -q main@desched1
     ```
-=== "Casper to Cheyenne"
-    You want to submit to the Cheyenne "regular" queue from a
-    Casper login node or compute node. Append the Cheyenne server name as
-    follows in your job script when specifying the queue:
-    ```pre
-    #PBS -q regular@chadmin1.ib0.cheyenne.ucar.edu
-    ```
 
 === "Derecho to Casper"
     You want to submit a job to Casper from Derecho. Append
@@ -317,11 +309,11 @@ the PBS servers are:
     ```
 
 The server-specific queue names will be understood by both PBS servers,
-so if you will want to submit the same script at times from either
-Cheyenne or Casper, *always append the server name to your queue*.
+so if you will want to submit the same script at times from Casper, 
+*always append the server name to your queue*.
 
 The `qinteractive` and `execcasper` scripts, which start interactive
-jobs on Cheyenne and Casper respectively, will adjust the queue name for
+jobs on Casper, will adjust the queue name for
 you to include the server, so *you do not need to append the server name
 manually for interactive jobs*.
 
@@ -333,8 +325,6 @@ noted above when running qstat.
 
 Note that the separator character differs for jobs (`.`) and queues (`@`).
 ```pre
-qstat 123456.chadmin1.ib0.cheyenne.ucar.edu
-qstat regular@cheyenne
 qstat 654321.casper
 
 qstat @casper-pbs
@@ -350,10 +340,10 @@ in your queue designations. The job IDs returned by PBS include the
 server name, so you do not need to append a server to the job ID you
 specify in your dependency argument.
 
-Here is an example of a workflow that runs a simulation on Cheyenne and,
-if successful, then runs a post-processing job on Casper. Thanks to peer
-scheduling, these jobs can be submitted from either Cheyenne or Casper
-login nodes.
+Here is an example of a workflow that ran a simulation on Cheyenne 
+(NSF NCAR's previous supercomputer) and, if successful, then ran a post-processing 
+job on Casper. Thanks to peer scheduling, these jobs could be submitted 
+from either Cheyenne or Casper login nodes.
 
 === "bash"
     ```bash
