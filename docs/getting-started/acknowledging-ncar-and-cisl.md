@@ -1,18 +1,18 @@
-# Acknowledging NCAR and CISL
+# Acknowledging NSF NCAR and CISL
 
-A requirement of all allocations and use of NCAR HPC resources managed
+A requirement of all allocations and use of NSF NCAR HPC resources managed
 by CISL, including the CMIP Analysis Platform and Research Data Archive,
-is to acknowledge NCAR and CISL support for your research. Our ability
+is to acknowledge NSF NCAR and CISL support for your research. Our ability
 to identify supported scientific results helps ensure continued support
 from NSF and other sources for future HPC systems.
 
-Upon completion of your project, NCAR requires an accomplishment report
+Upon completion of your project, NSF NCAR requires an accomplishment report
 containing:
 
-1. The research results obtained using NCAR resources,
+1. The research results obtained using NSF NCAR resources,
 2. a list of scientific publications that resulted from this research,
-3. the names and affiliations of graduate students who used NCAR resources, and
-4. the title, author, and relevant citation data for any theses or dissertations produced using NCAR computational resources.
+3. the names and affiliations of graduate students who used NSF NCAR resources, and
+4. the title, author, and relevant citation data for any theses or dissertations produced using NSF NCAR computational resources.
 
 The accomplishment report should be sent as a PDF to <alloc@ucar.edu>.
 
@@ -50,7 +50,7 @@ it is unique to Derecho.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
     3. Computational and Information Systems Laboratory. 2023.
-    Derecho: HPE Cray EX System (NCAR Community Computing). Boulder,
+    Derecho: HPE Cray EX System (NSF NCAR Community Computing). Boulder,
     CO: National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
@@ -65,7 +65,7 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_CSL,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Center for Atmospheric Research (NCAR)}},
+        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
         title        = {{Derecho: HPE Cray EX System (Climate Simulation Laboratory)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
@@ -77,7 +77,7 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_UCC,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Center for Atmospheric Research (NCAR)}},
+        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
         title        = {{Derecho: HPE Cray EX System (University Community Computing)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
@@ -89,8 +89,8 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_NCC,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Center for Atmospheric Research (NCAR)}},
-        title        = {{Derecho: HPE Cray EX System (NCAR Community Computing)}},
+        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
+        title        = {{Derecho: HPE Cray EX System (NSF NCAR Community Computing)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
         address      = {Boulder, CO}
@@ -101,7 +101,7 @@ it is unique to Derecho.
       ```pre
       @Manual{derecho_WY,
         author       = {{Computational and Information Systems Laboratory (CISL)}},
-        organization = {{National Center for Atmospheric Research (NCAR)}},
+        organization = {{National Science Foundation National Center for Atmospheric Research (NSF NCAR)}},
         title        = {Derecho: HPE Cray EX System (Wyoming-NCAR Alliance)}},
         note         = {\href{https://doi.org/10.5065/qx9a-pg09}{doi:10.5065/qx9a-pg09}},
         year         = {2023},
@@ -117,15 +117,15 @@ above is inappropriate. You may modify the following examples as
 appropriate; however, please include at least the DOI in the
 acknowledgment text, as you would include funding agency award numbers.
 
-#### For University/CHAP and NCAR allocations
+#### For University/CHAP and NSF NCAR allocations
 *We would like to acknowledge high-performance computing support from
-Derecho ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) provided by NCAR's Computational and
+Derecho ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) provided by NSF NCAR's Computational and
 Information Systems Laboratory, sponsored by the National Science
 Foundation.*
 
 #### For Climate Simulation Lab (CSL) allocations
 *Computing resources ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) were provided by the
-Climate Simulation Laboratory at NCAR's Computational and Information
+Climate Simulation Laboratory at NSF NCAR's Computational and Information
 Systems Laboratory, sponsored by the National Science Foundation and
 other agencies.*
 
@@ -133,7 +133,7 @@ other agencies.*
 *We would like to acknowledge the use of computational resources
 ([doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09)) at the NCAR-Wyoming Supercomputing Center
 provided by the National Science Foundation and the State of Wyoming,
-and supported by NCAR's Computational and Information Systems
+and supported by NSF NCAR's Computational and Information Systems
 Laboratory.*
 
 ## For Cheyenne projects
@@ -155,7 +155,7 @@ Boulder, CO: National Center for Atmospheric Research.
 [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 3. Computational and Information Systems Laboratory. 2019.
-Cheyenne: HPE/SGI ICE XA System (NCAR Community Computing). Boulder,
+Cheyenne: HPE/SGI ICE XA System (NSF NCAR Community Computing). Boulder,
 CO: National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 4. Computational and Information Systems Laboratory. 2019.
@@ -170,15 +170,15 @@ above is inappropriate. You may modify the following examples as
 appropriate; however, please include at least the DOI in the
 acknowledgment text, as you would include funding agency award numbers.
 
-#### For University/CHAP and NCAR allocations
+#### For University/CHAP and NSF NCAR allocations
 *We would like to acknowledge high-performance computing support from
-Cheyenne ([doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX)) provided by NCAR's Computational and
+Cheyenne ([doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX)) provided by NSF NCAR's Computational and
 Information Systems Laboratory, sponsored by the National Science
 Foundation.*
 
 #### For Climate Simulation Lab (CSL) allocations
 *Computing resources ([doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX)) were provided by the
-Climate Simulation Laboratory at NCAR's Computational and Information
+Climate Simulation Laboratory at NSF NCAR's Computational and Information
 Systems Laboratory, sponsored by the National Science Foundation and
 other agencies.*
 
@@ -186,7 +186,7 @@ other agencies.*
 *We would like to acknowledge the use of computational resources
 ([doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX)) at the NCAR-Wyoming Supercomputing Center
 provided by the National Science Foundation and the State of Wyoming,
-and supported by NCAR's Computational and Information Systems
+and supported by NSF NCAR's Computational and Information Systems
 Laboratory.*
 
 ## For Yellowstone projects
@@ -200,14 +200,14 @@ Yellowstone ARK (<http://n2t.net/ark:/85065/d7wd3xhc>) for the DOI.
 
 See this [CMIP Analysis Platform
 documentation](https://www2.cisl.ucar.edu/resources/cmip-analysis-platform#terms) for
-how to acknowledge NCAR/CISL support and for information on other
+how to acknowledge NSF NCAR/CISL support and for information on other
 requirements related to the use of CMIP data.
 
 ## For use of RDA data sets
 
 *The data were provided by the Research Data Archive (RDA) of the
 Computational and Information Systems Laboratory at the National Center
-for Atmospheric Research. NCAR is supported by grants from the National
+for Atmospheric Research. NSF NCAR is supported by grants from the National
 Science Foundation.*
 
 We ask that you cite the dataset(s) used. Citations templates are
