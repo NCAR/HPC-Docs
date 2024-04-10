@@ -41,22 +41,22 @@ it is unique to Derecho.
 === "Plain Citations"
     1. Computational and Information Systems Laboratory. 2023. Derecho:
     HPE Cray EX System (Climate Simulation Laboratory). Boulder, CO:
-    National Center for Atmospheric Research.
+    National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
     2. Computational and Information Systems Laboratory. 2023.
     Derecho: HPE Cray EX System (University Community Computing).
-    Boulder, CO: National Center for Atmospheric Research.
+    Boulder, CO: National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
     3. Computational and Information Systems Laboratory. 2023.
     Derecho: HPE Cray EX System (NSF NCAR Community Computing). Boulder,
-    CO: National Center for Atmospheric Research.
+    CO: National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
     4. Computational and Information Systems Laboratory. 2023.
     Derecho: HPE Cray EX System (Wyoming-NCAR Alliance). Boulder, CO:
-    National Center for Atmospheric Research.
+    National Science Foundation National Center for Atmospheric Research.
     [doi:10.5065/qx9a-pg09](https://doi.org/10.5065/qx9a-pg09).
 
 === "BibTeX"
@@ -147,20 +147,20 @@ it is unique to Cheyenne.
 
 1. Computational and Information Systems Laboratory. 2019. Cheyenne:
 HPE/SGI ICE XA System (Climate Simulation Laboratory). Boulder, CO:
-National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
+National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 2. Computational and Information Systems Laboratory. 2019.
 Cheyenne: HPE/SGI ICE XA System (University Community Computing).
-Boulder, CO: National Center for Atmospheric Research.
+Boulder, CO: National Science Foundation National Center for Atmospheric Research.
 [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 3. Computational and Information Systems Laboratory. 2019.
 Cheyenne: HPE/SGI ICE XA System (NSF NCAR Community Computing). Boulder,
-CO: National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
+CO: National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 4. Computational and Information Systems Laboratory. 2019.
 Cheyenne: HPE/SGI ICE XA System (Wyoming-NCAR Alliance). Boulder, CO:
-National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
+National Science Foundation National Center for Atmospheric Research. [doi:10.5065/D6RX99HX](https://doi.org/10.5065/D6RX99HX).
 
 ### Acknowledgments
 Acknowledgments are more difficult to track
