@@ -209,8 +209,10 @@ Testing has shown the `Intel` variant of the following recipes to be the most pe
 
     **Dockerfile Steps**
 
-    1. We begin by installing the desired compiler suite (Intel & NVPC cases). For GCC, the compilers already exist from the base layer.
+    1. We begin by installing the desired compiler suite (Intel & NVHPC cases). For GCC, the compilers already exist from the base layer.
     2. We then install NetCDF using the chosen compilers. We need to provide the Fortran interface to NetCDF, which is why we install from source here using our chosen compiler rather than selecting available versions from the package repository (as was the case with HDF5).
+        - The options `--disable-byterange`, `--disable-dap`, and `--disable-libxml2` are specified to prevent NetCDF from requiring additional dependencies (unnecessary for our WRF/WPS use case) we chose not to install in the base layer.
+        - The option `--disable-dependency-tracking` is common to all GNU Automake packages and allows us to [speed up one-time-only builds](https://www.gnu.org/software/automake/manual/html_node/Dependency-Tracking.html) by skipping Automake's automated dependency generation.
     3. Finally, we install MPICH using the chosen compilers.
 
     **Discussion**
@@ -765,7 +767,7 @@ All the previous steps were performed off-premises with a Docker installation.  
 
     - We also need to use the `--env` to set the `LD_LIBRARY_PATH` inside the image so that the application can find the proper host libraries.  Recall when we built the FastEddy executable in the containerized environment it had no knowledge of these host-specific paths.  Similarly, we use `--env` to set the `LD_PRELOAD` environment variable inside the container.  This will cause a particular Cray-MPICH library to be loaded prior to application initialization.  This step is not required for "bare metal" execution.
 
-    - We set the `MPICH_SMP_SINGLE_COPY_MODE` environment variable to work around an MPI run-time error hat would otherwise appear.
+    - We set the `MPICH_SMP_SINGLE_COPY_MODE` environment variable to work around an MPI run-time error that would otherwise appear.
       - Finally, a note on the `--bind /usr/lib64:/host/lib64` argument.  Injecting the host MPI requires that some shared libraries from the host's `/usr/lib64` directory be visible inside the image.  However, this path also exists inside the image and contains other libraries needed by the application.  We cannot simply bind the hosts directory into the same path, doing so will mask these other libraries.  So we bind the host's `/usr/lib64` into the container image at `/host/lib64`, and make sure this path is set in the `LD_LIBRARY_PATH` variable as well.  Because we want these particular host libraries found as last resort (not taking precedence over similar libraries in the container, we append `/host/lib64` to the `LD_LIBRARY_PATH` search path.
 
     The arguments above were determined iteratively through trial and error.  Such is the reality of containerized MPI applications and proprietary host MPI integration. Feel free to experiment with the PBS file, omitting some of the `--bind` and `--env` arguments and observing the resulting error message.
