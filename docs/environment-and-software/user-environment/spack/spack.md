@@ -217,7 +217,7 @@ Many versions of PETSc are available through Spack, and each supports many optio
         mmg [false]                   false, true
             Activates support for MMG
         moab [false]                  false, true
-            Acivates support for MOAB (only parallel)
+            Activates support for MOAB (only parallel)
         mpfr [false]                  false, true
             Activates support for MPFR
         mpi [true]                    false, true
