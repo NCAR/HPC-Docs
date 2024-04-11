@@ -297,7 +297,7 @@ Many versions of PETSc are available through Spack, and each supports many optio
 
 **Concretization and installation**
 
-As indicated above, Spack can be *very* complex and often requires iteration to behave as indented - this is certainly the case with PETSc.  Below we walk through some common issues and their resolution.
+As indicated above, Spack can be *very* complex and often requires iteration to behave as intended - this is certainly the case with PETSc.  Below we walk through some common issues and their resolution.
 
 As a first attempt, we use the `spec` subcommand to inspect the results of Spack's concretization. Inspecting the output of `spack spec -I -l petsc %oneapi@2023.2.1 ^cray-mpich@8.1.27` shows an incompatible mix of compilers are chosen for PETSc and some of its dependencies. (expand the box below for full details).
 ??? danger "Simple `spack spec` concretization - *FAILS*"
