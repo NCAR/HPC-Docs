@@ -149,7 +149,7 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         2 Mellanox ConnectX-6 HDR200 InfiniBand adapters, HDR100 link on each CPU socket<br>
         8 NVIDIA Tesla V100 32GB SXM2 GPUs with NVLink<br><br>
 
-        <strong>4 Supermicro nodes with 4 A100 GPUs</strong><br>
+        <strong>8 Supermicro nodes with 4 A100 GPUs</strong><br>
         1024 GB memory per node<br>
         2 64-core 2.45-GHz AMD EPYC Milan 7763 processors per node<br>
         1.5 TB local NVMe Solid State Disk<br>
