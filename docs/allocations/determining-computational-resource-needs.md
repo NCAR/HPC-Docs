@@ -6,27 +6,28 @@ preparing an allocation request.
 
 These guidelines are intended to help you gather and present the data
 you need to support your request. Ultimately, you will complete a table
-like the one shown here to include in your application. With
+like the one shown here to include in your application. With an
 accompanying narrative that describes each experiment or experimental
 configuration, it will communicate clearly to reviewers what computing
 resources you need and how you will use those resources.
 
-#### Estimating Derecho allocation needs
+## Estimating Derecho allocation needs
 
 Derecho users can expect to see a **1.3x** improvement over the Cheyenne
-system's performance on a core-for-core basis. Therefore, to estimate
-how many CPU core-hours will be needed for a project on Derecho,
-multiply the total for a Cheyenne project by **0.77**.
+system's performance on a core-for-core basis. While performing benchmark 
+runs on Derecho is strongly recommended, if you have core-hour costs 
+from Cheyenne benchmark runs, you can estimate Derecho CPU performance by 
+multiplying by **0.77**.
 
 When requesting an allocation for Derecho GPU nodes, please make your
-request in terms of GPU-hours (number of GPUs used x wallclock hours).
-We encourage researchers to estimate GPU-hour needs by making
-test/benchmark runs on Casper GPUs, but will accept estimates based on
-runs on comparable non-NCAR, GPU-based systems.
+request in terms of GPU-hours (the number of GPUs used times the number 
+of wallclock hours). We encourage researchers to estimate GPU-hour needs 
+by making test/benchmark runs on Derecho or Casper GPUs, but we will 
+accept estimates based on runs on comparable non-NSF NCAR, GPU-based systems.
 
-You can use a chart like this as a starting point. Review the
-documentation for the relevant [allocation opportunity](./index.md) to learn what else is
-required.
+You can use a table like this as a starting point. Such a table can be
+used as part of your [large-scale allocation proposal](https://ncar-hpc-docs-arc-iframe.readthedocs.io/allocations/university-allocations/university-large-allocation-request-preparation-instructions/).
+
 
 <table style="width:100%;">
   <colgroup>
@@ -39,7 +40,7 @@ required.
     <tr class="header">
       <th><strong>Experiment</strong><br />
         <strong>(Experimental configuration)</strong></th>
-      <th><strong>Core-hours per simulation</strong></th>
+      <th><strong>Core-hours (or GPU-hours) per simulation</strong></th>
       <th><strong>Number of simulations</strong></th>
       <th><strong>Total core-hours</strong></th>
     </tr>
@@ -96,12 +97,12 @@ required.
   </tbody>
 </table>
 
-## CESM and WRF
+## CESM
 
 ### Community Earth System Model
 
 In the case of **CESM**, see the [timing tables](https://csegweb.cgd.ucar.edu/timing/cgi-bin/timings.cgi)
-provided by the CESM team at NCAR for information that will help you
+provided by the CESM team at NSF NCAR for information that will help you
 develop a statement of resource requirements for your project.
 
 The computational cost of CESM experiments typically is expressed in
@@ -114,38 +115,27 @@ Your allocation request should show that the number of years proposed
 and the model resolution chosen are sufficient and necessary to answer
 your scientific question(s).
 
-### Weather Research and Forecasting Model
-
-For **WRF** projects, review the guidance on our
-[Optimizing WRF performance](file:////display/RC/Optimizing+WRF+performance) page.
-Follow those recommendations as you do some benchmark runs to estimate
-the number of core-hours you will need for each planned simulation. Cite
-that page in your core-hour request and describe for the review panel
-how you estimated your resource requirements.
-
 ## Other codes and models
 
-Proposed experiments may be different enough from the documented CESM
-and WRF simulations that you need to run your code several times to
-determine how many core-hours you’ll need. If you are using other codes
-or models that do not have well-known or published performance
+If you are using codes or models that do not have well-known performance
 information, you will need to document the performance and scalability
-of your codes to complete your resource request. (A reference to a web
+of your codes to complete your resource request. A reference to a web
 site or paper with performance and scalability details for the code or
-model is acceptable for purposes of an allocation request.)
+model is acceptable for purposes of an allocation request.
 
-Presumably you’ve run your code on a multi-core system and have at least
-a general idea of what resources you will need in order to run at the
-same scale or larger on the Cheyenne or Casper systems.
+If no published timing results exist, you'll need to document your code's 
+timing yourself. Presumably you’ve run your code on a multi-core or GPU 
+system and have at least a general idea of what resources you will need 
+in order to run at the same scale or larger on the Derecho or Casper systems.
 
 To begin fine-tuning your general idea into a specific request for
 resources, consider these questions:
 
 - How large is any data set that you need to load?
 
-- How much memory needs to be available for you to complete a run? (The
-  [peak_memusage tool](../pbs/checking-memory-use/index.md) can tell
-  you how much memory your program uses.)
+- How much memory needs to be available for you to complete a run? The
+  [peak_memusage tool](https://ncar-hpc-docs-arc-iframe.readthedocs.io/pbs/checking-memory-use/) can tell
+  you how much memory your program uses.
 
 Your answers will help you calculate the minimum number of nodes you can
 use.
@@ -156,7 +146,7 @@ That minimum number of nodes can serve as your starting point unless you
 already know that a larger number will work. You may need anything from
 a few dozen to hundreds or thousands of cores.
 
-Document your code’s performance with test runs on the Cheyenne system
+Document your code’s performance with test runs on the Derecho system
 if possible, or on a reasonably similar platform and software stack. You
 will want to illustrate in a graph that your code performs well at
 increasingly higher scale, showing **at least four points** indicating
@@ -175,14 +165,13 @@ to use.
 Start by documenting the smallest run that you know will work. For
 example, say you’ve run your parallel code on a similar system using
 4,000 cores, or you’ve had an opportunity to do some similar-size test
-runs on Cheyenne. Do additional larger runs to demonstrate that the code
+runs on Derecho. Do additional larger runs to demonstrate that the code
 scales as you expect it to scale. To ensure accuracy, it can help to do
 several runs at each point on different days to detect variations that
-might result from changes in the machine’s workload.
-
-Based on the hypothetical results shown in Figure 1, a run could be done
-efficiently using 1,000 cores. The job would finish more quickly, using
-less wall-clock time, than it would using 400 cores.
+might result from changes in the machine’s workload. Based on the 
+hypothetical results shown in Figure 1, a run could be done efficiently 
+using 1,000 cores. The job would finish more quickly, using less 
+wall-clock time, than it would using 400 cores.
 
 To convert that into total core-hours needed for one type of simulation,
 multiply core-hours per simulation (the time needed to complete one
@@ -208,7 +197,7 @@ At some point, using more processors is likely to have little additional
 benefit, because the potential for increasing speed is limited by the
 ratio of serial to parallel code in the application. Figure 2 reflects
 such a scenario, which shows little or no performance benefit from using
-more than 5,000 cores. If you identify such a point in your test runs,
+more than 500 cores. If you identify such a point in your test runs,
 it would make little sense to base your allocation request on higher
 numbers of cores.
 
@@ -224,7 +213,7 @@ Describe how flexible your code is regarding the number of processors it
 can use and why you chose a certain number on which to base your
 request. It also is helpful to include information on the portability of
 the code to other platforms and on your team’s knowledge and experience
-with systems that are similar to Cheyenne.
+with systems that are similar to Derecho.
 
 Use these links to download sample proposals:
 
@@ -232,6 +221,6 @@ Use these links to download sample proposals:
 
 - [Example proposal 2](https://kb.ucar.edu/download/attachments/75694337/Example_Proposal_2_Fall2019%20%281%29.pdf?version=1&modificationDate=1627489279000&api=v2)
 
-They are specific to large university allocations but are good examples
+They are specific to university large-scale allocations but are good examples
 of documenting performance that you can follow for other types of
 requests.
