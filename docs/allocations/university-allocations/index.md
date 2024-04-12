@@ -23,13 +23,7 @@ While we often distinguish between the allocation opportunities based on
 the size of the HPC resource needs, most of these options allow you to
 request data analysis, visualization, and storage resources.
 
-*To see what HPC resource limits apply to each type of allocation, refer to **the table below**.
-
-**Small Derecho allocation requests** will be accepted after the system
-enters production later this year. In the meantime, interested
-researchers can request a Cheyenne allocation now, and CISL will provide
-guidance later about how to add Derecho to Small and Exploratory
-projects.
+*To see what HPC resource limits apply to each type of allocation, refer to* ***the table below***.
 
 <table>
 <colgroup>
@@ -58,22 +52,18 @@ projects.
 </tr>
 <tr class="even">
 <td><strong>Small</strong></td>
-<td>Cheyenne: 400,000 core-hours<br />
-Derecho: 1 million core-hours<br />
+<td>Derecho: 1 million core-hours<br />
 Derecho GPU: 2,500 GPU-hours</td>
-<td>Cheyenne: 400,000 core-hours<br />
-Derecho: 1 million core-hours<br />
+<td>Derecho: 1 million core-hours<br />
 Derecho GPU: 2,500 GPU-hours</td>
 <td>Continuous</td>
 <td>NSF award required</td>
 </tr>
 <tr class="odd">
 <td><strong>Exploratory &amp; Classroom</strong></td>
-<td>Cheyenne: 400,000 core-hours<br />
-Derecho: 500,000 core-hours<br />
+<td>Derecho: 500,000 core-hours<br />
 Derecho GPU: 1,500 GPU-hours</td>
-<td>Cheyenne: 400,000 core-hours<br />
-Derecho: 500,000 core-hours<br />
+<td>Derecho: 500,000 core-hours<br />
 Derecho GPU: 1,500 GPU-hours</td>
 <td>Continuous</td>
 <td>No external funding award</td>
@@ -143,21 +133,14 @@ allocation up to 12 months beyond the end of your NSF award.
 
 ## Small Allocations
 
-Small Derecho allocation requests will be accepted after the system
-enters production later this year. In the meantime, interested
-researchers can request a Cheyenne allocation now, and CISL will provide
-guidance later about how to add Derecho to Small and Exploratory
-projects.
+U.S. university researchers who are supported by an NSF award can
+request an initial small allocation of up to 1 million core-hours on Derecho
+and up to 2,500 GPU-hours on Derecho for each NSF award. 
+These allocations can be used to complete small projects or to conduct 
+initial runs in preparation for submitting a request for a large allocation.
 
 **Small requests can be submitted at any time and decisions are
 typically made within a few days.**
-
-U.S. university researchers who are supported by an NSF award can
-request an initial small allocation of up to 400,000 core-hours on
-Cheyenne; up to 1 million core-hours on Derecho; and up to 2,500
-GPU-hours on Derecho for each NSF award. These allocations can be used
-to complete small projects or to conduct initial runs in preparation for
-submitting a request for a large allocation.
 
 If needed to complete your work, you can request a *one-time supplement*
 to a small allocation – as much as doubling the total hours available
@@ -180,9 +163,9 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 *Resources for unsponsored graduate students, postdocs, and new faculty*
 
 A graduate student, post-doctoral researcher, or new faculty member at a
-U.S. university can request a one-time allocation of up to 400,000
-Cheyenne core-hours; 500,000 Derecho core-hours; and 1,500 Derecho
-GPU-hours. These awards typically support dissertations, help foster
+U.S. university can request a one-time allocation of up to 500,000 Derecho 
+core-hours and 1,500 Derecho GPU-hours. 
+These awards typically support dissertations, help foster
 early career research, or provide seed resources for pursuing funded
 research.
 
@@ -232,8 +215,7 @@ researchers from any eligible institution *regardless of the source of
 funding* for the planned analysis. Researchers are only required to
 identify the specific NCAR-hosted data sets that are essential to
 completing their science objectives. (Because of this expanded
-eligibility, Data Analysis projects cannot make use of Cheyenne or
-Derecho.)
+eligibility, Data Analysis projects cannot make use of Derecho.)
 
 Data Analysis allocations are made for one year, but may be extended up
 to two additional years to complete the original project.
