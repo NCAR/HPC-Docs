@@ -61,7 +61,8 @@ admin: [Getting started with object storage admin account](./getting-started-wit
 - Additional documentation is attached below.
 
 - The system is accessible only via the NCAR VPN. This is important
-  mostly for the browser-based access, since CISL anticipates that the
+  mostly for browser-based access to both the admin interface and to objects
+  in storage buckets with public read-access, since CISL anticipates that
   server-based access will be from an internal server anyway.
 
 - The access and secret credentials will be sent via email. They are all
