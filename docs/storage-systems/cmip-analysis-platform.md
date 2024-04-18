@@ -19,8 +19,8 @@ CISL’s GLADE disk storage resource.
 
 ## CMIP6 data sets on GLADE
 
-<iframe frameborder="1" height="1200" scrolling="yes" src="https://www.cisl.ucar.edu/uss/CMIP_AP/available_cmip6.html" width="640"></iframe></p>
+<iframe frameborder="1" height="1200" scrolling="yes" src="https://status.cisl.ucar.edu/uss/CMIP_AP/available_cmip6.html" width="640"></iframe></p>
 
 ## CMIP5 data sets on GLADE
 
-<p><iframe frameborder="1" height="1200" scrolling="yes" src="https://www.cisl.ucar.edu/uss/CMIP_AP/available_cmip5.html" width="640"></iframe></p>
+<p><iframe frameborder="1" height="1200" scrolling="yes" src="https://status.cisl.ucar.edu/uss/CMIP_AP/available_cmip5.html" width="640"></iframe></p>
