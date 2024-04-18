@@ -123,7 +123,7 @@ The next time you run `module avail`, you should see a new module called `parall
 
 ---
 
-## Examples
+## Additional Examples
 
 ### PETSc
 PETSc, the Portable, Extensible Toolkit for Scientific Computation, is for the scalable (parallel) solution of scientific applications modeled by partial differential equations (PDEs). It has bindings for C, Fortran, and Python. PETSc also contains TAO, the Toolkit for Advanced Optimization, software library. It supports MPI, and GPUs through CUDA, HIP, Kokkos, or OpenCL, as well as hybrid MPI-GPU parallelism.  See the [PETSc overview page for more information](https://petsc.org/release/overview/).
@@ -300,7 +300,7 @@ Many versions of PETSc are available through Spack, and each supports many optio
 As indicated above, Spack can be *very* complex and often requires iteration to behave as intended - this is certainly the case with PETSc.  Below we walk through some common issues and their resolution.
 
 As a first attempt, we use the `spec` subcommand to inspect the results of Spack's concretization. Inspecting the output of `spack spec -I -l petsc %oneapi@2023.2.1 ^cray-mpich@8.1.27` shows an incompatible mix of compilers are chosen for PETSc and some of its dependencies. (expand the box below for full details).
-??? danger "Simple `spack spec` concretization - *FAILS*"
+??? danger "Simple `spack spec` concretization - *FAILS to build*"
     In this case a first attempt to concretize the package produces an environment that will fail to compile.
     ```pre
     $ spack spec -I -l petsc %oneapi@2023.2.1 ^cray-mpich@8.1.27
@@ -361,11 +361,46 @@ As a first attempt, we use the `spec` subcommand to inspect the results of Spack
     [^]  g42iifh      ^zlib@1.2.13%gcc@7.5.0+optimize+pic+shared build_system=makefile arch=linux-sles15-x86_64_v3
     ```
 
+    The failure come when executing the installation:
+
+    ```pre
+    $ spack install petsc %oneapi@2023.2.1 ^cray-mpich@8.1.27
+    [+] /opt/cray/pe/mpich/8.1.27/ofi/intel/2022.1 (external cray-mpich-8.1.27-i2n4u72ceiuwlsxs3yfkfutpsmyjjsax)
+    [+] /usr (external diffutils-3.6-cmszzchvhq7tkk5l7yh4pyobhkyvggkp)
+    [+] /usr (external gmake-4.2.1-c6c6ilxfypykkx3h5cim2m2pwetff3am)
+    [+] /glade/u/apps/derecho/23.09/spack/opt/spack/libszip/2.1.1/gcc/7.5.0/cg5o
+    [+] /usr (external pkg-config-0.29.2-xexiyjrydh2tgkwyarrkuyypp5j5kk6u)
+    [+] /glade/u/apps/derecho/23.09/spack/opt/spack/zlib/1.2.13/gcc/7.5.0/g42i
+    [...]
+    [+] /glade/u/apps/derecho/23.09/spack/opt/spack/intel-oneapi-mkl/2023.2.0/oneapi/2023.2.1/vhs7
+    ==> Installing hypre-2.30.0-drtslglhhlr27zoepnx574uok2on6nlj [41/43]
+    ==> No binary for hypre-2.30.0-drtslglhhlr27zoepnx574uok2on6nlj found: installing from source
+    ==> Using cached archive: /glade/derecho/scratch/benkirk/temp/spack/cache/_source-cache/archive/8e/8e2af97d9a25bf44801c6427779f823ebc6f306438066bba7fcbc2a5f9b78421.tar.gz
+    ==> No patches needed for hypre
+    ==> hypre: Executing phase: 'autoreconf'
+    ==> hypre: Executing phase: 'configure'
+    ==> Error: ProcessError: Command exited with status 77:
+        '/glade/derecho/scratch/benkirk/temp/spack/derecho/23.09/builds/spack-stage-hypre-2.30.0-drtslglhhlr27zoepnx574uok2on6nlj/spack-src/src/configure' '--prefix=/glade/work/benkirk/spack-downstreams/derecho/23.09/opt/spack/hypre/2.30.0/cray-mpich/8.1.27/gcc/7.5.0/drts' '--prefix=/glade/work/benkirk/spack-downstreams/derecho/23.09/opt/spack/hypre/2.30.0/cray-mpich/8.1.27/gcc/7.5.0/drts' '--with-lapack-libs=mkl_intel_lp64 mkl_sequential mkl_core pthread m dl' '--with-lapack-lib-dirs=/glade/u/apps/derecho/23.09/spack/opt/spack/intel-oneapi-mkl/2023.2.0/oneapi/2023.2.1/vhs7/mkl/2023.2.0/lib/intel64 /usr/lib64' '--with-blas-libs=openblas64_' '--with-blas-lib-dirs=/glade/u/apps/derecho/23.09/spack/opt/spack/openblas/0.3.23/gcc/7.5.0/t4v7/lib' '--with-MPI' '--with-MPI-lib-dirs=/opt/cray/pe/mpich/8.1.27/ofi/intel/2022.1/lib' '--with-MPI-include=/opt/cray/pe/mpich/8.1.27/ofi/intel/2022.1/include' '--without-openmp' '--disable-bigint' '--disable-mixedint' '--disable-complex' '--enable-shared' '--without-superlu' '--without-mli' '--without-fei' '--disable-debug' '--without-cuda' '--disable-curand' '--disable-cusparse' '--without-hip' '--disable-rocrand' '--disable-rocsparse' '--enable-fortran'
+
+    2 errors found in build log:
+         33    checking build system type... x86_64-pc-linux-gnu
+         34    checking host system type... x86_64-pc-linux-gnu
+         35    checking whether make sets $(MAKE)... yes
+         36    checking for ranlib... ranlib
+         37    checking for gcc... /opt/cray/pe/mpich/8.1.27/ofi/intel/2022.1/bin/mpicc
+         38    checking whether the C compiler works... no
+      >> 39    configure: error: in `/glade/derecho/scratch/benkirk/temp/spack/derecho/23.09/builds/spack-stage-hypre-2.30.0-drtslglhhlr27zoepnx574uok2on6nlj/spack-src/src':
+      >> 40    configure: error: C compiler cannot create executables
+         41    See `config.log' for more details
+    ```
+
+    The root cause of this failure is that Spack is trying to build the `hypre` dependency with the base OS compiler (`gcc@7.5.0`), however this compiler is incompatible with the system MPI implementation.
+
 
 
 To fix this issue we need to be very explicit with the concretization by requiring the additional dependencies to be compiled with the same compiler.
 
-???+ example "Fully specified `spack spec` concretization - *succeeds*"
+???+ example "Fully specified `spack spec` concretization - *build succeeds*"
     === "CPU+GPU"
         ```pre
         $ spack spec -I -l petsc+cuda cuda_arch=80 %gcc@12.2.0 ^cray-mpich@8.1.27 ^hypre+cuda%gcc@12.2.0 cuda_arch=80 ^superlu-dist+cuda%gcc@12.2.0 cuda_arch=80
