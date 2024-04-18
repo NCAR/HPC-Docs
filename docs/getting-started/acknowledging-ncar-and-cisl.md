@@ -199,7 +199,7 @@ Yellowstone ARK (<http://n2t.net/ark:/85065/d7wd3xhc>) for the DOI.
 ## For CMIP Analysis Platform projects
 
 See this [CMIP Analysis Platform
-documentation](https://www2.cisl.ucar.edu/resources/cmip-analysis-platform#terms) for
+documentation](https://www.cisl.ucar.edu/resources/cmip-analysis-platform#terms) for
 how to acknowledge NSF NCAR/CISL support and for information on other
 requirements related to the use of CMIP data.
 

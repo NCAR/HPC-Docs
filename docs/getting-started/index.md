@@ -11,12 +11,12 @@ That’s all — really!
 
 ## Here's how to start
 
-* Check out [what we offer](https://www2.cisl.ucar.edu/computing-data) to confirm that Derecho meets your project’s needs.
+* Check out [what we offer](https://www.cisl.ucar.edu/computing-data) to confirm that Derecho meets your project’s needs.
 * Visit the [allocations](https://arc.ucar.edu/xras_submit/opportunities) page on the [ARC Portal](https://arc.ucar.edu/).
 * Make sure you are signed in, or create a new profile.
 * Click [Opportunities](https://arc.ucar.edu/xras_submit/opportunities).
 * Select a project type. You may refer to [project type descriptions](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/).
-* Fill out a brief request form with information about your project. 
+* Fill out a brief request form with information about your project.
 * Our team will review your request — most requests are approved within a day or two.
 * You can keep track of your request’s status through the [“My Allocations”](https://arc.ucar.edu/xras_submit/opportunities) tab.
 

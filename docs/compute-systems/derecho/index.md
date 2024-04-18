@@ -132,7 +132,7 @@ Users already familiar with PBS and batch submission may find [Derecho-specific 
 ##  Status
 
 ### Nodes
-<p align="left"><iframe width="680" height="650" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_nodes.html"></iframe></p>
+<p align="left"><iframe width="680" height="650" frameborder="0" src="https://status.cisl.ucar.edu/uss/queues_table/derecho_nodes.html"></iframe></p>
 
 ### Queues
-<p align="left"><iframe width="680" height="440" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/derecho_queues.html"></iframe></p>
+<p align="left"><iframe width="680" height="440" frameborder="0" src="https://status.cisl.ucar.edu/uss/queues_table/derecho_queues.html"></iframe></p>
