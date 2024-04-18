@@ -145,9 +145,9 @@ projects.
 typically made within a few days.**
 
 U.S. university researchers who are supported by an NSF award can
-request an initial small allocation of up to 1 million core-hours on Derecho; 
-and up to 2,500 GPU-hours on Derecho for each NSF award. These allocations 
-can be used to complete small projects or to conduct initial runs in 
+request an initial small allocation of up to 1 million core-hours on Derecho;
+and up to 2,500 GPU-hours on Derecho for each NSF award. These allocations
+can be used to complete small projects or to conduct initial runs in
 preparation for submitting a request for a large allocation.
 
 If needed to complete your work, you can request a *one-time supplement*
@@ -171,9 +171,9 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 *Resources for unsponsored graduate students, postdocs, and new faculty*
 
 A graduate student, post-doctoral researcher, or new faculty member at a
-U.S. university can request a one-time allocation of up to 500,000 Derecho 
-core-hours or 1,500 Derecho GPU-hours. These awards typically support 
-dissertations, help foster early career research, or provide seed resources 
+U.S. university can request a one-time allocation of up to 500,000 Derecho
+core-hours or 1,500 Derecho GPU-hours. These awards typically support
+dissertations, help foster early career research, or provide seed resources
 for pursuing funded research.
 
 An individual can request a new exploratory project at each stage of
@@ -214,7 +214,7 @@ Earth system scientists can request access to NSF NCAR’s
 [Casper data analysis cluster](../../compute-systems/casper/index.md) and the
 [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-project-space)
 to allow them to conduct analyses on data sets curated by
-[NSF NCAR data services](https://www2.cisl.ucar.edu/computing-data/data) and accessible
+[NSF NCAR data services](https://www.cisl.ucar.edu/computing-data/data) and accessible
 via our storage systems.
 
 We are pleased to make Data Analysis allocations available to

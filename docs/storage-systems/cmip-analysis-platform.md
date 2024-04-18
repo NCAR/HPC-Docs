@@ -13,7 +13,7 @@ CISL’s GLADE disk storage resource.
 
     If what you need is not already on GLADE, please review the
     additional documentation in
-    [the Data Services section](https://www2.cisl.ucar.edu/computing-data/data/cmip-analysis-platform)
+    [the Data Services section](https://www.cisl.ucar.edu/computing-data/data/cmip-analysis-platform)
     of the CISL web site and submit a request.
 
 

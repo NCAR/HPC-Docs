@@ -27,7 +27,7 @@ Campaign Storage**. How to make transfers to and from that collection is
 documented here: [Globus file transfers](../data-transfer/globus/index.md).
 
 How to make transfers using the command line interface also is covered
-in detail in this tutorial: [Using Globus v5 at NCAR (tutorial)](https://www2.cisl.ucar.edu/events/using-globus-v5-ncar).
+in detail in this tutorial: [Using Globus v5 at NCAR (tutorial)](https://www.cisl.ucar.edu/events/using-globus-v5-ncar).
 
 CAVEAT: The Globus interface for transferring data does not handle
 symbolic links and does not create symbolic links on a destination
