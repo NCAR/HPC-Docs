@@ -1,35 +1,6 @@
-# Eligibility is simple
+# Accounts
 
-* To use Derecho, you must be a U.S.-based researcher.
-* Your research must be in the Earth system sciences or related to Earth system science.
-* Most projects require an NSF award, but we do offer access to graduate students, postdocs, new faculty, and for classroom use or data analysis without NSF funding.
-
-That’s all — really!
-
-
-# Here's how to start
-
-* Check out [what we offer](https://www2.cisl.ucar.edu/computing-data) to confirm that Derecho meets your project’s needs.
-* Visit the [allocations](https://arc.ucar.edu/xras_submit/opportunities) page on the [ARC Portal](https://arc.ucar.edu/).
-* Make sure you are signed in, or create a new profile.
-* Click [Opportunities](https://arc.ucar.edu/xras_submit/opportunities).
-* Select a project type. You may refer to [project type descriptions](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/).
-* Fill out a brief request form with information about your project. 
-* Our team will review your request — most requests are approved within a day or two.
-* You can keep track of your request’s status through the [“My Allocations”](https://arc.ucar.edu/xras_submit/opportunities) tab.
-
-
-# We're here to help
-
-Having a problem? No worries.
-
-* If you have a question, check out our comprehensive [user documentation](https://arc.ucar.edu/knowledge_base/61767794).
-* If you need to speak with a human, contact the Help Desk — our [team of live consultants](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) is happy to communicate with you personally to solve your problem.
-
-Getting back on track is quick and easy!
-
-
-# Authentication and security
+## Authentication and security
 
 Individuals who are granted access to the computing and storage
 resources that CISL manages use their assigned user names and one of the
@@ -41,7 +12,7 @@ shared with anyone. If sharing is detected, CISL will disable the
 accounts of those involved. The same applies to passwords that give
 users access to internal UCAR systems.
 
-UCAR and NCAR computers, computing systems, and associated
+UCAR and NSF NCAR computers, computing systems, and associated
 communications systems are to be used for official business only. By
 signing the required authentication acknowledgement form, you agree not
 to misuse these resources, and you accept responsibility for activity
@@ -69,18 +40,12 @@ As a user, you have an important role in ensuring the security of these
 resources. In addition to protecting the passwords, PINS, and tokens
 that give you access to our systems, we ask that you do the following:
 
-### Loss, theft, or compromise
+### Protecting your Duo app
 
-Loss, theft, or compromise of a YubiKey must be reported within 48 hours
-to the Research Computing Help Desk at x2400 (303-497-2400). Quick
-reporting will help the organization minimize security risk.
-
-### Protecting your Duo app or YubiKey token
-
-You must protect your Duo or YubiKey solution by agreeing to the
+You must protect your Duo solution by agreeing to the
 following:
 
-- Your YubiKey token or Duo application will remain in your custody and
+- Your Duo application will remain in your custody and
   is for your use only; it may not be shared.
 
 - You will immediately (within 48 hours) report loss of custody of your
@@ -112,21 +77,21 @@ for other computers and systems.
 
 ### Patch your systems and use anti-virus software
 
-This applies to any computer from which you log in to UCAR and NCAR
+This applies to any computer from which you log in to UCAR and NSF NCAR
 systems. If you are using your own personal computer or another non-UCAR
-or non-NCAR computer, be sure that it is kept up to date with the latest
+or non-NSF NCAR computer, be sure that it is kept up to date with the latest
 software patches and anti-virus protection.
 
 If you are planning to visit UCAR and bringing your own computer,
 discuss wireless and guest network access with your UCAR contact before
 you arrive. Procedures regarding guest network access also apply to
-personally owned computers that UCAR and NCAR staff bring in.
+personally owned computers that UCAR and NSF NCAR staff bring in.
 
 ### Be careful
 
 Be aware of email scams and so-called "social engineering" methods that
 hackers and fraudsters use to gain access to passwords and other
-information. Never give anyone your password. UCAR and NCAR system
+information. Never give anyone your password. UCAR and NSF NCAR system
 administrators will not ask you for your password via phone or email.
 
 ### Other cautions

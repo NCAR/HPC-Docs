@@ -132,6 +132,648 @@ Optimized Tensorflow and PyTorch models are available directly from the NGC.
 
 ---
 
+## Building and running containerized WRF under MPI
+!!! warning inline end
+    While we strongly encourage users to keep up with the latest [WRF releases](https://www.mmm.ucar.edu/models/wrf), we recognize some users may have customized older versions WRF for particular purposes and porting these changes can pose a significant burden.
+
+    In such cases containerization offers a viable (if unpalatable) option for running old code that may be difficult or impossible to compile unchanged on Derecho.
+
+This example demonstrates building general purpose containers to facilitate compiling old versions of WRF.
+
+### Containerization approach
+
+The container is built **off-premises** with `docker` from three related images, each providing a foundation for the next.  We begin with an
+
+1.  OpenSUSE version 15 operating system (chosen to maximize Derecho interoperability) with a number of WRF dependencies installed,
+2.  then add relevant compilers, MPI, and NetCDF,
+3.  then compile various versions of WRF and WPS to demonstrate functionality.
+
+The full set of `Dockerfile`s and associated resources can be found on [GitHub](https://github.com/benkirk/containers/tree/main/containers/NCAR/derecho/WRF).
+#### The base layer
+???+ example "The OpenSUSE 15 base layer"
+    The base layer is the common foundation of components independent of the compiler suite ultimately used for WRF/WPS.  It includes the operating system image along with relevant packages installed from package repositories.
+
+
+    ```pre title="NCAR/derecho/WRF/base/Dockerfile" linenums="1"
+    ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/base/Dockerfile"
+    ```
+    **Dockerfile Steps**
+
+    1. The image begins with a minimal OpenSUSE v15 image, and adds a utility script `docker-clean` copied from the build host.
+    2. The first `RUN` instruction updates the OS image, creates the `/container` workspace, and installs a minimal development environment (compilers, file utilities etc...).
+    3. The second `RUN` instruction installs specific packages required by the WRF & WPS build system and build dependencies. We elect here to install HDF5 from the OpenSUSE package repository as a matter of convenience - it is required later to build NetCDF from source, and the packaged version is entirely adequate for that purpose.  (Should the user want advanced capabilities within HDF5 it may be necessary instead to compile HDF5 from source.)
+    4. The remaining `RUN` instructions modify the image to expose our customization through environment configuration through a "source-able" file (`/container/config_env.sh`) and also to comply with the (occasionally overly restrictive) expectations of the WRF build system.  For example, the base OS image supplies the PNG library as `-L/usr/lib64 -libpng16`, whereas WRF expects `-L/usr/lib64 -libpng`.  We also install an old version of the Jasper library from source using the system `gcc` compiler.  While a newer version of Jasper is available directly from the OpenSUSE package repository, this version is too new for certain older WPS releases.
+    5. Finally, we set several environment variables used by the WRF/WPS build systems later on through `ENV` instructions.
+
+    **Discussion**
+
+    - Notice that each `RUN` step is finalized with a [`docker-clean` command](https://github.com/benkirk/containers/blob/main/extras/docker-clean).  This utility script removes temporary files and cached data to minimize the size of the resulting image layers.  One consequence is that the first `zypper` package manager interaction in a `RUN` statement will re-cache these data.  Since cached data are not relevant in the final image - especially when run much later on - we recommend removing it to reduce image bloat.
+    - We choose `/container` as the base path for all 3rd-party and compiled software so that when running containers from this image it is obvious what files come from the image vs. the host file system.
+    - We generally choose to add the search paths for compiled libraries to the "system" (container) default search paths rather than rely on `LD_LIBRARY_PATH`.  Since we are installing single versions of the necessary libraries this approach is viable, and makes the resulting development environment less fragile.
+
+#### The compiler + dependencies layer
+Next we will extend the base layer to include 3rd-party compilers, a particular MPI (configured for maximum compatibility with Derecho), and NetCDF.  We proceed on three parallel paths:
+
+  1. Installing an old version the Intel "classic" compilers compatible with WRF versions 3 and 4;
+  2. Using the OpenSUSE-provided `gcc` version 7.5.0; and
+  3. Installing a recent version of the `nvhpc` compilers, which provide the legacy Portland Group `pgf90` compiler supported by WRF/WPS.
+
+Testing has shown the `Intel` variant of the following recipes to be the most performant, while the `gcc` version results in the smallest container image. Our intent here with showing all three options is primarily educational, and may provide solutions to issues encountered in related workflows.
+
+
+???+ example "Adding compilers, MPI, and dependencies"
+
+    === "Intel"
+        !!! note
+            Note that the Intel compiler is licensed software and usage is subject to terms of the [End User License Agreements (EULA)](https://www.intel.com/content/www/us/en/developer/articles/license/end-user-license-agreement.html).  As indicated in the `Dockerfile` below, usage of this software is contingent on accepting the terms of the license agreement.
+        ```pre title="NCAR/derecho/WRF/intel-build-environment" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/intel-build-environment/Dockerfile"
+        ```
+        Note that in the first `RUN` instruction we install the Intel C/C++ and Fortran compilers, and also clean up the installation tree by removing unnecessary components (lines 13-15).  By combining these steps into a single `RUN` instruction we reduce the size of the "layer" produced, and the resulting image size.  We can remove these components because they are not required to support WRF/WPS later.  This step may need to be adapted if used to support other codes.
+
+
+    === "GCC"
+        ```pre title="NCAR/derecho/WRF/gcc-build-environment" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/gcc-build-environment/Dockerfile"
+        ```
+
+    === "NVHPC"
+        !!! warning "For demonstration purposes only"
+            Testing has shown the `nvhpc` variant does not offer any performance benefits vs. the Intel or GCC variants, and therefore is not recommended for production runs. It is provided for demonstration purposes only, and in hopes it may prove useful for other projects that have a critical dependency on this particular compiler suite.
+        !!! note
+            Note that the NVHPC compiler is licensed software and usage is subject to terms of the [End User License Agreements (EULA)](https://docs.nvidia.com/hpc-sdk//eula/index.html).
+        ```pre title="NCAR/derecho/WRF/nvhpc-build-environment" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/nvhpc-build-environment/Dockerfile"
+        ```
+        Note that in the first `RUN` instruction we install the NVHPC C/C++ and Fortran compilers, and also clean up the installation tree by removing unnecessary components (lines 20-21).  By combining these steps into a single `RUN` instruction we reduce the size of the "layer" produced, and the resulting image size.  We can remove these components because they are not required to support WRF/WPS later.  This step may need to be adapted if used to support other codes.
+
+    **Dockerfile Steps**
+
+    1. We begin by installing the desired compiler suite (Intel & NVHPC cases). For GCC, the compilers already exist from the base layer.
+    2. We then install NetCDF using the chosen compilers. We need to provide the Fortran interface to NetCDF, which is why we install from source here using our chosen compiler rather than selecting available versions from the package repository (as was the case with HDF5).
+        - The options `--disable-byterange`, `--disable-dap`, and `--disable-libxml2` are specified to prevent NetCDF from requiring additional dependencies (unnecessary for our WRF/WPS use case) we chose not to install in the base layer.
+        - The option `--disable-dependency-tracking` is common to all GNU Automake packages and allows us to [speed up one-time-only builds](https://www.gnu.org/software/automake/manual/html_node/Dependency-Tracking.html) by skipping Automake's automated dependency generation.
+    3. Finally, we install MPICH using the chosen compilers.
+
+    **Discussion**
+
+    Note that MPICH is necessary within the container in order to support building WRF.  At runtime we will ultimately "replace" the container's MPICH with `cray-mpich` on Derecho. For this to work properly, it is important the two implementations be ABI compatible, and that we are able to replace any container MPI shared libraries by their host counterpart.  Since `cray-mpich` is derived from the open-source MPICH-3.x, the version choice and configuration options here are very deliberate, and also this is why we do NOT add this MPI to the system library search path.
+
+
+#### The WRF/WPS layer
+
+The final step is to used the development environment built up in the previous two steps to compile WRF and WPS.  As an exercise to assess the completeness of the environment we choose to install the latest versions of WRF/WPS (4.x) as well as the most recent release of the 3.x series, including both default WRF as well as WRF-Chem compilations. Inside the container we build WRF, WRF-Chem, and WPS according to compiler-version specific recipes (listed below).
+
+
+???+ example "Adding WRF & WPS"
+
+    === "Intel"
+        ```pre title="NCAR/derecho/WRF/intel" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/intel/Dockerfile"
+        ```
+        **Build Scripts**
+
+          - [`build_wrf.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/intel/more_extras/build_wrf.sh)
+          - [`build_wrf_chem.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/intel/more_extras/build_wrf_chem.sh)
+          - [`build_wps.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/intel/more_extras/build_wps.sh)
+
+
+    === "GCC"
+        ```pre title="NCAR/derecho/WRF/gcc" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/gcc/Dockerfile"
+        ```
+        **Build Scripts**
+
+          - [`build_wrf.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/gcc/more_extras/build_wrf.sh)
+          - [`build_wrf_chem.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/gcc/more_extras/build_wrf_chem.sh)
+          - [`build_wps.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/gcc/more_extras/build_wps.sh)
+
+
+    === "NVHPC"
+        !!! warning "For demonstration purposes only"
+            Testing has shown the `nvhpc` variant does not offer any performance benefits vs. the Intel or GCC variants, and therefore is not recommended for production runs. It is provided for demonstration purposes only, and in hopes it may prove useful for other projects that have a critical dependency on this particular compiler suite.
+        ```pre title="NCAR/derecho/WRF/nvhpc" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/NCAR/derecho/WRF/nvhpc/Dockerfile"
+        ```
+        **Build Scripts**
+
+          - [`build_wrf.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/nvhpc/more_extras/build_wrf.sh)
+          - [`build_wrf_chem.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/nvhpc/more_extras/build_wrf_chem.sh)
+          - [`build_wps.sh`](https://github.com/benkirk/containers/blob/main/containers/NCAR/derecho/WRF/nvhpc/more_extras/build_wps.sh)
+
+    **Dockerfile Steps**
+
+    1. We begin by cloning specific versions of WRF/WPS.  To reduce image size, we clone only the relevant branch and not the full `git` repository history.
+    2. Next we install the build recipes for the specific compiler suite.
+    3. Finally, we compile WRF, then WRF-Chem, and WPS, version 3.x then 4.x - taking care at each step to clean intermediate files to limit the size of the container layers.
+
+    ---
+
+    The completed images are then pushed to [DockerHub](https://hub.docker.com/search?q=ncar-derecho-wrf).
+
+### Deploying the container on NCAR's HPC resources with Apptainer
+All the previous steps were performed off-premises with a Docker installation.  We can now deploy the resulting container images with Apptainer.  We construct a Singularity Image File (`.sif`) image from the DockerHub image, and also a convenience shell script that allows us to launch the container for interactive use.
+
+???+ example "Constructing SIF images & using the container interactively as a development environment"
+    The `Deffile` below simply pulls the desired image from DockerHub and performs shell initialization for interactive use.  We also print some information on the configuration that is displayed when the user launches the container via `singularity run`.
+
+    === "Intel"
+        ```pre title="ncar-derecho-wrf-intel.sif" linenums="1"
+        Bootstrap: docker
+        From: benjaminkirk/ncar-derecho-wrf-intel:latest
+
+        %post
+            echo "source /container/config_env.sh" >> ${SINGULARITY_ENVIRONMENT}
+
+        %runscript
+
+            cat <<EOF
+        Welcome to "$(basename ${SINGULARITY_NAME} .sif)"
+
+        #----------------------------------------------------------
+        # MPI Compilers & Version Details:
+        #----------------------------------------------------------
+        $(which mpicc)
+        $(mpicc --version)
+
+        $(which mpif90)
+        $(mpif90 --version)
+
+        $(mpichversion)
+
+        #----------------------------------------------------------
+        # WRF/WPS-Centric Environment:
+        #----------------------------------------------------------
+        JASPERINC=${JASPERINC}
+        JASPERLIB=${JASPERLIB}
+        HDF5=${HDF5}
+        NETCDF=${NETCDF}
+
+        FLEX_LIB_DIR=${FLEX_LIB_DIR}
+        YACC=${YACC}
+        LIB_LOCAL=${LIB_LOCAL}
+        #----------------------------------------------------------
+
+        #----------------------------------------------------------
+        # Pre-compiled executables:
+        #----------------------------------------------------------
+        $(find /container/w*-*/ -name "*.exe" | sort)
+        #----------------------------------------------------------
+        EOF
+            # start bash, resulting in an interactive shell.
+            # but ignore any user ~/.profile etc... which would be coming
+            # from the host
+            /bin/bash --noprofile --norc
+        ```
+        We can build `ncar-derecho-wrf-intel.sif` from `ncar-derecho-wrf-intel.def` as
+        [described here](./working_with_containers.md#building-a-container-from-a-definition-file).
+
+        The simple utility script `wrf_intel_env` allows us to easily interact with the container.
+        ```bash title="wrf_intel_env" linenums="1"
+        #!/bin/bash
+
+        selfdir="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+
+        module load apptainer || exit 1
+
+        singularity \
+            --quiet \
+            run \
+            --cleanenv \
+            -B /glade \
+            ${selfdir}/ncar-derecho-wrf-intel.sif
+        ```
+        For example,
+        ```pre
+        derecho$ ./wrf_intel_env
+        Welcome to "ncar-derecho-wrf-intel"
+
+        #----------------------------------------------------------
+        # MPI Compilers & Version Details:
+        #----------------------------------------------------------
+        /container/mpich/bin/mpicc
+        icc (ICC) 2021.7.1 20221019
+        Copyright (C) 1985-2022 Intel Corporation.  All rights reserved.
+
+        /container/mpich/bin/mpif90
+        ifort (IFORT) 2021.7.1 20221019
+        Copyright (C) 1985-2022 Intel Corporation.  All rights reserved.
+
+        MPICH Version:    	3.4.3
+        MPICH Release date:	Thu Dec 16 11:20:57 CST 2021
+        MPICH Device:    	ch4:ofi
+        MPICH CC: 	/container/intel/compiler/2022.2.1/linux/bin/intel64/icc    -O2
+        MPICH CXX: 	/container/intel/compiler/2022.2.1/linux/bin/intel64/icpc   -O2
+        MPICH F77: 	/container/intel/compiler/2022.2.1/linux/bin/intel64/ifort   -O2
+        MPICH FC: 	/container/intel/compiler/2022.2.1/linux/bin/intel64/ifort   -O2
+        MPICH Custom Information:
+
+        #----------------------------------------------------------
+        # WRF/WPS-Centric Environment:
+        #----------------------------------------------------------
+        JASPERINC=/container/jasper/1.900.1/include
+        JASPERLIB=/container/jasper/1.900.1/lib
+        HDF5=
+        NETCDF=/container/netcdf
+
+        FLEX_LIB_DIR=/usr/lib64
+        YACC=/usr/bin/byacc -d
+        LIB_LOCAL=
+        #----------------------------------------------------------
+
+        #----------------------------------------------------------
+        # Pre-compiled executables:
+        #----------------------------------------------------------
+        /container/wps-3.9.1/avg_tsfc.exe
+        /container/wps-3.9.1/calc_ecmwf_p.exe
+        /container/wps-3.9.1/g1print.exe
+        /container/wps-3.9.1/g2print.exe
+        /container/wps-3.9.1/geogrid.exe
+        /container/wps-3.9.1/height_ukmo.exe
+        /container/wps-3.9.1/int2nc.exe
+        /container/wps-3.9.1/metgrid.exe
+        /container/wps-3.9.1/mod_levs.exe
+        /container/wps-3.9.1/rd_intermediate.exe
+        /container/wps-3.9.1/ungrib.exe
+        /container/wps-4.5/avg_tsfc.exe
+        /container/wps-4.5/calc_ecmwf_p.exe
+        /container/wps-4.5/g1print.exe
+        /container/wps-4.5/g2print.exe
+        /container/wps-4.5/geogrid.exe
+        /container/wps-4.5/height_ukmo.exe
+        /container/wps-4.5/int2nc.exe
+        /container/wps-4.5/metgrid.exe
+        /container/wps-4.5/mod_levs.exe
+        /container/wps-4.5/rd_intermediate.exe
+        /container/wps-4.5/ungrib.exe
+        /container/wrf-3.9.1.1/ndown.exe
+        /container/wrf-3.9.1.1/real.exe
+        /container/wrf-3.9.1.1/tc.exe
+        /container/wrf-3.9.1.1/wrf.exe
+        /container/wrf-4.5.2/ndown.exe
+        /container/wrf-4.5.2/real.exe
+        /container/wrf-4.5.2/tc.exe
+        /container/wrf-4.5.2/wrf.exe
+        /container/wrf-chem-3.9.1.1/ndown.exe
+        /container/wrf-chem-3.9.1.1/real.exe
+        /container/wrf-chem-3.9.1.1/tc.exe
+        /container/wrf-chem-3.9.1.1/wrf.exe
+        /container/wrf-chem-4.5.2/ndown.exe
+        /container/wrf-chem-4.5.2/real.exe
+        /container/wrf-chem-4.5.2/tc.exe
+        /container/wrf-chem-4.5.2/wrf.exe
+        #----------------------------------------------------------
+        WRF-intel-dev>
+        ```
+        produces an interactive shell environment with access to the GLADE file systems and the containerized build environment.
+
+    === "GCC"
+        ```pre title="ncar-derecho-wrf-gcc.sif" linenums="1"
+        Bootstrap: docker
+        From: benjaminkirk/ncar-derecho-wrf-gcc:latest
+
+        %post
+            echo "source /container/config_env.sh" >> ${SINGULARITY_ENVIRONMENT}
+
+        %runscript
+
+            cat <<EOF
+        Welcome to "$(basename ${SINGULARITY_NAME} .sif)"
+
+        #----------------------------------------------------------
+        # MPI Compilers & Version Details:
+        #----------------------------------------------------------
+        $(which mpicc)
+        $(mpicc --version)
+
+        $(which mpif90)
+        $(mpif90 --version)
+
+        $(mpichversion)
+
+        #----------------------------------------------------------
+        # WRF/WPS-Centric Environment:
+        #----------------------------------------------------------
+        JASPERINC=${JASPERINC}
+        JASPERLIB=${JASPERLIB}
+        HDF5=${HDF5}
+        NETCDF=${NETCDF}
+
+        FLEX_LIB_DIR=${FLEX_LIB_DIR}
+        YACC=${YACC}
+        LIB_LOCAL=${LIB_LOCAL}
+        #----------------------------------------------------------
+
+        #----------------------------------------------------------
+        # Pre-compiled executables:
+        #----------------------------------------------------------
+        $(find /container/w*-*/ -name "*.exe" | sort)
+        #----------------------------------------------------------
+        EOF
+            # start bash, resulting in an interactive shell.
+            # but ignore any user ~/.profile etc... which would be coming
+            # from the host
+            /bin/bash --noprofile --norc
+        ```
+        We can build `ncar-derecho-wrf-gcc.sif` from `ncar-derecho-wrf-gcc.def` as
+        [described here](./working_with_containers.md#building-a-container-from-a-definition-file).
+
+        The simple utility script `wrf_gcc_env` allows us to easily interact with the container.
+        ```bash title="wrf_gcc_env" linenums="1"
+        #!/bin/bash
+
+        selfdir="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+
+        module load apptainer || exit 1
+
+        singularity \
+            --quiet \
+            run \
+            --cleanenv \
+            -B /glade \
+            ${selfdir}/ncar-derecho-wrf-gcc.sif
+        ```
+        For example,
+        ```pre
+        Welcome to "ncar-derecho-wrf-gcc"
+
+        #----------------------------------------------------------
+        # MPI Compilers & Version Details:
+        #----------------------------------------------------------
+        /container/mpich/bin/mpicc
+        gcc (SUSE Linux) 7.5.0
+        Copyright (C) 2017 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+        /container/mpich/bin/mpif90
+        GNU Fortran (SUSE Linux) 7.5.0
+        Copyright (C) 2017 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+        MPICH Version:    	3.4.3
+        MPICH Release date:	Thu Dec 16 11:20:57 CST 2021
+        MPICH Device:    	ch4:ofi
+        MPICH CC: 	/usr/bin/gcc    -O2
+        MPICH CXX: 	/usr/bin/g++   -O2
+        MPICH F77: 	/usr/bin/gfortran   -O2
+        MPICH FC: 	/usr/bin/gfortran   -O2
+        MPICH Custom Information:
+
+        #----------------------------------------------------------
+        # WRF/WPS-Centric Environment:
+        #----------------------------------------------------------
+        JASPERINC=/container/jasper/1.900.1/include
+        JASPERLIB=/container/jasper/1.900.1/lib
+        HDF5=
+        NETCDF=/container/netcdf
+
+        FLEX_LIB_DIR=/usr/lib64
+        YACC=/usr/bin/byacc -d
+        LIB_LOCAL=
+        #----------------------------------------------------------
+
+        #----------------------------------------------------------
+        # Pre-compiled executables:
+        #----------------------------------------------------------
+        /container/wps-3.9.1/avg_tsfc.exe
+        /container/wps-3.9.1/calc_ecmwf_p.exe
+        /container/wps-3.9.1/g1print.exe
+        /container/wps-3.9.1/g2print.exe
+        /container/wps-3.9.1/geogrid.exe
+        /container/wps-3.9.1/height_ukmo.exe
+        /container/wps-3.9.1/int2nc.exe
+        /container/wps-3.9.1/metgrid.exe
+        /container/wps-3.9.1/mod_levs.exe
+        /container/wps-3.9.1/rd_intermediate.exe
+        /container/wps-3.9.1/ungrib.exe
+        /container/wps-4.5/avg_tsfc.exe
+        /container/wps-4.5/calc_ecmwf_p.exe
+        /container/wps-4.5/g1print.exe
+        /container/wps-4.5/g2print.exe
+        /container/wps-4.5/geogrid.exe
+        /container/wps-4.5/height_ukmo.exe
+        /container/wps-4.5/int2nc.exe
+        /container/wps-4.5/metgrid.exe
+        /container/wps-4.5/mod_levs.exe
+        /container/wps-4.5/rd_intermediate.exe
+        /container/wps-4.5/ungrib.exe
+        /container/wrf-3.9.1.1/ndown.exe
+        /container/wrf-3.9.1.1/real.exe
+        /container/wrf-3.9.1.1/tc.exe
+        /container/wrf-3.9.1.1/wrf.exe
+        /container/wrf-4.5.2/ndown.exe
+        /container/wrf-4.5.2/real.exe
+        /container/wrf-4.5.2/tc.exe
+        /container/wrf-4.5.2/wrf.exe
+        /container/wrf-chem-3.9.1.1/ndown.exe
+        /container/wrf-chem-3.9.1.1/real.exe
+        /container/wrf-chem-3.9.1.1/tc.exe
+        /container/wrf-chem-3.9.1.1/wrf.exe
+        /container/wrf-chem-4.5.2/ndown.exe
+        /container/wrf-chem-4.5.2/real.exe
+        /container/wrf-chem-4.5.2/tc.exe
+        /container/wrf-chem-4.5.2/wrf.exe
+        #----------------------------------------------------------
+        WRF-gcc-dev>
+        ```
+        produces an interactive shell environment with access to the GLADE file systems and the containerized build environment.
+
+    === "NVHPC"
+        !!! warning "For demonstration purposes only"
+            Testing has shown the `nvhpc` variant does not offer any performance benefits vs. the Intel or GCC variants, and therefore is not recommended for production runs. It is provided for demonstration purposes only, and in hopes it may prove useful for other projects that have a critical dependency on this particular compiler suite.
+        ```pre title="ncar-derecho-wrf-nvhpc.sif" linenums="1"
+        Bootstrap: docker
+        From: benjaminkirk/ncar-derecho-wrf-nvhpc:latest
+
+        %post
+            echo "source /container/config_env.sh" >> ${SINGULARITY_ENVIRONMENT}
+
+        %runscript
+
+            cat <<EOF
+        Welcome to "$(basename ${SINGULARITY_NAME} .sif)"
+
+        #----------------------------------------------------------
+        # MPI Compilers & Version Details:
+        #----------------------------------------------------------
+        $(which mpicc)
+        $(mpicc --version)
+
+        $(which mpif90)
+        $(mpif90 --version)
+
+        $(mpichversion)
+
+        #----------------------------------------------------------
+        # WRF/WPS-Centric Environment:
+        #----------------------------------------------------------
+        JASPERINC=${JASPERINC}
+        JASPERLIB=${JASPERLIB}
+        HDF5=${HDF5}
+        NETCDF=${NETCDF}
+
+        FLEX_LIB_DIR=${FLEX_LIB_DIR}
+        YACC=${YACC}
+        LIB_LOCAL=${LIB_LOCAL}
+        #----------------------------------------------------------
+
+        #----------------------------------------------------------
+        # Pre-compiled executables:
+        #----------------------------------------------------------
+        $(find /container/w*-*/ -name "*.exe" | sort)
+        #----------------------------------------------------------
+        EOF
+            # start bash, resulting in an interactive shell.
+            # but ignore any user ~/.profile etc... which would be coming
+            # from the host
+            /bin/bash --noprofile --norc
+        ```
+        We can build `ncar-derecho-wrf-nvhpc.sif` from `ncar-derecho-wrf-nvhpc.def` as
+        [described here](./working_with_containers.md#building-a-container-from-a-definition-file).
+
+        The simple utility script `wrf_nvhpc_env` allows us to easily interact with the container.
+        ```bash title="wrf_nvhpc_env" linenums="1"
+        #!/bin/bash
+
+        selfdir="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+
+        module load apptainer || exit 1
+
+        singularity \
+            --quiet \
+            run \
+            --cleanenv \
+            -B /glade \
+            ${selfdir}/ncar-derecho-wrf-nvhpc.sif
+        ```
+        For example,
+        ```pre
+        Welcome to "ncar-derecho-wrf-nvhpc"
+
+        #----------------------------------------------------------
+        # MPI Compilers & Version Details:
+        #----------------------------------------------------------
+        /container/mpich/bin/mpicc
+        gcc (SUSE Linux) 7.5.0
+        Copyright (C) 2017 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+        /container/mpich/bin/mpif90
+
+        nvfortran 23.9-0 64-bit target on x86-64 Linux -tp znver3
+        NVIDIA Compilers and Tools
+        Copyright (c) 2023, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+        MPICH Version:    	3.4.3
+        MPICH Release date:	Thu Dec 16 11:20:57 CST 2021
+        MPICH Device:    	ch4:ofi
+        MPICH CC: 	/usr/bin/gcc -fPIC   -O2
+        MPICH CXX: 	/usr/bin/g++ -fPIC  -O2
+        MPICH F77: 	/container/nvidia/hpc_sdk/Linux_x86_64/23.9/compilers/bin/nvfortran -fPIC
+        MPICH FC: 	/container/nvidia/hpc_sdk/Linux_x86_64/23.9/compilers/bin/nvfortran -fPIC
+        MPICH Custom Information:
+
+        #----------------------------------------------------------
+        # WRF/WPS-Centric Environment:
+        #----------------------------------------------------------
+        JASPERINC=/container/jasper/1.900.1/include
+        JASPERLIB=/container/jasper/1.900.1/lib
+        HDF5=
+        NETCDF=/container/netcdf
+
+        FLEX_LIB_DIR=/usr/lib64
+        YACC=/usr/bin/byacc -d
+        LIB_LOCAL=
+        #----------------------------------------------------------
+
+        #----------------------------------------------------------
+        # Pre-compiled executables:
+        #----------------------------------------------------------
+        /container/wps-3.9.1/avg_tsfc.exe
+        /container/wps-3.9.1/calc_ecmwf_p.exe
+        /container/wps-3.9.1/g1print.exe
+        /container/wps-3.9.1/g2print.exe
+        /container/wps-3.9.1/geogrid.exe
+        /container/wps-3.9.1/height_ukmo.exe
+        /container/wps-3.9.1/int2nc.exe
+        /container/wps-3.9.1/metgrid.exe
+        /container/wps-3.9.1/mod_levs.exe
+        /container/wps-3.9.1/rd_intermediate.exe
+        /container/wps-3.9.1/ungrib.exe
+        /container/wps-4.5/avg_tsfc.exe
+        /container/wps-4.5/calc_ecmwf_p.exe
+        /container/wps-4.5/g1print.exe
+        /container/wps-4.5/g2print.exe
+        /container/wps-4.5/geogrid.exe
+        /container/wps-4.5/height_ukmo.exe
+        /container/wps-4.5/int2nc.exe
+        /container/wps-4.5/metgrid.exe
+        /container/wps-4.5/mod_levs.exe
+        /container/wps-4.5/rd_intermediate.exe
+        /container/wps-4.5/ungrib.exe
+        /container/wrf-3.9.1.1/ndown.exe
+        /container/wrf-3.9.1.1/real.exe
+        /container/wrf-3.9.1.1/tc.exe
+        /container/wrf-3.9.1.1/wrf.exe
+        /container/wrf-4.5.2/ndown.exe
+        /container/wrf-4.5.2/real.exe
+        /container/wrf-4.5.2/tc.exe
+        /container/wrf-4.5.2/wrf.exe
+        /container/wrf-chem-3.9.1.1/ndown.exe
+        /container/wrf-chem-3.9.1.1/real.exe
+        /container/wrf-chem-3.9.1.1/tc.exe
+        /container/wrf-chem-3.9.1.1/wrf.exe
+        /container/wrf-chem-4.5.2/ndown.exe
+        /container/wrf-chem-4.5.2/real.exe
+        /container/wrf-chem-4.5.2/tc.exe
+        /container/wrf-chem-4.5.2/wrf.exe
+        #----------------------------------------------------------
+        WRF-nvhpc-dev>
+        ```
+        produces an interactive shell environment with access to the GLADE file systems and the containerized build environment.
+
+### Running the container on Derecho
+ The PBS job script listed below shows the steps required to "bind" the host MPI into the container and launch an executable in a batch environment.
+
+???+ example "Containerized WRF PBS Script"
+    === "Intel"
+        ```bash title="run_wrf_intel_container.pbs" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/WRF/run_wrf_intel_container.pbs"
+        ```
+
+    === "GCC"
+        ```bash title="run_wrf_gcc_container.pbs" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/WRF/run_wrf_gcc_container.pbs"
+        ```
+
+    === "NVHPC"
+        ```bash title="run_wrf_nvhpc_container.pbs" linenums="1"
+        ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/containers/tutorial/apptainer/WRF/run_wrf_nvhpc_container.pbs"
+        ```
+
+    **Discussion**
+
+    The PBS script examines the shared library dependencies of the executable using `ldd`, first within the container and then with the host MPI "injected" (as described [here](./working_with_containers.md#running-containerized-mpi-applications)).  This process is often tedious, iterative, and error prone.  As constructed the PBS script can be executed directly (*without* `qsub`) to inspect these results before waiting for batch resources.
+
+    The `mpiexec` command is fairly standard.  Note that we are using it to launch `singularity`, which in turn will start up the `WRF` executable specified on line 20. note in this case the executable is build into the container, however it could also be resident on GLADE, provided it was complied from this same container development environment.
+
+    The `singularity exec` command lines are complex, so let's deconstruct them here:
+
+    - We make use of the `--bind` argument first to mount familiar GLADE file systems within the container,
+    - and again to "inject" the host MPI into the container. The `/run` directory necessity is not immediately obvious but is used by Cray-MPICH as part of the launching process.
+
+    - We also need to use the `--env` to set the `LD_LIBRARY_PATH` inside the image so that the application can find the proper host libraries.  Recall when we built the FastEddy executable in the containerized environment it had no knowledge of these host-specific paths.  Similarly, we use `--env` to set the `LD_PRELOAD` environment variable inside the container.  This will cause a particular Cray-MPICH library to be loaded prior to application initialization.  This step is not required for "bare metal" execution.
+
+    - We set the `MPICH_SMP_SINGLE_COPY_MODE` environment variable to work around an MPI run-time error that would otherwise appear.
+      - Finally, a note on the `--bind /usr/lib64:/host/lib64` argument.  Injecting the host MPI requires that some shared libraries from the host's `/usr/lib64` directory be visible inside the image.  However, this path also exists inside the image and contains other libraries needed by the application.  We cannot simply bind the hosts directory into the same path, doing so will mask these other libraries.  So we bind the host's `/usr/lib64` into the container image at `/host/lib64`, and make sure this path is set in the `LD_LIBRARY_PATH` variable as well.  Because we want these particular host libraries found as last resort (not taking precedence over similar libraries in the container, we append `/host/lib64` to the `LD_LIBRARY_PATH` search path.
+
+    The arguments above were determined iteratively through trial and error.  Such is the reality of containerized MPI applications and proprietary host MPI integration. Feel free to experiment with the PBS file, omitting some of the `--bind` and `--env` arguments and observing the resulting error message.
+
+---
+
 ## Building and running containerized FastEddy under MPI on GPUs
 
 !!! warning inline end
@@ -140,7 +782,6 @@ Optimized Tensorflow and PyTorch models are available directly from the NGC.
     **It is much easier to simply build FasyEddy "bare metal" when operating inside the NCAR HPC environment!!**
 
 This example demonstrates building a containerized version of [FastEddy](https://ral.ucar.edu/fasteddy) from the [open-source variant hosted on GitHub](https://github.com/NCAR/FastEddy-model).  It is **_provided for demonstration purposes_** because it demonstrates several common issues encountered when running GPU-aware MPI applications inside containers across multiple nodes, particularly when binding the host MPI into the container, and the source code is open for any interested user to follow along and adapt.
-
 
 ### About FastEddy
 
@@ -397,4 +1038,9 @@ While the example above wraps the Apptainer run-time, a similar approach works f
 
 
 <!--  localwords:  Apptainer OpenHPC Derecho CBL FastEddy MPI Dockerfile plainuser CUDA MPICH NGC Casper Tensorflow
+ -->
+
+<!--  LocalWords:  NCAR OpenSUSE WRF WPS HDF NetCDF PNG libpng gcc
+<!--  LocalWords:  ENV linenums
+ -->
  -->

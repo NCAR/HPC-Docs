@@ -96,12 +96,12 @@ files, directories and symlinks.
 ### Status
 === "File Volume"
     <p align="left">
-        <iframe width="680" height="340" frameborder="0" src="https://www.cisl.ucar.edu/uss/glade_status/glade_status_BSK.html"></iframe>
+        <iframe width="680" height="340" frameborder="0" src="https://status.cisl.ucar.edu/uss/glade_status/glade_status_BSK.html"></iframe>
     </p>
 
 === "File Count"
     <p align="left">
-        <iframe width="680" height="340" frameborder="0" src="https://www.cisl.ucar.edu/uss/glade_status/glade_status_counts_BSK.html"></iframe>
+        <iframe width="680" height="340" frameborder="0" src="https://status.cisl.ucar.edu/uss/glade_status/glade_status_counts_BSK.html"></iframe>
     </p>
 
 ## Home space

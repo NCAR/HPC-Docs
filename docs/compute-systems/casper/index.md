@@ -46,7 +46,7 @@ You can omit `username` in the command above if your Casper username is the same
 After running the `ssh` command, you will be [asked to authenticate](../../getting-started/accounts/duo/index.md#hpc-and-ssh-logins) to finish logging in.
 
 
-Casper has full access to [NCAR storage resources](../../storage-systems/index.md),
+Casper has full access to [NSF NCAR storage resources](../../storage-systems/index.md),
 including [GLADE](../../storage-systems/glade/index.md).
 Users can [transfer data](../../storage-systems/data-transfer/index.md) to and from Casper.
 
@@ -57,7 +57,7 @@ There is no need to transfer output files from Derecho for this since
 Derecho and Casper mount the same `GLADE` file systems.
 
 
-!!! danger "Don’t run `sudo` on NCAR systems!"
+!!! danger "Don’t run `sudo` on NSF NCAR systems!"
     If you need help with tasks that you think require `sudo`
     privileges, or if you aren’t sure, please contact HPC User Support
     before trying to run `sudo` yourself. The command fails when
@@ -95,7 +95,7 @@ Casper users have access to Intel, NVIDIA, and GNU compilers. The **Intel** comp
 
 See this page for [a full discussion of compiling on Casper](./compiling-code-on-casper/index.md).
 
-Many Casper data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+Many Casper data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NSF NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
 
 -----
 
@@ -149,7 +149,7 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         2 Mellanox ConnectX-6 HDR200 InfiniBand adapters, HDR100 link on each CPU socket<br>
         8 NVIDIA Tesla V100 32GB SXM2 GPUs with NVLink<br><br>
 
-        <strong>4 Supermicro nodes with 4 A100 GPUs</strong><br>
+        <strong>8 Supermicro nodes with 4 A100 GPUs</strong><br>
         1024 GB memory per node<br>
         2 64-core 2.45-GHz AMD EPYC Milan 7763 processors per node<br>
         1.5 TB local NVMe Solid State Disk<br>
@@ -195,13 +195,13 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
 
 ## Status
 ### Nodes
-<p align="left"><iframe width="680" height="1100" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/casper_nodes_BSK.html"></iframe></p>
+<p align="left"><iframe width="680" height="1100" frameborder="0" src="https://status.cisl.ucar.edu/uss/queues_table/casper_nodes_BSK.html"></iframe></p>
 
 #### GPU Usage
-<p align="left"><iframe width="680" height="835" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/casper_gpu_status_BSK.html"></iframe></p>
+<p align="left"><iframe width="680" height="835" frameborder="0" src="https://status.cisl.ucar.edu/uss/queues_table/casper_gpu_status_BSK.html"></iframe></p>
 
 ### Queues
-<p align="left"><iframe width="680" height="440" frameborder="0" src="https://www.cisl.ucar.edu/uss/queues_table/casper_queues_BSK.html"></iframe></p>
+<p align="left"><iframe width="680" height="440" frameborder="0" src="https://status.cisl.ucar.edu/uss/queues_table/casper_queues_BSK.html"></iframe></p>
 
 
 <!--  LocalWords:  Casper Derecho
