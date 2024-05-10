@@ -1,7 +1,7 @@
 # University Large Allocation Request Preparation Instructions
 
 **The next university deadline for submitting Large Allocation Requests
-is March 12, 2024.**
+will be in late September 2024 (exact date TBD).**
 
 **Note:** In addition to Large Allocation Requests, CISL offers
 opportunities for NSF awardees, graduate students, and postdocs to
@@ -126,7 +126,7 @@ advice for how to best address each topic.
   this information. Information on the portability of the code to other
   platforms may also be useful to the CHAP; requesters are strongly
   encouraged to provide this information about the code and the team’s
-  knowledge/use of HPC systems similar to Cheyenne.
+  knowledge/use of HPC systems similar to Derecho.
 
 - ***Output and analysis.*** Describe the key variables to be output,
   plans for analysis, and any steps taken to use storage resources
@@ -178,7 +178,7 @@ reviewers evaluate whether the resources sought are justified and will
 be used efficiently.
 
 !!! note "Estimating Derecho resource needs."
-    Derecho users can expect to see
+    If you have not used Derecho yet, but are familiar with Cheyenne: Derecho users see
     a 1.3x improvement over the Cheyenne system's performance on a
     core-for-core basis. Therefore, to estimate how many CPU core-hours
     will be needed for a project on Derecho, multiply the total for a
@@ -188,13 +188,12 @@ be used efficiently.
     on any reasonable GPU performance estimate from another system,
     including Casper.
 
-!!! note "Estimating Cheyenne core-hours."
-    Cheyenne allocations are made in
-    core-hours. The recommended method for estimating your resource needs
+!!! note "Estimating core-hours."
+    Some allocations are made in core-hours, including those for the previous supercomputer, Cheyenne. 
+    The recommended method for estimating core-hour resource needs
     is to perform benchmark runs. The core-hours used for a job are
     calculated by multiplying the number of processor cores used by the
-    wall-clock duration in hours. Cheyenne core-hour calculations should
-    assume that all jobs will run in the regular queue and that they are
+    wall-clock duration in hours. Core-hour calculations assume that all jobs will run in the regular queue and that they are
     charged for use of all 36 cores on each node.
 
 **2. Campaign Storage.** In the table showing core-hours, include a
