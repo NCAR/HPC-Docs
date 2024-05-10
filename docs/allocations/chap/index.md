@@ -14,7 +14,7 @@ the basis of the computational experimental design, computational
 effectiveness, and availability of computing resources.
 
 !!! note
-    The next university deadline for submitting Large Allocation Requests is March 12, 2024.
+    The next university deadline for submitting Large Allocation Requests will be in late September 2024 (exact date TBD).
 
 CHAP members, most of whom are from the university community, are
 appointed to three-year terms by the CISL Director. Meetings are
