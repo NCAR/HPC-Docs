@@ -49,7 +49,7 @@ your project’s computing and storage allocation and the usage associated
 with it. If you are authorized to charge usage to more than one project,
 you will have an Account Statement for each project.
 
-![](systems-accounting-manager/media/image1.png)
+![](systems-accounting-manager/media/image1_new.png)
 
 The overall usage report on project activity shows your allocations’
 start and end dates, amounts allocated, and remaining balances.
