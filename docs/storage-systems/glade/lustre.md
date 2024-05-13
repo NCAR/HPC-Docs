@@ -1,6 +1,6 @@
 # Lustre scratch file system
 
-The <strong>De</strong>recho <strong>Stor</strong>age subsystsem (**Destor**)
+The <strong>De</strong>recho <strong>Stor</strong>age subsystem (**Destor**)
 scratch file system is a Lustre-based
 [Cray ClusterStor E1000](https://buy.hpe.com/us/en/enterprise-solutions/storage-solutions/cray-clusterstor-storage-systems/cray-clusterstor-e1000-storage-systems/cray-clusterstor-e1000-storage-systems/p/1012842049) product
 configured as shown in the table below. An open-source, parallel system,
@@ -45,7 +45,7 @@ below.
 
 
 
-![](lustre/media/image1.png)
+![](lustre/media/image1_new.png)
 <br>**Figure 1:** Sample Lustre file system: 4 metadata servers (MDS), 4
 object storage servers (OSS).
 Credit: [*Introduction to Lustre Wiki*](https://wiki.lustre.org/Introduction_to_Lustre).
@@ -189,7 +189,7 @@ Derecho's **Destor** Lustre file system hardware configuration is
 shown schematically below.  The system has 4 MDS servers (each with a
 single MDT), and 24 OSS servers (each with 4 OSTs).
 
-![](lustre/media/destor1.png)
+![](lustre/media/destor1_new.png)
 
 #### Default Striping
 
