@@ -22,7 +22,7 @@ interactive jobs on the Casper cluster.
 ## Fair share policy
 
 CISL manages scheduling priorities to ensure fair access to the system
-by all of these stakeholder groups: the university community, the NCAR
+by all of these stakeholder groups: the university community, the NSF NCAR
 community, the Community Earth System Model (CESM) community,
 the Antarctic Mesoscale Prediction System (AMPS), and the Wyoming
 community.
@@ -88,7 +88,7 @@ qstat -s jobID
 ##### Stakeholder shares and fair-share factor
 
 CISL manages scheduling priorities to ensure fair access to the system
-by these stakeholder groups: the university community, the NCAR
+by these stakeholder groups: the university community, the NSF NCAR
 community, the CESM community, and the Wyoming community.
 
 Each stakeholder group is allocated a certain percentage of the
