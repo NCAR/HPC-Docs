@@ -60,7 +60,7 @@ To log in to a system like Derecho:
   - Enter [your ssh command](../../../compute-systems/derecho/index.md).
   - Enter your **CIT password** where a token response is requested.
 
-![](media/image2.png){width="400"}
+![](media/image2_new.png){width="400"}
 
 The Duo App will send a "push" notification to your phone or tablet,
 asking you to approve or deny the login request.
