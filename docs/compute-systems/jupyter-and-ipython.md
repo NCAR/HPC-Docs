@@ -16,7 +16,7 @@ language interpreters. See details below.
 
 The instructions below describe how to start the
 browser-based **JupyterLab**, the **IPython shell**, and **Jupyter
-QtConsole** on the NCAR system visualization nodes.
+QtConsole** on the NCAR HPC systems.
 
 For additional information, see [Jupyter documentation](https://jupyter.readthedocs.io/en/latest/).
 
