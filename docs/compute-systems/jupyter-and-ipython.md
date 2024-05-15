@@ -16,8 +16,7 @@ language interpreters. See details below.
 
 The instructions below describe how to start the
 browser-based **JupyterLab**, the **IPython shell**, and **Jupyter
-QtConsole** on the NCAR systems.
-visualization nodes.
+QtConsole** on the NCAR system visualization nodes.
 
 For additional information, see [Jupyter documentation](https://jupyter.readthedocs.io/en/latest/).
 
@@ -25,12 +24,12 @@ For additional information, see [Jupyter documentation](https://jupyter.readthed
 
 - Start an interactive job using the `qinteractive` command.
   (Alternative: Start the job on Casper using `execcasper` if it
-  requires GPUs or more memory than is available on Cheyenne.)
+  requires more memory than is available on Derecho)
 
-- Load the `ncarenv` and `python` modules.
+- Load the `ncarenv` and `conda` modules.
 
-- Run the `ncar_pylib` command to load the NCAR Python Library virtual
-  environment.
+- Activate the NCAR Python Library via `conda activate npl` or any other
+  environment with `jupyterlab` and `ipython` installed.
 
 - Run the `start-jupyter` command.
 
@@ -46,8 +45,8 @@ that session, you will be closing your browser connection to JupyterLab.
 On your local computer, run the `ssh` command as instructed.
 
 The session will appear to hang after you log in. At that point,
-start `http://localhost:nnnn` in your browser. (The port numbers may
-be different from those in the output example above.)
+start `http://localhost:nnnn` in your browser. The port numbers may
+be different from those in the output example above.
 
 JupyterLab will request a password or "token," which is a long string as
 shown in the output above that you can copy and paste from your
@@ -70,12 +69,12 @@ with the token.
 
 - Start an interactive job using the `qinteractive` command.
   (Alternative: Start the job on Casper using `execcasper` if it
-  requires GPUs or more memory than is available on Cheyenne.)
+  requires more memory than is available on Derecho)
 
-- Load the `ncarenv` and `python` modules.
+- Load the `ncarenv` and `conda` modules.
 
-- Run the `ncar_pylib` command to load the NCAR Python Library virtual
-  environment.
+- Activate the NCAR Python Library via `conda activate npl` or any other
+  environment with `ipython` installed.
 
 - Run the `ipython` command to start the shell.
 
@@ -87,12 +86,12 @@ with the token.
 
 - Start an interactive job using the `qinteractive` command.
   (Alternative: Start the job on Casper using `execcasper` if it
-  requires GPUs or more memory than is available on Cheyenne.)
+  requires more memory than is available on Derecho)
 
-- Load the `ncarenv` and `python` modules.
+- Load the `ncarenv` and `conda` modules.
 
-- Run the `ncar_pylib` command to load the NCAR Python Library virtual
-  environment.
+- Activate the NCAR Python Library via `conda activate npl` or any other
+  environment with `jupyterlab` installed.
 
 - Run the `jupyter qtconsole` command to start the console.
 
@@ -110,7 +109,7 @@ jupyter kernelspec list
 ```
 
 To use a kernel, specify it by name when invoking a command. For
-example, to use the R 3.4.0 interpreter on Cheyenne in the Jupyter
+example, to use the R 3.4.0 interpreter on Casper in the Jupyter
 QtConsole, enter the following:
 ```bash
 jupyter qtconsole --kernel=r-3.4
