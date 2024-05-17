@@ -22,9 +22,8 @@ For additional information, see [Jupyter documentation](https://jupyter.readthed
 
 ## Starting JupyterLab
 
-- Start an interactive job using the `qinteractive` command.
-  (Alternative: Start the job on Casper using `execcasper` if it
-  requires more memory than is available on Derecho)
+- Start an interactive job using the `execcasper` command.
+  (Alternative: Start the job on Derecho using `qinteractive`. Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware) has less memory than each CPU or GPU node [Casper node](docs/compute-systems/casper/#casper-hardware))
 
 - Load the `ncarenv` and `conda` modules.
 
@@ -109,10 +108,10 @@ jupyter kernelspec list
 ```
 
 To use a kernel, specify it by name when invoking a command. For
-example, to use the R 3.4.0 interpreter on Casper in the Jupyter
+example, to use the R 4.3.0 interpreter on Casper in the Jupyter
 QtConsole, enter the following:
 ```bash
-jupyter qtconsole --kernel=r-3.4
+jupyter qtconsole --kernel=r-4.3
 ```
 The console will load with the R command line interpreter active.
 
