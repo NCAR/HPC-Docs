@@ -23,10 +23,10 @@ That’s all — really!
 
 ## We're here to help
 
-Having a problem? No worries.
+Having a problem? No worries! 
 
-* If you have a question, check out our comprehensive [user documentation](https://arc.ucar.edu/knowledge_base/61767794).
-* If you need to speak with a human, contact the Help Desk — our [team of live consultants](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) is happy to communicate with you personally to solve your problem.
+Search through our comprehensive user documentation or contact the [Help Desk](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) — our team of live 
+consultants are happy to communicate with you personally to solve your problem.
 
 Getting back on track is quick and easy!
 

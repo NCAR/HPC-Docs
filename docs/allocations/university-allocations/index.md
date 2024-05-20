@@ -107,7 +107,7 @@ the breadth of work from eligible university researchers.
 CISL accepts requests for large allocations of NSF NCAR resources every six
 months, in March and September. Deadlines for submitting requests are
 announced approximately two months in advance. The CISL HPC Allocations
-Panel ([CHAP](https://arc.ucar.edu/knowledge_base/70549827)) reviews
+Panel ([CHAP](../chap/index.md)) reviews
 requests in April and October, and projects begin in May and November.
 
 !!! note
@@ -121,8 +121,8 @@ requests in April and October, and projects begin in May and November.
 The panel recommends awards on the basis of the computational
 experimental design, computational effectiveness, and availability of
 computing resources (see [Review
-Criteria](https://arc.ucar.edu/knowledge_base/70549832)). Check the
-[submission instructions](https://arc.ucar.edu/knowledge_base/70549834)
+Criteria](../chap/chap-allocation-review-criteria.md)). Check the
+[submission instructions](university-large-allocation-request-preparation-instructions.md)
 for preparing the required Request Summary document.
 
 If your Request Summary is ready, [submit your Large Allocation Request
