@@ -4,7 +4,7 @@ The NCAR HPC environment supports the use of NCAR Command Language
 ([NCL](http://www.ncl.ucar.edu/)) both interactively and in batch mode
 to analyze and visualize data.
 
-As described below, to use NCL in the Cheyenne environment you will log
+As described below, to use NCL in the NCAR HPC environment you will log
 in to Derecho or Casper, then:
 
 - Start an interactive job on Casper and execute the NCL script from
