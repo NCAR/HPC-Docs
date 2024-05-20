@@ -484,8 +484,7 @@ job. This process is outlined in the example below.
     **Discussion**
 
     This PBS array implementation is a departure from the command file technique
-    [used previously on Cheyenne](https://arc.ucar.edu/knowledge_base/72581486#Cheyennejobscriptexamples-Batchscripttorunacommandfile(MPMD)job),
-    where MPI was used to launch the desired commands on each rank.  While slightly more complex,
+    used previously on Cheyenne, where MPI was used to launch the desired commands on each rank.  While slightly more complex,
     the array approach has several advantages.  Since the array steps are independent, the job can begin
     execution as soon as even a single node is available, and can scale to fill the available resources.
 

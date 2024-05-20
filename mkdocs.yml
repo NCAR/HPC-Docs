@@ -171,15 +171,15 @@ nav:
     - NCAR Storage Spaces: tutorials/storage.md
     - JupyterHub:  tutorials/jupyterhub.md
     - Remote Desktop Services: tutorials/remote-desktops.md
-    - Containers: tutorials/containers.md
-    - GPU Workshop: tutorials/gpu-workshop.md
+#    - Containers: tutorials/containers.md
+#    - GPU Workshop: tutorials/gpu-workshop.md
 
   - User Support:
     - user-support/index.md
-    - Troubleshooting Tips:
-      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
-      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
-      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+#    - Troubleshooting Tips:
+#      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+#      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+#      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
 
   - NCAR User Group (NHUG):
     - nhug/index.md
