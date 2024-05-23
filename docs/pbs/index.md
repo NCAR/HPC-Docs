@@ -14,7 +14,7 @@ submit the jobs, no other interaction by the user is required to
 process the batch. Batches may automatically be run at scheduled times
 as well as being run contingent on the availability of computer
 resources. For additional background, see
-[Batch Computng Overview](https://en.wikipedia.org/wiki/Batch_processing).
+[Batch Computing Overview](https://en.wikipedia.org/wiki/Batch_processing).
 NSF NCAR's HPC resources use the [Portable Batch System](https://en.wikipedia.org/wiki/Portable_Batch_System)
 as implemented in Altair's [PBS Pro](https://altair.com/pbs-professional) across shared resources.
 
