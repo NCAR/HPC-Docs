@@ -79,9 +79,7 @@ short periods of time.
 ### Charging and allocations
 
 Jobs run in the preempt queue are charged at a queue factor of only 0.2, vs. 1.0
-for regular jobs. Jobs that do not run to
-completion because of preemption are not charged against your
-allocation.
+for jobs in the main queue with regular priority.
 
 ---
 
