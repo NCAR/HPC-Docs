@@ -12,9 +12,9 @@
     examples of geoscientific analysis in Python. If your workflow depends on NCL, please reach out to
     [User Support](https://ncar-hpc-docs.readthedocs.io/en/latest/user-support/) to discuss plans to migrate to a supported solution.
 
-The NCAR HPC environment supports the use of NCAR Command Language
-([NCL](http://www.ncl.ucar.edu/)) both interactively and in batch mode
-to analyze and visualize data.
+Within the limits of the above deprecation warning, the NCAR HPC environment currently
+provides the use of NCAR Command Language ([NCL](http://www.ncl.ucar.edu/)) both
+interactively and in batch mode to analyze and visualize data.
 
 As described below, to use NCL in the NCAR HPC environment you will log
 in to Derecho or Casper, then:
