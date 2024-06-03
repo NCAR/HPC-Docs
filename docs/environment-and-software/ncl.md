@@ -1,5 +1,17 @@
 # Using NCL in the NCAR HPC environment
 
+!!! danger "Deprecation Warning"
+    The NCL software is no longer actively supported by NCAR / CISL. While we provide an NCL module
+    on Casper and Derecho to enable legacy workflows, please be aware that user support for these
+    installations will be very limited and low priority. **Furthermore, CISL may not provide common
+    NCL installations on future systems.**
+
+    As announced in 2019, all official NCL development has ceased in favor of [a pivot to Python](https://www.ncl.ucar.edu/Document/Pivot_to_Python/#:~:text=NCAR%20has%20made%20the%20decision,for%20the%20future%20of%20NCL.).
+    Most NCL functionality is supported by well-known scientific Python packages or libraries
+    developed as part of the [GeoCAT project](https://geocat.ucar.edu/). Check out [Project Pythia](https://projectpythia.org/) for
+    examples of geoscientific analysis in Python. If your workflow depends on NCL, please reach out to
+    [User Support](https://ncar-hpc-docs.readthedocs.io/en/latest/user-support/) to discuss plans to migrate to a supported solution.
+
 The NCAR HPC environment supports the use of NCAR Command Language
 ([NCL](http://www.ncl.ucar.edu/)) both interactively and in batch mode
 to analyze and visualize data.
