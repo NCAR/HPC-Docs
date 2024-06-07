@@ -74,7 +74,7 @@ nav:
       - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
       - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
       - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
-    - Quasar (Tape Storgae):
+    - Quasar (Tape Storage):
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
     - Stratus (Object Storage): storage-systems/stratus/index.md
