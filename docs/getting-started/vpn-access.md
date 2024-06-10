@@ -1,7 +1,7 @@
 # VPN access
 
-NCAR and UCAR employees who are working remotely, and some other
-individuals who work closely with NCAR, may need to use the virtual
+NSF NCAR and UCAR employees who are working remotely, and some other
+individuals who work closely with NSF NCAR, may need to use the virtual
 private network (VPN) to connect with internal resources.
 
 If you need VPN access, see your lab's system administrator about
