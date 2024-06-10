@@ -14,7 +14,7 @@ If you have already submitted a password request but have not yet
 returned the required token authorization form, please do so to complete
 the process.
 
-### UCAR/NCAR staff
+### UCAR and NSF NCAR staff
 
 Either log into the [CIT Password Portal](https://pwreset.ucar.edu/pwreset/) or contact your divisional
 or laboratory sysadmin for assistance.
