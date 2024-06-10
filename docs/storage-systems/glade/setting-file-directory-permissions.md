@@ -22,7 +22,7 @@ certain permissions by default. To change the default settings, use the
 [umask command](#changing-default-permissions-with-umask) described
 below.
 
-!!! danger "Don’t run sudo on NCAR systems"
+!!! danger "Don’t run sudo on NSF NCAR systems"
     If you need help with tasks that you think require `sudo` privileges,
     or if you aren’t sure, please contact [HPC User Support](../../user-support/index.md) before trying to run sudo
     yourself. The command fails when unauthorized users run it and sends a
@@ -212,14 +212,14 @@ files and directories so only members of that UNIX group have permission
 to access them.
 
 If there is no group that allows you to share as needed with other users
-who have NCAR user accounts:
+who have NSF NCAR user accounts:
 
 - Consider using the [setfacl command](./using-access-control-lists.md) to set up an
   access control list.
 
 - Request creation of a custom group.
 
-To share with colleagues *who do not have NCAR user accounts*,
+To share with colleagues *who do not have NSF NCAR user accounts*,
 see [Sharing data and making unattended transfers](../data-transfer/globus/Sharing+data+and+making+unattended+transfers.md).
 
 ### Identifying current group and others - `id`
