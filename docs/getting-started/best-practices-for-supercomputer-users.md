@@ -18,7 +18,7 @@ These include tasks such as text editing or running small serial scripts
 or programs. Memory-intensive processes that slow login node performance
 for all users are killed automatically and the responsible parties are
 notified by email. See
-[Appropriate use of login nodes](../compute-systems/derecho/derecho-use-policies.md#appropriate-use-of-login-nodes)0 for more
+[Appropriate use of login nodes](../compute-systems/derecho/derecho-use-policies.md#appropriate-use-of-login-nodes) for more
 information.
 
 #### Use the Derecho and Casper nodes that best meet your needs
@@ -42,7 +42,7 @@ that will best meet your needs:
     -  [Sample Casper PBS job scripts](../compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md)
 
 For expert assistance or guidance in using these resources, contact
-the [NCAR Research Computing help desk](https://rchelp.ucar.edu/).
+the [NSF NCAR Research Computing help desk](https://rchelp.ucar.edu/).
 
 #### Don't monopolize compute resources
 
@@ -88,7 +88,7 @@ production. Use optimizing libraries if your code lends itself to that.
 
 #### Remove unneeded data
 
-Periodically examine your GLADE and NCAR Campaign Storage holdings and
+Periodically examine your GLADE and NSF NCAR Campaign Storage holdings and
 remove unwanted, unneeded files. This reduces charges against your
 storage allocation and makes these systems more efficient for everyone.
 
@@ -96,7 +96,7 @@ storage allocation and makes these systems more efficient for everyone.
 
 Before you run a set of jobs that will consume a large portion of your
 allocation – a long experiment, for example – contact the
-[NCAR Research Computing help desk](https://rchelp.ucar.edu/) to request a review of
+[NSF NCAR Research Computing help desk](https://rchelp.ucar.edu/) to request a review of
 your job configuration. One of the consultants may be able to suggest an
 economical workflow that will help you conserve computing resources.
 This is especially important if you are unfamiliar with job
@@ -186,10 +186,10 @@ more information.
 #### Use the most appropriate storage system
 
 Review and understand the intended uses of the [GLADE file spaces](../storage-systems/glade/index.md)
-and the [NCAR Campaign Storage](../storage-systems/glade/campaign.md) file
+and the [NSF NCAR Campaign Storage](../storage-systems/glade/campaign.md) file
 system. For example, use your `/glade/work` space to work with data
 sets over time periods greater than what is permitted in the scratch
-space. Individual NCAR labs and project leads for universities that have
+space. Individual NSF NCAR labs and project leads for universities that have
 Campaign Storage allocations establish their own workflows and storage
 policies.
 
@@ -224,7 +224,7 @@ necessary.
 
 #### Back up critical files
 
-With the exception of users' `/glade/u/home` spaces, the GLADE and NCAR
+With the exception of users' `/glade/u/home` spaces, the GLADE and NSF NCAR
 Campaign Storage file systems are not backed up. You are responsible for
 replicating any data that you feel should be stored at an additional
 location.
@@ -242,7 +242,7 @@ of them.
 CISL recommends
 using [Globus](../storage-systems/data-transfer/globus/index.md) to
 transfer large files or data sets between the GLADE centralized file
-service, the [NCAR Campaign Storage](../storage-systems/glade/campaign.md) file
+service, the [NSF NCAR Campaign Storage](../storage-systems/glade/campaign.md) file
 system, and remote destinations such as university facilities. In
 addition to web and command line interfaces, Globus offers a feature
 called Globus Connect Personal that enables users to move files easily
