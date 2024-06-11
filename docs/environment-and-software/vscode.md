@@ -8,7 +8,7 @@ VSCode is available for NCAR issued laptops in the *Self Service* application or
 
 ## Connecting to Derecho or Casper
 
-The Visual Studio Code Remote SSH extension allows you to connect to a NCAR system login node and to the GLADE filesytem. Once connected to a server, you can interact with files and folders anywhere on GLADE.  You can connect to the Derecho or Casper login nodes by following these steps:
+The Visual Studio Code Remote SSH extension allows you to connect to a NCAR system login node and to the GLADE filesystem. Once connected to a server, you can interact with files and folders anywhere on GLADE.  You can connect to the Derecho or Casper login nodes by following these steps:
 
 !!! example "Connecting to NCAR system login nodes" 
     === "Derecho"
