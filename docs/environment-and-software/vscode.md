@@ -59,11 +59,11 @@ Open a terminal using either of these methods:
 
 The terminal has Shell Integration options and the default will be selected based on your SAM shell settings for each system.  You can modify the shell with the terminal shell dropdown.  Clicking the `+` will create a new terminal window with the current shell.
 
-![Shell Dropdown](media/shell_dropdown.png)
+![Shell Dropdown](vscode/media/shell_dropdown.png)
 
 Create multiple terminal windows in a split pane.
 
-![Shell Panes](media/shell_pane.png)
+![Shell Panes](vscode/media/shell_pane.png)
 
 !!! tip
     To toggle the between the terminal pane and code pane, use the ``` (Ctrl`) ``` *(Control+Backtick)* keyboard shortcut.  To create a new terminal, use the (Ctrl⇧\`) *(Control+Shift+Backtick)* keyboard shortcut.
@@ -72,7 +72,7 @@ Create multiple terminal windows in a split pane.
 
 After connecting to a Remote SSH NCAR login node, you can bring up the File Explorer view by clicking on the File Explorer icon in the Activity Bar on the side of VS Code or the *View: Explorer* command (⇧⌘E)
 
-![Explorer Icon](media/explorer-view-icon.png)
+![Explorer Icon](vscode/media/explorer-view-icon.png)
 
 The Explorer tab allows a graphical file structure for the path that you provide.  If you are already connected to a Derecho or Casper login node then you will see the GLADE file structure populated.
 
@@ -112,17 +112,17 @@ The Explorer tab allows a graphical file structure for the path that you provide
 
 VS Code has integrated source control management (SCM) and includes Git support natively. Access the Source Control view by clicking on the Source Control icon in the Activity Bar on the side of VS Code or the *View: Source Control* command (⇧⌘G)
 
-![Source Control](media/sourcecontrol-view-icon.png)
+![Source Control](vscode/media/sourcecontrol-view-icon.png)
 
 ### Extensions
 
 Browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the *View: Extensions* command (⇧⌘X).
 
-![Extension Icon](media/extensions-view-icon.png)
+![Extension Icon](vscode/media/extensions-view-icon.png)
 
 Search for extensions within the Extensions tab and click the extension to install, disable, or view details about it.  The `...` button will provide additional options to enable or disable all extensions, update current extensions, or view all running extensions.
 
-![Extension Details](media/extensions-list.png)
+![Extension Details](vscode/media/extensions-list.png)
 
 !!! info 
     Extensions are a powerful tool within the VS Code environment but not all extensions are sponsored by reputable sources.  Extension problems can manifest in errors, poor memory management, and excessive CPU utilization.  We are unable to support all possible extensions that exist so we recommend disabling all but the core extensions before reporting a problem to the NCAR HPC support team.
@@ -144,7 +144,7 @@ The *Python Interpreter* is used to set the environment for interactive mode.  T
 
 If you are connected to Derecho or Casper and have a Jupyter notebook or Python file preview open, you can click *Select Kernel* to view your available Python environments.  The list includes NCAR conda environments like `npl` and your own custom environments.
 
-![Kernel Select](media/selectkernel.png)
+![Kernel Select](vscode/media/selectkernel.png)
 
 Open a Jupyter notebook or Python file using either the terminal command `code` or with the File Explorer.  This will put you in the default kernel.  Like Jupyterhub, you will need to specify which kernel to use when executing cells in the notebook.  Not specifying a kernel will use your default kernel and could lead to import failures or unexpected behavior.
 
@@ -154,7 +154,7 @@ Open a Jupyter notebook or Python file using either the terminal command `code` 
 ## Jupyter Notebooks
 You can run cells similarly to Jupyterhub with the 'Run All' or an individual cell by hitting *Shift+Enter*.  Jupyter notebooks will use the VS Code kernel as your Python environment.
 
-![Jupyter Notebook](media/jnbkernel.png)
+![Jupyter Notebook](vscode/media/jnbkernel.png)
 
 Be mindful of the location of launching your notebooks.  If you use the File Explorer tab then you will be running on the login nodes.  
 Executing the command *code* from an interactive job will execute on the compute node.
