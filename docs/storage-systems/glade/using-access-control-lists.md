@@ -4,7 +4,7 @@ Access control lists (ACLs) are tools for managing permissions within a file sys
 
 In the Cheyenne/GLADE environment, the most common use cases are:
 
-Sharing files among users in different NCAR labs or universities.
+Sharing files among users in different NSF NCAR labs or universities.
 Sharing files with short-term visitors, interns, students, or others during a short project period.
 Following are examples of how to create an ACL that allows other individuals and groups to work with your files, and how to propagate permissions to new files and directories. To create and manage ACLs on the Campaign Storage file system, log in to Casper or the data-access nodes rather than Cheyenne.
 
