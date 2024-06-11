@@ -4,11 +4,11 @@ Visual Studio Code, also commonly referred to as VS Code, is a source-code edito
 
 The Visual Studio Code Remote - SSH extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
-VSCode is available for NCAR issued laptops in the *Self Service* application or can be downloaded directly from the Microsoft VS Code website.
+VSCode is available for NCAR issued laptops in the *Self Service* application or can be [downloaded](https://code.visualstudio.com/download) directly from the Microsoft VS Code website.
 
 ## Connecting to Derecho or Casper
 
-The Visual Studio Code Remote SSH extension allows you to connect to a NCAR system and to the GLADE filesytem virtual machine. Once connected to a server, you can interact with files and folders anywhere on GLADE.  You can connect to the Derecho or Casper login nodes by following these steps:
+The Visual Studio Code Remote SSH extension allows you to connect to a NCAR system login node and to the GLADE filesytem. Once connected to a server, you can interact with files and folders anywhere on GLADE.  You can connect to the Derecho or Casper login nodes by following these steps:
 
 !!! example "Connecting to NCAR system login nodes" 
     === "Derecho"
@@ -43,7 +43,7 @@ ssh -Y <user>@derecho.hpc.ucar.edu
 ```
 
 !!! danger 
-    Connecting to Derecho or Casper using VS Code Remote-SSH will place you on a login node.  Be respectful of users on this shared resource and do not launch computationally or memory intensive tasks while connected to the login nodes.  VS Code uses more memory than most processes running on the login nodes and you can easily be flagged for login node abuse by our automated systems. More information on how to reduce memory usage is available in the Tips section.
+    Connecting to Derecho or Casper using VS Code Remote-SSH will place you on a login node.  Be respectful of users on this shared resource and do not launch computationally or memory intensive tasks while connected to the login nodes.  VS Code uses more memory than most processes running on the login nodes and you can easily be flagged for login node abuse by our automated systems.
 
 
 ## Remote System
@@ -57,8 +57,7 @@ Open a terminal using either of these methods:
 1. From the menu, use the *Terminal > New Terminal* or *View > Terminal* menu commands.
 2. From the Command Palette (⇧⌘P), use the *View: Toggle Terminal* command.
 
-
-The terminal has Shell Integration options and the default will be selected based on your SAM shell settings for each system.  Modify the shell with the terminal shell dropdown.  Clicking the `+` will create a new terminall window with the current shell.
+The terminal has Shell Integration options and the default will be selected based on your SAM shell settings for each system.  You can modify the shell with the terminal shell dropdown.  Clicking the `+` will create a new terminal window with the current shell.
 
 ![Shell Dropdown](media/shell_dropdown.png)
 
@@ -67,7 +66,7 @@ Create multiple terminal windows in a split pane.
 ![Shell Panes](media/shell_pane.png)
 
 !!! tip
-    To toggle the between the terminal panel and code panel, use the ``` (Ctrl`) ``` *(Control+Backtick)* keyboard shortcut.  To create a new terminal, use the (Ctrl⇧\`) *(Control+Shift+Backtick)* keyboard shortcut.
+    To toggle the between the terminal pane and code pane, use the ``` (Ctrl`) ``` *(Control+Backtick)* keyboard shortcut.  To create a new terminal, use the (Ctrl⇧\`) *(Control+Shift+Backtick)* keyboard shortcut.
 
 ### File Explorer
 
@@ -81,7 +80,7 @@ The Explorer tab allows a graphical file structure for the path that you provide
     VS Code will be able to view all subdirectories of your path when connecting the Explorer. Be mindful that a higher total number of files in the Explorer space will increase your memory and CPU utilization on the login nodes by default.  We recommend only selecting the path for your current project and the files that you need to directly interact with during that session.  Instead of connecting to `/glade/work/$USER`, connect to your project folder of `/glade/work/$USER/myproject/code`.  Smaller Explorer spaces also help with performance for addons that use code completion like Intellisense.
 
 !!! tip
-    Reduce the number of files that VS Code scans periodically to lower CPU utilization, memory, and Intellisense scanning time on the login nodes.  Add these paths to your Settings file found in *Code > Preferences > Settings*, search for the strings below, and add the items to each file exclude type:
+    Reduce the number of files that VS Code scans periodically to lower CPU utilization, memory, and Intellisense scanning time on the login nodes.  Add these paths to your Settings file found in *Code > Preferences > Settings*, search for the strings below, and add the wildcard items to each file exclude type:
 
     ```
     "files.watcherExclude": {
@@ -130,8 +129,6 @@ Search for extensions within the Extensions tab and click the extension to insta
 
 ## Conda and Python Environments
 
-Two modes exist depending on how you interact with your code.
-
 ### Terminal mode
 
 Terminal mode ignores the VS Code environment and uses the NCAR system module stack.  This is identical to the behavior of running within the Mac Terminal over SSH.  You can perform module loads and activate Conda environments directly from the terminal.
@@ -167,7 +164,7 @@ The integration of PBS Batch jobs with VS Code requires some additional configur
 
 !!! example "Connecting to NCAR compute nodes"
     === "Derecho"
-        Create a proxy option for Derecho login nodes to the compute nodes.  Add this to your local SSH configuration file:
+        Create a proxy option for Derecho login nodes to the compute nodes.  Add the following lines to your local SSH configuration file:
 
         ```
         Host dec????
@@ -196,5 +193,5 @@ The integration of PBS Batch jobs with VS Code requires some additional configur
 
 
 ## Additional Resources
-Microsoft provides comprehensive documentation on how to modify the GUI, add shortcuts, integrate external technologies into VS Code, and more.
+Microsoft provides [comprehensive documentation](https://code.visualstudio.com/docs) on how to modify the GUI, add shortcuts, integrate external technologies into VS Code, and more.
 
