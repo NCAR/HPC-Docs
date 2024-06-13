@@ -8,7 +8,7 @@ VSCode is available for NCAR issued laptops in the *Self Service* application or
 
 ## Connecting to Derecho or Casper
 
-The Visual Studio Code Remote SSH extension allows you to connect to a NCAR system login node and to the GLADE filesystem. Once connected to a server, you can interact with files and folders anywhere on GLADE.  You can connect to the Derecho or Casper login nodes by following these steps:
+The Visual Studio Code Remote SSH extension allows you to connect to Derecho, Casper, and the GLADE filesystem. Once connected to a server, you can interact with files and folders anywhere on GLADE.  You can connect to the Derecho or Casper login nodes by following these steps:
 
 !!! example "Connecting to NCAR system login nodes" 
     === "Derecho"
@@ -43,12 +43,45 @@ ssh -Y <user>@derecho.hpc.ucar.edu
 ```
 
 !!! danger 
-    Connecting to Derecho or Casper using VS Code Remote-SSH will place you on a login node.  Be respectful of users on this shared resource and do not launch computationally or memory intensive tasks while connected to the login nodes.  VS Code uses more memory than most processes running on the login nodes and you can easily be flagged for login node abuse by our automated systems.
+    Connecting to Derecho or Casper using VS Code Remote-SSH will place you on a login node.  Be respectful of users on this shared resource and do not launch computationally or memory intensive tasks while connected to the login nodes.  VS Code uses more memory than most processes running on the login nodes and you can easily be flagged for login node abuse by our automated systems.  If you are interested in using VS Code for more computationally or memory intensive applications then view the [Connecting to Compute Nodes](#connecting-to-compute-nodes) section to run on the compute nodes.
+
+
+## Connecting to Compute Nodes
+The integration of PBS Batch jobs with VS Code requires some additional configuration for Derecho.  Casper requires that you launch your PBS job and then SSH directly into the compute node.  Derecho does not allow external connections to the compute nodes and requires a proxy node to connect to compute nodes from a VS Code Remote-SSH window.
+
+!!! example "Connecting to NCAR compute nodes"
+    === "Derecho"
+        Create a proxy option for Derecho login nodes to the compute nodes.  Add the following lines to your local SSH configuration file:
+
+        ```
+        Host dec????
+        HostName %h
+        ProxyCommand ssh -W %h:%p derecho
+
+        Host deg????
+        HostName %h
+        ProxyCommand ssh -W %h:%p derecho
+        ```
+
+        Once the proxy connection can be established with your edited local SSH configuration file, use the following steps to connect to a compute node:
+
+        1. Connect to a Derecho login node using Remote-SSH
+        2. From the Terminal, launch an interactive job using `qsub -I`
+        3. Identify the assigned compute node name
+        4. Launch a new window and connect directly to the compute node using Remote-SSH
+
+    === "Casper"
+        Casper does not require any modifications to your local SSH configuration file.
+
+        1. Connect to a Casper login node using Remote-SSH
+        2. From the Terminal, launch an interactive job using `qsub -I`
+        3. Identify the assigned compute node name
+        4. Launch a new window and connect directly to the compute node using Remote-SSH
 
 
 ## Remote System
 
-Once connected to a login node, you can interact with the GLADE filesystem using either the built-in Terminal or the File Explorer.
+Once connected to a node, you can interact with the GLADE filesystem using either the built-in Terminal or the File Explorer.
 
 ### Terminal
 
@@ -124,7 +157,7 @@ Search for extensions within the Extensions tab and click the extension to insta
 
 ![Extension Details](vscode/media/extensions-list.png)
 
-!!! info 
+!!! danger 
     Extensions are a powerful tool within the VS Code environment but not all extensions are sponsored by reputable sources.  Extension problems can manifest in errors, poor memory management, and excessive CPU utilization.  We are unable to support all possible extensions that exist so we recommend disabling all but the core extensions before reporting a problem to the NCAR HPC support team.
 
 ## Conda and Python Environments
@@ -158,39 +191,6 @@ You can run cells similarly to Jupyterhub with the 'Run All' or an individual ce
 
 Be mindful of the location of launching your notebooks.  If you use the File Explorer tab then you will be running on the login nodes.  
 Executing the command *code* from an interactive job will execute on the compute node.
-
-## Connecting to Compute Nodes
-The integration of PBS Batch jobs with VS Code requires some additional configuration for Derecho.  Casper requires that you launch your PBS job and then SSH directly into the compute node.  Derecho does not allow external connections to the compute nodes and requires a proxy node to connect to compute nodes from a VS Code Remote-SSH window.
-
-!!! example "Connecting to NCAR compute nodes"
-    === "Derecho"
-        Create a proxy option for Derecho login nodes to the compute nodes.  Add the following lines to your local SSH configuration file:
-
-        ```
-        Host dec????
-        HostName %h
-        ProxyCommand ssh -W %h:%p derecho
-
-        Host deg????
-        HostName %h
-        ProxyCommand ssh -W %h:%p derecho
-        ```
-
-        Once the proxy connection can be established with your edited local SSH configuration file, use the following steps to connect to a compute node:
-
-        1. Connect to a Derecho login node using Remote-SSH
-        2. From the Terminal, launch an interactive job using `qsub -I`
-        3. Identify the assigned compute node name
-        4. Launch a new window and connect directly to the compute node using Remote-SSH
-
-    === "Casper"
-        Casper does not require any modifications to your local SSH configuration file.
-
-        1. Connect to a Casper login node using Remote-SSH
-        2. From the Terminal, launch an interactive job using `qsub -I`
-        3. Identify the assigned compute node name
-        4. Launch a new window and connect directly to the compute node using Remote-SSH
-
 
 ## Additional Resources
 Microsoft provides [comprehensive documentation](https://code.visualstudio.com/docs) on how to modify the GUI, add shortcuts, integrate external technologies into VS Code, and more.
