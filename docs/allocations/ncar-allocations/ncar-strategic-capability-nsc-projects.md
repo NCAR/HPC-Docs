@@ -1,4 +1,4 @@
-# NCAR Strategic Capability (NSC) projects
+# NSF NCAR Strategic Capability (NSC) projects
 
 **The next NSC submission deadline will be in late September 2024, exact date TBD.**
 
@@ -7,11 +7,11 @@ one year to a few years that align with NSF NCAR’s scientific priorities and
 strategic plans. These large-scale, high-priority projects are subject to review 
 of their scientific merit, strategic importance, technical readiness, and broader 
 impact. NSF NCAR researchers and computational scientists are encouraged to submit 
-requests for NCAR Strategic Capability (NSC) projects to be run on the Derecho system. 
+requests for NSF NCAR Strategic Capability (NSC) projects to be run on the Derecho system. 
 
 NSC proposals are accepted and reviewed every six months, in spring and fall. 
 Proposals should follow the guidance in these [instructions for preparing proposal 
-documents](https://hpc-docs-iframe-demo.readthedocs.io/en/latest/allocations/university-allocations/university-large-allocation-request-preparation-instructions/), 
+documents](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/university-large-allocation-request-preparation-instructions/),
 which apply to NSC project requests as well as to large university 
 requests. NSC projects requiring more than one year’s allocation must submit 
 continuation (renewal) proposals each year to report progress toward the 
@@ -43,7 +43,7 @@ though a single project lead should be identified.
 
 NSC allocations typically have a minimum request size of 10 million core-hours 
 or 25,000 GPU-hours; exceptions can be granted for cause. Contact 
-[alloc@ucar.edu] to discuss a possible exception. There is no maximum size limit, 
+[alloc@ucar.edu](alloc@ucar.edu) to discuss a possible exception. There is no maximum size limit, 
 though in practice the review process will attempt to accommodate all meritorious 
 submissions at some level, which may require reducing the amounts awarded to 
 some projects. Consistent with the NSC objectives, NSC requests should not aggregate 
@@ -56,7 +56,7 @@ request.
 
 ## NSC proposal format
 NSC requests must prepare Proposal Documents, which should follow the guidance 
-and structure for [large allocation requests for universities](https://hpc-docs-iframe-demo.readthedocs.io/en/latest/allocations/university-allocations/university-large-allocation-request-preparation-instructions/). 
+and structure for [large allocation requests for universities](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/university-large-allocation-request-preparation-instructions/). 
 Notably, NSC requests must include a five-page summary along with relevant supporting documentation.
 
 For those projects requiring more than one year’s allocation, a continuation request 
@@ -65,7 +65,8 @@ The continuation request should include a short progress write-up according to t
 instructions for large allocation requests.
 
 !!! info 
-          Long-term storage plans for NSC project data in Campaign Storage should be coordinated with the requester's lab(s). The data management plan section in your NSC request document should describe the arrangements made with your lab.
+          Long-term storage plans for NSC project data in Campaign Storage should be coordinated with the requester's lab(s). 
+          The data management plan section in your NSC request document should describe the arrangements made with your lab.
 
 ## Review process and schedule 
 NSC requests are reviewed twice per year. Projects arising too late for NSC 
@@ -76,7 +77,7 @@ must satisfy the criteria for a Director’s Reserve award.
 NSC requests are reviewed by a panel of computational scientists composed of 
 representatives of each NSF NCAR lab and program who are appointed by the lab and program 
 directors. This panel evaluates proposals according to the [three criteria used by 
-the CHAP](https://hpc-docs-iframe-demo.readthedocs.io/en/latest/allocations/chap/chap-allocation-review-criteria/) 
+the CHAP](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/chap/chap-allocation-review-criteria/) 
 in its evaluation of large university requests – the effectiveness of the 
 methodology, the appropriateness of the research plan, and the efficiency of resource 
 use. The technical readiness description also provides input into this aspect of 
