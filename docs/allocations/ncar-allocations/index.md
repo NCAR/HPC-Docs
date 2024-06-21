@@ -35,7 +35,7 @@ The NSF NCAR labs also receive allocations for analysis and visualization resour
 
 -----
 ## <a name="ncarallocations-ncarexternalprojects"></a>**NSF NCAR External Projects**
-NSF NCAR projects supported by a funding award separate from NSF NCAR base funding may request an External Project allocation to support the computational work necessary to accomplish the objectives of the award. 
+NSF NCAR projects supported by a funding award separate from NSF NCAR base funding may request an External Project allocation to support the computational work necessary to accomplish the objectives of the award. (See below for storage associated with External Projects.)
 
 Small allocations of up to 2 million core-hours can be granted as soon as the external award begins and last through the end of the external award. Requests can be submitted via the Allocations section of the [ARC Portal](https://arc.ucar.edu). No proposal document is required, but you will need to provide basic project information (title, abstract) and details of the supporting grant.
 
@@ -44,6 +44,8 @@ For larger allocation amounts in support of external awards, researchers are exp
 Note that the annual amounts available to External Projects in the table above are tentative and can expand as external grants are awarded. Core-hours or GPU-hours will be shifted from the NSC pool as needed to accommodate externally funded projects.
 
 NSF NCAR policies and guidelines for co-sponsorship are not affected by these allocation policies. Co-sponsorship remains a transaction between a lab and the proposer, and the process is monitored by UCAR Budget and Planning and PACUR. The UCAR B&P office has approved rates for use in the proposal process.
+
+***Campaign Storage and External Projects.*** External Projects have two options for storage during the external award’s period of performance. The simplest option is to use your Lab’s Campaign Storage allocation; in this case, you should not request any Campaign Storage when submitting your External Project request. Alternately, dedicated Campaign Storage space during the external award can be purchased at the current rate for disk. You can initiate such requests by asking for Campaign Storage as part of the External Project submission. Long-term storage requirements should be handled separately via the [Digital Assets Services Hub](https://sundog.ucar.edu/Interact/Pages/Section/Default.aspx?Section=4256) (DASH) process and may incur additional costs.
 
 -----
 ## <a name="ncarallocations-ncardirector'sreserve"></a>**NSF NCAR Director's Reserve**
