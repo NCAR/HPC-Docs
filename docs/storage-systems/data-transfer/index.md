@@ -3,9 +3,9 @@
 The best way to transfer files between systems or to share data with
 colleagues depends on the context. For example, you might want to move
 or copy data that you own from the GLADE system to a university storage
-resource or from GLADE to NCAR Campaign Storage. At another time, you
+resource or from GLADE to NSF NCAR Campaign Storage. At another time, you
 might want to share data that you have on GLADE with someone who does
-not have access to NCAR systems.
+not have access to NSF NCAR systems.
 
 There are several ways of accomplishing these transfer and sharing
 tasks. Review the descriptions of each below and follow the links
@@ -16,9 +16,9 @@ provided for details.
 ### Globus
 
 CISL recommends using Globus to transfer files between systems – for
-example, between non-NCAR facilities and the resources that CISL
+example, between non-NSF NCAR facilities and the resources that CISL
 manages. The Globus platform also enables users to transfer files
-between their GLADE file spaces and the NCAR Campaign Storage file
+between their GLADE file spaces and the NSF NCAR Campaign Storage file
 system.
 
 Globus has both web and command line interfaces, and its Globus Connect
@@ -53,7 +53,7 @@ so it is faster than the single-streaming SCP and SFTP utilities.
 ### Globus
 
 In addition to the features described above, Globus enables users to
-share files with colleagues and others who do not have NCAR user
+share files with colleagues and others who do not have NSF NCAR user
 accounts. [More information](globus/Sharing+data+and+making+unattended+transfers.md).
 
 ### Sharing via Google Drive and other services
