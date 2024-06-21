@@ -1,7 +1,7 @@
 # Stratus object storage system
 
 Stratus, the CISL object storage disk system described here, is for
-long-term data storage.
+long-term data storage. Stratus is not available for university projects.
 
 Some documents attached below include the name of the vendor – Active
 Scale, a division of Western Digital – and some refer to the system with
@@ -43,7 +43,7 @@ other file systems in many ways:
 - CISL will create only one admin account per lab. The admin will be
   able to create accounts for other users. Because the secret key-based
   logins do not expire, the admin will also delete accounts as
-  appropriate – for example, when a user leaves NCAR.
+  appropriate – for example, when a user leaves NSF NCAR.
 
 ## Requesting account
 
@@ -60,13 +60,13 @@ admin: [Getting started with object storage admin account](./getting-started-wit
 
 - Additional documentation is attached below.
 
-- The system is accessible only via the NCAR VPN. This is important
+- The system is accessible only via the NSF NCAR VPN. This is important
   mostly for browser-based access to both the admin interface and to objects
   in storage buckets with public read-access, since CISL anticipates that
   server-based access will be from an internal server anyway.
 
 - The access and secret credentials will be sent via email. They are all
-  it takes a user to login (there is no UCAS, CIT, or Duo login). The
+  it takes a user to login (there is no UCAS, CIT, or Duo login). The NSF
   NCAR username is irrelevant for this system.
 
 - The way that these credentials are (unlike username/password) seems to
