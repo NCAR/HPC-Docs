@@ -43,7 +43,7 @@ though a single project lead should be identified.
 
 NSC allocations typically have a minimum request size of 10 million core-hours 
 or 25,000 GPU-hours; exceptions can be granted for cause. Contact 
-[alloc@ucar.edu](alloc@ucar.edu) to discuss a possible exception. There is no maximum size limit, 
+alloc@ucar.edu to discuss a possible exception. There is no maximum size limit, 
 though in practice the review process will attempt to accommodate all meritorious 
 submissions at some level, which may require reducing the amounts awarded to 
 some projects. Consistent with the NSC objectives, NSC requests should not aggregate 
