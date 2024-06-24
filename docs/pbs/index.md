@@ -309,7 +309,7 @@ the PBS servers are:
     ```
 
 The server-specific queue names will be understood by both PBS servers,
-so if you will want to submit the same script at times from Casper, 
+so if you will want to submit the same script at times from Casper,
 *always append the server name to your queue*.
 
 The `qinteractive` and `execcasper` scripts, which start interactive
@@ -340,18 +340,18 @@ in your queue designations. The job IDs returned by PBS include the
 server name, so you do not need to append a server to the job ID you
 specify in your dependency argument.
 
-Here is an example of a workflow that ran a simulation on Cheyenne 
-(NSF NCAR's previous supercomputer) and, if successful, then ran a post-processing 
-job on Casper. Thanks to peer scheduling, these jobs could be submitted 
-from either Cheyenne or Casper login nodes.
+Here is an example of a workflow that runs a simulation on Derecho
+(NSF NCAR's previous supercomputer) and, if successful, then ran a post-processing
+job on Casper. Thanks to peer scheduling, these jobs could be submitted
+from either Derecho or Casper login nodes.
 
 === "bash"
     ```bash
-    JID=$(qsub -q economy@chadmin1.ib0.cheyenne.ucar.edu run_model.pbs)
+    JID=$(qsub -q main@desched1 run_model.pbs)
     qsub -q casper@casper-pbs -W depend=afterok:$JID run_postprocess.pbs
     ```
 === "tcsh"
     ```tcsh
-    set JID=`qsub -q economy@chadmin1.ib0.cheyenne.ucar.edu run_model.pbs`
+    set JID=`qsub -q main@desched1 run_model.pbs`
     qsub -q casper@casper-pbs -W depend=afterok:$JID run_postprocess.pbs
     ```

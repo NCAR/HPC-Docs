@@ -1,4 +1,4 @@
-# MATLAB Parallel Computing Toolbox on Casper and Cheyenne
+# MATLAB Parallel Computing Toolbox on Casper and Derecho
 
 The MATLAB Parallel Computing Toolbox (PCT) allows you to run MATLAB
 code in parallel across multiple workers, which are analogous to MPI
@@ -116,7 +116,7 @@ When using the PCT, you are expected to create and use *cluster
 profiles* that manage either node-local tasks or batch-scheduler tasks.
 While there is a preconfigured profile for single-node use (local), you
 will need to do some setup before you can use the MPS. CISL provides a
-distributed cluster profile for PBS on both Casper and Cheyenne for all
+distributed cluster profile for PBS on both Casper and Derecho for all
 versions of MATLAB starting with R2020a.
 
 You can import an existing cluster profile using the wizard in the
@@ -142,7 +142,7 @@ parallel.defaultClusterProfile(ncar-mps);
 ## Using the MATLAB parallel server (MPS) to span multiple nodes
 
 The configuration above will limit your job to the number of CPUs on a
-single node; on Casper and Cheyenne this means 36 workers, or 72 if you
+single node; on Casper and Derecho this means 36 workers, or 72 if you
 use hyperthreads. However, you can use the parallel server to span
 multiple nodes. When using MPS, MATLAB itself will submit a job to the
 batch scheduler and use an internal MPI library to enable communication
