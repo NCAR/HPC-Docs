@@ -1,13 +1,13 @@
 # JupyterHub at NCAR
 
 The JupyterHub deployment that CISL manages allows "push-button" access
-to NCAR's Cheyenne supercomputing resource and the Casper cluster of
+to NCAR's Derecho supercomputing resource and the Casper cluster of
 nodes used for data analysis and visualization, machine learning, and
 deep learning.
 
 It gives users the ability to create, save, and share Jupyter
 Notebooks through the JupyterLab interface and to run interactive,
-web-based analysis, visualization and compute jobs on Cheyenne and
+web-based analysis, visualization and compute jobs on Derecho and
 Casper. JupyterHub is an alternative to X11 access for interacting with
 those resources to run jobs as well as for using web-based interactive
 shell functionality without the need to install or use software such as
@@ -42,7 +42,7 @@ named servers to use for accessing different compute resources.
 
 After starting a server, select the cluster you want to use. You can
 choose to work on a login node or a batch node on either Casper or
-Cheyenne.
+Derecho.
 ![](media/jhub4_new.png){width="450"}
 
 If you choose a **login node**, launching the server will take you to

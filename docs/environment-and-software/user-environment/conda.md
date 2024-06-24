@@ -262,7 +262,7 @@ mamba install ipykernel
 ```
 
 At this point, your environment should show up automatically as a kernel
-in any Jupyter server on Cheyenne or Casper. This method is convenient
+in any Jupyter server on Derecho or Casper. This method is convenient
 and robust, and any shell settings (e.g., environment variables) needed
 by packages [will be
 set](https://conda.io/projects/conda/en/latest/dev-guide/deep-dives/activation.html?highlight=activate.d#activation-deactivation-scripts)

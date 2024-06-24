@@ -15,13 +15,13 @@ Search for relevant documentation with the "Search" field at upper-right or use 
 ## NCAR Help Desk Resources
 ### Research Computing help desk
 
-Contact [the help desk](https://rchelp.ucar.edu/) for assistance with Cheyenne, Casper, and related data-storage systems.
+Contact [the help desk](https://rchelp.ucar.edu/) for assistance with Derecho, Casper, and related data-storage systems.
 
 ### Enterprise Service Desk staff support
 The [Enterprise Service Desk portal](https://help.ucar.edu/) is for NCAR/UCAR staff who need support for internal IT services.
 
 CISL staff ask that you provide the information listed below when you
-report the failure of a Cheyenne or Casper job. This information will
+report the failure of a Derecho or Casper job. This information will
 help us find a solution as quickly as possible.
 
 
