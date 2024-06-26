@@ -3,7 +3,7 @@
 ![](media/image1.png){width="300"}
 
 !!! danger
-    NCAR Duo Authentication is export-controlled. Taking the app on your
+    NSF NCAR Duo Authentication is export-controlled. Taking the app on your
     phone to Cuba, Iran, Syria, North Korea, or Sudan is strictly
     prohibited.
 
@@ -38,7 +38,7 @@ other methods.
 
 ## Getting started with Duo
 
-To get started, contact the [NCAR Research Computing help desk](https://rchelp.ucar.edu/) to request enrollment (and to get a
+To get started, contact the [NSF NCAR Research Computing help desk](https://rchelp.ucar.edu/) to request enrollment (and to get a
 CIT password if you don't already have one).
 
 CISL will send you a link for setting up a Duo account.
@@ -48,7 +48,7 @@ Smartphone and tablet users are asked to download [this free **Duo Mobile** app]
 
 
 When your setup is complete, follow the instructions below to log in to
-the system, such as Cheyenne, the NCAR virtual private network, or
+the system, such as Derecho, the NSF NCAR virtual private network, or
 others that accept Duo 2FA.
 
 ## Logging in with Duo
@@ -60,7 +60,7 @@ To log in to a system like Derecho:
   - Enter [your ssh command](../../../compute-systems/derecho/index.md).
   - Enter your **CIT password** where a token response is requested.
 
-![](media/image2.png){width="400"}
+![](media/image2_new.png){width="400"}
 
 The Duo App will send a "push" notification to your phone or tablet,
 asking you to approve or deny the login request.
@@ -70,7 +70,7 @@ When you approve the request, you will be logged in.
 #### Other application logins
 
 Duo authentication with other systems is somewhat different. Logging on
-to the NCAR virtual private network ([VPN](../../vpn-access.md)) is one example.
+to the NSF NCAR virtual private network ([VPN](../../vpn-access.md)) is one example.
 
 You will:
 
@@ -116,7 +116,7 @@ Duo-protected accounts.
 ## User guides and related links
 
 For additional information, see the following links
-or contact the [NCAR Research Computing help desk](https://rchelp.ucar.edu/) for assistance:
+or contact the [NSF NCAR Research Computing help desk](https://rchelp.ucar.edu/) for assistance:
 
 - [Common issues](https://guide.duo.com/common-issues)
 

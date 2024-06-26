@@ -11,22 +11,22 @@ That’s all — really!
 
 ## Here's how to start
 
-* Check out [what we offer](https://www2.cisl.ucar.edu/computing-data) to confirm that Derecho meets your project’s needs.
+* Check out [what we offer](https://www.cisl.ucar.edu/computing-data) to confirm that Derecho meets your project’s needs.
 * Visit the [allocations](https://arc.ucar.edu/xras_submit/opportunities) page on the [ARC Portal](https://arc.ucar.edu/).
 * Make sure you are signed in, or create a new profile.
 * Click [Opportunities](https://arc.ucar.edu/xras_submit/opportunities).
 * Select a project type. You may refer to [project type descriptions](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/).
-* Fill out a brief request form with information about your project. 
+* Fill out a brief request form with information about your project.
 * Our team will review your request — most requests are approved within a day or two.
 * You can keep track of your request’s status through the [“My Allocations”](https://arc.ucar.edu/xras_submit/opportunities) tab.
 
 
 ## We're here to help
 
-Having a problem? No worries.
+Having a problem? No worries! 
 
-* If you have a question, check out our comprehensive [user documentation](https://arc.ucar.edu/knowledge_base/61767794).
-* If you need to speak with a human, contact the Help Desk — our [team of live consultants](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) is happy to communicate with you personally to solve your problem.
+Search through our comprehensive user documentation or contact the [Help Desk](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) — our team of live 
+consultants are happy to communicate with you personally to solve your problem.
 
 Getting back on track is quick and easy!
 

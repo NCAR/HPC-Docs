@@ -96,12 +96,12 @@ files, directories and symlinks.
 ### Status
 === "File Volume"
     <p align="left">
-        <iframe width="680" height="340" frameborder="0" src="https://www.cisl.ucar.edu/uss/glade_status/glade_status_BSK.html"></iframe>
+        <iframe width="680" height="340" frameborder="0" src="https://status.cisl.ucar.edu/uss/glade_status/glade_status_BSK.html"></iframe>
     </p>
 
 === "File Count"
     <p align="left">
-        <iframe width="680" height="340" frameborder="0" src="https://www.cisl.ucar.edu/uss/glade_status/glade_status_counts_BSK.html"></iframe>
+        <iframe width="680" height="340" frameborder="0" src="https://status.cisl.ucar.edu/uss/glade_status/glade_status_counts_BSK.html"></iframe>
     </p>
 
 ## Home space
@@ -119,7 +119,7 @@ space to enable users to recover deleted files quickly and easily.
   frequency and scheduling of backups and the length of time they are
   kept may change with no prior notice. If you are unable to find files
   that you would like to restore in the snapshots of your home
-  directory, contact the [NCAR Research Computing help
+  directory, contact the [NSF NCAR Research Computing help
   desk](https://rchelp.ucar.edu/) to request restoration of the files if
   they are in a backup.
 
@@ -177,7 +177,7 @@ a *temporary* space for data to be analyzed and removed within a short
 amount of time.
 
 If you will need to occupy more than your quota of scratch space at some
-point, contact the [NCAR Research Computing help
+point, contact the [NSF NCAR Research Computing help
 desk](https://rchelp.ucar.edu/) to request a temporary increase. Include
 a paragraph justifying your need for additional space when making your
 request.
@@ -229,13 +229,13 @@ Dedicated project spaces on the `/glade/campaign` file system are
 available through our allocations process to support longer-term disk
 needs that are not easily accommodated by the scratch or work spaces.
 Allocations for project spaces are made to collaborative groups of users
-through the University/CHAP or NCAR [allocations
+through the University/CHAP or NSF NCAR [allocations
 processes](https://arc.ucar.edu/xras_submit/opportunities). The
 allocations are based on project needs and resource availability.
 Requests are reviewed according to the various allocation schedules.
 
 If you have a user account and project space but lack the directory
-permissions you need for that space, contact the [NCAR Research
+permissions you need for that space, contact the [NSF NCAR Research
 Computing help desk](https://rchelp.ucar.edu/) to request changes.
 Identify the directories and the permissions you are requesting.
 
@@ -286,7 +286,7 @@ log in, the system may appear hung, you may not be able to access some
 of your directories or files, your batch jobs may fail, and commands may
 not work as expected.
 
-If you cannot log in or execute commands, contact the [NCAR Research
+If you cannot log in or execute commands, contact the [NSF NCAR Research
 Computing help desk](https://rchelp.ucar.edu/). You can check your space
 usage as shown below.
 

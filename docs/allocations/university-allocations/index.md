@@ -1,23 +1,23 @@
 # University allocations
 
-!!! tip " The next university deadline for submitting Large Allocation Requests is March 12, 2024."
+!!! tip " The next university deadline for submitting Large Allocation Requests will be in September 2024; exact date TBD."
 
-University use of the NCAR HPC environment is intended to support Earth
+University use of the NSF NCAR HPC environment is intended to support Earth
 system science and related research by researchers at U.S. institutions.
 The emphasis is on projects that may be beyond the scope of a
 researcher’s local university computing capabilities. Eligible
-researchers and activities incur no costs for the use of NCAR resources.
+researchers and activities incur no costs for the use of NSF NCAR resources.
 
 !!! info " Recent Changes"
     We have recently updated these policies, both to
     prepare for Derecho and to expand opportunities for University
     researchers. Most notably, we have created a new Data Analysis
-    opportunity to allow more researchers to analyze NCAR-hosted data sets,
+    opportunity to allow more researchers to analyze NSF NCAR-hosted data sets,
     and we have redefined “new faculty” to be any faculty member who has not
-    computed at NCAR before. We have also called out options for expanding
+    computed at NSF NCAR before. We have also called out options for expanding
     or extending the smaller-scale projects and clarified the eligibility
     language to emphasize the range of post-secondary institutions welcome
-    to use NCAR’s resources.
+    to use NSF NCAR’s resources.
 
 While we often distinguish between the allocation opportunities based on
 the size of the HPC resource needs, most of these options allow you to
@@ -100,10 +100,10 @@ These requests have no upper limit, aside from the portion of the system
 available to the university community and ensuring that we can support
 the breadth of work from eligible university researchers.
 
-CISL accepts requests for large allocations of NCAR resources every six
+CISL accepts requests for large allocations of NSF NCAR resources every six
 months, in March and September. Deadlines for submitting requests are
 announced approximately two months in advance. The CISL HPC Allocations
-Panel ([CHAP](https://arc.ucar.edu/knowledge_base/70549827)) reviews
+Panel ([CHAP](../chap/index.md)) reviews
 requests in April and October, and projects begin in May and November.
 
 !!! note
@@ -117,8 +117,8 @@ requests in April and October, and projects begin in May and November.
 The panel recommends awards on the basis of the computational
 experimental design, computational effectiveness, and availability of
 computing resources (see [Review
-Criteria](https://arc.ucar.edu/knowledge_base/70549832)). Check the
-[submission instructions](https://arc.ucar.edu/knowledge_base/70549834)
+Criteria](../chap/chap-allocation-review-criteria.md)). Check the
+[submission instructions](university-large-allocation-request-preparation-instructions.md)
 for preparing the required Request Summary document.
 
 If your Request Summary is ready, [submit your Large Allocation Request
@@ -142,6 +142,12 @@ initial runs in preparation for submitting a request for a large allocation.
 **Small requests can be submitted at any time and decisions are
 typically made within a few days.**
 
+U.S. university researchers who are supported by an NSF award can
+request an initial small allocation of up to 1 million core-hours on Derecho;
+and up to 2,500 GPU-hours on Derecho for each NSF award. These allocations
+can be used to complete small projects or to conduct initial runs in
+preparation for submitting a request for a large allocation.
+
 If needed to complete your work, you can request a *one-time supplement*
 to a small allocation – as much as doubling the total hours available
 for your project – with a brief statement that you are on track to
@@ -163,6 +169,7 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 *Resources for unsponsored graduate students, postdocs, and new faculty*
 
 A graduate student, post-doctoral researcher, or new faculty member at a
+
 U.S. university can request a one-time allocation of up to 500,000 Derecho 
 core-hours and 1,500 Derecho GPU-hours. 
 These awards typically support dissertations, help foster
@@ -171,7 +178,7 @@ research.
 
 An individual can request a new exploratory project at each stage of
 their career path. A new faculty member is any eligible researcher who
-has not previously had an NCAR allocation as a faculty member.
+has not previously had an NSF NCAR allocation as a faculty member.
 
 For these allocations, in addition to meeting the domain and affiliation
 eligibility requirements (below):
@@ -203,17 +210,17 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 !!! info "Data Analysis allocation requests can be submitted at any time and decisions are typically made within a few days."
 
-Earth system scientists can request access to NCAR’s
+Earth system scientists can request access to NSF NCAR’s
 [Casper data analysis cluster](../../compute-systems/casper/index.md) and the
 [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-project-space)
 to allow them to conduct analyses on data sets curated by
-[NCAR data services](https://www2.cisl.ucar.edu/computing-data/data) and accessible
+[NSF NCAR data services](https://www.cisl.ucar.edu/computing-data/data) and accessible
 via our storage systems.
 
 We are pleased to make Data Analysis allocations available to
 researchers from any eligible institution *regardless of the source of
 funding* for the planned analysis. Researchers are only required to
-identify the specific NCAR-hosted data sets that are essential to
+identify the specific NSF NCAR-hosted data sets that are essential to
 completing their science objectives. (Because of this expanded
 eligibility, Data Analysis projects cannot make use of Derecho.)
 
@@ -221,7 +228,7 @@ Data Analysis allocations are made for one year, but may be extended up
 to two additional years to complete the original project.
 
 Requests for the CMIP Analysis Platform, unless the work requires use of
-NCAR’s HPC resource, fall within the scope of a Data Analysis project.
+NSF NCAR’s HPC resource, fall within the scope of a Data Analysis project.
 
 [Submit a Data Analysis Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
@@ -231,19 +238,19 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 !!! info "Classroom Allocation Requests can be submitted at any time and decisions are generally made within a few days."
 
 CISL offers opportunities to undergraduate and graduate faculty and
-instructors at U.S. 2- and 4-year institutions to use NCAR HPC and
+instructors at U.S. 2- and 4-year institutions to use NSF NCAR HPC and
 analysis resources in their courses in Earth system science and related
 areas. “Special projects” or honors thesis courses under the guidance of
 a faculty member are eligible.
 
 Classroom allocations can also be used for shorter-term training courses
 and workshops aimed at the university community with the goal of
-developing a skilled workforce relevant to all aspects of NCAR’s
+developing a skilled workforce relevant to all aspects of NSF NCAR’s
 mission.
 
 Individual accounts are provided to all students and the instructor(s),
 so be sure to allow at least a week for setting up accounts. Very large
-classes may require more setup time. NCAR can provide consulting
+classes may require more setup time. NSF NCAR can provide consulting
 assistance to the instructors.
 
 Classroom allocations are typically made for the duration of the course,
@@ -254,13 +261,13 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 ## Eligibility Details
 
-NCAR’s HPC environment represents a significant resource for the U.S.
+NSF NCAR’s HPC environment represents a significant resource for the U.S.
 university community. Access to the environment is governed by three
 primary eligibility criteria.
 
 ### 1. Earth system science and related research
 
-To use NCAR resources, a project must be within Earth system science or
+To use NSF NCAR resources, a project must be within Earth system science or
 be Earth system–related research.
 
 According to a recent report from the National Academies, “Earth system
@@ -273,34 +280,34 @@ influence these dynamics and their interactions and feedback through
 time.
 
 Because scientific progress often relies on contributions from many
-fields, NCAR resources are also available to support Earth
+fields, NSF NCAR resources are also available to support Earth
 system–related work from other domains – that is, work that has a
 demonstrable benefit to or reliance on Earth system science.
 
 ### 2. Affiliation
 
-A prime component of NCAR’s mission is to support atmospheric science at
+A prime component of NSF NCAR’s mission is to support atmospheric science at
 U.S. post-secondary educational institutions. Eligible institutions
 encompass 2- and 4-year colleges and universities, including community
 colleges, minority serving institutions (MSIs), and predominantly
 undergraduate-serving institutions, as well as non-profit research
 organizations. Recipients of NSF research grants in eligible domains
-from other types of institutions are also deemed eligible. NCAR
+from other types of institutions are also deemed eligible. NSF NCAR
 resources normally do not support research groups in federal agencies.
 
 ### 3. Sponsorship
 
-**NSF grants.** Researchers can apply for an NCAR allocation in support
+**NSF grants.** Researchers can apply for an NSF NCAR allocation in support
 of an associated NSF grant for Earth system science or related research
 as long as their proposed computing supports the objectives of the
-grant. The NSF is kept informed to ensure appropriate use of NCAR
+grant. The NSF is kept informed to ensure appropriate use of NSF NCAR
 resources.
 
-**Unsponsored projects.** NCAR provides opportunities for graduate
+**Unsponsored projects.** NSF NCAR provides opportunities for graduate
 students, postdocs, and new faculty at eligible institutions for work
 not within the scope of a funded research grant. For this purpose, “new
 faculty” includes any faculty member who has not previously had a
-university allocation at NCAR.
+university allocation at NSF NCAR.
 
 - The work must be the individual's own research project rather than a
   project assigned by the institution that is hosting the grad student,
@@ -313,15 +320,15 @@ university allocation at NCAR.
   funds are not within the scope of a funded grant.
 
 Unsponsored researchers may also request Data Analysis allocations.
-These projects cannot use NCAR HPC resources and must make use of
-NCAR-hosted data sets.
+These projects cannot use NSF NCAR HPC resources and must make use of
+NSF NCAR-hosted data sets.
 
 **Non-NSF funding**
 
-Due to high demand for NCAR resources at this time, we are unable to
+Due to high demand for NSF NCAR resources at this time, we are unable to
 provide HPC support to Earth system scientists who have funding solely
-from non-NSF sources. However, researchers who want to analyze NCAR data
-sets can request use of NCAR analysis resources regardless of their
+from non-NSF sources. However, researchers who want to analyze NSF NCAR data
+sets can request use of NSF NCAR analysis resources regardless of their
 funding source.
 
 The [University of Wyoming allocation

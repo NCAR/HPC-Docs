@@ -1,30 +1,30 @@
 # Globus file transfers
 
 Globus is the most efficient way to transfer files – large files, in
-particular – between NCAR file systems such as Campaign Storage, GLADE,
-and non-NCAR resources and storage systems. NCAR and UCAR researchers
+particular – between NSF NCAR file systems such as Campaign Storage, GLADE,
+and non-NSF NCAR resources and storage systems. NSF NCAR and UCAR researchers
 can also use the *Globus for Google Drive* connector service to transfer
-files to the *NCAR Google Drive* collection on Globus for sharing and
+files to the *NSF NCAR Google Drive* collection on Globus for sharing and
 storage purposes as described below.
 
 Globus has both a [web interface](https://www.globus.org/) and a command
 line interface (CLI), which are described below. To use either
 interface, the first step is to create a free **personal account** and
 log in using a [Globus ID](https://www.globusid.org/) or a Google
-account. (UCAR and NCAR staff: **Do not** use the NCAR RDA
+account. (UCAR and NSF NCAR staff: **Do not** use the NSF NCAR RDA
 *organizational login*.)
 
 ![](media/image1.png){ width="450" }
 
 Several *mapped collections*, which provide access to different file
 system locations on a public endpoint, are set up on the Globus system
-for transferring files to and from NCAR storage systems. These include:
+for transferring files to and from NSF NCAR storage systems. These include:
 
-- **NCAR GLADE**
+- **NSF NCAR GLADE**
 
-- **NCAR Campaign Storage**
+- **NSF NCAR Campaign Storage**
 
-- **NCAR Data Sharing Service**
+- **NSF NCAR Data Sharing Service**
 
 Users can also create their own *guest collections* [as described here](Sharing+data+and+making+unattended+transfers.md)
 in order to facilitate data sharing with colleagues and to accommodate
@@ -70,7 +70,7 @@ Follow these steps to transfer files. See the image below for reference.
 
 6.  Enter your username
     and [authenticate](../../../getting-started/accounts/duo/index.md#logging-in-with-duo) as
-    you do when logging in to NCAR systems. You will not need to
+    you do when logging in to NSF NCAR systems. You will not need to
     authenticate to access the collection for the next 30 days.
 
 7.  Identify your target endpoint in the other panel.
@@ -93,9 +93,9 @@ to make both manual and [unattended file transfers](Sharing+data+and+making+unat
 
 The application is:
 
-- installed on the NCAR/CISL [data-access nodes](../../data-access-nodes.md).
+- installed on the NSF NCAR/CISL [data-access nodes](../../data-access-nodes.md).
 
-- available within the NCAR Python Library conda environment.
+- available within the NSF NCAR Python Library conda environment.
 
 - can be added to a personal conda environment using **conda install
   globus-cli**.
@@ -174,13 +174,13 @@ transfers, manage endpoints, and more, see these resources:
 ## Globus for Google Drive
 !!! info
     CISL has enabled the *Globus for Google Drive
-    connector service to facilitate file transfers to NCAR's Google Drive by
+    connector service to facilitate file transfers to NSF NCAR's Google Drive by
     NCAR and UCAR staff. University users and others who are interested in
     using the connector service are advised to consult with their own
     institutional IT experts.
 
-NCAR and UCAR researchers can use the *Globus for Google
-Drive* connector service to transfer files to the *NCAR Google
+NSF NCAR and UCAR researchers can use the *Globus for Google
+Drive* connector service to transfer files to the *NSF NCAR Google
 Drive* collection on Globus for sharing and storage purposes by
 following the instructions below.
 
@@ -199,11 +199,11 @@ smaller number of files.
 To make a transfer, follow these steps after logging in to your personal
 Globus account:
 
-1.  Go to **File Manager** and search for the collection named *NCAR
+1.  Go to **File Manager** and search for the collection named *NSF NCAR
     Google Drive*.
 
 2.  Select the drive and authenticate as required. You will be directed
-    to the NCAR/UCAR authentication page to give Globus access to the
+    to the NSF NCAR/UCAR authentication page to give Globus access to the
     Google Drive by using Duo and your CIT credentials. (You are only
     required to do this once.)
 
@@ -224,7 +224,7 @@ me* or *Starred*, simply navigate up one level.
 ### Storage limits and limitations
 
 Keep these storage and file size limitations in mind when using Globus
-to transfer data to the NCAR Google Drive:
+to transfer data to the NSF NCAR Google Drive:
 - [Google imposes a *<u>maximum file size limit</u>* of 5 TB](https://support.google.com/a/answer/172541?hl=en).
 - The *daily upload limit* is 750 GB per user. However, Google allows uploading of a single file larger than 750 GB.
 - Each user is limited to having a maximum of 5 million files and
@@ -237,7 +237,7 @@ The Globus Google Drive connector can streamline data sharing and
 collaboration *with team members who don't have access to Globus*.
 
 For example, a meteorologist who performs daily operational simulations
-on an NCAR system as part of a multi-organizational field campaign and
+on an NSF NCAR system as part of a multi-organizational field campaign and
 generates plots for flight planning can share them with the operational
 team and collaborators via a shared drive.
 
@@ -266,9 +266,9 @@ transferring files.
 
 ## Using Globus to sharing data and making unattended transfers
 
-Some users need unauthenticated access of data from NCAR storage systems to share that data or to accommodate their workflows.  *Guest collections* enable unauthenticated data access by pointing to a
-specified subset of data stored in a mapped collection like *NCAR
-GLADE*. They can be created by anyone with authenticated access to NCAR
+Some users need unauthenticated access of data from NSF NCAR storage systems to share that data or to accommodate their workflows.  *Guest collections* enable unauthenticated data access by pointing to a
+specified subset of data stored in a mapped collection like *NSF NCAR
+GLADE*. They can be created by anyone with authenticated access to NSF NCAR
 storage systems.
 
 [Usage of Globus Guest Collection for data sharing is described here](Sharing+data+and+making+unattended+transfers.md).

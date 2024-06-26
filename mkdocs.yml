@@ -74,12 +74,10 @@ nav:
       - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
       - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
       - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
-    - Quasar (Tape Storgae):
+    - Quasar (Tape Storage):
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
-    - Stratus (Object Storage):
-      - storage-systems/stratus/index.md
-      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+    - Stratus (Object Storage): storage-systems/stratus/index.md
     - Data Access Nodes: storage-systems/data-access-nodes.md
     - Transferring Data:
       - storage-systems/data-transfer/index.md
@@ -113,6 +111,7 @@ nav:
         - Numerical Libraries: environment-and-software/numerical-libraries.md
         - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
         - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
+        - VS Code: environment-and-software/vscode.md
         - Profiling & Debuggers: # -- tentative placement
           - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
           - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
@@ -173,15 +172,15 @@ nav:
     - NCAR Storage Spaces: tutorials/storage.md
     - JupyterHub:  tutorials/jupyterhub.md
     - Remote Desktop Services: tutorials/remote-desktops.md
-    - Containers: tutorials/containers.md
-    - GPU Workshop: tutorials/gpu-workshop.md
+#    - Containers: tutorials/containers.md
+#    - GPU Workshop: tutorials/gpu-workshop.md
 
   - User Support:
     - user-support/index.md
-    - Troubleshooting Tips:
-      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
-      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
-      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+#    - Troubleshooting Tips:
+#      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+#      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+#      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
 
   - NCAR User Group (NHUG):
     - nhug/index.md

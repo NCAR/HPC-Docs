@@ -1,13 +1,13 @@
 # JupyterHub at NCAR
 
 The JupyterHub deployment that CISL manages allows "push-button" access
-to NCAR's Cheyenne supercomputing resource and the Casper cluster of
+to NCAR's Derecho supercomputing resource and the Casper cluster of
 nodes used for data analysis and visualization, machine learning, and
 deep learning.
 
 It gives users the ability to create, save, and share Jupyter
 Notebooks through the JupyterLab interface and to run interactive,
-web-based analysis, visualization and compute jobs on Cheyenne and
+web-based analysis, visualization and compute jobs on Derecho and
 Casper. JupyterHub is an alternative to X11 access for interacting with
 those resources to run jobs as well as for using web-based interactive
 shell functionality without the need to install or use software such as
@@ -21,12 +21,12 @@ Chrome and Firefox are recommended for all users.
 
 Select **Production**.
 
-![](media/jhub1.png){width="450"}
+![](media/jhub1_new.png){width="450"}
 
 Log in with your NCAR username and Duo two-factor authentication, just
 as you would when logging directly in to either system.
 
-![](media/jhub2.png){width="350"}
+![](media/jhub2_new.png){width="350"}
 
 After you authenticate, you will be able to start a new default server
 or create a named server. (See following image.) You can have up to four
@@ -38,12 +38,12 @@ named servers to use for accessing different compute resources.
     same notebook file in multiple servers concurrently can lead to kernel
     failures and other errors.
 
-![](media/jhub3.png){width="450"}
+![](media/jhub3_new.png){width="450"}
 
 After starting a server, select the cluster you want to use. You can
 choose to work on a login node or a batch node on either Casper or
-Cheyenne.
-![](media/jhub4.png){width="450"}
+Derecho.
+![](media/jhub4_new.png){width="450"}
 
 If you choose a **login node**, launching the server will take you to
 the web interface.
@@ -58,7 +58,7 @@ Launch your job when ready. This job only gives you access to the
 JupyterLab instance. If you need more resources, you can launch another
 job or jobs from within JupyterLab.
 
-![](media/jhub5.png){width="350"} ![](media/jhub6.png){width="350"}
+![](media/jhub5_new.png){width="350"} ![](media/jhub6_new.png){width="350"}
 
 After launching the job, you will have access to multiple kernels in the
 web interface (image below) for working with various languages and
@@ -69,7 +69,7 @@ applications.
     you to explore your home directory *only*. To change to your scratch or
     work space, create soft links in your home directory to those locations.
 
-![](media/jhub7.png)
+![](media/jhub7_new.png)
 
 ## Python environments and kernels
 

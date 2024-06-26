@@ -76,7 +76,7 @@ the following:
 ## Making executables
 
 Using simple makefiles with the appropriate compiler is usually
-sufficient for making your own executables on Cheyenne.
+sufficient for making your own executables on our HPC systems.
 
 If you are tasked with developing cross-platform software, however,
 consider using the **GNU Build System**, also known as [GNU Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html).

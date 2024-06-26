@@ -1,7 +1,7 @@
 # Quasar system specifications
 
 The following information applies to the Quasar system hardware and
-disaster recovery storage maintained at the NCAR-Wyoming Supercomputing
+disaster recovery storage maintained at the NSF NCAR-Wyoming Supercomputing
 Center in Cheyenne, Wyoming.
 
 ## Quasar system

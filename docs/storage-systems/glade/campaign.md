@@ -1,7 +1,7 @@
 # Campaign Storage file system
 
-NCAR Campaign Storage is a resource for medium-term storage of project
-data, typically for three to five years, by NCAR labs and universities
+NSF NCAR Campaign Storage is a resource for medium-term storage of project
+data, typically for three to five years, by NSF NCAR labs and universities
 that have project allocations.
 
 Campaign Storage is accessible a number of ways that are described
@@ -22,12 +22,12 @@ below:
 
 ## Globus transfers
 
-The Globus mapped collection established for the file system is **NCAR
+The Globus mapped collection established for the file system is **NSF NCAR
 Campaign Storage**. How to make transfers to and from that collection is
 documented here: [Globus file transfers](../data-transfer/globus/index.md).
 
 How to make transfers using the command line interface also is covered
-in detail in this tutorial: [Using Globus v5 at NCAR (tutorial)](https://www2.cisl.ucar.edu/events/using-globus-v5-ncar).
+in detail in this tutorial: [Using Globus v5 at NSF NCAR (tutorial)](https://www.cisl.ucar.edu/events/using-globus-v5-ncar).
 
 CAVEAT: The Globus interface for transferring data does not handle
 symbolic links and does not create symbolic links on a destination
@@ -63,9 +63,9 @@ capacity for storing additional, new data. Users are expected to monitor
 their holdings, remove files that are no longer needed, and move
 necessary data to other storage options for longer-term preservation.
 
-### NCAR labs
+### NSF NCAR labs
 
-**NCAR researchers** are expected to collaborate with CISL’s Digital
+**NSF NCAR researchers** are expected to collaborate with CISL’s Digital
 Asset Services Hub (log in to [Sundog](https://sundog.ucar.edu/)) to
 develop data migration plans for storage needs that exceed five years.
 
@@ -78,9 +78,9 @@ CISL will not award storage space for researchers to carry data forward from one
 
 ## Allocations
 
-### NCAR labs
+### NSF NCAR labs
 
-Each NCAR lab has an allocation of Campaign Storage space and the labs
+Each NSF NCAR lab has an allocation of Campaign Storage space and the labs
 manage how those allocations are used.
 
 Users who have questions related to lab allocations should contact the
@@ -89,11 +89,11 @@ lab's own allocation representative.
 ### Universities
 
 University users can request Campaign Storage space through the
-[NCAR Resource Allocation System](https://arc.ucar.edu/xras_submit/opportunities) as
+[NSF NCAR Resource Allocation System](https://arc.ucar.edu/xras_submit/opportunities) as
 supplements to their project allocations. Requests must include detailed
 justification for the amount of space requested.
 
-Because NCAR is not currently funded to provide long-term data storage
+Because NSF NCAR is not currently funded to provide long-term data storage
 services to the university community, university users' requests for
 these allocations are prioritized based on the following factors.
 
@@ -152,7 +152,7 @@ following tool-specific behavior:
 
 Individual data sets can be excluded from the compression algorithm, if
 necessary. To discuss this option, please submit a request through the
-[NCAR Research Computing help desk](https://rchelp.ucar.edu/).
+[NSF NCAR Research Computing help desk](https://rchelp.ucar.edu/).
 
 ### Compression details
 
