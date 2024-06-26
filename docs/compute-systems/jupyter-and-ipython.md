@@ -86,9 +86,10 @@ with the token.
 
 - Log in with X tunneling (using the ssh `-X` option).
 
-- Start an interactive job using the `qinteractive` command.
-  (Alternative: Start the job on Casper using `execcasper` if it
-  requires more memory than is available on Derecho)
+- Start an interactive job using the `execcasper` command.
+  (Alternative: Start the job on Derecho using `qinteractive`.
+  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
 - Load the `ncarenv` and `conda` modules.
 
