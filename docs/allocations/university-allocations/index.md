@@ -169,7 +169,6 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 *Resources for unsponsored graduate students, postdocs, and new faculty*
 
 A graduate student, post-doctoral researcher, or new faculty member at a
-
 U.S. university can request a one-time allocation of up to 500,000 Derecho 
 core-hours and 1,500 Derecho GPU-hours. 
 These awards typically support dissertations, help foster
