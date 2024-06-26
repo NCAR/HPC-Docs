@@ -23,7 +23,9 @@ For additional information, see [Jupyter documentation](https://jupyter.readthed
 ## Starting JupyterLab
 
 - Start an interactive job using the `execcasper` command.
-  (Alternative: Start the job on Derecho using `qinteractive`. Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware) has less memory than each CPU or GPU node [Casper node](docs/compute-systems/casper/#casper-hardware))
+  (Alternative: Start the job on Derecho using `qinteractive`.
+  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
 - Load the `ncarenv` and `conda` modules.
 
@@ -66,9 +68,10 @@ with the token.
 
 ## Starting IPython shell
 
-- Start an interactive job using the `qinteractive` command.
-  (Alternative: Start the job on Casper using `execcasper` if it
-  requires more memory than is available on Derecho)
+- Start an interactive job using the `execcasper` command.
+  (Alternative: Start the job on Derecho using `qinteractive`.
+  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
 - Load the `ncarenv` and `conda` modules.
 
