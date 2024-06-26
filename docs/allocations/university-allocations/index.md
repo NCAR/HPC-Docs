@@ -9,10 +9,10 @@ researcher’s local university computing capabilities. Eligible
 researchers and activities incur no costs for the use of NSF NCAR resources.
 
 !!! info " Recent Changes"
-    We have recently updated these policies, both to
-    prepare for Derecho and to expand opportunities for University
-    researchers. Most notably, we have created a new Data Analysis
-    opportunity to allow more researchers to analyze NSF NCAR-hosted data sets,
+    We have recently updated these policies, given the deployment of Derecho 
+    and to expand opportunities for University researchers. 
+    Most notably, we have created a new Data Analysis opportunity to 
+    allow more researchers to analyze NSF NCAR-hosted data sets,
     and we have redefined “new faculty” to be any faculty member who has not
     computed at NSF NCAR before. We have also called out options for expanding
     or extending the smaller-scale projects and clarified the eligibility
@@ -206,7 +206,7 @@ original project.
 [Submit an Exploratory Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
 
-## Data Analysis Allocations (NEW!)
+## Data Analysis Allocations
 
 !!! info "Data Analysis allocation requests can be submitted at any time and decisions are typically made within a few days."
 
@@ -221,14 +221,14 @@ We are pleased to make Data Analysis allocations available to
 researchers from any eligible institution *regardless of the source of
 funding* for the planned analysis. Researchers are only required to
 identify the specific NSF NCAR-hosted data sets that are essential to
-completing their science objectives. (Because of this expanded
-eligibility, Data Analysis projects cannot make use of Derecho.)
+completing their science objectives (Because of this expanded
+eligibility, Data Analysis projects cannot make use of Derecho).
 
 Data Analysis allocations are made for one year, but may be extended up
 to two additional years to complete the original project.
 
-Requests for the CMIP Analysis Platform, unless the work requires use of
-NSF NCAR’s HPC resource, fall within the scope of a Data Analysis project.
+Requests for access to the CMIP Analysis Platform that do not require HPC compute resources 
+fall within the scope of a Data Analysis project.
 
 [Submit a Data Analysis Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
