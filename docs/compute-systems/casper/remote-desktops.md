@@ -66,9 +66,9 @@ arguments, it will launch in the interactive mode. In this mode, you can
 start a new session, list existing sessions, query a session to retrieve
 connection instructions and obtain a new one-time-password, and kill a
 running session. The script enables you to name your session, state how
-long you want the server to run, and select which desktop shell to use
-(GNOME2, GNOME3, or KDE). It also allows for custom requests to both the
-job scheduler and the VNC server program.
+long you want the server to run, and choose which GPU you'd like to request
+for rendering support (GP100 or L40). It also allows for custom requests
+to both the job scheduler and the VNC server program.
 
 ##### Command-line mode
 In command-line mode, you specify a subcommand
@@ -103,8 +103,12 @@ vncmgr create \
        --job-opts="-l select=1:ncpus=4:mem=20GB"
 ```
 
-You do not need to specify GPU resources, as all VNC jobs are
-automatically placed on nodes with NVIDIA Quadro GP100 GPUs.
+By default, all VNC jobs are automatically placed on nodes with NVIDIA
+Quadro GP100 GPUs. You can optionally request that NVIDIA L40 GPUs are used
+instead either via the `--gpu-model` flag to `vncmgr` or by specifying
+`-l gpu_type=l40` in your `--job-opts`. The L40 GPUs are faster than
+the GP100s and provide significantly more video RAM, so they are a good
+choice for more resource-intensive rendering tasks.
 
 Run `vncmgr --help` in a Casper login session for more
 information about using the script and customizing your session.
@@ -182,11 +186,11 @@ The general process for creating an `ssh` tunnel described above will work well 
     The output from your `vncmgr` command includes a line in this format.
     (Each x is a number.)
     ```pre
-    ssh -l username -L xxxx:localhost4:xxxx casperxx.ucar.edu "bash .vnctunnel-default"
+    ssh -l username -L xxxx:localhost4:xxxx casperxx.hpc.ucar.edu "bash .vnctunnel-default"
     ```
     Follow these steps to copy and paste the necessary information from the `vncmgr` command into the PuTTY interface for Windows.
 
-    - Load a PuTTY session with `casperxx.ucar.edu` as the hostname.
+    - Load a PuTTY session with `casperxx.hpc.ucar.edu` as the hostname.
     - Select *Connection*, then *SSH*.
     - Enter the following in the **Remote command** field.
     ```pre
