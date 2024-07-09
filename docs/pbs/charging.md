@@ -18,9 +18,10 @@ The `main` queue, which has a 12-hour wall-clock limit, meets most users' needs 
 Some additional queues on the system are for dedicated purposes and accessible only to authorized users.
 
 ## Calculating charges
+All charges are calculated based on the walltime (in hours) *used* by the completed job, which is often less than the walltime *requested* at submission. You should still aim to estimate a reasonable walltime request rather than specifying the maximum allowed, however. Asking for the maximum time will typically cause delays in job start as the scheduler seeks to hold the requested resources for a longer time.
 
 ### Exclusive nodes
-Charges for use of Derecho are calculated in terms of core-hours. Jobs run in Derecho queues other than "share" are charged for exclusive use of the nodes by this formula:
+Charges for use of Derecho are calculated in terms of core-hours. Jobs run in Derecho queues other than "develop" are charged for exclusive use of the nodes by this formula:
 
 **wall-clock hours × nodes used × cores per node × charging factor**
 
@@ -55,10 +56,12 @@ Charges for use of Derecho are calculated in terms of core-hours. Jobs run in De
         Most Derecho batch queues are for *exclusive* use, so *jobs submitted to Derecho queues are charged for all 128 CPU cores on each node that is used* regardless of how many CPUs are used.
         Requesting a Derecho CPU node for 1 hour will result in a 128 core hour charge, even if left idle by the user.
 
-### Shared nodes (Casper)
-Charges for jobs that you run on a shared node, including Casper nodes, are calculated by this formula:
+### Shared nodes
+Charges for jobs that you run on a shared node, including Casper jobs and Derecho jobs submitted to the "develop" queue, are calculated by this formula:
 
-**core-seconds/3600 (core-hours)**
+**wall-clock hours x cores used**
+
+The primary difference being that shared jobs will only be charged for the number of cores (`ncpus`) requested, rather than all of the cores for the requested number of nodes.
 
 ## Checking and managing charges
 Users can check computing and storage charges through the CISL Systems Accounting Manager. (Go to [SAM documentation](../getting-started/accounts/systems-accounting-manager.md) or to [SAM app](https://sam.ucar.edu/app/home).)
