@@ -31,7 +31,7 @@ however, in that:
 - Specifically, when the running job is targeted for
   preemption, the scheduler will send a termination signal (`SIGTERM`),
   wait 10 minutes, and then send a kill signal (`SIGKILL`), finally ending the job.
-    - The user has the option to detect and act upon the `SIGKILL` using the methods
+    - The user has the option to detect and act upon the `SIGTERM` using the methods
       described below.
 
 The start time of a job in the preempt queue will be unpredictable
