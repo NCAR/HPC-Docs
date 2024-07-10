@@ -28,6 +28,12 @@ however, in that:
   resources being used are required by a higher priority job in a
   different queue.
 
+- Specifically, when the running job is targeted for
+  preemption, the scheduler will send a termination signal (`SIGTERM`),
+  wait 10 minutes, and then send a kill signal (`SIGKILL`), finally ending the job.
+    - The user has the option to detect and act upon the `SIGKILL` using the methods
+      described below.
+
 The start time of a job in the preempt queue will be unpredictable
 because of the idle resource prerequisite. Once it starts, it is
 guaranteed at least 10 minutes of run time but potentially much more. The
@@ -183,153 +189,7 @@ take appropriate action to save state and exit gracefully.
 
 ??? example "Expand this box for a complete MPI/C++ example"
     ```c++
-    #include <iostream>
-    #include <iomanip>
-    #include <stdio.h>
-    #include <unistd.h>
-    #include <signal.h>
-    #include <mpi.h>
-
-
-
-    namespace {
-      int numranks, rank;
-      char hn[256];
-      int checkpoint_req = 0;
-
-      void done_checkpoint () { checkpoint_req = 0; }
-
-    }
-
-
-    int checkpoint_requested (MPI_Comm comm)
-    {
-      int local_checkpoint_req = checkpoint_req;
-      MPI_Allreduce(&local_checkpoint_req, &checkpoint_req,
-                    1, MPI_INT, MPI_MAX, comm);
-      return checkpoint_req;
-    }
-
-
-
-    void my_sig_handler (int signum)
-    {
-      time_t now;
-      time(&now);
-
-      if (0 == rank) printf("...inside handler function\n");
-
-      switch (signum)
-        {
-        case SIGSTOP:
-        case SIGINT:
-        case SIGTERM:
-        case SIGUSR1:
-          checkpoint_req = 1;
-          if (0 == rank) printf("...caught signal %d at %s", signum, ctime(&now));
-          break;
-
-        default:
-          if (0 == rank)
-            {
-              printf("...caught other unknown signal: %d at %s", signum, ctime(&now));
-              printf("   see \"man 7 signal\" for a list of known signals\n");
-            }
-          break;
-        }
-
-      // re-register default signal handler for action
-      //if (0 == rank) printf(" --> Restoring default handler for signal %d\n", signum);
-      //signal(signum, SIG_DFL);
-
-      return;
-    }
-
-
-
-
-    void register_sig_handler ()
-    {
-      if (0 == rank) printf("Registering user-specified signal handlers for PID %d\n", getpid());
-
-      signal(SIGSTOP, my_sig_handler);
-      signal(SIGINT,  my_sig_handler);
-      signal(SIGTERM, my_sig_handler);
-      signal(SIGUSR1, my_sig_handler);
-      signal(SIGUSR2, my_sig_handler);
-    }
-
-
-
-    void do_checkpoint (MPI_Comm comm)
-    {
-      for (int i=1; i<=10; i++)
-        {
-          if (0 == rank)
-            {
-              time_t now;
-              time(&now);
-              printf("\t%2d : Inside checkpoint function : %s",i, ctime(&now));
-              fflush(stdout);
-              sleep(5);
-            }
-          MPI_Barrier(comm);
-        }
-
-      done_checkpoint();
-
-      if (0 == rank)
-        {
-          time_t now;
-          time(&now);
-          printf(" --> Gracefully exiting after checkpoint : %s", ctime(&now));
-          fflush(stdout);
-        }
-
-      MPI_Finalize();
-      exit(EXIT_SUCCESS);
-
-      return;
-    }
-
-
-
-    int main (int argc, char **argv)
-    {
-      gethostname(hn, sizeof(hn) / sizeof(char));
-
-      MPI_Init(&argc, &argv);
-
-      MPI_Comm_size (MPI_COMM_WORLD, &numranks);
-      MPI_Comm_rank (MPI_COMM_WORLD, &rank);
-
-      std::cout << "Hello from " << rank << " / " << std::string (hn)
-    	    << ", running " << argv[0] << " on " << numranks << " ranks" << std::endl;
-
-      // register our user-defined signal handlers, on every rank
-      register_sig_handler();
-
-      for (int i=1; i<=5000 ;i++)
-        {
-          if (0 == rank)
-            {
-              time_t now;
-              time(&now);
-              printf("%2d : Main function loop : %s",i,ctime(&now));
-              fflush(stdout);
-              sleep(5);
-            }
-          MPI_Barrier(MPI_COMM_WORLD);
-
-          // this function needs to perform a reduction to see if any rank received
-          // a signal, hence it is blocking.
-          if (checkpoint_requested(MPI_COMM_WORLD))
-            do_checkpoint(MPI_COMM_WORLD);
-        }
-
-      MPI_Finalize();
-      return 0;
-    }
+    ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/PBS/preempt/minimal_mpi.cpp"
     ```
 
     ---
@@ -355,62 +215,15 @@ complete example follows.
 
 !!! example "Sample bash script to catch signals sent from the operating system"
     ```bash
-    #!/usr/bin/env bash
-
-    checkpoint_requested=false
-
-    function my_signal_handler()
-    {
-        case ${sig} in
-            SIGINT)
-            SIGTERM)
-            SIGUSR1)
-                printf "...caught %s at %s\n" ${sig} "$(date)"
-                checkpoint_requested=true
-                ;;
-            *)
-                printf "...caught unknown signal: %s\n" ${sig}
-                exit 1
-                ;;
-        esac
-    }
-
-    function register_signal_handler ()
-    {
-        printf "Registering user-specified signal handlers for PID %d\n" $$
-
-        trap "sig=SIGINT;  my_signal_handler" SIGINT
-        trap "sig=SIGTERM; my_signal_handler" SIGTERM
-        trap "sig=USR1;    my_signal_handler" SIGUSR1
-    }
-
-    function do_checkpoint ()
-    {
-        for i in $(seq 1 10); do
-            printf "\t%2d : Inside checkpoint function\n" $i
-            sleep 5s
-        done
-
-        checkpoint_requested=false;
-    }
-
-    # main function follows
-    register_signal_handler
-
-    for i in $(seq 1 50); do
-        printf "%2d : Main function\n" $i
-        sleep 5s
-
-        if ${checkpoint_requested}; then
-            do_checkpoint
-        fi
-    done
+    ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/PBS/preempt/demo.sh"
     ```
 
-Running the previous code will enter a "Main Function" loop that
-executes a number of steps. Sending **Control+C** to the running program
-effectively sends a `SIGINT` and invokes the desired signal handling
-function through the bash trap mechanism.
+Running the previous code from a shell will enter a "Main Function"
+loop that executes a number of steps. Sending **Control+C** to the
+running program effectively sends a `SIGINT` and invokes the desired
+signal handling function through the bash trap mechanism. If you
+instead run this example under PBS, keep in mind the scheduler will
+send `SIGTERM` when the job is targeted for preemption.
 
 #### Python applications
 
@@ -421,56 +234,7 @@ here:
 
 !!! example "Sample python script to catch signals sent from the operating system"
     ```python
-    #!/usr/bin/env python3
-
-    import signal
-    import sys
-    import time
-    import os
-
-    from datetime import datetime
-
-    checkpoint_requested = False
-
-    def my_signal_handler(sig, frame):
-        global checkpoint_requested
-
-        if signal.SIGINT == sig or signal.SIGTERM == sig or signal.SIGUSR1 == sig:
-            print("...caught signal {} at ".format(sig) + datetime.now().strftime("%H:%M:%S %B %d, %Y"))
-            checkpoint_requested = True
-        else:
-            print("...caught unknown signal: {}".format(sig))
-            sys.exit(1)
-        return
-
-    def register_signal_handler ():
-        print("Registering user-specified signal handlers for PID {}".format(os.getpid()))
-        signal.signal(signal.SIGINT,  my_signal_handler)
-        signal.signal(signal.SIGTERM, my_signal_handler)
-        signal.signal(signal.SIGUSR1, my_signal_handler)
-        return
-
-    def do_checkpoint ():
-        global checkpoint_requested
-
-        for i in range(1, 11):
-            print("\t{:2d} : Inside checkpoint function".format(i))
-            sys.stdout.flush()
-            time.sleep(5)
-
-        checkpoint_requested = False;
-        return
-
-    if __name__ == "__main__":
-        register_signal_handler();
-
-        for i in range(1, 51):
-            print("{:2d} : Main function".format(i))
-            sys.stdout.flush()
-            time.sleep(5)
-
-            if checkpoint_requested:
-                do_checkpoint()
+    ---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/PBS/preempt/demo.py"
     ```
 
 ---
