@@ -9,10 +9,10 @@ researcher’s local university computing capabilities. Eligible
 researchers and activities incur no costs for the use of NSF NCAR resources.
 
 !!! info " Recent Changes"
-    We have recently updated these policies, both to
-    prepare for Derecho and to expand opportunities for University
-    researchers. Most notably, we have created a new Data Analysis
-    opportunity to allow more researchers to analyze NSF NCAR-hosted data sets,
+    We have recently updated these policies, given the deployment of Derecho 
+    and to expand opportunities for University researchers. 
+    Most notably, we have created a new Data Analysis opportunity to 
+    allow more researchers to analyze NSF NCAR-hosted data sets,
     and we have redefined “new faculty” to be any faculty member who has not
     computed at NSF NCAR before. We have also called out options for expanding
     or extending the smaller-scale projects and clarified the eligibility
@@ -23,11 +23,7 @@ While we often distinguish between the allocation opportunities based on
 the size of the HPC resource needs, most of these options allow you to
 request data analysis, visualization, and storage resources.
 
-*To see what HPC resource limits apply to each type of allocation, refer to **the table below**.*
-
-**Small Derecho allocation requests** will be accepted. CISL will provide
-guidance later about how to add Derecho to Small and Exploratory
-projects.
+*To see what HPC resource limits apply to each type of allocation, refer to* ***the table below***.
 
 <table>
 <colgroup>
@@ -137,9 +133,11 @@ allocation up to 12 months beyond the end of your NSF award.
 
 ## Small Allocations
 
-Small Derecho allocation requests will be accepted. CISL will provide
-guidance later about how to add Derecho to Small and Exploratory
-projects.
+U.S. university researchers who are supported by an NSF award can
+request an initial small allocation of up to 1 million core-hours on Derecho
+and up to 2,500 GPU-hours on Derecho for each NSF award. 
+These allocations can be used to complete small projects or to conduct 
+initial runs in preparation for submitting a request for a large allocation.
 
 **Small requests can be submitted at any time and decisions are
 typically made within a few days.**
@@ -171,10 +169,11 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 *Resources for unsponsored graduate students, postdocs, and new faculty*
 
 A graduate student, post-doctoral researcher, or new faculty member at a
-U.S. university can request a one-time allocation of up to 500,000 Derecho
-core-hours or 1,500 Derecho GPU-hours. These awards typically support
-dissertations, help foster early career research, or provide seed resources
-for pursuing funded research.
+U.S. university can request a one-time allocation of up to 500,000 Derecho 
+core-hours and 1,500 Derecho GPU-hours. 
+These awards typically support dissertations, help foster
+early career research, or provide seed resources for pursuing funded
+research.
 
 An individual can request a new exploratory project at each stage of
 their career path. A new faculty member is any eligible researcher who
@@ -206,7 +205,7 @@ original project.
 [Submit an Exploratory Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
 
-## Data Analysis Allocations (NEW!)
+## Data Analysis Allocations
 
 !!! info "Data Analysis allocation requests can be submitted at any time and decisions are typically made within a few days."
 
@@ -221,14 +220,14 @@ We are pleased to make Data Analysis allocations available to
 researchers from any eligible institution *regardless of the source of
 funding* for the planned analysis. Researchers are only required to
 identify the specific NSF NCAR-hosted data sets that are essential to
-completing their science objectives. (Because of this expanded
-eligibility, Data Analysis projects cannot make use of Derecho.)
+completing their science objectives (Because of this expanded
+eligibility, Data Analysis projects cannot make use of Derecho).
 
 Data Analysis allocations are made for one year, but may be extended up
 to two additional years to complete the original project.
 
-Requests for the CMIP Analysis Platform, unless the work requires use of
-NSF NCAR’s HPC resource, fall within the scope of a Data Analysis project.
+Requests for access to the CMIP Analysis Platform that do not require HPC compute resources 
+fall within the scope of a Data Analysis project.
 
 [Submit a Data Analysis Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
