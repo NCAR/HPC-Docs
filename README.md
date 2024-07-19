@@ -1,4 +1,4 @@
-# NCAR HPC Documentation Repository!
+# NCAR HPC Documentation Repository
 Welcome to the HPC Documentation Repository!
 
 [![Jupyter Build](https://shields.api-test.nl/github/workflow/status/NCAR/HPC-Docs/ci?label=Docs&logo=GitHub&style=flat-square)](https://ncar-hpc-docs.readthedocs.io/en/latest/)
@@ -6,7 +6,7 @@ Welcome to the HPC Documentation Repository!
 ## Contributing
 We welcome contributions to improve the documentation!
 
-Please visit the [Contribution Guide](https://ncar.github.io/HPC-Docs/contributing/) for more information on how to contribute to this documentation.
+Please visit the [Contribution Guide](https://ncar-hpc-docs.readthedocs.io/en/latest/contributing/) for more information on how to contribute to this documentation.
 
 ## License
 

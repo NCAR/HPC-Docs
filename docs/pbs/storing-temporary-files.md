@@ -13,7 +13,7 @@ problem.
 ### Interactive use
 
 In *interactive use* on the login nodes, the default TMPDIR
-is `/glade/derecho/scratch/$USER`. You can change that by running the
+is `/glade/derecho/scratch/$USER/tmp`. You can change that by running the
 commands shown below on your command line when you log in or
 by [setting the `TMPDIR` variable in your start file](../environment-and-software/user-environment/customizing.md).
 
@@ -25,12 +25,12 @@ lines of your batch script after the `#PBS` directives.
 
 === "bash/zsh"
     ```bash
-    export TMPDIR=$SCRATCH/temp && mkdir -p $TMPDIR
+    export TMPDIR=$SCRATCH/tmp && mkdir -p $TMPDIR
     ```
 
 === "tcsh"
     ```tcsh
-    setenv TMPDIR $SCRATCH/temp && mkdir -p $TMPDIR
+    setenv TMPDIR $SCRATCH/tmp && mkdir -p $TMPDIR
     ```
 
 ## Using `/local_scratch/` on Casper nodes

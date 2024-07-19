@@ -7,7 +7,7 @@ records of the state of the file system at various times.
 Snapshots enable you to retrieve copies of deleted files yourself,
 quickly and easily, or recover earlier versions of files that have been
 revised. (To recover files or directories from backups rather than
-snapshots, contact the [NCAR Research Computing help
+snapshots, contact the [NSF NCAR Research Computing help
 desk](https://rchelp.ucar.edu/).)
 
 The number of snapshots that are available at any one time varies, and

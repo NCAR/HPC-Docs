@@ -1,3 +1,7 @@
+---
+short_title: User Environment and HPC Software
+---
+
 # Overview
 
 CISL deploys a wide range of preconfigured software packages for

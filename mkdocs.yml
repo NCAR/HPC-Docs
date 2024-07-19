@@ -1,10 +1,18 @@
-#--content Project Information
+# ------------------------------------
+# -------- Project Information -------
+# ------------------------------------
 site_name: NCAR HPC Documentation
 site_description: NCAR HPC Docs website
 repo_url: https://github.com/NCAR/HPC-Docs/
-site_url: https://NCAR.github.io/HPC-Docs/
+site_url: https://ncar-hpc-docs.readthedocs.io/en/latest/
 site_author: CISL CSG (Consulting Services Group)
 edit_uri: edit/main/docs/
+
+# directories to watch for automatic rebuilding when running "mkdocs serve"
+watch:
+  - mkdocs.yml
+  - themes/
+  - docs/
 
 # ------------------------------------
 # -------- validation config ---------
@@ -61,17 +69,15 @@ nav:
     - GLADE (POSIX File Systems):
       - storage-systems/glade/index.md
       - Campaign storage file system: storage-systems/glade/campaign.md
-      - Lustre file systems: storage-systems/glade/lustre.md
+      - Scratch Lustre file system: storage-systems/glade/lustre.md
       - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
       - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
       - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
       - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
-    - Quasar (Tape Storgae):
+    - Quasar (Tape Storage):
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
-    - Stratus (Object Storage):
-      - storage-systems/stratus/index.md
-      - Getting started with an object storage admin account: storage-systems/stratus/getting-started-with-an-object-storage-admin-account.md
+    - Stratus (Object Storage): storage-systems/stratus/index.md
     - Data Access Nodes: storage-systems/data-access-nodes.md
     - Transferring Data:
       - storage-systems/data-transfer/index.md
@@ -94,9 +100,7 @@ nav:
           - Example Workflows: environment-and-software/user-environment/containers/examples.md
         - Utilities: environment-and-software/user-environment/utilities.md
         - Customizing User Environment: environment-and-software/user-environment/customizing.md
-        - Spack:
-          - environment-and-software/user-environment/spack/index.md
-          - Spack Downstream: environment-and-software/user-environment/spack/spack-downstream.md
+        - Spack: environment-and-software/user-environment/spack/index.md
 
       - HPC Software:
         - environment-and-software/hpc-software/index.md
@@ -107,6 +111,7 @@ nav:
         - Numerical Libraries: environment-and-software/numerical-libraries.md
         - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
         - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
+        - VS Code: environment-and-software/vscode.md
         - Profiling & Debuggers: # -- tentative placement
           - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
           - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
@@ -167,15 +172,15 @@ nav:
     - NCAR Storage Spaces: tutorials/storage.md
     - JupyterHub:  tutorials/jupyterhub.md
     - Remote Desktop Services: tutorials/remote-desktops.md
-    - Containers: tutorials/containers.md
-    - GPU Workshop: tutorials/gpu-workshop.md
+#    - Containers: tutorials/containers.md
+#    - GPU Workshop: tutorials/gpu-workshop.md
 
   - User Support:
     - user-support/index.md
-    - Troubleshooting Tips:
-      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
-      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
-      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+#    - Troubleshooting Tips:
+#      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+#      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+#      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
 
   - NCAR User Group (NHUG):
     - nhug/index.md
@@ -183,86 +188,19 @@ nav:
   - Contributing to the Documentation: contributing.md
 
 # ------------------------------------
-# -- configurations
+# -- configuration - themes
+# (note theme.yml should be a symbolic link to one of several options'
 # ------------------------------------
-
-theme:
-  name: material
-  custom_dir: theme
-
-  # -- additional features
-  icon:
-    repo: fontawesome/brands/github
-    edit: material/pencil
-    view: material/eye
-
-  features:
-    - search.suggest
-    - search.highlight
-    - content.tabs.link       # all content tabs across the docs will be linked
-    - content.code.annotation # add annotations (advanced)
-    - content.code.annotate
-    - content.code.copy
-    - content.action.edit     # edit the page
-    - content.action.view     # view the source page
-    #- content.tooltips        # Adding tooltip for hovering over links
-
-    # - header.autohide
-    # - navigation.expand
-    - navigation.footer
-    - navigation.indexes
-    - navigation.top          # back to top button
-    - navigation.path         # adding path to the top
-    # - navigation.instant
-    # - navigation.prune
-    # - navigation.sections
-    # - navigation.tabs
-    # - navigation.tabs.sticky
-    # - navigation.top
-    - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
-    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
-    - search.highlight
-    - search.share
-    - search.suggest
-    # - toc.follow
-    #- toc.integrate   # one toc on left only
-    - announce.dismiss
-
-  logo : assets/images/CISL-contemp-logo-white-square.png
-  favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
-
-  palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-
-
-extra_css:
-  - stylesheets/extra.css
+INHERIT: theme.yml
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
-#copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
-copyright: '&copy; 2023 UCAR, Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>.'
+copyright: '&copy; 2023-2024 UCAR, Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>.'
 
-
+# ------------------------------------
+# -- configuration - extensions
+# ------------------------------------
 markdown_extensions:
   - meta
   - attr_list
@@ -327,6 +265,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+# ------------------------------------
+# -- configuration - extensions
+# ------------------------------------
 plugins:
   - search:
       enabled: true
@@ -353,6 +294,9 @@ plugins:
       redirect_maps:
         'nhug/index.md': 'https://nhug.readthedocs.io/en/latest/'
 
+# ------------------------------------
+# -- configuration - extras
+# ------------------------------------
 extra:
   analytics:
     provider: google

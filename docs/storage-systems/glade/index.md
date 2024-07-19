@@ -33,55 +33,27 @@ analysis, and visualization resources that CISL manages.
       <td>50 GB</td>
       <td>Yes</td>
       <td>Not purged</td>
-      <td>User home directory<br />
-        Access: POSIX</td>
+      <td>User home directory</td>
     </tr>
     <tr class="even">
-      <td><strong>Scratch: (Cheyenne)</strong><br />
-        /glade/scratch/&ltusername&gt</td>
-      <td>10 TB</td>
-      <td><font color="#ff0000">No</font></td>
-      <td>120 days</td>
-      <td>Temporary computational space<br />
-        Access: POSIX</td>
-    </tr>
-    <tr class="odd">
-      <td><strong>Scratch: (Derecho)<br />
+      <td><strong>Scratch:<br />
         </strong>/glade/derecho/scratch/&ltusername&gt</td>
       <td>30TB / 10M</td>
       <td><font color="#ff0000">No</font></td>
-      <td>180 days</td>
-      <td>Derecho's scratch file system also includes a limit on a users'
+      <td><font color="#ff0000"><strong>PURGED</strong></font><br>180 days</td>
+      <td>Temporary computational space.<br />
+        Derecho's scratch file system also includes a limit on a users'
         total number of files </td>
     </tr>
-    <tr class="even">
+    <tr class="odd">
       <td><strong>Work:</strong><br />
         /glade/work/&ltusername&gt</td>
       <td>2 TB</td>
       <td><font color="#ff0000">No</font></td>
       <td>Not purged</td>
-      <td>User work space<br />
-        Access: POSIX</td>
-    </tr>
-    <tr class="odd">
-      <td><strong>Project:</strong><br />
-        /glade/p/<em>entity/project_code</em></td>
-      <td>N/A</td>
-      <td><font color="#ff0000">No</font></td>
-      <td>Not purged</td>
-      <td><strong>Deprecated; will be migrated to Campaign Storage in
-          2023</strong></td>
+      <td>User work space</td>
     </tr>
     <tr class="even">
-      <td><strong>Collections:</strong><br />
-        /glade/collections</td>
-      <td>N/A</td>
-      <td><font color="#ff0000">No</font></td>
-      <td>Not purged</td>
-      <td>Curated collections (CMIP, RDA, others)<br />
-        Access: POSIX</td>
-    </tr>
-    <tr class="odd">
       <td><strong>Campaign Storage:</strong><br />
         /glade/campaign</td>
       <td>N/A</td>
@@ -89,7 +61,7 @@ analysis, and visualization resources that CISL manages.
       <td>Not purged</td>
       <td>Project space allocations (via allocation request)</td>
     </tr>
-    <tr class="even">
+    <tr class="odd">
       <td colspan="5">
         <a href="https://arc.ucar.edu/system_status"><strong>GLADE system status report</strong></a>
       </td>
@@ -122,10 +94,15 @@ amount of space the system can allocate to a file, including empty
 files, directories and symlinks.
 
 ### Status
+=== "File Volume"
+    <p align="left">
+        <iframe width="680" height="340" frameborder="0" src="https://status.cisl.ucar.edu/uss/glade_status/glade_status_BSK.html"></iframe>
+    </p>
 
-<p align="left">
-    <iframe width="680" height="340" frameborder="0" src="https://www.cisl.ucar.edu/uss/glade_status/glade_status_BSK.html"></iframe>
-</p>
+=== "File Count"
+    <p align="left">
+        <iframe width="680" height="340" frameborder="0" src="https://status.cisl.ucar.edu/uss/glade_status/glade_status_counts_BSK.html"></iframe>
+    </p>
 
 ## Home space
 
@@ -142,7 +119,7 @@ space to enable users to recover deleted files quickly and easily.
   frequency and scheduling of backups and the length of time they are
   kept may change with no prior notice. If you are unable to find files
   that you would like to restore in the snapshots of your home
-  directory, contact the [NCAR Research Computing help
+  directory, contact the [NSF NCAR Research Computing help
   desk](https://rchelp.ucar.edu/) to request restoration of the files if
   they are in a backup.
 
@@ -200,7 +177,7 @@ a *temporary* space for data to be analyzed and removed within a short
 amount of time.
 
 If you will need to occupy more than your quota of scratch space at some
-point, contact the [NCAR Research Computing help
+point, contact the [NSF NCAR Research Computing help
 desk](https://rchelp.ucar.edu/) to request a temporary increase. Include
 a paragraph justifying your need for additional space when making your
 request.
@@ -252,13 +229,13 @@ Dedicated project spaces on the `/glade/campaign` file system are
 available through our allocations process to support longer-term disk
 needs that are not easily accommodated by the scratch or work spaces.
 Allocations for project spaces are made to collaborative groups of users
-through the University/CHAP or NCAR [allocations
+through the University/CHAP or NSF NCAR [allocations
 processes](https://arc.ucar.edu/xras_submit/opportunities). The
 allocations are based on project needs and resource availability.
 Requests are reviewed according to the various allocation schedules.
 
 If you have a user account and project space but lack the directory
-permissions you need for that space, contact the [NCAR Research
+permissions you need for that space, contact the [NSF NCAR Research
 Computing help desk](https://rchelp.ucar.edu/) to request changes.
 Identify the directories and the permissions you are requesting.
 
@@ -274,15 +251,12 @@ of shared file spaces, for example:
 
 - `/glade/campaign/group_name/` (or similar, depending on the project)
 
-- `/glade/p/lab_name/group_name/` (or similar, depending on the project)
-
-- `/glade/p/univ/project_code/`
-
-- `/glade/p/uwyo/project_code/`
 
 ### Data retention policy
 
-- Users' files are not deleted from project space after their accounts
+- Data are removed from the system upon project expiration as described below in [General data retention policies and procedures](#general-data-retention-policies-and-procedures).
+
+- Individual users' files are not deleted from project space after their accounts
   become inactive.
 
 - Files are not recoverable from backups, as there are none.
@@ -312,7 +286,7 @@ log in, the system may appear hung, you may not be able to access some
 of your directories or files, your batch jobs may fail, and commands may
 not work as expected.
 
-If you cannot log in or execute commands, contact the [NCAR Research
+If you cannot log in or execute commands, contact the [NSF NCAR Research
 Computing help desk](https://rchelp.ucar.edu/). You can check your space
 usage as shown below.
 
@@ -321,14 +295,13 @@ usage as shown below.
 This command will generate a report showing your quota and usage
 information:
 ```pre
-gladequota
+$ gladequota
 
 Current GLADE space usage: csgteam
 
   Space                                       Used        Quota      % Full    # Files
 ----------------------------------------- ------------ ------------ --------- -----------
 /glade/derecho/scratch/csgteam              111.03 TiB   400.00 TiB   27.76 %    10226778
-/glade/cheyenne/scratch/csgteam             152.70 GiB   100.00 TiB    0.15 %      439076
 /glade/work/csgteam                           1.40 TiB     4.00 TiB   35.02 %     9153458
 /glade/u/home/csgteam                        68.27 GiB   100.00 GiB   68.27 %      237251
 ----------------------------------------- ------------ ------------ --------- -----------

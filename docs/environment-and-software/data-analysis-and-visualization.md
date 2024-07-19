@@ -118,7 +118,7 @@ and [VTK](https://vtk.org/).
 ---
 <p style="font-size:0.75em; "><em>Those marked with an asterisk should be run only on the Casper nodes
 because of their graphics and GPU requirements. Others can be used on
-Cheyenne. Check the man pages for any program to get additional
+Derecho. Check the man pages for any program to get additional
 information.
 </em></p>
 

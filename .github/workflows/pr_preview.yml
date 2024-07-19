@@ -1,25 +1,47 @@
-name: ci_preview
-on:
-  pull_request:
+name: MkDocs Build Smoke Test
+
+on: [pull_request]
 
 permissions:
   contents: write
+
 jobs:
-  deploy:
+  mkdocs-build:
+    name: Install MkDocs Conda Env & Build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+
     steps:
       - uses: actions/checkout@v3
         with:
+          submodules: 'true'
           fetch-depth: 0
-      - uses: actions/setup-python@v4
+
+      - uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install -r requirements.txt 
-      - run: mkdocs build --strict
+          activate-environment: mkdocs
+          environment-file: conda.yaml
+          python-version: 3.9
+          auto-activate-base: false
+
+      - name: Interrogate Environment
+        run: |
+          env | sort | uniq
+          conda list
+          which mkdocs
+          mkdocs --version
+
+      - name: List Source Tree
+        run: |
+          pwd
+          find * ! -type d
+
+      - name: MkDocs build
+        run: |
+          mkdocs build --strict
+
+      - name: MkDocs output
+        run: |
+          find site ! -type d

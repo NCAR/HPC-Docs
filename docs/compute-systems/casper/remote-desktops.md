@@ -66,9 +66,9 @@ arguments, it will launch in the interactive mode. In this mode, you can
 start a new session, list existing sessions, query a session to retrieve
 connection instructions and obtain a new one-time-password, and kill a
 running session. The script enables you to name your session, state how
-long you want the server to run, and select which desktop shell to use
-(GNOME2, GNOME3, or KDE). It also allows for custom requests to both the
-job scheduler and the VNC server program.
+long you want the server to run, and choose which GPU you'd like to request
+for rendering support (GP100 or L40). It also allows for custom requests
+to both the job scheduler and the VNC server program.
 
 ##### Command-line mode
 In command-line mode, you specify a subcommand
@@ -96,15 +96,43 @@ involve increasing the resources allocated to your job. For example, you
 could allocate 4 CPUs and 20 GB of memory to a 2-hour VNC session using
 the command-line mode as follows:
 
-```pre
-vncmgr create \
-       --account PROJECT \
-       --time 2:00:00 \
-       --job-opts="-l select=1:ncpus=4:mem=20GB"
-```
+!!! example "Creating a VNC session using `vncmgr create`"
+    === "GP100 GPU"
 
-You do not need to specify GPU resources, as all VNC jobs are
-automatically placed on nodes with NVIDIA Quadro GP100 GPUs.
+        ```
+        vncmgr create \
+               --account PROJECT \
+               --time 2:00:00 \
+               --job-opts="-l select=1:ncpus=4:mem=20GB"
+        ```
+
+    === "L40 GPU"
+
+        Request using `--gpu-model`:
+
+        ```
+        vncmgr create \
+               --account PROJECT \
+               --time 2:00:00 \
+               --job-opts="-l select=1:ncpus=4:mem=20GB" \
+               --gpu-model=l40
+        ```
+
+        Request using `--job-opts`:
+
+        ```
+        vncmgr create \
+               --account PROJECT \
+               --time 2:00:00 \
+               --job-opts="-l select=1:ncpus=4:mem=20GB -l gpu_type=l40"
+        ```
+
+By default, all VNC jobs are automatically placed on nodes with NVIDIA
+Quadro GP100 GPUs. You can optionally request that NVIDIA L40 GPUs are used
+instead either via the `--gpu-model` flag to `vncmgr` or by specifying
+`-l gpu_type=l40` in your `--job-opts`. The L40 GPUs are faster than
+the GP100s and provide significantly more video RAM, so they are a good
+choice for more resource-intensive rendering tasks.
 
 Run `vncmgr --help` in a Casper login session for more
 information about using the script and customizing your session.
@@ -144,10 +172,10 @@ ssh -t -l username casper.hpc.ucar.edu /glade/u/apps/opt/vncmgr/bin/vncmgr
 
     - Your project code.
     - The wallclock time you want in `HH:MM:SS` format. The default is 4 hours and the maximum is 24 hours.
-    - Which desktop shell to use. The default setting is 2d, which configures your desktop to use a shell with the [MATE](https://mate-desktop.org/) user interface.
+    - Which GPU you wish to use for hardware acceleration - a GP100 (default) or an L40 GPU.
     - Any optional arguments. In the example, the user requests 20 GB of memory.
 
-    All VNC jobs must run on a node with a GP100 GPU. If you specify
+    All VNC jobs must run on a node with a visualization GPU. If you specify
     custom resource requirements, those requirements will be modified if
     necessary to ensure that the job can run on the correct node.
 
@@ -165,7 +193,7 @@ ssh -t -l username casper.hpc.ucar.edu /glade/u/apps/opt/vncmgr/bin/vncmgr
 
 5.  Your desktop on Casper will be displayed after you connect to the
     specified host and enter the onetime password. On the desktop, start
-    a terminal from the list of applications.
+    a Konsole (terminal) from the list of applications in the launcher.
 
     ![](remote-desktops/media/vnc4.png)
 
@@ -182,11 +210,11 @@ The general process for creating an `ssh` tunnel described above will work well 
     The output from your `vncmgr` command includes a line in this format.
     (Each x is a number.)
     ```pre
-    ssh -l username -L xxxx:localhost4:xxxx casperxx.ucar.edu "bash .vnctunnel-default"
+    ssh -l username -L xxxx:localhost4:xxxx casperxx.hpc.ucar.edu "bash .vnctunnel-default"
     ```
     Follow these steps to copy and paste the necessary information from the `vncmgr` command into the PuTTY interface for Windows.
 
-    - Load a PuTTY session with `casperxx.ucar.edu` as the hostname.
+    - Load a PuTTY session with `casperxx.hpc.ucar.edu` as the hostname.
     - Select *Connection*, then *SSH*.
     - Enter the following in the **Remote command** field.
     ```pre
@@ -296,7 +324,7 @@ to re-open the session.
 
 #### Terminating your FastX session
 If you do not want to retain your session, terminate it as shown
-here before logging out:
+here before logging out:  
 ![](remote-desktops/media/fastx5.png){width="400"}
 
 ### FastX via web browser and ssh tunnel
@@ -337,7 +365,7 @@ the [FastX desktop client](https://www.starnet.com/download/fastx-client).
     If you do not have admin privileges to install the client on your machine, choose the “Windows Nonroot” client.
 
 1.  Start the FastX client.
-2.  Click the **+** button in the upper-left corner.
+2.  Click the **+** button in the upper-left corner.  
     ![](remote-desktops/media/fastx6.png){width="450"}
 
 3.  Fill in the fields of the pop-up boxes as follows:
@@ -352,7 +380,7 @@ the [FastX desktop client](https://www.starnet.com/download/fastx-client).
 4.  Click **OK**.
 5.  Select the remote desktop collection (double-click or press **Enter**).
 6.  Authenticate with your username and token response.
-7.  Click the **+** button in the upper-left corner of the next window.
+7.  Click the **+** button in the upper-left corner of the next window.  
     ![](remote-desktops/media/fastx6.png){width="450"}
 
 8.  Select the **KDE** icon that displays `startplasma-x11` in the required command field.

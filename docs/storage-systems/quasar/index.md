@@ -4,7 +4,8 @@ The Quasar archive is a cold, tape-based archive for storing curated
 data collections that have an indefinite lifetime. It is not designed to
 serve data or to store data that will be frequently accessed,
 overwritten, or deleted. (Active data should be on GLADE or Campaign
-Storage rather than on Quasar.)
+Storage rather than on Quasar.) Also, Quasar is not available to store
+data from university projects.
 
 Before requesting access, please review the following information
 regarding how to archive files, the minimum and maximum file sizes, and
@@ -55,7 +56,7 @@ should also be rare.
 Under normal operational use, no more than 10% of your files should be
 read, rewritten, renamed, or deleted during any 12-month period. If a
 special case arises – a recovery operation, for example – and you
-anticipate more activity, please contact the [NCAR Research Computing
+anticipate more activity, please contact the [NSF NCAR Research Computing
 help desk](https://rchelp.ucar.edu/).
 
 ## Disaster recovery
@@ -78,8 +79,8 @@ details.
 - CISL does not enforce file size at writing time, but when files
   smaller than the minimum size are found on the system, you may be
   asked to relocate the holdings to more appropriate storage such as the
-  NCAR Campaign Storage file system or Stratus object storage system.
+  NSF NCAR Campaign Storage file system or Stratus object storage system.
 - If excessive read, rewrite, or metadata change activity is detected,
   you may be asked to relocate the holdings to more appropriate storage
-  such as the NCAR Campaign Storage file system or Stratus object
+  such as the NSF NCAR Campaign Storage file system or Stratus object
   storage system.

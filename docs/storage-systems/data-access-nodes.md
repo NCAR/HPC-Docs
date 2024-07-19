@@ -3,7 +3,7 @@
 The `data-access` nodes are provided to enable authorized users to perform
 a number of file-management operations. These include:
 
-- managing file and directory permissions for [NCAR Campaign Storage](glade/campaign.md) data
+- managing file and directory permissions for [NSF NCAR Campaign Storage](glade/campaign.md) data
   holdings.
 
 - copying data from the [Research Data Archive](https://rda.ucar.edu/).

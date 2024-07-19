@@ -1,12 +1,10 @@
 # CHAP: Allocation Review Criteria
 
-The CHAP assesses the merits of large computing requests from U.S.
+The CISL HPC Allocations Panel (CHAP) assesses the merits of large computing requests from U.S.
 university researchers for use of CISL supercomputing resources.
 Computing requests are accepted in the atmospheric and closely related
 sciences for projects that are supported by the National Science
-Foundation.
-
-The panel recommends action with respect to a prospective user's request
+Foundation. The panel recommends action with respect to a prospective user's request
 on the basis of the computational experimental design, computational
 effectiveness, and availability of computing resources as described
 below.
@@ -20,7 +18,7 @@ allocations, the CHAP and CISL allocations staff will ensure that:
   CISL and the CHAP shall be peer-reviewed.
 
 - Written reviews of the resource requests shall be completed in a
-  timely way and made available to the requestors.
+  timely way and made available to the requesters.
 
 - Recommendations to CISL management for the allocation of resources
   based on the requests, reviews, and available resources shall be
@@ -28,7 +26,7 @@ allocations, the CHAP and CISL allocations staff will ensure that:
 
 - The allocations process shall be consistent with
   the [conflict-of-interest policy](chap-conflict-of-interest-policy.md) and
-  shall maintain confidentiality of requestors and their reviews.
+  shall maintain confidentiality of requesters and their reviews.
 
 ## Purpose and scope of reviews
 
@@ -43,15 +41,15 @@ A request for resources will succinctly state the scientific impact of
 the research to be conducted and the existing merit-reviewed support for
 the research *as demonstrated by current financial support from NSF. The
 scientific merit and approach will not be subject to further review by
-the CHAP.* Since NCAR computing resources are provided specifically for
-the atmospheric and closely related sciences, the request must fall
+the CHAP.* Since NSF NCAR computing resources are provided specifically 
+for Earth system science and related sciences, the request must fall
 within these areas.
 
 ### Merit review criteria
 The justification of the resource request will be reviewed against three
 criteria, which apply to both computational and storage resources, with
-the level of detail of the review rising with the size of the requested
-resources:
+the level of scrutiny for the review rising with the size of the requested
+resources.
 
 #### ***Effectiveness of methodology***
 For computational resource requests, the choice of applications,
@@ -72,7 +70,7 @@ justification should describe the rationale for determining which data
 will be stored. The amount of resources (of all types) requested
 should be derived from the methodology and research plan. If there are
 serious concerns about the research plan, reviewers should share their
-concerns with the proposer, and may decide to proceed only after the
+concerns with the proposer and may decide to proceed only after the
 concerns have been addressed.
 
 #### ***Efficiency of resource use***
@@ -85,10 +83,10 @@ the proposer has addressed their concerns. For computational
 resources, performance and parallel scaling data should be provided
 along with a discussion of optimization or other work done to improve
 the applications. For storage resources, the CHAP will consider the
-choices made in managing the project's data, the value of that data
-both within the proposing research team and among the wider community,
-approaches for data access and dissemination, and long-term retention
-plans.
+choices made in managing the project's data, efforts made to reduce 
+the project's storage footprint, the value of that data both within 
+the proposing research team and among the wider community, approaches 
+for data access and dissemination, and long-term retention plans.
 
 ### Prior accomplishments
 

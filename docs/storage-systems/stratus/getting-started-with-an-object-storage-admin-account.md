@@ -1,3 +1,8 @@
+<!-- OLD CONTENT REMOVE LATER -->
+<!-- OLD CONTENT REMOVE LATER -->
+<!-- OLD CONTENT REMOVE LATER -->
+
+
 # Getting started with an object storage admin account
 
 This page describes and shows how to get started as an admin for the
@@ -6,7 +11,7 @@ Stratus object storage system.
 
 ## Using the web GUI to log into your S3 admin account
 
-After connecting to the UCAR internal network or the VPN:
+After connecting to the UCAR StaffNet network or the VPN:
 
 - Set your browser to point to this
   URL: https://stratus-admin.ucar.edu:10443/asview
@@ -14,25 +19,28 @@ After connecting to the UCAR internal network or the VPN:
 - Enter your access ID and secret key
 
 ![](getting-started-with-an-object-storage-admin-account/media/image1.png)
-**Figure 1.**
+
+*Figure 1.*
 
 ## Creating buckets
 
-Figure 2 shows the screen where you'll create buckets.  To create a
+Figure 2 shows the screen where you'll create buckets. To create a
 bucket, press the "Create Bucket" button and you'll be prompted for a
-bucket name.  Note that the bucket name must be globally unique for the
+bucket name. Note that the bucket name must be globally unique for the
 entire system. If a different account holder on the system already has a
 bucket with that name, you'll get an error. This behavior conforms with
 the AWS S3 API. (See also <https://stackoverflow.com/a/59656742/25891>)
 
 ![](getting-started-with-an-object-storage-admin-account/media/image2.png)
-**Figure 2.**
+
+*Figure 2.*
 
 Figure 3 shows your new bucket and will show all your buckets as you
 create them.
 
 ![](getting-started-with-an-object-storage-admin-account/media/image3.png)
-**Figure 3.**
+
+*Figure 3.*
 
 Now that a bucket has been created, you can write objects to the bucket
 and read from it using the access and secret keys that you used to log
@@ -54,7 +62,7 @@ account (not everything has to be done through this web interface).
 
 When connecting to the system with a client to perform S3 operations
 (e.g., transfer data, etc.), use the host name `stratus.ucar.edu` rather
-than `stratus-admin.ucar.edu`. The host
+than `stratus-admin.ucar.edu`. The IP
 name `stratus-admin.ucar.edu` should only be used to connect to the
 administrative web GUI.
 
@@ -77,10 +85,13 @@ granting access. Selecting “User Permission” will allow you to grant
 access to a specific user.
 
 ![](getting-started-with-an-object-storage-admin-account/media/image4.png)
-**Figure 4.**
+
+*Figure 4.*
+
 
 ![](getting-started-with-an-object-storage-admin-account/media/image5.png)
-**Figure 5.**
+
+*Figure 5.*
 
 In the section titled "Add Other Account or User" as shown in Figure 5,
 enter the email address of the person you would like to grant access to.
@@ -107,16 +118,20 @@ system. To grant permissions to public users, click on "Public
 Permissions" in the screen that was visited earlier and shown in Figure
 6.
 
-![](getting-started-with-an-object-storage-admin-account/media/image4.png)
-**Figure 6.**
+![](getting-started-with-an-object-storage-admin-account/media/image6.png) 
 
-![](getting-started-with-an-object-storage-admin-account/media/image6.png)
-**Figure 7.**
+*Figure 6.*
+
+
+
+![](getting-started-with-an-object-storage-admin-account/media/image7.png)
+
+*Figure 7.*
 
 Select the permissions you want to grant, as shown in Figure 7, to
 enable access for *authenticated* users or *anonymous* users. Note that
 the Data Commons System is currently only reachable from devices on the
-internal UCAR network. Devices outside of the UCAR network are not able
+StaffNet network. Devices outside of the UCAR network are not able
 to access the storage system, even for *anonymous* access.
 
 ## Vendor documentation
@@ -134,4 +149,4 @@ Here is a link to vendor documentation that may help you:
 **Cyberduck** - Cloud storage browser
 ([http://cyberduck.io](http://cyberduck.io/))
 
-**Object** - data structure that stores both file metadata and data
+**Object** - Data structure that stores both file metadata and data

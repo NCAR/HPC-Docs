@@ -1,11 +1,9 @@
 ![](media/CISL-contemp-logo-white.png#only-dark){width="640"}
 ![](media/CISL-contemp-logo-blue.png#only-light){width="640"}
 
-# User Documentation for NCAR High Performance Computing
+# User Documentation for NSF NCAR High Performance Computing
 
-This is the home of user documentation for the NCAR high-performance computing (HPC) and storage resources managed by CISL.
-
-The knowledge base includes searchable information specific to HPC resources, storage systems, authentication procedures and others, as well as additional how-to articles and troubleshooting articles.
+This is the home of the user documentation for the NSF NCAR high-performance computing (HPC) and storage resources managed by CISL. It includes searchable information specific to HPC resources, storage systems, authentication procedures and others, as well as additional how-to articles and troubleshooting articles.
 
 ## Selected Links
 
@@ -21,14 +19,12 @@ You need a CIT password to submit a request. Call **303-497-2400** if you don't 
 
 
 !!! tip
-    The NCAR HPC Users Group (NHUG) is a reouce group for all users of NCAR HPC resources.
+    The NSF NCAR HPC Users Group (NHUG) is a resource group for all users of NSF NCAR HPC resources.
 
     All users are welcome to [join the NHUG Slack
     workspace](https://ncarhpcusergroup.slack.com/).
 
 !!! info "CISL welcomes your contributions"
     This project is hosted on [GitHub](https://github.com/NCAR/HPC-Docs) and your
-    [contributions](https://github.com/NCAR/HPC-Docs/blob/main/contributing.md)
+    [contributions](./contributing.md)
     are welcome!
-
----
