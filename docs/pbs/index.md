@@ -320,10 +320,21 @@ The server-specific queue names will be understood by both PBS servers,
 so if you will want to submit the same script at times from either
 Cheyenne or Casper, *always append the server name to your queue*.
 
-The `qinteractive` and `execcasper` scripts, which start interactive
-jobs on Cheyenne and Casper respectively, will adjust the queue name for
-you to include the server, so *you do not need to append the server name
-manually for interactive jobs*.
+### Interactive Jobs
+
+Users can start an interactive job on `casper` or `Derecho` using the `qsub -I` command. The `-I` flag is used to request an interactive job. The following example shows how to start an interactive job on `casper`:
+
+```bash
+qsub -I -l select=1:ncpus=1:mem=20GB -q casper@casper-pbs -l walltime=06:00:00 -A <project_code>
+```
+
+Additionally, the `qinteractive` command can be used to start an interactive job on `derecho` or `casper`. For `derecho` this will start an interactive job on the `develop` queue, while for `casper` it will submit the job to the `main` queue. The following example shows how to start an interactive job on `derecho` or `casper`:
+
+```bash
+qinteractive -A <project_code>
+```
+
+Additionally `execasper` can be used to start an interactive job on `casper`. If you are on a `derecho` login node, using `execasper` will start an interactive job on `casper`. 
 
 ### Querying jobs
 
