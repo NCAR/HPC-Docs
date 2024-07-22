@@ -139,13 +139,13 @@ request, your submission will be classified as shown in the table.
     </tr>
     <tr class="odd">
       <td><pre>vis</pre></td>
-      <td><pre>gpu_type=gp100</pre></td>
+      <td><pre>gpu_type=gp100|l40</pre></td>
       <td>Up to 2 GPUs in use per user at any one time<br />
-        Individual jobs are limited to a single gp100 (no multi-GPU jobs)</td>
+        Individual jobs are limited to a single gp100 or l40 (no multi-GPU jobs)</td>
     </tr>
     <tr class="even">
       <td><pre>gpgpu</pre></td>
-      <td><pre>gpu_type=v100|a100</pre></td>
+      <td><pre>gpu_type=v100|a100|h100</pre></td>
       <td>Up to 32 GPUs in use per user at any one time; users may submit jobs
         requesting more than 32 GPUs for execution on weekends.</td>
     </tr>
