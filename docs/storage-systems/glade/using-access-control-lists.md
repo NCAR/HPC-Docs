@@ -12,6 +12,7 @@ Following are examples of how to create an ACL that allows other individuals and
 Use the `setfacl` command with the `--modify` option to give an individual user access to a file or directory that you own.
 
 In this example, user shiquan is sharing a file with user bjsmith. Listing the file before and after creating the ACL shows how the file permissions changed.
+
 ```bash
 ls -l testfile.txt
 -rw------- 1 shiquan ncar 18 Mar 4 09:00 testfile.txt
@@ -20,6 +21,7 @@ setfacl --modify user:bjsmith:rwx testfile.txt
 ls -l testfile.txt
 -rw-rwx---+ 1 shiquan ncar 18 Mar 4 09:00 testfile.txt
 ```
+
 The `+` as the last character in the permissions string indicates that an ACL exists for the directory.
 
 ### About execute flags: `X` vs. `x`
