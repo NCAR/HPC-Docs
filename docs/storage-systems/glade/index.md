@@ -186,7 +186,7 @@ request.
 
 Individual files are removed from the scratch space automatically if
 they have not been accessed (for example: modified, read, or copied) in
-more than 120 days. A file's *access time* (`atime`) is updated at most
+more than 180 days. A file's *access time* (`atime`) is updated at most
 once per day for purposes of I/O efficiency. To check a file's `atime`,
 run `ls -ul filename`.
 
@@ -208,14 +208,14 @@ period, please use this space conscientiously.*
 
 Delete files that you no longer need as soon as you're done with them
 rather than leave large amounts of data sitting untouched for the full
-120 days. If you need to retain data on disk for more than 120 days,
+180 days. If you need to retain data on disk for more than 120 days,
 consider using your `/glade/work` space or
 [Campaign Storage](#campaign-storage-project-space) space.
 
 ### Data retention policy
 
 - When your account is closed, files are purged automatically as they
-  become 120 days old.
+  become 180 days old.
 
 - If one or more of your project allocations expires but your account is
   not closed, your scratch files are removed as stated in the purge
