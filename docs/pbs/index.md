@@ -313,20 +313,35 @@ so if you will want to submit the same script at times from Casper,
 *always append the server name to your queue*.
 
 ### Interactive Jobs
+Interactive jobs are jobs which give you an interactive session on a compute node. Interactive jobs are useful for debugging and testing code, as well as for running short jobs that require user interaction.
 
-Users can start an interactive job on `casper` or `Derecho` using the `qsub -I` command. The `-I` flag is used to request an interactive job. The following example shows how to start an interactive job on `casper`:
+Users can start an interactive job on `casper` or `Derecho` using the `qsub -I` command. The `-I` flag is used to request an interactive. The following example shows how to start an interactive job with specified resources on `casper`:
 
 ```bash
 qsub -I -l select=1:ncpus=1:mem=20GB -q casper@casper-pbs -l walltime=06:00:00 -A <project_code>
 ```
 
-Additionally, the `qinteractive` command can be used to start an interactive job on `derecho` or `casper`. For `derecho` this will start an interactive job on the `develop` queue, while for `casper` it will submit the job to the `main` queue. The following example shows how to start an interactive job on `derecho` or `casper`:
+
+#### `qinteractive`
+
+Additionally, the `qinteractive` command provides a convenient way to start an interactive job on either `derecho` or `casper`. By default, `qinteractive ` will start an interactive job with 1 CPU and 10GB of memory.  For `derecho` this will start an interactive job on the `develop` queue. 
+
+The following example shows how to start an interactive job on either `derecho` or `casper` :
 
 ```bash
-qinteractive -A <project_code>
+qinteractive
 ```
 
-Additionally `execasper` can be used to start an interactive job on `casper`. If you are on a `derecho` login node, using `execasper` will start an interactive job on `casper`. 
+Users can also start an interactive job on a peer system by specifying the system name as shown below:
+
+=== "Interactive job on Derecho"
+    ```bash
+    qinteractive @derecho
+    ```
+=== "Interactive job on Casper"
+    ```bash
+    qinteractive @casper
+    ```
 
 
 ### Querying jobs
