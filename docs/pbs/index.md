@@ -313,9 +313,9 @@ so if you will want to submit the same script at times from Casper,
 *always append the server name to your queue*.
 
 ### Interactive Jobs
-Interactive jobs are jobs which give you an interactive session on a compute node. Interactive jobs are useful for debugging and testing code, as well as for running short jobs that require user interaction.
+Interactive jobs provide an interactive session on a compute node, useful for debugging, testing code, and running short tasks that require user interaction.
 
-Users can start an interactive job on `casper` or `Derecho` using the `qsub -I` command. The `-I` flag is used to request an interactive. The following example shows how to start an interactive job with specified resources on `casper`:
+Users can start an interactive job on `casper` or `Derecho` using the `qsub -I` command. The `-I` flag is used to request an interactive session. The following example shows how to start an interactive job with specified resources on `casper`:
 
 ```bash
 qsub -I -l select=1:ncpus=1:mem=20GB -q casper@casper-pbs -l walltime=06:00:00 -A <project_code>
@@ -324,7 +324,7 @@ qsub -I -l select=1:ncpus=1:mem=20GB -q casper@casper-pbs -l walltime=06:00:00 -
 
 #### `qinteractive`
 
-Additionally, the `qinteractive` command provides a convenient way to start an interactive job on either `derecho` or `casper`. By default, `qinteractive ` will start an interactive job with 1 CPU and 10GB of memory on `capser`.  For `derecho`, `qinteractive` will start an interactive job with 32 CPUs and 55GB of memory on the `develop` queue. 
+The `qinteractive` command provides a convenient way to start an interactive job on either `derecho` or `casper`. By default, when you run `qinteractive` on casper, it starts an interactive job with 1 CPU and 10GB of memory. On Derecho, `qinteractive` starts an interactive job with 32 CPUs and 55GB of memory on the `develop` queue.
 
 The following example shows how to start an interactive job on either `derecho` or `casper` :
 
@@ -344,7 +344,7 @@ Users can also start an interactive job on a peer system by specifying the syste
     ```
 
 
-You can specify custom resources with `qinteractive` by either using `qinteractive` helper flags. To see a full list of the flags, please run `qinteractive --help`.
+You can specify custom resources with `qinteractive` by using `qinteractive` helper flags. To see a full list of the flags, please run `qinteractive --help`.
 
 For example, to start an interactive job on `casper` with 2 CPUs, 20GB of memory, and 1 GPU, you can use the following command:
 
