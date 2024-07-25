@@ -52,7 +52,7 @@ your username will be chosen at random.
 
 If your work with complex programs such as MATLAB and VAPOR requires the
 use of virtual network computing (VNC) server and client software,
-use `vncmgr` instead of `execcasper`.
+use `vncmgr` instead of `qinteractive`.
 
 Using `vncmgr` simplifies configuring and running a VNC session in a
 Casper batch job. How to do that is [documented here](../remote-desktops.md).
