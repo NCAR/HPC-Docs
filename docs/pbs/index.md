@@ -324,7 +324,7 @@ qsub -I -l select=1:ncpus=1:mem=20GB -q casper@casper-pbs -l walltime=06:00:00 -
 
 #### `qinteractive`
 
-Additionally, the `qinteractive` command provides a convenient way to start an interactive job on either `derecho` or `casper`. By default, `qinteractive ` will start an interactive job with 1 CPU and 10GB of memory.  For `derecho` this will start an interactive job on the `develop` queue. 
+Additionally, the `qinteractive` command provides a convenient way to start an interactive job on either `derecho` or `casper`. By default, `qinteractive ` will start an interactive job with 1 CPU and 10GB of memory on `capser`.  For `derecho`, `qinteractive` will start an interactive job with 32 CPUs and 55GB of memory on the `develop` queue. 
 
 The following example shows how to start an interactive job on either `derecho` or `casper` :
 
@@ -343,6 +343,20 @@ Users can also start an interactive job on a peer system by specifying the syste
     qinteractive @casper
     ```
 
+
+You can specify custom resources with `qinteractive` by either using `qinteractive` helper flags. To see a full list of the flags, please run `qinteractive --help`.
+
+For example, to start an interactive job on `casper` with 2 CPUs, 20GB of memory, and 1 GPU, you can use the following command:
+
+```bash
+qinteractive --ncpus 2 --mem 20GB --ngpus 1 @casper 
+```
+
+Additionally, the `qinteractive` command accepts all PBS flags and resource specifications as detailed by `man qsub`. For example, you can specify the walltime for the interactive job by using the `-l` flag as shown below:
+
+```bash
+qinteractive -l walltime=06:00:00
+```
 
 ### Querying jobs
 
