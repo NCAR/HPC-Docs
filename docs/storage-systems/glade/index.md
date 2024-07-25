@@ -208,7 +208,7 @@ period, please use this space conscientiously.*
 
 Delete files that you no longer need as soon as you're done with them
 rather than leave large amounts of data sitting untouched for the full
-180 days. If you need to retain data on disk for more than 120 days,
+180 days. If you need to retain data on disk for more than 180 days,
 consider using your `/glade/work` space or
 [Campaign Storage](#campaign-storage-project-space) space.
 
