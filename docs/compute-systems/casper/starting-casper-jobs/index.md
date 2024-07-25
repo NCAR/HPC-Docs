@@ -25,14 +25,19 @@ Begin by logging in on *Casper* or *Derecho*.
 
 ## Interactive jobs
 
-### Starting a remote command shell with execcasper
+### Starting a remote command shell with `qinteractive`
 
-Run the `execcasper` command to start an interactive job. Invoking
+Run the `qinteractive` command to start an interactive job. Invoking
 it *without an argument* will start an interactive shell on the *first
 available HTC node*. The default wall-clock time is 6 hours.
 
+You can also start an interactive job on `casper` directly from `derecho` :
+```bash
+qinteractive @casper
+```
+
 To use another type of node, include a *select statement* specifying the
-resources you need. The `execcasper` command accepts all PBS flags and
+resources you need. The `qinteractive` command accepts all PBS flags and
 resource specifications as detailed by `man qsub`.
 
 If you do not include a resource specification by using either a select
