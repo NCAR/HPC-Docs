@@ -16,21 +16,21 @@ language interpreters. See details below.
 
 The instructions below describe how to start the
 browser-based **JupyterLab**, the **IPython shell**, and **Jupyter
-QtConsole** on the NCAR systems.
-visualization nodes.
+QtConsole** on the NCAR HPC systems.
 
 For additional information, see [Jupyter documentation](https://jupyter.readthedocs.io/en/latest/).
 
 ## Starting JupyterLab
 
-- Start an interactive job using the `qinteractive` command.
-  (Alternative: Start the job on Casper using `execcasper` if it
-  requires GPUs or more memory than is available on Cheyenne.)
+- Start an interactive job using the `qinteractive @casper` command.
+  (Alternative: Start the job on Derecho using `qinteractive @derecho`.
+  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
-- Load the `ncarenv` and `python` modules.
+- Load the `ncarenv` and `conda` modules.
 
-- Run the `ncar_pylib` command to load the NCAR Python Library virtual
-  environment.
+- Activate the NCAR Python Library via `conda activate npl` or any other
+  environment with `jupyterlab` and `ipython` installed.
 
 - Run the `start-jupyter` command.
 
@@ -46,8 +46,8 @@ that session, you will be closing your browser connection to JupyterLab.
 On your local computer, run the `ssh` command as instructed.
 
 The session will appear to hang after you log in. At that point,
-start `http://localhost:nnnn` in your browser. (The port numbers may
-be different from those in the output example above.)
+start `http://localhost:nnnn` in your browser. The port numbers may
+be different from those in the output example above.
 
 JupyterLab will request a password or "token," which is a long string as
 shown in the output above that you can copy and paste from your
@@ -68,14 +68,15 @@ with the token.
 
 ## Starting IPython shell
 
-- Start an interactive job using the `qinteractive` command.
-  (Alternative: Start the job on Casper using `execcasper` if it
-  requires GPUs or more memory than is available on Cheyenne.)
+- Start an interactive job using the `qinteractive @casper` command.
+  (Alternative: Start the job on Derecho using `qinteractive @derecho`.
+  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
-- Load the `ncarenv` and `python` modules.
+- Load the `ncarenv` and `conda` modules.
 
-- Run the `ncar_pylib` command to load the NCAR Python Library virtual
-  environment.
+- Activate the NCAR Python Library via `conda activate npl` or any other
+  environment with `ipython` installed.
 
 - Run the `ipython` command to start the shell.
 
@@ -85,14 +86,15 @@ with the token.
 
 - Log in with X tunneling (using the ssh `-X` option).
 
-- Start an interactive job using the `qinteractive` command.
-  (Alternative: Start the job on Casper using `execcasper` if it
-  requires GPUs or more memory than is available on Cheyenne.)
+- Start an interactive job using the `qinteractive @casper` command.
+  (Alternative: Start the job on Derecho using `qinteractive @derecho`.
+  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
-- Load the `ncarenv` and `python` modules.
+- Load the `ncarenv` and `conda` modules.
 
-- Run the `ncar_pylib` command to load the NCAR Python Library virtual
-  environment.
+- Activate the NCAR Python Library via `conda activate npl` or any other
+  environment with `jupyterlab` installed.
 
 - Run the `jupyter qtconsole` command to start the console.
 
@@ -110,10 +112,10 @@ jupyter kernelspec list
 ```
 
 To use a kernel, specify it by name when invoking a command. For
-example, to use the R 3.4.0 interpreter on Cheyenne in the Jupyter
+example, to use the R 4.3.0 interpreter on Casper in the Jupyter
 QtConsole, enter the following:
 ```bash
-jupyter qtconsole --kernel=r-3.4
+jupyter qtconsole --kernel=r-4.3
 ```
 The console will load with the R command line interpreter active.
 
