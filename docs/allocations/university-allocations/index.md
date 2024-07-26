@@ -1,6 +1,6 @@
 # University allocations
 
-!!! tip " The next university deadline for submitting Large Allocation Requests will be in September 2024; exact date TBD."
+!!! tip " The next university deadline for submitting Large Allocation Requests will be September 10, 2024."
 
 University use of the NSF NCAR HPC environment is intended to support Earth
 system science and related research by researchers at U.S. institutions.
