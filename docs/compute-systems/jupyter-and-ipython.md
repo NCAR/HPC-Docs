@@ -22,8 +22,8 @@ For additional information, see [Jupyter documentation](https://jupyter.readthed
 
 ## Starting JupyterLab
 
-- Start an interactive job using the `execcasper` command.
-  (Alternative: Start the job on Derecho using `qinteractive`.
+- Start an interactive job using the `qinteractive @casper` command.
+  (Alternative: Start the job on Derecho using `qinteractive @derecho`.
   Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
   has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
@@ -68,8 +68,8 @@ with the token.
 
 ## Starting IPython shell
 
-- Start an interactive job using the `execcasper` command.
-  (Alternative: Start the job on Derecho using `qinteractive`.
+- Start an interactive job using the `qinteractive @casper` command.
+  (Alternative: Start the job on Derecho using `qinteractive @derecho`.
   Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
   has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
@@ -86,8 +86,8 @@ with the token.
 
 - Log in with X tunneling (using the ssh `-X` option).
 
-- Start an interactive job using the `execcasper` command.
-  (Alternative: Start the job on Derecho using `qinteractive`.
+- Start an interactive job using the `qinteractive @casper` command.
+  (Alternative: Start the job on Derecho using `qinteractive @derecho`.
   Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
   has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
 
