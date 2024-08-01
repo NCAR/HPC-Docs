@@ -27,11 +27,11 @@ Begin by logging in on *Casper* or *Derecho*.
 
 ### Starting a remote command shell with `qinteractive`
 
-Run the `qinteractive` command to start an interactive job. Invoking
-it *without an argument* will start an interactive shell on the *first
+Run the `qinteractive` command to start an interactive job from Casper login nodes. Invoking
+it *without any argument* will start an interactive shell on the *first
 available HTC node*. The default wall-clock time is 6 hours.
 
-You can also start an interactive job on `casper` directly from `derecho` :
+You can also start an interactive job on `casper` directly from `derecho` nodes by:
 ```bash
 qinteractive @casper
 ```
