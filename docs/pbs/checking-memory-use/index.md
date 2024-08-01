@@ -41,19 +41,14 @@ either instrumenting your application or live monitoring.
   <tbody>
     <tr class="odd">
       <td><strong>Derecho</strong></td>
-      <td>240 GB (2,488 CPU nodes)<br />
-        490 GB (82 GPU nodes)</td>
-    </tr>
-    <tr class="even">
-      <td><strong>Cheyenne</strong></td>
-      <td>45 GB (3,168 nodes)<br />
-        109 GB (864 nodes)</td>
+      <td>235 GB (2,488 CPU nodes)<br />
+        487 GB (82 GPU nodes)</td>
     </tr>
     <tr class="odd">
       <td><strong>Casper</strong></td>
-      <td>365 GB (22 nodes)<br />
+      <td>360 GB (22 nodes)<br />
         738 GB (4 nodes)<br />
-        1115 GB (6 nodes)</td>
+        1110 GB (6 nodes)</td>
     </tr>
   </tbody>
 </table>
