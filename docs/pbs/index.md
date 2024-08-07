@@ -333,8 +333,7 @@ qinteractive -A <project_code>
 ```
 
 !!! tip
-    The `-A` flag is needed if users have not specified a default project code in their environment. The default project code can be specified using environment variable `DAV_PROJECT` on Casper and `PBS_ACCOUNT` on Derecho.
-
+    The `-A` flag is needed if users have not specified a default project code in their environment. The default project code can be specified using the environment variable `PBS_ACCOUNT`. Default project codes can also be specified for a specific system using `PBS_ACCOUNT_DERECHO` and `PBS_ACCOUNT_CASPER` for Derecho and Casper, respectively.
 
 Users can also start an interactive job on a peer system by specifying the system name as shown below:
 
