@@ -264,7 +264,7 @@ are in effect.
 FastX sessions that consume excessive resources are subject to being
 killed. For resource-intensive workloads that do not require GPU-based
 rendering, consider starting a Casper job instead by running
-an `execcasper` command from a FastX terminal window. For more
+a `qinteractive` command from a FastX terminal window. For more
 resource-intensive work with high-end, GPU-accelerated graphics,
 consider using [VNC as described above](remote-desktops.md#using-vnc) rather
 than FastX.
