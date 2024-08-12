@@ -123,7 +123,7 @@ request, your submission will be classified as shown in the table.
         <pre>ncpus<=36</pre>
         <pre>ngpus=0</pre>
       </td>
-      <td>Up to 3 jobs can be run by a single user at once (consuming 50% if the <pre>largemem</pre> nodes).  5 jobs may be queued per user.</td>
+      <td>Up to 3 jobs can be run by a single user at once (consuming 50% if the largemem nodes).  5 jobs may be queued per user.</td>
     </tr>
     <tr class="even">
       <td><pre>htc</pre></td>
