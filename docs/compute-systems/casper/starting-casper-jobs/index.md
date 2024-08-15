@@ -25,14 +25,19 @@ Begin by logging in on *Casper* or *Derecho*.
 
 ## Interactive jobs
 
-### Starting a remote command shell with execcasper
+### Starting a remote command shell with `qinteractive`
 
-Run the `execcasper` command to start an interactive job. Invoking
-it *without an argument* will start an interactive shell on the *first
+Run the `qinteractive` command to start an interactive job from Casper login nodes. Invoking
+it *without any argument* will start an interactive shell on the *first
 available HTC node*. The default wall-clock time is 6 hours.
 
+You can also start an interactive job on `casper` directly from `derecho` nodes by:
+```bash
+qinteractive @casper
+```
+
 To use another type of node, include a *select statement* specifying the
-resources you need. The `execcasper` command accepts all PBS flags and
+resources you need. The `qinteractive` command accepts all PBS flags and
 resource specifications as detailed by `man qsub`.
 
 If you do not include a resource specification by using either a select
@@ -47,7 +52,7 @@ your username will be chosen at random.
 
 If your work with complex programs such as MATLAB and VAPOR requires the
 use of virtual network computing (VNC) server and client software,
-use `vncmgr` instead of `execcasper`.
+use `vncmgr` instead of `qinteractive`.
 
 Using `vncmgr` simplifies configuring and running a VNC session in a
 Casper batch job. How to do that is [documented here](../remote-desktops.md).

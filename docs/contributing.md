@@ -1,6 +1,12 @@
 # Contribution Guide
 
-This guide provides an overview of how to contribute to this documentations and the standards to follow when adding content to this repository.
+Welcome to the NCAR HPC Resources GitHub repository!
+
+!!! info
+    This document is built from [the NCAR MkDocs Template](https://github.com/NCAR/NCAR_mkdocs_template/). If you are interested to creating a similar documentation page for your own project, the framework is available in the [NCAR MkDocs Template repository](https://ncar-mkdocs-template.readthedocs.io/en/latest/getting-started/). 
+
+This guide provides an overview of how to contribute to this documentations and the standards to follow when adding content to this repository. 
+
 
 ## Repository Overview
 
@@ -39,6 +45,15 @@ For major modifications, such as a comprehensive revision of a section in the do
     git clone https://github.com/<YOUR_USERNAME>/HPC-Docs.git
     ```
         Replace `<YOUR_USERNAME>` with your GitHub username.
+
+    Next, navigate to the cloned repository and pull the submodules by running:
+    
+    ```bash
+    cd HPC-Docs
+    git submodule init
+    git submodule update
+    ```
+    This will pull the [`mkdocs-material-theme` submodule](https://github.com/NCAR/NCAR_mkdocs_material_themes.git).
 
 3. **Create a new branch:** It's a good practice to create a new branch before you start making changes. This can be done by running:
     ```bash

@@ -312,10 +312,54 @@ The server-specific queue names will be understood by both PBS servers,
 so if you will want to submit the same script at times from Casper,
 *always append the server name to your queue*.
 
-The `qinteractive` and `execcasper` scripts, which start interactive
-jobs on Casper, will adjust the queue name for
-you to include the server, so *you do not need to append the server name
-manually for interactive jobs*.
+### Interactive Jobs
+Interactive jobs provide an interactive session on a compute node, useful for debugging, testing code, and running short tasks that require user interaction.
+
+Users can start an interactive job on `casper` or `Derecho` using the `qsub -I` command. The `-I` flag is used to request an interactive session. The following example shows how to start an interactive job with specified resources on `casper`:
+
+```bash
+qsub -I -l select=1:ncpus=1:mem=20GB -q casper@casper-pbs -l walltime=06:00:00 -A <project_code>
+```
+
+
+#### `qinteractive`
+
+The `qinteractive` command provides a convenient way to start an interactive job on either `derecho` or `casper`. By default, when you run `qinteractive` on casper, it starts an interactive job with 1 CPU and 10GB of memory. On Derecho, `qinteractive` starts an interactive job with 32 CPUs and 55GB of memory on the `develop` queue.
+
+The following example shows how to start an interactive job on either `derecho` or `casper` :
+
+```bash
+qinteractive -A <project_code>
+```
+
+!!! tip
+    The `-A` flag is needed if users have not specified a default project code in their environment. The default project code can be specified using the environment variable `PBS_ACCOUNT`. Default project codes can also be specified for a specific system using `PBS_ACCOUNT_DERECHO` and `PBS_ACCOUNT_CASPER` for Derecho and Casper, respectively.
+
+Users can also start an interactive job on a peer system by specifying the system name as shown below:
+
+=== "Interactive job on Derecho"
+    ```bash
+    qinteractive @derecho
+    ```
+=== "Interactive job on Casper"
+    ```bash
+    qinteractive @casper
+    ```
+
+
+You can specify custom resources with `qinteractive` by using `qinteractive` helper flags. To see a full list of the flags, please run `qinteractive --help`.
+
+For example, to start an interactive job on `casper` with 2 CPUs, 20GB of memory, and 1 GPU, you can use the following command:
+
+```bash
+qinteractive --ncpus 2 --mem 20GB --ngpus 1 @casper 
+```
+
+Additionally, the `qinteractive` command accepts all PBS flags and resource specifications as detailed by `man qsub`. For example, you can specify the walltime for the interactive job by using the `-l` flag as shown below:
+
+```bash
+qinteractive -l walltime=06:00:00
+```
 
 ### Querying jobs
 
