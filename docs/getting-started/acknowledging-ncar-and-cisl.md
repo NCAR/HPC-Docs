@@ -22,8 +22,7 @@ the use of Research Data Archive data sets.
 ## For Derecho projects
 
 ### Citation formats
-You can cite your use of the Derecho system and/or the Casper data analysis 
-and visualization cluster with the following formats, based on the source of 
+You can cite your use of the Derecho system with the following formats, based on the source of 
 your allocation and modified as needed to conform with citation style guidelines. 
 Be sure to use the digital object identifier (DOI) as shown; it is unique to Derecho.
 
@@ -47,7 +46,7 @@ method described above is inappropriate. You may modify the following examples a
 appropriate; however, please include at least the DOI in the acknowledgment text, 
 as you would include funding agency award numbers.
 
-#### For University/CHAP and NCAR allocations
+#### For University/CHAP and NSF NCAR allocations
 *We would like to acknowledge high-performance computing support from the Derecho 
 system ([doi:10.5065/qx9a-pg09](https://arc.ucar.edu/knowledge_base/74317833)) provided by the NSF National Center for Atmospheric 
 Research (NCAR), sponsored by the National Science Foundation.*
@@ -57,6 +56,22 @@ Research (NCAR), sponsored by the National Science Foundation.*
 supported by the NSF National Center for Atmospheric Research (NCAR) at the 
 NSF NCAR-Wyoming Supercomputing Center, sponsored by the National Science Foundation 
 and the State of Wyoming.*
+
+## For Casper projects
+If your work on NCAR computing resources has primarily involved the Casper cluster 
+for analyzing data or other purposes, you can acknowledge the Casper cluster as in 
+the following examples. Note that if Casper was used in your workflow to post-process 
+or analyze results from Derecho, please cite or acknowledge the Derecho system instead.
+
+### For University/CHAP and NSF NCAR allocations
+We would like to acknowledge computing support from the Casper system (https://ncar.pub/casper) 
+provided by the NSF National Center for Atmospheric Research (NCAR), sponsored by the 
+National Science Foundation.
+
+### For Wyoming-NCAR Alliance allocations
+We would like to acknowledge the use of the Casper system (https://ncar.pub/casper) supported 
+by the NSF National Center for Atmospheric Research (NCAR) at the NSF NCAR-Wyoming Supercomputing Center, 
+sponsored by the National Science Foundation and the State of Wyoming.
 
 ## For Cheyenne projects
 If you are publishing a work that used the Cheyenne resource, follow the guidance for Derecho above, 
