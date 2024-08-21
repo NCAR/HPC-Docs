@@ -72,8 +72,11 @@ response to users' requests.
 
     ### Settings for all shells
     export PATH=~/bin:$PATH
-    export PBS_ACCOUNT=CHEYENNE_PROJECT_CODE
-    export DAV_PROJECT=CASPER_PROJECT_CODE
+    # Set default project allocation code on Derecho and Casper
+    export PBS_ACCOUNT=DEFAULT_PROJECT_CODE
+    # Set default project allocation code on Derecho/Casper, supersedes others
+    export PBS_ACCOUNT_DERECHO=DEFAULT_DERECHO_PROJECT_CODE
+    export PBS_ACCOUNT_CASPER=DEFAULT_CASPER_PROJECT_CODE
 
     ### Source .bashrc file to make environment more consistent
     ### (optional - some users prefer this; e.g., conda users)
@@ -106,6 +109,9 @@ response to users' requests.
 
     ### Settings for all shells
     setenv PATH ~/bin:$PATH
-    setenv PBS_ACCOUNT CHEYENNE_PROJECT_CODE
-    setenv DAV_PROJECT CASPER_PROJECT_CODE
+    # Set default project allocation code on Derecho and Casper
+    setenv PBS_ACCOUNT DEFAULT_PROJECT_CODE
+    # Set default project allocation code on Derecho/Casper, supersedes others
+    setenv PBS_ACCOUNT_DERECHO DEFAULT_DERECHO_PROJECT_CODE
+    setenv PBS_ACCOUNT_CASPER DEFAULT_CASPER_PROJECT_CODE
     ```
