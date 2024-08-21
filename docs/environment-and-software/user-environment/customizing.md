@@ -74,7 +74,7 @@ response to users' requests.
     export PATH=~/bin:$PATH
     # Set default project allocation code on Derecho and Casper
     export PBS_ACCOUNT=DEFAULT_PROJECT_CODE
-    # Set default project allocation code on Derecho/Casper, supersedes others
+    # Set default project allocation code on Derecho/Casper, supersedes above
     export PBS_ACCOUNT_DERECHO=DEFAULT_DERECHO_PROJECT_CODE
     export PBS_ACCOUNT_CASPER=DEFAULT_CASPER_PROJECT_CODE
 
@@ -111,7 +111,7 @@ response to users' requests.
     setenv PATH ~/bin:$PATH
     # Set default project allocation code on Derecho and Casper
     setenv PBS_ACCOUNT DEFAULT_PROJECT_CODE
-    # Set default project allocation code on Derecho/Casper, supersedes others
+    # Set default project allocation code on Derecho/Casper, supersedes above
     setenv PBS_ACCOUNT_DERECHO DEFAULT_DERECHO_PROJECT_CODE
     setenv PBS_ACCOUNT_CASPER DEFAULT_CASPER_PROJECT_CODE
     ```
