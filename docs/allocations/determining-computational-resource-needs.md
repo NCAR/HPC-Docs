@@ -14,20 +14,18 @@ resources you need and how you will use those resources.
 ## Estimating Derecho allocation needs
 
 Derecho users can expect to see a **1.3x** improvement over the Cheyenne
-system's performance on a core-for-core basis. While performing benchmark 
-runs on Derecho is strongly recommended, if you have core-hour costs 
-from Cheyenne benchmark runs, you can estimate Derecho CPU performance by 
+system's performance on a core-for-core basis. While performing benchmark
+runs on Derecho is strongly recommended, if you have core-hour costs
+from Cheyenne benchmark runs, you can estimate Derecho CPU performance by
 multiplying by **0.77**.
 
 When requesting an allocation for Derecho GPU nodes, please make your
-request in terms of GPU-hours (the number of GPUs used times the number 
-of wallclock hours). We encourage researchers to estimate GPU-hour needs 
-by making test/benchmark runs on Derecho or Casper GPUs, but we will 
+request in terms of GPU-hours (the number of GPUs used times the number
+of wallclock hours). We encourage researchers to estimate GPU-hour needs
+by making test/benchmark runs on Derecho or Casper GPUs, but we will
 accept estimates based on runs on comparable non-NSF NCAR, GPU-based systems.
-
 You can use a table like this as a starting point. Such a table can be
-used as part of your [large-scale allocation proposal](https://ncar-hpc-docs-arc-iframe.readthedocs.io/allocations/university-allocations/university-large-allocation-request-preparation-instructions/).
-
+used as part of your [large-scale allocation proposal](../university-allocations/university-large-allocation-request-preparation-instructions/).
 
 <table style="width:100%;">
   <colgroup>
@@ -123,9 +121,9 @@ of your codes to complete your resource request. A reference to a web
 site or paper with performance and scalability details for the code or
 model is acceptable for purposes of an allocation request.
 
-If no published timing results exist, you'll need to document your code's 
-timing yourself. Presumably you’ve run your code on a multi-core or GPU 
-system and have at least a general idea of what resources you will need 
+If no published timing results exist, you'll need to document your code's
+timing yourself. Presumably you’ve run your code on a multi-core or GPU
+system and have at least a general idea of what resources you will need
 in order to run at the same scale or larger on the Derecho or Casper systems.
 
 To begin fine-tuning your general idea into a specific request for
@@ -133,8 +131,8 @@ resources, consider these questions:
 
 - How large is any data set that you need to load?
 
-- How much memory needs to be available for you to complete a run? The
-  [peak_memusage tool](https://ncar-hpc-docs-arc-iframe.readthedocs.io/pbs/checking-memory-use/) can tell
+- How much memory needs to be available for you to complete a run?
+  [Several tools are available](../../pbs/checking-memory-use/) that can tell
   you how much memory your program uses.
 
 Your answers will help you calculate the minimum number of nodes you can
@@ -168,9 +166,9 @@ example, say you’ve run your parallel code on a similar system using
 runs on Derecho. Do additional larger runs to demonstrate that the code
 scales as you expect it to scale. To ensure accuracy, it can help to do
 several runs at each point on different days to detect variations that
-might result from changes in the machine’s workload. Based on the 
-hypothetical results shown in Figure 1, a run could be done efficiently 
-using 1,000 cores. The job would finish more quickly, using less 
+might result from changes in the machine’s workload. Based on the
+hypothetical results shown in Figure 1, a run could be done efficiently
+using 1,000 cores. The job would finish more quickly, using less
 wall-clock time, than it would using 400 cores.
 
 To convert that into total core-hours needed for one type of simulation,
@@ -217,9 +215,9 @@ with systems that are similar to Derecho.
 
 Use these links to download sample proposals:
 
-- [Example proposal 1](https://kb.ucar.edu/download/attachments/75694337/Example_Proposal_1_Spring2020%20%281%29.pdf?version=1&modificationDate=1627489242000&api=v2)
+- [Example proposal 1](../university-allocations/Example_Proposal_1_Spring2020.pdf)
 
-- [Example proposal 2](https://kb.ucar.edu/download/attachments/75694337/Example_Proposal_2_Fall2019%20%281%29.pdf?version=1&modificationDate=1627489279000&api=v2)
+- [Example proposal 2](../university-allocations/Example_Proposal_2_Fall2019.pdf)
 
 They are specific to university large-scale allocations but are good examples
 of documenting performance that you can follow for other types of
