@@ -98,9 +98,9 @@ nav:
           - environment-and-software/user-environment/containers/index.md
           - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
           - Example Workflows: environment-and-software/user-environment/containers/examples.md
+        - Spack: environment-and-software/user-environment/spack/index.md
         - Utilities: environment-and-software/user-environment/utilities.md
         - Customizing User Environment: environment-and-software/user-environment/customizing.md
-        - Spack: environment-and-software/user-environment/spack/index.md
 
       - HPC Software:
         - environment-and-software/hpc-software/index.md
