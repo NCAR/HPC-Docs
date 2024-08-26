@@ -86,33 +86,6 @@ When you approve the request, you will be logged in.
 
 ![](media/image3.png){width="200"}
 
-## Duo Device Portal
-
-The [Duo Device Portal](https://duodeviceportal.ucar.edu/) is
-where you can change device settings, add new devices (a new smartphone,
-tablet or landline), or update your preferred contact methods.
-
-You can also choose to have Duo send you a push automatically after you
-enter your CIT password. Look for "When I log in" after you sign in to
-the portal.
-
-![](media/image4.png){width="400"}
-
-#### Changing smartphone
-
-When you replace your smartphone and need to use it to authenticate, use
-one of the following methods to get your new phone up and running with
-Duo Mobile:
-
-**Recommended:** [Duo Instant Restore](https://guide.duo.com/duo-restore), a feature for recovering
-Duo-protected accounts.
-
-**Alternative:**
-
-  - Go to the [Duo Device Portal](https://duodeviceportal.ucar.edu/).
-  - Choose **Call Me**. Even if your phone number hasn't changed, Duo
-    needs to call your new phone to complete the setup process.
-
 ## User guides and related links
 
 For additional information, see the following links
