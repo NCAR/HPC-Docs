@@ -265,11 +265,6 @@ list of IDs if appropriate.  See `man qsub` for a full listing and additional de
 | `beforenotok:<arg_list>` | If this job terminates execution with errors, jobs in `<arg_list>` may begin. |
 | `beforeany:<arg_list>`   | Jobs in `<arg_list>` may begin execution once this job terminates execution, with or without errors.|
 
-
-### Nested jobs
-
-
-
 ## Peer Scheduling scheduling between systems
 
 !!! info "Peer Scheduling scheduling between HPC Systems"
@@ -290,6 +285,11 @@ the PBS servers are:
 |------------|--------------------------------|
 | Casper     | `casper-pbs`                    |
 | Derecho    | `desched1` |
+
+!!! warning
+    Do not use the qsub option `-W block=true` when peer scheduling. PBS will
+    not be able to tell when the job is finished and the qsub call will hang
+    indefinitely.
 
 #### Examples
 === "Casper to Derecho"
