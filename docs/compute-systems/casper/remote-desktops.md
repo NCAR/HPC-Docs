@@ -171,9 +171,16 @@ ssh -t -l username casper.hpc.ucar.edu /glade/u/apps/opt/vncmgr/bin/vncmgr
     specify:
 
     - Your project code.
-    - The wallclock time you want in `HH:MM:SS` format. The default is 4 hours and the maximum is 24 hours.
-    - Which GPU you wish to use for hardware acceleration - a GP100 (default) or an L40 GPU.
-    - Any optional arguments. In the example, the user requests 20 GB of memory.
+    - The wallclock time you want in `HH:MM:SS` format. The default is 4
+      hours and the maximum is 24 hours.
+    - Whether you wish to render the desktop itself on the GPU using VirtualGL.
+      In general, we recommend leaving this off and using `vglrun` to launch
+      applications which need GPU acceleration. Some applications (e.g., IDL)
+      may become unstable with GPU acceleration active in the desktop.
+    - Which GPU you wish to use for hardware acceleration - a GP100 (default)
+      or an L40 GPU.
+    - Any optional arguments. In the example, the user requests 20 GB of
+      memory.
 
     All VNC jobs must run on a node with a visualization GPU. If you specify
     custom resource requirements, those requirements will be modified if
@@ -201,6 +208,13 @@ ssh -t -l username casper.hpc.ucar.edu /glade/u/apps/opt/vncmgr/bin/vncmgr
     executable.
 
     ![](remote-desktops/media/vnc5.png)
+
+    Here, we have used the `vglrun` command to execute the program
+    [VAPOR](https://ncar.github.io/VaporDocumentationWebsite/index.html)
+    with OpenGL acceleration on the GPU. If you do not use `vglrun`, you
+    will run your program with software rendering on the CPU. For more
+    information on running VAPOR, see [this
+    documentation](https://ncar.github.io/VaporDocumentationWebsite/downloads/vaporOnCasper.html).
 
 #### SSH tunneling with PuTTY
 The general process for creating an `ssh` tunnel described above will work well for clients with a command line `ssh` installation, however additional steps are required for Windows users with PuTTY as their `ssh` client. Expand the note below for additional details.
