@@ -125,7 +125,13 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         1 Mellanox ConnectX-4 100Gb Ethernet connection (GLADE, Campaign Storage, external connectivity)<br>
         1 Mellanox ConnectX-6 HDR100 InfiniBand link<br>
         1 NVIDIA Quadro GP100 GPU 16GB PCIe on each of 9 nodes<br>
-        1 NVIDIA Ampere A100 GPU 40 GB PCIe on each of 3 nodes
+        1 NVIDIA Ampere A100 GPU 40 GB PCIe on each of 3 nodes<br><br>
+          
+        <strong>6 Supermicro L40 GPU Visualization nodes</strong><br>
+        768 GB DDR5 memory per node<br>
+        1x 48-core AMD EPYC processor per node<br>        
+        1.6 TB local NVMe Solid State Disk<br>
+        1 Mellanox ConnectX-6 100Gb Ethernet VPI adapter          
       </td>
     </tr>
     <tr>
@@ -154,7 +160,15 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         2 64-core 2.45-GHz AMD EPYC Milan 7763 processors per node<br>
         1.5 TB local NVMe Solid State Disk<br>
         4 Mellanox ConnectX-6 network adapters<br>
-        4 NVIDIA Ampere A100 80GB SXM4 GPUs with NVLink</td>
+        4 NVIDIA Ampere A100 80GB SXM4 GPUs with NVLink<br><br>
+        
+        <strong>2 Supermicro nodes with 4 H100 GPUs</strong><br>
+        1024 GB DDR5 memory per node<br>
+        2 32-core Intel Xeon Gold processors per node<br>
+        1.5 TB local NVMe Solid State Disk<br>
+        4 Mellanox ConnectX-6 network adapters<br>
+        4 NVIDIA Hopper H100 80GB SXM4 GPUs with NVLink
+      </td>
     </tr>
     <tr>
       <td style="text-align: left;">
@@ -168,12 +182,18 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         1 Mellanox ConnectX-5 100Gb Ethernet VPI adapter (GLADE, Campaign Storage, external connectivity)<br>
         1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter. HDR100 link on each CPU socket<br><br>
 
-        <strong>2 large-memory workstation nodes</strong><br>
+        <strong>2 large-memory 36-core workstation nodes</strong><br>
         1.5 TB DDR4-2666 memory per node <br>
         2 18-core 2.3-GHz Intel Xeon Gold 6240 (Cascade Lake) processors per node<br>
         1.6 TB local NVMe Solid State Disk<br>
         1 Mellanox ConnectX-5 100Gb Ethernet VPI adapter (GLADE, Campaign Storage, external connectivity)<br>
-        1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter, HDR100 link on each CPU socket
+        1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter, HDR100 link on each CPU socket<br><br>
+        
+        <strong>6 large-memory 64-core workstation nodes</strong><br>
+        1.5 TB DDR5 memory per node <br>
+        1 64-core AMD EPYC processor per node<br>
+        1.6 TB local NVMe Solid State Disk<br>
+        1 Mellanox ConnectX-6 100Gb Ethernet VPI adapter<br>
       </td>
     </tr>
     <tr>
