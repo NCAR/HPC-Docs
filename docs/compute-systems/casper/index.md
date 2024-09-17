@@ -160,7 +160,15 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         2 64-core 2.45-GHz AMD EPYC Milan 7763 processors per node<br>
         1.5 TB local NVMe Solid State Disk<br>
         4 Mellanox ConnectX-6 network adapters<br>
-        4 NVIDIA Ampere A100 80GB SXM4 GPUs with NVLink</td>
+        4 NVIDIA Ampere A100 80GB SXM4 GPUs with NVLink<br><br>
+        
+        <strong>2 Supermicro nodes with 4 H100 GPUs</strong><br>
+        1024 GB DDR5 memory per node<br>
+        2 32-core Intel Xeon Gold processors per node<br>
+        1.5 TB local NVMe Solid State Disk<br>
+        4 Mellanox ConnectX-6 network adapters<br>
+        4 NVIDIA Hopper H100 80GB SXM4 GPUs with NVLink
+      </td>
     </tr>
     <tr>
       <td style="text-align: left;">
