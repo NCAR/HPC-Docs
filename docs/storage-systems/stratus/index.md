@@ -86,8 +86,7 @@ export AWS_SECRET_ACCESS_KEY='yyy'
   since the system does not allow reuse of existing emails. Admins
   might use a personal email, or a (group) alias setup in PeopleDB.
 
-#### Click to download
+#### Additional Resources
 
-- [Object_Storage_S3_API_Reference.pdf](https://kb.ucar.edu/download/attachments/70549594/Object_Storage_S3_API_Reference.pdf?version=1&modificationDate=1627579030000&api=v2)
-
-- [Object_Storage_View_User_Guide.pdf](https://kb.ucar.edu/download/attachments/70549594/Object_Storage_View_User_Guide.pdf?version=1&modificationDate=1627579077000&api=v2)
+- [ActiveScale Object Storage S3 API Reference](ActiveScale_OS_S3_API_Reference.pdf)
+- [ActiveScale Object Storage View User Guide](ActiveScale_OS_View_User_Guide.pdf)
