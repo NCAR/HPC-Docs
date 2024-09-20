@@ -1,15 +1,15 @@
 # General data retention policies and procedures
 
 The following general guidelines apply to project and user data.
-For a complete listing of all shared file systems, including
-purge details for scratch space, see [GLADE file spaces](../storage-systems/glade/index.md).
+For a complete listing of, and specific policies for, all shared file systems—including
+purge details for scratch space—see [GLADE file spaces](../storage-systems/glade/index.md).
 
 ## Project data
 
 When a sponsored project approaches expiry, there are several
 steps in the process that affect the accessibility of associated data:
 
-- 30 days before expiration, the project PIs will receive an email
+- 30 days before their project expires, the project PIs will receive an email
   reminding them of the pending expiration. The project team should
   assess remaining files and disposition appropriately in preparation
   for group deactivation.
@@ -21,8 +21,7 @@ steps in the process that affect the accessibility of associated data:
   therefore *imperative* that any remaining project data be relocated
   and ownership permissions assessed prior to this group deactivation.
 
-- Finally, files are removed as scheduled on the timeline described
-  above for the relevant file system.
+- Finally, files are removed as scheduled on the timeline for the relevant file system.
 
 ### Restoring access to project data
 
@@ -43,7 +42,7 @@ process affect the accessibility of the users' data:
 - The user’s work directory is removed. No backup is performed.
 
 - Finally, additional scratch files are removed as scheduled on the
-  timeline described above for the relevant file system.
+  timeline for the relevant file system.
 
 ### Restoring access to collaborators' data
 
