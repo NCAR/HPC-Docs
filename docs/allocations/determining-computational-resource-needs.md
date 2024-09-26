@@ -45,10 +45,10 @@ used as part of your [large-scale allocation proposal](../university-allocations
   </thead>
   <tbody>
     <tr class="odd">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>MPAS/CONUS (CPU, MPI only)</td>
+      <td>5,000 core-hours/run</td>
+      <td>100 runs</td>
+      <td>500,000 core-hours</td>
     </tr>
     <tr class="even">
       <td></td>
