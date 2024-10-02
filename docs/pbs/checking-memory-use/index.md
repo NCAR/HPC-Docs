@@ -46,9 +46,9 @@ either instrumenting your application or live monitoring.
     </tr>
     <tr class="odd">
       <td><strong>Casper</strong></td>
-      <td>360 GB (22 nodes)<br />
-        738 GB (4 nodes)<br />
-        1110 GB (6 nodes)</td>
+      <td>354 GB (HTC & GP100 nodes)<br />
+        ~730 GB (GPGPU & L40 nodes)<br />
+        ~148 GB (largemem nodes)</td>
     </tr>
   </tbody>
 </table>
