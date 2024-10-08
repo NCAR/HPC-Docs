@@ -55,12 +55,15 @@ The integration of PBS Batch jobs with VS Code requires some additional configur
 
         ```
         Host dec????
-        HostName %h
-        ProxyCommand ssh -W %h:%p derecho
+        HostName derecho.hpc.ucar.edu
+        RemoteCommand ssh %n
+        RequestTTY yes
 
         Host deg????
-        HostName %h
-        ProxyCommand ssh -W %h:%p derecho
+        HostName derecho.hpc.ucar.edu
+        RemoteCommand ssh %n
+        RequestTTY yes
+
         ```
 
         Once the proxy connection can be established with your edited local SSH configuration file, use the following steps to connect to a compute node:
