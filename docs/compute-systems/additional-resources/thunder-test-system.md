@@ -13,11 +13,6 @@ Thunder consists of:
 
 Follow the procedures below to begin using the system.
 
-*Additional information and screen captures depicting various steps in
-the process are included in this slide presentation*:
-
-[ChameleonCloud-WIP-09212022.pdf](file:////download/attachments/77201513/ChameleonCloud-WIP-09212022.pdf%3fversion=1&modificationDate=1669648880000&api=v2)
-
 ## Getting started
 
 Users access the Thunder nodes by establishing a connection to them via
@@ -113,6 +108,10 @@ ssh cc@128.117.250.23
 At that point, you can use the reserved Thunder nodes for your work.
 
 ## More information and getting help
+
+!!!note "Additional information and screen captures depicting various steps in the process are included in the [slide presentation](https://docs.google.com/presentation/d/1RdDueOY6pRd2UYNOE1HDrxuSp7LQbhOYasaSu_YM1R0) embedded below."
+
+<iframe src="https://docs.google.com/presentation/d/1RdDueOY6pRd2UYNOE1HDrxuSp7LQbhOYasaSu_YM1R0/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="836" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 [Detailed Chameleon Cloud documentation is available here](https://chameleoncloud.readthedocs.io/en/latest/).
 
