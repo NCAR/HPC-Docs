@@ -379,10 +379,6 @@ $ glade_hsm status /glade/campaign/univ/uiuc0017/SouthAmerica_WRF4KM_PGW/COLD_ST
 
 ```
 The (truncated) output above shows that each of the specified directories contains 9,490 files, and all are offline.  Each directory has a total of 46TB that currently reside on tape, with only 6.7MB of disk storage consumed.  This residual disk storage is simply the cost of storing the remaining file metadata.
-
-!!! important "Checking status can be slow"
-    ```pre
-    foo
     ```
 
 <!--  LocalWords:  HSM hsm subcommand
