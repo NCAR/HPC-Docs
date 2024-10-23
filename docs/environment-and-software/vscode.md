@@ -48,7 +48,7 @@ ssh -Y <user>@derecho.hpc.ucar.edu
 
 ## Connecting to Compute Nodes
 
-You can connect to Casper compute node by launching your PBS job and then SSH directly into the compute node.  Derecho does not allow external connections to the compute nodes.  
+You can connect to Casper compute node by launching your PBS job and then SSH directly into the compute node.  Derecho does not allow external connections to the compute nodes.  For connecting to Casper compute nodes, follow these steps:
 
 !!! example "Connecting to Casper compute nodes"
 
