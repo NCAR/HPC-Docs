@@ -142,6 +142,10 @@ nav:
             - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
       - Using Remote Desktops: compute-systems/casper/remote-desktops.md
       - Casper Software: compute-systems/casper/casper-modules.md
+    - CIRRUS:
+      - compute-systems/cirrus/index.md
+      - Adding Applications: compute-systems/cirrus/users/additions.md
+      - Service Level Agreements: compute-systems/cirrus/slas.md
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
