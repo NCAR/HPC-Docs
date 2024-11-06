@@ -1,6 +1,6 @@
 # Service Level Agreements (SLAs)
 
-This Service Level Agreement (SLA) defines the relationship between the CISL Cloud Pilot team who provides the on-premise cloud infrastructure and their customers which include UCAR
+This Service Level Agreement (SLA) defines the relationship between the CIRRUS team who provides the on-premise cloud infrastructure and their customers which include UCAR
 Employees, Visitors, and external collaborators authorized to use the on-premise cloud resources. NSF NCAR | CISL runs Compute, Storage & Network hardware in robust Data Centers at multiple organizational facilities. The on-premise cloud offers users the ability to utilize those highly available, organizationally supported, compute resources for approved use cases. This includes access to routable network space and UCAR Domain Name Systems (DNS). These resources provide a supplement to computing needs that aren’t fulfilled by the HPC offering, public cloud, or what is available locally.
 
 **Primary Services:** Kubernetes Cluster, Argo CD, Harbor, & JupyterHub/Binder
