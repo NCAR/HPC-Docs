@@ -25,9 +25,8 @@ Regular: Basic functionality is present. There is a failure of extended function
 
 ### Agreements
 
-```{note}
-There is currently no After Hours support. All Response types that occur after hours will be addressed at the start of business.
-``` 
+!!! important
+    There is currently no After Hours support. All Response types that occur after hours will be addressed at the start of business. 
 
 | Response Level | Business Hours <br> 8:00 - 17:00 M-F | After Hours |
 |---|---|---|

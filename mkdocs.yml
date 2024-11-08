@@ -148,7 +148,7 @@ nav:
       - Container Registry: 
             - compute-systems/cirrus/users/container-registry/index.md
             - Image Management: compute-systems/cirrus/users/container-registry/image-mgmt.md
-            - Vulnerability Scanner: compute-systems/cirrus/users/container-registry/vulnerability-scanner.md
+            - Vulnerability Scanner: compute-systems/cirrus/users/container-registry/vulnerability-scan.md
       - Jupyter: 
             - compute-systems/cirrus/users/jupyter/jupyterhub.md
             - Conda Environments: compute-systems/cirrus/users/jupyter/conda-envs.md

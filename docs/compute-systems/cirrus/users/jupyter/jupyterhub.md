@@ -1,21 +1,19 @@
 # CIRRUS JupyterHub
 
+<div style="text-align:center">
+<a href="https://jupyter.k8s.ucar.edu/">
+<img src="https://ncar.github.io/cisl-cloud/_static/jhub-logo.png" 
+        alt="CIRRUS JupyterHub" 
+        style="display: block; margin: 0 auto" />
+CIRRUS JupyterHub</a>
+</div>
+
 ## Overview
 
 CIRRUS hosts a JupyterHub instance on Kubernetes (K8s). 
 
 !!! info
     The K8s JupyterHub is available inside the NCAR network only so you must either be ***onsite*** or connected to the ***VPN***.
-
-
-<span class="d-flex justify-content-center py-4">
-    <a href="https://jupyter.k8s.ucar.edu/">
-        <figure>
-            <img src="https://ncar.github.io/cisl-cloud/_static/jhub-logo.png">
-            <figcaption style="text-align:center">K8s JupyterHub</figcaption>
-        </figure>
-    </a>
-</span>
 
 ## Access
 The [JupyterHub Login](https://jupyter.k8s.ucar.edu/) page is the portal to enter and spin up a personal and persistent Jupyter environment. 
