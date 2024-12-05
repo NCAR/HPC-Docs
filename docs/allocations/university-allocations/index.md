@@ -1,6 +1,6 @@
 # University allocations
 
-!!! tip " The next university deadline for submitting Large Allocation Requests will be September 10, 2024."
+!!! tip "The next university deadline for submitting Large Allocation Requests will be September 10, 2024."
 
 University use of the NSF NCAR HPC environment is intended to support Earth
 system science and related research and instruction by researchers and 
@@ -154,7 +154,8 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 ## Exploratory Allocations
 
-!!! info "Exploratory requests from unsponsored graduate students, postdocs, 
+!!! info 
+    "Exploratory requests from unsponsored graduate students, postdocs, 
     and new faculty can be submitted at any time and decisions are typically 
     made within a few days."
 
