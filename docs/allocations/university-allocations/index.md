@@ -154,10 +154,7 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 ## Exploratory Allocations
 
-!!! info 
-    "Exploratory requests from unsponsored graduate students, postdocs, 
-    and new faculty can be submitted at any time and decisions are typically 
-    made within a few days."
+!!! info "Exploratory requests from unsponsored graduate students, postdocs, and new faculty can be submitted at any time and decisions are typically made within a few days."
 
 A graduate student, post-doctoral researcher, or new faculty member at a
 U.S. university can request a one-time allocation of up to 500,000 Derecho
