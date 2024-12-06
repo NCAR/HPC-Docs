@@ -43,13 +43,13 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
     <tr class="odd">
       <td><strong>Derecho</strong></td>
       <td>240812 MB / ~235.17 GB (2,488 CPU nodes)<br />
-        498907 MB / ~487.21GB (82 GPU nodes)</td>
+        498907 MB / ~487.21 GB (82 GPU nodes)</td>
     </tr>
     <tr class="odd">
       <td><strong>Casper</strong></td>
       <td>369030 MB / ~360.38 GB (62 HTC & 22 GPGPU GP100 or A100 nodes)<br />
         750541 MB / ~732.95 GB (6 L40 visualization nodes)<br />
-        1530170 MB / ~1494.31 GB (largemem nodes)<br />
+        1530170 MB / ~1494.31 GB (6 largemem nodes)<br />
         750541 MB / ~732.95 GB (4 four-way V100 nodes)<br />
         1143146 MB / ~1116.35 GB (6 eight-way V100 nodes)<br />
         1008999 MB / ~985.35 GB (8 four-way A100 nodes)<br />
