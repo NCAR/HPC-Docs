@@ -2,7 +2,7 @@
 
 ## Eligibility is simple
 
-* To use Derecho, you must be a U.S.-based researcher.
+* To use Derecho, you must be a U.S.-based researcher. 
 * Your research must be in the Earth system sciences or related to Earth system science.
 * Most projects require an NSF award, but we do offer access to graduate students, postdocs, new faculty, and for classroom use or data analysis without NSF funding.
 
