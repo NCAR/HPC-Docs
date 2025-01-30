@@ -117,7 +117,7 @@ institution or to another appropriate repository.
 ## Reports
 
 The Systems Accounting Manager
-([SAM](../../getting-started/managing-your-allocation.md#using-the-systems-accounting-manager)) provides overall
+([SAM](../../getting-started/managing-your-allocation.md#using-sam)) provides overall
 summary information about the use of Campaign Storage allocations and
 other allocations.
 

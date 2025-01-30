@@ -121,7 +121,14 @@ On the last line of your script, use `ddt --connect` (or `map --connect`) instea
 ddt --connect ./my_executable
 ```
 
-Submit your job when indicated below.
+When using Forge versions >= 24.0, you can also launch either DDT and MAP using our
+`mpibind` process pinning launch helper. For example, if you wish to use DDT
+with `mpibind`, execute your application as follows:
+```pre
+mpibind --ddt-connect ./my_executable
+```
+
+In either case, submit your job as indicated below.
 
 #### Procedure
 

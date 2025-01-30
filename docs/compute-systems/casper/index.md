@@ -20,7 +20,7 @@ Casper is composed of over 100 nodes featuring a mixture of Intel and AMD proces
 <!--     - 2 HTC nodes have 1.5 TB of available memory. -->
 <!-- - 4 nodes are reserved for Research Data Archive workflows. -->
 
-Please refer to the [hardware summary table](#hardware) below for detailed specifications.
+Please refer to the [hardware summary table](#casper-hardware) below for detailed specifications.
 
 
 ---
@@ -74,7 +74,7 @@ several compiler and MPI library choices.
 #### Shells
 The default login shell for new Casper users is `bash`. You can
 change the default after logging in to the Systems Accounting Manager
-[(SAM)](../../getting-started/managing-your-allocation.md#using-the-systems-accounting-manager).
+[(SAM)](../../getting-started/managing-your-allocation.md#using-sam).
 It may take several hours for a change you make to take effect. You
 can confirm which shell is set as your default by entering `echo $SHELL`
 on your Casper command line.
