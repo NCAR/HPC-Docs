@@ -278,7 +278,7 @@ demonstrable benefit to or reliance on Earth system science.
 A prime component of NSF NCAR’s mission is to support Earth systems 
 science at U.S. post-secondary educational institutions. Eligible 
 institutions encompass 2- and 4-year colleges and universities, 
-including community colleges,  and predominantly undergraduate-serving institutions, as well as 
+including community colleges, predominantly undergraduate-serving institutions, and
 non-profit research organizations. Recipients of NSF research grants in 
 eligible domains from other types of institutions are also deemed eligible. 
 NSF NCAR resources normally do not support research groups in federal 
