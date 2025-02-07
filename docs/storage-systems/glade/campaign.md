@@ -62,6 +62,8 @@ automatically after five years, retaining data longer will reduce the
 capacity for storing additional, new data. Users are expected to monitor
 their holdings, remove files that are no longer needed, and move
 necessary data to other storage options for longer-term preservation.
+For additional details regarding Campaign Storage data retention see
+[here](../glade/index.md##data-retention-policy_3).
 
 ### NSF NCAR labs
 
@@ -97,7 +99,7 @@ Because NSF NCAR is not currently funded to provide long-term data storage
 services to the university community, university users' requests for
 these allocations are prioritized based on the following factors.
 
-#### Higher priority is given to requests if:
+**Higher priority is given to requests if:**
 
 - You have an active project, supported by an active NSF award, for
   using Derecho.
@@ -105,7 +107,7 @@ these allocations are prioritized based on the following factors.
 - Your request is for a period of no more than three (3) months and to
   support migrating of your data to your home institution.
 
-#### Lower priority is given to requests if:
+**Lower priority is given to requests if:**
 
 - Your need relates to satisfying external requirements or promises – to
   a publisher or agency, for example – to retain data for extended
