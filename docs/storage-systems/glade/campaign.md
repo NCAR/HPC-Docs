@@ -63,7 +63,7 @@ capacity for storing additional, new data. Users are expected to monitor
 their holdings, remove files that are no longer needed, and move
 necessary data to other storage options for longer-term preservation.
 For additional details regarding Campaign Storage data retention see
-[here](../glade/index.md##data-retention-policy_3).
+[here](../glade/index.md#data-retention-policy_3).
 
 ### NSF NCAR labs
 
@@ -74,9 +74,11 @@ develop data migration plans for storage needs that exceed five years.
 ### Universities
 
 **University researchers** are expected to transfer their project data
-to their home institutions or other alternative storage repositories upon expiration of their NSF grant as described in
+to their home institutions or other alternative storage repositories
+upon expiration of their NSF grant as described in
 [General data retention policies and procedures](./index.md#general-data-retention-policies-and-procedures).
-CISL will not award storage space for researchers to carry data forward from one grant to another.
+CISL will not award storage space for researchers to carry data
+forward from one grant to another.
 
 ## Allocations
 

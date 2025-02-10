@@ -122,6 +122,11 @@ backed up weekly, with backups retained for several months. CISL also
 creates [snapshots](./recovering-files-from-snapshots.md) of the space
 to enable users to recover deleted files quickly and easily.
 
+\* *As discussed [below](./index.md#gladequota-command), the system
+stores dual copies of users' data for increased data integrity and
+safety. For this reason some space reporting tools will show 100 GB
+due to this replication.*
+
 ### Backup policy
 
 - Your `/glade/u/home` directory is backed up several times a week
@@ -147,8 +152,8 @@ to enable users to recover deleted files quickly and easily.
   and removes them from the file system.** This backup is retained for
   six months after account closure.
 - Note that your project and group memberships are also terminated
-  when your account is closed, which can limit your ability to access
-  files based on shared group permissions.
+  when your account is closed, which can limit other users' ability to
+  access your files based on shared group permissions.
 - As long as your account remains active, files are retained in your
   home directory.
 - Again, core dump files are not backed up.
@@ -157,10 +162,7 @@ to enable users to recover deleted files quickly and easily.
 
 Your `/glade/work/<username>` space is best suited for actively
 working with datasets over time periods greater than what is permitted
-in the scratch space.
-
-The default quota for these spaces is 2 TB.
-
+in the scratch space. The default quota for these spaces is 2 TB.
 This space is not purged or scrubbed. CISL deletes files only as
 stated in the following data retention policy.
 
@@ -170,7 +172,7 @@ stated in the following data retention policy.
   expires or 90 days after your account is removed from all active
   projects.
 - **When your user account is closed, files in your work space are
-  retained for 30 days before being deleted**.
+  retained for an additional 30 days before being deleted**.
 - Files are not recoverable from backups, as there are none.
 - As long as your account remains open, your work directory files are
   retained.
@@ -204,21 +206,17 @@ at most once per day for purposes of I/O efficiency. To check a file's
     CISL staff will reduce the scratch quotas of users who violate
     this policy; running jobs may be killed as a result.
 
-In addition:
+CISL routinely monitors scratch space usage to ensure that it remains
+below the 90% mark and to determine if a reduction in the retention
+period is necessary. We will announce in advance any changes to the
+retention period.
 
-- CISL routinely monitors scratch space usage to ensure that it
-  remains below the 90% mark and to determine if a reduction in the
-  retention period is necessary.
-- We will announce in advance any changes to the retention period.
-
-!!! tip "Best practice"
-    To help us avoid the need to shorten the retention period, please
-    use this space conscientiously.
-
-Delete files that you no longer need as soon as you're done with them
-rather than leave large amounts of data sitting untouched for the full
-180 days. If you need to retain data on disk for more than 180 days,
-consider using your `/glade/work` space or [Campaign Storage](#campaign-storage-space) space.
+To help us avoid the need to shorten the retention period, please use
+this space conscientiously. Delete files that you no longer need as
+soon as you're done with them rather than leave large amounts of data
+sitting untouched for the full 180 days. If you need to retain data on
+disk for more than 180 days, consider using your `/glade/work` space
+or [Campaign Storage](#campaign-storage-space) space.
 
 ### Data retention policy
 
@@ -439,13 +437,14 @@ from the UNIX file permissions.
 Files in a project’s Campaign Storage space are deemed owned by the
 **project**, and we can help update permissions as needed to make them
 visible to the group. Such modifications require the approval of
-the original project owner.
+the project lead or project admin.
 
 #### Users' files
-Files in the home, work, or scratch spaces are owned by
-the **user**. If a collaborator would like access to a file that was
+Files in the home, work, or scratch spaces are owned by the
+**user**. If a collaborator would like access to a file that was
 previously group- or world-readable, we may be able to help. If the
 original file was restricted to user-only read, however, we cannot
-override those intentions. The only exceptions to this policy are in
-compliance with broader UCAR IT records or investigation policies as
-described in UCAR's 1-7 Information Security Policy.
+override those intentions without explicit permission from the
+original owner. The only exceptions to this policy are in compliance
+with broader UCAR IT records or investigation policies as described in
+UCAR's 1-7 Information Security Policy.
