@@ -30,20 +30,24 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
 
 <table>
   <colgroup>
-    <col style="width: 24%" />
-    <col style="width: 75%" />
+    <col style="width: 15%" />
+    <col style="width: 40%" />
+    <col style="width: 45%" />
   </colgroup>
   <thead>
     <tr class="header">
       <th><strong>System</strong></th>
-      <th><strong>Usable memory per compute node</strong></th>
+      <th><strong>Usable Memory per Compute Node</strong></th>
+      <th><strong>Number of Nodes and Type</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr class="odd">
       <td><strong>Derecho</strong></td>
-      <td>240812 MB / ~235.17 GB (2,488 CPU nodes)<br />
-        498907 MB / ~487.21 GB (82 GPU nodes)</td>
+      <td>240812 MB / ~235.17 GB<br />
+        498907 MB / ~487.21 GB</td>
+      <td>2,488 CPU nodes<br />
+        82 GPU nodes</td>
     </tr>
     <tr class="odd">
       <td><strong>Casper</strong></td>
@@ -54,8 +58,15 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
         1143146 MB / ~1116.35 GB (6 eight-way V100 nodes)<br />
         1008999 MB / ~985.35 GB (8 four-way A100 nodes)<br />
         1008931 MB / ~985.28 GB (2 four-way H100 nodes)<br />
-        78742 MB / ~78.90 GB (4 Research Data Archive nodes)
-      </td>
+        78742 MB / ~78.90 GB (4 Research Data Archive nodes)</td>
+      <td>62 HTC & 22 GPGPU GP100 or A100 nodes<br />
+        6 L40 visualization nodes<br />
+        6 largemem nodes<br />
+        4 four-way V100 nodes<br />
+        6 eight-way V100 nodes<br />
+        8 four-way A100 nodes<br />
+        2 four-way H100 nodes<br />
+        4 Research Data Archive nodes</td>
     </tr>
   </tbody>
 </table>
