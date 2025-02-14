@@ -28,10 +28,10 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
 
 ## Available memory by system
 
-<table>
+<table style="white-space: nowrap">
   <colgroup>
-    <col style="width: 15%" />
-    <col style="width: 35%" />
+    <col style="width: 10%" />
+    <col style="width: 40%" />
     <col style="width: 50%" />
   </colgroup>
   <thead>
