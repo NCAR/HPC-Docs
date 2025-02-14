@@ -51,14 +51,14 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
     </tr>
     <tr class="odd">
       <td><strong>Casper</strong></td>
-      <td>369030 MB / ~360.38 GB (62 HTC & 22 GPGPU GP100 or A100 nodes)<br />
-        750541 MB / ~732.95 GB (6 L40 visualization nodes)<br />
-        1530170 MB / ~1494.31 GB (6 largemem nodes)<br />
-        750541 MB / ~732.95 GB (4 four-way V100 nodes)<br />
-        1143146 MB / ~1116.35 GB (6 eight-way V100 nodes)<br />
-        1008999 MB / ~985.35 GB (8 four-way A100 nodes)<br />
-        1008931 MB / ~985.28 GB (2 four-way H100 nodes)<br />
-        78742 MB / ~78.90 GB (4 Research Data Archive nodes)</td>
+      <td>369030 MB / ~360.38 GB<br />
+        750541 MB / ~732.95 GB<br />
+        1530170 MB / ~1494.31 GB<br />
+        750541 MB / ~732.95 GB<br />
+        1143146 MB / ~1116.35 GB<br />
+        1008999 MB / ~985.35 GB<br />
+        1008931 MB / ~985.28 GB<br />
+        78742 MB / ~78.90 GB</td>
       <td>62 HTC & 22 GPGPU GP100 or A100 nodes<br />
         6 L40 visualization nodes<br />
         6 largemem nodes<br />
@@ -74,7 +74,7 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
 All Casper nodes, with exception to the RDA nodes, also have access to local
 NVMe SSD storage. This additional workspace can be accessed directly by following 
 the documentation at the 
-[Starting Casper Jobs page](../../../compute-systems/casper/starting-casper-jobs/index.md#nvme-node-local-storage).
+[Starting Casper Jobs page](../../compute-systems/casper/starting-casper-jobs/index.md#nvme-node-local-storage).
 
 If your job approaches the usable memory per node threshold shown in the
 table, you may experience unexpected issues or job failures. It is recommended to
