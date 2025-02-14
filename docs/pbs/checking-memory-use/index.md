@@ -31,13 +31,13 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
 <table>
   <colgroup>
     <col style="width: 15%" />
-    <col style="width: 40%" />
-    <col style="width: 45%" />
+    <col style="width: 35%" />
+    <col style="width: 50%" />
   </colgroup>
   <thead>
     <tr class="header">
       <th><strong>System</strong></th>
-      <th><strong>Usable Memory per Compute Node</strong></th>
+      <th><strong>Usable Memory per Node</strong></th>
       <th><strong>Number of Nodes and Type</strong></th>
     </tr>
   </thead>
