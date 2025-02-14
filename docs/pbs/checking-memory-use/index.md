@@ -52,6 +52,7 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
     <tr class="odd">
       <td><strong>Casper</strong></td>
       <td>369030 MB / ~360.38 GB<br />
+        369030 MB / ~360.38 GB<br />
         750541 MB / ~732.95 GB<br />
         1530170 MB / ~1494.31 GB<br />
         750541 MB / ~732.95 GB<br />
@@ -59,7 +60,8 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
         1008999 MB / ~985.35 GB<br />
         1008931 MB / ~985.28 GB<br />
         78742 MB / ~78.90 GB</td>
-      <td>62 HTC & 22 GPGPU GP100 or A100 nodes<br />
+      <td>62 HTC nodes<br />
+        22 GPGPU GP100 or A100 nodes<br />
         6 L40 visualization nodes<br />
         6 largemem nodes<br />
         4 four-way V100 nodes<br />
