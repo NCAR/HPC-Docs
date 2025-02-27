@@ -3,26 +3,26 @@
 !!! tip "The next university deadline for submitting Large Allocation Requests will be March 10, 2025."
 
 University use of the NSF NCAR HPC environment is intended to support Earth
-system science and related research and instruction by researchers and 
-educators at U.S. institutions. The emphasis is on projects that may be beyond 
+system science and related research and instruction by researchers and
+educators at U.S. institutions. The emphasis is on projects that may be beyond
 the scope of a university’s local computing capabilities. Eligible
 researchers and activities incur no costs to use NSF NCAR resources.
 
-**Important.** For large and small projects based on a supporting NSF award, 
+**Important.** For large and small projects based on a supporting NSF award,
 the NSF award must explicitly support the computational experiments being proposed.
 
-We provide a range of opportunities to meet the needs of University researchers. 
-In addition to supercomputing access for Earth systems science researchers, 
+We provide a range of opportunities to meet the needs of University researchers.
+In addition to supercomputing access for Earth systems science researchers,
 we also have a Data Analysis opportunity for analyzing NSF NCAR-hosted data sets.
 
 While we often distinguish between the allocation opportunities based on
 the size of the HPC resource needs, most of these options also allow you to
 request data analysis, visualization, and storage resources.
 
-The table below summarizes the HPC resource limits for each type of allocation. 
-For Small, Exploratory, and Classroom projects, the amounts shown assume use of 
-only Derecho or Derecho GPU. For requests to use both parts of Derecho, 
-proportionally smaller limits apply—e.g., up to half the Derecho limit 
+The table below summarizes the HPC resource limits for each type of allocation.
+For Small, Exploratory, and Classroom projects, the amounts shown assume use of
+only Derecho or Derecho GPU. For requests to use both parts of Derecho,
+proportionally smaller limits apply—e.g., up to half the Derecho limit
 and half the Derecho GPU limit can be requested together.
 
 <table>
@@ -78,9 +78,9 @@ Derecho GPU: 1,500 GPU-hours</td>
 </tbody>
 </table>
 
-**Submitting Your Request.** For all types of university allocations, 
-including any subsequent extension or supplement requests, requests should be 
-submitted via the [ARC portal’s Allocations section](https://arc.ucar.edu/xras_submit/opportunities). 
+**Submitting Your Request.** For all types of university allocations,
+including any subsequent extension or supplement requests, requests should be
+submitted via the [ARC portal’s Allocations section](https://arc.ucar.edu/xras_submit/opportunities).
 If you have questions about these options, please contact us via the [Research
 Computing help](https://rchelp.ucar.edu) desk.
 
@@ -90,8 +90,8 @@ A university researcher may submit a large request for work that is
 beyond the scope of the amounts available via Small allocation requests.
 These requests have no upper limit, aside from the portion of the system
 available to the university community and ensuring that we can support
-the breadth of work from eligible university researchers. As noted above, 
-the NSF award must explicitly support the computational experiments 
+the breadth of work from eligible university researchers. As noted above,
+the NSF award must explicitly support the computational experiments
 planned for the large allocation.
 
 CISL accepts requests for large allocations of NSF NCAR resources every six
@@ -134,8 +134,8 @@ U.S. university researchers who are supported by an NSF award can
 request an initial small allocation of up to 1 million core-hours on Derecho;
 and up to 2,500 GPU-hours on Derecho for each NSF award. These allocations
 can be used to complete small projects or to conduct initial runs in
-preparation for submitting a request for a large allocation. As noted above, 
-the NSF award must explicitly support the computational experiments conducted 
+preparation for submitting a request for a large allocation. As noted above,
+the NSF award must explicitly support the computational experiments conducted
 with the small allocation.
 
 If needed to complete your work, you can request a *one-time supplement*
@@ -198,7 +198,7 @@ here](https://arc.ucar.edu/xras_submit/opportunities).
 
 Earth system scientists can request access to NSF NCAR’s
 [Casper data analysis cluster](../../compute-systems/casper/index.md) and the
-[Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-project-space)
+[Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space)
 to allow them to conduct analyses on data sets curated by
 [NSF NCAR data services](https://www.cisl.ucar.edu/computing-data/data) and accessible
 via our storage systems.
@@ -208,10 +208,10 @@ researchers from any eligible institution *regardless of the source of
 funding* for the planned analysis. Researchers are only required to
 identify the specific NSF NCAR-hosted data sets that are essential to
 completing their science objectives. (Because of this expanded
-eligibility, Data Analysis projects cannot make use of Derecho.) In 
-addition, Data Analysis projects may request Campaign Storage space 
-to temporarily store external datasets beyond the NCAR-hosted datasets 
-being analyzed. 
+eligibility, Data Analysis projects cannot make use of Derecho.) In
+addition, Data Analysis projects may request Campaign Storage space
+to temporarily store external datasets beyond the NCAR-hosted datasets
+being analyzed.
 
 Data Analysis allocations are made for one year, but may be extended up
 to two additional years to complete the project.
@@ -275,14 +275,13 @@ demonstrable benefit to or reliance on Earth system science.
 
 ### 2. Affiliation
 
-A prime component of NSF NCAR’s mission is to support Earth systems 
-science at U.S. post-secondary educational institutions. Eligible 
-institutions encompass 2- and 4-year colleges and universities, 
-including community colleges, minority serving institutions (MSIs), 
-and predominantly undergraduate-serving institutions, as well as 
-non-profit research organizations. Recipients of NSF research grants in 
-eligible domains from other types of institutions are also deemed eligible. 
-NSF NCAR resources normally do not support research groups in federal 
+A prime component of NSF NCAR’s mission is to support Earth systems
+science at U.S. post-secondary educational institutions. Eligible
+institutions encompass 2- and 4-year colleges and universities,
+including community colleges, predominantly undergraduate-serving institutions, and
+non-profit research organizations. Recipients of NSF research grants in
+eligible domains from other types of institutions are also deemed eligible.
+NSF NCAR resources normally do not support research groups in federal
 agencies.
 
 ### 3. Sponsorship
