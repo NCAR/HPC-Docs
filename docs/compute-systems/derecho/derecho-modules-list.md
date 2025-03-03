@@ -5,65 +5,58 @@
 <!-- --8<-- [start:default] -->
 ```pre
 
--------------------------- Module Stack Environments ---------------------------
-   ncarenv/23.06 (S)    ncarenv/23.09 (S,L,D)
+-------------------------- Module Stack Environments --------------------------
+   crayenv/23.05 (S)    ncarenv/23.09 (S)
+   ncarenv/23.06 (S)    ncarenv/24.12 (S,L,D)
 
-------------------------- Compilers and Core Software --------------------------
-   apptainer/1.1.9              intel-classic/2023.2.1
-   atp/3.14.18                  intel-oneapi-inspector/2024.0.0
-   atp/3.15.1          (D)      intel-oneapi/2023.2.1           (D)
-   cce/16.0.1                   intel-oneapi/2024.0.2
-   cdo/2.2.2                    intel/2023.2.1                  (L,D)
-   cdo/2.3.0           (D)      intel/2024.0.2
-   charliecloud/0.33            julia/1.9.2
-   cmake/3.26.3                 linaro-forge/23.0
-   conda/latest                 linaro-forge/23.1               (D)
-   cray-ccdb/4.12.13            matlab/R2023a
-   cray-ccdb/5.0.1     (D)      nccmp/1.9.1.0
-   cray-dyninst/12.1.1          ncl/6.6.2
-   cray-dyninst/12.3.0 (D)      nco/5.1.6
-   cray-mrnet/5.0.4             nco/5.1.9                       (D)
-   cray-mrnet/5.1.1    (D)      ncview/2.1.9
-   cray-stat/4.11.13            ncvis/2022.08.28
-   cray-stat/4.12.1    (D)      nvhpc/23.7                      (D)
-   craype/2.7.20                nvhpc/24.1
-   craype/2.7.23       (L,D)    papi/7.0.0.1
-   cuda/11.7.1                  papi/7.0.1.1                    (D)
-   cuda/11.8.0                  pcre/8.45
-   cuda/12.2.1         (D)      peak-memusage/3.0.1
-   cudnn/8.5.0.96-11.7 (D)      perftools-base/23.03.0
-   cudnn/8.7.0.84-11.8          perftools-base/23.09.0          (D)
-   darshan-util/3.4.2           perl/5.38.0
-   darshan-util/3.4.4  (D)      podman/4.5.1
-   ecflow/5.8.3                 rstudio/2023.09.0
-   gcc/12.2.0                   sanitizers4hpc/1.0.4
-   gcc/13.2.0          (D)      sanitizers4hpc/1.1.1            (D)
-   gdb4hpc/4.14.7               texlive/20220321
-   gdb4hpc/4.15.1      (D)      valgrind4hpc/2.12.11
-   go/1.20.6                    valgrind4hpc/2.13.1             (D)
-   grads/2.2.3                  vtune/2023.2.0
-   grib-util/1.2.4              wgrib2/3.1.1
-   idl/8.9.0
+------------------------- Compilers and Core Software -------------------------
+   apptainer/1.3.4               intel/2024.2.1         (L,D)
+   atp/3.15.3                    intel/2025.0.3
+   cce/17.0.1                    julia/1.11.2
+   cdo/2.4.4                     lcov/2.0
+   charliecloud/0.38             libfabric/1.15.2.0     (L,D)
+   cmake/3.26.6                  libfabric/1.22.0
+   conda/latest                  libtorch/2.2.1
+   cray-ccdb/5.0.3               linaro-forge/24.1
+   cray-dyninst/12.3.1           madis/4.5
+   cray-mrnet/5.1.2              matlab/R2024b
+   cray-stat/4.12.2              nccmp/1.9.1.0
+   craype/2.7.31          (L)    ncl/6.6.2
+   cuda/12.3.2                   nco/5.2.4
+   cudnn/8.9.7.29-12      (D)    nco/5.3.1              (D)
+   cudnn/9.2.0.82-12             ncview/2.1.9
+   darshan-util/3.4.6            ncvis/2022.08.28
+   ecflow/5.11.4                 neovim/0.10.0
+   eigen/3.4.0                   nvhpc/24.11
+   gcc/12.4.0                    papi/7.1.0.1
+   gdb4hpc/4.16.1                pcre/8.45
+   gmt/6.5.0                     peak-memusage/3.0.1
+   go/1.23.3                     perftools-base/24.03.0
+   grads/2.2.3                   podman/4.5.1
+   grib-util/1.5.0               rstudio/2024.12.0
+   idl/9.1.0                     sanitizers4hpc/1.1.2
+   intel-advisor/2025.0.0        texlive/20240312
+   intel-oneapi/2024.2.1         valgrind4hpc/2.13.2
+   intel-vtune/2025.0.1          wgrib2/3.1.1
 
--------------------- Compiler-dependent Software - [oneapi] --------------------
-   cray-libsci/23.02.1.1          hdf5/1.12.2         (L)
-   cray-libsci/23.09.1.1 (D)      mkl/2023.2.0
-   cray-mpich/8.1.25              mpi-serial/2.3.0
-   cray-mpich/8.1.27     (L,D)    mpi-serial/2.5.0    (D)
-   eccodes/2.25.0                 ncarcompilers/1.0.0 (L)
-   fftw/3.3.10                    netcdf/4.9.2        (L)
-   gcc-toolchain/12.2.0           proj/8.2.1
-   gcc-toolchain/13.2.0  (D)      superlu/5.3.0
-   geos/3.9.1                     udunits/2.2.28
-   hdf/4.2.15
+------------------- Compiler-dependent Software - [oneapi] --------------------
+   cray-libsci/24.03.0        hdf/4.2.15                 netcdf/4.9.2   (L,D)
+   cray-mpich/8.1.29   (L)    hdf5/1.12.3         (L)    netcdf/4.9.3
+   eccodes/2.34.0             kokkos/4.2.01              proj/9.4.1
+   fftw/3.3.10                mkl/2024.2.2               spherepack/3.2
+   gdal/3.9.3                 mpi-serial/2.5.0           superlu/6.0.0
+   geos/3.13.0                ncarcompilers/1.0.0 (L)    udunits/2.2.28
 
----------------- MPI-dependent Software - [oneapi + cray-mpich] ----------------
-   darshan-runtime/3.4.2        netcdf-mpi/4.9.2
-   esmf/8.5.0                   osu-micro-benchmarks/7.2
-   esmf/8.6.0            (D)    parallel-netcdf/1.12.3
-   fftw-mpi/3.3.10              parallelio/1.10.1
-   gptl/8.1.1                   parallelio/2.6.2         (D)
-   hdf5-mpi/1.12.2              superlu-dist/8.1.2
+--------------- MPI-dependent Software - [oneapi + cray-mpich] ----------------
+   darshan-runtime/3.4.6           parallel-netcdf/1.14.0
+   esmf/8.7.0                      parallelio/1.10.1
+   esmf/8.8.0               (D)    parallelio/2.6.3-static
+   fftw-mpi/3.3.10                 parallelio/2.6.3
+   gptl/8.1.1                      parallelio/2.6.4
+   hdf5-mpi/1.12.3                 parallelio/2.6.5-static
+   netcdf-mpi/4.9.2         (D)    parallelio/2.6.5        (D)
+   netcdf-mpi/4.9.3                superlu-dist/8.2.1
+   osu-micro-benchmarks/7.5
 
   Where:
    D:  Default Module
@@ -87,80 +80,97 @@ any of the "keys".
 ----------------------------------------------------------------------------
 The following is a list of the modules and extensions currently available:
 ----------------------------------------------------------------------------
-  apptainer: apptainer/1.1.7, apptainer/1.1.9
+  apptainer: apptainer/1.1.7, apptainer/1.1.9, apptainer/1.3.4
   arm-forge: arm-forge/22.1.3
-  atp: atp/3.14.18, atp/3.15.0, atp/3.15.1
-  cce: cce/15.0.1, cce/16.0.1
-  cdo: cdo/2.1.1, cdo/2.2.2, cdo/2.3.0
-  charliecloud: charliecloud/0.32, charliecloud/0.33
-  cmake: cmake/3.26.3
+  atp: atp/3.14.18, atp/3.15.0, atp/3.15.1, atp/3.15.3
+  cce: cce/15.0.1, cce/16.0.1, cce/17.0.1
+  cdo: cdo/2.1.1, cdo/2.2.2, cdo/2.3.0, cdo/2.4.2, cdo/2.4.4
+  chapel: chapel/2.0.0
+  charliecloud: charliecloud/0.32, charliecloud/0.33, charliecloud/0.38
+  cmake: cmake/3.26.3, cmake/3.26.6
   conda: conda/latest
   cp2k: cp2k/2023.2
-  cray-ccdb: cray-ccdb/4.12.13, cray-ccdb/5.0.1
-  cray-dyninst: cray-dyninst/12.1.1, cray-dyninst/12.3.0
-  cray-libsci: cray-libsci/23.02.1.1, cray-libsci/23.09.1.1
-  cray-mpich: cray-mpich/8.1.25, cray-mpich/8.1.27
-  cray-mrnet: cray-mrnet/5.0.4, cray-mrnet/5.1.1
-  cray-stat: cray-stat/4.11.13, cray-stat/4.12.1
-  craype: craype/2.7.20, craype/2.7.23
-  cuda: cuda/11.7.1, cuda/11.8.0, cuda/12.2.1
-  cudnn: cudnn/8.5.0.96-11.7, cudnn/8.7.0.84-11.8
+  cray-ccdb: cray-ccdb/4.12.13, cray-ccdb/5.0.1, cray-ccdb/5.0.3
+  cray-dyninst: cray-dyninst/12.1.1, cray-dyninst/12.3.0, ...
+  cray-libsci: cray-libsci/23.02.1.1, cray-libsci/23.09.1.1, ...
+  cray-mpich: cray-mpich/8.1.25, cray-mpich/8.1.27, cray-mpich/8.1.29
+  cray-mrnet: cray-mrnet/5.0.4, cray-mrnet/5.1.1, cray-mrnet/5.1.2
+  cray-stat: cray-stat/4.11.13, cray-stat/4.12.1, cray-stat/4.12.2
+  crayenv: crayenv/23.05
+  craype: craype/2.7.20, craype/2.7.23, craype/2.7.31
+  cuda: cuda/11.7.1, cuda/11.8.0, cuda/12.2.1, cuda/12.3.2
+  cudnn: cudnn/8.5.0.96-11.7, cudnn/8.7.0.84-11.8, cudnn/8.8.1.3-12, ...
   cutensor: cutensor/1.7.0.1
-  darshan-runtime: darshan-runtime/3.4.2, darshan-runtime/3.4.4
-  darshan-util: darshan-util/3.4.2, darshan-util/3.4.4
-  eccodes: eccodes/2.25.0, eccodes/2.32.0
-  ecflow: ecflow/5.8.3
-  esmf: esmf/8.4.2, esmf/8.5.0, esmf/8.6.0
+  darshan-runtime: darshan-runtime/3.4.2, darshan-runtime/3.4.4, ...
+  darshan-util: darshan-util/3.4.2, darshan-util/3.4.4, darshan-util/3.4.6
+  eccodes: eccodes/2.25.0, eccodes/2.32.0, eccodes/2.34.0, eccodes/2.36.0
+  ecflow: ecflow/5.8.3, ecflow/5.11.4
+  eigen: eigen/3.4.0
+  esmf: esmf/8.4.2, esmf/8.5.0, esmf/8.6.0, esmf/8.6.1, esmf/8.7.0, ...
   fftw: fftw/3.3.10
   fftw-mpi: fftw-mpi/3.3.10
-  gcc: gcc/12.2.0, gcc/13.2.0
+  gcc: gcc/12.2.0, gcc/12.4.0, gcc/13.2.0
   gcc-toolchain: gcc-toolchain/12.2.0, gcc-toolchain/13.2.0
-  gdal: gdal/3.6.4, gdal/3.7.1, gdal/3.8.1
-  gdb4hpc: gdb4hpc/4.14.7, gdb4hpc/4.15.1
-  geos: geos/3.9.1, geos/3.12.1
+  gdal: gdal/3.6.4, gdal/3.7.1, gdal/3.8.1, gdal/3.9.3
+  gdb4hpc: gdb4hpc/4.14.7, gdb4hpc/4.15.1, gdb4hpc/4.16.1
+  geos: geos/3.9.1, geos/3.12.1, geos/3.13.0
   gmt: gmt/6.4.0, gmt/6.5.0
-  go: go/1.20.3, go/1.20.6
+  go: go/1.20.3, go/1.20.6, go/1.23.3
+  googletest: googletest/1.12.1
   gptl: gptl/8.1.1
   grads: grads/2.2.1, grads/2.2.3
-  grib-util: grib-util/1.2.4
+  grib-util: grib-util/1.2.4, grib-util/1.5.0
+  h5z-zfp: h5z-zfp/1.1.1
   hdf: hdf/4.2.15
-  hdf5: hdf5/1.12.2, hdf5/1.14.3
-  hdf5-mpi: hdf5-mpi/1.12.2, hdf5-mpi/1.14.3
-  idl: idl/8.9.0
-  intel: intel/2023.0.0, intel/2023.2.1, intel/2024.0.2
+  hdf5: hdf5/1.12.2, hdf5/1.12.3, hdf5/1.14.3
+  hdf5-mpi: hdf5-mpi/1.12.2, hdf5-mpi/1.12.3, hdf5-mpi/1.14.3
+  idl: idl/8.9.0, idl/9.0.0, idl/9.1.0
+  intel: intel/2023.0.0, intel/2023.2.1, intel/2024.0.2, intel/2024.2.1, ...
+  intel-advisor: intel-advisor/2024.0.0, intel-advisor/2024.2.1, ...
   intel-classic: intel-classic/2023.0.0, intel-classic/2023.2.1
-  intel-mpi: intel-mpi/2021.8.0
+  intel-inspector: intel-inspector/2024.0.0, intel-inspector/2024.2.0
+  intel-mpi: intel-mpi/2021.10.0
   intel-oneapi: intel-oneapi/2023.0.0, intel-oneapi/2023.2.1, ...
-  intel-oneapi-inspector: intel-oneapi-inspector/2024.0.0
+  intel-vtune: intel-vtune/2023.2.0, intel-vtune/2024.0.0, ...
   ioapi: ioapi/3.2
-  julia: julia/1.9.2
+  json-c: json-c/0.16
+  julia: julia/1.9.2, julia/1.10.2, julia/1.11.2
+  kokkos: kokkos/4.2.01
+  lcov: lcov/2.0
   libemos: libemos/4.5.1
-  linaro-forge: linaro-forge/23.0, linaro-forge/23.1
-  matlab: matlab/R2023a
-  mkl: mkl/2023.0.0, mkl/2023.2.0, mkl/2024.0.0
+  libfabric: libfabric/1.15.2.0, libfabric/1.22.0
+  libtorch: libtorch/2.1.2, libtorch/2.2.1
+  linaro-forge: linaro-forge/23.0, linaro-forge/23.1, linaro-forge/24.0.4, ...
+  madis: madis/4.5
+  matlab: matlab/R2023a, matlab/R2024a, matlab/R2024b
+  mkl: mkl/2023.0.0, mkl/2023.2.0, mkl/2024.0.0, mkl/2024.2.1, mkl/2024.2.2, ...
   mpi-serial: mpi-serial/2.3.0, mpi-serial/2.5.0
   mpifileutils: mpifileutils/0.11.1
+  mvapich: mvapich/3.0-cpu, mvapich/3.0-cuda
   ncarcompilers: ncarcompilers/1.0.0
-  ncarenv: ncarenv/23.06, ncarenv/23.09
+  ncarenv: ncarenv/23.06, ncarenv/23.09, ncarenv/24.12
   nccmp: nccmp/1.9.0.1, nccmp/1.9.1.0
   ncl: ncl/6.6.2
-  nco: nco/5.1.4, nco/5.1.6, nco/5.1.9
+  nco: nco/5.1.4, nco/5.1.6, nco/5.1.9, nco/5.2.4, nco/5.3.1
   ncview: ncview/2.1.8, ncview/2.1.9
   ncvis: ncvis/2022.08.28
-  netcdf: netcdf/4.9.2
-  netcdf-mpi: netcdf-mpi/4.9.2
-  nvhpc: nvhpc/21.3, nvhpc/23.1, nvhpc/23.5, nvhpc/23.7, nvhpc/24.1
-  openblas: openblas/0.3.23, openblas/0.3.25
-  opencoarrays: opencoarrays/2.10.1
-  openmpi: openmpi/main
+  neovim: neovim/0.9.4, neovim/0.10.0
+  netcdf: netcdf/4.9.2, netcdf/4.9.3
+  netcdf-mpi: netcdf-mpi/4.9.2, netcdf-mpi/4.9.3
+  node-js: node-js/18.12.1
+  npm: npm/9.3.1
+  nvhpc: nvhpc/21.3, nvhpc/23.1, nvhpc/23.5, nvhpc/23.7, nvhpc/24.1, ...
+  openblas: openblas/0.3.23, openblas/0.3.25, openblas/0.3.28
+  opencoarrays: opencoarrays/2.10.1, opencoarrays/2.10.2
+  openmpi: openmpi/main, openmpi/5.0.0, openmpi/5.0.5
   osu-micro-benchmarks: osu-micro-benchmarks/7.1-1, ...
-  papi: papi/7.0.0.1, papi/7.0.1.1
-  parallel-netcdf: parallel-netcdf/1.12.3
+  papi: papi/7.0.0.1, papi/7.0.1.1, papi/7.1.0.1
+  parallel-netcdf: parallel-netcdf/1.12.3, parallel-netcdf/1.14.0
   parallelio: parallelio/1.10.1, parallelio/2.5.10, parallelio/2.6.0, ...
   pcre: pcre/8.45
   peak-memusage: peak-memusage/3.0.1
   perftools: perftools
-  perftools-base: perftools-base/23.03.0, perftools-base/23.09.0
+  perftools-base: perftools-base/23.03.0, perftools-base/23.09.0, ...
   perftools-lite: perftools-lite
   perftools-lite-events: perftools-lite-events
   perftools-lite-gpu: perftools-lite-gpu
@@ -169,15 +179,17 @@ The following is a list of the modules and extensions currently available:
   perftools-preload: perftools-preload
   perl: perl/5.36.0, perl/5.38.0
   podman: podman/4.3.1, podman/4.5.1
-  proj: proj/8.2.1, proj/9.2.1
-  rstudio: rstudio/2023.09.0
-  sanitizers4hpc: sanitizers4hpc/1.0.4, sanitizers4hpc/1.1.1
-  superlu: superlu/5.3.0
+  proj: proj/8.2.1, proj/9.2.1, proj/9.4.1
+  rstudio: rstudio/2023.09.0, rstudio/2024.12.0
+  sanitizers4hpc: sanitizers4hpc/1.0.4, sanitizers4hpc/1.1.1, ...
+  spherepack: spherepack/3.2
+  superlu: superlu/5.3.0, superlu/6.0.0
   superlu-dist: superlu-dist/8.1.2, superlu-dist/8.2.1
-  texlive: texlive/20220321
+  texlive: texlive/20220321, texlive/20240312
   udunits: udunits/2.2.28
-  valgrind4hpc: valgrind4hpc/2.12.11, valgrind4hpc/2.13.1
-  vtune: vtune/2023.0.0, vtune/2023.2.0
+  valgrind4hpc: valgrind4hpc/2.12.11, valgrind4hpc/2.13.1, ...
+  vasp: vasp/5.3.5
+  vtune: vtune/2023.0.0
   wgrib2: wgrib2/3.1.1
 ----------------------------------------------------------------------------
 To learn more about a package execute:
