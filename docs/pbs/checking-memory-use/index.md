@@ -23,39 +23,64 @@ will typically result in slow dispatch times and long queue waits.
 
 As detailed below, you can query the PBS scheduler for bulk memory
 statistics from any completed job. You can also observe memory usage via
-either instrumenting your application or live monitoring.
+either instrumenting your application or live monitoring. Full hardware details 
+for any specific node can be queried via `pbsnodes [Host_Name]`.
 
 ## Available memory by system
 
-<table>
+<table style="white-space: nowrap">
   <colgroup>
-    <col style="width: 24%" />
-    <col style="width: 75%" />
+    <col style="width: 10%" />
+    <col style="width: 40%" />
+    <col style="width: 50%" />
   </colgroup>
   <thead>
     <tr class="header">
       <th><strong>System</strong></th>
-      <th><strong>Usable memory per compute node</strong></th>
+      <th><strong>Usable Memory per Node</strong></th>
+      <th><strong>Number of Nodes and Type</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr class="odd">
       <td><strong>Derecho</strong></td>
-      <td>235 GB (2,488 CPU nodes)<br />
-        487 GB (82 GPU nodes)</td>
+      <td>240812 MB / ~235.17 GB<br />
+        498907 MB / ~487.21 GB</td>
+      <td>2,488 CPU nodes<br />
+        82 GPU nodes</td>
     </tr>
     <tr class="odd">
       <td><strong>Casper</strong></td>
-      <td>354 GB (HTC & GP100 nodes)<br />
-        ~730 GB (GPGPU & L40 nodes)<br />
-        ~148 GB (largemem nodes)</td>
+      <td>369030 MB / ~360.38 GB<br />
+        369030 MB / ~360.38 GB<br />
+        750541 MB / ~732.95 GB<br />
+        1530170 MB / ~1494.31 GB<br />
+        750541 MB / ~732.95 GB<br />
+        1143146 MB / ~1116.35 GB<br />
+        1008999 MB / ~985.35 GB<br />
+        1008931 MB / ~985.28 GB<br />
+        78742 MB / ~78.90 GB</td>
+      <td>62 HTC nodes<br />
+        22 GPGPU GP100 or A100 nodes<br />
+        6 L40 visualization nodes<br />
+        6 largemem nodes<br />
+        4 four-way V100 nodes<br />
+        6 eight-way V100 nodes<br />
+        8 four-way A100 nodes<br />
+        2 four-way H100 nodes<br />
+        4 Research Data Archive nodes</td>
     </tr>
   </tbody>
 </table>
 
+All Casper nodes, with exception to the RDA nodes, also have access to local
+NVMe SSD storage. This additional workspace can be accessed directly by following 
+the documentation at the 
+[Starting Casper Jobs page](../../compute-systems/casper/starting-casper-jobs/index.md#nvme-node-local-storage).
+
 If your job approaches the usable memory per node threshold shown in the
-table, you may experience unexpected issues or job failures. Leave a
-margin of 2 or 3 percent.
+table, you may experience unexpected issues or job failures. It is recommended to
+leave a margin of 2 or 3 percent.
 
 ## Querying memory usage from PBS
 
