@@ -1,8 +1,8 @@
 # Targeting a Casper Node Architecture
 
-Casper is a heterogeneous system that has several node architectures.  The chart below provides architecture specifications and example PBS select statements to target a specific node type.  Targeting a specific node may impact scheduler time, particularly for architectures with low node counts.  The PBS select statements are basic examples to request the node and you will likely want to the select parameters to better suit your job workflow needs.
+Casper is a heterogeneous system that has several node architectures.  The chart below provides architecture specifications and example PBS select statements to target a specific node type.  Targeting a specific node may impact scheduler time, particularly for architectures with low node counts.  The PBS select statements are basic examples to request the node and you will likely want to modify the select parameters to better suit your job workflow needs.
 
-Be mindful that these are examples only show a way to guarantee the scheduler gives you that node type.  There are instances where modifying the example CPU count may overlap with other node types.  A specific example would be selecting `#PBS -l select=1:ncpus=4` which could place you on any of the High-Throughput Computing node types.
+Be mindful that these examples only show a way to guarantee the scheduler gives you that node type.  There are instances where modifying the example CPU count may overlap with other node types.  A specific example would be selecting `#PBS -l select=1:ncpus=4` which could place you on any of the High-Throughput Computing node types.
 
 Two parameters that are helpful for targeting node types are `cpu_type` and `gpu_type`.  The table below provides example on how to use them and if you need to use them for requesting a node type.
 
