@@ -11,7 +11,7 @@ Casper is composed of over 100 nodes featuring a mixture of Intel and AMD proces
 <!-- - 28 Supermicro SuperWorkstation nodes are used for data analysis and visualization jobs. Each node has 36 cores and up to 384 GB memory. -->
 <!--     - 9 of these nodes also feature an NVIDIA Quadro GP100 GPU. -->
 <!--     - 3 nodes feature a single NVIDIA Ampere A100 GPU. -->
-<!--     - 6 nodes feature 6 NVIDIA L40 Ada Lovelace GPUs >
+<!--     - 6 nodes feature 6 NVIDIA L40 Ada Lovelace GPUs -->
 <!-- - 20 nodes feature large-memory, dense GPU configurations to support explorations in machine learning (ML) and deep learning (DL) and general-purpose GPU (GPGPU) computing in atmospheric and related sciences. -->
 <!--     - 4 of these nodes feature 4 NVIDIA Tesla V100 GPUs. -->
 <!--     - 6 of these nodes feature 8 NVIDIA Tesla V100 GPUs. -->
