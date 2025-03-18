@@ -19,5 +19,5 @@ The examples below also do not include options for MPI ranks or OpenMP threads b
 |                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=4:mpiprocs=4:ngpus=4 -l gpu_type=h100                             |
 | High-Throughput Computing| Cascade Lake   | 36    | 2.6GHz     | 384 GB      |              |            | 62    | -l select=1:ncpus=36:cpu_type=cascadelake                             |
 |                          | Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=36:cpu_type=cascadelake:mem=800GB                   |
-|                          | AMD Epyc 9554P           | 64    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=64:mem=800GB                  |
 |                          | AMD Epyc 9554P           | 64    | 3.1GHz           | 768 GB     |              |            | 64     | -l select=1:ncpus=64:cpu_type=genoa                  |
+|                          | AMD Epyc 9554P           | 64    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=64:cpu_type=genoa:mem=800GB                  |
