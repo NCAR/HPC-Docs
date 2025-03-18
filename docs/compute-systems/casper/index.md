@@ -196,13 +196,13 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         1.5 TB DDR5 memory per node <br>
         1 64-core AMD EPYC processor per node<br>
         1.6 TB local NVMe Solid State Disk<br>
-        1 Mellanox ConnectX-6 100Gb Ethernet VPI adapter<br>
+        1 Mellanox ConnectX-6 100Gb Ethernet VPI adapter<br><br>
 
         <strong>64 64-core workstation nodes</strong><br>
         768 GB 4800MHz DDR5 memory per node <br>
         1 64-Core 3.10 GHZ AMD EPYC 9554P processor per node <br>
         1.6TB U.3 PCIe 4.0 x4 NVMe Solid State Drive <br>
-        Mellanox ConnectX®-6 100-Gb HDR100 InfiniBand Adapter <br><br>
+        Mellanox ConnectX®-6 100-Gb HDR100 InfiniBand Adapter <br>
       </td>
     </tr>
     <tr>
