@@ -124,8 +124,8 @@ request, your submission will be classified as shown in the table.
         24-hour wallclock limit</td>
       <td><pre>largemem</pre></td>
       <td>
-        <pre>mem>361 GB</pre>
-        <pre>ncpus<=36</pre>
+        <pre>mem>768 GB</pre>
+        <pre>ncpus<=64</pre>
         <pre>ngpus=0</pre>
       </td>
       <td>Up to 3 jobs can be run by a single user at once (consuming 50% of the largemem nodes).  5 jobs may be queued per user.</td>
@@ -133,8 +133,8 @@ request, your submission will be classified as shown in the table.
     <tr class="even">
       <td><pre>htc</pre></td>
       <td>
-        <pre>mem<=361 GB</pre>
-        <pre>ncpus<=36</pre>
+        <pre>mem<=768 GB</pre>
+        <pre>ncpus<=64</pre>
         <pre>ngpus=0</pre>
       </td>
       <td>Up to 468 CPUs in use per user at any one time.<br><br>
