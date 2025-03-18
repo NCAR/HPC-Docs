@@ -140,6 +140,7 @@ nav:
       - Starting Casper Jobs:
             - compute-systems/casper/starting-casper-jobs/index.md
             - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
+            - Casper Node Types: compute-systems/casper/starting-casper-jobs/casper-node-types.md
       - Using Remote Desktops: compute-systems/casper/remote-desktops.md
       - Casper Software: compute-systems/casper/casper-modules.md
     - JupyterHub:

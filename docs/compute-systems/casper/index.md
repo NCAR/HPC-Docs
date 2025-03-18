@@ -8,16 +8,19 @@ The Casper cluster is a system of specialized data analysis and visualization re
 
 Casper is composed of over 100 nodes featuring a mixture of Intel and AMD processors, with a variety of NVIDIA General Purpose Graphical Processing Units.
 
-<!-- - 22 Supermicro SuperWorkstation nodes are used for data analysis and visualization jobs. Each node has 36 cores and up to 384 GB memory. -->
+<!-- - 28 Supermicro SuperWorkstation nodes are used for data analysis and visualization jobs. Each node has 36 cores and up to 384 GB memory. -->
 <!--     - 9 of these nodes also feature an NVIDIA Quadro GP100 GPU. -->
 <!--     - 3 nodes feature a single NVIDIA Ampere A100 GPU. -->
-<!-- - 18 nodes feature large-memory, dense GPU configurations to support explorations in machine learning (ML) and deep learning (DL) and general-purpose GPU (GPGPU) computing in atmospheric and related sciences. -->
+<!--     - 6 nodes feature 6 NVIDIA L40 Ada Lovelace GPUs >
+<!-- - 20 nodes feature large-memory, dense GPU configurations to support explorations in machine learning (ML) and deep learning (DL) and general-purpose GPU (GPGPU) computing in atmospheric and related sciences. -->
 <!--     - 4 of these nodes feature 4 NVIDIA Tesla V100 GPUs. -->
 <!--     - 6 of these nodes feature 8 NVIDIA Tesla V100 GPUs. -->
 <!--     - 8 of these nodes feature 4 NVIDIA Ampere A100 GPUs. -->
-<!-- - 64 high-throughput computing (HTC) nodes for small computing tasks using 1 or 2 CPUs. -->
+<!--     - 2 of these nodes features 4 NVIDIA Hopper H100 GPUs. -->
+<!-- - 134 high-throughput computing (HTC) nodes for small computing tasks using 1 or 2 CPUs. -->
 <!--     - 62 HTC nodes have 384 GB of available memory. -->
-<!--     - 2 HTC nodes have 1.5 TB of available memory. -->
+<!--     - 8 HTC nodes have 1.5 TB of available memory. -->
+<!--     - 64 HTC nodes have 768 GB of available memory -->
 <!-- - 4 nodes are reserved for Research Data Archive workflows. -->
 
 Please refer to the [hardware summary table](#casper-hardware) below for detailed specifications.
@@ -194,6 +197,12 @@ Users already familiar with PBS and batch submission may find [Casper-specific P
         1 64-core AMD EPYC processor per node<br>
         1.6 TB local NVMe Solid State Disk<br>
         1 Mellanox ConnectX-6 100Gb Ethernet VPI adapter<br>
+
+        <strong>64 64-core workstation nodes</strong><br>
+        768 GB 4800MHz DDR5 memory per node <br>
+        1 64-Core 3.10 GHZ AMD EPYC 9554P processor per node <br>
+        1.6TB U.3 PCIe 4.0 x4 NVMe Solid State Drive <br>
+        Mellanox ConnectX®-6 100-Gb HDR100 InfiniBand Adapter <br><br>
       </td>
     </tr>
     <tr>

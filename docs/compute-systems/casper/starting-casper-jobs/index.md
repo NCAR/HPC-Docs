@@ -198,5 +198,11 @@ See this page for many *Casper* PBS job script examples:
 
 When your script is ready, submit your batch job for scheduling as shown [here](../../../pbs/index.md).
 
+## Targeting node types
+
+Casper has several node architectures available with full details [here](../../casper/index.md/#casper-hardware).  You can target nodes using PBS select statements that will place you on the desired architecture.
+
+Example PBS select statements for targeting specific node types are shown [here](casper-node-types.md).
+
 <!--  LocalWords:  Casper
  -->
