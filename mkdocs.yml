@@ -145,16 +145,19 @@ nav:
     - CIRRUS:
       - compute-systems/cirrus/index.md
       - Adding Applications: compute-systems/cirrus/users/hosting/additions.md
+      - Binder: compute-systems/cirrus/users/jupyter/binderhub.md
       - Container Registry: 
             - compute-systems/cirrus/users/container-registry/index.md
             - Image Management: compute-systems/cirrus/users/container-registry/image-mgmt.md
             - Vulnerability Scanner: compute-systems/cirrus/users/container-registry/vulnerability-scan.md
+      - GitHub Actions:
+            - compute-systems/cirrus/users/github/best-practices.md
+            - compute-systems/cirrus/users/github/scale-sets.md
       - Jupyter: 
             - compute-systems/cirrus/users/jupyter/jupyterhub.md
             - Conda Environments: compute-systems/cirrus/users/jupyter/conda-envs.md
             - GPU Use: compute-systems/cirrus/users/jupyter/jhub-gpu.md
             - Dask: compute-systems/cirrus/users/jupyter/jhub-dask.md
-      - Binder: compute-systems/cirrus/users/jupyter/binderhub.md
       - Service Level Agreements: compute-systems/cirrus/slas.md
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
