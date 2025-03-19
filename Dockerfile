@@ -5,22 +5,25 @@ USER root
 # Install git and other necessary packages
 RUN apt-get update && apt-get install -y git && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Clone your repository (replace with your actual repository URL)
-# Use a specific tag/branch if needed with --branch flag
+# Clone your repository
 ARG REPO_URL=https://github.com/NicholasCote/HPC-Docs-ncote.git
 ARG REPO_BRANCH=ncote-cirrus-dev1
 WORKDIR /app
 RUN git clone --recursive --depth 1 --branch ${REPO_BRANCH} ${REPO_URL} .
 
-# Copy just the conda environment file (assuming it's part of your repo, you can skip this)
-# COPY conda.yaml .
-
 # Create environment from conda.yaml
 ENV ENV_NAME=mkdocs
 RUN micromamba env create -f conda.yaml
 
-# Switch to non-root user for better security
+# Fix ownership of the repository
+RUN chown -R mambauser:mambauser /app
+
+# Switch to non-root user
 USER mambauser
+
+# Configure git for mambauser
+RUN git config --global --add safe.directory /app
+RUN git config --global --add safe.directory '*'
 
 # Configure the shell to run in the conda environment
 SHELL ["/usr/local/bin/_entrypoint.sh", "micromamba", "run", "-n", "mkdocs", "/bin/bash", "-c"]
