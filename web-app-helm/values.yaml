@@ -1,0 +1,14 @@
+replicaCount: 1
+
+webapp:
+  name: cirrus-hpc-docs-dev
+  group: cirrus-hpc-docs-dev
+  path: /
+  tls:
+    fqdn: cirrus-hpc-docs.k8s.ucar.edu
+    secretName: incommon-cert-cirrus-hpc-docs
+  container: 
+    image: docker.io/ncote/cirrus-hpc-docs:v0.1
+    port: 8000
+    memory: 1G
+    cpu: 2
