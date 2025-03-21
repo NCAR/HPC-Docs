@@ -59,6 +59,7 @@ The *qvscode* script starts a new VSCode session on a Casper compute node.  The 
     The qvscode script must be launched from a VSCode terminal that is connected to a Casper login node.
 
 The script can either take user input via terminal prompts or source a settings file to allocate resources for a compute node job.  The two modes available are:
+    
 - [Prompt mode](#prompt-mode): user inputs job resources manually via the terminal
 - [Settings mode](#settings-mode): qvscode pulls job resource information from a settings file with a specific format
 
