@@ -168,6 +168,7 @@ nav:
     - Derecho Overview: tutorials/derecho-overview.md
     - Dask Tutorial: tutorials/dask-tutorial.md
     - Profiling and Debugging: tutorials/profiling-and-debugging.md
+    - Managing Permissions and Data Sharing: tutorials/permissions-and-data-sharing.md
     - Advanced PBS: tutorials/advanced-pbs.md
     - Using Globus v5: tutorials/globus.md
     - NCAR Storage Spaces: tutorials/storage.md
