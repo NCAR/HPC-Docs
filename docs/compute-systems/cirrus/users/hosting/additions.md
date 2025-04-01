@@ -47,7 +47,7 @@ When automatically making changes to an application it's always best practice to
 
 ## GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) can be utilized to streamline the CI/CD pipeline for your application. For example, a [workflow](https://docs.github.com/en/actions/using-workflows/about-workflows) can be created that has [jobs](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) to build your container image, push it to a container registry, update your applications Helm chart with the new image details, and Argo CD will then automatically see the changes.
+[GitHub Actions](https://docs.github.com/en/actions) can be utilized to streamline the CI/CD pipeline for your application. For example, a [workflow](https://docs.github.com/en/actions/using-workflows/about-workflows) can be created that has [jobs](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) to build your container image, push it to a container registry, update your applications Helm chart with the new image details, and Argo CD will then automatically see the changes. Runners hosted on CIRRUS are available. For more information see, [GitHub Actions Runners](../github/scale-sets.md)
 
 !!! important
     When tagging your container images avoid using the `:latest` tag. There's a number of different reasons for this but for CI/CD a primary one is that `:latest` never changes inside your applications Helm chart. If nothing changes there's nothing to synchronize and your application will not update. 

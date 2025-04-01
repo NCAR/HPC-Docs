@@ -32,3 +32,32 @@ https://github.com/NCAR/<respository-name>/settings/access
 ```
 
 Use the Add people button to input and select the CIRRUS team members user name. This will bring up a page that allows the selection of a role for the invited user. Select Admin and then click the Add selection button. Please update the ticket once the CIRRUS admin shows in the Manage access window under Direct access.
+
+## Using the Scale Set
+
+Once the CIRRUS admin has connected a scale set to your repository they will provide the name of the scale set to use in the Actions workflow. Use this name when defining the `runs-on:` line in the Action workflow yaml file like the following
+
+```
+jobs:
+  testing:
+    runs-on: gh-arc-myrepo-scale-set
+```
+
+## Running Container builds
+
+The scale sets deployed do not have privileged access and as a result can not directly access a container daemon. There is a buildkit service for docker buildx that can be used to offload container builds. Before building a container with docker specify the buildx remote driver by using the following,
+
+`docker buildx create --use --driver=remote tcp://buildkitd.arc-systems.svc.ml-cluster.local:1234`
+
+## Running Container tests
+
+After a new container is built it can be run directly in a new GitHub Actions workflow job defined like this
+
+```
+jobs:
+  test-container:
+    runs-on: gh-arc-myrepo-scale-set
+    container:
+      image: hub.k8s.ucar.edu/myrepo/mynewimage:v1.2
+    steps:
+```
