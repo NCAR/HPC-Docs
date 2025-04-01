@@ -8,7 +8,7 @@ webapp:
     fqdn: cirrus-hpc-docs.k8s.ucar.edu
     secretName: incommon-cert-cirrus-hpc-docs
   container: 
-    image: docker.io/ncote/cirrus-hpc-docs:v0.1
+    image: docker.io/ncote/cirrus-hpc-docs:v0.2
     port: 8000
     memory: 1G
     cpu: 2
