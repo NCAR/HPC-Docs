@@ -1,8 +1,8 @@
 # GitHub Actions Runners
 
-CIRRUS has the ability to connect to GitHub repositories and automatically provision and scale GitHub runners on demand. 
+CIRRUS has the ability to connect to GitHub repositories and automatically provision and scale GitHub runners on demand. The GitHub runner scale sets require a Personal Access Token (PAT) to connect to the repository. A CIRRUS admin can be added to a repository to set this up for you, or your own PAT can be used. There are directions for each scenario below.
 
-## Adding a scale set via CIRRUS admins
+## Using a CIRRUS admins PAT
 
 ### Access
 
@@ -64,4 +64,4 @@ jobs:
     steps:
 ```
 
-## Adding a scale set yourself
+## Using your own PAT
