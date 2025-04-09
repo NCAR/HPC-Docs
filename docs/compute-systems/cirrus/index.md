@@ -38,6 +38,10 @@ The Harbor web interface can be accessed at the following URL : https://hub.k8s.
 
 -----
 
+### GitHub Actions runner scale sets
+CIRRUS has the ability to connect to GitHub repositories and automatically provision and scale GitHub runners on demand.
+
+-----
 ### JupyterHub
 NSF NCAR runs a JupyterHub instance that’s hosted on CIRRUS. It has GPU capabilities, access to datasets stored on GLADE, and provides parallel computing capabilities via Dask Gateway. Authentication is handled via a GitHub team in the NCAR organization. In order to be added to that team you have to be a member of the NCAR GitHub organization.
 
@@ -50,30 +54,44 @@ Binder is a tool that enables sharing of custom computing environments from code
 
 -----
 
-## CIRRUS Hardware (5 Nodes)
+## CIRRUS Hardware (18 Nodes)
+
+### GPU Nodes (10)
+
+CIRRUS currently has 5 nodes with 1 Nvidia A10 and 5 with 1 Nvidia A2
 
 | System Information | Node Specifications |
 |---|---|
 | Manufacturer | Supermicro |
 | Model | SYS-120U-TNR | 
-| CPU Type | Intel Xeon Gold 6326 |
+| CPU Type | 2 x Intel Xeon Gold 6326 |
 | CPU Speed | 2.90 GHz |
 | CPU Cores | 16 | 
 | RAM (GB) | 512 |
-| GPU Model | Nvidia A2 Tensor |
-| GPU Cores | 1280 |
-| GPU Memory | 16 GB |
-| NICs | 2x10G & 4x25G |
-| Storage | 2x100GB & 6x1.6TB NVMe |     
+| NICs | 2 x 10G |
+| Storage | 6 x 3.2TB NVMe |    
+
+### CPU Nodes (8)
+
+| System Information | Node Specifications |
+|---|---|
+| Manufacturer | Dell |
+| Model | PowerEdge R6615 | 
+| CPU Type | 2 x AMD EPYC 9354P |
+| CPU Speed | 3.25 GHz |
+| CPU Cores | 32 | 
+| RAM (GB) | 512 |
+| NICs | 2 x 25G |
+| Storage | 8x1.6TB NVMe |    
 
 ### Totals
 
-| CPU Cores | RAM | GPU Cores | GPU Mem | Local Storage |
-|---|---|---|---|---|
-| 80 | 2.5 TB | 6400 | 80 GB | 48 TB|
+| CPU Cores | RAM | Local Storage |
+|---|---|---|
+| 832 | 9.2 TB | 246.4 TB|
 
 ---
 
 ##  Status
 
-The cluster is undergoing a rebuild to provide a more robust architecture. 
+Operational (v1-beta production release)
