@@ -6,7 +6,7 @@ The U.S. National Science Foundation National Center for Atmospheric Research (N
 Applications are reviewed and time is allocated according to the needs of the projects and the availability of resources. Send questions about the following allocation opportunities to alloc@ucar.edu.
 
 !!! info
-	The next university deadline for submitting Large Allocation Requests will be March 10, 2025.
+	The next university deadline for submitting Large Allocation Requests will be September 8, 2025.
 
 ## University allocations
 
