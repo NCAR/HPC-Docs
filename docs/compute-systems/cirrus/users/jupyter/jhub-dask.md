@@ -31,11 +31,11 @@ client
 
 This will start 4 Dask workers and a scheduler on local resources. If you run this Python code on the NCAR JupyterHub instance you will see a Widget that you can expand and explore your cluster options. An example of this can be seen in the image below:
 
-<img src="https://ncar.github.io/cisl-cloud/_static/K8sJHub/dask-local.png"/>
+<img src="../../../media/dask/dask-local.png"/>
 
 On the NCAR JupyterHub the dashboard links will take you to a Dask dashboard page. The URL can also be copied and pasted in to the Dask extension on the left as seen below.
 
-<img src="https://ncar.github.io/cisl-cloud/_static/K8sJHub/dask-extension.png">
+<img src="../../../media/dask/dask-extension.png">
 
 Each box can be dragged in to your workspace and arranged as different tiles alongside your notebook. This enables you to monitor Dask resources while watching your notebooks run. 
 
@@ -59,11 +59,11 @@ client # Display the client information and Dashboard URL
     It is best practice to run `cluster.close()` at the end of your computations. GatewayCluster should close idle clusters automatically.
 
 
-<img src="https://ncar.github.io/cisl-cloud/_static/K8sJHub/dask-gw-client.png">
+<img src="../../../media/dask/dask-gw-client.png">
 
 The Dashboard URL will bring you to a page where Dask cluster resources can be viewed in real time. The URL can also be copied and pasted in to the Dask extension on the left as seen below.
 
-<img src="https://ncar.github.io/cisl-cloud/_static/K8sJHub/dask-extension.png">
+<img src="../../../media/dask/dask-extension.png">
 
 Each box can be dragged in to your workspace and arranged as different tiles alongside your notebook. This enables you to monitor Dask resources while watching your notebooks run. 
 

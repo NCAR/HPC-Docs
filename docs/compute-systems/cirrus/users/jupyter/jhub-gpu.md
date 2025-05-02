@@ -2,7 +2,7 @@
 
 The JupyterHubs offered have GPUs available to provide more processing cores for an expansion of parallel processing capabilities. The NCAR JupyterHub has Nvidia A2 Tensor GPUs. The GPUs can be utilized by selecting a GPU image from the Server Options like in the image seen below:
 
-<img src="../../media/jupyter/server-opts.png"/>
+<img src="../../../media/jupyter/gpu-opts.png"/>
 
 We currently offer a PyTorch & Tensorflow Jupyter image. Allowing multiple users to access GPU resources at the same time is currently being handled with NVIDIA time slicing. The NVIDIA documentation on this feature at this [link](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html) provides more detail on the exact mechanism on how this is accomplished. The GPU virtualization layer divides the available GPU resources, including processing cores, memory, and other hardware components, into time slices or time intervals. Each time slice represents a portion of the GPU's processing power and memory. The GPU hypervisor manages the allocation of these time slices to different applications or users. It keeps track of which applications or users have active GPU tasks and assigns time slices to them in a fair and efficient manner. This allows multiple applications or users to share a single GPU, making more efficient use of the hardware and ensuring fair access to GPU resources.
 
@@ -16,8 +16,8 @@ The TensorFlow website offers a great introduction in to using TensorFlow with e
 
 ## Packages used in Tensorflow image
 
-The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cisl-cloud/blob/main/configs/jupyter/gpu-tf-notebook/cisl-gpu-base.yaml)
+The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/gpu-tf-notebook/packages/cisl-gpu-base.yml)
 
 ## Packages used in the PyTorch image
 
-The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cisl-cloud/blob/main/configs/jupyter/gpu-pyt-notebook/cisl-gpu-base.yaml)
+The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/gpu-pyt-notebook/packages/cisl-gpu-base.yml)

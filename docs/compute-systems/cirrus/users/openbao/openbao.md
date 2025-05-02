@@ -31,3 +31,29 @@ You may need to update your secret in order to follow best practices when managi
 ## Using Secrets in CIRRUS Applications
 
 In order to use secrets from OpenBao as environment variables in CIRRUS applications a [SecretStore](https://external-secrets.io/latest/api/secretstore/) object needs to be added to Kubernetes by the CIRRUS admin team. A SecretStore specifies how and what secrets an application can access. An [ExternalSecret](https://external-secrets.io/latest/api/externalsecret/) that defines what secrets to use can then be added to your applications Helm chart. The ExternalSecrets can then be referenced directly with the `valueFrom:` field in a Deployment. When requesting an application, see [Adding Applications](../hosting/additions.md), that requires secrets stored in OpenBao please include that information in your request. If you want to add secrets to an existing application, see [Create Tickets](../create-tickets.md)
+
+### External Secret Example
+
+The example below will use the openbao-backend SecretStore in the Relase Namespace to connect to OpenBao. Once connected, it will go in to the remoteRef key, ncote/cirrus-secrets, and get the value assigned to the property my-secret-key. This secret is fully encrypted and is injected in to a running container. 
+
+```
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+    name: myapp-esos
+    namespace: {{ .Release.Namespace }}
+spec:
+    refreshInterval: 1h
+    secretStoreRef:
+        name: openbao-backend
+        kind: SecretStore
+    target:
+        name: myapp-esos
+    data:
+        - secretKey: my-secret-value
+          remoteRef:
+            key: ncote/cirrus-secrets
+            property: my-secret-key
+```
+
+For an example Helm chart that uses ExternalSecrets, see [external-secret-helm](https://github.com/NCAR/cirrus-helm-examples/tree/main/external-secret-helm).

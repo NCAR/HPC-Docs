@@ -30,7 +30,7 @@ If you have a containerized version of your application and want to host it on t
 
 ### Unique Values
 
-The Helm chart templates above contain detailed information in the README file about each set of unique values. A quick summary of what needs to be provided in the `web-app/values.yaml` file is below:
+The Helm chart templates above contain detailed information in the README file about each set of unique values. A quick summary of what needs to be provided in the `web-app-helm/values.yaml` file is below:
 
     - Application Name
     - A Fully Qualified Domain Name, typically your applications name followed by `.k8s.ucar.edu`
@@ -52,7 +52,7 @@ The underlying storage is defined by a Kubernetes object known as a storage clas
 !!! note
     Ceph RDB only allows access to a single container, ReadWriteOnce, while Ceph FS allows multiple containers, ReadWriteMany, to access the underlying storage. 
 
-The Helm chart examples contain up to date storage class names to use in applications.  
+For up to date storage class names to use in applications, see [CIRRUS Helm Examples](https://github.com/NCAR/cirrus-helm-examples).  
 
 ### Test & Production
 

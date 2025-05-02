@@ -3,7 +3,7 @@
 This Service Level Agreement (SLA) defines the relationship between the CIRRUS team who provides the on-premise cloud infrastructure and their customers which include UCAR
 Employees, Visitors, and external collaborators authorized to use the on-premise cloud resources. NSF NCAR | CISL runs Compute, Storage & Network hardware in robust Data Centers at multiple organizational facilities. The on-premise cloud offers users the ability to utilize those highly available, organizationally supported, compute resources for approved use cases. This includes access to routable network space and UCAR Domain Name Systems (DNS). These resources provide a supplement to computing needs that aren’t fulfilled by the HPC offering, public cloud, or what is available locally.
 
-**Primary Services:** Kubernetes Cluster, Argo CD, Harbor, & JupyterHub/Binder
+**Primary Services:** Kubernetes Cluster, Argo CD, Harbor, OpenBao, & JupyterHub/Binder
 
 **Service Dependencies:** Server nodes, Networking, GLADE mount
 
@@ -42,9 +42,13 @@ Projects in Argo CD will be backed up when changes are made. These backups can b
 
 Images stored in Harbor will be backed up to object storage and can be restored from those backups. 
 
+### Persistent Volume Backups
+
+[Persistent Volumes (PV)](./users/hosting/additions.md#persistent-volumes) hosted on CIRRUS can be replicated so a copy exists at another site. If the PV for an application should have replication configured please open a ticket with the CIRRUS team to configure this. For more information on this process, please see [Create Tickets](../how-to/create-tickets).
+
 ## Change Management
 
-Any changes need to be requested via a Jira ticket. There's information describing this process at this [link for ticket creation](../how-to/create-tickets). The teams Product Owner will review all new tickets and prioritize them accordingly. 
+Any changes need to be requested via a Jira ticket. For more information on this process, please see [Create Tickets](../how-to/create-tickets). The teams Product Owner will review all new tickets and prioritize them accordingly. 
 
 Critical and Urgent issues will be addressed within the agreements defined above. Regular requests will typically be addressed during the teams bi-weekly standup meetings.
 

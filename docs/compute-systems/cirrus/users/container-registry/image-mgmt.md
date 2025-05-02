@@ -1,6 +1,6 @@
 # Image Management
 
-The Harbor web interface can be accessed at the following URL : [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/). A link is also present under the Resources tab at the top of this documentation. Credentials will be your CIT sso username and password. There is no need to specify a domain. 
+The Harbor web interface can be accessed at the following URL : [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/). Credentials will be your CIT sso username and password. There is no need to specify a domain. 
 
 !!! info
     Image pulling and pushing uses Docker via the command line. If Docker is not installed on your machine you can find information on how to install it [here](https://docs.docker.com/engine/install/).
