@@ -8,7 +8,7 @@ This is our  preferred method of gaining the required access to a github reposit
 
 ### Create a Github PAT
 
-See this Github documentation for in depth PAT details [Github PAT Documentiation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+See this Github documentation for in depth PAT details [Github PAT Documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 - Go to Github.com
 - In the upper right click your profile icon and choose settings

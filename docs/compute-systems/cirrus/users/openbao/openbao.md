@@ -34,7 +34,7 @@ In order to use secrets from OpenBao as environment variables in CIRRUS applicat
 
 ### External Secret Example
 
-The example below will use the openbao-backend SecretStore in the Relase Namespace to connect to OpenBao. Once connected, it will go in to the remoteRef key, ncote/cirrus-secrets, and get the value assigned to the property my-secret-key. This secret is fully encrypted and is injected in to a running container. 
+The example below will use the openbao-backend SecretStore in the Release Namespace to connect to OpenBao. Once connected, it will go in to the remoteRef key, ncote/cirrus-secrets, and get the value assigned to the property my-secret-key. This secret is fully encrypted and is injected in to a running container. 
 
 ```
 apiVersion: external-secrets.io/v1beta1
