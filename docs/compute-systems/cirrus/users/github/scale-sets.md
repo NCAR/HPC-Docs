@@ -119,7 +119,7 @@ jobs:
 
 The scale sets deployed do not have privileged access and as a result can not directly access a container daemon. There is a buildkit service for docker buildx that can be used to offload container builds. Before building a container with docker specify the buildx remote driver by using the following,
 
-`docker buildx create --use --driver=remote tcp://buildkitd.arc-systems.svc.ml-cluster.local:1234`
+`docker buildx create --use --driver=remote tcp://buildkitd.arc-systems.svc:1234`
 
 ### Running Container tests
 
