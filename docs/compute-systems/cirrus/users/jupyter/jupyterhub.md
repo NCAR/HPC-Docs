@@ -8,6 +8,11 @@
 CIRRUS JupyterHub</a>
 </div>
 
+!!! note
+    There is a bug that will pop up when trying to click the icons in the Launcher tab to open new content. The pop up will state `Error n.map is not a function`. Clicking the whitespace in the file browser on the left side will fix the pop up Error and enable the icons to launch new content. 
+
+<img src="../../../media/jupyter/nmap_error.png"/>
+
 ## Overview
 
 CIRRUS hosts a JupyterHub instance on Kubernetes (K8s). 
