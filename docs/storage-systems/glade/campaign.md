@@ -9,9 +9,6 @@ below:
 
 - through the Globus web and command-line interfaces
 
-- from the data-access nodes, for Globus transfers and managing data
-  holdings
-
 - from the Derecho and Casper clusters to facilitate data analysis and visualization
   workflows
 
@@ -32,17 +29,6 @@ in detail in this tutorial: [Using Globus v5 at NSF NCAR (tutorial)](https://www
 CAVEAT: The Globus interface for transferring data does not handle
 symbolic links and does not create symbolic links on a destination
 endpoint.
-
-## Data-access nodes
-
-The Campaign Storage file system is mounted on the
-[data-access nodes](../data-access-nodes.md) as `/glade/campaign` to:
-
-- enable users to manage file and directory permissions using POSIX
-  commands.
-
-- facilitate transfers of *small files* to and from GLADE spaces such as
-  `/glade/derecho/scratch` and `/glade/work`.
 
 ## HPC system use
 

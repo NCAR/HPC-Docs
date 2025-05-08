@@ -78,13 +78,12 @@ nav:
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
     - Stratus (Object Storage): storage-systems/stratus/index.md
-    - Data Access Nodes: storage-systems/data-access-nodes.md
     - Transferring Data:
       - storage-systems/data-transfer/index.md
       - Globus:
          - storage-systems/data-transfer/globus/index.md
          - Sharing data and making unattended transfers: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
-      - SCP, SFTP and other tools: storage-systems/data-transfer/scp-and-sftp.md
+      - SSH based tools: storage-systems/data-transfer/scp-and-sftp.md
     - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
   - User Environment and HPC Software:

@@ -93,23 +93,26 @@ to make both manual and [unattended file transfers](Sharing+data+and+making+unat
 
 The application is:
 
-- installed on the NSF NCAR/CISL [data-access nodes](../../data-access-nodes.md).
-
 - available within the NSF NCAR Python Library conda environment.
 
 - can be added to a personal conda environment using **conda install
   globus-cli**.
 
-To begin, log in as shown in this example for using the data-access
-nodes. (If your UCAR username and your username on your local computer
-are different, follow the alternative example.)
+To begin, log in Casper or Derecho as shown in this example, replacing
+*username* with your username on NCAR systems.
 
 ```pre
-ssh data-access.ucar.edu
-# (alternative: ssh username@data-access.ucar.edu)
+ssh username@casper.hpc.ucar.edu
 ```
 
-Run **globus login** and follow the on-screen instructions.
+After logging in, load the conda module and activate the `npl` environment
+(or a personal environment with globus installed)
+```pre
+casper-login1:~> module load conda/latest
+casper-login1:~> conda activate npl
+```
+
+Next, run **globus login** and follow the on-screen instructions.
 
 ```pre
 globus login
@@ -156,9 +159,6 @@ Endpoint is already activated. Activation expires at 2022-11-22 20:47:46+00:00
 globus endpoint activate --force $gc_glade
 Autoactivation succeeded with message: Endpoint activated successfully using Globus Online credentials.
 ```
-
-Your *default shell* on the data-access nodes is **tcsh**. To change
-your current shell, just enter **bash** or another preferred shell.
 
 #### **Executing CLI transfers**
 
