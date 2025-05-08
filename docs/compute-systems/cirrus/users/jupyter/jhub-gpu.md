@@ -8,16 +8,16 @@ We currently offer a PyTorch & Tensorflow Jupyter image. Allowing multiple users
 
 ## PyTorch Tutorial
 
-The PyTorch website offers a great introduction in to using PyTorch with example notebooks. It can be found at this [link to learn the PyTorch basics](https://pytorch.org/tutorials/beginner/basics/intro.html). The example notebooks can be drag and dropped in to a JupyterHub session and ran with Kernels available on that JupyterHub. On the PyTorch image provided the cisl-cloud-base Python kernel would have all the packages required to get started.
+The PyTorch website offers a great introduction in to using PyTorch with example notebooks. It can be found at this [link to learn the PyTorch basics](https://pytorch.org/tutorials/beginner/basics/intro.html). The example notebooks can be drag and dropped in to a JupyterHub session and ran with Kernels available on that JupyterHub. On the PyTorch image provided the cirrus-pytorch-base Python kernel would have all the packages required to get started.
 
 ## TensorFlow Tutorial
 
-The TensorFlow website offers a great introduction in to using TensorFlow with example notebooks. It can be found at this [link to learn the TensorFlow basics](https://www.tensorflow.org/tutorials). The example notebooks can be drag and dropped in to a JupyterHub session and ran with Kernels available on that JupyterHub. On the TensorFlow image provided the cisl-cloud-base Python kernel would have all the packages required to get started.
-
-## Packages used in Tensorflow image
-
-The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/gpu-tf-notebook/packages/cisl-gpu-base.yml)
+The TensorFlow website offers a great introduction in to using TensorFlow with example notebooks. It can be found at this [link to learn the TensorFlow basics](https://www.tensorflow.org/tutorials). The example notebooks can be drag and dropped in to a JupyterHub session and ran with Kernels available on that JupyterHub. On the TensorFlow image provided the cirrus-tensorflow-base Python kernel would have all the packages required to get started.
 
 ## Packages used in the PyTorch image
 
-The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/gpu-pyt-notebook/packages/cisl-gpu-base.yml)
+The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/gpu-pyt-notebook/packages/cirrus-pytorch-base.yml)
+
+## Packages used in Tensorflow image
+
+The living list of packages can be found directly at this [link to the GitHub repository](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/gpu-tf-notebook/packages/cirrus-tensorflow-base.yml)

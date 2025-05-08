@@ -15,26 +15,26 @@ It will take a little while to install all the packages and create the environme
 
 ## Base Environments
 
-### cisl-cloud-base
+### cirrus-base
 
-The NCAR JupyterHub has a custom conda environment, cisl-cloud-base, as the default base environment. This environment has been put together based on input from users, referencing other production Jupyter images, and requirements that were set to deliver to users. 
+The NCAR JupyterHub has a custom conda environment, cirrus-base, as the default base environment. This environment has been put together based on input from users, referencing other production Jupyter images, and requirements that were set to deliver to users. 
 
 #### List of Packages used
 
-An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cisl-cloud/blob/main/configs/jupyter/base-notebook/environment.yml)
+An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/base-notebook/packages/cirrus-base.yml)
 
 ### NPL
 
-We also include the NCAR Python Library (NPL) conda environment and Python Kernel to users. This is a copy of the packages utilized for NPL that is hosted on HPC. We did have to upgrade a few specific versions to address vulnerabilities. For the most part versions will match what is used on HPC JupyterHub.
+We also include the most recent version of NCAR Python Library (NPL) conda environment and Python Kernel to users. This is a copy of the packages utilized for NPL that is hosted on HPC.
 
 #### List of Packages used
 
-An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cisl-cloud/blob/main/configs/jupyter/base-notebook/npl-2023b.yml)
+An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/base-notebook/packages/npl-2025a.yml)
 
-### r-4.3
+### r-4.4
 
 We provide a base R environment with a packages installed based off what is provided to users on HPC JupyterHub.
 
 #### List of Packages used
 
-An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cisl-cloud/blob/main/configs/jupyter/base-notebook/r-4.3.yml)
+An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/base-notebook/packages/r-4.4.yml)

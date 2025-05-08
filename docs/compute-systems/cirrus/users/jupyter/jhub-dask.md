@@ -47,7 +47,10 @@ When `LocalCluster` is no longer sufficient and you are maxing out local resourc
 from dask.distributed import Client
 from dask_gateway import GatewayCluster
 
-cluster = GatewayCluster()  # connect to Gateway and create a cluster
+# Connect to Gateway and create a cluster
+cluster = GatewayCluster("http://traefik-dask-gateway/services/dask-gateway/", 
+                         public_address="https://jupyter.k8s.ucar.edu/services/dask-gateway/", 
+                         auth='jupyterhub')  
 
 cluster.adapt(minimum=2, maximum=20)  # Make an adaptable cluster with a min and max number of workers
 

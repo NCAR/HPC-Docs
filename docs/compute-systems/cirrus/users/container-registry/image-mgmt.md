@@ -27,7 +27,7 @@ You will be prompted for a Username and Password. Use your CIT username and pass
 An image is pulled from Harbor using the `docker pull` command and specifying to pull it from the Harbor url. An example of what this command looks like is as follows:
 
 ```
-docker image pull hub.k8s.ucar.edu/cislcloudpilot/cisl-cloud-base:v1-stable
+docker image pull hub.k8s.ucar.edu/cirrus-jhub/cirrus-base:v1-stable
 ```
 
 ## Push an image to Harbor
@@ -42,8 +42,8 @@ docker image pull hub.k8s.ucar.edu/cislcloudpilot/cisl-cloud-base:v1-stable
 In order to push the built image to Harbor we first have to tag the image we want to push with our Harbor project information. Once the image is tagged it can be pushed to Harbor. An example of how to do this can be seen below:
 
 ```
-docker tag cislcloudpilot/cisl-cloud-base:v1-stable hub.k8s.ucar.edu/cislcloudpilot/cisl-cloud-base:v1-stable
-docker push hub.k8s.ucar.edu/cislcloudpilot/cisl-cloud-base:v1-stable
+docker tag cirrus-jhub/cirrus-base:v1-stable hub.k8s.ucar.edu/cislcloudpilot/cirrus-base:v1-stable
+docker push hub.k8s.ucar.edu/cislcloudpilot/cirrus-base:v1-stable
 ```
 
 The exact syntax used in each of these commands as it relates to Harbor Projects and Repositories can be see in the code block below:
