@@ -4,7 +4,7 @@ CIRRUS hosts a secrets manager called OpenBao that is available to UCAR employee
 
 ## Adding a secret to NCAR OpenBao
 
-- Navigate to https://bao.k8s.ucar.edu, change the authentication method to LDAP, and log in with your UCAR username/password
+- Navigate to https://bao.k8s.ucar.edu, change the authentication method to OIDC, and log in with your UCAR username/password
 - You will be brought to a screen that resembles this
 
 ![Bao Home Screen](../../media/bao1.png "Bao Home Screen")
