@@ -11,7 +11,7 @@ CIRRUS hosts a secrets manager called OpenBao that is available to UCAR employee
 
 - Choose `kv` (key/value)
 - In the upper right choose the `Create Secret` button
-- Path for secret: `<your ucar username>/<new secret>`
+- Path for secret: `<your ucar email address>/<new secret>`
 - You can store multiple key/value pairs under each secret. 
 - Set the key to be a short description of the secret that will be used to reference it and set the value to the actual secret
 
@@ -24,7 +24,7 @@ CIRRUS hosts a secrets manager called OpenBao that is available to UCAR employee
 You may need to update your secret in order to follow best practices when managing sensitive information and keeping up with rotating them accordingly.
 
 - Login to OpenBao as defined above
-- Once in the `kv` screen list your secrets by entering `<username>/` in the view secret box
+- Once in the `kv` screen list your secrets by entering `<email_address>/` in the view secret box
 - You should see a list of your secrets
 - Edit the secret and add a new key/value token as defined above
 
@@ -52,7 +52,7 @@ spec:
     data:
         - secretKey: my-secret-value
           remoteRef:
-            key: ncote/cirrus-secrets
+            key: ncote@ucar.edu/cirrus-secrets
             property: my-secret-key
 ```
 
