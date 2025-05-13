@@ -1,6 +1,6 @@
 # NSF NCAR Strategic Capability (NSC) projects
 
-**The next NSC submission deadline will be March 18, 2025.**
+**The next NSC submission deadline will be September 15, 2025.**
 
 NSF NCAR Strategic Capability (NSC) allocations target large-scale projects lasting 
 one year to a few years that align with NSF NCAR’s scientific priorities and 
