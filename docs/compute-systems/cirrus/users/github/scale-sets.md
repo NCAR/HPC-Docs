@@ -4,7 +4,7 @@ CIRRUS has the ability to connect to GitHub repositories and automatically provi
 
 ## Using your PAT
 
-This is our  preferred method of gaining the required access to a github repositoy to connect cirrus hosted workflow runners.
+This is our  preferred method of gaining the required access to a github repository to connect cirrus hosted workflow runners.
 
 ### Create a Github PAT
 
@@ -31,14 +31,14 @@ Your token will be displayed and this is the only time you can view it without r
 
 ### Adding a secret to NCAR OpenBao
 
-- Navigate to https://bao.k8s.ucar.edu, change the authentication method to LDAP, and log in with your UCAR username/password
+- Navigate to https://bao.k8s.ucar.edu, change the authentication method to OIDC, and log in with your UCAR username/password
 - You will be brought to a screen that resembles this
 
 ![Bao Home Screen](../../media/bao1.png "Bao Home Screen")
 
 - Choose `kv` (key/value)
 - In the upper right choose the `Create Secret` button
-- Path for secret: `<your ucar username>/github_pat`
+- Path for secret: `<your ucar email address>/github_pat`
 - You can store multiple key/value pairs under each secret. Our preference is one github repository per token so each repository can have it's own pair under this single `github_pat` secret
 - Set the key to the repository name (not the full url) and set the value to the PAT you generated
 
@@ -68,7 +68,7 @@ Secrets in OpenBao will be configured to automatically sync to the Cirrus infras
 You may need to add a new token for a new repository or update an old token due to it expiring.
 
 - Login to OpenBao as defined above
-- Once in the `kv` screen list your secrets by entering `<username>/` in the view secret box
+- Once in the `kv` screen list your secrets by entering `<email address>/` in the view secret box
 - You should see a list of your secrets including the `github_pat` secret previously created
 - Edit the secret and add a new key/value token as defined above
 
