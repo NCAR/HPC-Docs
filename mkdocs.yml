@@ -63,58 +63,12 @@ nav:
     - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
-  - Storage Systems and Data Transfer:
-    - storage-systems/index.md
-    - GLADE (POSIX File Systems):
-      - storage-systems/glade/index.md
-      - Campaign storage file system: storage-systems/glade/campaign.md
-      - Scratch Lustre file system: storage-systems/glade/lustre.md
-      - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
-      - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
-      - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
-      - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
-    - Quasar (Tape Storage):
-      - storage-systems/quasar/index.md
-      - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
-    - Stratus (Object Storage): storage-systems/stratus/index.md
-    - Transferring Data:
-      - storage-systems/data-transfer/index.md
-      - Globus:
-         - storage-systems/data-transfer/globus/index.md
-         - Sharing data and making unattended transfers: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
-      - SSH based tools: storage-systems/data-transfer/scp-and-sftp.md
-    - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
-
-  - User Environment:
-    - environment-and-software/user-environment/index.md
-    - Using Modules: environment-and-software/user-environment/modules.md
-    - Customizing your Environment: environment-and-software/user-environment/customizing.md
-    - Conda: environment-and-software/user-environment/conda.md
-    - Containers:
-      - environment-and-software/user-environment/containers/index.md
-      - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
-      - Example Workflows: environment-and-software/user-environment/containers/examples.md
-    - Spack: environment-and-software/user-environment/spack/index.md
-
-  - HPC Software:
-    - environment-and-software/hpc-software/index.md
-    - Community Models: environment-and-software/community-models.md
-    - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
-    - NCL : environment-and-software/ncl.md
-    - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
-    - Numerical Libraries: environment-and-software/numerical-libraries.md
-    - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
-    - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
-    - Utilities: environment-and-software/user-environment/utilities.md
-    - VS Code: environment-and-software/vscode.md
-    - Profiling & Debuggers: # -- tentative placement
-      - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
-      - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
-    - Benchmarks:
-      - environment-and-software/benchmarks/index.md
-      - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
-      - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
-
+  - Getting Help:
+    - user-support/index.md
+#   - Troubleshooting Tips:
+#     - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+#     - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+#     - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
 
   - Compute Systems and Services:
     - Derecho:
@@ -176,6 +130,58 @@ nav:
         - Checking Memory Use: pbs/checking-memory-use/index.md
       - Storing temporary files: pbs/storing-temporary-files.md
 
+  - Storage Systems and Data Transfer:
+    - storage-systems/index.md
+    - GLADE (POSIX File Systems):
+      - storage-systems/glade/index.md
+      - Campaign storage file system: storage-systems/glade/campaign.md
+      - Scratch Lustre file system: storage-systems/glade/lustre.md
+      - Setting File and Directory Permissions: storage-systems/glade/setting-file-directory-permissions.md
+      - Using Access Control Lists : storage-systems/glade/using-access-control-lists.md
+      - Recovering files from snapshots : storage-systems/glade/recovering-files-from-snapshots.md
+      - Removing large number of files : storage-systems/glade/removing-large-number-of-files.md
+    - Quasar (Tape Storage):
+      - storage-systems/quasar/index.md
+      - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
+    - Stratus (Object Storage): storage-systems/stratus/index.md
+    - Transferring Data:
+      - storage-systems/data-transfer/index.md
+      - Globus:
+         - storage-systems/data-transfer/globus/index.md
+         - Sharing data and making unattended transfers: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
+      - SSH based tools: storage-systems/data-transfer/scp-and-sftp.md
+    - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
+
+  - User Environment:
+    - environment-and-software/user-environment/index.md
+    - Using Modules: environment-and-software/user-environment/modules.md
+    - Customizing your Environment: environment-and-software/user-environment/customizing.md
+    - Conda: environment-and-software/user-environment/conda.md
+    - Containers:
+      - environment-and-software/user-environment/containers/index.md
+      - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
+      - Example Workflows: environment-and-software/user-environment/containers/examples.md
+    - Spack: environment-and-software/user-environment/spack/index.md
+
+  - HPC Software:
+    - environment-and-software/hpc-software/index.md
+    - Community Models: environment-and-software/community-models.md
+    - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
+    - NCL : environment-and-software/ncl.md
+    - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
+    - Numerical Libraries: environment-and-software/numerical-libraries.md
+    - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
+    - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
+    - Utilities: environment-and-software/user-environment/utilities.md
+    - VS Code: environment-and-software/vscode.md
+    - Profiling & Debuggers: # -- tentative placement
+      - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+      - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
+    - Benchmarks:
+      - environment-and-software/benchmarks/index.md
+      - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+      - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
+
   - Tutorials:
     - tutorials/index.md
     - New User Training: tutorials/new-user-training.md
@@ -190,13 +196,6 @@ nav:
     - Remote Desktop Services: tutorials/remote-desktops.md
 #    - Containers: tutorials/containers.md
 #    - GPU Workshop: tutorials/gpu-workshop.md
-
-  - User Support:
-    - user-support/index.md
-#    - Troubleshooting Tips:
-#      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
-#      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
-#      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
 
   - NCAR User Group (NHUG):
     - nhug/index.md
