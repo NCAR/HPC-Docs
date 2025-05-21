@@ -171,8 +171,15 @@ request, your submission will be classified as shown in the table.
 ## NVMe node-local storage
 
 Casper nodes each have 2 TB of local NVMe solid-state disk (SSD)
-storage. Some is used to augment memory to reduce the likelihood of jobs
-failing because of excessive memory use.
+storage. For GPU jobs, some of the NVMe is used as swap space to
+augment memory and reduce the likelihood of jobs failing because
+of excessive memory use.
+
+!!! note
+    If your job on Casper does swap to disk because it has run out of
+    memory, you can expect performance to slow dramatically. It is
+    still highly recommended to monitor job memory usage and make
+    changes as appropriate.
 
 NVMe storage can also be used *while a job is running*. (Recommended
 only for I/O-intensive jobs.) Data stored
