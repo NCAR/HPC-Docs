@@ -15,7 +15,7 @@ Here we are using the recommended method of cloning the code from the wrf-model 
 ```bash
 git clone --recurse-submodules https://github.com/wrf-model/WRF WRF4.6.1
 ```
-
+WRF need various libraries to compile and run. On Derecho this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/).
 ```bash
 module --force purge
 module load ncarenv/24.12
