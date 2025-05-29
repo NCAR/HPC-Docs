@@ -14,7 +14,6 @@ Here we are using the recommended method of cloning the code from the wrf-model 
 
 ```bash
 git clone --recurse-submodules https://github.com/wrf-model/WRF WRF4.6.1
-git clone --recurse-submodules https://github.com/wrf-model/WRF WRF4.7.0
 ```
 
 ```bash
@@ -22,6 +21,8 @@ module --force purge
 module load ncarenv/24.12
 module reset
 module list
+```
+```bash
 Currently Loaded Modules:
   1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3
   2) craype/2.7.31       4) ncarcompilers/1.0.0   6) cray-mpich/8.1.29    8) netcdf/4.9.2
@@ -36,8 +37,14 @@ Currently Loaded Modules:
 
 ```bash
 cd WRF4.6.1
+```
+```bash
 ./configure
+```
+```bash
 (base) biswas@derecho4:/glade/derecho/scratch/biswas/CSG/WRF4.6.1> ./configure
+```
+```bash
 checking for perl5... no
 checking for perl... found /glade/u/apps/derecho/23.09/opt/view/bin/perl (perl)
 Will use NETCDF in dir: /glade/u/apps/derecho/23.09/spack/opt/spack/netcdf/4.9.2/oneapi/2023.2.1/yzvj
@@ -81,8 +88,10 @@ Enter selection [1-83] : 50
 Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 1
 
 Configuration successful! 
+```
 ...
 ...
+```bash
 ./compile em_real >compile.log 2>&1 &
 ```
 ```bash
@@ -101,12 +110,21 @@ If the build finishes successfully a message will be printed, and the four execu
 ```bash
 
 cd ../WPS
+```
+```bash
+export WRF_DIR=../WRF4.6.1
+```
 
+```bash
 export JASPERINC=/glade/u/home/wrfhelp/UNGRIB_LIBRARIES/include
 export JASPERLIB=/glade/u/home/wrfhelp/UNGRIB_LIBRARIES/lib
+```
 
 
+```bash
 ./configure
+```
+```bash
 Will use NETCDF in dir: /glade/u/apps/derecho/23.09/spack/opt/spack/netcdf/4.9.2/oneapi/2023.2.1/yzvj
 Using WRF I/O library in WRF build identified by $WRF_DIR: /glade/derecho/scratch/biswas/CSG/WRF4.6.1
 Found Jasper environment variables for GRIB2 support...
@@ -165,9 +183,14 @@ Enter selection [1-44] : 21
 Configuration successful. To build the WPS, type: compile
 ------------------------------------------------------------------------
 
+```
+```bash
 ./compile >compile.log 2>&1 &
 ```
 
+```bash
+ls *exe
+```
 
 ## Submitting jobs
 In the examples that follow, `script_name`, `job.pbs` etc... represent a job script files submitted for batch execution.
