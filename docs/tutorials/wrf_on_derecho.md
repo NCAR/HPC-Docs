@@ -7,7 +7,7 @@
 
 ## Obtaining WRF code 
 The WRF and WPS code can be downloaded from 
-the ([GrADS](http://cola.gmu.edu/grads/)) ([WRF website] (https://www.mmm.ucar.edu/models/wrf).) Please refer to the ([documentation] (https://www2.mmm.ucar.edu/wrf/users/download/get_source.html).)
+the ([WRF webpage](https://www.mmm.ucar.edu/models/wrf/)) ([WRF website] (https://www.mmm.ucar.edu/models/wrf).) Please refer to the ([documentation] (https://www2.mmm.ucar.edu/wrf/users/download/get_source.html).)
 https://www2.mmm.ucar.edu/wrf/users/download/get_sources_new.php
 Here we are using the recommended method of cloning the code from the wrf-model GitHub repository. 
 
