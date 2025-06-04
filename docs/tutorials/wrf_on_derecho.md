@@ -23,6 +23,7 @@ module load ncarenv/24.12
 module reset
 module list
 ```
+The last command will show the currently loaded packages in your environment.
 ```bash
 Currently Loaded Modules:
   1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3
@@ -35,13 +36,15 @@ Currently Loaded Modules:
   1) ncarenv/23.09 (S)   2) craype/2.7.23   3) intel/2023.2.1   4) ncarcompilers/1.0.0   5) cray-mpich/8.1.27   6) hdf5/1.12.2   7) netcdf/4.9.2
 
 ```
-
+Once modules are loaded, follow the steps to configure and compile the code.
 ```bash
 cd WRF4.6.1
 ```
 ```bash
 ./configure
 ```
+The above command detects the system architecture and other environment options (e.g. NETCDF). Here, we are compiling the code with the Intel compiler shown above.
+Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
 ```bash
 (base) biswas@derecho4:/glade/derecho/scratch/biswas/CSG/WRF4.6.1> ./configure
 ```
