@@ -16,7 +16,7 @@ Here we are using the recommended method of cloning the code from the [wrf-model
 ```bash
 git clone --recurse-submodules https://github.com/wrf-model/WRF WRF4.6.1
 ```
-WRF need various libraries to compile and run. On Derecho this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/).
+WRF need various libraries to compile and run. On Derecho this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
 ```bash
 module --force purge
 module load ncarenv/24.12
@@ -97,7 +97,7 @@ The compile log will be redirected to compile.log. The syntax will vary dependin
 ```bash
 ./compile em_real >compile.log 2>&1 &
 ```
-After the compilation is finished, if successful, you will see the following lines at the end of the file.  
+After the compilation is finished, if successful, you will see the following lines at the end of the compile.log file.  
 ```bash
 ==========================================================================
 build started:   Wed 23 Apr 2025 10:04:19 AM MDT
@@ -110,6 +110,13 @@ build completed: Wed 23 Apr 2025 10:39:40 AM MDT
 ==========================================================================
 ```
 If the build finishes successfully, a message will be printed, and the four executables (ndown.exe, real.exe, tc.exe, wrf.exe) will be present in the main directory.
+Type the command
+```bash
+ls -ls main/*.exe
+```
+If the compilations fail,s follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
+
+Next, build the WRF Preprocessing System (WPS)
 
 ```bash
 
