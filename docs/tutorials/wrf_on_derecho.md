@@ -45,9 +45,7 @@ cd WRF4.6.1
 ```
 The above command detects the system architecture and other environment options (e.g. NETCDF). Here, we are compiling the code with the Intel compiler shown above.
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
-```bash
-(base) biswas@derecho4:/glade/derecho/scratch/biswas/CSG/WRF4.6.1> ./configure
-```
+We select 50 (dmpar) INTEL (ftn/icc): Cray XC and then basic nesting (1). 
 ```bash
 checking for perl5... no
 checking for perl... found /glade/u/apps/derecho/23.09/opt/view/bin/perl (perl)
@@ -93,11 +91,13 @@ Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 
 
 Configuration successful! 
 ```
-...
-...
+The command below will compile the code. The most used option is em_real (Eulerian Mass grid – real data case.
+The compile log will be redirected to compile.log. The syntax will vary depending on the SHELL. Here it is bash.
+
 ```bash
 ./compile em_real >compile.log 2>&1 &
 ```
+After the compilation is finished, if successful, you will see the following lines at the end of the file.  
 ```bash
 ==========================================================================
 build started:   Wed 23 Apr 2025 10:04:19 AM MDT
@@ -109,7 +109,7 @@ build completed: Wed 23 Apr 2025 10:39:40 AM MDT
 -rwxr-xr-x 1 biswas ncar 59119872 Apr 23 10:38 main/wrf.exe
 ==========================================================================
 ```
-If the build finishes successfully a message will be printed, and the four executables (ndown.exe, real.exe, tc.exe, wrf.exe) will be present in the main directory.
+If the build finishes successfully, a message will be printed, and the four executables (ndown.exe, real.exe, tc.exe, wrf.exe) will be present in the main directory.
 
 ```bash
 
