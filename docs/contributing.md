@@ -1,4 +1,4 @@
-# Contribution Guide
+# Contributing to the Documentation
 
 Welcome to the NCAR HPC Resources GitHub repository!
 

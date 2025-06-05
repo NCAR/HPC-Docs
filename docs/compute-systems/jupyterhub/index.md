@@ -26,7 +26,7 @@ Select **Production**.
 Log in with your NCAR username and Duo two-factor authentication, just
 as you would when logging directly in to either system.
 
-![](media/jhub2_new.png){width="350"}
+![](media/jhub2_new.png){width="600"}
 
 After you authenticate, you will be able to start a new default server
 or create a named server. (See following image.) You can have up to four
@@ -38,12 +38,13 @@ named servers to use for accessing different compute resources.
     same notebook file in multiple servers concurrently can lead to kernel
     failures and other errors.
 
-![](media/jhub3_new.png){width="450"}
+![](media/jhub3_new.png)
 
 After starting a server, select the cluster you want to use. You can
 choose to work on a login node or a batch node on either Casper or
 Derecho.
-![](media/jhub4_new.png){width="450"}
+
+![](media/jhub4_new.png)
 
 If you choose a **login node**, launching the server will take you to
 the web interface.
@@ -58,7 +59,8 @@ Launch your job when ready. This job only gives you access to the
 JupyterLab instance. If you need more resources, you can launch another
 job or jobs from within JupyterLab.
 
-![](media/jhub5_new.png){width="350"} ![](media/jhub6_new.png){width="350"}
+![](media/jhub5_new.png){align="left"}
+![](media/jhub6_new.png)
 
 After launching the job, you will have access to multiple kernels in the
 web interface (image below) for working with various languages and
