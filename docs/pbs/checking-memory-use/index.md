@@ -2,9 +2,11 @@
 
 All compute nodes have a limited amount of physical memory – *RAM* –
 available to your application. If your program exceeds the available
-memory on a Derecho node, it will either be killed by system monitors or
-crash and dump core, often with a "bus error" message in your logs. On
-the Casper cluster, nodes can *swap* data to NVMe storage, which
+memory on a Derecho or Casper node, it will either be killed by system monitors or
+crash and dump core, often with a "bus error" message in your logs. 
+
+On
+the Casper GPU nodes, jobs can *swap* data to NVMe storage, which
 typically prevents failures because of running out of memory in all but
 the most intensive workflows. Computing on swapped data, however, is
 much slower than processing data that is resident in memory, so jobs may
