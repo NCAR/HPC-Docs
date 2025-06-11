@@ -10,12 +10,14 @@ The WRF and WPS code can be downloaded from
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
 
-Here we are using the recommended method of cloning the code from the [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
+Here we are using the recommended method of cloning the WRF code from the [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
 
 
 ```bash
 git clone --recurse-submodules https://github.com/wrf-model/WRF WRF
 ```
+Next download the WRF Preprocessing System ([WPS code](https://github.com/wrf-model/WPS/releases)).
+
 WRF need various libraries to compile and run. On Derecho this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
 ```bash
 module --force purge
@@ -112,12 +114,13 @@ ls -ls main/*.exe
 ```
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
 
-Next, build the WRF Preprocessing System (WPS)
+The next step is to compile the WPS code.
 
 ```bash
 
 cd ../WPS
 ```
+
 ```bash
 export WRF_DIR=../WRF4.6.1
 ```
