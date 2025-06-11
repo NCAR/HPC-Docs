@@ -8,13 +8,13 @@
 ## Obtaining WRF code 
 The WRF and WPS code can be downloaded from 
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
-Please refer to the ([download](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
+Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
 
 Here we are using the recommended method of cloning the code from the [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
 
 
 ```bash
-git clone --recurse-submodules https://github.com/wrf-model/WRF WRF4.6.1
+git clone --recurse-submodules https://github.com/wrf-model/WRF WRF
 ```
 WRF need various libraries to compile and run. On Derecho this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
 ```bash
@@ -29,23 +29,17 @@ Currently Loaded Modules:
   1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3
   2) craype/2.7.31       4) ncarcompilers/1.0.0   6) cray-mpich/8.1.29    8) netcdf/4.9.2
 
-Currently Loaded Modules:
-  1) ncarenv/23.06 (S)   2) craype/2.7.20   3) intel/2023.0.0   4) ncarcompilers/1.0.0   5) cray-mpich/8.1.25   6) hdf5/1.12.2   7) netcdf/4.9.2
-
-Currently Loaded Modules:
-  1) ncarenv/23.09 (S)   2) craype/2.7.23   3) intel/2023.2.1   4) ncarcompilers/1.0.0   5) cray-mpich/8.1.27   6) hdf5/1.12.2   7) netcdf/4.9.2
-
 ```
 Once modules are loaded, follow the steps to configure and compile the code.
 ```bash
-cd WRF4.6.1
+cd WRF
 ```
 ```bash
 ./configure
 ```
-The above command detects the system architecture and other environment options (e.g. NETCDF). Here, we are compiling the code with the Intel compiler shown above.
+The above command detects the system architecture and other environment options (e.g. NETCDF). Here, we are compiling the code with the Intel compiler shown above in the loaded modules.
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
-We select 50 (dmpar) INTEL (ftn/icc): Cray XC and then basic nesting (1). 
+We select (dmpar) INTEL (ftn/icc): Cray XC (50) and then basic nesting (1). 
 ```bash
 checking for perl5... no
 checking for perl... found /glade/u/apps/derecho/23.09/opt/view/bin/perl (perl)
@@ -91,8 +85,10 @@ Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 
 
 Configuration successful! 
 ```
-The command below will compile the code. The most used option is em_real (Eulerian Mass grid – real data case.
-The compile log will be redirected to compile.log. The syntax will vary depending on the SHELL. Here it is bash.
+A configure.wrf is created that contains compilation options, rules, etc., specific to
+Derecho, and can be edited to change compile options, if desired.
+The next step is to compile the WRF code (shown below). Here, we used the most commonly used option "em_real" (Eulerian Mass grid – real data case] and added as an argument.
+It is recommended to redirect the compilation log to a file (e.g. compile.log). The syntax to redirect the log file will vary depending on the $SHELL (here it is bash).
 
 ```bash
 ./compile em_real >compile.log 2>&1 &
@@ -114,7 +110,7 @@ Type the command
 ```bash
 ls -ls main/*.exe
 ```
-If the compilations fail,s follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
+If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
 
 Next, build the WRF Preprocessing System (WPS)
 
