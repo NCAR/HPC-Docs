@@ -260,3 +260,116 @@ creation time:        Wed Mar  9 10:07:17 2022
 Misc attributes:      ARCHIVE COMPRESSION (library z)
 Encrypted:            no
 ```
+
+---
+
+## Tape Archival
+
+!!! note "Announcing Hierarchical Storage Management (HSM) for *infrequently read* data sets"
+
+Campaign Storage is logically connected to the [Quasar](../quasar/index.html) tape library, allowing users to easily request for old data to be moved to "cold storage." This feature leverages the hierarchical storage management (HSM) capabilities [built into](https://www.ibm.com/docs/en/spectrum-archive-ee/1.3.3?topic=overview-spectrum-archive-enterprise-edition-components) Spectrum Scale and Spectrum Archive.  HSM is ideal for long-term storage of data sets that are rarely read, but are being kept perhaps for a publication requirement, or as "just-in-case" backups within a computational campaign.
+
+
+### HSM Overview
+Hierarchical Storage Management is a tiered storage capability that combines traditional disk-based storage with a tape subsystem.  Under HSM old, "cold" data can selectively be migrated to tape, freeing up disk resources.  In our setup on Campaign Storage, data migration occurs only based on user request, and will target all files &ge;100MB in size. Migrated files still appear resident on the file system, however they must be [*recalled*](#recall-from-tape) from tape before they can be read.  Reading a migrated file without issuing a recall request will trigger a read error.
+
+For Campaign Storage all HSM interactions at the user level are performed with the `glade_hsm` command, with examples listed below.
+
+### Migration to tape
+The `glade_hsm` subcommand `migrate` is used to relocate files/directories in preparation for HSM migration.  This command takes an input list of files or directories and simply relocates them into a `COLD_STORAGE/` directory at the same level of the directory tree.
+
+By default all HSM content is written to two separate tapes for redundancy in the very rare event of a tape problem. Users can optionally elect a single tape copy with the `--single-copy` argument, in which case contents will be staged into a `COLD_STORAGE_SINGLE_COPY/` directory.
+
+```pre
+$ glade_hsm migrate --help
+    migrate:
+       Relocates files/directories in preparation for HSM migration.
+
+       For each specified <dirname(s)>, <filename(s)>, relocates entity into a
+       "/COLD_STORAGE/" path in preparation for HSM migration.
+
+       Example:
+
+          glade_hsm migrate <--single-copy> /glade/campaign/mylab/myproj/results/
+
+            will relocate
+              /glade/campaign/mylab/myproj/results/ ->
+              /glade/campaign/mylab/myproj/COLD_STORAGE/results/
+
+       Batch system processes then run at regular intervals and migrate all
+       large files (>=100MB) underneath "/COLD_STORAGE/" paths onto tape storage.
+       All files inside a "/COLD_STORAGE/" are marked immutable regardless of size,
+       which prevents modification of contents and metadata (permissions, etc.).
+
+       Name collisions are reported but must be resolved by the user.
+```
+
+This command returns immediately upon success, and logs the request so the system can begin batch migration.
+
+Two things happen to files located within any `COLD_STORAGE*/` path:
+
+1. All files are marked [*immutable*](https://lwn.net/Articles/786258), meaning neither their contents nor metadata can be modified.
+2. Files &ge;100MB will have their "data blocks" moved onto tape. They are still visible on the file system and maintain their original metadata (timestamps, permissions, ownership, etc...) however their contents moved from the disk subsystem onto tape.
+
+While `glade_hsm migrate` returns immediately, file content tape migration occurs in the background by system processes. As data blocks are relocated onto tape, a corresponding amount of disk quota is reclaimed.
+
+In order to read or modify previously migrated files they must first be [recalled](#recall-from-tape).
+
+
+### Recall from tape
+After migration, files must be manually recalled before they can be read.  The recall process is controlled through the `glade_hsm recall`  subcommand.
+```
+$ glade_hsm recall --help
+    recall:
+      Submits a recall request for entire directory tree(s), or listed file(s).
+
+       Example:
+
+          glade_hsm recall /glade/campaign/mylab/myproj/COLD_STORAGE/results/
+
+            requests that all previously migrated files inside
+              /glade/campaign/mylab/myproj/COLD_STORAGE/results/
+            be recalled from tape to disk in order to become readable.
+            All files have their "immutability" attribute removed, allowing for modification.
+
+       NOTE: recalled files can be read from inside their "/COLD_STORAGE/" location
+       for 7 days, after which they will be re-migrated at the next scheduled interval.
+       To permanently extract a file/directory from HSM, manually mv outside of "/COLD_STORAGE/".
+```
+Recall fetches the specified file (or entire directory) data blocks from tape and replaces them on the file system, allowing contents to be read again.  Additionally, the "immutability" property is removed, allowing for content modifications, metadata changes, or removal.
+
+Once recalled - but while still underneath a `COLD_STORAGE*/` path - files remain readable for at least one week. When the next system migration policy is run immutability will be re-enabled, and data blocks will be removed from the disk subsystem.  If file contents were modified, the new contents will be re-migrated to tape.  In the typical case where recalled files are only read (and not modified) the data on tape is still valid and therefore does not require re-migration.
+
+To *permanently* recall an item, simply `mv` it out from underneath its `COLD_STORAGE*/` path after it has been recalled.
+
+### Checking status
+You can check the status of migrated files - or the status of a previous recall request - using the `glade_hsm` subcommand `status`.
+```
+$ glade_hsm status --help
+    status:
+      Summarizes the on-disk and total volume consumed by <dirname(s)>.
+      Reports status of any outstanding recall requests for the specified <dirname(s)>, if any.
+```
+
+For example, to check the status of each migrated sub-directory within a particular `COLD_STORAGE/` path:
+```pre
+$ glade_hsm status /glade/campaign/univ/uiuc0017/SouthAmerica_WRF4KM_PGW/COLD_STORAGE/*/
+
+/glade/campaign/univ/uiuc0017/SouthAmerica_WRF4KM_PGW/COLD_STORAGE/2021
+  Disk Volume:  6.7M
+  Total Volume: 46T
+  Total files: 9490 / offline: 9490
+
+/glade/campaign/univ/uiuc0017/SouthAmerica_WRF4KM_PGW/COLD_STORAGE/2020
+  Disk Volume:  6.7M
+  Total Volume: 46T
+  Total files: 9490 / offline: 9490
+
+[...]
+
+```
+The (truncated) output above shows that each of the specified directories contains 9,490 files, and all are offline.  Each directory has a total of 46TB that currently reside on tape, with only 6.7MB of disk storage consumed.  This residual disk storage is simply the cost of storing the remaining file metadata.
+    ```
+
+<!--  LocalWords:  HSM hsm subcommand
+ -->
