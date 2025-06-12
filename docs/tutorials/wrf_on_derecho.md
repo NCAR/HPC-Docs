@@ -210,9 +210,10 @@ The next step is to compile the WPS code.
 ```bash
 ./compile >compile.log 2>&1 &
 ```
-
+If the build finishes successfully, the three executables (ungrib.exe, geogrid.exe, metgrid.exe) will be present in the WPS-4.6.0 directory.
 ```bash
 ls *exe
+geogrid.exe  metgrid.exe  ungrib.exe
 ```
 
 ## Submitting jobs
@@ -225,6 +226,17 @@ Commands for starting interactive jobs are specific to individual systems. The b
 To submit a batch job, use the `qsub` command followed by the name of your PBS batch script file.
 
 ```bash
+#!/bin/bash -l
+#PBS -N wrf_run
+#PBS -A XXXXXXXX
+#PBS -q main
+#PBS -l walltime=1:00:00
+#PBS -m abe
+#PBS -j oe
+#PBS -l select=1:ncpus=128:mpiprocs=128
+
+# cray-mpich mpiexec option
+mpiexec -n 128 -ppn 128 ./wrf.exe
 qsub script_name
 ```
 
