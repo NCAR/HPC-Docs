@@ -2,11 +2,11 @@
 
 !!! info "About this page"
     This documentation provides information on how to download and compile WRF and WPS on NSF NCAR Derecho.
-    Also, examples of PBS scripts are provided to 
+    Also, an example of a PBS script is provided to help new users get an idea of how to submit batch jobs efficiently on the system, including setting resource requests, loading modules, and launching the WRF executable.
 ---
 
-## Obtaining WRF code 
-The WRF and WPS code can be downloaded from 
+## Obtaining WRF and WPS code 
+The WRF and WPS codes can be downloaded from 
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
 
