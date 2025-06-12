@@ -16,16 +16,23 @@ Here we are using the recommended method of cloning the WRF code from the [wrf-m
 ```bash
 git clone --recurse-submodules https://github.com/wrf-model/WRF WRF
 ```
-Next download the WRF Preprocessing System ([WPS code](https://github.com/wrf-model/WPS/releases)).
+Next download the WRF Preprocessing System ([WPS code](https://github.com/wrf-model/WPS/releases)). 
+Untar and unzip the downloaded file. 
+```bash
+tar -xvf WPS-4.6.0.tar.gz
+```
+You will get a directory called WPS-4.6.0.
 
-WRF need various libraries to compile and run. On Derecho this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
+Next, the needed libraries are loaded to compile WRF and WPS.
+
+On Derecho, this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
 ```bash
 module --force purge
 module load ncarenv/24.12
 module reset
 module list
 ```
-The last command will show the currently loaded packages in your environment.
+The last command will show the packages currently loaded in your environment.
 ```bash
 Currently Loaded Modules:
   1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3
@@ -41,7 +48,7 @@ cd WRF
 ```
 The above command detects the system architecture and other environment options (e.g. NETCDF). Here, we are compiling the code with the Intel compiler shown above in the loaded modules.
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
-We select (dmpar) INTEL (ftn/icc): Cray XC (50) and then basic nesting (1). 
+We opted for: (dmpar) INTEL (ftn/icc): Cray XC (50) and then basic nesting (1). 
 ```bash
 checking for perl5... no
 checking for perl... found /glade/u/apps/derecho/23.09/opt/view/bin/perl (perl)
@@ -118,25 +125,29 @@ The next step is to compile the WPS code.
 
 ```bash
 
-cd ../WPS
+cd ../WPS-4.6.0
 ```
+A good practice is to set the WRF_DIR environment variable pointing to the WRF installation. 
 
 ```bash
-export WRF_DIR=../WRF4.6.1
+export WRF_DIR=../WRF
 ```
+In the WPS, JASPERINC and JASPERLIB refer to the JasPer library, which is used for reading and writing GRIB2 files — a common format for meteorological data.
 
 ```bash
 export JASPERINC=/glade/u/home/wrfhelp/UNGRIB_LIBRARIES/include
 export JASPERLIB=/glade/u/home/wrfhelp/UNGRIB_LIBRARIES/lib
 ```
-
+Next, let's configure and compile WPS.
 
 ```bash
 ./configure
 ```
+This will prompt the compiler options available. We opted 21 (Linux x86_64, Intel Classic compilers).
+
 ```bash
 Will use NETCDF in dir: /glade/u/apps/derecho/23.09/spack/opt/spack/netcdf/4.9.2/oneapi/2023.2.1/yzvj
-Using WRF I/O library in WRF build identified by $WRF_DIR: /glade/derecho/scratch/biswas/CSG/WRF4.6.1
+Using WRF I/O library in WRF build identified by $WRF_DIR: /glade/derecho/scratch/biswas/CSG/WRF
 Found Jasper environment variables for GRIB2 support...
   $JASPERLIB = /glade/u/home/wrfhelp/UNGRIB_LIBRARIES/lib
   $JASPERINC = /glade/u/home/wrfhelp/UNGRIB_LIBRARIES/include
@@ -194,6 +205,8 @@ Configuration successful. To build the WPS, type: compile
 ------------------------------------------------------------------------
 
 ```
+The next step is to compile the WPS code. 
+
 ```bash
 ./compile >compile.log 2>&1 &
 ```
