@@ -233,6 +233,11 @@ Commands for starting interactive jobs are specific to individual systems. The b
 #PBS -j oe
 #PBS -l select=1:ncpus=128:mpiprocs=128
 
+# Load modules to match compile-time environment
+module --force purge
+module load ncarenv/24.12
+module reset
+
 # cray-mpich mpiexec option
 mpiexec -n 128 -ppn 128 ./wrf.exe
 ```
