@@ -217,12 +217,9 @@ geogrid.exe  metgrid.exe  ungrib.exe
 ```
 
 ## Submitting jobs
-In the example that follow, `script_name`, `job.pbs` etc... represent a job script files submitted for batch execution.
+WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
 
-[PBS Pro](https://altair.com/pbs-professional) is used to schedule both interactive jobs and batch compute jobs. Detailed examples of how to start both types of jobs are included in the documentation (see links above) for each individual system.
-
-Commands for starting interactive jobs are specific to individual systems. The basic command for starting a batch job, however, is the same.
-
+Below is a sample job to run WRF using 1 node and utilizing 128 processors. 
 ```bash
 #!/bin/bash -l
 #PBS -N wrf_run
