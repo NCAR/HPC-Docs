@@ -1,6 +1,12 @@
-## Consulting
-### Consultant on Duty
-<iframe frameborder="0" height="420" scrolling="no" src="https://status.cisl.ucar.edu/csg/cod-status/cod.html" width="100%"></iframe>
+## HPC Consulting Services
+
+**Hours: 8 AM - 5 PM Mountain Time; Monday - Friday**
+
+Please visit [rchelp.ucar.edu](https://rchelp.ucar.edu) or call (303)497-2400 to
+initiate a support request. You may also call the consultant on duty during
+business hours or schedule a virtual consultation below.
+
+<iframe frameborder="0" height="230" scrolling="no" src="https://status.cisl.ucar.edu/csg/cod-status/cod.html" width="650"></iframe>
 
 ### Virtual Consulting
 
