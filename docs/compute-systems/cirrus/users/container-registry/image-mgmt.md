@@ -1,14 +1,15 @@
 # Image Management
+## Harbor WebUI Login
 
 The Harbor web interface can be accessed at the following URL : [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/). 
 
 To log in:
 
-1. Click the "LOGIN WITH Entra ID" button
+1. Click the `LOGIN WITH Entra ID` button
 2. Enter your UCAR email address and password
 3. Complete the additional security verification through Cisco Duo when prompted
 
-This uses your existing UCAR Microsoft account credentials for secure access. 
+This uses UCAR credentials via Microsoft Azure authorization for secure access. 
 
 !!! info
     Image pulling and pushing requires a container engine such as Docker, Podman, or Containerd. If you don't have one installed, Docker is the most common choice. For Docker installation instructions, see [Install Docker Engine](https://docs.docker.com/engine/install/).

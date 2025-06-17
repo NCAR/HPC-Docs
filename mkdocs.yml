@@ -100,9 +100,6 @@ nav:
       - Deploying Applications: 
             - compute-systems/cirrus/users/hosting/containerize.md
             - compute-systems/cirrus/users/hosting/additions.md
-        - compute-systems/cirrus/users/agile.md
-        - compute-systems/cirrus/users/create-tickets.md
-      - Adding Applications: compute-systems/cirrus/users/hosting/additions.md
       - Container Registry: 
         - compute-systems/cirrus/users/container-registry/index.md
         - Image Management: compute-systems/cirrus/users/container-registry/image-mgmt.md
