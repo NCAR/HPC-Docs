@@ -1,18 +1,34 @@
 # Image Management
 
-The Harbor web interface can be accessed at the following URL : [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/). Credentials will be your CIT sso username and password. There is no need to specify a domain. 
+The Harbor web interface can be accessed at the following URL : [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/). 
+
+To log in:
+
+1. Click the "LOGIN WITH Entra ID" button
+2. Enter your UCAR email address and password
+3. Complete the additional security verification through Cisco Duo when prompted
+
+This uses your existing UCAR Microsoft account credentials for secure access. 
 
 !!! info
-    Image pulling and pushing uses Docker via the command line. If Docker is not installed on your machine you can find information on how to install it [here](https://docs.docker.com/engine/install/).
+    Image pulling and pushing requires a container engine such as Docker, Podman, or Containerd. If you don't have one installed, Docker is the most common choice. For Docker installation instructions, see [Install Docker Engine](https://docs.docker.com/engine/install/).
 
+## Harbor CLI Login
 
-## Harbor Login with Docker
+Harbor requires a CLI secret to authenticate with an email address via the command line. 
 
-If the project that the image belongs to is private, you need to login to Harbor before you can pull the image. If an image is in a public project, you do not need to be logged in to pull that image. 
+To get a CLI secret
+
+1. Log in to [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/)
+2. Click on your email address in the top right hand corner 
+3. Select User Profile from the dropdown. 
+4. Copy the CLI secret using the button to the right of the hidden CLI secret.
+
+<img src="../../../media/harbor/harbor-user-profile.png"/>
 
 !!! info
-    If your CIT login does not work you most likely do not have permission to access. Please submit a request for Harbor access [here](https://jira.ucar.edu/secure/CreateIssueDetails!init.jspa?pid=18470&issuetype=10905). 
-  
+    Harbor strongly recommends using robot accounts for CLI commands. For more information on creating robot accounts, see [Using Robot Accounts](#using-robot-accounts)
+
 
 The command line syntax to use Docker for logging in to Harbor is as follows:
 
@@ -20,9 +36,12 @@ The command line syntax to use Docker for logging in to Harbor is as follows:
 docker login https://hub.k8s.ucar.edu/
 ```
 
-You will be prompted for a Username and Password. Use your CIT username and password, no domain needs to be specified. You should get a message that your login was successful. Now you are able to pull images from private projects and push images directly to Harbor.
+You will be prompted for a Username and Password. Use your ucar.edu email address and the CLI secret. You should get a message that your login was successful. Now you are able to pull images from private projects and push images directly to Harbor.
 
 ## Pull an image from Harbor
+
+!!! info
+    If the project that the image belongs to is private, you need to login to Harbor before you can pull the image. If an image is in a public project, you do not need to be logged in to pull that image. 
 
 An image is pulled from Harbor using the `docker pull` command and specifying to pull it from the Harbor url. An example of what this command looks like is as follows:
 
@@ -37,7 +56,7 @@ docker image pull hub.k8s.ucar.edu/cirrus-jhub/cirrus-base:v1-stable
 
 
 !!! info
-    This assumes you have an image built locally that you want to push to Harbor. Information on how to create container images locally can be found in this documentation [here](../K8s/Hosting/web-intro)
+    This assumes you have an image built locally that you want to push to Harbor. Information on how to create container images locally can be found in this documentation [here](../hosting/containerize.md)
 
 In order to push the built image to Harbor we first have to tag the image we want to push with our Harbor project information. Once the image is tagged it can be pushed to Harbor. An example of how to do this can be seen below:
 

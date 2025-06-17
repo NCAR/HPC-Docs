@@ -95,6 +95,11 @@ nav:
     - CIRRUS:
       - compute-systems/cirrus/index.md
       - Interact with CIRRUS team:
+            - compute-systems/cirrus/users/agile.md
+            - compute-systems/cirrus/users/create-tickets.md
+      - Deploying Applications: 
+            - compute-systems/cirrus/users/hosting/containerize.md
+            - compute-systems/cirrus/users/hosting/additions.md
         - compute-systems/cirrus/users/agile.md
         - compute-systems/cirrus/users/create-tickets.md
       - Adding Applications: compute-systems/cirrus/users/hosting/additions.md
