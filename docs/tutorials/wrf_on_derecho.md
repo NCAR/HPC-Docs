@@ -9,8 +9,15 @@
 The WRF and WPS codes can be downloaded from 
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
-
-Here we are using the recommended method of cloning the WRF code from the [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
+If you do not plan to modify the WRF code, you can use any (latest version recommended) of the pre-compiled versions of the code available on Derecho at:
+```
+/glade/work/wrfhelp/derecho_pre_compiled_code
+```
+Copy the version you want to run using:
+```
+cp -r /glade/work/wrfhelp/derecho_pre_compiled_code/wrfv4.7.1 .
+```
+However, if you plan to modify the code, you can download the code by cloning the WRF code from the [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
 
 
 ```bash
