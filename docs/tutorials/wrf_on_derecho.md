@@ -34,21 +34,6 @@ Next, the needed libraries are loaded to compile WRF and WPS.
 
 On Derecho, this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
 
--  **Logging in**: `ssh` is used similarly to access both systems.
-    *Please note for Derecho the host name is* <strong><tt>derecho<font color="#ff0000">.hpc.</font>ucar.edu</tt></strong>
-
-    !!! note "`ssh` access to Derecho vs. Cheyenne"
-        === "Derecho"
-            The fully-qualified domain name (FQDN) for Derecho is `derecho.hpc.ucar.edu`.
-             ```pre
-             ssh username@derecho.hpc.ucar.edu
-             ```
-        === "Cheyenne"
-            The fully-qualified domain name (FQDN) for Cheyenne is `cheyenne.ucar.edu`.
-             ```pre
-             ssh username@cheyenne.ucar.edu
-             ```
-
 ```bash
 module --force purge
 module load ncarenv/24.12
