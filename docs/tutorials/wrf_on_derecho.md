@@ -9,21 +9,21 @@
 The WRF and WPS codes can be downloaded from 
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
-If you do not plan to modify the WRF code, you can use any (latest version recommended) of the pre-compiled versions of the code available on Derecho at:
+If you do not plan to modify the WRF and WPS code, you can use any (latest version recommended) of the pre-compiled versions of the code available on Derecho at:
 ```
 /glade/work/wrfhelp/derecho_pre_compiled_code
 ```
-Copy the version you want to run using:
+Copy the version you want to run to your working directory using:
 ```
-cp -r /glade/work/wrfhelp/derecho_pre_compiled_code/wrfv4.7.1 .
+cp -r /glade/work/wrfhelp/derecho_pre_compiled_code/wrfv4.7.1 WRF
+cp -r /glade/work/wrfhelp/derecho_pre_compiled_code/wpsv4.6.0_jb WPS
 ```
-However, if you plan to modify the code, you can download the code by cloning the WRF code from the [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
-
+However, if you plan to modify the code, you may download the code by cloning the latest branch of the WRF repository [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
 
 ```bash
-git clone --recurse-submodules https://github.com/wrf-model/WRF WRF
+git clone --recurse-submodule --branch v4.7.1 https://github.com/wrf-model/WRF.git
 ```
-Next download the WRF Preprocessing System ([WPS code](https://github.com/wrf-model/WPS/releases)). 
+Next, download the WRF Preprocessing System ([WPS code](https://github.com/wrf-model/WPS/releases)). 
 Untar and unzip the downloaded file. 
 ```bash
 tar -xvf WPS-4.6.0.tar.gz
@@ -33,11 +33,81 @@ You will get a directory called WPS-4.6.0.
 Next, the needed libraries are loaded to compile WRF and WPS.
 
 On Derecho, this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
+
 ```bash
 module --force purge
 module load ncarenv/24.12
 module reset
+module load cmake
 module list
+```
+The last command will show the packages currently loaded in your environment.
+There are several options to compile the code. It is recommended to use the cmake option to compile the code. 
+```
+cd WRF
+./configure_new
+```
+Here we choose option 1 to compile with ifx compiler
+```
+Using default build directory : _build
+Using default install directory : /glade/derecho/scratch/biswas/CSG/WRF4.7.1/install
+0   Linux         gfortran    /    gcc         /    mpif90      /    mpicc      GNU (gfortran/gcc)
+1   Linux         ifx         /    icx         /    mpif90      /    mpicc      INTEL (ifx/icx) : oneAPI LLVM
+!! - Compiler not found, some configurations will not work and will be hidden
+Select configuration [0-1] Default [0] (note !!)  : 1
+```
+Next, we will be asked to choose options for WRF_CORE, WRF_NESTING,  WRF_CASE, MPI and others. In this tutorial, we are using the options that are frequently used by users. 
+```
+Select option for WRF_CORE from WRF_CORE_OPTIONS [0-4] 
+	0 : ARW
+	1 : CONVERT
+	2 : DA
+	3 : DA_4D_VAR
+	4 : PLUS 
+Default [0] : 0
+```
+```
+Select option for WRF_NESTING from WRF_NESTING_OPTIONS [0-3] 
+	0 : NONE
+	1 : BASIC
+	2 : MOVES
+	3 : VORTEX 
+Default [1] : 1
+```
+```
+Select option for WRF_CASE from WRF_CASE_OPTIONS [0-14] 
+	0 : EM_REAL
+	1 : EM_FIRE
+	2 : EM_SCM_XY
+	3 : EM_TROPICAL_CYCLONE
+	4 : EM_HELDSUAREZ
+	5 : EM_B_WAVE
+	6 : EM_GRAV2D_X
+	7 : EM_HILL2D_X
+	8 : EM_LES
+	9 : EM_QUARTER_SS
+	10 : EM_SEABREEZE2D_X
+	11 : EM_CONVRAD
+	12 : EM_SQUALL2D_X
+	13 : EM_SQUALL2D_Y
+	14 : NONE 
+Default [0] : 0
+```
+```
+[DM] Use MPI?    Default [Y] [Y/n] : Y
+[SM] Use OpenMP? Default [N] [y/N] : N
+Configure additional options? Default [N] [y/N] : N
+```
+```
+./compile_new >& compile.log
+```
+```
+Currently Loaded Modules:
+  1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3    9) cmake/3.26.6
+  2) craype/2.7.31       4) ncarcompilers/1.0.0   6) cray-mpich/8.1.29    8) netcdf/4.9.2
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
 ```
 The last command will show the packages currently loaded in your environment.
 ```bash
