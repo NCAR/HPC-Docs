@@ -42,6 +42,14 @@ module load cmake
 module list
 ```
 The last command will show the packages currently loaded in your environment.
+```
+Currently Loaded Modules:
+  1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3    9) cmake/3.26.6
+  2) craype/2.7.31       4) ncarcompilers/1.0.0   6) cray-mpich/8.1.29    8) netcdf/4.9.2
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+```
 There are several options to compile the code. It is recommended to use the cmake option to compile the code. 
 ```
 cd WRF
@@ -98,16 +106,18 @@ Default [0] : 0
 [SM] Use OpenMP? Default [N] [y/N] : N
 Configure additional options? Default [N] [y/N] : N
 ```
+You will notice several checks done by the script. If successful, you will notice a new directory: _build.
+Next step is to compile the code using:
+
 ```
 ./compile_new >& compile.log
 ```
+If the compilation is successful, you will see the wrf, ndown, tc, and real executables under _build/main directory.
 ```
-Currently Loaded Modules:
-  1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3    9) cmake/3.26.6
-  2) craype/2.7.31       4) ncarcompilers/1.0.0   6) cray-mpich/8.1.29    8) netcdf/4.9.2
+Compilation with INTEL (ftn/icc): Cray XC
 
-  Where:
-   S:  Module is Sticky, requires --force to unload or purge
+The last command will show the packages currently loaded in your environment.
+
 ```
 The last command will show the packages currently loaded in your environment.
 ```bash
