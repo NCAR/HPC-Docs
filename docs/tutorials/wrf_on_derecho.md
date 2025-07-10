@@ -50,12 +50,12 @@ Currently Loaded Modules:
   Where:
    S:  Module is Sticky, requires --force to unload or purge
 ```
-There are several options to compile the code. It is recommended to use the cmake option to compile the code. 
+There are several options to configure the code. It is recommended to use the WRF CMake option to configure and compile the code. 
 ```
 cd WRF
 ./configure_new
 ```
-Here we choose option 1 to compile with ifx compiler
+Here option 1 is choosen to compile with ifx compiler:
 ```
 Using default build directory : _build
 Using default install directory : /glade/derecho/scratch/biswas/CSG/WRF4.7.1/install
@@ -64,7 +64,7 @@ Using default install directory : /glade/derecho/scratch/biswas/CSG/WRF4.7.1/ins
 !! - Compiler not found, some configurations will not work and will be hidden
 Select configuration [0-1] Default [0] (note !!)  : 1
 ```
-Next, we will be asked to choose options for WRF_CORE, WRF_NESTING,  WRF_CASE, MPI and others. In this tutorial, we are using the options that are frequently used by users. 
+Next, you will be prompted to select options for WRF_CORE, WRF_NESTING, WRF_CASE, MPI, and other relevant settings. For the purpose of this tutorial, commonly used configuration options preferred by researchers have been selected to guide you through a typical setup. 
 ```
 Select option for WRF_CORE from WRF_CORE_OPTIONS [0-4] 
 	0 : ARW
@@ -112,12 +112,16 @@ Next step is to compile the code using:
 ```
 ./compile_new >& compile.log
 ```
-If the compilation is successful, you will see the wrf, ndown, tc, and real executables under _build/main directory.
+Upon successful compilation, the executables wrf, real, ndown, and tc will be generated and located in the _build/main/ directory. Compilation progress and details are recorded in the compile.log file. If the compilation fails, refer to compile.log for diagnostic messages and error information to assist with troubleshooting.
 ```
 Compilation with INTEL (ftn/icc): Cray XC
+We will load the necessary modules for compilation.
 
-The last command will show the packages currently loaded in your environment.
-
+```bash
+module --force purge
+module load ncarenv/24.12
+module reset
+module list
 ```
 The last command will show the packages currently loaded in your environment.
 ```bash
@@ -133,7 +137,7 @@ cd WRF
 ```bash
 ./configure
 ```
-The above command detects the system architecture and other environment options (e.g. NETCDF). Here, we are compiling the code with the Intel compiler shown above in the loaded modules.
+The ./configure command automatically detects the system architecture and environment settings, such as the availability of required libraries like NETCDF. In this example, the code is compiled using the Intel compiler suite, as specified in the currently loaded modules.
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
 We opted for: (dmpar) INTEL (ftn/icc): Cray XC (50) and then basic nesting (1). 
 ```bash
@@ -181,14 +185,15 @@ Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 
 
 Configuration successful! 
 ```
-A configure.wrf is created that contains compilation options, rules, etc., specific to
-Derecho, and can be edited to change compile options, if desired.
-The next step is to compile the WRF code (shown below). Here, we used the most commonly used option "em_real" (Eulerian Mass grid – real data case] and added as an argument.
-It is recommended to redirect the compilation log to a file (e.g. compile.log). The syntax to redirect the log file will vary depending on the $SHELL (here it is bash).
+Upon successful execution of the ./configure command, a configure.wrf file is generated. This file includes compilation settings and rules tailored to your system environment (e.g., Derecho). Advanced users may edit this file to modify specific compile options if needed.
+
+To compile WRF, use the ./compile command with the desired case option. In this tutorial, we compile the em_real case (Eulerian Mass grid for real-data simulations), which is the most commonly used option:
 
 ```bash
 ./compile em_real >compile.log 2>&1 &
 ```
+Note: It is strongly recommended to redirect the output of the compile process to a log file (e.g., compile.log) for easier debugging in case of errors. The redirection syntax may differ based on the shell used; the example above is for bash.
+
 After the compilation is finished, if successful, you will see the following lines at the end of the compile.log file.  
 ```bash
 ==========================================================================
