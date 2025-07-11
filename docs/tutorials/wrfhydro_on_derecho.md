@@ -1,12 +1,13 @@
-# How to compile and conduct a basic run with WRF on Derecho 
+# How to compile and conduct a basic run with WRF Hydro on Derecho 
 
 !!! info "About this page"
-    This documentation provides information on how to download and compile WRF and WPS on NSF NCAR Derecho.
+    This documentation provides information on how to download and compile WRF Hydro and WPS on NSF NCAR Derecho HPC.
+    This tutorial is based on the instructions provided in the WRF Hydro ([documentation](https://wrf-hydro.readthedocs.io/en/latest/appendices.html)).
     Also, an example of a PBS script is provided to help new users get an idea of how to submit batch jobs efficiently on the system, including setting resource requests, loading modules, and launching the WRF executable.
 ---
 
 ## Obtaining WRF and WPS code 
-The WRF and WPS codes can be downloaded from 
+The WRF Hydro and WPS codes can be downloaded from 
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
 If you do not plan to modify the WRF and WPS code, you can use any (latest version recommended) of the pre-compiled versions of the code available on Derecho at:
