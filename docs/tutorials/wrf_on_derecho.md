@@ -119,16 +119,17 @@ We will load the necessary modules for compilation.
 
 ```bash
 module --force purge
-module load ncarenv/24.12
+module load ncarenv/23.06
 module reset
 module list
 ```
 The last command will show the packages currently loaded in your environment.
 ```bash
 Currently Loaded Modules:
-  1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3
-  2) craype/2.7.31       4) ncarcompilers/1.0.0   6) cray-mpich/8.1.29    8) netcdf/4.9.2
+  1) ncarenv/23.06 (S)   2) craype/2.7.20   3) intel/2023.0.0   4) ncarcompilers/1.0.0   5) cray-mpich/8.1.25   6) hdf5/1.12.2   7) netcdf/4.9.2
 
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
 ```
 Once modules are loaded, follow the steps to configure and compile the code.
 ```bash
