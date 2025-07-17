@@ -330,7 +330,7 @@ Now, WPS and WRF codes are compiled, and the necessary executables are obtained.
 
 ## Submitting jobs
 WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
-To know more about PBS batch jobs, please refer to the ([PBS batch jobs scripts])(https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/)).
+To know more about PBS batch jobs, please refer to the ([PBS batch jobs scripts](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/)).
 
 Below is a sample job to run WRF using 1 node and utilizing 128 processors. 
 ```bash
