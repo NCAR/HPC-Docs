@@ -56,9 +56,9 @@ Currently Loaded Modules:
   Where:
    S:  Module is Sticky, requires --force to unload or purge
 ```
-**Configuring the Build**
+##Configuring the Build
 Once the environment is set up, you can configure the code for compilation. It is strongly recommended to use the CMake-based configuration option provided with recent versions of WRF, as it simplifies and standardizes the build process.
-**Configuring WRF with CMake**
+##Configuring WRF with CMake
 Once your environment is set up and the WRF code is downloaded and extracted, navigate into the WRF source directory and initiate the configuration process using the CMake-based configuration script:
 ```
 cd WRF
@@ -230,7 +230,7 @@ Type the command
 ls main/*.exe
 ```
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
-**Compiling the WRF Preprocessing System (WPS)**
+##Compiling the WRF Preprocessing System (WPS)
 Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF.
 
 Navigate to the WPS source directory. If you are following the standard folder structure, this can be done with:
