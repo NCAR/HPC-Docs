@@ -355,4 +355,4 @@ To submit a batch job, use the `qsub` command followed by the name of your PBS b
 ```bash
 qsub script_name
 ```
-To know more about stating and managing jobs, please refer to the ([documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/)).
+To know more about starting and managing jobs, please refer to the ([documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/)).
