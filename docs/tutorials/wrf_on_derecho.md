@@ -1,4 +1,4 @@
-# How to compile and conduct a basic run with WRF on Derecho 
+# How to compile and conduct a basic WRF on Derecho 
 
 !!! info "About this page"
     This documentation provides information on how to download and compile WRF and WPS on NSF NCAR Derecho.
@@ -9,20 +9,24 @@
 The WRF and WPS codes can be downloaded from 
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
-If you do not plan to modify the WRF and WPS code, you can use any (latest version recommended) of the pre-compiled versions of the code available on Derecho at:
+If you do not plan to modify the WRF and WPS code, you can use (latest version recommended) the pre-compiled versions of the code available on Derecho at:
 ```
 /glade/work/wrfhelp/derecho_pre_compiled_code
 ```
-Copy the version you want to run to your working directory using:
+Copy the version you want to run to your working directory:
 ```
 cp -r /glade/work/wrfhelp/derecho_pre_compiled_code/wrfv4.7.1 WRF
 cp -r /glade/work/wrfhelp/derecho_pre_compiled_code/wpsv4.6.0_jb WPS
 ```
-However, if you plan to modify the code, you may download the code by cloning the latest branch of the WRF repository [wrf-model GitHub repository](https://github.com/wrf-model/WRF). 
+If you intend to modify the WRF code and contribute changes back to the official repository, it is recommended that you clone the latest development branch directly from the official WRF repository [wrf-model GitHub repository](https://github.com/wrf-model/WRF). Please consult ([WRF support](https://www.mmm.ucar.edu/models/wrf/support)) for more information about the process and requirements.
+
+To clone the latest version (currently v4.7.1), use the following command:
 
 ```bash
 git clone --recurse-submodule --branch v4.7.1 https://github.com/wrf-model/WRF.git
 ```
+This will create a local copy of the repository that you can edit and manage using Git.
+
 Next, download the WRF Preprocessing System ([WPS code](https://github.com/wrf-model/WPS/releases)). 
 Untar and unzip the downloaded file. 
 ```bash
