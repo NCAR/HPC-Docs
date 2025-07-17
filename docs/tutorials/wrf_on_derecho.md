@@ -56,9 +56,9 @@ Currently Loaded Modules:
   Where:
    S:  Module is Sticky, requires --force to unload or purge
 ```
-##Configuring the Build
+## Configuring the Build
 Once the environment is set up, you can configure the code for compilation. It is strongly recommended to use the CMake-based configuration option provided with recent versions of WRF, as it simplifies and standardizes the build process.
-##Configuring WRF with CMake
+## Configuring WRF with CMake
 Once your environment is set up and the WRF code is downloaded and extracted, navigate into the WRF source directory and initiate the configuration process using the CMake-based configuration script:
 ```
 cd WRF
@@ -123,7 +123,7 @@ Next step is to compile the code using:
 ```
 Upon successful compilation, the executables wrf, real, ndown, and tc will be generated and located in the _build/main/ directory. Compilation progress and details are recorded in the compile.log file. If the compilation fails, refer to compile.log for diagnostic messages and error information to assist with troubleshooting.
 ```
-**Compiling WRF with Older Intel Compilers (ftn/icc) on Derecho**
+## Compiling WRF with Older Intel Compilers (ftn/icc) on Derecho
 This section outlines how to compile WRF using the classic Intel compiler suite (ftn/icc) on Derecho’s Cray XC system. This method is useful if you prefer using Intel's traditional compilers rather than the newer oneAPI LLVM-based compilers.
 
 
@@ -230,7 +230,7 @@ Type the command
 ls main/*.exe
 ```
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
-##Compiling the WRF Preprocessing System (WPS)
+## Compiling the WRF Preprocessing System (WPS)
 Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF.
 
 Navigate to the WPS source directory. If you are following the standard folder structure, this can be done with:
@@ -330,6 +330,7 @@ Now, WPS and WRF codes are compiled, and the necessary executables are obtained.
 
 ## Submitting jobs
 WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
+To know more about PBS batch jobs, please refer to the ([PBS batch jobs scripts])(https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/)).
 
 Below is a sample job to run WRF using 1 node and utilizing 128 processors. 
 ```bash
