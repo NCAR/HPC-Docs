@@ -27,8 +27,10 @@ git clone --recurse-submodule --branch v4.7.1 https://github.com/wrf-model/WRF.g
 ```
 This will create a local copy of the repository that you can edit and manage using Git.
 
-Next, download the WRF Preprocessing System ([WPS code](https://github.com/wrf-model/WPS/releases)). 
-Untar and unzip the downloaded file. 
+After downloading the WRF model, the next step is to download and extract the WRF Preprocessing System ([WPS](https://github.com/wrf-model/WPS/releases)).
+
+Use the following command to extract the downloaded archive:
+
 ```bash
 tar -xvf WPS-4.6.0.tar.gz
 ```
@@ -45,7 +47,7 @@ module reset
 module load cmake
 module list
 ```
-The last command will show the packages currently loaded in your environment.
+The final command, module list, will display all currently loaded modules in your environment. A typical setup may look like:
 ```
 Currently Loaded Modules:
   1) ncarenv/24.12 (S)   3) intel/2024.2.1        5) libfabric/1.15.2.0   7) hdf5/1.12.3    9) cmake/3.26.6
@@ -54,12 +56,15 @@ Currently Loaded Modules:
   Where:
    S:  Module is Sticky, requires --force to unload or purge
 ```
-There are several options to configure the code. It is recommended to use the WRF CMake option to configure and compile the code. 
+**Configuring the Build**
+Once the environment is set up, you can configure the code for compilation. It is strongly recommended to use the CMake-based configuration option provided with recent versions of WRF, as it simplifies and standardizes the build process.
+**Configuring WRF with CMake**
+Once your environment is set up and the WRF code is downloaded and extracted, navigate into the WRF source directory and initiate the configuration process using the CMake-based configuration script:
 ```
 cd WRF
 ./configure_new
 ```
-Here option 1 is choosen to compile with ifx compiler:
+You will be prompted to select a compiler configuration. For this setup, select option 1 to compile WRF using the Intel oneAPI LLVM compilers (ifx/icx):
 ```
 Using default build directory : _build
 Using default install directory : /glade/derecho/scratch/biswas/CSG/WRF4.7.1/install
@@ -68,7 +73,7 @@ Using default install directory : /glade/derecho/scratch/biswas/CSG/WRF4.7.1/ins
 !! - Compiler not found, some configurations will not work and will be hidden
 Select configuration [0-1] Default [0] (note !!)  : 1
 ```
-Next, you will be prompted to select options for WRF_CORE, WRF_NESTING, WRF_CASE, MPI, and other relevant settings. For the purpose of this tutorial, commonly used configuration options preferred by researchers have been selected to guide you through a typical setup. 
+Next, you will be prompted to choose options for various build components, such as WRF core type, nesting capability, case type, and MPI support. For most research applications, the default or commonly selected options are sufficient. The default values are shown. You can press Enter/Return to select the default options. 
 ```
 Select option for WRF_CORE from WRF_CORE_OPTIONS [0-4] 
 	0 : ARW
@@ -118,8 +123,11 @@ Next step is to compile the code using:
 ```
 Upon successful compilation, the executables wrf, real, ndown, and tc will be generated and located in the _build/main/ directory. Compilation progress and details are recorded in the compile.log file. If the compilation fails, refer to compile.log for diagnostic messages and error information to assist with troubleshooting.
 ```
-Compilation with INTEL (ftn/icc): Cray XC
-We will load the necessary modules for compilation.
+**Compiling WRF with Older Intel Compilers (ftn/icc) on Derecho**
+This section outlines how to compile WRF using the classic Intel compiler suite (ftn/icc) on Derecho’s Cray XC system. This method is useful if you prefer using Intel's traditional compilers rather than the newer oneAPI LLVM-based compilers.
+
+
+Start by purging any previously loaded modules and loading the appropriate environment for Intel 2023 compilers:
 
 ```bash
 module --force purge
@@ -127,7 +135,7 @@ module load ncarenv/23.06
 module reset
 module list
 ```
-The last command will show the packages currently loaded in your environment.
+The module list command will display all currently loaded modules, which should look similar to the following:
 ```bash
 Currently Loaded Modules:
   1) ncarenv/23.06 (S)   2) craype/2.7.20   3) intel/2023.0.0   4) ncarcompilers/1.0.0   5) cray-mpich/8.1.25   6) hdf5/1.12.2   7) netcdf/4.9.2
@@ -135,16 +143,21 @@ Currently Loaded Modules:
   Where:
    S:  Module is Sticky, requires --force to unload or purge
 ```
-Once modules are loaded, follow the steps to configure and compile the code.
+Navigate to the WRF source directory and start the configuration process:
 ```bash
 cd WRF
 ```
 ```bash
 ./configure
 ```
-The ./configure command automatically detects the system architecture and environment settings, such as the availability of required libraries like NETCDF. In this example, the code is compiled using the Intel compiler suite, as specified in the currently loaded modules.
+The ./configure script will detect your system architecture and loaded environment settings, including available libraries like NetCDF.
+
+You will then be prompted to choose a compilation option. For Derecho, select:
+```
+50. (dmpar)  INTEL (ftn/icc): Cray XC
+```
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
-We opted for: (dmpar) INTEL (ftn/icc): Cray XC (50) and then basic nesting (1). 
+Next, select the desired nesting option. For most applications, "basic nesting" (option 1) is sufficient:
 ```bash
 checking for perl5... no
 checking for perl... found /glade/u/apps/derecho/23.09/opt/view/bin/perl (perl)
@@ -190,7 +203,7 @@ Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 
 
 Configuration successful! 
 ```
-Upon successful execution of the ./configure command, a configure.wrf file is generated. This file includes compilation settings and rules tailored to your system environment (e.g., Derecho). Advanced users may edit this file to modify specific compile options if needed.
+Upon successful execution of the ./configure command, a configure.wrf file is generated. This file includes compilation settings and rules tailored to Derecho. Advanced users may edit this file to modify specific compile options if needed.
 
 To compile WRF, use the ./compile command with the desired case option. In this tutorial, we compile the em_real case (Eulerian Mass grid for real-data simulations), which is the most commonly used option:
 
@@ -211,25 +224,26 @@ build completed: Wed 23 Apr 2025 10:39:40 AM MDT
 -rwxr-xr-x 1 biswas ncar 59119872 Apr 23 10:38 main/wrf.exe
 ==========================================================================
 ```
-If the build finishes successfully, a message will be printed, and the four executables (ndown.exe, real.exe, tc.exe, wrf.exe) will be present in the main directory.
+If the build finishes successfully, a message will be printed, and the four executables (ndown.exe, real.exe, tc.exe, wrf.exe) will be present in the WRF/main directory.
 Type the command
 ```bash
-ls -ls main/*.exe
+ls main/*.exe
 ```
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
+**Compiling the WRF Preprocessing System (WPS)**
+Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF.
 
-The next step is to compile the WPS code.
+Navigate to the WPS source directory. If you are following the standard folder structure, this can be done with:
 
 ```bash
 
 cd ../WPS-4.6.0
 ```
-A good practice is to set the WRF_DIR environment variable pointing to the WRF installation. 
-
+WPS needs to know where your compiled WRF code resides. Set the WRF_DIR environment variable to point to your WRF installation directory:
 ```bash
 export WRF_DIR=../WRF
 ```
-In the WPS, JASPERINC and JASPERLIB refer to the JasPer library, which is used for reading and writing GRIB2 files — a common format for meteorological data.
+WPS requires the JasPer library to handle GRIB2 input files (a common format for meteorological datasets). Set the following environment variables to point to the appropriate library and include paths:
 
 ```bash
 export JASPERINC=/glade/u/home/wrfhelp/UNGRIB_LIBRARIES/include
@@ -312,6 +326,7 @@ If the build finishes successfully, the three executables (ungrib.exe, geogrid.e
 ls *exe
 geogrid.exe  metgrid.exe  ungrib.exe
 ```
+Now, WPS and WRF codes are compiled, and the necessary executables are obtained. Refer to the WRF documentation for next steps. 
 
 ## Submitting jobs
 WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
