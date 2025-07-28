@@ -133,10 +133,11 @@ of data, which may take several hours to completely download.  If the
 download is interrupted, simply restarting the process should pick up
 again, recognizing previously downloaded items.
 
-By default any new files into a temporary staging path at `/glade/campaign/collections/cmip.mirror/.tmp/${USER}/`.
-A system process looks for new user downloads and ingest files into the shared
-`/glade/campaign/collections/cmip.mirror/` space, running several
-times daily.  Once these files are available in the shared repository
+By default any new files will be downloaded into a temporary staging path at
+`/glade/campaign/collections/cmip.mirror/.tmp/${USER}/`. A system process runs several times daily and
+looks for new user downloads to ingest into the shared
+`/glade/campaign/collections/cmip.mirror/` space.
+Once these files are available in the shared repository
 you may manually delete your downloads to immediately regain scratch
 quota, or simply wait for the system to automatically remove your
 temporary staged files 7 days after last access time.
