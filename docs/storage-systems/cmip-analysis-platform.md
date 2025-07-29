@@ -106,7 +106,7 @@ download additional data when necessary.
 
     By default `esgfsearch` will match all known `member_id` for a
     given search, which may result in much more data than necessary
-    depeding on your use case. When only a single variant is required,
+    depending on your use case. When only a single variant is required,
     commonly `r1i1p1f1`; this can be selected with the
     `--member_id` search argument.
 
