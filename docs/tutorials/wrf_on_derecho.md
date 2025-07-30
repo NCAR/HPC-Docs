@@ -303,3 +303,5 @@ For simulations that exceed the ([wall-clock time limits of Derecho](https://nca
 
 Please refer to the Restart documentation to know how to set it up (a) ([WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/running_wrf.html#restart-capability)) and ([WRF Online tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/Restart/index.php)).
 
+## Debugging WRF run issues
+Please refer to the ([WRF Forum Post](https://forum.mmm.ucar.edu/threads/how-to-debug-the-code-to-find-where-the-model-is-stopping.316/) to debug issues when WRF run fails. 
