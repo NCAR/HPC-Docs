@@ -302,7 +302,7 @@ To know more about starting and managing jobs, please refer to the ([documentati
 For simulations that exceed the ([wall-clock time limits of Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/charging/)) or for operational workflows that require regular checkpoints, WRF supports restart capability, allowing you to break up long simulations into multiple shorter runs without losing progress.
 
 Please refer to the Restart documentation to know how to set it up:
-- [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/running_wrf.html#restart-capability)) and
+- [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/running_wrf.html#restart-capability)
 - [WRF Online tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/Restart/index.php).
 
 ## Debugging a Failed WRF Run
