@@ -304,11 +304,7 @@ For simulations that exceed the ([wall-clock time limits of Derecho](https://nca
 Please refer to the Restart documentation to know how to set it up (a) ([WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/running_wrf.html#restart-capability)) and ([WRF Online tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/Restart/index.php)).
 
 ## Debugging a Failed WRF Run
-Please refer to the [WRF Forum Post](https://forum.mmm.ucar.edu/threads/how-to-debug-the-code-to-find-where-the-model-is-stopping.316/) to debug issues when WRF run fails. 
-To know where the code exactly failed, turn on the traceback option in the configure.wrf file. By default, the option is commented out in the file. Uncomment the following as shown below and recompile the code. Check out the rsl files for information on where the WRF failed. 
-```bash
-FCDEBUG         =        -g $(FCNOOPT) -traceback
-```
+
 If your WRF run fails, it's important to identify the exact point of failure to efficiently resolve the issue. Follow these steps:
 
 Enable Debugging with Traceback:
@@ -321,9 +317,6 @@ By default, traceback support is disabled in the configure.wrf file. To enable i
 
 - Uncomment and modify it to the following:
 
-bash
-Copy
-Edit
 ```bash
 FCDEBUG         =        -g $(FCNOOPT) -traceback
 ```
@@ -331,11 +324,11 @@ Save the file and recompile WRF.
 
 Recompile the Model:
 
-After updating configure.wrf, recompile WRF using the appropriate compile command (e.g., ./compile em_real).
+- After updating configure.wrf, recompile WRF using the appropriate compile command (e.g., ./compile em_real).
 
 Analyze the Log Files:
 
-After a failed run, check the rsl.out.* and rsl.error.* files in your run directory. These files contain the output from each processor and often indicate where and why the model stopped.
+- After a failed run, check the rsl.out.* and rsl.error.* files in your run directory. These files contain the output from each processor and often indicate where and why the model stopped.
 
 Further Guidance:
 
