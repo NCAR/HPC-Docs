@@ -139,26 +139,13 @@ cd WRF
 ```
 The ./configure script will detect your system architecture and loaded environment settings, including available libraries like NetCDF.
 
-You will then be prompted to choose a compilation option. For Derecho, select:
+You will then be prompted to choose a compilation option. For INTEL (ftn/icc), select:
 ```
 50. (dmpar)  INTEL (ftn/icc): Cray XC
 ```
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
 Next, select the desired nesting option. For most applications, "basic nesting" (option 1) is sufficient:
 ```bash
-checking for perl5... no
-checking for perl... found /glade/u/apps/derecho/23.09/opt/view/bin/perl (perl)
-Will use NETCDF in dir: /glade/u/apps/derecho/23.09/spack/opt/spack/netcdf/4.9.2/oneapi/2023.2.1/yzvj
-...
-If you REALLY want Grib2 output from WRF, modify the arch/Config.pl script.
-Right now you are not getting the Jasper lib, from the environment, compiled into WRF.
-
-------------------------------------------------------------------------
-Please select from among the following Linux x86_64 options:
-
-  1. (serial)   2. (smpar)   3. (dmpar)   4. (dm+sm)   PGI (pgf90/gcc)
- ...
- 44. (serial)  45. (smpar)  46. (dmpar)  47. (dm+sm)   CRAY CCE (ftn $(NOOMP)/cc): Cray XE and XC
  48. (serial)  49. (smpar)  50. (dmpar)  51. (dm+sm)   INTEL (ftn/icc): Cray XC
  52. (serial)  53. (smpar)  54. (dmpar)  55. (dm+sm)   PGI (pgf90/pgcc)
  ...
