@@ -315,11 +315,11 @@ Enable Debugging with Traceback:
 
 By default, traceback support is disabled in the configure.wrf file. To enable it:
 
-Open your configure.wrf file in a text editor.
+- Open your configure.wrf file in a text editor.
 
-Locate the line that defines FCDEBUG. It may be commented out.
+- Locate the line that defines FCDEBUG. It may be commented out.
 
-Uncomment and modify it to the following:
+- Uncomment and modify it to the following:
 
 bash
 Copy
