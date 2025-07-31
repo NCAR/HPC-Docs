@@ -8,7 +8,7 @@
 ## Obtaining WRF and WPS code 
 The WRF and WPS codes can be downloaded from 
 the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
-Please refer to the ([download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html)) for more information.
+Please refer to the [download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html) for more information.
 If you do not plan to modify the WRF and WPS code, you can use (latest version recommended) the pre-compiled versions of the code available on Derecho at:
 ```
 /glade/work/wrfhelp/derecho_pre_compiled_code
