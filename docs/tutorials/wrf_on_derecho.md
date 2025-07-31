@@ -129,9 +129,6 @@ The module list command will display all currently loaded modules, which should 
 ```bash
 Currently Loaded Modules:
   1) ncarenv/23.06 (S)   2) craype/2.7.20   3) intel/2023.0.0   4) ncarcompilers/1.0.0   5) cray-mpich/8.1.25   6) hdf5/1.12.2   7) netcdf/4.9.2
-
-  Where:
-   S:  Module is Sticky, requires --force to unload or purge
 ```
 Navigate to the WRF source directory and start the configuration process:
 ```bash
@@ -152,12 +149,7 @@ Next, select the desired nesting option. For most applications, "basic nesting" 
 checking for perl5... no
 checking for perl... found /glade/u/apps/derecho/23.09/opt/view/bin/perl (perl)
 Will use NETCDF in dir: /glade/u/apps/derecho/23.09/spack/opt/spack/netcdf/4.9.2/oneapi/2023.2.1/yzvj
-ADIOS2 not set in environment. Will configure WRF for use without.
-HDF5 not set in environment. Will configure WRF for use without.
-PHDF5 not set in environment. Will configure WRF for use without.
-Will use 'time' to report timing information
-
-
+...
 If you REALLY want Grib2 output from WRF, modify the arch/Config.pl script.
 Right now you are not getting the Jasper lib, from the environment, compiled into WRF.
 
@@ -206,6 +198,7 @@ Type the command
 ls main/*.exe
 ```
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
+
 ## Compiling the WRF Preprocessing System (WPS)
 Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF.
 
@@ -271,7 +264,7 @@ Now, WPS and WRF codes are compiled, and the necessary executables are obtained.
 
 ## Submitting jobs
 WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
-To know more about PBS batch jobs, please refer to the ([PBS batch jobs scripts](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/)).
+To know more about PBS batch jobs, please refer to the [PBS batch jobs scripts](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/).
 
 Below is a sample job to run WRF using 1 node and utilizing 128 processors. 
 ```bash
@@ -296,10 +289,10 @@ To submit a batch job, use the `qsub` command followed by the name of your PBS b
 ```bash
 qsub script_name
 ```
-To know more about starting and managing jobs, please refer to the ([documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/)).
+To know more about starting and managing jobs, please refer to the [documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/).
 
 ## Running Long Simulations with Restart Capability
-For simulations that exceed the ([wall-clock time limits of Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/charging/)) or for operational workflows that require regular checkpoints, WRF supports restart capability, allowing you to break up long simulations into multiple shorter runs without losing progress.
+For simulations that exceed the [wall-clock time limits of Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/charging/) or for operational workflows that require regular checkpoints, WRF supports restart capability, allowing you to break up long simulations into multiple shorter runs without losing progress.
 
 Please refer to the Restart documentation to know how to set it up:
 - [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/running_wrf.html#restart-capability)
