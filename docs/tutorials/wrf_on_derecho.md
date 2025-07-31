@@ -112,10 +112,10 @@ Next step is to compile the code using:
 ./compile_new >& compile.log
 ```
 Upon successful compilation, the executables wrf, real, ndown, and tc will be generated and located in the _build/main/ directory. Compilation progress and details are recorded in the compile.log file. If the compilation fails, refer to compile.log for diagnostic messages and error information to assist with troubleshooting.
-```
-## Compiling WRF with Older Intel Compilers (ftn/icc) on Derecho
-This section outlines how to compile WRF using the classic Intel compiler suite (ftn/icc) on Derecho’s Cray XC system. This method is useful if you prefer using Intel's traditional compilers rather than the newer oneAPI LLVM-based compilers.
 
+## Compiling WRF with Older Intel Compilers (ftn/icc) on Derecho
+
+This section outlines how to compile WRF using the classic Intel compiler suite (ftn/icc) on Derecho’s Cray XC system. This method is useful if you prefer using Intel's traditional compilers rather than the newer oneAPI LLVM-based compilers.
 
 Start by purging any previously loaded modules and loading the appropriate environment for Intel 2023 compilers:
 
