@@ -23,14 +23,40 @@ If you need a new service or want to deploy a new application, use the **New Req
 
 ### Ticket Field Information
 
-| Field        | Definition                                                                                                              |
-|--------------|-------------------------------------------------------------------------------------------------------------------------|
-| **Summary**  | Short description of your request.                                                                                      |
-| **Reporter** | Not filled automatically,search for and select your name.                                                               |
-| **Description** | Details of your request, including any relevant information, context, or error messages.                             |
-| **Attachment**  | Upload supporting images or log files (instead of pasting long logs in *Description*).                                |
-| **Assignee** | Leave at **Automatic**; the Product Owner (PO) will re-assign as needed.                                                |
-| **Epic Link** | Defaults to **User Requests**,leave unchanged.                                                                         |
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">Field</th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Summary</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Short description of your request.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Reporter</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Not filled automatically, search for and select your name.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Description</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Details of your request, including any relevant information, context, or error messages.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Attachment</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Upload supporting images or log files (instead of pasting long logs in <strong>Description</strong>).</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Assignee</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Leave at <strong>Automatic</strong>; the Product Owner (PO) will re-assign as needed.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Epic Link</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Defaults to <strong>User Requests</strong>, leave unchanged.</td>
+    </tr>
+  </tbody>
+</table>
 
 After clicking **Create**, you’ll be taken to the *Issues* page where your ticket appears in the backlog. A confirmation email (also sent to the <span title="Product Owner: Role responsible for maximizing product value and prioritizing the backlog."><strong>Product Owner</strong></span>) will include a link to the ticket and the details you submitted.
 
@@ -46,12 +72,32 @@ Use the **Report Issue** form to log bugs or incidents:
 
 ### Ticket Field Information
 
-| Field        | Definition                                                                                                              |
-|--------------|-------------------------------------------------------------------------------------------------------------------------|
-| **Summary**  | Short description of the issue.                                                                                         |
-| **Reporter** | Not filled automatically,search for and select your name.                                                               |
-| **Description** | Detailed explanation of the problem, steps to reproduce, and any error messages.                                     |
-| **Attachment**  | Upload screenshots or log files (instead of pasting long logs in *Description*).                                      |
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">Field</th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Summary</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Short description of the issue.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Reporter</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Not filled automatically, search for and select your name.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Description</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Detailed explanation of the problem, steps to reproduce, and any error messages.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Attachment</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Upload screenshots or log files (instead of pasting long logs in <strong>Description</strong>).</td>
+    </tr>
+  </tbody>
+</table>
 
 Click **Create** to submit your issue. You’ll be redirected to the *Issues* page, where your ticket is listed in the backlog, and receive a confirmation email.
 

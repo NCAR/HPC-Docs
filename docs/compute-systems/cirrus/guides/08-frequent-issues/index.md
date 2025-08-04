@@ -10,6 +10,7 @@ This page lists common problems CIRRUS users run into , and quick pointers to th
 |---------|-----------|
 | Docker build fails in CI or locally | Check your `Dockerfile` base image and dependencies. See the **container build** tips in [create containers](../03-deploying-applications/containerize.md). |
 | Argo CD shows *Sync Failed* | Run `helm lint` locally and verify required values. See **Helm chart deployment** in [adding applications](../03-deploying-applications/additions.md). |
+| Template files placed outside `templates/` directory | Move all Kubernetes manifests (Deployment, Service, Ingress, etc.) into the chart’s `templates/` folder - Argo CD and Helm only render files inside this directory. |
 
 ## Authentication & Access
 
@@ -35,6 +36,7 @@ This page lists common problems CIRRUS users run into , and quick pointers to th
 ## When in Doubt
 
 If a problem persists:
+
 1. Consult the full documentation page linked above.
 2. Search Slack/Jira for existing reports.
 3. [Create a ticket](../02-interact-with-cirrus-team/create-tickets.md) with logs, steps to reproduce, and screenshots.

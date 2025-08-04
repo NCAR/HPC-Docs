@@ -47,7 +47,7 @@ One of the services available in this environment is [Argo CD](https://argo-cd.r
 
 ### Helm Chart Structure
 
-Ensure your Helm chart follows the standard Kubernetes structure. Your chart directory should be organized like this:
+Ensure your Helm chart follows the standard Kubernetes structure. For a standalone web application, a Helm chart directory should be organized like this (more complex apps may add additional manifests such as External Secrets, Persistent Volumes, etc., but for hosting a basic live website this is the bare-minimum example):
 
 ```
 k8s/

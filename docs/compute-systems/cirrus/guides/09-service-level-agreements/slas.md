@@ -4,13 +4,36 @@ This Service Level Agreement (SLA) outlines the relationship between the CIRRUS 
 
 NSF NCAR | CISL operates Compute, Storage & Network hardware in robust Data Centers at multiple organizational facilities. The on-premise cloud offers users the ability to utilize those highly available, organizationally supported, compute resources for approved use cases. This includes access to routable network space and UCAR Domain Name Systems (DNS). These resources provide a supplement to computing needs that aren't fulfilled by the HPC offering, public cloud, or what is available locally.
 
-| **Primary Services** | **Service Dependencies** |
-|----------------------|--------------------------|
-| Kubernetes Cluster  | Server nodes             |
-| Argo CD             | Networking               |
-| Harbor              | GLADE mount              |
-| OpenBao             |                          |
-| JupyterHub / Binder |                          |
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;"><strong>Primary Services</strong></th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;"><strong>Service Dependencies</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Kubernetes Cluster</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Server nodes</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Argo CD</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Networking</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Harbor</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">GLADE mount</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">OpenBao</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"></td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">JupyterHub / Binder</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"></td>
+    </tr>
+  </tbody>
+</table>
 
 **Audience:** Service Technical Staff, System Administrators, On & Off Site Personnel, and Authorized Affiliates
 
@@ -25,19 +48,57 @@ NSF NCAR | CISL operates Compute, Storage & Network hardware in robust Data Cent
 
 ### Definitions
 
-| **Severity** | **Description** |
-|--------------|-----------------|
-| **Critical** | Complete loss of a core service or major functionality due to failure or incident (e.g., site-wide outage).<br><br>No workaround is available that will restore service reliably within one (1) hour. This may include a site wide security incident. |
-| **Urgent**   | Significant degradation of a critical service or full failure of a non-critical service impacting productivity.<br><br>A workaround may exist but may not fully restore service. |
-| **Regular**  | Minor or extended functionality issues - basic functionality is present.<br><br>A workaround is available. Includes feature requests, non-urgent upgrades, or inquiries. |
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;"><strong>Severity</strong></th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;"><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Critical</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Complete loss of a core service or major functionality due to failure or incident (e.g., site-wide outage).<br><br>No workaround is available that will restore service reliably within one (1) hour. This may include a site wide security incident.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Urgent</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Significant degradation of a critical service or full failure of a non-critical service impacting productivity.<br><br>A workaround may exist but may not fully restore service.</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Regular</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Minor or extended functionality issues - basic functionality is present.<br><br>A workaround is available. Includes feature requests, non-urgent upgrades, or inquiries.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Response Times
 
-| **Response Level** | **Business Hours**<br>(M-F 08:00 - 17:00 MST) | **After Hours** |
-|--------------------|------------------------------------------------|-----------------|
-| **Critical**       | Response within 2 hours                       | Addressed at start of next business day |
-| **Urgent**         | Response within 4 hours                       | Addressed at start of next business day |
-| **Regular**        | Reviewed during business hours                 | Reviewed during business hours |
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;"><strong>Response Level</strong></th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;"><strong>Business Hours</strong><br>(M-F 08:00 - 17:00 MST)</th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;"><strong>After Hours</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Critical</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Response within 2 hours</td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Addressed at start of next business day</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Urgent</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Response within 4 hours</td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Addressed at start of next business day</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Regular</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Reviewed during business hours</td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Reviewed during business hours</td>
+    </tr>
+  </tbody>
+</table>
 
 !!! important
     There is currently no after-hours support. All issues occurring after business hours will be triaged at the start of the next workday.

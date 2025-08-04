@@ -26,7 +26,7 @@ CIRRUS uses **[Harbor](https://goharbor.io/)**, an open-source container registr
 
 - **All UCAR staff** in Active Directory have read-only access to public projects.
 - **Unauthenticated users** can still pull images from public repositories.
-- **Project creation and image pushing** are restricted to administrators.
+- **Project creation** is restricted to administrators.
 
 ---
 
@@ -35,7 +35,6 @@ CIRRUS uses **[Harbor](https://goharbor.io/)**, an open-source container registr
 If you need to:
 
 - Create a private project, or
-- Push images to Harbor,
 
 Please submit a **[Jira request](https://jira.ucar.edu/secure/CreateIssueDetails!init.jspa?pid=18470&issuetype=10903&summary=User%20Request:)**. Be sure to include:
 

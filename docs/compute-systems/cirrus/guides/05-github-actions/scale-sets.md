@@ -7,7 +7,7 @@ CIRRUS has the ability to connect to GitHub repositories and automatically provi
 
 See this Github documentation for in depth PAT details [Github PAT Documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-- Go to Github.com
+- Go to [GitHub.com](https://github.com)
 - In the upper right click your profile icon and choose settings
 - On the left menu choose `Developer Settings`, it should be the last item in the list
 - Click `Personal Access Tokens`
@@ -28,7 +28,7 @@ Your token will be displayed and this is the only time you can view it without r
 
 ### Adding a secret to NCAR OpenBao
 
-- Navigate to https://bao.k8s.ucar.edu, change the authentication method to OIDC, and log in with your UCAR email address and password
+- Open the [OpenBao OIDC login page](https://bao.k8s.ucar.edu/ui/vault/auth?with=oidc) and log in with your UCAR email address and password
 - You will be brought to a screen that resembles this
 
 ![Bao Home Screen](../../media/bao1.png "Bao Home Screen")

@@ -11,12 +11,11 @@ Most well-written code bases include a list of packages required to run, typical
 - `requirements.txt` (for pip)
 - `environment.yml` (for conda or mamba) 
 
-The example below walks through creating a Conda environment from a GitHub repository that includes an `environment.yml`.
+The example below walks through creating a Conda environment from the public GeoCAT-examples repository (https://github.com/NCAR/geocat-examples), which includes an `environment.yml` file named `conda_environment.yml`.
 
 After cloning it into your JupyterHub instance, you can create the environment it uses.
 
   
-*In that repository, the environment file is named: `conda_environment.yml`*
 
 ### Steps:
 

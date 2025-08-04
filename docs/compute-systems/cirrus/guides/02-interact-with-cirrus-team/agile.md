@@ -16,7 +16,7 @@ Agile emphasizes adaptability, short feedback loops, and iterative delivery to e
 
 Waterfall is a traditional, linear project management approach that breaks a project into sequential phases:
 
-**[TODO: Add diagram here – requirements → design → implementation → testing → deployment]**
+![Smartsheet Project Plan](../../media/smartsheet/smartsheet.png "Smartsheet Project Plan")
 
 CIRRUS uses Waterfall to manage overall project status and track milestones and deliverables using <span title="Cloud-based work-management and collaboration platform."><strong>Smartsheet</strong></span>.  
 
@@ -63,26 +63,69 @@ Issues can also be created in **Jira** and added to our Kanban backlog. The PO w
 
 The CIRRUS Kanban board currently implements the following story states:
 
-| State       | Description                                                                    |
-|-------------|--------------------------------------------------------------------------------|
-| Backlog     | New stories that have not yet been fully reviewed and prioritized              |
-| To Do       | Stories have been reviewed and prioritized                                     |
-| Stalled     | Work is on hold for various reasons                                            |
-| In Progress | A team member is actively working the Story                                    |
-| In Review   | PO will check to make sure the Story Acceptance Criteria is met                |
-| Done        | Acceptance Criteria has been verified successfully and the Story is complete   |
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">State</th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Backlog</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">New stories that have not yet been fully reviewed and prioritized</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>To Do</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Stories have been reviewed and prioritized</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Stalled</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Work is on hold for various reasons</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>In Progress</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">A team member is actively working the Story</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>In Review</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">PO will check to make sure the Story Acceptance Criteria is met</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Done</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc;">Acceptance Criteria has been verified successfully and the Story is complete</td>
+    </tr>
+  </tbody>
+</table>
 
-**[TODO: Add screenshot from the actual board for clarity]**
+![CIRRUS Kanban Board](../../media/jira/board.png "CIRRUS Kanban Board")
 
 User Stories are self-assigned by a team member who wants to accomplish the task. A User Story will move from **To Do → In Progress** when it is at the top of the assignee's **To Do** list and they are ready to start. Kanban utilizes WIP limits to help identify bottlenecks and promote moving tasks to **Done**. The CIRRUS project has implemented the following WIP limits:
 
-| Column       | Limit |
-|--------------|-------|
-| Stalled      | 4     |
-| In Progress  | 6     |
-| In Review    | 4     |
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">Column</th>
+      <th style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">Limit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Stalled</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">4</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>In Progress</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">6</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>In Review</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">4</td>
+    </tr>
+  </tbody>
+</table>
 
-**[TODO: Add screenshot here to show the WIP limits]**
+![Kanban WIP Limits](../../media/jira/WIP-limit.png "Kanban WIP Limits")
 
 ## Demonstrations
 
