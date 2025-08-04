@@ -104,14 +104,13 @@ download additional data when necessary.
 
     ---
 
-    By default `esgfsearch` will match all known `member_id` for a
+    By default `esgfsearch` will match all known `member_id` factes for a
     given search, which may result in much more data than necessary
     depending on your use case. When only a single variant is required,
     commonly `r1i1p1f1`; this can be selected with the
     `--member_id` search argument.
 
 ### Downloading
-
 When you are satisfied with your search criteria, simply replace the
 `esgfsearch` command shown above with `esgfdownload` to begin the download
 process. These files will be placed into a temporary staging directory
@@ -121,23 +120,33 @@ We recommend creating a shell script with the final syntax so that it
 can be repeated easily if necessary, or restarted if the download
 process is interrupted.
 
-!!! warning "Check your scratch space!"
+!!! warning inline end "Check your scratch space!"
     Downloading additional data requires you have adequate scratch space available.
     Use `gladequota` [as described here](glade/index.md#gladequota-command) to determine your
     available scratch space and make sure it is large enough to
     accommodate the "download required" data volume reported by
     `esgfsearch`.
-
 Large queries may result in thousands of files and a terabyte (or more)
 of data, which may take several hours to completely download.  If the
 download is interrupted, simply restarting the process should pick up
-again, recognizing previously downloaded items.
+again, recognizing previously downloaded items. Any new files will be downloaded into a temporary staging path at
+`/glade/campaign/collections/cmip.mirror/.tmp/${USER}/`.
+**This space is mapped to the Derecho Scratch filesystem, and
+therefore these temporary files will count against your scratch
+quota.**
 
-By default any new files will be downloaded into a temporary staging path at
-`/glade/campaign/collections/cmip.mirror/.tmp/${USER}/`. A system process runs several times daily and
+A system process runs several times daily and
 looks for new user downloads to ingest into the shared
 `/glade/campaign/collections/cmip.mirror/` space.
 Once these files are available in the shared repository
 you may manually delete your downloads to immediately regain scratch
 quota, or simply wait for the system to automatically remove your
 temporary staged files 7 days after last access time.
+
+`esgfdownload` supports two additional command line arguments that may be useful:
+
+- `--list-paths`: will list the GLADE paths to all the NetCDF files satisfying your query, after
+- `--download-log`: will output the [https://intake-esgf.readthedocs.io/en/latest/logging.html](download log) when complete.
+  This option can be useful in identifying the reason for any download failures.
+
+Again, run `esgfdownload --help` to see all supported options.
