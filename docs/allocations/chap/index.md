@@ -7,14 +7,14 @@ to assess the merit of large computing requests for CISL supercomputers
 and related resources.
 
 NSF NCAR accepts computing proposals from U.S. university researchers
-in the Earth system sciences and closely related sciences who are 
-supported by the U.S. National Science Foundation (NSF). The CHAP 
-recommends action with respect to a prospective user's request on 
-the basis of the computational experimental design, computational 
+in the Earth system sciences and closely related sciences who are
+supported by the U.S. National Science Foundation (NSF). The CHAP
+recommends action with respect to a prospective user's request on
+the basis of the computational experimental design, computational
 effectiveness, and availability of computing resources.
 
 !!! note
-    The next university deadline for submitting Large Allocation Requests will be September 8, 2025.
+    The next university deadline for submitting Large Allocation Requests will be September 9, 2025.
 
 CHAP members, most of whom are from the university community, are
 appointed to three-year terms by the CISL Director. Meetings are
