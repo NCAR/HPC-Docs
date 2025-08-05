@@ -254,6 +254,6 @@ Run `esgfdownload --help` to see all supported options.
     2025-08-05 10:04:45 transfer_time=2.83 [s] at 42.75 [Mb s-1] https://g-52ba3.fd635.8443.data.globus.org/css03_data/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/pr/gn/v20220819/pr_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_185001-194912.nc
     ```
 
-    As we can see from the `--list-paths` option output, one file is contained in the shared repository, while the remaining 5 are in temporary storage.  All are avaialable for immediate access.  **If we were to rerun the same download query the following day, all files would be sourced from the shared repository because the system ingestion process will have completed.**
+    As we can see from the `--list-paths` option output, one file is contained in the shared repository, while the remaining 5 are in temporary storage.  All are available for immediate access.  **If we were to rerun the same download query the following day, all files would be sourced from the shared repository because the system ingestion process will have completed.**
 
     The `--download-log` option is particularly useful for diagnosing download problems.  In this case we can see the first attempt at download failed - presumably due to a down server - but the download ultimately succeeds from an alterative source.
