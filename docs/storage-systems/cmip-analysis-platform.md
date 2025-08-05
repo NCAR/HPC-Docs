@@ -104,7 +104,7 @@ download additional data when necessary.
 
     ---
 
-    By default `esgfsearch` will match all known `member_id` factes for a
+    By default, `esgfsearch` will match all known `member_id` facets for a
     given search, which may result in much more data than necessary
     depending on your use case. When only a single variant is required,
     commonly `r1i1p1f1`; this can be selected with the
