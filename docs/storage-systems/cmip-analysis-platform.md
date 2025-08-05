@@ -44,11 +44,11 @@ download additional data when necessary.
     We restrict the search to the `historical` experiment for two different model sources, at a monthly output frequency.
 
     ```pre
-    $ esgfsearch \
-        --experiment_id historical \
-        --source_id CanESM5 CESM2 \
-        --frequency mon \
-        --variable_id tas
+    esgfsearch \
+      --experiment_id historical \
+      --source_id CanESM5 CESM2 \
+      --frequency mon \
+      --variable_id tas
     ```
     For a complete list of search parameters, run `esgfsearch --help`.
 
@@ -128,8 +128,8 @@ process is interrupted.
     `esgfsearch`.
 Large queries may result in thousands of files and a terabyte (or more)
 of data, which may take several hours to completely download.  If the
-download is interrupted, simply restarting the process should pick up
-again, recognizing previously downloaded items. Any new files will be downloaded into a temporary staging path at
+download is interrupted, simply restarting the download should continue the process,
+recognizing previously downloaded items. Any new files will be downloaded into a temporary staging path at
 `/glade/campaign/collections/cmip.mirror/.tmp/${USER}/`.
 **This space is mapped to the Derecho Scratch filesystem, and
 therefore these temporary files will count against your scratch
@@ -145,8 +145,115 @@ temporary staged files 7 days after last access time.
 
 `esgfdownload` supports two additional command line arguments that may be useful:
 
-- `--list-paths`: will list the GLADE paths to all the NetCDF files satisfying your query, after
-- `--download-log`: will output the [https://intake-esgf.readthedocs.io/en/latest/logging.html](download log) when complete.
+- `--list-paths`: will list the GLADE paths to all the NetCDF files satisfying your query,
+- `--download-log`: will output the [download log](https://intake-esgf.readthedocs.io/en/latest/logging.html) when complete.
   This option can be useful in identifying the reason for any download failures.
 
-Again, run `esgfdownload --help` to see all supported options.
+Run `esgfdownload --help` to see all supported options.
+
+??? example "Searching, downloading, and querying results (click to expand)"
+
+    **Search:**
+
+    Here we search for a particular variant of two models, requesting only the the `pr` and `tas` variables:
+    ```pre
+    esgfsearch \
+      --experiment_id historical \
+      --source_id CanESM5, ACCESS-CM2 \
+      --variable_id pr,tas \
+      --frequency mon \
+      --member_id r10i1p1f1
+
+    ```
+    As we can see from the results of the 6 matching files; one exists in the shared repository and the remaining 5 will require downloading:
+    ```pre
+    #-------------------------------------------------------------------------------
+    # Calling ESGFCatalog().search() with arguments:
+    #          quiet : True
+    #        project : ['CMIP6']
+    #      source_id : ['CanESM5', 'ACCESS-CM2']
+    #  experiment_id : ['historical']
+    #      member_id : ['r10i1p1f1']
+    #      frequency : ['mon']
+    #    variable_id : ['pr', 'tas']
+    #-------------------------------------------------------------------------------
+
+    Summary information for 4 results:
+    mip_era                         [CMIP6]
+    activity_drs                     [CMIP]
+    institution_id    [CCCma, CSIRO-ARCCSS]
+    source_id         [CanESM5, ACCESS-CM2]
+    experiment_id              [historical]
+    member_id                   [r10i1p1f1]
+    table_id                         [Amon]
+    variable_id                   [pr, tas]
+    grid_label                         [gn]
+    dtype: object
+       project mip_era activity_drs institution_id   source_id  ... table_id variable_id grid_label   version                                                 id
+    0    CMIP6   CMIP6         CMIP          CCCma     CanESM5  ...     Amon          pr         gn  20190429  [CMIP6.CMIP.CCCma.CanESM5.historical.r10i1p1f1...
+    4    CMIP6   CMIP6         CMIP          CCCma     CanESM5  ...     Amon         tas         gn  20190429  [CMIP6.CMIP.CCCma.CanESM5.historical.r10i1p1f1...
+    8    CMIP6   CMIP6         CMIP   CSIRO-ARCCSS  ACCESS-CM2  ...     Amon          pr         gn  20220819  [CMIP6.CMIP.CSIRO-ARCCSS.ACCESS-CM2.historical...
+    11   CMIP6   CMIP6         CMIP   CSIRO-ARCCSS  ACCESS-CM2  ...     Amon         tas         gn  20220819  [CMIP6.CMIP.CSIRO-ARCCSS.ACCESS-CM2.historical...
+
+    [4 rows x 12 columns]
+    Determining file sizes...
+
+    --> Search found 6 total files / 438.9 MiB
+    --> Existing: 1 file / 50.02 MiB
+    --> Download required: 5 files / 388.88 MiB
+    ```
+
+    **Download:**
+
+    We can then run `esgfdownload`, requesting the paths of the resulting ouptut files and querying the download log:
+    ```pre
+    esgfdownload \
+      --experiment_id historical \
+      --source_id CanESM5, ACCESS-CM2 \
+      --variable_id pr,tas \
+      --frequency mon \
+      --member_id r10i1p1f1 \
+      --download-log \
+      --list-paths
+
+    [...]
+
+    --> Search found 6 total files / 438.9 MiB
+    --> Existing: 1 file / 50.02 MiB
+    --> Download required: 5 files / 388.88 MiB
+    Proceed with download? [y/N]: y
+
+    /glade/campaign/collections/cmip.mirror/CMIP6/CMIP/CCCma/CanESM5/historical/r10i1p1f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r10i1p1f1_gn_185001-201412.nc
+    /glade/campaign/collections/cmip.mirror/.tmp/benkirk/CMIP6/CMIP/CCCma/CanESM5/historical/r10i1p1f1/Amon/pr/gn/v20190429/pr_Amon_CanESM5_historical_r10i1p1f1_gn_185001-201412.nc
+    /glade/campaign/collections/cmip.mirror/.tmp/benkirk/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/pr/gn/v20220819/pr_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_185001-194912.nc
+    /glade/campaign/collections/cmip.mirror/.tmp/benkirk/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/pr/gn/v20220819/pr_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_195001-201412.nc
+    /glade/campaign/collections/cmip.mirror/.tmp/benkirk/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/tas/gn/v20220819/tas_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_185001-194912.nc
+    /glade/campaign/collections/cmip.mirror/.tmp/benkirk/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/tas/gn/v20220819/tas_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_195001-201412.nc
+
+    2025-08-05 10:04:34 search begin project=['CMIP6'], source_id=['CanESM5', 'ACCESS-CM2'], experiment_id=['historical'], member_id=['r10i1p1f1'], frequency=['mon'], variable_id=['pr', 'tas'], type=['Dataset'], latest=[True], retracted=[False]
+    2025-08-05 10:04:34 └─GlobusESGFIndex('ESGF2-US-1.5-Catalog') results=14 response_time=0.37
+    2025-08-05 10:04:34 combine_time=0.01
+    2025-08-05 10:04:34 search end total_time=0.39
+    2025-08-05 10:04:34 file info begin
+    2025-08-05 10:04:34 └─GlobusESGFIndex('ESGF2-US-1.5-Catalog') results=20 response_time=0.22
+    2025-08-05 10:04:34 combine_time=0.00
+    2025-08-05 10:04:34 file info end total_time=0.22
+    2025-08-05 10:04:38 file info begin
+    2025-08-05 10:04:38 └─GlobusESGFIndex('ESGF2-US-1.5-Catalog') results=20 response_time=0.00
+    2025-08-05 10:04:38 combine_time=0.00
+    2025-08-05 10:04:38 file info end total_time=0.00
+    2025-08-05 10:04:42 download failed http://esgf-data04.diasjp.net/thredds/fileServer/esg_dataroot/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/tas/gn/v20220819/tas_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_185001-194912.nc
+    2025-08-05 10:04:42 download failed http://esgf-data04.diasjp.net/thredds/fileServer/esg_dataroot/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/pr/gn/v20220819/pr_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_195001-201412.nc
+    2025-08-05 10:04:42 download failed http://esgf-data04.diasjp.net/thredds/fileServer/esg_dataroot/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/pr/gn/v20220819/pr_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_185001-194912.nc
+    2025-08-05 10:04:42 download failed http://esgf-data04.diasjp.net/thredds/fileServer/esg_dataroot/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/tas/gn/v20220819/tas_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_195001-201412.nc
+    2025-08-05 10:04:42 download failed http://esgf-data04.diasjp.net/thredds/fileServer/esg_dataroot/CMIP6/CMIP/CCCma/CanESM5/historical/r10i1p1f1/Amon/pr/gn/v20190429/pr_Amon_CanESM5_historical_r10i1p1f1_gn_185001-201412.nc
+    2025-08-05 10:04:45 transfer_time=2.24 [s] at 26.06 [Mb s-1] https://g-52ba3.fd635.8443.data.globus.org/css03_data/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/tas/gn/v20220819/tas_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_195001-201412.nc
+    2025-08-05 10:04:45 transfer_time=2.32 [s] at 25.85 [Mb s-1] https://g-52ba3.fd635.8443.data.globus.org/css03_data/CMIP6/CMIP/CCCma/CanESM5/historical/r10i1p1f1/Amon/pr/gn/v20190429/pr_Amon_CanESM5_historical_r10i1p1f1_gn_185001-201412.nc
+    2025-08-05 10:04:45 transfer_time=2.50 [s] at 31.45 [Mb s-1] https://g-52ba3.fd635.8443.data.globus.org/css03_data/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/pr/gn/v20220819/pr_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_195001-201412.nc
+    2025-08-05 10:04:45 transfer_time=2.53 [s] at 35.46 [Mb s-1] https://g-52ba3.fd635.8443.data.globus.org/css03_data/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/tas/gn/v20220819/tas_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_185001-194912.nc
+    2025-08-05 10:04:45 transfer_time=2.83 [s] at 42.75 [Mb s-1] https://g-52ba3.fd635.8443.data.globus.org/css03_data/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r10i1p1f1/Amon/pr/gn/v20220819/pr_Amon_ACCESS-CM2_historical_r10i1p1f1_gn_185001-194912.nc
+    ```
+
+    As we can see from the `--list-paths` option output, one file is contained in the shared repository, while the remaining 5 are in temporary storage.  All are avaialable for immediate access.  **If we were to rerun the same download query the following day, all files would be sourced from the shared repository because the system ingestion process will have completed.**
+
+    The `--download-log` option is particularly useful for diagnosing download problems.  In this case we can see the first attempt at download failed - presumably due to a down server - but the download ultimately succeeds from an alterative source.
