@@ -125,7 +125,6 @@ process is interrupted.
     Use `gladequota` [as described here](glade/index.md#gladequota-command) to determine your
     available scratch space and make sure it is large enough to
     accommodate the "download required" data volume reported by
-If you need your scratch quota to be extended for a limited time, please reach out to [help@ucar.edu](mailto:help@ucar.edu) with a brief description of your project, the reason for the request, the amount of additional space needed, and the expected duration of use.
 Large queries may result in thousands of files and a terabyte (or more)
 of data, which may take several hours to completely download.  If the
 download is interrupted, simply restarting the download should continue the process,
@@ -133,7 +132,10 @@ recognizing previously downloaded items. Any new files will be downloaded into a
 `/glade/campaign/collections/cmip.mirror/.tmp/${USER}/`.
 **This space is mapped to the Derecho Scratch filesystem, and
 therefore these temporary files will count against your scratch
-quota.**
+quota.** If you need your scratch quota to be extended for a limited
+time, please reach out to [help@ucar.edu](mailto:help@ucar.edu) with a
+brief description of your project, the reason for the request, the
+amount of additional space needed, and the expected duration of use.
 
 A system process runs several times daily and
 looks for new user downloads to ingest into the shared
