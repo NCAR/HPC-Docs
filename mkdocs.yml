@@ -313,6 +313,25 @@ plugins:
   - redirects:
       redirect_maps:
         'nhug/index.md': 'https://nhug.readthedocs.io/en/latest/'
+        # CIRRUS redirects - OLD paths -> NEW numbered guide paths
+        # This will be removed before 01/01/2026 and does not need to be maintained
+        'compute-systems/cirrus/index.md': 'compute-systems/cirrus/guides/01-intro/index.md'
+        'compute-systems/cirrus/users/agile.md': 'compute-systems/cirrus/guides/02-interact-with-cirrus-team/agile.md'
+        'compute-systems/cirrus/users/create-tickets.md': 'compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets.md'
+        'compute-systems/cirrus/users/hosting/containerize.md': 'compute-systems/cirrus/guides/03-deploying-applications/containerize.md'
+        'compute-systems/cirrus/users/hosting/additions.md': 'compute-systems/cirrus/guides/03-deploying-applications/additions.md'
+        'compute-systems/cirrus/users/container-registry/index.md': 'compute-systems/cirrus/guides/04-container-registry/index.md'
+        'compute-systems/cirrus/users/container-registry/image-mgmt.md': 'compute-systems/cirrus/guides/04-container-registry/image-mgmt.md'
+        'compute-systems/cirrus/users/container-registry/vulnerability-scan.md': 'compute-systems/cirrus/guides/04-container-registry/vulnerability-scan.md'
+        'compute-systems/cirrus/users/github/best-practices.md': 'compute-systems/cirrus/guides/05-github-actions/best-practices.md'
+        'compute-systems/cirrus/users/github/scale-sets.md': 'compute-systems/cirrus/guides/05-github-actions/scale-sets.md'
+        'compute-systems/cirrus/users/jupyter/jupyterhub.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/jupyterhub.md'
+        'compute-systems/cirrus/users/jupyter/conda-envs.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs.md'
+        'compute-systems/cirrus/users/jupyter/jhub-gpu.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-gpu.md'
+        'compute-systems/cirrus/users/jupyter/jhub-dask.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-dask.md'
+        'compute-systems/cirrus/users/jupyter/binderhub.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/binderhub.md'
+        'compute-systems/cirrus/users/openbao/openbao.md': 'compute-systems/cirrus/guides/07-secret-manager/openbao.md'
+        'compute-systems/cirrus/slas.md': 'compute-systems/cirrus/guides/09-service-level-agreements/slas.md'
 
 # ------------------------------------
 # -- configuration - extras
