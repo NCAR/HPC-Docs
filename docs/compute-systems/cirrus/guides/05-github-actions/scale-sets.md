@@ -1,16 +1,13 @@
 # GitHub Actions Runners
 
-CIRRUS has the ability to connect to GitHub repositories and automatically provision and scale GitHub runners on demand. The GitHub runner scale sets require a Personal Access Token (PAT) to connect to the repository. A CIRRUS admin can be added to a repository to set this up for you, or your own PAT can be used. There are directions for each scenario below.
+CIRRUS has the ability to connect to GitHub repositories and automatically provision and scale GitHub runners on demand. The GitHub runner scale sets require a Personal Access Token (PAT) to connect to the repository.
 
-## Using your PAT
-
-This is our  preferred method of gaining the required access to a github repository to connect cirrus hosted workflow runners.
-
+## Setup Process
 ### Create a Github PAT
 
 See this Github documentation for in depth PAT details [Github PAT Documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-- Go to Github.com
+- Go to [GitHub.com](https://github.com)
 - In the upper right click your profile icon and choose settings
 - On the left menu choose `Developer Settings`, it should be the last item in the list
 - Click `Personal Access Tokens`
@@ -31,7 +28,7 @@ Your token will be displayed and this is the only time you can view it without r
 
 ### Adding a secret to NCAR OpenBao
 
-- Navigate to https://bao.k8s.ucar.edu, change the authentication method to OIDC, and log in with your UCAR username/password
+- Open the [OpenBao OIDC login page](https://bao.k8s.ucar.edu/ui/vault/auth?with=oidc) and log in with your UCAR email address and password
 - You will be brought to a screen that resembles this
 
 ![Bao Home Screen](../../media/bao1.png "Bao Home Screen")
@@ -48,7 +45,7 @@ Your token will be displayed and this is the only time you can view it without r
 
 ### Requesting a Runner Scale Set
 
-Administrator assistance is required to connect GitHub Runner scale sets on CIRRUS once your PAT has been added to OpenBao. More details can be found at this [link on creating tickets](../../create-tickets). Below is an example ticket description to add a new GitHub Runner scale set to a repository.
+Administrator assistance is required to connect GitHub Runner scale sets on CIRRUS once your PAT has been added to OpenBao. More details can be found at [create tickets](../02-interact-with-cirrus-team/create-tickets.md). Below is an example ticket description to add a new GitHub Runner scale set to a repository.
 
 ```
 Hello,
@@ -59,51 +56,15 @@ Link to GitHub repository: https://github.com/NCAR/<respository-name>
 Thank you
 ```
 
-### Next Steps
+A CIRRUS admin will add a scale set to the repository and will update the ticket with details once it's completed or if there are any issues.
 
-Secrets in OpenBao will be configured to automatically sync to the Cirrus infrastructure and be accessible by your Github runner. A CIRRUS admin will add a scale set to the repository and will update the ticket with details once it's completed or if there are any issues. Secrets will expire every 365 days so it is up to each user to update their tokens and secrets as needed.
+### Alternative Setup for NCAR Organization Repositories
 
-### Updating an existing OpenBao secret
-
-You may need to add a new token for a new repository or update an old token due to it expiring.
-
-- Login to OpenBao as defined above
-- Once in the `kv` screen list your secrets by entering `<email address>/` in the view secret box
-- You should see a list of your secrets including the `github_pat` secret previously created
-- Edit the secret and add a new key/value token as defined above
-
-## Using a CIRRUS admins PAT
-
-### Access
-
-This feature is only available to repositories in the NCAR GitHub organization, https://github.com/NCAR. Access to individual repositories is not supported.
-
-A GitHub API token belonging to a user with the admin role for the repository is required to connect a runner scale set. This requires adding a CIRRUS administrator as a collaborator with the admin role to the repository. 
-
-### Requesting a Runner Scale Set
-
-Administrator assistance is required to initially connect GitHub Runner scale sets on CIRRUS. More details can be found at this [link on creating tickets](../../create-tickets). Below is an example ticket description to add a new GitHub Runner scale set to a repository.
-
-```
-Hello,
-I have an repository that I would like to connect a GitHub runner scale set to.
-
-Link to GitHub repository: https://github.com/NCAR/<respository-name>
-
-Thank you
-```
-
-The CIRRUS team will review the request and provide a GitHub user name to add.
-
-### Adding a CIRRUS admin
-
-Collaborators can be added to a repository via the access settings at a link structured like the following: 
+For repositories in the NCAR GitHub organization where adding your own PAT is not feasible, a CIRRUS admin can be added as a collaborator instead. Contact the CIRRUS team through the ticket system, and they will provide a GitHub username to add as an admin collaborator to your repository at:
 
 ```
 https://github.com/NCAR/<respository-name>/settings/access
 ```
-
-Use the Add people button to input and select the CIRRUS team members user name. This will bring up a page that allows the selection of a role for the invited user. Select Admin and then click the Add selection button. Please update the ticket once the CIRRUS admin shows in the Manage access window under Direct access.
 
 ## Using the Scale Set
 
@@ -133,3 +94,13 @@ jobs:
       image: hub.k8s.ucar.edu/myrepo/mynewimage:v1.2
     steps:
 ```
+
+## Maintenance
+### Updating an existing OpenBao secret
+
+You may need to add a new token for a new repository or update an old token due to it expiring.
+
+- Login to OpenBao as defined above
+- Once in the `kv` screen list your secrets by entering `<email address>/` in the view secret box
+- You should see a list of your secrets including the `github_pat` secret previously created
+- Edit the secret and add a new key/value token as defined above
