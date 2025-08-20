@@ -124,8 +124,8 @@ request, your submission will be classified as shown in the table.
         24-hour wallclock limit</td>
       <td><pre>largemem</pre></td>
       <td>
-        <pre>mem>361 GB</pre>
-        <pre>ncpus<=36</pre>
+        <pre>mem>768 GB</pre>
+        <pre>ncpus<=64</pre>
         <pre>ngpus=0</pre>
       </td>
       <td>Up to 3 jobs can be run by a single user at once (consuming 50% of the largemem nodes).  5 jobs may be queued per user.</td>
@@ -133,8 +133,8 @@ request, your submission will be classified as shown in the table.
     <tr class="even">
       <td><pre>htc</pre></td>
       <td>
-        <pre>mem<=361 GB</pre>
-        <pre>ncpus<=36</pre>
+        <pre>mem<=768 GB</pre>
+        <pre>ncpus<=64</pre>
         <pre>ngpus=0</pre>
       </td>
       <td>Up to 468 CPUs in use per user at any one time.<br><br>
@@ -171,8 +171,15 @@ request, your submission will be classified as shown in the table.
 ## NVMe node-local storage
 
 Casper nodes each have 2 TB of local NVMe solid-state disk (SSD)
-storage. Some is used to augment memory to reduce the likelihood of jobs
-failing because of excessive memory use.
+storage. For GPU jobs, some of the NVMe is used as swap space to
+augment memory and reduce the likelihood of jobs failing because
+of excessive memory use.
+
+!!! note
+    If your job on Casper does swap to disk because it has run out of
+    memory, you can expect performance to slow dramatically. It is
+    still highly recommended to monitor job memory usage and make
+    changes as appropriate.
 
 NVMe storage can also be used *while a job is running*. (Recommended
 only for I/O-intensive jobs.) Data stored
@@ -197,6 +204,12 @@ See this page for many *Casper* PBS job script examples:
 [Casper job script examples](./casper-job-script-examples.md)
 
 When your script is ready, submit your batch job for scheduling as shown [here](../../../pbs/index.md).
+
+## Targeting node types
+
+Casper has several node architectures available with full details [here](../../casper/index.md/#casper-hardware).  You can target nodes using PBS select statements that will place you on the desired architecture.
+
+Example PBS select statements for targeting specific node types are shown [here](casper-node-types.md).
 
 <!--  LocalWords:  Casper
  -->

@@ -26,14 +26,14 @@ feature enables users to move files to and from laptop or desktop
 computers and other systems. Globus has a typical transfer rate that
 ranges from 100 to 200 MBps. [More information.](globus/index.md)
 
-### SCP and SFTP
+### SSH Based Tools
 
-The installed Secure Copy Protocol (SCP) and Secure FTP (SFTP) utilities
-are best suited to transferring small numbers of small files to or from
-a local computer and the resources that CISL manages. [More information](./scp-and-sftp.md).
+For users that cannot use Globus there are a number of alternative tools
+based on SSH that can be used to transfer data to and from GLADE file spaces
+on CISL systems. [More information](./scp-and-sftp.md).
 
-These other tools also can be used to make secure transfers between your
-local computer and CISL systems:
+- [SCP / SFTP](./scp-and-sftp.md#scp-and-sftp) - Standard SSH file transfer
+  utilities.  Suitable for small transfers.
 
 - [PSCP / PSFTP](./scp-and-sftp.md#pscp-and-psftp) – PuTTY utilities
   including a Windows version
@@ -41,12 +41,12 @@ local computer and CISL systems:
 - [WinSCP](./scp-and-sftp.md#winscp) – SCP and SFTP transfers with a
   graphical user interface for Windows users
 
-### BBCP
+- [rsync](./scp-and-sftp.md#rsync) - A standard Linux data synchronization
+  tool capable of data transfers between remote systems using SSH.
 
-BBCP is a multi-streaming utility for transferring large files. It
-splits files into multiple streams that are transferred simultaneously,
-so it is faster than the single-streaming SCP and SFTP utilities.
-[More information](./scp-and-sftp.md#bbcp).
+- [rclone](./scp-and-sftp.md#rclone) - A command line tool to manage files 
+ and data on cloud and remote storage systems. Supports parallel transfers
+ via multiple SFTP streams.
 
 ## Sharing data with colleagues
 

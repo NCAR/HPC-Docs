@@ -31,9 +31,7 @@ validation:
 # ------------------------------------
 # ----------- content ----------------
 # ------------------------------------
-nav:
-  - Home : index.md
-
+nav: 
   - Getting Started:
     - getting-started/index.md
     - User Responsibilities: getting-started/user-responsibilities.md
@@ -58,11 +56,83 @@ nav:
           - allocations/chap/index.md
           - Allocation Review Criteria: allocations/chap/chap-allocation-review-criteria.md
           - Conflict of Interest Policy: allocations/chap/chap-conflict-of-interest-policy.md
+  # -  HPC Quick Start: TODO CREATE PAGE
     - VPN access : getting-started/vpn-access.md
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md
     - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
+
+  - Getting Help:
+    - user-support/index.md
+#   - Troubleshooting Tips:
+#     - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
+#     - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
+#     - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+
+  - Compute Systems and Services:
+    - Derecho:
+      - compute-systems/derecho/index.md
+      - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
+      - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
+      - Starting Derecho Jobs:
+        - compute-systems/derecho/starting-derecho-jobs/index.md
+        - Derecho Job Script Examples:
+          - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
+        # - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md TODO: FILL PAGE
+      - Derecho Software: compute-systems/derecho/derecho-modules.md
+      - Moving to Derecho from Cheyenne: compute-systems/derecho/moving-from-cheyenne.md
+    - Casper:
+      - compute-systems/casper/index.md
+      - Casper Use Policies: compute-systems/casper/casper-use-policies.md
+      - Compiling Code on Casper: compute-systems/casper/compiling-code-on-casper/index.md
+      - Starting Casper Jobs:
+        - compute-systems/casper/starting-casper-jobs/index.md
+        - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
+        - Casper Node Types: compute-systems/casper/starting-casper-jobs/casper-node-types.md
+      - Using Remote Desktops: compute-systems/casper/remote-desktops.md
+      - Casper Software: compute-systems/casper/casper-modules.md
+    - CIRRUS:
+      - compute-systems/cirrus/guides/01-intro/index.md
+      - Introduction: compute-systems/cirrus/guides/01-intro/index.md
+      - Interact with CIRRUS team:
+            - compute-systems/cirrus/guides/02-interact-with-cirrus-team/agile.md
+            - compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets.md
+      - Deploying Applications: 
+            - compute-systems/cirrus/guides/03-deploying-applications/containerize.md
+            - compute-systems/cirrus/guides/03-deploying-applications/additions.md
+      - Container Registry: 
+        - compute-systems/cirrus/guides/04-container-registry/index.md
+        - Image Management: compute-systems/cirrus/guides/04-container-registry/image-mgmt.md
+        - Vulnerability Scanner: compute-systems/cirrus/guides/04-container-registry/vulnerability-scan.md
+      - GitHub Actions:
+        - compute-systems/cirrus/guides/05-github-actions/best-practices.md
+        - compute-systems/cirrus/guides/05-github-actions/scale-sets.md
+      - Jupyter on CIRRUS: 
+        - compute-systems/cirrus/guides/06-jupyter-on-cirrus/jupyterhub.md
+        - Conda Environments: compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs.md
+        - GPU Use: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-gpu.md
+        - Dask: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-dask.md
+        - Binder: compute-systems/cirrus/guides/06-jupyter-on-cirrus/binderhub.md
+      - Secret Manager: compute-systems/cirrus/guides/07-secret-manager/openbao.md
+      - Frequent Issues: compute-systems/cirrus/guides/08-frequent-issues/index.md
+      - Service Level Agreements: compute-systems/cirrus/guides/09-service-level-agreements/slas.md
+    - JupyterHub:
+      - compute-systems/jupyterhub/index.md
+      - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
+    - Additional Resources:
+      - Cron services: compute-systems/additional-resources/cron.md
+      - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
+
+  - Running Jobs (PBS):
+      - pbs/index.md
+      - Job Scripts: pbs/job-scripts/index.md
+      - Queues and Charging: pbs/charging.md
+      - Using Preemption: pbs/preemption.md
+      - Common Causes of Job Failures:
+        - pbs/common-causes-of-job-failures/index.md
+        - Checking Memory Use: pbs/checking-memory-use/index.md
+      - Storing temporary files: pbs/storing-temporary-files.md
 
   - Storage Systems and Data Transfer:
     - storage-systems/index.md
@@ -78,88 +148,43 @@ nav:
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
     - Stratus (Object Storage): storage-systems/stratus/index.md
-    - Data Access Nodes: storage-systems/data-access-nodes.md
     - Transferring Data:
       - storage-systems/data-transfer/index.md
       - Globus:
          - storage-systems/data-transfer/globus/index.md
          - Sharing data and making unattended transfers: storage-systems/data-transfer/globus/Sharing+data+and+making+unattended+transfers.md
-      - SCP, SFTP and other tools: storage-systems/data-transfer/scp-and-sftp.md
+      - SSH based tools: storage-systems/data-transfer/scp-and-sftp.md
     - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
-  - User Environment and HPC Software:
-      - environment-and-software/index.md
+  - User Environment:
+    - environment-and-software/user-environment/index.md
+    - Using Modules: environment-and-software/user-environment/modules.md
+    - Customizing your Environment: environment-and-software/user-environment/customizing.md
+    - Conda: environment-and-software/user-environment/conda.md
+    - Containers:
+      - environment-and-software/user-environment/containers/index.md
+      - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
+      - Example Workflows: environment-and-software/user-environment/containers/examples.md
+    - Spack: environment-and-software/user-environment/spack/index.md
 
-      - User Environment:
-        - environment-and-software/user-environment/index.md
-        - Modules: environment-and-software/user-environment/modules.md
-        - Conda: environment-and-software/user-environment/conda.md
-        - Containers:
-          - environment-and-software/user-environment/containers/index.md
-          - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
-          - Example Workflows: environment-and-software/user-environment/containers/examples.md
-        - Spack: environment-and-software/user-environment/spack/index.md
-        - Utilities: environment-and-software/user-environment/utilities.md
-        - Customizing User Environment: environment-and-software/user-environment/customizing.md
-
-      - HPC Software:
-        - environment-and-software/hpc-software/index.md
-        - Community Models: environment-and-software/community-models.md
-        - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
-        - NCL : environment-and-software/ncl.md
-        - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
-        - Numerical Libraries: environment-and-software/numerical-libraries.md
-        - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
-        - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
-        - VS Code: environment-and-software/vscode.md
-        - Profiling & Debuggers: # -- tentative placement
-          - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
-          - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
-        - Benchmarks:
-          - environment-and-software/benchmarks/index.md
-          - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
-          - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
-
-
-  - Compute Systems and Services:
-    - Derecho:
-      - compute-systems/derecho/index.md
-      - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
-      - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
-      - Starting Derecho Jobs:
-        - compute-systems/derecho/starting-derecho-jobs/index.md
-        - Derecho Job Script Examples:
-            - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
-            - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md
-      - Derecho Software: compute-systems/derecho/derecho-modules.md
-      - Moving to Derecho from Cheyenne: compute-systems/derecho/moving-from-cheyenne.md
-    - Casper:
-      - compute-systems/casper/index.md
-      - Casper Use Policies: compute-systems/casper/casper-use-policies.md
-      - Compiling Code on Casper: compute-systems/casper/compiling-code-on-casper/index.md
-      - Starting Casper Jobs:
-            - compute-systems/casper/starting-casper-jobs/index.md
-            - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
-      - Using Remote Desktops: compute-systems/casper/remote-desktops.md
-      - Casper Software: compute-systems/casper/casper-modules.md
-    - JupyterHub:
-      - compute-systems/jupyterhub/index.md
-      - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
-    - Additional Resources:
-      - Cron services: compute-systems/additional-resources/cron.md
-      - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
-
-  - Running Jobs (PBS):
-      - pbs/index.md
-      - Job Scripts:
-        - pbs/job-scripts/index.md
-      - Queues and Charging: pbs/charging.md
-      - Using Preemption: pbs/preemption.md
-      - Common Causes of Job Failures:
-        - pbs/common-causes-of-job-failures/index.md
-        - Checking Memory Use:
-          - pbs/checking-memory-use/index.md
-      - Storing temporary files: pbs/storing-temporary-files.md
+  - HPC Software:
+    - environment-and-software/hpc-software/index.md
+    - Community Models: environment-and-software/community-models.md
+    - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
+    - NCL : environment-and-software/ncl.md
+    - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
+    - Numerical Libraries: environment-and-software/numerical-libraries.md
+    - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
+    - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
+    - Utilities: environment-and-software/user-environment/utilities.md
+    - VS Code: environment-and-software/vscode.md
+    - Profiling & Debuggers: # -- tentative placement
+      - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+      - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
+    - Benchmarks:
+      - environment-and-software/benchmarks/index.md
+      - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+      - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
 
   - Tutorials:
     - tutorials/index.md
@@ -167,6 +192,7 @@ nav:
     - Derecho Overview: tutorials/derecho-overview.md
     - Dask Tutorial: tutorials/dask-tutorial.md
     - Profiling and Debugging: tutorials/profiling-and-debugging.md
+    - Managing Permissions and Data Sharing: tutorials/permissions-and-data-sharing.md
     - Advanced PBS: tutorials/advanced-pbs.md
     - Using Globus v5: tutorials/globus.md
     - NCAR Storage Spaces: tutorials/storage.md
@@ -175,17 +201,11 @@ nav:
 #    - Containers: tutorials/containers.md
 #    - GPU Workshop: tutorials/gpu-workshop.md
 
-  - User Support:
-    - user-support/index.md
-#    - Troubleshooting Tips:
-#      - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
-#      - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
-#      - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
-
   - NCAR User Group (NHUG):
     - nhug/index.md
 
-  - Contributing to the Documentation: contributing.md
+  - Contributing to the Documentation: 
+    - contributing/index.md
 
 # ------------------------------------
 # -- configuration - themes
@@ -293,6 +313,25 @@ plugins:
   - redirects:
       redirect_maps:
         'nhug/index.md': 'https://nhug.readthedocs.io/en/latest/'
+        # CIRRUS redirects - OLD paths -> NEW numbered guide paths
+        # This will be removed before 01/01/2026 and does not need to be maintained
+        'compute-systems/cirrus/index.md': 'compute-systems/cirrus/guides/01-intro/index.md'
+        'compute-systems/cirrus/users/agile.md': 'compute-systems/cirrus/guides/02-interact-with-cirrus-team/agile.md'
+        'compute-systems/cirrus/users/create-tickets.md': 'compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets.md'
+        'compute-systems/cirrus/users/hosting/containerize.md': 'compute-systems/cirrus/guides/03-deploying-applications/containerize.md'
+        'compute-systems/cirrus/users/hosting/additions.md': 'compute-systems/cirrus/guides/03-deploying-applications/additions.md'
+        'compute-systems/cirrus/users/container-registry/index.md': 'compute-systems/cirrus/guides/04-container-registry/index.md'
+        'compute-systems/cirrus/users/container-registry/image-mgmt.md': 'compute-systems/cirrus/guides/04-container-registry/image-mgmt.md'
+        'compute-systems/cirrus/users/container-registry/vulnerability-scan.md': 'compute-systems/cirrus/guides/04-container-registry/vulnerability-scan.md'
+        'compute-systems/cirrus/users/github/best-practices.md': 'compute-systems/cirrus/guides/05-github-actions/best-practices.md'
+        'compute-systems/cirrus/users/github/scale-sets.md': 'compute-systems/cirrus/guides/05-github-actions/scale-sets.md'
+        'compute-systems/cirrus/users/jupyter/jupyterhub.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/jupyterhub.md'
+        'compute-systems/cirrus/users/jupyter/conda-envs.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs.md'
+        'compute-systems/cirrus/users/jupyter/jhub-gpu.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-gpu.md'
+        'compute-systems/cirrus/users/jupyter/jhub-dask.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-dask.md'
+        'compute-systems/cirrus/users/jupyter/binderhub.md': 'compute-systems/cirrus/guides/06-jupyter-on-cirrus/binderhub.md'
+        'compute-systems/cirrus/users/openbao/openbao.md': 'compute-systems/cirrus/guides/07-secret-manager/openbao.md'
+        'compute-systems/cirrus/slas.md': 'compute-systems/cirrus/guides/09-service-level-agreements/slas.md'
 
 # ------------------------------------
 # -- configuration - extras

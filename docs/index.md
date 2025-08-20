@@ -13,10 +13,10 @@ This is the home of the user documentation for the NSF NCAR high-performance com
 * [Using JupyterHub](./compute-systems/jupyterhub/index.md)
 * [Getting Help](./user-support/index.md)
 
-Don't find what you need? Log in here to submit a help request: [NCAR Research Computing](https://rchelp.ucar.edu/).
-
+Don't find what you need? Log in here to submit a help request: [NCAR Research Computing](https://rchelp.ucar.edu/).  
 You need a CIT password to submit a request. Call **303-497-2400** if you don't have one.
 
+<iframe frameborder="0" height="230" scrolling="no" src="https://status.cisl.ucar.edu/csg/cod-status/cod.html" width="650"></iframe>
 
 !!! tip
     The NSF NCAR HPC Users Group (NHUG) is a resource group for all users of NSF NCAR HPC resources.

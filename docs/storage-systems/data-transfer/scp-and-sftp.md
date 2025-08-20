@@ -1,9 +1,9 @@
-# SSH-based command line tools for file transfer
+# SSH-based data transfer tools
 
 ## SCP and SFTP
 
 Secure Copy Protocol (SCP) and Secure FTP (SFTP) are two utilities for
-transferring files between remote systems and the NCAR systems that CISL
+transferring files between remote systems and the NSF NCAR systems that CISL
 manages.
 
 They are best suited for transferring small numbers of small files (for
@@ -18,8 +18,7 @@ it doesn't, the transfer will hang or you will receive a message such as
 ### From an NCAR system
 
 To make SCP and SFTP transfers from your GLADE file space to a remote
-system, log in to the [data access nodes](../data-access-nodes.md) at
-`data-access.ucar.edu` and execute the
+system, log in to a Derecho or Casper login node and execute the
 commands shown below.
 
 Use SCP if you need to transfer a single file or if you want to transfer
@@ -42,9 +41,9 @@ If you need to transfer many files from multiple directories to a remote
 machine, doing so in an SFTP session is likely to be more efficient for
 you than SCP.
 
-Log in to `data-access.ucar.edu`, then start your transfer session
-with the `sftp` command followed by your login information for the
-remote system.
+Log in to `casper.hpc.ucar.edu` or `derecho.hpc.ucar.edu`, then start your 
+transfer session with the `sftp` command followed by your login information
+for the remote system.
 ```pre
 sftp pparker@supersystem.univ.edu
 ```
@@ -69,11 +68,12 @@ You can also transfer files from batch jobs running on an NCAR machine.
 ### To an NCAR system
 
 To transfer files from a remote system to your GLADE file space, log in
-to the remote system and reverse the procedures shown above.
+to the remote system and reverse the procedures shown above. You can use
+either the Casper or Derecho login nodes. 
 
 For example:
 ```pre
-scp /remotedir/*.dat pparker@data-access.ucar.edu:/glade/u/home/pparker/mydata
+scp /remotedir/*.dat pparker@casper.hpc.ucar.edu:/glade/u/home/pparker/mydata
 ```
 
 You will be asked to authenticate for each individual SCP command that
@@ -228,35 +228,81 @@ to **Options/Preferences/Environment/Interface** to use it.
 
 ---
 
-## BBCP
+## Rsync 
 
-The BBCP utility for transferring large files is an alternative for
-users who are unable to
-use [Globus](./globus/index.md) to transfer
-data. BBCP splits the files into multiple streams that are transferred
-simultaneously, so it is faster than the single-streaming SCP and SFTP
-utilities.
+The rsync command is a standard tool for copying and synchronizing files
+or directories within a system, or between local and remote systems. It 
+can preserve file permissions and timestamps, and can transfer only differences
+between files to save bandwidth. It supports SSH connections for secure 
+remote transfers.
 
-To make transfers with BBCP, it must be installed on all the systems
-where you want to use it. It is already installed on the NCAR systems
-that CISL manages, including the [data-access nodes](../data-access-nodes.md).
+### Transfer example using rsync
 
-### Transfer examples
-
-To transfer a file *from GLADE to a remote system* that uses `bbcp`, log
-in to `data-access.ucar.edu` and follow this example. Replace "target"
-with the intended pathname of the file you are transferring.
+To transfer a directory from a local system to GLADE using rsync, follow
+this example. Replace *example_dir* and *username* in the example below
+with the name of the directory you want to transfer and your NCAR username.
 ```pre
-bbcp -w 4m -s 16 filename username@supersystem.univ.edu:target
+rsync -avz --progress example_dir username@casper.hpc.ucar.edu:/glade/work/username
+```
+This will transfer *example_dir* from your local system to */glade/work/username/example_dir*
+on GLADE using a casper login node. The `-a` flag enables archive mode, which preserves
+file attributes and structure (recursive copy, symbolic links, permissions, modification
+times). The `-v` flags prints more verbose information about what rsync is doing (e.g. 
+file names being copied). The `-z` flag compresses files during transfer. The `--progress`
+flags gives details on the amount of data transferred and an estimate of time remaining. 
+
+See the rsync man page for more details
+
+---
+
+## Rclone
+
+The rclone command is a feature rich command-line program for managing files on cloud 
+storage or other remote storage systems. It supports the SFTP protocol and can be used to
+copy data to and from GLADE. Rclone supports transfers using multiple parallel streams
+and is more suitable for larger transfers than the simpler SSH based tools detailed above. 
+Rclone is available to 
+[download and install from rclone.org](https://rclone.org/downloads/)
+
+### Rclone configuration
+
+Before using rclone to transfer files to GLADE some simple configuration is required 
+for the host that will handle the transfer (Casper or Derecho). You can use the
+`rclone config` command to set up a new host by answering a series of questions.
+Alternatively, you can edit the rclone configuration file directly. The typical location
+of the rclone configuration file is   
+```pre
+%USERPROFILE%\.config\rclone\rclone.conf           (Windows)
+~/.config/rclone/rclone.conf                       (Linux / Mac)
+```
+Minimal entries in the rclone configuration file required to enable Casper and Derecho
+for use with rclone are shown below. Remember to replace *username* with your NCAR username.
+```pre
+[derecho]
+type = sftp
+host = derecho.hpc.ucar.edu
+user = username
+ask_password = true
+
+[casper]
+type = sftp
+host = casper.hpc.ucar.edu
+user = username
+ask_password = true
 ```
 
-To transfer a file *from a remote system to GLADE*, log in to the remote
-system and follow this example. Replace "target" with the intended
-pathname of the file you are transferring – for example,`/glade/u/home/\$USER/filename`.
+### Transfer example using rclone
+
+Once rclone has been configured you can follow the example below to copy a directory
+from a local system to GLADE. Replace *example_dir* and *username* in the example with
+the name of the directory you want to transfer and your NCAR username.
 ```pre
-bbcp -w 4m -s 16 -V -D filename username@data-access.ucar.edu:target
+rclone copy example_dir casper:/glade/work/username/example_dir --progress --transfers=4
 ```
+This will initiate a transfer of the *example_dir* directory and all contents, and will 
+show progress until the transfer is complete. For better performance, this example uses
+four independent transfer streams. Note that each transfer stream uses an independent SFTP
+connection, and hence this will require responding to four Duo pushes, although you should
+only need to enter your password once.
 
-### Detailed documentation
-
-For complete details, see the official [BBCP man page](http://www.slac.stanford.edu/~abh/bbcp/).
+For more information on using rclone, refer to the [documentation on rclone.org](https://rclone.org)
