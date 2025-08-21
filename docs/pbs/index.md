@@ -19,7 +19,7 @@ You can run a batch job either by preparing a [job script](#job-scripts) and [su
 #### Interactive jobs
 An interactive job is an allotment of resources without a predetermined set of commands submitted with the request. These types of jobs load you into an interactive session where you can run your commands directly on a node. These types of jobs are usually best for developing workflows or debugging applications. They can also be used when doing visualization or development work. Interactive jobs can be invoked directly on the command line, by requesting a JupyterHub session, or by [requesting a FastX session](../compute-systems/casper/remote-desktops.md#using-fastx).
 
-##### Reasons to run an interactive job:
+**Reasons to run an interactive job:**
 - You need to build or test the workflow before committing to a script.
 - You need to interact with the application as it is executing.
 - You are building an application that is best tested on a compute node in real time.
