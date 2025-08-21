@@ -8,7 +8,7 @@ There are 2 types of jobs that users can request when on the system.
 #### Batch jobs
 A batch job is a type of job that submits a bash command or script to its requested resources where the commands are executed by the scheduler. This type of job is entirely non-interactive and is usually the most common type of job on NCAR HPC Resources.
 
-##### Reasons to run a batch job:
+**Reasons to run a batch job:**
 - The application needs to run for several hours.
 - The application is best suited for a scripted workflow.
 - The application does not require any interaction with the user. 
