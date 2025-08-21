@@ -145,6 +145,8 @@ In this way project members evaluate quickly which directories consume the most 
         - more than 7 years ago.
 
         In all cases the size corresponds to immediate file contents and is NOT recursive,  Similarly, the date shown is the *most recent access time* of any file contained within the directory itself, and is NOT recursive.
+
+        Please consider removing large directories whose contents have not been accessed in years, or using the [HSM functionality described below](campaign.md#hierarchical-storage-management-hsm-overview).
         ```pre
         #-------------------------------------------------------------------------------
         # Largest Directories, last access [3-5yrs):
@@ -159,7 +161,9 @@ In this way project members evaluate quickly which directories consume the most 
 
 
     === "'Bloated' Directories"
-        Very large numbers of files complicate space management and can degrade overall file system performance.  We group the directories containing the most files in another section for easy identification.  Please consider using tools such as `tar` to group many small files into a single, larger archive when appropriate.
+        Very large numbers of files complicate space management and can degrade overall file system performance.  We group the directories containing the most files in another section for easy identification - sorting by the second column.
+
+        Please consider using tools such as `tar` to group many small files into a single, larger archive when appropriate.
         ```pre
         #-------------------------------------------------------------------------------
         # Bloated Dirs (file count):
