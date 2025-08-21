@@ -30,7 +30,7 @@ To get an interactive job run the `qinteractive` command.
 By far the most common type of job on NCAR HPC systems are batch jobs. These jobs often make use of a script headed by a set of directives requesting resources from the scheduler. This is then followed a set of commands to be completed under the job. Directives can be included on the command line or within the job script, but directives from command line will always have precedence.
 
 #### Anatomy of a Job Script
-Job scripts commonly be organized in 3 distinct sections: *directives*, *environment management*, and *scripting*. Jobs scripts are not required to take this shape and can also come in a variety of other sizes or shapes.
+Job scripts are commonly organized in 3 distinct sections: *directives*, *environment management*, and *scripting*.  Directives are required by the scheduler to launch a job. Environment management and scripting are optional components of your job scripts but it is highly recommended to follow this structure to ensure software stack compatibility for future runs.
 
 ```
 #!/bin/bash
