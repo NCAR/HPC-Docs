@@ -75,7 +75,7 @@ While strictly not necessary (in general, the system default modules will be loa
 
 **Explicitly setting the `TMPDIR` variable.**
 
-As described here, many programs write temporary data to `TMPDIR`, which is usually small and shared among st users. Specifying your own directory for temporary files can help you avoid the risk of your own programs and other users' programs failing when no more space is available.
+As described here, many programs write temporary data to `TMPDIR`, which is usually small and shared amongst users. Specifying your own directory for temporary files can help you avoid the risk of your own programs and other users' programs failing when no more space is available.
 
 (Optional) Defining any environment variables specific to the chosen module environment.
 
