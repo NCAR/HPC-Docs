@@ -71,7 +71,7 @@ Once your PBS directives are in place, there’s no restriction on what else is 
 
 **Loading and reporting the specific module environment required for this job.**
 
-While strictly not necessary (in general, the system default modules will be loaded anyway), we recommend this as best practice as it facilitates debugging and reproducing later. (While the system default modules will change over time, manually specifying module versions allows you to recreate the same execution environment in the future.)
+Defining the module environment is not required but highly recommended as a best practice to facilitate debugging or reproducing later.  If the module environment is not defined in the script then the job with run with the default module stack.  The default module stack is changed periodically which could lead to errors if you compiled an application with an older, incompatible default module environment.  Additional details on setting up your module environment can be found in the [modules](../environment-and-software/user-environment/modules.md) section.
 
 **Explicitly setting the `TMPDIR` variable.**
 
