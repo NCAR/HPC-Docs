@@ -355,7 +355,7 @@ Encrypted:            no
 ## Tape Archival
 
 !!! note "Introducing Hierarchical Storage Management (HSM) for *infrequently read* data sets"
-    Campaign Storage is logically connected to the [Quasar](../quasar/index.html) tape library, allowing users to easily request old data to be moved to "cold storage." This feature leverages the hierarchical storage management (HSM) capabilities [built into](https://www.ibm.com/docs/en/spectrum-archive-ee/1.3.3?topic=overview-spectrum-archive-enterprise-edition-components) Spectrum Scale and Spectrum Archive.  HSM is ideal for long-term storage of data sets that are rarely read but are being kept perhaps for a publication requirement, or as "just-in-case" backups within a computational campaign.
+    Campaign Storage is logically connected to the [Quasar](../quasar/index.html) tape library, allowing users to easily request old - but still important - data to be moved to "cold storage." This feature leverages the hierarchical storage management (HSM) capabilities [built into](https://www.ibm.com/docs/en/spectrum-archive-ee/1.3.3?topic=overview-spectrum-archive-enterprise-edition-components) Spectrum Scale and Spectrum Archive.  HSM is ideal for long-term storage of data sets that are rarely read but are being kept perhaps for a publication requirement, or as "just-in-case" backups within a computational campaign.  Once HSM migrates data to tape, disk space - and project quota - are reclaimed for more productive, active use.
 
     Recalls from HSM should be infrequent, and generally take hours - or even days - to complete, depending on the total number and volume of files requested.
 
@@ -370,8 +370,6 @@ All HSM interactions at the user level are performed with the `glade_hsm` comman
 #### Migration to tape
 The `glade_hsm migrate` subcommand is used to relocate files/directories in preparation for HSM migration.  This command takes an input list of files or directories and simply relocates them into a `COLD_STORAGE/` directory at the same level of the directory tree.
 
-By default, HSM content is written to two separate tapes for redundancy in the very rare event of a tape problem. Users can optionally elect a single tape copy with the `--single-copy` argument, in which case contents will be staged into a `COLD_STORAGE_SINGLE_COPY/` directory.
-
 This command returns immediately upon success, and logs the request so the system can begin batch migration.
 
 Two things happen to files located within any `COLD_STORAGE*/` path:
@@ -382,6 +380,8 @@ Two things happen to files located within any `COLD_STORAGE*/` path:
 While `glade_hsm migrate` returns immediately, file content tape migration occurs in the background by system processes. As data blocks are relocated onto tape, a corresponding amount of disk quota is reclaimed.
 
 See `glade_hsm migrate --help` for additional details.
+
+By default, HSM content is written to two separate tapes for redundancy in the very rare event of a tape problem. Users can optionally elect a single tape copy with the `--single-copy` argument, in which case contents will be staged into a `COLD_STORAGE_SINGLE_COPY/` directory.  For model outputs or similar data that could be recreated, users should strongly consider using the `--single-copy` functionality.  This effectively increases the available tape volume available for your own - and others' - use, as well as ultimately reducing e-waste.
 
 In order to read or modify previously migrated files, they must first be [recalled](#recall-from-tape).
 
@@ -438,6 +438,12 @@ See `glade_hsm status --help` for additional details.
 
     - While operations on individual files are supported, operations on subdirectories tend to be more efficient when many files are involved.
     - You may issue a recall at any level deep within a `COLD_STORAGE*/` path, for example `glade_hsm recall ./COLD_STORAGE/myproj/case1/output/`
+    - Recalling a small number of select individual files - for example model inputs, or a small number of `tar` files - is fine.
 
+- Easily identifiy candidate data for HSM migration using the [usage reports described above](#usage-reports).
+
+    - You can migrate even a single, large directory at the bottom of a directry tree if desired.
+
+- If you would like to permanently remove items from cold storage, please [reach out to user support](../../user-support/index.md).  System engineers can help remove files without recalling them first.
 <!--  LocalWords:  HSM hsm subcommand
  -->
