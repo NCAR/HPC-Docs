@@ -127,7 +127,7 @@ at the top-level of shared file spaces, for example
 
 ### Usage reports
 
-For larger project spaces (&ge;50TiB), detailed usage reports are created
+For project spaces with 50 TiB or more of data, detailed usage reports are created
 every two weeks within a `/glade/campaign/<project_path>/.usage/`
 directory. Two levels of reporting are available:
 
