@@ -442,7 +442,7 @@ See `glade_hsm status --help` for additional details.
 
 - Easily identify candidate data for HSM migration using the [usage reports described above](#usage-reports).
 
-    - You can migrate even a single, large directory at the bottom of a directry tree if desired.
+    - You can migrate even a single, large directory at the bottom of a directory tree if desired.
 
 - If you would like to permanently remove items from cold storage, please [reach out to user support](../../user-support/index.md).  System engineers can help remove files without recalling them first.
 <!--  LocalWords:  HSM hsm subcommand
