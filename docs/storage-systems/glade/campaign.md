@@ -355,7 +355,7 @@ Encrypted:            no
 ## Tape Archival
 
 !!! note "Introducing Hierarchical Storage Management (HSM) for *infrequently read* data sets"
-    Campaign Storage is logically connected to the [Quasar](../quasar/index.html) tape library, allowing users to easily request for old data to be moved to "cold storage." This feature leverages the hierarchical storage management (HSM) capabilities [built into](https://www.ibm.com/docs/en/spectrum-archive-ee/1.3.3?topic=overview-spectrum-archive-enterprise-edition-components) Spectrum Scale and Spectrum Archive.  HSM is ideal for long-term storage of data sets that are rarely read but are being kept perhaps for a publication requirement, or as "just-in-case" backups within a computational campaign.
+    Campaign Storage is logically connected to the [Quasar](../quasar/index.html) tape library, allowing users to easily request old data to be moved to "cold storage." This feature leverages the hierarchical storage management (HSM) capabilities [built into](https://www.ibm.com/docs/en/spectrum-archive-ee/1.3.3?topic=overview-spectrum-archive-enterprise-edition-components) Spectrum Scale and Spectrum Archive.  HSM is ideal for long-term storage of data sets that are rarely read but are being kept perhaps for a publication requirement, or as "just-in-case" backups within a computational campaign.
 
     Recalls from HSM should be infrequent, and generally take hours - or even days - to complete, depending on the total number and volume of files requested.
 
