@@ -104,7 +104,7 @@ these allocations are prioritized based on the following factors.
 Any data requiring longer storage should be migrated to your home
 institution or to another appropriate repository.
 
-## Reports
+## Usage & Reporting
 
 The Systems Accounting Manager
 ([SAM](../../getting-started/managing-your-allocation.md#using-sam)) provides overall

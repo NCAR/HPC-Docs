@@ -284,7 +284,7 @@ following policies apply to Campaign Storage allocations:
 
 ### Managing Campaign Storage usage
 
-Project-level Campaign Storage usage and data access reports are available as described in detail [here](campaign.md#reports).  These reports can help you understand how frequently your data is being accessed, quickly identify your largest directories, locate old data that has not been access recently, etc...
+Project-level Campaign Storage usage and data access reports are available as described in detail [here](campaign.md#usage-reporting).  These reports can help you understand how frequently your data is being accessed, quickly identify your largest directories, locate old data that has not been access recently, etc...
 
 ## Checking space usage
 
