@@ -121,7 +121,7 @@ at the top-level of shared file spaces, for example
 `/glade/campaign/<project_path>/access_report.txt`
 (or similar, depending on the project).
 
-<!-- !!! example "Undertanding Campaign Storage `access_report.txt` Files" -->
+<!-- !!! example "Understanding Campaign Storage `access_report.txt` Files" -->
 <!--     Foo -->
 
 
