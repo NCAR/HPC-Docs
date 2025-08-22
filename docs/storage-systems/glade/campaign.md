@@ -440,7 +440,7 @@ See `glade_hsm status --help` for additional details.
     - You may issue a recall at any level deep within a `COLD_STORAGE*/` path, for example `glade_hsm recall ./COLD_STORAGE/myproj/case1/output/`
     - Recalling a small number of select individual files - for example model inputs, or a small number of `tar` files - is fine.
 
-- Easily identifiy candidate data for HSM migration using the [usage reports described above](#usage-reports).
+- Easily identify candidate data for HSM migration using the [usage reports described above](#usage-reports).
 
     - You can migrate even a single, large directory at the bottom of a directry tree if desired.
 
