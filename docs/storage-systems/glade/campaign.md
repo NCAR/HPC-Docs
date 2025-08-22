@@ -206,7 +206,7 @@ In this way, project members can evaluate quickly which directories consume the 
 
 Campaign Storage has an automated data compression feature for
 long-duration data sets.  Our compression policy targets files that are
-180 days old or older and 100MB in size or larger for "z" compression
+180 days old or older and 100MiB in size or larger for "z" compression
 using [IBM Spectrum Scale file system
 mechanisms](https://www.ibm.com/docs/en/spectrum-scale/5.0.5?topic=systems-file-compression) (details
 below).
@@ -361,7 +361,7 @@ Encrypted:            no
 
 
 ### Hierarchical Storage Management (HSM) Overview
-Hierarchical Storage Management is a tiered storage capability that combines traditional disk-based storage with a tape subsystem.  Under HSM, old, "cold" data can be selectively migrated to tape, freeing up disk resources.  In our setup on Campaign Storage, data migration occurs only based on user request, and will target all files &ge;100MB in size. Migrated files still appear resident on the file system; however, they must be [*recalled*](#recall-from-tape) from tape before they can be read.  Reading a migrated file without issuing a recall request will trigger a read error.
+Hierarchical Storage Management is a tiered storage capability that combines traditional disk-based storage with a tape subsystem.  Under HSM, old, "cold" data can be selectively migrated to tape, freeing up disk resources.  In our setup on Campaign Storage, data migration occurs only based on user request, and will target all files &ge;100MiB in size. Migrated files still appear resident on the file system; however, they must be [*recalled*](#recall-from-tape) from tape before they can be read.  Reading a migrated file without issuing a recall request will trigger a read error.
 
 Once files are migrated to tape, they will no longer count against a project's quota. Thus, the primary use case for HSM is to free up space within a project on Campaign Storage for active data sets by placing old (but still relevant) data into cold storage.
 
