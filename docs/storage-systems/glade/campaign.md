@@ -132,7 +132,7 @@ every two weeks within a `/glade/campaign/<project_path>/.usage/`
 directory. Two levels of reporting are available:
 
 1. `summary.txt` contains information aggregated across the entire project.  The beginning of the file contains information regarding the number of files and directories, overall data volume, and top user and group usage.  The remainder of the file lists large directories and files, as described in the example below.
-2. `usercounts/<username>` contains usage information for files and directories whose contents are owned exclusively by a given user.
+2. `users/<username>` contains usage information for files and directories whose contents are owned exclusively by a given user.
 
 In this way, project members can evaluate quickly which directories consume the most space, which directories contain the largest number of files, and when contents were last accessed. Note that only paths visible to the user `csgteam` are included in these summaries because the scanning process runs without full administrator privileges.
 
