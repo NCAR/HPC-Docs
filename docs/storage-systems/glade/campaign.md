@@ -146,7 +146,7 @@ In this way project members evaluate quickly which directories consume the most 
 
         In all cases the size corresponds to immediate file contents and is NOT recursive,  Similarly, the date shown is the *most recent access time* of any file contained within the directory itself, and is NOT recursive.
 
-        Please consider removing large directories whose contents have not been accessed in years, or using the [HSM functionality described below](campaign.md#hierarchical-storage-management-hsm-overview).
+        Please consider removing large directories whose contents have not been accessed in years, or using the [HSM functionality described below](#hierarchical-storage-management-hsm-overview).
         ```pre
         #-------------------------------------------------------------------------------
         # Largest Directories, last access [3-5yrs):
