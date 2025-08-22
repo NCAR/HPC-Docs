@@ -242,16 +242,6 @@ are requesting.
 See [here](./campaign.md) for additional technical details on the
 Campaign Storage file system.
 
-### Access reports
-
-CISL generates weekly usage reports throughout /glade to help users
-manage their data. The reports provide a summary of when files were
-last accessed, how much space is used, and details for the top 25
-users. The files are named `access_report.txt` and can be found at the
-top-level of shared file spaces, for example
-`/glade/campaign/<group_name>/access_report.txt`
-(or similar, depending on the project).
-
 ### Campaign Storage allocations
 
 The duration and use of a project’s Campaign Storage space is
@@ -291,6 +281,10 @@ following policies apply to Campaign Storage allocations:
 - Individual users' files are **not** deleted from project space after
   their accounts are closed when the project remains active.
 - Files are not recoverable from backups, as there are none.
+
+### Managing Campaign Storage usage
+
+Project-level Campaign Storage usage and data access reports are available as described in detail [here](campaign.md#usage-reporting).  These reports can help you understand how frequently your data is being accessed, quickly identify your largest directories, locate old data that has not been accessed recently, etc...
 
 ## Checking space usage
 
