@@ -245,10 +245,10 @@ CIRRUS operates on **18 high-performance nodes**, split between Mesa Lab & NWSC,
     </tr>
     <tr style="background-color:#f8f9fa;">
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">16 per node</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">16 x 2</td>
       <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">16 per node</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">16 x 2</td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>GPU</strong></td>
@@ -280,14 +280,14 @@ CIRRUS operates on **18 high-performance nodes**, split between Mesa Lab & NWSC,
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>NICs</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 10G</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 25G</td>
       <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>NICs</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 10G</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 25G</td>
     </tr>
     <tr style="background-color:#f8f9fa;">
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">6 × 3.2TB NVMe</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">6 × 1.6TB NVMe</td>
       <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">6 × 3.2TB NVMe</td>
@@ -327,10 +327,10 @@ CIRRUS operates on **18 high-performance nodes**, split between Mesa Lab & NWSC,
     </tr>
     <tr style="background-color:#f8f9fa;">
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">32 per node</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">32 x 1</td>
       <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">32 per node</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">32 x 1</td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>RAM</strong></td>
