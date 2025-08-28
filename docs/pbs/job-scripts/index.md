@@ -502,17 +502,5 @@ job. This process is outlined in the example below.
     [hpc-demos GitHub repository](https://github.com/NCAR/hpc-demos/tree/main/PBS/job_arrays/command_files)
     for source code.
 
----
-
-## Sample PBS job scripts
-
-### Casper
----8<--- "docs/compute-systems/casper/starting-casper-jobs/casper-job-script-examples-content.md"
-
-### Derecho
----8<--- "docs/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples-content.md"
-
-
-
 <!--  LocalWords:  mpiprocs MPI ompthreads OpenMP mem ngpus GPUs  ncpus
  -->

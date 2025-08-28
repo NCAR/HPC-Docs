@@ -75,8 +75,8 @@ for any specific node can be queried via `pbsnodes [Host_Name]`.
 
 All Casper nodes, with exception to the RDA nodes, also have access to local
 NVMe SSD storage. This additional workspace can be accessed directly by following 
-the documentation at the 
-[Starting Casper Jobs page](../../compute-systems/casper/starting-casper-jobs/index.md#nvme-node-local-storage).
+the documentation in the 
+[Casper Quickstart Guide](../../compute-systems/casper/#nvme-node-local-storage).
 
 If your job approaches the usable memory per node threshold shown in the
 table, you may experience unexpected issues or job failures. It is recommended to
