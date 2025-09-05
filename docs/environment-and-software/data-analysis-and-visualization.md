@@ -194,6 +194,6 @@ additional details are needed.
 CISL visualization experts can help as described above
 with *using* applications such as NCL and VAPOR.
 
-See the [Casper documentation](../compute-systems/casper/starting-casper-jobs/index.md) to
+See the [Casper documentation](../../compute-systems/casper/remote-desktops/) to
 learn how to submit the necessary jobs and *start* the applications on
 that data analysis and visualization cluster.

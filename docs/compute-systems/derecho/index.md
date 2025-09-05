@@ -45,8 +45,8 @@ including [GLADE](../../storage-systems/glade/index.md).
 Users can [transfer data](../../storage-systems/data-transfer/index.md) to and from Derecho.
 
 
-To run data analysis and visualization jobs on the Derecho system's nodes, follow the
-[procedures described here](./starting-derecho-jobs/index.md).
+To run simulations and AI/ML jobs on the Derecho system's nodes, follow the
+[procedures described here](../../pbs/index.md).
 There is no need to transfer output files from Derecho for this since
 Derecho and Casper mount the same `GLADE` file systems.
 
@@ -85,22 +85,21 @@ environment is listed [here](./derecho-modules.md).
 
 
 ### Accessing software and compiling code
-Derecho users have access to Intel, NVIDIA, and GNU compilers. The **Intel** compiler and **OpenMPI** modules are loaded by default and provide access to pre-compiled [HPC Software](../../environment-and-software/hpc-software/index.md) and [Data Analysis and Visualization Resources](../../environment-and-software/data-analysis-and-visualization.md).
+Derecho users have access to Intel, NVIDIA, GNU, and Cray compilers. The **Intel** compiler and **cray-mpich** modules are loaded by default and provide access to pre-compiled [HPC Software](../../environment-and-software/hpc-software/index.md).
 
 See this page for [a full discussion of compiling on Derecho](./compiling-code-on-derecho/index.md).
 
-Many Derecho data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+Many Derecho AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
 
 -----
 
 ### Running jobs on Derecho
 Users can run a variety of types of jobs on Derecho, including both traditional
-[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and/or graphics-intensive analysis, often through remote desktops on Derecho.
-<!--[remote desktops on Derecho](./remote-desktop.md).-->
+[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and development work.
 
 #### Job scripts
 Job scripts are discussed broadly [here](../../pbs/job-scripts/index.md).
-Users already familiar with PBS and batch submission may find [Derecho-specific PBS job scripts](./starting-derecho-jobs/derecho-job-script-examples.md) helpful in porting their work.
+Users already familiar with PBS and batch submission may find [Derecho-specific PBS job scripts](../../pbs/job-scripts/derecho-job-script-examples.md) helpful in porting their work.
 
 
 

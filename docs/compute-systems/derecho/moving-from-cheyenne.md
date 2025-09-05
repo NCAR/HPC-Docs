@@ -120,7 +120,7 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
         !!! danger "Update your `select` statements!"
             Derecho CPU nodes have 128 cores, and are generally assigned exclusively.  This means you will be charged for all 128 cores on the node, regardless of how many you use.  **Do not** simply copy your old `select` statements from Cheyenne - doing so will under-utilize the CPU nodes, and you will be charged for the full resource regardless of your usage!
 
-    - *Memory*: Each CPU node has a maximum of 235GB of RAM available for user jobs.  Derecho CPU nodes are all identical - there is no notion of `largemem` or `smallmem` CPU nodes.  Users requiring more memory per core than the 235GB/128 default configuration allows will need to *under-subscribe* CPU nodes, that is, leave some cores idle in order to increase the effective memory-per-utilized-core.
+     *Memory*: Each CPU node has a maximum of 235GB of RAM available for user jobs.  Derecho CPU nodes are all identical - there is no notion of `largemem` or `smallmem` CPU nodes.  Users requiring more memory per core than the 235GB/128 default configuration allows will need to *under-subscribe* CPU nodes, that is, leave some cores idle in order to increase the effective memory-per-utilized-core.
 
 - **MPI Environment**: Derecho and Cheyenne differ significantly in their default MPI configurations.  Derecho uses `cray-mpich` by default, vs. Cheyenne's Message Passing Toolkit (MPT) implementation.
 
@@ -132,7 +132,7 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
 
     - *MPI Environment Variables*: Any users leveraging MPT-specific environment variables in their job scripts to change default behavior should first test their application with default configurations to determine if such approaches are still necessary, and if so will need to find `cray-mpich` equivalents - see `man intro_mpi` on Derecho or reach out to consulting for assistance.
 
-    - *Process binding*: Derecho does not use the `dmplace` or `omplace` utilities found on Cheyenne for process binding, requiring instead binding selections to be specified through `mpiexec`.  For additional details and examples see [Derecho PBS Script Examples](./starting-derecho-jobs/derecho-job-script-examples.md) and the discussion of the `--cpu-bind` option in the `mpiexec` manual page (`man mpiexec` on Derecho).
+    - *Process binding*: Derecho does not use the `dmplace` or `omplace` utilities found on Cheyenne for process binding, requiring instead binding selections to be specified through `mpiexec`.  For additional details and examples see [Derecho PBS Script Examples](../../pbs/job-scripts/derecho-job-script-examples.md) and the discussion of the `--cpu-bind` option in the `mpiexec` manual page (`man mpiexec` on Derecho).
 
 - <strong><tt>cron</tt></strong> **automation**: Some users leverage `cron` on Cheyenne to automate workflows. NCAR/CISL has deployed a new `cron` service independent of the HPC systems. This separated, high-availability solution allows us to perform maintenance on the HPC resources while not interrupting `cron` workflows that can tolerate the downtime. Additional details are [here](../additional-resources/cron.md).
 
