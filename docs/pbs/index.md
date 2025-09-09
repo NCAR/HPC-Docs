@@ -88,28 +88,50 @@ Lastly we add in whatever commands we need to run the application. In this simpl
 ### Submitting your first job
 
 The three commands to submit a job are as follows:
+
+#### qsub
+`qsub` submits a script to the job scheduler. Normally, this command is the fundamental building block for all PBS job submission. On NCAR HPC systems, it is primarily used for batch jobs.
+
 ```
-# Run a batch job
+# Request a batch job
 qsub <your-job-script>
 ```
 
-```
-# Run a single command job
-qcmd <command>
-```
+As noted prior, qsub can also take in any number of directives as flags for the command. 
 
 ```
-# Run an interactive job
-qinteractive
-```
-
-All three commands can take PBS directives in the form of flags as such:
-
-```
-qinteractive -A <your-account> -l walltime=00:10:00
+qsub -A <your-account> -l walltime=00:10:00 <your-job-script>
 ```
 
 PBS commands are share among NCAR HPC Systems, but specific directive values will vary. Check out the more extensive [job scripts](./job-scripts/index.md) documentation for more information.
+
+#### qcmd
+`qcmd` is an NCAR provided submission command that submits a single command to the job scheduler and waits for the jobs completion. This command is great for smaller tasks that would be CPU or memory constrained on a login node.
+
+```
+qcmd <PBS-Directives> -- <your-command>
+```
+
+By default, `qcmd` will request a single node with 32 cores on the `develop` queue. An account must be provided at run time or through the `PBS_ACCOUNT` environment variable.
+
+#### `qinteractive`
+
+`qinteractive` is an another NCAR provided submission command that provides a convenient way to start an interactive job. By default, when you run `qinteractive` on Casper, it starts an interactive job with 1 CPU and 10GB of memory. On Derecho, `qinteractive` starts an interactive job with 32 CPUs and 55GB of memory on the `develop` queue.
+
+The following example shows how to start an interactive job on either Derecho or Casper :
+
+```bash
+qinteractive -A <project_code>
+```
+
+!!! tip
+    The `-A` flag is needed if users have not specified a default project code in their environment. The default project code can be specified using the environment variable `PBS_ACCOUNT`. Default project codes can also be specified for a specific system using `PBS_ACCOUNT_DERECHO` and `PBS_ACCOUNT_CASPER` for Derecho and Casper, respectively.
+
+Users can also start an interactive job on Casper or Derecho using the `qsub -I` command. The `-I` flag is used to request an interactive session. The following example shows how to start an interactive job with specified resources on Casper:
+
+```bash
+qsub -I -l select=1:ncpus=1:mem=20GB -q casper -l walltime=06:00:00 -A <project_code>
+```
 
 ### Propagating environment settings
 Some users find it useful to set environment variables in their login environment that can be temporarily used for multiple batch jobs without modifying the job script. This practice can be particularly useful during iterative development and debugging work.
