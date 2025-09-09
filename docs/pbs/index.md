@@ -6,7 +6,7 @@ Unlike a personal machine, NCAR HPC resources are shared between a plethora of d
 There are 2 types of jobs that users can request when on the system.
 
 #### Batch jobs
-A batch job is a type of job that submits a bash command or script to its requested resources where the commands are executed by the scheduler. This type of job is entirely non-interactive and is usually the most common type of job on NCAR HPC Resources.
+A batch job is a type of job that submits a request for resources along with bash commands or a script. The scheduler then finds the desired resources and executes provided commands on said resources. This type of job is entirely non-interactive and is usually the most common type of job on NCAR HPC Resources.
 
 **Reasons to run a batch job:**
 - The application needs to run for several hours.
@@ -44,7 +44,7 @@ Job scripts are commonly organized in 3 distinct sections: *directives*, *enviro
 
 # Environment Management
 module purge
-module load intel craympich
+module load ncarenv/24.12 intel cray-mpich
 TMPDIR=/glade/derecho/scratch/$USER/tmpdir
 
 # Scripting
@@ -71,15 +71,11 @@ Once your PBS directives are in place, there’s no restriction on what else is 
 
 **Loading and reporting the specific module environment required for this job.**
 
-Defining the module environment is not required but highly recommended as a best practice to facilitate debugging or reproducing later.  If the module environment is not defined in the script then the job with run with the default module stack.  The default module stack is changed periodically which could lead to errors if you compiled an application with an older, incompatible default module environment.  Additional details on setting up your module environment can be found in the [modules](../environment-and-software/user-environment/modules.md) section.
+Defining the module environment is not required but highly recommended as a best practice to facilitate debugging or reproducing later.  If the module environment is not defined in the script then the job will run with the default module stack.  The default module stack is changed periodically which could lead to errors if you compiled an application with an older, incompatible default module environment.  Additional details on setting up your module environment can be found in the [modules](../environment-and-software/user-environment/modules.md) section.
 
 **Explicitly setting the `TMPDIR` variable.**
 
-As described here, many programs write temporary data to `TMPDIR`, which is usually small and shared amongst users. Specifying your own directory for temporary files can help you avoid the risk of your own programs and other users' programs failing when no more space is available.
-
-(Optional) Defining any environment variables specific to the chosen module environment.
-
-Occasionally users will want to define particular run time environment variables e.g. for a specific MPI or library chosen via the module load commands.
+Many programs write temporary data to `TMPDIR`, which is usually small and shared amongst users. Specifying your own directory for temporary files can help you avoid the risk of your own programs and other users' programs failing when no more space is available.
 
 ##### Remaining job-specific steps
 
@@ -121,7 +117,7 @@ By default, `qcmd` will request a single node with 32 cores on the `develop` que
 The following example shows how to start an interactive job on either Derecho or Casper :
 
 ```bash
-qinteractive -A <project_code>
+qinteractive -A <project_code> -l walltime=01:00:00
 ```
 
 !!! tip
@@ -233,9 +229,6 @@ Get a long-form summary of the status of an unfinished job.
 ```
 qstat -f jobID
 ```
-!!! Warning
-
-    Use the above command only sparingly; it places a high load on PBS.
 
 Get a single-line summary of the status of an unfinished or recently completed job (within 72 hours).
 
@@ -257,7 +250,7 @@ Display information for all of your pending, running, and finished jobs.
 ```
 qstat -x -u $USER
 ```
-Query jobs running on one system by specifying the system as shown here. (Only these options are supported when running qstat in this cross-server mode: `-x, -u,-w, -n, -s`)
+Query jobs running on one system by specifying the system as shown here.
 
 ```
 qstat -w -u $USER @derecho
@@ -270,4 +263,3 @@ qstat -w -u $USER @derecho
 qstat -w -u $USER @derecho
 qstat -w -u $USER @casper
 ```
-Only these options are supported when running `qstat` in this cross-server mode: `-x, -u, -w, -n, -s`
