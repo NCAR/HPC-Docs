@@ -6,7 +6,7 @@ Unlike a personal machine, NCAR HPC resources are shared between a plethora of d
 There are 2 types of jobs that users can request when on the system.
 
 #### Batch jobs
-A batch job is a type of job that submits a request for resources along with bash commands or a script. The scheduler then finds the desired resources and executes provided commands on said resources. This type of job is entirely non-interactive and is usually the most common type of job on NCAR HPC Resources.
+A batch job is a type of job that submits a request for resources along with commands or a script. The scheduler then finds the desired resources and executes provided commands on said resources. This type of job is entirely non-interactive and is usually the most common type of job on NCAR HPC Resources.
 
 **Reasons to run a batch job:**
 - The application needs to run for several hours.
@@ -14,7 +14,7 @@ A batch job is a type of job that submits a request for resources along with bas
 - The application does not require any interaction with the user. 
 - The application needs to be run many times either in series or in parallel.
 
-You can run a batch job either by preparing a [job script](#job-scripts) and [submitting it with](#submitting-your-first-job) `qsub` or with `qcmd` for singleton commands.
+You can run a batch job either by preparing a [job script](#job-scripts) and [submitting it with](#submitting-your-first-job) `qsub` or with `qcmd` for single commands.
 
 #### Interactive jobs
 An interactive job is an allotment of resources without a predetermined set of commands submitted with the request. These types of jobs load you into an interactive session where you can run your commands directly on a node. These types of jobs are usually best for developing workflows or debugging applications. They can also be used when doing visualization or development work. Interactive jobs can be invoked directly on the command line, by requesting a JupyterHub session, or by [requesting a FastX session](../compute-systems/casper/remote-desktops.md#using-fastx).
@@ -48,7 +48,7 @@ module load ncarenv/24.12 intel cray-mpich
 TMPDIR=/glade/derecho/scratch/$USER/tmpdir
 
 # Scripting
-mpiexec -np 128 ./parallelapp
+mpiexec ./parallelapp
 mv parallel_output /glade/work/$USER/output
 ```
 
@@ -58,7 +58,7 @@ The example above contains several directives which are interpreted by the qsub 
 | Directive | Function     |
 | --------- | ------------ |
 | `#PBS -n hello_pbs` | Provides a job name. This name will be displayed by the scheduler for diagnostic and file output. If omitted, and a script is used to submit the job, the job's name is the name of the script. |
-| `#PBS -A <project_code>` | Specify a NCAR Project Accounting code resource allocation will be applicable to this job. (You will want to replace `<project_code>` with your project's specific code.) |
+| `#PBS -A <project_code>` | Specify an NCAR project allocation from which the job will charge core or GPU hours. (You will want to replace `<project_code>` with your project's specific code.) |
 | `#PBS -j oe` | Requests we combine any standard text output (o) and error (e) into one output file. (By default, PBS will write program output and error to different log files. This behavior is contrary to what many users expect from terminal interaction, where output and error are generally interspersed. This optional flag changes that behavior.) |
 | `#PBS -q main` | Specifies the desired PBS queue for this job |
 | `#PBS-l walltime=00:05:00` | Requests 5 minutes as the maximum job execution (walltime) time. Specified in HH:MM:SS format. |
