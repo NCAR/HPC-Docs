@@ -128,7 +128,9 @@ nav:
       - pbs/index.md
       - Job Scripts: pbs/job-scripts/index.md
       - Queues and Charging: pbs/charging.md
-      - Advanced PBS Topics: pbs/advanced-pbs-topics.md
+      - Job Dependencies: pbs/job-dependencies.md
+      - Peer Scheduling between Systems: pbs/peer-scheduling.md
+      - Job Preemption with PBS: pbs/preemption.md
       - Common Causes of Job Failures:
         - pbs/common-causes-of-job-failures/index.md
         - Checking Memory Use: pbs/checking-memory-use/index.md
