@@ -75,21 +75,14 @@ nav:
       - compute-systems/derecho/index.md
       - Derecho Use Policies: compute-systems/derecho/derecho-use-policies.md
       - Compiling Code on Derecho: compute-systems/derecho/compiling-code-on-derecho/index.md
-      - Starting Derecho Jobs:
-        - compute-systems/derecho/starting-derecho-jobs/index.md
-        - Derecho Job Script Examples:
-          - compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md
-        # - Process Binding : compute-systems/derecho/starting-derecho-jobs/process-binding.md TODO: FILL PAGE
+      # - Process Binding : compute-systems/derecho/process-binding.md TODO: FILL PAGE
       - Derecho Software: compute-systems/derecho/derecho-modules.md
       - Moving to Derecho from Cheyenne: compute-systems/derecho/moving-from-cheyenne.md
     - Casper:
       - compute-systems/casper/index.md
       - Casper Use Policies: compute-systems/casper/casper-use-policies.md
+      - Casper Node Types: compute-systems/casper/casper-node-types.md
       - Compiling Code on Casper: compute-systems/casper/compiling-code-on-casper/index.md
-      - Starting Casper Jobs:
-        - compute-systems/casper/starting-casper-jobs/index.md
-        - Casper job Script Examples: compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md
-        - Casper Node Types: compute-systems/casper/starting-casper-jobs/casper-node-types.md
       - Using Remote Desktops: compute-systems/casper/remote-desktops.md
       - Casper Software: compute-systems/casper/casper-modules.md
     - CIRRUS:
@@ -126,7 +119,10 @@ nav:
 
   - Running Jobs (PBS):
       - pbs/index.md
-      - Job Scripts: pbs/job-scripts/index.md
+      - Job Scripts:
+        - pbs/job-scripts/index.md
+        - Derecho Job Script Examples: pbs/job-scripts/derecho-job-script-examples.md
+        - Casper job Script Examples: pbs/job-scripts/casper-job-script-examples.md
       - Queues and Charging: pbs/charging.md
       - Job Dependencies: pbs/job-dependencies.md
       - Peer Scheduling between Systems: pbs/peer-scheduling.md

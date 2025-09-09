@@ -1,21 +1,53 @@
 # Targeting a Casper Node Architecture
 
-Casper is a heterogeneous system that has several node architectures.  The charts below provides architecture specifications and example PBS select statements to target a specific node type.  Targeting a specific node may impact scheduler time, particularly for architectures with low node counts.  The PBS select statements are basic examples to request the node and you will likely want to modify the select parameters to better suit your job workflow needs.
+!!! tip
+    This page is written with the assumption that you have some experience using
+    PBS Pro to schedule compute jobs. If you are not yet familiar with job
+    submission, we recommend you review our [PBS Pro documentation](../../../pbs)
+    first.
 
-Be mindful that these examples only show a way to guarantee the scheduler gives you that node type.  There are instances where modifying the example CPU count may overlap with other node types.  A specific example would be selecting `#PBS -l select=1:ncpus=4` which could place you on any of the High-Throughput Computing node types.
+Casper is a heterogeneous system that has several node architectures.  The
+charts below provides architecture specifications and example PBS select
+statements to target a specific node type.  Targeting a specific node may impact
+scheduler time, particularly for architectures with low node counts.  The PBS
+select statements are basic examples to request the node and you will likely
+want to modify the select parameters to better suit your job workflow needs.
 
-Two parameters that are helpful for targeting node types are `cpu_type` and `gpu_type`.  The tables below provides examples on how to use them and if you need to use them for requesting a node type.
+Be mindful that these examples only show a way to guarantee the scheduler gives
+you that node type.  There are instances where modifying the example CPU count
+may overlap with other node types.  A specific example would be selecting `#PBS
+-l select=1:ncpus=4` which could place you on any of the High-Throughput
+Computing node types.
 
-The examples below do not include optional the `ompthreads=X` argument for OpenMP threads but can be added if you need hybrid parallelism for your job.  The `mpiprocs=X` setting is omitted except in cases where a GPU is requested since the GPUs underlying communication method requires a MPI rank for each GPU.
+Two parameters that are helpful for targeting node types are `cpu_type` and
+`gpu_type`.  The tables below provides examples on how to use them and if you
+need to use them for requesting a node type.
+
+The examples below do not include optional the `ompthreads=X` argument for
+OpenMP threads but can be added if you need hybrid parallelism for your job.
+The `mpiprocs=X` setting is omitted except in cases where a GPU is requested
+since the GPUs underlying communication method requires a MPI rank for each GPU.
 
 
 # Shared vs. Exclusive Resources
 
-Casper's queue is set to share node resources across job requests but you may need to request an exclusive node for your job.  The tables below provide examples for job resource select statements that will aim for either more performant with exclusive nodes or faster queue time with shared nodes.  The range of parameters can be inferred from careful analysis between the shared and exclusive request amounts.  You can reference the [job script examples](casper-job-script-examples.md) to help build your submission script or contact the [NCAR Research Computing help desk](https://rchelp.ucar.edu/) if you have any questions about targeting a node type with PBS select statements that are optimal for your workflow.
+Casper's queue is set to share node resources across job requests but you may
+need to request an exclusive node for your job.  The tables below provide
+examples for job resource select statements that will aim for either more
+performant with exclusive nodes or faster queue time with shared nodes.  The
+range of parameters can be inferred from careful analysis between the shared and
+exclusive request amounts.  You can reference the [job script
+examples](../../pbs/job-scripts/casper-job-script-examples.md) to help build your submission script or
+contact the [NCAR Research Computing help desk](https://rchelp.ucar.edu/) if you
+have any questions about targeting a node type with PBS select statements that
+are optimal for your workflow.
 
 ## Shared Node
 
-These settings will prioritize reducing your time in the queue and can be thought of as the minimum required resource requests to ensure you receive the desired node type.  Memory requests are omitted in the examples unless it is a requirement to be placed on large memory nodes.
+These settings will prioritize reducing your time in the queue and can be
+thought of as the minimum required resource requests to ensure you receive the
+desired node type.  Memory requests are omitted in the examples unless it is a
+requirement to be placed on large memory nodes.
 
 | Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements                                                   |
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
@@ -33,7 +65,9 @@ These settings will prioritize reducing your time in the queue and can be though
 
 ## Exclusive Node
 
-These settings will ensure that your job reserves the entire node.  These requests can be thought of as the maximum amount of resources of the given node type.
+These settings will ensure that your job reserves the entire node.  These
+requests can be thought of as the maximum amount of resources of the given node
+type.
 
 | Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements                                                   |
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
@@ -51,6 +85,11 @@ These settings will ensure that your job reserves the entire node.  These reques
         
 ## Large Memory Nodes
 
-Select statements that have memory values greater than 400GB are routed to the `largemem` queue.  There are fewer nodes that are assigned the `largemem` flag so queue times may be longer if you request enough memory to land on this routing method.
+Select statements that have memory values greater than 400GB are routed to the
+`largemem` queue.  There are fewer nodes that are assigned the `largemem` flag
+so queue times may be longer if you request enough memory to land on this
+routing method.
 
-For the High-Throughput Computing nodes, requesting less than 350GB is a good way to ensure that you will be routed to the general `htc` queue with shorter wait times.
+For the High-Throughput Computing nodes, requesting less than 350GB is a good
+way to ensure that you will be routed to the general `htc` queue with shorter
+wait times.
