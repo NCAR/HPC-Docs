@@ -6,7 +6,6 @@ repos:
     rev: 0.7.17
     hooks:
       - id: mdformat
-        args: [--check]  # <- CHECK ONLY
         additional_dependencies:
           - mdformat-mkdocs[recommended]  # Optional: only if you're using MkDocs
 
@@ -19,12 +18,10 @@ repos:
           - --ignore-words-list=nd
           - --skip=LICENSE
 
-  # ✅ Check for broken links in Markdown files
   - repo: https://github.com/tcort/markdown-link-check
     rev: v3.10.3
     hooks:
       - id: markdown-link-check
-        args: ["--config=.mlc_config.json"]
         files: \.md$
 
 
@@ -34,4 +31,3 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: check-merge-conflict
-
