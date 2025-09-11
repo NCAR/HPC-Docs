@@ -1,0 +1,37 @@
+default_stages: [pre-commit, pre-push]
+
+repos:
+  # Format Markdown files (check only, no changes)
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.17
+    hooks:
+      - id: mdformat
+        args: [--check]  # <- CHECK ONLY
+        additional_dependencies:
+          - mdformat-mkdocs[recommended]  # Optional: only if you're using MkDocs
+
+  # Check for common spelling errors (check-only mode)
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        args:
+          - --ignore-words-list=nd
+          - --skip=LICENSE
+
+  # ✅ Check for broken links in Markdown files
+  - repo: https://github.com/tcort/markdown-link-check
+    rev: v3.10.3
+    hooks:
+      - id: markdown-link-check
+        args: ["--config=.mlc_config.json"]
+        files: \.md$
+
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+
