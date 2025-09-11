@@ -11,6 +11,7 @@ This guide provides an overview of how to contribute to this documentations and 
 
 This repository contains technical documentation for NCAR HPC resources. The documentation is written in Markdown, which is then converted to HTML/CSS/JS using the `mkdocs` static site generator. We have customized the `mkdocs-material` theme to align with NCAR branding and colors.
 
+khar
 
 !!! note
     If you're new to Markdown, you can learn more about it [here](https://www.markdownguide.org/).
