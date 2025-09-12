@@ -40,7 +40,7 @@ For major modifications, such as a comprehensive revision of a section in the do
 
 1. **Fork the repository:** Go to the repository page and click the "Fork" button to create a copy of the repository under your GitHub account.
 
-1. **Clone the forked repository to your local machine:** This can be done by running the following command in your terminal:
+2. **Clone the forked repository to your local machine:** This can be done by running the following command in your terminal:
 
     ```bash
     git clone https://github.com/<YOUR_USERNAME>/HPC-Docs.git
@@ -60,7 +60,7 @@ For major modifications, such as a comprehensive revision of a section in the do
 
     This will pull the [`mkdocs-material-theme` submodule](https://github.com/NCAR/NCAR_mkdocs_material_themes.git).
 
-1. **Create a new branch:** It's a good practice to create a new branch before you start making changes. This can be done by running:
+3. **Create a new branch:** It's a good practice to create a new branch before you start making changes. This can be done by running:
 
     ```bash
     git checkout -b <BRANCH_NAME>
@@ -68,14 +68,14 @@ For major modifications, such as a comprehensive revision of a section in the do
 
     Replace `<BRANCH_NAME>` with a name that gives a hint about the changes you're about to make.
 
-1. **Make your changes:** With your new branch checked out, you can start making changes to the documentation. Remember to save your work regularly and commit your changes often.
+4. **Make your changes:** With your new branch checked out, you can start making changes to the documentation. Remember to save your work regularly and commit your changes often.
 
     !!! tip
         You can live preview your changes locally by running `mkdocs serve` in your terminal. For more on this, see [Building the Documentation Locally](#building-the-documentation-locally) section.
 
-1. **Commit your changes:** Once you have made and tested your changes, stage the files you have modified using `git add <file>` or `git add .` to stage all changes. Then, commit your changes with a descriptive message using `git commit -m "<YOUR_COMMIT_MESSAGE>"`.
+5. **Commit your changes:** Once you have made and tested your changes, stage the files you have modified using `git add <file>` or `git add .` to stage all changes. Then, commit your changes with a descriptive message using `git commit -m "<YOUR_COMMIT_MESSAGE>"`.
 
-1. **Pre-commit Hook (Optional but Recommended):** Before pushing your changes, it's a good idea to run a pre-commit hook to ensure that your code adheres to the repository's style guidelines and to catch any potential issues. You can set up pre-commit hooks by following these steps (you only need to do this once):
+6. **Pre-commit Hook (Optional but Recommended):** Before pushing your changes, it's a good idea to run a pre-commit hook to ensure that your code adheres to the repository's style guidelines and to catch any potential issues. You can set up pre-commit hooks by following these steps (you only need to do this once):
 
     - Install `pre-commit` if you haven't already:
 
@@ -89,11 +89,15 @@ For major modifications, such as a comprehensive revision of a section in the do
         pre-commit install
         ```
 
-    - Now, every time you make a commit, the pre-commit hooks will automatically run and check your code for any issues. If any issues are found, you'll need to fix them before you can successfully commit your changes. At any time, you can
+    - Now, every time you make a commit, the pre-commit hooks will automatically run and check your code for any issues. If any issues are found, you'll need to fix them before you can successfully commit your changes. At any time, you can turn off the pre-commit hook by running:
 
-1. **Push your changes:** You can push your changes to your forked repository by running `git push origin <BRANCH_NAME>`.
+        ```bash
+        pre-commit uninstall
+        ```
 
-1. **Submit a Pull Request (PR):** After pushing your changes, go to HPC-Docs github repository, and click on "New pull request". Fill in the necessary details and submit the PR. Once your have submitted the PR, a bunch of automatic workflows will be triggered. readthedocs will build a preview of your document and add it to the PR. This allows you to preview your changes before they are merged into the main branch.
+7. **Push your changes:** You can push your changes to your forked repository by running `git push origin <BRANCH_NAME>`.
+
+8. **Submit a Pull Request (PR):** After pushing your changes, go to HPC-Docs github repository, and click on "New pull request". Fill in the necessary details and submit the PR. Once your have submitted the PR, a bunch of automatic workflows will be triggered. readthedocs will build a preview of your document and add it to the PR. This allows you to preview your changes before they are merged into the main branch.
 
 #### Building the Documentation Locally
 
