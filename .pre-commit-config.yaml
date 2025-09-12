@@ -1,15 +1,6 @@
 default_stages: [pre-commit, pre-push]
 
 repos:
-  # Format Markdown files (check only, no changes)
-  - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.17
-    hooks:
-      - id: mdformat
-        additional_dependencies:
-          - mdformat-mkdocs[recommended]  # Optional: only if you're using MkDocs
-
-  # Check for common spelling errors (check-only mode)
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:

@@ -11,8 +11,6 @@ This guide provides an overview of how to contribute to this documentations and 
 
 This repository contains technical documentation for NCAR HPC resources. The documentation is written in Markdown, which is then converted to HTML/CSS/JS using the `mkdocs` static site generator. We have customized the `mkdocs-material` theme to align with NCAR branding and colors.
 
-khar
-
 !!! note
     If you're new to Markdown, you can learn more about it [here](https://www.markdownguide.org/).
     Here is the reference to the [mkdocs-material documentation features](https://squidfunk.github.io/mkdocs-material/reference/).
@@ -91,7 +89,7 @@ For major modifications, such as a comprehensive revision of a section in the do
         pre-commit install
         ```
 
-    - Now, every time you make a commit, the pre-commit hooks will automatically run and check your code for any issues. If any issues are found, you'll need to fix them before you can successfully commit your changes.
+    - Now, every time you make a commit, the pre-commit hooks will automatically run and check your code for any issues. If any issues are found, you'll need to fix them before you can successfully commit your changes. At any time, you can
 
 1. **Push your changes:** You can push your changes to your forked repository by running `git push origin <BRANCH_NAME>`.
 
