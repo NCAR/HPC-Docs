@@ -56,6 +56,21 @@ exist, most Casper jobs will be submitted via the primary **casper**
                              |gpgpu, a100, h100                         | 32 GPUs (8 for H100s)               |For general purpose GPU modeling and machine learning. 4-way and 8-way V100s, 4-way A100s, and 4-way H100 nodes are available. |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 |**gpudev**                  |Varies             |30 minutes            | 4 V100 GPUs; 36 CPUs; 732 GB RAM     |Short, iterative, debugging and development tasks on V100 GPUs|
 
+### GPU development jobs
+
+A submission queue called `gpudev` is available between 8 a.m. and 5:30
+p.m. Mountain time Monday to Friday to support application development
+and debugging efforts on general purpose and ML/AI GPU applications.
+This queue provides rapid access to up to 4 V100 GPUs, avoiding the
+sometimes lengthy queue wait times in the `gpgpu` execution queue.
+
+Job submissions to this queue are limited to 30 minutes walltime instead
+of the 24-hour wallclock limit for all other submissions. **All jobs
+submitted to the queue** must request one or more V100 GPUs (up to four)
+in their resource directives. Node memory can be specified  explicitly
+as usual, but by default jobs will be assigned N/4 of the total memory
+on a node, where N is the number of V100 GPUs requested.
+
 ## Job priority
 
 On previous NCAR HPC systems, queues could be used to select a higher or lower
