@@ -443,6 +443,17 @@ See `glade_hsm status --help` for additional details.
 - Easily identify candidate data for HSM migration using the [usage reports described above](#usage-reports).
 
     - You can migrate even a single, large directory at the bottom of a directory tree if desired.
+    - You can run `glade_hsm inspect <dirname>` to assess the potential savings for a given directory to help decide if HSM is appropriate. For example:
+    ```pre
+    $ glade_hsm inspect /glade/campaign/cisl/csg
+    Inspecting '/glade/campaign/cisl/csg' HSM suitability:
+     ... found 100,000 files [17 offline], 5.44 TiB on disk
+     ... found 200,000 files [17 offline], 6.39 TiB on disk [6.40 TiB accounting for compression & HSM]
+      Total Files: 222,257 [17 Offline]
+      Total Data:  6.66 TiB On Disk [6.67 TiB True Size, Accounting for Compression & HSM]
+      HSM Suitability: 1,787 files, 4.58 TiB
+    ```
+    shows the number and volume of files within the specified path that would be migrated to tape under our HSM policies.
 
 - If you would like to permanently remove items from cold storage, please [reach out to user support](../../user-support/index.md).  System engineers can help remove files without recalling them first.
 <!--  LocalWords:  HSM hsm subcommand
