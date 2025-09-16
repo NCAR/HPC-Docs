@@ -58,6 +58,7 @@ requirement to be placed on large memory nodes.
 |                          | Intel Cascade Lake   | 36    | 2.6GHz     | 1152 GB     | V100 (x8)    | 32 GB      | 6     | -l select=1:ncpus=5:mpiprocs=5:ngpus=5 -l gpu_type=v100                             |
 |                          | AMD EPYC Milan     | 128   | 2.45GHz    | 992 GB     | A100 (x4)    | 80 GB      | 8     | -l select=1:ncpus=16:mpiprocs=1:ngpus=1:cpu_type=milan -l gpu_type=a100              |
 |                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=8:mpiprocs=1:ngpus=1 -l gpu_type=h100                             |
+|                          | AMD MI300A Zen 4 (4 APU)     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=96:mpiprocs=4:ngpus=4:mem=400gb -l gpu_type=mi300a  |
 | High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=1:cpu_type=cascadelake                             |
 |                          | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=1:cpu_type=cascadelake:mem=400GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 733 GB     |              |            | 64     | -l select=1:ncpus=1:cpu_type=genoa                  |
@@ -78,6 +79,7 @@ type.
 |                          | Intel Cascade Lake   | 36    | 2.6GHz     | 1152 GB     | V100 (x8)    | 32 GB      | 6     | -l select=1:ncpus=36:mpiprocs=8:ngpus=8:mem=1100GB -l gpu_type=v100                             |
 |                          | AMD EPYC Milan     | 128   | 2.45GHz    | 992 GB     | A100 (x4)    | 80 GB      | 8     | -l select=1:ncpus=128:mpiprocs=4:ngpus=4:cpu_type=milan:mem=991GB -l gpu_type=a100              |
 |                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=984GB -l gpu_type=h100               |
+|                          | AMD MI300A Zen 4 (4 APU)    | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=96:mpiprocs=4:ngpus=4:mem=470gb -l gpu_type=mi300a  |
 | High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=36:cpu_type=cascadelake:mem=353GB                             |
 |                          | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=36:cpu_type=cascadelake:mem=1480GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 733 GB     |              |            | 64     | -l select=1:ncpus=62:cpu_type=genoa:mem=732GB                  |
