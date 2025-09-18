@@ -93,7 +93,7 @@ After the shared secret path has been created:
 
 In order to use secrets stored in OpenBao as environment variables within CIRRUS-hosted applications:
 
-1. **Copy your OpenBao token:** Click the person icon in the upper left corner of the OpenBao interface and select "Copy token". Store this token in OpenBao under your personal path at <your-email@ucar.edu>/bao with the key token and your copied token as the value.
+1. **Copy your OpenBao token:** Click the person icon in the upper left corner of the OpenBao interface and select "Copy token". Store this token in OpenBao under your personal path at <your-email@ucar.edu>/bao with the key "token" and your copied token as the value.
 
     ![Bao Copy Token](../../media/openbao/bao3.png "Bao Copy Token")
 
