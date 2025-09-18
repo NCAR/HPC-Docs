@@ -38,8 +38,8 @@ that will best meet your needs:
 -  [Derecho Overview](../compute-systems/derecho/index.md)
 -  [Casper Overview](../compute-systems/casper/index.md)
 -  [Submitting jobs with PBS](../pbs/index.md)
-    -  [Sample Derecho PBS job scripts](../compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples.md)
-    -  [Sample Casper PBS job scripts](../compute-systems/casper/starting-casper-jobs/casper-job-script-examples.md)
+    -  [Sample Derecho PBS job scripts](../pbs/job-scripts/derecho-job-script-examples.md)
+    -  [Sample Casper PBS job scripts](../pbs/job-scripts/casper-job-script-examples.md)
 
 For expert assistance or guidance in using these resources, contact
 the [NSF NCAR Research Computing help desk](https://rchelp.ucar.edu/).

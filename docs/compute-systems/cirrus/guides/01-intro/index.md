@@ -195,9 +195,168 @@ Learn more: [jupyter on CIRRUS](../06-jupyter-on-cirrus/jupyterhub.md)
 
 ## Hardware Resources
 
-CIRRUS operates on **18 high-performance nodes** providing substantial computing power:
+CIRRUS operates on **18 high-performance nodes**, split between Mesa Lab & NWSC, providing substantial computing power:
 
 ### Compute Specifications
+
+#### Site-Specific Hardware
+
+<table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
+  <thead>
+    <tr>
+      <th colspan="2" style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">NWSC</th>
+      <th style="padding:0 !important; background-color:#f8f9fa; border:none !important; width:8px !important; max-width:8px !important; min-width:8px !important;"></th>
+      <th colspan="2" style="padding:10px 20px; text-align:center; background-color:var(--md-primary-fg-color); color:#fff; font-size:1.05rem;">ML</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2" style="padding:8px 12px; border:1px solid #ccc; background-color:#53565A; color:#fff; font-weight:bold; text-align:center;">GPU Nodes (5)</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:8px 12px; border:1px solid #ccc; background-color:#53565A; color:#fff; font-weight:bold; text-align:center;">GPU Nodes (5)</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Manufacturer</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Supermicro</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Manufacturer</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Supermicro</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Model</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">SYS-120U-TNR</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Model</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">SYS-120U-TNR</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Type</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × Intel Xeon Gold 6326</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Type</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × Intel Xeon Gold 6326</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Speed</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2.90 GHz</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Speed</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2.90 GHz</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">16 x 2</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">16 x 2</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>GPU</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">1 × NVIDIA A2</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>GPU</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">1 × NVIDIA A10</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CUDA Driver</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">575.51.03</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CUDA Driver</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">575.51.03</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CUDA Runtime</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">12.9</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CUDA Runtime</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">12.9</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>RAM</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">512 GB</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>RAM</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">512 GB</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>NICs</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 25G</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>NICs</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 25G</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">6 × 1.6TB NVMe</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">6 × 3.2TB NVMe</td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding:8px 12px; border:1px solid #ccc; background-color:#53565A; color:#fff; font-weight:bold; text-align:center;">CPU Nodes (4)</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:8px 12px; border:1px solid #ccc; background-color:#53565A; color:#fff; font-weight:bold; text-align:center;">CPU Nodes (4)</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Manufacturer</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Dell</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Manufacturer</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Dell</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Model</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">PowerEdge R6615</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Model</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">PowerEdge R6615</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Type</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × AMD EPYC 9354P</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Type</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × AMD EPYC 9354P</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Speed</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">3.25 GHz</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Speed</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">3.25 GHz</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">32 x 1</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">32 x 1</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>RAM</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">512 GB</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>RAM</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">512 GB</td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>NICs</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 25G</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>NICs</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 25G</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">8 × 1.6TB NVMe</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">8 × 1.6TB NVMe</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Totals
 
 <table markdown="1" style="border:1px solid #666; border-collapse:collapse; margin:0 0 0 0; border-radius:6px; overflow:hidden; font-size:0.9rem;">
   <thead>
