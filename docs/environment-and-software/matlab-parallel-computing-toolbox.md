@@ -93,13 +93,13 @@ the toolbox.
     module load matlab
 
     # Derive the number of workers to use in the toolbox run script
-    export NUMWORKERS=$(wc -l $PBS_NODEFILE | cut -d' ' -f1)
+    export $MPS_num_workers=$(wc -l $PBS_NODEFILE | cut -d' ' -f1)
 
     SECONDS=0
     matlab -nodesktop -nosplash << EOF
     % Start local cluster and submit job with custom number of workers
     c = parcluster('local')
-    j = c.batch(@parallel_sum, 1, {100}, 'pool', $((NUMWORKERS - 1)));
+    j = c.batch(@parallel_sum, 1, {100}, 'pool', $((MPS_num_workers - 1)));
 
     % Wait for the job to finish, then get output
     wait(j);
@@ -115,8 +115,8 @@ the toolbox.
 When using the PCT, you are expected to create and use *cluster
 profiles* that manage either node-local tasks or batch-scheduler tasks.
 While there is a preconfigured profile for single-node use (local), you
-will need to do some setup before you can use the MPS. CISL provides a
-distributed cluster profile for PBS on both Casper and Derecho for all
+will need to do some setup before you can use the MPS. CISL provides
+distributed cluster profiles for PBS on both Casper and Derecho for all
 versions of MATLAB starting with R2020a.
 
 You can import an existing cluster profile using the wizard in the
@@ -125,28 +125,45 @@ you use our sample distributed script provided in the following section,
 we include the MPS cluster profile setup for you, so you can skip the
 commands in this section.
 
+!!! info
+    Due to changes made by Mathworks, the parallel profile configuration has
+    changed with some Matlab releases. Currently, the first version of our MPS
+    profile works from versions R2021-R2023, while our v2 profile works for
+    R2024+. Make sure you use the appropriate profile.
+
 At the MATLAB command line, enter the following line to import the MPS
 profile:
-```pre
-ncar_mps = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps.mlsettings');
-```
+
+=== "NCAR Profile v1"
+    ```pre
+    ncar_mps = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps.mlsettings');
+    ```
+=== "NCAR Profile v2"
+    ```pre
+    ncar_mps_v2 = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps_v2.mlsettings');
+    ```
 
 You need to import the profile only once; MATLAB will remember it in
 future sessions. If you anticipate using the parallel server profile
 frequently, you may want to make it your default parallel profile as
 shown here:
-```pre
-parallel.defaultClusterProfile(ncar-mps);
-```
+
+=== "NCAR Profile v1"
+    ```pre
+    parallel.defaultClusterProfile(ncar_mps);
+    ```
+=== "NCAR Profile v2"
+    ```pre
+    parallel.defaultClusterProfile(ncar_mps_v2);
+    ```
 
 ## Using the MATLAB parallel server (MPS) to span multiple nodes
 
 The configuration above will limit your job to the number of CPUs on a
-single node; on Casper and Derecho this means 36 workers, or 72 if you
-use hyperthreads. However, you can use the parallel server to span
-multiple nodes. When using MPS, MATLAB itself will submit a job to the
-batch scheduler and use an internal MPI library to enable communication
-between remote workers.
+single node; on Casper and Derecho this means up to 128 workers. However,
+you can use the parallel server to span multiple nodes. When using MPS,
+MATLAB itself will submit a job to the batch scheduler and use an internal
+MPI library to enable communication between remote workers.
 
 
 !!! example "`func_mps` Using the MATLAB parallel server"
@@ -154,65 +171,130 @@ between remote workers.
     parallel cluster as in this example, which embeds MATLAB code into a
     driver script `submit_server.sh`:
 
-    ```bash
-    #!/bin/bash
+    === "NCAR Profile v1"
+        ```bash
+        #!/bin/bash
 
-    # This script doesn't need to run on a batch node... we can simply submit
-    # the parallel job by running this script on the login node
+        # This script doesn't need to run on a batch node... we can simply submit
+        # the parallel job by running this script on the login node
 
-    module rm ncarenv
-    module load matlab
+        module load ncarenv/23.10
+        module load matlab
 
-    mkdir -p output
+        mkdir -p output
 
-    # Job parameters
-    MPSNODES=2
-    MPSTASKS=4
-    MPSACCOUNT=<PROJECT>
-    MPSQUEUE=casper@casper-pbs
-    MPSWALLTIME=300
-    SECONDS=0
+        # Job parameters
+        MPSNODES=2
+        MPSTASKS=4
+        MPSACCOUNT=<PROJECT>
+        MPSQUEUE=casper@casper-pbs
+        MPSWALLTIME=300
+        SECONDS=0
 
-    matlab -nodesktop -nosplash << EOF
-    % Add cluster profile if not already present
-    if ~any(strcmp(parallel.clusterProfiles, 'ncar_mps'))
-        ncar_mps = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps.mlsettings');
-    end
+        matlab -nodesktop -nosplash << EOF
+        % Add cluster profile if not already present
+        if ~any(strcmp(parallel.clusterProfiles, 'ncar_mps'))
+            ncar_mps = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps.mlsettings');
+        end
 
-    % Start PBS cluster and submit job with custom number of workers
-    c = parcluster('ncar_mps');
+        % Start PBS cluster and submit job with custom number of workers
+        c = parcluster('ncar_mps');
 
-    % Matlab workers will equal nodes * tasks-per-node - 1
-    jNodes = '$MPSNODES';
-    jTasks = '$MPSTASKS';
-    jWorkers = str2num(jNodes) * str2num(jTasks) - 1;
+        % Matlab workers will equal nodes * tasks-per-node - 1
+        jNodes = '$MPSNODES';
+        jTasks = '$MPSTASKS';
+        jWorkers = str2num(jNodes) * str2num(jTasks) - 1;
 
-    c.ClusterMatlabRoot = getenv('NCAR_ROOT_MATLAB');
-    c.ResourceTemplate = append('-l select=', jNodes, ':ncpus=', jTasks, ':mpiprocs=', jTasks);
-    c.SubmitArguments = append('-A $MPSACCOUNT -q $MPSQUEUE -l walltime=$MPSWALLTIME');
-    c.JobStorageLocation = append(getenv('PWD'), '/output');
+        c.ClusterMatlabRoot = getenv('NCAR_ROOT_MATLAB');
+        c.ResourceTemplate = append('-l select=', jNodes, ':ncpus=', jTasks, ':mpiprocs=', jTasks);
+        c.SubmitArguments = append('-A $MPSACCOUNT -q $MPSQUEUE -l walltime=$MPSWALLTIME');
+        c.JobStorageLocation = append(getenv('PWD'), '/output');
 
-    % Output cluster settings
-    c
+        % Output cluster settings
+        c
 
-    % Submit job to batch scheduler (PBS)
-    j = batch(c, @parallel_sum, 1, {100}, 'pool', jWorkers);
+        % Submit job to batch scheduler (PBS)
+        j = batch(c, @parallel_sum, 1, {100}, 'pool', jWorkers);
 
-    % Wait for job to finish and get output
-    wait(j);
-    diary(j);
-    exit;
-    EOF
+        % Wait for job to finish and get output
+        wait(j);
+        diary(j);
+        exit;
+        EOF
 
-    echo "Time elapsed = $SECONDS s"
-    ```
+        echo "Time elapsed = $SECONDS s"
+        ```
+    === "NCAR Profile v2"
+        ```bash
+        #!/bin/bash
+
+        # This script doesn't need to run on a batch node... we can simply submit
+        # the parallel job by running this script on the login node
+
+        module purge
+        module load ncarenv/24.12
+        module load matlab
+
+        mkdir -p output
+
+        # Job parameters
+        # Note that the batch command will use an additional orchestration worker
+        # For more info on fields: https://www.mathworks.com/help/matlab-parallel-server/customize-behavior-of-sample-plugin-scripts.html
+        MPS_num_workers=5
+        MPS_threads_per_worker=1
+        MPS_memory_per_worker=10GB
+        MPS_account=<PROJECT>
+        MPS_queue=casper@casper-pbs
+        MPS_walltime=10:00
+
+        # Use here-doc to send submit script to Matlab
+        SECONDS=0
+
+        matlab -nodesktop -nosplash << EOF
+        % Add cluster profile if not already present
+        if ~any(strcmp(parallel.clusterProfiles, 'ncar_mps_v2'))
+            ncar_mps_v2 = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps_v2.mlsettings');
+        end
+
+        % Start PBS cluster and submit job with custom number of workers
+        c = parcluster('ncar_mps_v2');
+
+        % Define cluster parameters based on launch script input
+        c.AdditionalProperties.AccountName = '$MPS_account';
+        c.AdditionalProperties.MemoryPerWorker = '$MPS_memory_per_worker';
+        c.AdditionalProperties.QueueName = '$MPS_queue';
+        c.AdditionalProperties.WallTime = '$MPS_walltime';
+        c.JobStorageLocation = append(getenv('PWD'), '/output');
+        c.NumThreads = $MPS_threads_per_worker;
+
+        % This setting does not seem to be preserved in the saved cluster profile
+        c.PluginScriptsLocation = "/glade/u/apps/opt/matlab/matlab-parallel-pbs-plugin";
+
+        % Output cluster settings
+        c
+
+        % Output additional PBS-specific settings
+        c.AdditionalProperties
+
+        % Submit job to batch scheduler (PBS)
+        % Here arguments are (cluster object, function to run, number of return values from function,
+        %                     function inputs, parpool toggle, workers in pool)
+        j = batch(c, @parallel_sum, 1, {100}, 'pool', $MPS_num_workers);
+
+        % Wait for job to finish and get output
+        wait(j);
+        diary(j);
+        exit;
+        EOF
+
+        echo "Time elapsed = $SECONDS s"
+        ```
 
 ## Sample PCT scripts
 
-Including the scripts shown above, there are four sets of example
-scripts that you can use, modify, and extend to fit your purposes. All
-four examples can be copied from
-`/glade/u/apps/opt/matlab/parallel/examples`.
+We have four sets of examples showing different ways to use the Parallel
+Computing Toolbox and Parallel Server, including the `parallel_sum` example
+above:
 
 - `func_local` - Run a specified function using a pool of local
   (single-node) workers. This is Example 1 above.
@@ -230,3 +312,8 @@ four examples can be copied from
 The last two examples are functionally similar to
 a [command-file](../pbs/job-scripts/index.md#using-job-arrays-to-launch-a-command-file) PBS
 job, but with the licensing benefits of using MPS.
+
+You can view, copy, and modify these examples for your own purposes using our
+[ncar_matlab_parallel](https://github.com/NCAR/ncar_matlab_parallel) GitHub
+repository. We also welcome contributions to this repo if you have your own
+example use case that you think others would find useful.
