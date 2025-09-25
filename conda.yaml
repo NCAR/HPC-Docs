@@ -4,7 +4,7 @@
 name: mkdocs
 dependencies:
   - make
-  - python
+  - python=3.12
   - pip
   - pip:
     - jinja2>=3.0
