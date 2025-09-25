@@ -192,7 +192,7 @@ original project.
 [Submit an Exploratory Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
 
-## Data Analysis Allocations (NEW!)
+## Data Analysis Allocations
 
 !!! info "Data Analysis allocation requests can be submitted at any time and decisions are typically made within a few days."
 
