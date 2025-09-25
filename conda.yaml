@@ -4,7 +4,7 @@
 name: mkdocs
 dependencies:
   - make
-  - python=3.9
+  - python
   - pip
   - pip:
     - jinja2>=3.0
@@ -16,6 +16,7 @@ dependencies:
     - colorama>=0.4
     - regex>=2022.4.24
     - requests>=2.26
+    - mkdocs-macros-plugin
     - mkdocs-material>=9.5.3
     - mkdocs-minify-plugin
     - mkdocs-git-revision-date-plugin
