@@ -1,3 +1,8 @@
+---
+render_macros: false
+---
+<!-- the above suppresses MkDocs macros parsing - conflicts with YAML example below -->
+
 # Secret Manager
 
 CIRRUS hosts a secrets management service called **OpenBao**, available to UCAR employees via a secure Web UI. It allows you to store sensitive data such as API tokens, credentials, and configuration variables in a central, encrypted location.
@@ -20,7 +25,7 @@ CIRRUS hosts a secrets management service called **OpenBao**, available to UCAR 
 
 6. Click the **Create Secret** button in the upper right.
 
-7. For the **Path**, enter:  
+7. For the **Path**, enter:
    `<your ucar email address>/<new secret>`
 
 8. Under that secret path, add key/value pairs:
