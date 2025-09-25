@@ -200,7 +200,7 @@ Earth system scientists can request access to NSF NCAR’s
 [Casper data analysis cluster](../../compute-systems/casper/index.md) and the
 [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space)
 to allow them to conduct analyses on data sets curated by
-[NSF NCAR data services](https://www.cisl.ucar.edu/computing-data/data) and accessible
+[NSF NCAR Geoscience Data Exchange](https://gdex.ucar.edu/) and accessible
 via our storage systems.
 
 We are pleased to make Data Analysis allocations available to
