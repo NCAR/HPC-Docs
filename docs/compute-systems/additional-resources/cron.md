@@ -34,7 +34,7 @@ Typical usage of this `cron` resource is:
 
 
 ### Accessing PBS commands
-The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are available by default, and users can access both Derecho and Casper PBS queues from the `cron` system provided that PBS server names are appended to the usual queue specifications (similar to the usual PBS cross-submission described [here](../../pbs/index.md#submitting-a-job-to-a-peer-system)):
+The typical [PBS commands](../../pbs/index.md) ``qsub`, `qstat`, etc... are available by default, and users can access both Derecho and Casper PBS queues from the `cron` system provided that PBS server names are appended to the usual queue specifications (similar to the usual PBS cross-submission described [here](../../pbs/peer-scheduling.md)):
 === "Derecho Access"
     Command-line specification of a Derecho queue:
     ```console
@@ -190,7 +190,7 @@ which can be useful in the future; particularly many years from now if `cron` st
 	---8<--- "https://raw.githubusercontent.com/NCAR/hpc-demos/main/cron/PBS_submissions/cron_driver.sh"
 	```
     The script begins by establishing an exclusive file lock, performing some logging, and then moving to the intended run directory.
-    The first job (`prep_job.pbs`) will create a file called `INPUT_DATA` which is used by the second job (`run_model.pbs`).  Because the second job depends on the first, we submit the second using a [PBS job dependency](../../pbs/index.md#job-dependencies).
+    The first job (`prep_job.pbs`) will create a file called `INPUT_DATA` which is used by the second job (`run_model.pbs`).  Because the second job depends on the first, we submit the second using a [PBS job dependency](../../pbs/job-dependencies.md).
 
     We also remove the `INPUT_DATA` at the beginning of the script - since it *should* be created by `prep_job.pbs`, we want to make sure that step functioned as intended.  In this way if `INPUT_DATA` exists when we execute `run_model.pbs` it can only be because the preceding step ran successfully - and our `INPUT_DATA` is not stale.
 

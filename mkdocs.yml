@@ -31,7 +31,7 @@ validation:
 # ------------------------------------
 # ----------- content ----------------
 # ------------------------------------
-nav: 
+nav:
   - Getting Started:
     - getting-started/index.md
     - User Responsibilities: getting-started/user-responsibilities.md
@@ -91,17 +91,17 @@ nav:
       - Interact with CIRRUS team:
             - compute-systems/cirrus/guides/02-interact-with-cirrus-team/agile.md
             - compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets.md
-      - Deploying Applications: 
+      - Deploying Applications:
             - compute-systems/cirrus/guides/03-deploying-applications/containerize.md
             - compute-systems/cirrus/guides/03-deploying-applications/additions.md
-      - Container Registry: 
+      - Container Registry:
         - compute-systems/cirrus/guides/04-container-registry/index.md
         - Image Management: compute-systems/cirrus/guides/04-container-registry/image-mgmt.md
         - Vulnerability Scanner: compute-systems/cirrus/guides/04-container-registry/vulnerability-scan.md
       - GitHub Actions:
         - compute-systems/cirrus/guides/05-github-actions/best-practices.md
         - compute-systems/cirrus/guides/05-github-actions/scale-sets.md
-      - Jupyter on CIRRUS: 
+      - Jupyter on CIRRUS:
         - compute-systems/cirrus/guides/06-jupyter-on-cirrus/jupyterhub.md
         - Conda Environments: compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs.md
         - GPU Use: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-gpu.md
@@ -202,7 +202,7 @@ nav:
   - NCAR User Group (NHUG):
     - nhug/index.md
 
-  - Contributing to the Documentation: 
+  - Contributing to the Documentation:
     - contributing/index.md
 
 # ------------------------------------
@@ -305,6 +305,7 @@ plugins:
         - custom-skip-class-name
       auto_caption: false
       caption_position: bottom
+  - macros
   - minify:
       minify_html: true
   - open-in-new-tab
@@ -335,6 +336,8 @@ plugins:
 # -- configuration - extras
 # ------------------------------------
 extra:
+  next_chap_deadline: early March 2026
+  next_nsc_deadline: mid March 2026
   analytics:
     provider: google
     property: G-RZLJ37D0K6

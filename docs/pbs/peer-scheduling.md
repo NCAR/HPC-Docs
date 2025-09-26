@@ -61,7 +61,7 @@ qstat main@desched1
 
 ## Creating dependencies between peer-scheduled jobs
 
-Creating [job dependencies](#job-dependencies) between submissions on peer servers is
+Creating [job dependencies](job-dependencies.md) between submissions on peer servers is
 straightforward; there is nothing unique about this workflow in PBS. As
 with all jobs, pay close attention to specifying the destination server
 in your queue designations. The job IDs returned by PBS include the
