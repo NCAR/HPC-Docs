@@ -7,14 +7,18 @@ case ${1} in
 <!-- This file is automatically created from "${0} ${@}" -->
 
 ## Casper default module environment
+<!-- --8<-- [start:default] -->
 \`\`\`pre
 $(ssh casper.hpc.ucar.edu "module --width=80 avail 2>&1")
 \`\`\`
+<!-- --8<-- [end:default] -->
 
 ## Casper complete module listing
+<!-- --8<-- [start:complete] -->
 \`\`\`pre
 $(ssh casper.hpc.ucar.edu "module --width=80 spider 2>&1 | grep '\S'")
 \`\`\`
+<!-- --8<-- [end:complete] -->
 EOF
               ;;
 

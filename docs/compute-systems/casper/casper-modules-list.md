@@ -2,6 +2,7 @@
 <!-- This file is automatically created from "./utils/update_module_list.sh casper" -->
 
 ## Casper default module environment
+<!-- --8<-- [start:default] -->
 ```pre
 
 -------------------------- Module Stack Environments --------------------------
@@ -10,8 +11,9 @@
 ------------------------- Compilers and Core Software -------------------------
    apptainer/1.3.4                 julia/1.11.2
    cdo/2.4.4                       linaro-forge/24.1
-   charliecloud/0.38               madis/4.5
-   cmake/3.31.0                    matlab/R2024b
+   charliecloud/0.38               lrose-core/20250105
+   cmake/3.26.6                    madis/4.5
+   cmake/3.31.0           (D)      matlab/R2024b
    conda/latest                    nccmp/1.9.1.0
    cuda/12.3.2            (L)      ncl/6.6.2
    cudnn/8.9.7.29-12      (D)      nco/5.2.4
@@ -19,20 +21,21 @@
    darshan-util/3.4.6              ncview/2.1.9
    doxygen/1.12.0                  ncvis/2022.08.28
    ecflow/5.11.4                   neovim/0.10.0
-   eigen/3.4.0                     nvhpc/24.11
-   ferret/7.6.0                    nvtop/3.0.1
-   gcc/12.4.0                      octave/9.1.0
-   gmt/6.5.0                       paraview/5.13.1
-   go/1.23.3                       pcre/8.45
-   grads/2.2.3                     peak-memusage/3.0.1
-   grib-util/1.5.0                 podman/4.5.1
-   gsl/2.7.1                       rstudio/2024.12.0
-   idl/9.1.0                       texlive/20240312
-   intel-advisor/2025.0.0          ucx/1.17.0          (L)
-   intel-oneapi/2024.2.1           vapor/3.9.3
-   intel-vtune/2025.0.1            visit/3.4.1
-   intel/2024.2.1         (L,D)    wgrib2/3.1.1
-   intel/2025.0.3
+   eigen/3.4.0                     nvhpc/24.11         (D)
+   ferret/7.6.0                    nvhpc/25.1
+   gcc/12.4.0                      nvtop/3.0.1
+   gmt/6.5.0                       octave/9.1.0
+   go/1.23.3                       paraview/5.13.1
+   grads/2.2.3                     pcre/8.45
+   grib-util/1.5.0                 peak-memusage/3.0.1
+   gsl/2.7.1                       podman/4.5.1
+   idl/9.1.0                       rstudio/2024.12.0
+   intel-advisor/2025.0.0          texlive/20240312
+   intel-oneapi/2024.2.1           ucx/1.17.0          (L)
+   intel-vtune/2025.0.1            vapor/3.9.3
+   intel/2024.2.1         (L,D)    vapor/3.10.0        (D)
+   intel/2025.0.3                  visit/3.4.1
+   intel/2025.1.0                  wgrib2/3.1.1
 
 ------------------- Compiler-dependent Software - [oneapi] --------------------
    eccodes/2.34.0    hdf5/1.12.3         (L)      netcdf/4.9.3
@@ -45,9 +48,10 @@
    adios2/2.10.2                netcdf-mpi/4.9.3
    darshan-runtime/3.4.6        osu-micro-benchmarks/7.5
    esmf/8.7.0                   parallel-netcdf/1.14.0
-   esmf/8.8.0            (D)    parallelio/2.6.3
-   fftw-mpi/3.3.10              parallelio/2.6.4
-   hdf5-mpi/1.12.3              parallelio/2.6.5         (D)
+   esmf/8.8.0                   parallelio/2.6.3
+   esmf/8.8.1            (D)    parallelio/2.6.4
+   fftw-mpi/3.3.10              parallelio/2.6.5
+   hdf5-mpi/1.12.3              parallelio/2.6.6         (D)
    netcdf-mpi/4.9.2      (D)
 
   Where:
@@ -64,8 +68,10 @@ Use "module spider" to find all possible modules and extensions.
 Use "module keyword key1 key2 ..." to search for all possible modules matching
 any of the "keys".
 ```
+<!-- --8<-- [end:default] -->
 
 ## Casper complete module listing
+<!-- --8<-- [start:complete] -->
 ```pre
 ----------------------------------------------------------------------------
 The following is a list of the modules and extensions currently available:
@@ -75,7 +81,7 @@ The following is a list of the modules and extensions currently available:
   cdo: cdo/2.2.2, cdo/2.3.0, cdo/2.4.4
   charliecloud: charliecloud/0.33, charliecloud/0.38
   clang: clang/16.0.6
-  cmake: cmake/3.26.3, cmake/3.31.0
+  cmake: cmake/3.26.3, cmake/3.26.6, cmake/3.31.0
   conda: conda/latest
   cuda: cuda/11.8.0, cuda/12.2.1, cuda/12.3.2
   cudnn: cudnn/8.7.0.84-11.8, cudnn/8.9.7.29-12, cudnn/9.2.0.82-12
@@ -85,7 +91,7 @@ The following is a list of the modules and extensions currently available:
   eccodes: eccodes/2.25.0, eccodes/2.32.0, eccodes/2.34.0, eccodes/2.36.0
   ecflow: ecflow/5.11.4
   eigen: eigen/3.4.0
-  esmf: esmf/8.5.0, esmf/8.6.0, esmf/8.7.0, esmf/8.8.0
+  esmf: esmf/8.5.0, esmf/8.6.0, esmf/8.7.0, esmf/8.8.0, esmf/8.8.1
   ferret: ferret/7.6.0
   fftw: fftw/3.3.10
   fftw-mpi: fftw-mpi/3.3.10
@@ -104,7 +110,7 @@ The following is a list of the modules and extensions currently available:
   hdf5: hdf5/1.12.2, hdf5/1.12.3, hdf5/1.14.3
   hdf5-mpi: hdf5-mpi/1.12.2, hdf5-mpi/1.12.3, hdf5-mpi/1.14.3
   idl: idl/8.9.0, idl/9.0.0, idl/9.1.0
-  intel: intel/2023.2.1, intel/2024.0.2, intel/2024.2.1, intel/2025.0.3
+  intel: intel/2023.2.1, intel/2024.0.2, intel/2024.2.1, intel/2025.0.3, ...
   intel-advisor: intel-advisor/2024.0.0, intel-advisor/2025.0.0
   intel-classic: intel-classic/2023.2.1
   intel-inspector: intel-inspector/2024.0.0
@@ -112,11 +118,12 @@ The following is a list of the modules and extensions currently available:
   intel-vtune: intel-vtune/2023.2.0, intel-vtune/2024.0.0, ...
   julia: julia/1.9.2, julia/1.10.2, julia/1.10.5, julia/1.11.2
   linaro-forge: linaro-forge/23.0, linaro-forge/23.1, linaro-forge/24.0.4, ...
+  lrose-core: lrose-core/20250105
   madis: madis/4.5
   matlab: matlab/R2023a, matlab/R2024a, matlab/R2024b
-  mkl: mkl/2023.2.0, mkl/2024.0.0, mkl/2024.2.1, mkl/2024.2.2, mkl/2025.0.1
+  mkl: mkl/2023.2.0, mkl/2024.0.0, mkl/2024.2.1, mkl/2024.2.2, mkl/2025.0.1, ...
   mpi-serial: mpi-serial/2.3.0, mpi-serial/2.5.0
-  mpifileutils: mpifileutils/0.11.1
+  mpifileutils: mpifileutils/0.11.1, mpifileutils/0.12
   ncarcompilers: ncarcompilers/1.0.0
   ncarenv: ncarenv/23.10, ncarenv/24.12
   nccmp: nccmp/1.9.1.0
@@ -128,11 +135,11 @@ The following is a list of the modules and extensions currently available:
   netcdf: netcdf/4.9.2, netcdf/4.9.3
   netcdf-cxx-legacy: netcdf-cxx-legacy/4.2
   netcdf-mpi: netcdf-mpi/4.9.2, netcdf-mpi/4.9.3
-  nvhpc: nvhpc/23.7, nvhpc/24.1, nvhpc/24.7, nvhpc/24.11
+  nvhpc: nvhpc/23.7, nvhpc/24.1, nvhpc/24.7, nvhpc/24.11, nvhpc/25.1
   nvtop: nvtop/3.0.1
   octave: octave/8.2.0, octave/9.1.0
   openblas: openblas/0.3.23, openblas/0.3.25, openblas/0.3.28
-  openmpi: openmpi/4.1.6, openmpi/5.0.0, openmpi/5.0.6
+  openmpi: openmpi/4.1.6, openmpi/5.0.0, openmpi/5.0.6, openmpi/5.0.7
   osu-micro-benchmarks: osu-micro-benchmarks/7.2, osu-micro-benchmarks/7.3, ...
   parallel-netcdf: parallel-netcdf/1.12.3, parallel-netcdf/1.14.0
   parallelio: parallelio/2.6.2, parallelio/2.6.3, parallelio/2.6.4, ...
@@ -147,7 +154,7 @@ The following is a list of the modules and extensions currently available:
   texlive: texlive/20220321, texlive/20240312
   ucx: ucx/1.14.1, ucx/1.17.0
   udunits: udunits/2.2.28
-  vapor: vapor/3.9.0, vapor/3.9.1, vapor/3.9.2, vapor/3.9.3
+  vapor: vapor/3.9.0, vapor/3.9.1, vapor/3.9.2, vapor/3.9.3, vapor/3.10.0
   vexcl: vexcl/1.4.3
   visit: visit/3.3.3, visit/3.4.1
   wgrib2: wgrib2/3.1.1
@@ -160,3 +167,4 @@ must specify the version if there is more than one version:
    $ module spider Foo/11.1
 ----------------------------------------------------------------------------
 ```
+<!-- --8<-- [end:complete] -->

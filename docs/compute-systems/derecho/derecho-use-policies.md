@@ -105,16 +105,10 @@ prior week being decayed by half.
 
 #### Job priority
 
-Users can set job priority to one of three values. Jobs with higher
-priority are charged against the user's allocation at higher rates than
-others.
-
-| **Job priority** | **Priority order** | **Priority factor** | **Description**                                                  |
-|------------------|--------------------|---------------------|------------------------------------------------------------------|
-| premium          | 1                  | 1.5                 | Jobs are charged at 150% of the regular rate.                    |
-| regular          | 2                  | **1**               | All production jobs default to this priority.                    |
-| economy          | 3                  | 0.7                 | Production batch jobs are charged at 70% of regular rate.        |
-| preempt          | 4                  | 0.2                 | Automatically selected when job is submitted to `preempt` queue. |
+Users can set [job priority](../../pbs/charging.md#job-priority) to one
+of three values - economy, regular, and premium. Jobs with higher
+priority will be considered for execution sooner than jobs with lower
+priority. The default priority is *regular* if none is specified.
 
 #### Job size
 
@@ -154,9 +148,11 @@ routing queue and it job will run when the necessary resources are
 available.
 
 When resources for any *preempt* jobs are needed by higher-priority
-work, the scheduler sends a `SIGTERM` signal that can be detected by your
-job. After the `SIGTERM` signal is sent to the job, there is a five-minute
-window in which the job has a chance to checkpoint or save any work that
-was accomplished. After the five-minute window, the job will be killed
-by the scheduler and deleted.
-See [this page](../../pbs/preemption.md) for additional preemption details.
+work, the scheduler sends a `SIGTERM` signal that can be detected by
+your job. After the `SIGTERM` signal is sent to the job, there is a
+five-minute window in which the job has a chance to checkpoint or save
+any work that was accomplished. After the five-minute window, the job
+will be killed by the scheduler and deleted.
+
+See [this page](../../pbs/preemption.md) for additional preemption
+details.

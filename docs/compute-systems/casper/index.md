@@ -55,7 +55,7 @@ Users can [transfer data](../../storage-systems/data-transfer/index.md) to and f
 
 
 To run data analysis and visualization jobs on the Casper system's nodes, follow the
-[procedures described here](./starting-casper-jobs/index.md).
+[procedures described here](../../pbs/).
 There is no need to transfer output files from Derecho for this since
 Derecho and Casper mount the same `GLADE` file systems.
 
@@ -108,8 +108,39 @@ Users can run a variety of types of jobs on Casper, including both traditional
 
 #### Job scripts
 Job scripts are discussed broadly [here](../../pbs/job-scripts/index.md).
-Users already familiar with PBS and batch submission may find [Casper-specific PBS job scripts](./starting-casper-jobs/casper-job-script-examples.md) helpful in porting their work.
+Users already familiar with PBS and batch submission may find [Casper-specific PBS job scripts](../../pbs/job-scripts/casper-job-script-examples.md) helpful in porting their work.
 
+---
+
+### NVMe node-local storage
+
+Casper nodes each have 2 TB of local NVMe solid-state disk (SSD)
+storage. For GPU jobs, some of the NVMe is used as swap space to
+augment memory and reduce the likelihood of jobs failing because
+of excessive memory use.
+
+!!! note
+    If your job on Casper does swap to disk because it has run out of
+    memory, you can expect performance to slow dramatically. It is
+    still highly recommended to monitor job memory usage and make
+    changes as appropriate.
+
+NVMe storage can also be used *while a job is running*. (Recommended
+only for I/O-intensive jobs.) Data stored
+in `/local_scratch/pbs.$PBS_JOBID` are deleted when the job ends.
+
+To use this disk space while your job is running, include the following
+in your batch script after customizing as needed.
+```pre
+### Copy input data to NVMe (can check that it fits first using "df -h")
+cp -r /glade/scratch/$USER/input_data /local_scratch/pbs.$PBS_JOBID
+
+### Run script to process data (NCL example takes input and output paths as command line arguments)
+ncl proc_data.ncl /local_scratch/pbs.$PBS_JOBID/input_data /local_scratch/pbs.$PBS_JOBID/output_data
+
+### Move output data before the job ends and your output is deleted
+mv /local_scratch/pbs.$PBS_JOBID/output_data ${SCRATCH}
+```
 
 ---
 

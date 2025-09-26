@@ -1,6 +1,6 @@
 # University allocations
 
-!!! tip "The next university deadline for submitting Large Allocation Requests will be September 8, 2025."
+!!! tip "The next university deadline for submitting Large Allocation Requests will be {{ next_chap_deadline }}."
 
 University use of the NSF NCAR HPC environment is intended to support Earth
 system science and related research and instruction by researchers and
@@ -192,7 +192,7 @@ original project.
 [Submit an Exploratory Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
 
-## Data Analysis Allocations (NEW!)
+## Data Analysis Allocations
 
 !!! info "Data Analysis allocation requests can be submitted at any time and decisions are typically made within a few days."
 
@@ -200,7 +200,7 @@ Earth system scientists can request access to NSF NCAR’s
 [Casper data analysis cluster](../../compute-systems/casper/index.md) and the
 [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space)
 to allow them to conduct analyses on data sets curated by
-[NSF NCAR data services](https://www.cisl.ucar.edu/computing-data/data) and accessible
+[NSF NCAR Geoscience Data Exchange](https://gdex.ucar.edu/) and accessible
 via our storage systems.
 
 We are pleased to make Data Analysis allocations available to
