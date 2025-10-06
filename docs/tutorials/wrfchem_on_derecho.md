@@ -12,7 +12,7 @@ Please refer to the [download instructions](https://www2.mmm.ucar.edu/wrf/users/
 There are instructions to [compile WRF and WPS on Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/).
 It is recommended that you clone the latest public release branch directly from the official WRF repository [wrf-model GitHub repository](https://github.com/wrf-model/WRF). If you want to contribute new innovations to the WRF code, please consult ([WRF support](https://www.mmm.ucar.edu/models/wrf/support)) for more information about the process and requirements.
 
-You may want to look at the default [quotas and purging policies](https://ncar-hpc-docs.readthedocs.io/en/latest/storage-systems/glade/) of different GLADE file spaces and decide according where to download the codes. 
+You may want to look at the default [quotas and purging policies](https://ncar-hpc-docs.readthedocs.io/en/latest/storage-systems/glade/) of different GLADE file spaces and decide accordingly where to download the codes. 
 
 To clone the latest public release version (currently v4.7.1), use the following command:
 
@@ -29,13 +29,13 @@ Note: There are pre-compiled versions (latest version recommended) of WPS code a
 ```
 Please refer to the instructions to [compile WPS on Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/#compiling-the-wrf-preprocessing-system-wps), if you prefer to do so.
 
-To compile WRF using the INTEL (ifx/icx) LLVM compiler, it is recommended to compile within an [interactive job queue](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/?h=interactive#qinteractive) to avoid issues with required memory during compilation. To accomplish that use the following command on Derecho:
+To compile WRF using the INTEL (ifx/icx) LLVM compiler (recommended), it is advised to compile within an [interactive job queue](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/?h=interactive#qinteractive) to avoid issues with required memory during compilation. To accomplish that use the following command on Derecho:
 ```bash
 qinteractive -A <project_code> -l walltime=01:00:00
 ```
-Once you are in the interactive queue, the needed libraries and environmental variables are loaded to compile WRF and WPS.
+Once you are in the interactive queue, the needed libraries and environmental variables needs to be loaded to compile WRF and WPS.
 
-On Derecho, this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information.
+On Derecho, this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information. The modules and environment variables are needed regardless of using the Cmake build or by traditional method. 
 
 ```bash
 module --force purge
@@ -124,20 +124,16 @@ Upon successful compilation, the executables wrf, real, ndown, and tc will be ge
 
 ## Compiling WRF-Chem with traditional method on Derecho
 
-This section outlines how to compile WRF using the classic Intel compiler suite (ftn/icc) on Derecho’s Cray XC system. This method is useful if you prefer using Intel's traditional compilers rather than the newer oneAPI LLVM-based compilers.
+This section outlines how to compile WRF using the traditional method on Derecho. 
+Load the modules and environment variables shown above. In addition, you need to make a [code change](https://forum.mmm.ucar.edu/threads/unable-to-compile-wrf-chem-v4-7-1.22663/) to successfully compile on Derecho.
 
-Start by purging any previously loaded modules and loading the appropriate environment for Intel 2023 compilers:
-
+Edit line 121 in WRF/chem/KPP/compile_wkc, from:
 ```bash
-module --force purge
-module load ncarenv/23.06
-module reset
-module list
+$WKC_HOME/util/wkc/tuv_kpp FIRST ../../inc/
 ```
-The module list command will display all currently loaded modules, which should look similar to the following:
+to:
 ```bash
-Currently Loaded Modules:
-  1) ncarenv/23.06 (S)   2) craype/2.7.20   3) intel/2023.0.0   4) ncarcompilers/1.0.0   5) cray-mpich/8.1.25   6) hdf5/1.12.2   7) netcdf/4.9.2
+$WKC_HOME/util/wkc/tuv_kpp FIRST ../../../../inc/
 ```
 Navigate to the WRF source directory and start the configuration process:
 ```bash
@@ -148,20 +144,18 @@ cd WRF
 ```
 The ./configure script will detect your system architecture and loaded environment settings, including available libraries like NetCDF.
 
-You will then be prompted to choose a compilation option. For INTEL (ftn/icc), select:
+You will then be prompted to choose a compilation option. For INTEL INTEL (ifx/icx) : oneAPI LLVM:
 ```
-50. (dmpar)  INTEL (ftn/icc): Cray XC
+78. (dmpar) INTEL (ifx/icx) : oneAPI LLVM 
 ```
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
 Next, select the desired nesting option. For most applications, "basic nesting" (option 1) is sufficient:
 ```bash
- 48. (serial)  49. (smpar)  50. (dmpar)  51. (dm+sm)   INTEL (ftn/icc): Cray XC
- 52. (serial)  53. (smpar)  54. (dmpar)  55. (dm+sm)   PGI (pgf90/pgcc)
  ...
  76. (serial)  77. (smpar)  78. (dmpar)  79. (dm+sm)   INTEL (ifx/icx) : oneAPI LLVM
  80. (serial)  81. (smpar)  82. (dmpar)  83. (dm+sm)   FUJITSU (frtpx/fccpx): FX10/FX100 SPARC64 IXfx/Xlfx
 
-Enter selection [1-83] : 50
+Enter selection [1-83] : 78
 ------------------------------------------------------------------------
 Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 1
 
@@ -179,13 +173,16 @@ Note: It is strongly recommended to redirect the output of the compile process t
 After the compilation is finished, if successful, you will see the following lines at the end of the compile.log file.  
 ```bash
 ==========================================================================
-build started:   Wed 23 Apr 2025 10:04:19 AM MDT
-build completed: Wed 23 Apr 2025 10:39:40 AM MDT
+build started:   Thu 25 Sep 2025 03:01:56 PM MDT
+build completed: Thu 25 Sep 2025 03:03:58 PM MDT
+
 --->                  Executables successfully built                  <---
--rwxr-xr-x 1 biswas ncar 51935024 Apr 23 10:39 main/ndown.exe
--rwxr-xr-x 1 biswas ncar 47030584 Apr 23 10:39 main/real.exe
--rwxr-xr-x 1 biswas ncar 45936248 Apr 23 10:39 main/tc.exe
--rwxr-xr-x 1 biswas ncar 59119872 Apr 23 10:38 main/wrf.exe
+
+-rwxr-xr-x 1 biswas ncar 74743192 Sep 25 15:03 main/ndown.exe
+-rwxr-xr-x 1 biswas ncar 74729408 Sep 25 15:03 main/real.exe
+-rwxr-xr-x 1 biswas ncar 67258744 Sep 25 15:03 main/tc.exe
+-rwxr-xr-x 1 biswas ncar 90615128 Sep 25 15:03 main/wrf.exe
+
 ==========================================================================
 ```
 If the build finishes successfully, a message will be printed, and the four executables (ndown.exe, real.exe, tc.exe, wrf.exe) will be present in the WRF/main directory.
@@ -196,67 +193,7 @@ ls main/*.exe
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
 
 ## Compiling the WRF Preprocessing System (WPS)
-Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF.
-
-Navigate to the WPS source directory. If you are following the standard folder structure, this can be done with:
-
-```bash
-
-cd ../WPS-4.6.0
-```
-WPS needs to know where your compiled WRF code resides. Set the WRF_DIR environment variable to point to your WRF installation directory:
-```bash
-export WRF_DIR=../WRF
-```
-WPS requires the JasPer library to handle GRIB2 input files (a common format for meteorological datasets). Set the following environment variables to point to the appropriate library and include paths:
-
-```bash
-export JASPERINC=/glade/u/home/wrfhelp/UNGRIB_LIBRARIES/include
-export JASPERLIB=/glade/u/home/wrfhelp/UNGRIB_LIBRARIES/lib
-```
-Next, let's configure and compile WPS.
-
-```bash
-./configure
-```
-This will prompt the compiler options available. We opted 21 (Linux x86_64, Intel Classic compilers).
-
-```bash
-Will use NETCDF in dir: /glade/u/apps/derecho/23.09/spack/opt/spack/netcdf/4.9.2/oneapi/2023.2.1/yzvj
-Using WRF I/O library in WRF build identified by $WRF_DIR: /glade/derecho/scratch/biswas/CSG/WRF
-Found Jasper environment variables for GRIB2 support...
-  $JASPERLIB = /glade/u/home/wrfhelp/UNGRIB_LIBRARIES/lib
-  $JASPERINC = /glade/u/home/wrfhelp/UNGRIB_LIBRARIES/include
-------------------------------------------------------------------------
-Please select from among the following supported platforms.
-
-   1.  Linux x86_64, gfortran    (serial)
-  ...
-  20.  Linux x86_64, Intel oneAPI compilers    (dmpar_NO_GRIB2)
-  21.  Linux x86_64, Intel Classic compilers    (serial)
-  22.  Linux x86_64, Intel Classic compilers    (serial_NO_GRIB2)
-  23.  Linux x86_64, Intel Classic compilers    (dmpar)
-  24.  Linux x86_64, Intel Classic compilers    (dmpar_NO_GRIB2)
-  ...
-  44.  Cray XC CLE/Linux x86_64, Intel Classic compilers   (dmpar_NO_GRIB2)
-
-Enter selection [1-44] : 21
-------------------------------------------------------------------------
-Configuration successful. To build the WPS, type: compile
-------------------------------------------------------------------------
-
-```
-The next step is to compile the WPS code. 
-
-```bash
-./compile >compile.log 2>&1 &
-```
-If the build finishes successfully, the three executables (ungrib.exe, geogrid.exe, metgrid.exe) will be present in the WPS-4.6.0 directory.
-```bash
-ls *exe
-geogrid.exe  metgrid.exe  ungrib.exe
-```
-Now, WPS and WRF codes are compiled, and the necessary executables are obtained. Refer to the WRF documentation for next steps. 
+Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF. Please follow the directions to [compile WPS](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/#compiling-the-wrf-preprocessing-system-wps) on Derecho.
 
 ## Submitting jobs
 WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
