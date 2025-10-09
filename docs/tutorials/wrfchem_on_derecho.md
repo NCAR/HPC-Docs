@@ -6,13 +6,12 @@
 ---
 
 ## Obtaining WRF and WPS code 
-The WRF and WPS codes can be downloaded from 
-the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
+You can download WRF and WPS source codes from the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the [download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html) for more information.
-There are instructions to [compile WRF and WPS on Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/).
+If you want to compile WRF-Chem, continue with the following steps. Otherwise, follow the instructions in the NCAR HPC Documentation for [compiling atmospheric WRF and WPS on Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/).
 It is recommended that you clone the latest public release branch directly from the official WRF repository [wrf-model GitHub repository](https://github.com/wrf-model/WRF). If you want to contribute new innovations to the WRF code, please consult ([WRF support](https://www.mmm.ucar.edu/models/wrf/support)) for more information about the process and requirements.
 
-You may want to look at the default [quotas and purging policies](https://ncar-hpc-docs.readthedocs.io/en/latest/storage-systems/glade/) of different GLADE file spaces and decide accordingly where to download the codes. 
+Before downloading the codes, review the default [quotas and purging policies](https://ncar-hpc-docs.readthedocs.io/en/latest/storage-systems/glade/) of different GLADE file spaces. This will help you determine the most appropriate location to store the source codes. 
 
 To clone the latest public release version (currently v4.7.1), use the following command:
 
@@ -125,7 +124,7 @@ Upon successful compilation, the executables wrf, real, ndown, and tc will be ge
 ## Compiling WRF-Chem with traditional method on Derecho
 
 This section outlines how to compile WRF using the traditional method on Derecho. 
-Load the modules and environment variables shown above. In addition, you need to make a [code change](https://forum.mmm.ucar.edu/threads/unable-to-compile-wrf-chem-v4-7-1.22663/) to successfully compile on Derecho.
+Load the modules and environment variables shown above. In addition, you need to make a [code change](https://forum.mmm.ucar.edu/threads/unable-to-compile-wrf-chem-v4-7-1.22663/) to successfully compile WRF-Chem on Derecho.
 
 Edit line 121 in WRF/chem/KPP/compile_wkc, from:
 ```bash
