@@ -32,7 +32,7 @@ To compile WRF using the INTEL (ifx/icx) LLVM compiler (recommended), it is advi
 ```bash
 qinteractive -A <project_code> -l walltime=01:00:00
 ```
-Once you are in the interactive queue, the needed libraries and environmental variables needs to be loaded to compile WRF and WPS.
+Once you are in the interactive queue, you'll need to load the required libraries and environmental variables to compile WRF and WPS.
 
 On Derecho, this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information. The modules and environment variables are needed regardless of using the Cmake build or by traditional method. 
 
@@ -150,10 +150,6 @@ You will then be prompted to choose a compilation option. For INTEL INTEL (ifx/i
 Refer to [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html) for more info.
 Next, select the desired nesting option. For most applications, "basic nesting" (option 1) is sufficient:
 ```bash
- ...
- 76. (serial)  77. (smpar)  78. (dmpar)  79. (dm+sm)   INTEL (ifx/icx) : oneAPI LLVM
- 80. (serial)  81. (smpar)  82. (dmpar)  83. (dm+sm)   FUJITSU (frtpx/fccpx): FX10/FX100 SPARC64 IXfx/Xlfx
-
 Enter selection [1-83] : 78
 ------------------------------------------------------------------------
 Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 1
