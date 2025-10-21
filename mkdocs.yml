@@ -94,6 +94,8 @@ nav:
       - Deploying Applications:
             - compute-systems/cirrus/guides/03-deploying-applications/containerize.md
             - compute-systems/cirrus/guides/03-deploying-applications/additions.md
+      - Kubernetes API Access: compute-systems/cirrus/guides/10-kubectl/kubectl.md
+      - S3 Storage: compute-systems/cirrus/guides/11-storage/s3.md
       - Container Registry:
         - compute-systems/cirrus/guides/04-container-registry/index.md
         - Image Management: compute-systems/cirrus/guides/04-container-registry/image-mgmt.md
