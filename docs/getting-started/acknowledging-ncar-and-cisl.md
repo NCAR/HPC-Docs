@@ -90,11 +90,11 @@ documentation](https://www.cisl.ucar.edu/resources/cmip-analysis-platform#terms)
 how to acknowledge NSF NCAR/CISL support and for information on other
 requirements related to the use of CMIP data.
 
-## For use of RDA data sets
+## For use of GDEX data sets
 We ask that you cite the dataset(s) used. Citations templates are
-provided on the relevant RDA dataset home pages. For an example, see the
+provided on the relevant GDEX dataset home pages. For an example, see the
 "How to Cite This Dataset" section
-on <https://rda.ucar.edu/datasets/ds094.0/citation>.
+on <https://gdex.ucar.edu/datasets/d094000/citation>.
 
 ## Acknowledgements
 The data were provided by the Research Data Archive (RDA) of the 

@@ -1,7 +1,7 @@
 # University Large Allocation Request Preparation Instructions
 
 **The next university deadline for submitting Large Allocation Requests
-will be September 9, 2025.**
+will be {{ next_chap_deadline }}.**
 
 **Note:** In addition to Large Allocation Requests, CISL offers
 opportunities for NSF awardees, graduate students, and postdocs to
