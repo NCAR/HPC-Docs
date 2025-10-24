@@ -162,58 +162,57 @@ with `-l`.
 For example:
 ```pre
 #PBS -l walltime=00:05:00
-#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=400GB
-#PBS -l gpu_type=a100
+#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:gpu_type=a100:mem=400GB
 #PBS -l job_priority=economy
 ```
-specifies job `walltime`, compute node selection, GPU type, and job
-priority.  See more details below.
+specifies job `walltime`, compute node selection, and job priority.  See more
+details below.
 
 
 #### `select` statements
 Resources are specified through a `select` statement.  The general form of a *homogeneous* selection statement is
 ```pre
-select=<# NODES>:ncpus=<# CPU Cores/node>:mpiprocs=<# MPI Ranks/node>:ompthreads=<# OpenMP Threads/rank>:mem=<RAM/node>:ngpus=<# GPUs/node>
+select=<# CHUNKS>:ncpus=<# CPU Cores/chunk>:mpiprocs=<# MPI Ranks/chunk>:ompthreads=<# OpenMP Threads/rank>:mem=<RAM/chunk>:ngpus=<# GPUs/chunk>
 ```
 where
 
-*  `<# NODES>` is the total number of compute nodes requested, followed by a colon-separated list of
+*  `<# CHUNK>` is the total number of compute "chunks" requested, followed by a colon-separated list of
 
-*  `<# CPU Cores/node>` is the *total* number of CPUs requested *on each node*, which can be a mix of MPI Ranks and/or OpenMP threads,
+*  `<# CPU Cores/chunk>` is the *total* number of CPUs requested *in each chunk*, which can be a mix of MPI Ranks and/or OpenMP threads,
 
-*  `<# MPI Ranks/node` is the number of MPI Ranks *on each node*,
+*  `<# MPI Ranks/chunk>` is the number of MPI Ranks *in each chunk*. (Optional, defaults to 1),
 
-*  `<# OpenMP Threads/node>` is the number of OpenMP ranks *per MPI Rank on each node*. (Optional, defaults to 1),
+*  `<# OpenMP Threads/chunk>` is the number of OpenMP ranks *per MPI Rank in each chunk*. (Optional, defaults to 1),
 
-*  `<RAM/node>` is how much main memory (RAM) the job will be able to access *on each node*. (Optional, default is system dependent), and
+*  `<RAM/chunk>` is how much main memory (RAM) the job will be able to access *in each chunk*. (Optional, default is system dependent), and
 
-*  `<# GPUs/node>` is the number of GPUs *per node*. (Optional, defaults to 0).
+*  `<# GPUs/chunk>` is the number of GPUs *per chunk*. (Optional, defaults to 0).
 
-Taken together, this specifies a *resource chunk*. Homogeneous resource chunks are the most common case, however, *heterogeneous* selection statements can be constructed by multiple chunks separated by a **+** (examples below).
+Taken together, this specifies a collection of like *resource chunks*. In Derecho's `main` queue, a chunk is synonymous with a node. However, in shared queues (e.g., `casper`), multiple chunks may get placed on the same compute node if sufficient resources are available. Homogeneous resource chunks are the most common case, however, *heterogeneous* selection statements can be constructed by multiple chunk specifications separated by a **+** (examples below).
 
 ##### Examples
-*  4 128-core nodes, each running 128 MPI ranks (4 `x` 128 = 512 MPI ranks total).
+*  4 128-core chunks, each running 128 MPI ranks (4 `x` 128 = 512 MPI ranks total).
    ```pre
    select=4:ncpus=128:mpiprocs=128
    ```
 
-*  4 128-core nodes, each running 32 MPI ranks with 4 OpenMP threads per ranl (4 `x` 32 = 128 MPI ranks total, each with 4 threads = 512 total CPU cores).
+*  4 128-core chunks, each running 32 MPI ranks with 4 OpenMP threads per ranl (4 `x` 32 = 128 MPI ranks total, each with 4 threads = 512 total CPU cores).
    ```pre
    select=4:ncpus=128:mpiprocs=32:ompthreads=4
    ```
 
-*  2 64-core nodes, each running 4 MPI ranks, 4 GPUS, and 384 GB memory (8 GPUs total, with 8 MPI ranks).
+*  2 64-core chunks, each running 4 MPI ranks, 4 GPUS, and 384 GB memory (8 GPUs total, with 8 MPI ranks).
    ```pre
    select=2:ncpus=64:mpiprocs=4:ngpus=4:mem=384GB
    ```
 
-*  4 36-core nodes, each running 4 MPI ranks, 4 GPUS configured with NVIDIA's Multi-Process Service (MPS), and 768 GB memory (16 GPUs total, with 16 MPI ranks).
+*  4 36-core chunks, each running 4 MPI ranks, 4 GPUS configured with NVIDIA's Multi-Process Service (MPS), and 768 GB memory (16 GPUs total, with 16 MPI ranks).
    ```pre
    select=4:ncpus=36:mpiprocs=4:ngpus=4:mem=768GB:mps=1
    ```
    MPS is simply enabled via `mps=1`, and is disabled by default (`mps=0`)
 
-*  A heterogeneous selection, 96 128-core nodes each with 128 MPI ranks, and 32 128-core nodes each with 16 MPI ranks and 8 OpenMP threads
+*  A heterogeneous selection, 96 128-core chunks each with 128 MPI ranks, and 32 128-core chunks each with 16 MPI ranks and 8 OpenMP threads
    ```pre
    select=96:ncpus=128:mpiprocs=128+32:ncpus=16:ompthreads=8
    ```
@@ -247,6 +246,47 @@ recommended values.)
     actually used `mpiprocs=64` across the compute node via *process
     binding*.
 
+##### GPU and CPU Types
+<!-- TODO -- add a link to a full type table -->
+!!! warning
+    Prior to the November 2025 maintenance, the `gpu_type` attribute was
+    specified as a job resource:
+
+    ```
+    #PBS -l gpu_type=a100
+    ```
+
+    After the maintenance, the attribute should be specified as a chunk resource
+    as documented below. **The old syntax is no longer supported.**
+
+For highly heterogeneous systems such as Casper, a resource chunk
+statement requesting GPUS may match more than one particular GPU type.
+The resource specification `gpu_type=...` allows you to narrow the
+range of hardware your job can be assigned. The `gpu_type` attribute
+is specified on chunks in your select statement:
+
+```
+#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:gpu_type=a100:mem=400GB
+```
+
+Valid values for GPU type take multiple forms, including:
+
+* Specific GPU architectures (e.g., `h100`)
+* GPU architectures with devices per node (e.g., `v100_8way`)
+* GPU architectures with per-device VRAM (e.g., `h100_80gb`)
+* Generic compute capability (e.g., `cc80`)
+
+If you specify a generic compute capability, your chunk could be assigned any
+available GPU that supports that capability. For example, specifying `cc80`
+could result in your chunk being assigned NVIDIA A100, H100, or newer GPUs.
+Visualization GPUs (e.g., *l40*) are considered distinct and will not be
+considered when giving a compute capability for `gpu_type`.
+
+An analogous resource - `cpu_type` - exists to request a specific CPU
+architecture for your chunk. This is less commonly used than `gpu_type`, but can
+be useful if you want to ensure your compilation happens on a specific CPU
+generation (e.g., `cpu_type=milan`).
+
 #### `walltime`
 The `-l walltime=HH:MM:SS` resource directive specifies maximum job
 duration. Jobs still running when this wall time is exceeded will be
@@ -256,25 +296,19 @@ walltime=HH:MM:SS
 ```
 
 #### `job_priority`
-Users may request a specific job priority with the `-l job_priority=...` resource directive.
+Users may request a specific job priority with the `-l job_priority=...`
+resource directive.
 Valid options are:
 ```pre
 job_priority=<regular|premium|economy>
 ```
-Job priority impacts both scheduling and resource accounting, allowing users to run at a higher/lower priority in exchange for additional/reduced allocation consumption.  See [here](../../compute-systems/derecho/derecho-use-policies.md#job-priority) for additional information.
+Job priority impacts both scheduling and resource accounting, allowing users to
+run at a higher/lower priority in exchange for additional/reduced allocation
+consumption.  See
+[here](../../compute-systems/derecho/derecho-use-policies.md#job-priority) for
+additional information.
 
-
-#### `gpu_type`
-For highly heterogeneous systems such as Casper, a resource chunk
-statement including GPUS may match more than one particular GPU type.
-The resource specification `-l gpu_type=...` requests a particular GPU
-type, removing such ambiguity.  Valid options are:
-```
-gpu_type=<gp100|v100|a100>
-```
-
-### Listing of frequently used `#PBS` directives
-<!-- FIXME -- add a table -->
+### Other frequently used `#PBS` directives
 
 | <div style="width:160px">Directive</div> | Impact |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
