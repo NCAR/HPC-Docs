@@ -54,8 +54,8 @@ requirement to be placed on large memory nodes.
 | Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements                                                   |
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
 | High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=1:cpu_type=cascadelake                             |
-|                          | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=1:cpu_type=cascadelake:mem=400GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 733 GB     |              |            | 64     | -l select=1:ncpus=1:cpu_type=genoa                  |
+| Large Memory              | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=1:cpu_type=cascadelake:mem=400GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=1:cpu_type=genoa:mem=400GB                  |
 
 ### GPU Resources
@@ -82,8 +82,8 @@ type.
 | Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements                                                   |
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
 | High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=34:cpu_type=cascadelake:mem=353GB                             |
-|                          | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=36:cpu_type=cascadelake:mem=1480GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 733 GB     |              |            | 64     | -l select=1:ncpus=62:cpu_type=genoa:mem=732GB                  |
+| Large Memory                  | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=36:cpu_type=cascadelake:mem=1480GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=62:cpu_type=genoa:mem=1480GB                  |
         
 ### GPU Resources
