@@ -7,7 +7,7 @@
     first.
 
 Casper is a heterogeneous system that has several node architectures.  The
-charts below provides architecture specifications and example PBS select
+tables below provides architecture specifications and example PBS select
 statements to target a specific node type.  Targeting a specific node may impact
 scheduler time, particularly for architectures with low node counts.  The PBS
 select statements are basic examples to request the node and you will likely
@@ -49,20 +49,27 @@ thought of as the minimum required resource requests to ensure you receive the
 desired node type.  Memory requests are omitted in the examples unless it is a
 requirement to be placed on large memory nodes.
 
+### CPU Resources
+
 | Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements                                                   |
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
-| Data & Visualization     | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | GP100        | 16 GB      | 9     | -l select=1:ncpus=1:ngpus=1 -l gpu_type=gp100                            |
-|                          | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | A100         | 40 GB      | 3     | -l select=1:ncpus=1:ngpus=1:cpu_type=skylake -l gpu_type=a100            |
-|                          | AMD EPYC 9474F | 48   | 3.6GHz           | 733 GB            | L40          | 48 GB           | 6     | -l select=1:ncpus=1:ngpus=1 -l gpu_type=l40            |
-| ML & GPGPU               | Intel Cascade Lake   | 36    | 2.6GHz     | 768 GB      | V100 (x4)    | 32 GB      | 4     | -l select=1:ncpus=1:ngpus=1 -l gpu_type=v100                             |
-|                          | Intel Cascade Lake   | 36    | 2.6GHz     | 1152 GB     | V100 (x8)    | 32 GB      | 6     | -l select=1:ncpus=5:mpiprocs=5:ngpus=5 -l gpu_type=v100                             |
-|                          | AMD EPYC Milan     | 128   | 2.45GHz    | 992 GB     | A100 (x4)    | 80 GB      | 8     | -l select=1:ncpus=16:mpiprocs=1:ngpus=1:cpu_type=milan -l gpu_type=a100              |
-|                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=8:mpiprocs=1:ngpus=1 -l gpu_type=h100                             |
-|                          | AMD MI300A Zen 4     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=96:mpiprocs=4:ngpus=4:mem=400gb -l gpu_type=mi300a  |
 | High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=1:cpu_type=cascadelake                             |
 |                          | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=1:cpu_type=cascadelake:mem=400GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 733 GB     |              |            | 64     | -l select=1:ncpus=1:cpu_type=genoa                  |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=1:cpu_type=genoa:mem=400GB                  |
+
+### GPU Resources
+
+| Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements    
+|--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
+| Data & Visualization     | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | GP100        | 16 GB      | 9     | -l select=1:ncpus=1:ngpus=1:gpu_type=gp100                            |
+|                          | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | A100         | 40 GB      | 3     | -l select=1:ncpus=1:ngpus=1:gpu_type=a100_40gb            |
+|                          | AMD EPYC 9474F | 48   | 3.6GHz           | 733 GB            | L40          | 48 GB           | 6     | -l select=1:ncpus=1:ngpus=1:gpu_type=l40            |
+| ML & GPGPU               | Intel Cascade Lake   | 36    | 2.6GHz     | 768 GB      | V100 (x4)    | 32 GB      | 4     | -l select=1:ncpus=1:ngpus=1:gpu_type=v100_4way                             |
+|                          | Intel Cascade Lake   | 36    | 2.6GHz     | 1152 GB     | V100 (x8)    | 32 GB      | 6     | -l select=1:ncpus=1:ngpus=1:gpu_type=v100_8way                             |
+|                          | AMD EPYC Milan     | 128   | 2.45GHz    | 992 GB     | A100 (x4)    | 80 GB      | 8     | -l select=1:ncpus=1:ngpus=1:gpu_type=a100_80gb              |
+|                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=1:mpiprocs=1:ngpus=1 -l gpu_type=h100                             |
+|                          | AMD MI300A Zen 4     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=24:mpiprocs=24:ngpus=1:mem=400gb:gpu_type=mi300a  |
 
 ## Exclusive Node
 
@@ -70,21 +77,44 @@ These settings will ensure that your job reserves the entire node.  These
 requests can be thought of as the maximum amount of resources of the given node
 type.
 
+### CPU Resources
+
 | Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements                                                   |
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
-| Data & Visualization     | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | GP100        | 16 GB      | 9     | -l select=1:ncpus=36:ngpus=1:mem=354GB -l gpu_type=gp100                            |
-|                          | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | A100         | 40 GB      | 3     | -l select=1:ncpus=36:ngpus=1:mem=354GB:cpu_type=skylake -l gpu_type=a100            |
-|                          | AMD EPYC 9474F | 48   | 3.6GHz           | 733 GB            | L40          | 48 GB           | 6     | -l select=1:ncpus=48:mpiprocs=1:ngpus=1:mem=732GB -l gpu_type=l40            |
-| ML & GPGPU               | Intel Cascade Lake   | 36    | 2.6GHz     | 768 GB      | V100 (x4)    | 32 GB      | 4     | -l select=1:ncpus=36:mpiprocs=4:ngpus=4:mem=740GB -l gpu_type=v100                             |
-|                          | Intel Cascade Lake   | 36    | 2.6GHz     | 1152 GB     | V100 (x8)    | 32 GB      | 6     | -l select=1:ncpus=36:mpiprocs=8:ngpus=8:mem=1100GB -l gpu_type=v100                             |
-|                          | AMD EPYC Milan     | 128   | 2.45GHz    | 992 GB     | A100 (x4)    | 80 GB      | 8     | -l select=1:ncpus=128:mpiprocs=4:ngpus=4:cpu_type=milan:mem=991GB -l gpu_type=a100              |
-|                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=984GB -l gpu_type=h100               |
-|                          | AMD MI300A Zen 4     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=96:mpiprocs=4:ngpus=4:mem=470gb -l gpu_type=mi300a  |
-| High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=36:cpu_type=cascadelake:mem=353GB                             |
+| High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=34:cpu_type=cascadelake:mem=353GB                             |
 |                          | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=36:cpu_type=cascadelake:mem=1480GB                   |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 733 GB     |              |            | 64     | -l select=1:ncpus=62:cpu_type=genoa:mem=732GB                  |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=62:cpu_type=genoa:mem=1480GB                  |
         
+### GPU Resources
+
+| Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statements                                                   |
+|--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
+| Data & Visualization     | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | GP100        | 16 GB      | 9     | -l select=1:ncpus=36:ngpus=1:mem=354GB:gpu_type=gp100                            |
+|                          | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | A100         | 40 GB      | 3     | -l select=1:ncpus=36:ngpus=1:mem=354GB:gpu_type=a100_40gb            |
+|                          | AMD EPYC 9474F | 48   | 3.6GHz           | 733 GB            | L40          | 48 GB           | 6     | -l select=1:ncpus=48:mpiprocs=1:ngpus=1:mem=732GB:gpu_type=l40            |
+| ML & GPGPU               | Intel Cascade Lake   | 36    | 2.6GHz     | 768 GB      | V100 (x4)    | 32 GB      | 4     | -l select=1:ncpus=36:mpiprocs=4:ngpus=4:mem=740GB:gpu_type=v100_4way                             |
+|                          | Intel Cascade Lake   | 36    | 2.6GHz     | 1152 GB     | V100 (x8)    | 32 GB      | 6     | -l select=1:ncpus=36:mpiprocs=8:ngpus=8:mem=1100GB:gpu_type=v100_8way                             |
+|                          | AMD EPYC Milan     | 128   | 2.45GHz    | 992 GB     | A100 (x4)    | 80 GB      | 8     | -l select=1:ncpus=128:mpiprocs=4:ngpus=4:mem=991GB:gpu_type=a100_80gb              |
+|                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=984GB:gpu_type=h100               |
+|                          | AMD MI300A Zen 4     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=96:mpiprocs=4:ngpus=4:mem=470gb:gpu_type=mi300a  |
+
+## Accelerator Node Table
+
+The table below provides all possible options for selecting an accelerator architectures on Casper. These values can be used for the `gpu_type` argument in PBS select statements to allow targeting of a single node architecture or the first available GPU matching the chosen compute capability.
+
+| Queue | Node Type                | CC / Arch            | GPU | GPU_mem | GPU_num |                                               
+|-------|--------------------------|----------------|-------|------------|-------------|
+| nvgpu | 4x V100 32gb   | cc70             | v100   | v100_32gb | v100_4way   |
+| | 8x V100 32gb   | cc70             | v100   | v100_32gb | v100_8way   |
+| | 1x A100 40gb   | cc70, cc80       | a100   | a100_40gb | a100_1way   |
+| | 4x A100 80gb   | cc70, cc80       | a100   | a100_80gb | a100_4way   |
+| | 4x H100 80gb   | cc70, cc80, cc90 | h100   | h100_80gb | h100_4way   |
+| amdgpu | 4x MI300A      | gfx942           | mi300a |           | mi300a_4way |
+| vis | 1x GP100       | vis | gp100 | gp100_16gb | |
+| | 1x L40       | vis | l40 | l40_45gb |  |
+
+
 ## Large Memory Nodes
 
 Select statements that have memory values greater than 400GB are routed to the
@@ -95,3 +125,4 @@ routing method.
 For the High-Throughput Computing nodes, requesting less than 350GB is a good
 way to ensure that you will be routed to the general `htc` queue with shorter
 wait times.
+
