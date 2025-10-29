@@ -30,7 +30,7 @@ Please refer to the instructions to [compile WPS on Derecho](https://ncar-hpc-do
 
 To compile WRF using the INTEL (ifx/icx) LLVM compiler (recommended), it is advised to compile within an [interactive job queue](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/?h=interactive#qinteractive) to avoid issues with required memory during compilation. To accomplish that use the following command on Derecho:
 ```bash
-qinteractive -A <project_code> -l walltime=01:00:00
+qinteractive -A <project_code> -l walltime=01:30:00
 ```
 Once you are in the interactive queue, you'll need to load the required libraries and environmental variables to compile WRF and WPS.
 
