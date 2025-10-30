@@ -1,12 +1,12 @@
 # How to compile and conduct a basic WRF-Chem on Derecho 
 
 !!! info "About this page"
-    This documentation provides information on how to download and compile WRF-Chem and WPS on NSF NCAR Derecho.
+    This documentation provides information on how to download and compile WRF-Chem on NSF NCAR Derecho.
     Also, an example of a PBS script is provided to help new users get an idea of how to submit batch jobs efficiently on the system, including setting resource requests, loading modules, and launching the WRF executable.
 ---
 
-## Obtaining WRF and WPS code 
-You can download WRF and WPS source codes from the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
+## Obtaining WRF and code 
+You can download WRF source codes from the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
 Please refer to the [download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html) for more information.
 If you want to compile WRF-Chem, continue with the following steps. Otherwise, follow the instructions in the NCAR HPC Documentation for [compiling atmospheric WRF and WPS on Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/).
 It is recommended that you clone the latest public release branch directly from the official WRF repository [wrf-model GitHub repository](https://github.com/wrf-model/WRF). If you want to contribute new innovations to the WRF code, please consult ([WRF support](https://www.mmm.ucar.edu/models/wrf/support)) for more information about the process and requirements.
@@ -20,19 +20,13 @@ git clone --recurse-submodule --branch v4.7.1 https://github.com/wrf-model/WRF.g
 ```
 This will create a local copy of the repository that you can edit and manage using Git.
 
-After downloading the WRF model, the next step is to download and extract the WRF Preprocessing System ([WPS](https://github.com/wrf-model/WPS/releases)). 
-
-Note: There are pre-compiled versions (latest version recommended) of WPS code available on Derecho at:
-```
-/glade/work/wrfhelp/derecho_pre_compiled_code
-```
 Please refer to the instructions to [compile WPS on Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/#compiling-the-wrf-preprocessing-system-wps), if you prefer to do so.
 
 To compile WRF using the INTEL (ifx/icx) LLVM compiler (recommended), it is advised to compile within an [interactive job queue](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/?h=interactive#qinteractive) to avoid issues with required memory during compilation. To accomplish that use the following command on Derecho:
 ```bash
 qinteractive -A <project_code> -l walltime=01:30:00
 ```
-Once you are in the interactive queue, you'll need to load the required libraries and environmental variables to compile WRF and WPS.
+Once you are in the interactive queue, you'll need to load the required libraries and environmental variables to compile WRF.
 
 On Derecho, this is done by loading pre-loaded modules. Please refer to [Modules](https://ncar-hpc-docs.readthedocs.io/en/latest/environment-and-software/user-environment/modules/) for more information. The modules and environment variables are needed regardless of using the Cmake build or by traditional method. 
 
@@ -65,7 +59,7 @@ export YACC='/usr/bin/yacc -d'
 export FLEX_LIB_DIR=/usr/lib64
 ```
 ## Configuring the Build
-Once the environment is set up, you can configure the code for compilation. It is strongly recommended to use the CMake-based configuration option provided with recent versions of WRF, as it simplifies and standardizes the build process.
+Once the environment is set up, you can configure the code for compilation. The CMake-based compilation option provided with recent versions of WRF simplifies and standardizes the build process.
 ## Configuring WRF with CMake
 Once your environment is set up and the WRF code is downloaded and extracted, navigate into the WRF source directory and initiate the configuration process using the CMake-based configuration script:
 ```
@@ -117,7 +111,7 @@ You will notice several checks done by the script. If successful, you will notic
 Next step is to compile the code using:
 
 ```
-./compile_new >& compile.log
+./compile_new |& tee compile.log
 ```
 Upon successful compilation, the executables wrf, real, ndown, and tc will be generated and located in the _build/main/ directory. Compilation progress and details are recorded in the compile.log file. If the compilation fails, refer to compile.log for diagnostic messages and error information to assist with troubleshooting.
 
@@ -187,9 +181,6 @@ ls main/*.exe
 ```
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
 
-## Compiling the WRF Preprocessing System (WPS)
-Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF. Please follow the directions to [compile WPS](https://ncar-hpc-docs.readthedocs.io/en/latest/tutorials/wrf_on_derecho/#compiling-the-wrf-preprocessing-system-wps) on Derecho.
-
 ## Submitting jobs
 WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
 To know more about PBS batch jobs, please refer to the [PBS batch jobs scripts](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/).
@@ -227,22 +218,14 @@ Please refer to the Restart documentation to know how to set it up:
 - [WRF Online tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/Restart/index.php).
 
 ## Debugging a Failed WRF Run
-For detailed instructions and troubleshooting tips, refer to the [WRF Forum Post](https://forum.mmm.ucar.edu/threads/how-to-debug-the-code-to-find-where-the-model-is-stopping.316/) on Debugging. This post includes additional strategies for locating and understanding runtime errors.
+For detailed instructions and troubleshooting tips, refer to the [WRF Forum Post](https://forum.mmm.ucar.edu/threads/how-to-debug-the-code-to-find-where-the-model-is-stopping.316/) and [WRF compiling](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) on Debugging. These articles includes strategies for locating and understanding runtime errors.
 
-If your WRF run fails, it's important to identify the exact point of failure to efficiently resolve the issue.
+By default, traceback support is disabled in the configure.wrf file. To enable it, run:
 
-Enable Debugging with Traceback:
+- ./configure -D: Enables bounds checking, additional exception handling, and debugging features while disabling compiler optimizations. This option is supported only for the PGI, Intel, and GNU (gfortran) compilers.  
 
-By default, traceback support is disabled in the configure.wrf file. To enable it:
+- ./configure -d: this option disables compiler optimizations, making it easier to trace code behavior when using debuggers like gdb or dbx.
 
-- Open your configure.wrf file in a text editor.
-
-- Locate the line that defines FCDEBUG. It may be commented out.
-
-- Uncomment and modify it to the following:
-
-```bash
-FCDEBUG         =        -g $(FCNOOPT) -traceback
 ```
 Save the file and recompile WRF using the appropriate compile command (e.g., ./compile em_real).
 
