@@ -34,7 +34,7 @@ validation:
 nav:
   - Getting Started:
     - getting-started/index.md
-    - User Responsibilities: getting-started/user-responsibilities.md
+    - End User Agreement: getting-started/end-user-agreement.md
     - Accounts:
       - getting-started/accounts/index.md
       - CIT Passwords: getting-started/accounts/cit-passwords.md
