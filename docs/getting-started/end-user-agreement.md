@@ -14,7 +14,7 @@ By requesting and receiving access to NSF NCAR computing resources at NWSC, you 
 
 * You further agree that you shall comply with applicable laws, UCAR policies and procedures, export control regulations, and verbal or written directions from UCAR staff.  You agree that any violation may result in your loss of access to NWSC computing resources.
 
-* You understand that NWSC user access may be terminated by UCAR at its sole discretion and without notice for several reasons. In addition to inappropriate/unauthorized account sharing, access may be terminated in the following situations: (a) your user account remains inactive for more than six (6) months; (b) your research project is completed, terminated, and/or ended; \(c\) it is discovered that inaccurate or misrepresentations were made about the purpose or need for access; and/or (d) applicable laws or regulations require termination of access.
+* You understand that NWSC user access may be terminated by UCAR at its sole discretion and without notice for several reasons. In addition to inappropriate/unauthorized account sharing, access may be terminated in the following situations: (`a`) your user account remains inactive for more than six (6) months; (`b`) your research project is completed, terminated, and/or ended; (`c`) it is discovered that inaccurate or misrepresentations were made about the purpose or need for access; and/or (`d`) applicable laws or regulations require termination of access.
 
 **Section 2: Ongoing User Responsibilities**
 
