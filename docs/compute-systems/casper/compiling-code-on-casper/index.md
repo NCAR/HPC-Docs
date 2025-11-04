@@ -439,7 +439,7 @@ The sample below demonstrates how to compile CUDA C code on casper.
     Log in to either Casper or Derecho and run `qinteractive @casper` with a GPU resource request to start an interactive job on a GPU-accelerated Casper node:
 
     ```sh
-    qinteractive @casper -l gpu_type=gp100 --ngpus=1
+    qinteractive @casper --gpu gp100 --ngpus=1
     ```
 
     **Compile `hello_world.cu`**

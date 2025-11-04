@@ -69,8 +69,7 @@
         #!/bin/bash -l
         #PBS -N mpi_job
         #PBS -A <project_code>
-        #PBS -l select=2:ncpus=4:mpiprocs=4:ngpus=4:mem=40GB
-        #PBS -l gpu_type=v100
+        #PBS -l select=2:ncpus=4:mpiprocs=4:ngpus=4:mem=40GB:gpu_type=v100
         #PBS -l walltime=01:00:00
         #PBS -q casper
         #PBS -j oe
@@ -92,10 +91,8 @@
         #PBS -N mpi_gpu_job
         ### Charging account
         #PBS -A <project_code>
-        ### Request two resource chunks, each with 4 CPUs, GPUs, MPI ranks, and 40 GB of memory
-        #PBS -l select=2:ncpus=4:mpiprocs=4:ngpus=4:mem=40GB
-        ### Specify that the GPUs will be V100s
-        #PBS -l gpu_type=v100
+        ### Request two resource chunks, each with 4 CPUs, V100 GPUs, MPI ranks, and 40 GB of memory
+        #PBS -l select=2:ncpus=4:mpiprocs=4:ngpus=4:mem=40GB:gpu_type=v100
         ### Allow job to run up to 1 hour
         #PBS -l walltime=01:00:00
         ### Route the job to the casper queue
@@ -293,8 +290,7 @@
     #PBS -N gpu_mps_job
     #PBS -q casper@casper-pbs
     #PBS -l walltime=01:00:00
-    #PBS -l select=2:ncpus=36:mpiprocs=36:ngpus=4:mem=300GB:mps=1
-    #PBS -l gpu_type=v100
+    #PBS -l select=2:ncpus=36:mpiprocs=36:ngpus=4:gpu_type=v100:mem=300GB:mps=1
 
     # Use scratch for temporary files to avoid space limits in /tmp
     export TMPDIR=${SCRATCH}/temp

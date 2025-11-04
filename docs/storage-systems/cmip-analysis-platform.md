@@ -207,7 +207,7 @@ Run `esgfdownload --help` to see all supported options.
 
     **Download:**
 
-    We can then run `esgfdownload`, requesting the paths of the resulting ouptut files and querying the download log:
+    We can then run `esgfdownload`, requesting the paths of the resulting output files and querying the download log:
     ```pre
     esgfdownload \
       --experiment_id historical \
@@ -258,4 +258,4 @@ Run `esgfdownload --help` to see all supported options.
 
     As we can see from the `--list-paths` option output, one file is contained in the shared repository, while the remaining 5 are in temporary storage.  All are available for immediate access.  **If we were to rerun the same download query the following day, all files would be sourced from the shared repository because the system ingestion process will have completed.**
 
-    The `--download-log` option is particularly useful for diagnosing download problems.  In this case we can see the first attempt at download failed - presumably due to a down server - but the download ultimately succeeds from an alterative source.
+    The `--download-log` option is particularly useful for diagnosing download problems.  In this case we can see the first attempt at download failed - presumably due to a down server - but the download ultimately succeeds from an alternative source.
