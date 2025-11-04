@@ -11,7 +11,7 @@ See https://azure.github.io/kubelogin/install.html
 
 ## Set up your kubernetes config file
 
-`kubectl` uses either `~/.kube/config` by default or the KUBECONFIG environment variable to know which file to load its configuration from. We recommened using the default file location.
+`kubectl` uses either `~/.kube/config` by default or the KUBECONFIG environment variable to know which file to load its configuration from. We recommend using the default file location.
 
 The CIRRUS team will provide you with the necessary configuration file.
 

@@ -66,7 +66,7 @@ The example above contains several directives which are interpreted by the qsub 
 | `#PBS-l walltime=00:05:00` | Requests 5 minutes as the maximum job execution (walltime) time. Specified in HH:MM:SS format. |
 | `#PBS -l select=2:ncpus=128:mpiprocs=128` | Request a computational resource chunk, detailing the quantity and configuration of compute nodes required for this job. This example requests a selection of 2 nodes, where each node must have 128 CPU cores, each of which we will use as an MPI rank in our application. |
 
-Some directives like queues may vary from system to system. Please check out our [queues and charging](./charging.md) page for more informatiom
+Some directives like queues may vary from system to system. Please check out our [queues and charging](./charging.md) page for more information.
 
 ##### Environment Setup
 Once your PBS directives are in place, there’s no restriction on what else is needed in script. This being said, CISL recommends users configure their environments to be tailored to what their job needs are at the start of the script. This usually includes explicit module setup, setting a `TMPDIR`, and setting any additional variables you might need within the script. 
