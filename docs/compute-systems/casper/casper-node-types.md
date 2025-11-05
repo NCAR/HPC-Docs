@@ -1,4 +1,6 @@
-# Targeting a Casper Node Architecture
+# Casper Node Types
+
+## Targeting a Casper Node Architecture
 
 !!! tip
     This page is written with the assumption that you have some experience using
@@ -27,8 +29,7 @@ need to use them for requesting a node type.
     The examples below do not include optional the `ompthreads=X` argument for OpenMP threads but can be added if you need hybrid parallelism for your job.
     The `mpiprocs=X` setting is omitted except in cases where a GPU is requested since the GPUs underlying communication method requires a MPI rank for each GPU.
 
-
-# Shared vs. Exclusive Resources
+## Shared vs. Exclusive Resources
 
 Casper's queue is set to share node resources across job requests but you may
 need to request an exclusive node for your job.  The table in the [Resource Selection](#resource-selection) section provides
@@ -39,17 +40,17 @@ contact the [NCAR Research Computing help desk](https://rchelp.ucar.edu/) if you
 have any questions about targeting a node type with PBS select statements that
 are optimal for your workflow.
 
-## Shared Node
+### Shared Node
 
 These settings will prioritize reducing your time in the queue by requesting a subset of the available resources of that node. Fewer resources requested for a node will generally result in shorter queue times but will place you on nodes with other users running jobs.
 
-## Exclusive Node
+### Exclusive Node
 
 These settings will ensure that your job reserves the entire node.  These
 requests can be thought of as the maximum amount of resources of the given node
 type. For best performance, it is recommended to utilize all of the resources of a node if you are requesting an exclusive node.
 
-# Resource Selection
+## Resource Selection
 
 The PBS select statements in this table provide ranges of resources for each node type. Ranges are italicized within brackets of the select statement. However, you cannot provide ranges as part of the select statement using PBS; it must be a static value. For example, the H100 nodes would allow a minimum resource request:
 
@@ -78,8 +79,7 @@ The maximum resource request will always provide you with an exclusive node.
 |                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=[*1-64*]:mpiprocs=[*1-4*]:mem=[*10-985*]gb:ngpus=[*1-4*]:gpu_type=h100                             |
 |                          | AMD MI300A Zen 4     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=[*1-96*]:mem=[*10-470*]gb:ngpus=[*1-4*]:gpu_type=mi300a  |
 
-
-## Accelerator Node Table
+### Accelerator Node Table
 
 The table below provides all possible options for selecting an accelerator architectures on Casper. These values can be used for the `gpu_type` argument in PBS select statements to allow targeting of a single node architecture or the first available GPU matching the chosen compute capability.
 
@@ -94,8 +94,7 @@ The table below provides all possible options for selecting an accelerator archi
 | vis | 1x GP100       | vis | gp100 | gp100_16gb | |
 | | 1x L40       | vis | l40 | l40_45gb |  |
 
-
-## Large Memory Nodes
+### Large Memory Nodes
 
 Select statements that have memory values greater than 400GB are routed to the
 `largemem` queue.  There are fewer nodes that are assigned the `largemem` flag
@@ -105,4 +104,3 @@ routing method.
 For the High-Throughput Computing nodes, requesting less than 350GB is a good
 way to ensure that you will be routed to the general `htc` queue with shorter
 wait times.
-
