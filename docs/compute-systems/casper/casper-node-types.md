@@ -79,7 +79,7 @@ The maximum resource request will always provide you with an exclusive node.
 |                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=[*1-64*]:mpiprocs=[*1-4*]:mem=[*10-985*]gb:ngpus=[*1-4*]:gpu_type=h100                             |
 |                          | AMD MI300A Zen 4*     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=[*1-96*]:mem=[*10-470*]gb:ngpus=4:gpu_type=mi300a  |
 
-**MI300A nodes are currently exclusive-use only, and so `ngpus` must be equal to 4. Other submissions will be rejected.*
+*\*MI300A nodes are currently exclusive-use only, and so `ngpus` must be equal to 4. Other submissions will be rejected.*
 
 ### Accelerator Node Table
 
