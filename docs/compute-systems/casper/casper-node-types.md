@@ -77,7 +77,9 @@ The maximum resource request will always provide you with an exclusive node.
 |                          | Intel Cascade Lake   | 36    | 2.6GHz     | 1152 GB     | V100 (x8)    | 32 GB      | 6     | -l select=1:ncpus=[*1-36*]:mpiprocs=[*1-8*]:mem=[*10-1152*]gb:ngpus=[*1-8*]:gpu_type=v100_8way                             |
 |                          | AMD EPYC Milan     | 128   | 2.45GHz    | 992 GB     | A100 (x4)    | 80 GB      | 8     | -l select=1:ncpus=[*1-128*]:mpiprocs=[*1-4*]:mem=[*10-992*]gb:ngpus=[*1-4*]:gpu_type=a100_80gb              |
 |                          | Intel Xeon Gold 6430     | 64    | 2.10Ghz        | 985 GB            | H100 (x4)    | 80 GB      | 2     | -l select=1:ncpus=[*1-64*]:mpiprocs=[*1-4*]:mem=[*10-985*]gb:ngpus=[*1-4*]:gpu_type=h100                             |
-|                          | AMD MI300A Zen 4     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=[*1-96*]:mem=[*10-470*]gb:ngpus=[*1-4*]:gpu_type=mi300a  |
+|                          | AMD MI300A Zen 4*     | 96 (24 per APU)   | 3.70Ghz        | 470 GB            | MI300A CDNA3 (6 per APU)    | 128 GB      | 2     | -l select=1:ncpus=[*1-96*]:mem=[*10-470*]gb:ngpus=4:gpu_type=mi300a  |
+
+**MI300A nodes are currently exclusive-use only, and so `ngpus` must be equal to 4. Other submissions will be rejected.*
 
 ### Accelerator Node Table
 
