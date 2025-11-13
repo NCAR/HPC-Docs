@@ -1,4 +1,4 @@
-# How to compile and conduct a basic WRF-Chem on Derecho 
+# How to compile WRF-Chem on Derecho 
 
 !!! info "About this page"
     This documentation provides information on how to download and compile WRF-Chem on NSF NCAR Derecho.
@@ -209,6 +209,10 @@ To submit a batch job, use the `qsub` command followed by the name of your PBS b
 qsub script_name
 ```
 To know more about starting and managing jobs, please refer to the [documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/).
+
+!!! note
+WRF-Chem simulations typically require **significantly more memory** than standard WRF runs because they include additional chemistry species.  
+    This increases the **memory usage per core**, so users should plan their resource allocation accordingly.
 
 ## Running Long Simulations with Restart Capability
 For simulations that exceed the [wall-clock time limits of Derecho](https://ncar-hpc-docs.readthedocs.io/en/latest/pbs/charging/) or for operational workflows that require regular checkpoints, WRF supports restart capability, allowing you to break up long simulations into multiple shorter runs without losing progress.
