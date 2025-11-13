@@ -182,7 +182,7 @@ ls main/*.exe
 If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug or please contact help@ucar.edu for additional help compiling the code. 
 
 ## Submitting jobs
-WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
+WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
 To know more about PBS batch jobs, please refer to the [PBS batch jobs scripts](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/).
 
 Below is a sample job to run WRF using 1 node and utilizing 128 processors. 
@@ -230,7 +230,6 @@ By default, traceback support is disabled in the configure.wrf file. To enable i
 
 - ./configure -d: this option disables compiler optimizations, making it easier to trace code behavior when using debuggers like gdb or dbx.
 
-```
 Save the file and recompile WRF using the appropriate compile command (e.g., ./compile em_real).
 
 Analyze the Log Files:
