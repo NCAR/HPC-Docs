@@ -29,27 +29,6 @@ need to use them for requesting a node type.
     The examples below do not include optional the `ompthreads=X` argument for OpenMP threads but can be added if you need hybrid parallelism for your job.
     The `mpiprocs=X` setting is omitted except in cases where a GPU is requested since the GPUs underlying communication method requires a MPI rank for each GPU.
 
-## Shared vs. Exclusive Resources
-
-Casper's queue is set to share node resources across job requests but you may
-need to request an exclusive node for your job.  The table in the [Resource Selection](#resource-selection) section provides
-examples for job resource select statements that will aim for either more
-performant with exclusive nodes or faster queue time with shared nodes.   You can reference the [job script
-examples](../../pbs/job-scripts/casper-job-script-examples.md) to help build your submission script or
-contact the [NCAR Research Computing help desk](https://rchelp.ucar.edu/) if you
-have any questions about targeting a node type with PBS select statements that
-are optimal for your workflow.
-
-### Shared Node
-
-These settings will prioritize reducing your time in the queue by requesting a subset of the available resources of that node. Fewer resources requested for a node will generally result in shorter queue times but will place you on nodes with other users running jobs.
-
-### Exclusive Node
-
-These settings will ensure that your job reserves the entire node.  These
-requests can be thought of as the maximum amount of resources of the given node
-type. For best performance, it is recommended to utilize all of the resources of a node if you are requesting an exclusive node.
-
 ## Resource Selection
 
 The PBS select statements in this table provide ranges of resources for each node type. Ranges are italicized within brackets of the select statement. However, you cannot provide ranges as part of the select statement using PBS; it must be a static value. For example, the H100 nodes would allow a minimum resource request:
@@ -62,7 +41,10 @@ up to the maximum resource request:
 -l select=1:ncpus=64:mpiprocs=4:mem=985gb:ngpus=4:gpu_type=h100
 ```
 
-The maximum resource request will always provide you with an exclusive node.
+!!! tip "Shared vs. Exclusive requests"
+    The maximum resource request will always provide you with an exclusive node. Requesting less than the maximum resources will likely place you on a shared node with other users.
+
+    Requesting fewer resources will result in shorter queue times. Requesting an exclusive node will be most performant but will result in longer queue times.
 
 | Node Type                | CPU            | Cores | Core Speed | Node Memory | GPU          | GPU Memory | Node Count | PBS Select Statement                                                   |
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
@@ -96,6 +78,12 @@ The table below provides all possible options for selecting an accelerator archi
 | vis | 1x GP100       | vis | gp100 | gp100_16gb | |
 | | 1x L40       | vis | l40 | l40_45gb |  |
 
+### High-Throughput Computing
+
+These nodes are for general purpose CPU only workflows. They offer the highest availability for small jobs and will generally have shorter queue times than other node types.
+
+For the High-Throughput Computing nodes, requesting less than 350GB will ensure that you are routed to the `htc` queue with shorter wait times.
+
 ### Large Memory Nodes
 
 Select statements that have memory values greater than 400GB are routed to the
@@ -103,6 +91,15 @@ Select statements that have memory values greater than 400GB are routed to the
 so queue times may be longer if you request enough memory to land on this
 routing method.
 
-For the High-Throughput Computing nodes, requesting less than 350GB is a good
-way to ensure that you will be routed to the general `htc` queue with shorter
-wait times.
+### Machine Learning and General Purpose GPUs
+
+These GPUs provide hardware and software capabilities for GPU accelerated parallel computational workloads. Their advanced architectures are more performant for Machine Learning, AI, large dataset processing, and simulations compared to the Data and Visualization GPUs.
+
+### Data & Visualization
+
+These nodes are primarily used for running applications that either have a Graphical User Interface (GUI) or provide visual output of data. A list of common applications that will benefit from the GPUs of these nodes can be found in the [Data Analysis and Visualization](../../environment-and-software/data-analysis-and-visualization.md) section.
+
+The L40 nodes are also capable of basic GPGPU tasks like AI inference and are less utilized than the nodes within the GPGPU queue. This could significantly reduce your wait time in the queue.
+
+!!! info
+    Data and Visualization node type requests will be submitted to the `vis` queue and these GPUs are shared among multiple users on a node. The maximum selectable GPUs is one and  exclusive access cannot be guaranteed on the Data and Visualization node types. If you need exclusive node access, use the ML & GPGPU node types.
