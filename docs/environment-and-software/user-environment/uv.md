@@ -1,6 +1,6 @@
 # Using `uv` for Python Package Management
 
-NCAR system users can also use **uv**, an extremely fast Python package and project manager written in Rust.
+NCAR system users can also use **`uv`**, an extremely fast Python package and project manager written in Rust.
 
 `uv` can act as a drop-in replacement for `pip` and `venv`, and is designed for high performance and reproducible Python workflows.
 
@@ -192,7 +192,7 @@ environment to the original.
     text-based and handles merge conflicts reasonably well.
 
 
-## Using uv environments in Jupyter
+## Creating Jupyter kernels for uv environments
 
 uv environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../compute-systems/jupyterhub/index.md) service. There are two approaches to making uv environments available as Jupyter kernels.
 
