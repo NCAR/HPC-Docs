@@ -39,5 +39,5 @@ jobs:
       with:
         push: true
         tags: hub.k8s.ucar.edu/hpc-docs/hpc-docs:${{ env.SHORT_SHA }}
-        file: container/Containerfile
+        file: repo/container/Containerfile
         context: repo/
