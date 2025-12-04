@@ -1,0 +1,10 @@
+FROM mambaorg/micromamba:latest AS build
+USER root
+RUN apt update && apt install -y git && apt clean all
+USER mambauser
+COPY ./ .
+RUN micromamba install -y -n base -f conda.yaml 
+ARG MAMBA_DOCKERFILE_ACTIVATE=1 
+RUN git config --global --add safe.directory /tmp && mkdocs build --strict -d ./out
+FROM nginx:latest AS app
+COPY --from=build /tmp/out/ /usr/share/nginx/html/
