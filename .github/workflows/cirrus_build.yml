@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v5
       with:
         path: repo
-        submodukes: 'true'
+        submodules: 'true'
         fetch-depth: 0
 
     - name: Set up Docker Buildx
