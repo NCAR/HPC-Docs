@@ -41,3 +41,23 @@ jobs:
         tags: hub.k8s.ucar.edu/hpc-docs/hpc-docs:${{ env.SHORT_SHA }}
         file: repo/container/Containerfile
         context: repo/
+  deploy:
+    name: Deploy branches to cirrus
+    runs-on:
+      group: CIRRUS-4x8
+    
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v5
+      with:
+        path: repo
+        submodules: 'true'
+        fetch-depth: 0
+
+    - name: Get branch and hash list
+      run: |
+        cd repo
+        for b in `git branch -r|grep -v HEAD|grep -E 'cirrus-main'|cut -d '/' -f2`; do
+          hash=`git log -1 --pretty=format%H $b;
+          echo $b,${hash:0:7}
+          done
