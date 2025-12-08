@@ -1,0 +1,5 @@
+branches:
+  - name: main
+    imageTag: b1ad98f
+  - name: cirrus-ci
+    imageTag: b1ad98f

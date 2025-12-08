@@ -62,3 +62,5 @@ jobs:
           hash=`git log -1 --pretty=format:%H origin/$b --`
           echo $b,${hash:0:7}
           done
+        python container/update_yaml.py container/chart/values.yaml
+        cat container/chart/values.yaml
