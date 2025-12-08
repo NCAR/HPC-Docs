@@ -64,5 +64,6 @@ jobs:
           done
         echo "Wrote hash file"
         cat /tmp/hash
+        /opt/micromamba/bin/pip install pyyaml
         /opt/micromamba/bin/python container/update_yaml.py container/chart/values.yaml
         cat container/chart/values.yaml
