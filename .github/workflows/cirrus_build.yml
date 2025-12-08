@@ -56,7 +56,8 @@ jobs:
     - name: Get branch and hash list
       run: |
         cd repo
-        git fetch --prune
+        git status
+        git branch -r
         for b in `git branch -r|grep -v HEAD|grep -E 'cirrus|main'|cut -d '/' -f2`; do
           hash=`git log -1 --pretty=format:%H $b`
           echo $b,${hash:0:7}
