@@ -68,6 +68,8 @@ jobs:
         /opt/micromamba/bin/pip install pyyaml
         /opt/micromamba/bin/python container/update_yaml.py container/chart/values.yaml
         cat container/chart/values.yaml
+        git config --global user.email "khrpcek@ucar/edu"
+        git config --global user.name "CirrusCI"
         git add container/chart/values.yaml
         git commit -m 'Auto update of deployment values'
         git push origin cirrus-ci
