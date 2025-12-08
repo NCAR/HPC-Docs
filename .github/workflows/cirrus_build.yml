@@ -45,8 +45,6 @@ jobs:
     name: Deploy branches to cirrus
     runs-on:
       group: CIRRUS-4x8
-    container:
-      image: python:3
     
     steps:
     - name: Checkout Repo
