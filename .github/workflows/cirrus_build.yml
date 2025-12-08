@@ -1,7 +1,11 @@
-name: Build and push container image
+name: Cirrus build and deploy
 
 on: 
   workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+      - 'cirrus*'
 
 jobs:
   buildpush:
@@ -41,6 +45,7 @@ jobs:
         tags: hub.k8s.ucar.edu/hpc-docs/hpc-docs:${{ env.SHORT_SHA }}
         file: repo/container/Containerfile
         context: repo/
+
   deploy:
     name: Deploy branches to cirrus
     runs-on:
