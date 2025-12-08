@@ -52,6 +52,7 @@ jobs:
       with:
         path: repo
         fetch-depth: 0
+        ref: cirrus-ci
 
     - name: Get branch and hash list
       run: |
@@ -67,3 +68,6 @@ jobs:
         /opt/micromamba/bin/pip install pyyaml
         /opt/micromamba/bin/python container/update_yaml.py container/chart/values.yaml
         cat container/chart/values.yaml
+        git add container/chart/values.yaml
+        git commit -m 'Auto update of deployment values'
+        git push origin cirrus-ci
