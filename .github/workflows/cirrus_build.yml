@@ -57,10 +57,14 @@ jobs:
 
     - name: Get branch and hash list
       run: |
+        /usr/bin/bash
         cd repo
         for b in `git branch -r|grep -v HEAD|grep -E 'cirrus|main'|cut -d '/' -f2`; do
           hash=`git log -1 --pretty=format:%H origin/$b --`
           echo $b,${hash:0:7}
+          echo $b,${hash:0:7} >> /tmp/hash
           done
+        echo "Wrote hash file"
+        cat /tmp/hash
         python container/update_yaml.py container/chart/values.yaml
         cat container/chart/values.yaml
