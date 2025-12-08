@@ -60,6 +60,7 @@ jobs:
         git branch -r
         git log -1 main
         for b in `git branch -r|grep -v HEAD|grep -E 'cirrus|main'|cut -d '/' -f2`; do
+          git fetch origin $b
           hash=`git log -1 --pretty=format:%H $b`
           echo $b,${hash:0:7}
           done
