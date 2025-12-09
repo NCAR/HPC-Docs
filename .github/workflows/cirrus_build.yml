@@ -1,7 +1,11 @@
-name: Build and push container image
+name: Cirrus build and deploy
 
 on: 
   workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+      - 'cirrus*'
 
 jobs:
   buildpush:
@@ -17,7 +21,7 @@ jobs:
       uses: actions/checkout@v5
       with:
         path: repo
-        submodukes: 'true'
+        submodules: 'true'
         fetch-depth: 0
 
     - name: Set up Docker Buildx
@@ -39,5 +43,38 @@ jobs:
       with:
         push: true
         tags: hub.k8s.ucar.edu/hpc-docs/hpc-docs:${{ env.SHORT_SHA }}
-        file: container/Containerfile
+        file: repo/container/Containerfile
         context: repo/
+
+  deploy:
+    name: Deploy branches to cirrus
+    runs-on:
+      group: CIRRUS-4x8
+    
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v5
+      with:
+        path: repo
+        fetch-depth: 0
+        ref: cirrus-ci
+
+    - name: Get branch and hash list
+      run: |
+        /usr/bin/bash
+        cd repo
+        for b in `git branch -r|grep -v HEAD|grep -E 'cirrus|main'|cut -d '/' -f2`; do
+          hash=`git log -1 --pretty=format:%H origin/$b --`
+          echo $b,${hash:0:7}
+          echo $b,${hash:0:7} >> /tmp/hash
+          done
+        echo "Wrote hash file"
+        cat /tmp/hash
+        /opt/micromamba/bin/pip install pyyaml
+        /opt/micromamba/bin/python container/update_yaml.py container/chart/values.yaml
+        cat container/chart/values.yaml
+        git config --global user.email "khrpcek@ucar/edu"
+        git config --global user.name "CirrusCI"
+        git add container/chart/values.yaml
+        git commit -m 'Auto update of deployment values'
+        git push origin cirrus-ci
