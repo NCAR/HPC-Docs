@@ -1,5 +1,5 @@
 branches:
-- imageTag: cb0dfd9
+- imageTag: 09a984f
   name: cirrus-ci
-- imageTag: e7e03af
+- imageTag: daa4571
   name: main
