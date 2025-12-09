@@ -6,6 +6,12 @@ on:
     branches:
       - 'main'
       - 'cirrus*'
+      - '!cirrus-ci'
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
 
 jobs:
   buildpush:
@@ -63,7 +69,7 @@ jobs:
       run: |
         /usr/bin/bash
         cd repo
-        for b in `git branch -r|grep -v HEAD|grep -E 'cirrus|main'|cut -d '/' -f2`; do
+        for b in `git branch -r|grep -v HEAD|grep -E 'cirrus|main'|grep -v cirrus-ci|cut -d '/' -f2`; do
           hash=`git log -1 --pretty=format:%H origin/$b --`
           echo $b,${hash:0:7}
           echo $b,${hash:0:7} >> /tmp/hash
