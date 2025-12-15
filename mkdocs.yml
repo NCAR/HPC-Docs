@@ -161,14 +161,14 @@ nav:
     - Using Modules: environment-and-software/user-environment/modules.md
     - Customizing your Environment: environment-and-software/user-environment/customizing.md
     - Python:
-      - Conda: environment-and-software/user-environment/python/conda.md
-      - Pixi: environment-and-software/user-environment/python/pixi.md
-      - UV: environment-and-software/user-environment/python/uv.md
+      - Conda: environment-and-software/user-environment/package-managers/conda.md
+      - Pixi: environment-and-software/user-environment/package-managers/pixi.md
+      - UV: environment-and-software/user-environment/package-managers/uv.md
+      - Spack: environment-and-software/user-environment/package-managers/spack/index.md
     - Containers:
       - environment-and-software/user-environment/containers/index.md
       - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
       - Example Workflows: environment-and-software/user-environment/containers/examples.md
-    - Spack: environment-and-software/user-environment/spack/index.md
 
   - HPC Software:
     - environment-and-software/hpc-software/index.md
