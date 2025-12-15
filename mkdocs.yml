@@ -160,7 +160,7 @@ nav:
     - environment-and-software/user-environment/index.md
     - Using Modules: environment-and-software/user-environment/modules.md
     - Customizing your Environment: environment-and-software/user-environment/customizing.md
-    - Python:
+    - Environment & Package Managers:
       - Conda: environment-and-software/user-environment/package-managers/conda.md
       - Pixi: environment-and-software/user-environment/package-managers/pixi.md
       - UV: environment-and-software/user-environment/package-managers/uv.md
