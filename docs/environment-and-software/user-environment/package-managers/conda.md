@@ -1,5 +1,7 @@
 # Using Conda
 
+Conda is an open-source package and environment management system available on all NCAR systems. It can be used to manage environments containing a wide range of open-source software packages, programming languages, and libraries—primarily Python and R, but also others such as Perl, Java, and Julia—along with all of their required dependencies.
+
 NCAR system users access Python via
 [Conda](https://docs.conda.io/projects/conda/en/latest/index.html)
 environments, which are self-contained installations of Python itself,
