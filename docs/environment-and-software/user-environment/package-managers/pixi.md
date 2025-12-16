@@ -1,32 +1,32 @@
-# Using `Pixi` for Python Package Management
+# Using `Pixi` for Package Management
 
-NCAR system users can also use **`Pixi`**, a fast package manager built in Rust that uses
-the conda ecosystem. Pixi provides a modern, project-based workflow for
+NCAR system users can also use [**`Pixi`**](https://pixi.sh/latest/), a fast package manager built in Rust that uses the conda ecosystem. 
+Pixi provides a modern, project-based workflow for
 managing dependencies across Python, R, C/C++, Julia, and other
 languages, with significantly faster performance than traditional conda.
 
 Pixi builds upon the foundation of the Conda ecosystem, introducing a workspace-centric approach rather than focusing solely on environments.
 This project workspace approach offers a more organized and efficient way to manage dependencies and run code, tailored to modern development practices.
 
-
 !!! note "uv vs. Pixi vs. Conda"
     Pixi uses the same package repositories as Conda (conda-forge, etc.)
     but with much faster dependency resolution and environment creation. If
     you currently use Conda and find it slow, Pixi may be an excellent
-    alternative. For pure Python projects, consider uv
+    alternative. For pure Python projects, consider `uv`
     instead.
 
-## Using `Pixi` on NCAR Systems
+
+## Using `pixi` on NCAR Systems
 
 Pixi is available as an environment module on NCAR systems.
 
 Before using `pixi`, ensure no conda environments are actived by running:
-```
+```bash
 conda deactivate
 ```
 
 Then, load the `pixi` module:
-```
+```bash
 module load pixi
 ```
 
@@ -46,7 +46,7 @@ This module:
     need to configure this yourself.
 
 You can verify that Pixi is properly loaded:
-```
+```bash
     pixi info
 ```
 The cache directory should point to your work space, not your home directory.
@@ -99,6 +99,9 @@ To run commands in your project environment:
 ```bash
 # Run Python script
 pixi run python analyze_data.py
+
+# Run any other commands such as :
+pixi run pytest tests/
 ```
 
 Alternatively, you can start an interactive shell with the environment activated. This is analogous to activating a conda environment:
@@ -106,17 +109,23 @@ Alternatively, you can start an interactive shell with the environment activated
 ```bash
 # Start an interactive shell with environment activated (equal to `conda activate myenv`)
 pixi shell
+
+# Now you can run commands directly
+python analyze_data.py
+pytest tests/
 ```
 
-### Using lock files
+To exit the shell, type `exit` or press `Ctrl+D`.
 
-To reproduce an environment from a Pixi project:
-```bash
-pixi install --frozen
-```
-The `--frozen` flag tells Pixi to use the exact versions in the lock file without attempting to update them. 
 
-This ensures you get an identical environment to the original, which is critical for reproducible science.
+!!! note "Using lock files"
+        To reproduce an environment from a Pixi project:
+        ```bash
+        pixi install --frozen
+        ```
+        The `--frozen` flag tells Pixi to use the exact versions in the lock file without attempting to update them. 
+
+        This ensures you get an identical environment to the original, which is critical for reproducible science.
 
 ### Sharing projects with colleagues
 
@@ -181,6 +190,8 @@ This registers the Pixi environment as a Jupyter kernel named `my-example-analys
 | Uninstalling a Package      | `conda remove numpy`                              | `pixi remove numpy`                                                       |
 
 
-## Migrating from Conda to Pixi
-
-
+!!! abstract "Additional Resources"
+    - [Pixi Official Documentation](https://pixi.sh/latest/)
+    - [Getting Started with Pixi](https://pixi.sh/latest/getting-started/)
+    - [Switching from Conda to Pixi](https://pixi.sh/latest/switching_from/conda/)
+    - [Browse Conda Packages](https://conda-metadata-app.streamlit.app/?q=conda-forge)
