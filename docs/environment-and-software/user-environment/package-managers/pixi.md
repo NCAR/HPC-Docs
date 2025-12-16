@@ -20,7 +20,7 @@ This project workspace approach offers a more organized and efficient way to man
 
 Pixi is available as an environment module on NCAR systems.
 
-Before using `pixi`, ensure no conda environments are actived by running:
+Before using `pixi`, ensure no conda environments are activated by running:
 ```bash
 conda deactivate
 ```
