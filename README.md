@@ -1,8 +1,9 @@
 # Welcome to the NSF NCAR HPC Documentation Repository!
 
-[![Docs Status](https://readthedocs.org/projects/ncar-hpc-docs/badge/?version=latest)](https://ncar-hpc-docs.readthedocs.io/en/latest/)
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC--BY--SA--4.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-
+[![Docs Status](https://img.shields.io/readthedocs/ncar-hpc-docs?style=flat-square)](https://ncar-hpc-docs.readthedocs.io/en/latest/)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC--BY--SA--4.0-blue.svg?style=flat-square)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![Contributors](https://img.shields.io/github/contributors/NCAR/HPC-Docs.svg?style=flat-square&color=0057C2)](https://github.com/NCAR/HPC-Docs/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/NCAR/HPC-Docs?style=flat-square)](https://github.com/NCAR/HPC-Docs/commits/main)
 
 ## Contributing
 We welcome contributions to improve the documentation!
