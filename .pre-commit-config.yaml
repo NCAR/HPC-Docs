@@ -6,7 +6,7 @@ repos:
     hooks:
       - id: codespell
         args:
-          - --ignore-words=workflows/codespell.txt
+          - --ignore-words=.github/workflows/codespell.txt
           - --skip=LICENSE
 
   - repo: https://github.com/tcort/markdown-link-check
@@ -21,4 +21,3 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: check-merge-conflict
-
