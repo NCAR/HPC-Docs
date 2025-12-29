@@ -1,6 +1,7 @@
-# NCAR HPC Documentation Repository
-Welcome to the HPC Documentation Repository!
+# Welcome to the NSF NCAR HPC Documentation Repository!
+
 [![Docs Status](https://readthedocs.org/projects/ncar-hpc-docs/badge/?version=latest)](https://ncar-hpc-docs.readthedocs.io/en/latest/)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC--BY--SA--4.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 
 ## Contributing
