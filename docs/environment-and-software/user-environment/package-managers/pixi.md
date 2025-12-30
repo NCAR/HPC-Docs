@@ -32,7 +32,7 @@ module load pixi
 
 By default, Pixi stores its cache in your home directory, which can quickly exceed your quota. The module automatically sets the cache location to `/glade/derecho/scratch/$USER/.cache/pixi`. You can verify that by running `pixi info` and confirming the Cache dir points to your scratch space, not your home directory.
 
-!!! warning "Conda and uv conflicts"
+!!! warning "conda, uv, and pixi module conflicts"
     If you have previously loaded either `conda` or `uv` modules in your session, you must unload them before loading `pixi`. For example:
     ```bash
     module unload conda

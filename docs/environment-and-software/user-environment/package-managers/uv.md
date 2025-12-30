@@ -28,11 +28,7 @@ pure Python workloads where system-level dependencies are not required.
 
 ## Using `uv` on NSF NCAR Systems
 
-On our HPC systems, we provide a `uv` module that:
-
-  - provides access to the `uv` command,
-  - allows you to create lightweight, fast Python environments for your projects, and
-  - configures `uv` to store cache and package data in your `/glade/work/$USER/uv` space to avoid filling your home directory quota.
+`uv` is available as an environment module on NCAR systems.
 
 Before using `uv`, ensure no conda environments are active:
 ```bash
@@ -44,12 +40,16 @@ Then, load the `uv` module:
 module load uv
 ```
 
-The module will automatically unload any loaded conda modules to prevent conflicts.
+By default, uv stores its cache in your home directory, which can quickly exceed your quota. The module automatically sets the cache location to `/glade/derecho/scratch/$USER/.cache/uv`. You can verify that by running `uv cache dir` and confirming the Cache dir points to your scratch space, not your home directory.
 
-!!! note "Cache location"
-    The `uv` module automatically configures cache directories in
-    `/glade/work/$USER/.cache/uv/` to prevent home directory quota issues.
-    
+
+!!! warning "conda, uv, and pixi module conflicts"
+    If you have previously loaded either `conda` or `pixi` modules in your session, you must unload them before loading `uv`. For example:
+    ```bash
+    module unload conda
+    module load uv
+    ```
+
 ## Creating and Activating a Virtual Environment with `uv`
 
 `uv` can create virtual environments similar to `python -m venv`, but with improved performance and additional features.
