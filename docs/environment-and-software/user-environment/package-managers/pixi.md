@@ -41,6 +41,7 @@ By default, Pixi stores its cache in your home directory, which can quickly exce
     module unload conda
     module load pixi
     ```
+    We do not allow concurrent loading of environment manager modules to prevent "environment stacking," in which a second environment (e.g., a `uv shell`) is erroneously loaded when another is already active (e.g., a conda environment).
 
 ### Creating your own Pixi project
 
@@ -166,8 +167,6 @@ Because Pixi uses conda channels, the same packages are available across differe
 ## Using Pixi environments in Jupyter
 
 Pixi environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../compute-systems/jupyterhub/index.md) service.
-
-### Creating Jupyter kernels for Pixi environments
 
 First, add `ipykernel` to your Pixi project:
 
