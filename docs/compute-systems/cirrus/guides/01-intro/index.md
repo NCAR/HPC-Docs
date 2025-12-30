@@ -31,7 +31,7 @@ Choose your path based on your needs and experience level:
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Understand Team Process</strong><br/>Review <a href="../02-interact-with-cirrus-team/agile">Team Interaction</a> and <a href="../02-interact-with-cirrus-team/create-tickets">Creating Tickets</a></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study <a href="../03-deploying-applications/additions">Adding Applications</a> and <a href="../04-container-registry/index">Container Registry</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study <a href="../03-deploying-applications/additions">Adding Applications</a> and <a href="../04-container-registry">Container Registry</a></td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Explore Services</strong><br/>Try <a href="../06-jupyter-on-cirrus/jupyterhub">JupyterHub</a> for interactive computing</td>

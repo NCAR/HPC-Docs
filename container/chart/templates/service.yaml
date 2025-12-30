@@ -1,0 +1,16 @@
+{{- range .Values.branches }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name }}-hpc-docs-nginx
+spec:
+  selector:
+    app.kubernetes.io/app: hpc-docs
+    app.kubernetes.io/instance: {{ .name }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+---
+{{- end }}

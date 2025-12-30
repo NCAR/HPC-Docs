@@ -105,6 +105,30 @@ NSF NCAR | CISL operates Compute, Storage & Network hardware in robust Data Cent
 
 ---
 
+## User Applications Support Policy
+
+CIRRUS provides and maintains the underlying Kubernetes infrastructure, but **application owners are responsible for their applications** deployed on the platform.
+
+### CIRRUS Team Responsibilities:
+- Maintain Kubernetes cluster infrastructure and core platform services
+- Ensure infrastructure availability and performance
+- Provide consultation on best practices for application design and deployment
+- Offer guidance on infrastructure features (persistent volume replication, storage options, etc.)
+
+### Application Owner Responsibilities:
+- Design, develop, deploy, and maintain their applications
+- Ensure applications are built to be resilient and can handle infrastructure maintenance windows
+- Implement high availability patterns (database replication, persistent volume mirroring, etc.)
+- Monitor and troubleshoot application-specific issues
+- Follow Infrastructure as Code (IaC) practices for reproducible deployments
+
+### Support Prioritization:
+CIRRUS team support for user applications is provided on a **consultation basis as time allows**. Application support requests are prioritized according to the severity levels defined above, but will always be secondary to infrastructure-level issues affecting core platform services.
+
+**Infrastructure Maintenance:** The CIRRUS team reserves the right to perform maintenance on infrastructure nodes at any time. Applications should be designed to tolerate node restarts, rescheduling, and temporary service disruptions without data loss or extended downtime.
+
+---
+
 ## Backup & Disaster Recovery Policy
 
 CIRRUS follows **Infrastructure as Code (IaC)** practices. All applications deployed on the on-prem cloud are defined via code repositories and can be redeployed as needed.
