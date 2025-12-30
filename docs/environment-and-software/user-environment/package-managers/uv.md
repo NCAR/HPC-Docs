@@ -1,6 +1,6 @@
 # Using `uv` for Python Package Management
 
-Our HPC users can also use **`uv`**, an extremely fast package and project manager written in Rust.
+Our HPC users can use **`uv`**, an extremely fast package and project manager written in Rust.
 `uv` can act as a drop-in replacement for `pip` and `venv`, and is designed for high performance and reproducible Python workflows.
 
 ## What is `uv`?
