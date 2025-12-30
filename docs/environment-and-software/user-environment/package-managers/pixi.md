@@ -33,7 +33,7 @@ module load pixi
 By default, Pixi stores its cache in your home directory, which can quickly exceed your quota. The module automatically sets the cache location to `/glade/derecho/scratch/$USER/.cache/pixi`. You can verify that by running `pixi info` and confirming the Cache dir points to your scratch space, not your home directory.
 
 !!! warning "Conda and uv conflicts"
-    If you have previously loaded the conda and `uv` modules in your session, you must unload them before loading `pixi`. For example:
+    If you have previously loaded either `conda` or `uv` modules in your session, you must unload them before loading `pixi`. For example:
     ```bash
     module unload conda
     module load pixi
@@ -65,7 +65,7 @@ The `pixi.toml` file defines your project's dependencies and configuration.
         # Create a new project using pyproject.toml
         pixi init --format pyproject example-analysis
 
-        # Or add Pixi to an existing Python project
+        # Or add Pixi to an existing Python project with pyproject.toml
         cd my-existing-project
         pixi init --format pyproject
         ```
@@ -93,7 +93,7 @@ your exact environment.
 !!! note "Project environments"
     Pixi stores environment files in a `.pixi` directory within your
     project. This directory should not be committed to version control. The
-   `pixi.toml` and `pixi.lock` files contain everything needed to
+   `pixi.toml` (or `pyproject.toml`) and `pixi.lock` files contain everything needed to
     recreate the environment.
 
 ### Running commands in Pixi environments
@@ -106,6 +106,12 @@ pixi run python analyze_data.py
 
 # Run any other commands such as :
 pixi run pytest tests/
+```
+
+At any time, you can see the list of installed packages with:
+
+```bash
+pixi list
 ```
 
 Alternatively, you can start an interactive shell with the environment activated. This is analogous to activating a conda environment:
@@ -123,7 +129,6 @@ To exit the shell, type `exit` or press `Ctrl+D`.
 
 
 !!! note "Using lock files"
-
     To reproduce an environment from a Pixi project:
         
         ```bash
