@@ -62,20 +62,20 @@ example-analysis/
 The `pixi.toml` file defines your project's dependencies and configuration.
 
 !!! tip "Using `pyproject.toml` instead of `pixi.toml`"
-        Pixi can also work with Python's standard `pyproject.toml` file instead of `pixi.toml`. This is particularly useful for existing Python projects or when you prefer following [PEP 621 packaging standards](https://peps.python.org/pep-0621/):
+    Pixi can also work with Python's standard `pyproject.toml` file instead of `pixi.toml`. This is particularly useful for existing Python projects or when you prefer following [PEP 621 packaging standards](https://peps.python.org/pep-0621/):
 
-        ```bash
-        # Create a new project using pyproject.toml
+    ```bash
+    # Create a new project using pyproject.toml
         pixi init --format pyproject example-analysis
 
-        # Or add Pixi to an existing Python project with pyproject.toml
-        cd my-existing-project
-        pixi init --format pyproject
+    # Or add Pixi to an existing Python project with pyproject.toml
+    cd my-existing-project
+    pixi init --format pyproject
         ```
 
-        When using `pyproject.toml`, Pixi stores its configuration in a `[tool.pixi]` section alongside your standard Python project metadata, allowing you to manage both traditional packaging information and Pixi dependencies in a single file.
+    When using `pyproject.toml`, Pixi stores its configuration in a `[tool.pixi]` section alongside your standard Python project metadata, allowing you to manage both traditional packaging information and Pixi dependencies in a single file.
 
-        To learn more, see examples in the [Pixi documentation](https://pixi.prefix.dev/dev/python/pyproject_toml/). `uv` also supports `pyproject.toml` files for Python projects; see [Working with Python Projects with `uv`](./uv.md) for details.
+    To learn more, see examples in the [Pixi documentation](https://pixi.prefix.dev/dev/python/pyproject_toml/). `uv` also supports `pyproject.toml` files for Python projects; see [Working with Python Projects with `uv`](./uv.md) for details.
 
 ### Managing Dependencies
 
