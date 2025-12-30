@@ -30,27 +30,14 @@ Then, load the `pixi` module:
 module load pixi
 ```
 
-The module will automatically unload the system Conda modules to prevent conflicts.
+By default, Pixi stores its cache in your home directory, which can quickly exceed your quota. The module automatically sets the cache location to `/glade/derecho/scratch/$USER/.cache/pixi`. You can verify that by running `pixi info` and confirming the Cache dir points to your scratch space, not your home directory.
 
-This module:
-
-- provides access to the `pixi` command.
-- configures Pixi to store cache and package data in your
-  `/glade/work` space to avoid filling your home directory quota.
-- allows you to create fast, multi-language environments for your research.
-- supports reproducible workflows through automatic lock file generation.
-
-!!! note "Cache location"
-    Unlike default Pixi behavior, the module redirects all cache locations to your `/glade/work/$USER` directory. This prevents your
-    home directory quota from being exceeded by package caches. You do not
-    need to configure this yourself.
-
-You can verify that Pixi is properly loaded:
-```bash
-    pixi info
-```
-The cache directory should point to your work space, not your home directory.
-
+!!! warning "Conda and uv conflicts"
+    If you have previously loaded the conda and `uv` modules in your session, you must unload them before loading `pixi`. For example:
+    ```bash
+    module unload conda
+    module load pixi
+    ```
 
 ### Creating your own Pixi project
 
@@ -107,7 +94,7 @@ pixi run pytest tests/
 Alternatively, you can start an interactive shell with the environment activated. This is analogous to activating a conda environment:
 
 ```bash
-# Start an interactive shell with environment activated (equal to `conda activate myenv`)
+# Start an interactive shell with environment activated (analogous to `conda activate myenv`)
 pixi shell
 
 # Now you can run commands directly
