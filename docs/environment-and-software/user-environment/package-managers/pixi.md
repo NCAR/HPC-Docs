@@ -1,22 +1,20 @@
 # Using `Pixi` for Package Management
 
-NCAR system users can also use [**`Pixi`**](https://pixi.sh/latest/), a fast package manager built in Rust that uses the conda ecosystem. 
-Pixi provides a modern, project-based workflow for
-managing dependencies across Python, R, C/C++, Julia, and other
-languages, with significantly faster performance than traditional conda.
+NCAR system users can use [**`Pixi`**](https://pixi.sh/latest/), a fast, modern package manager written in Rust that builds on the Conda ecosystem. 
+Pixi provides a project-based workflow for managing dependencies across Python, R, C/C++, Julia, and other languages, while offering significantly faster dependency resolution and environment creation than Conda.
 
-Pixi builds upon the foundation of the Conda ecosystem, introducing a workspace-centric approach rather than focusing solely on environments.
+Pixi builds upon the foundation of the Conda ecosystem, but organizes dependencies around projects rather than user-level environments.
 
-This project workspace approach offers a more organized and efficient way to manage dependencies and run code, tailored to modern development practices.
+Each project has its own directory with a configuration file (`pixi.toml` or `pyproject.toml`) and a lock file that pins exact package versions, making it easy to reproduce and share environments. 
 
 !!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
     Pixi uses the same package repositories as Conda (conda-forge, etc.)
     but with much faster dependency resolution and environment creation. If
     you currently use Conda and find it slow, Pixi may be an excellent
     alternative. For pure Python projects, consider `uv`
-    instead.
+    instead. 
 
-!!! abstract "To read more about `pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
+!!! abstract "To read more about `Pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
 
 
 ## Using `pixi` on NSF NCAR HPC Systems
@@ -41,18 +39,22 @@ By default, Pixi stores its cache in your home directory, which can quickly exce
     module unload conda
     module load pixi
     ```
-    We do not allow concurrent loading of environment manager modules to prevent "environment stacking," in which a second environment (e.g., a `uv shell`) is erroneously loaded when another is already active (e.g., a conda environment).
+    We do not allow concurrent loading of environment manager modules to prevent "environment stacking", in which a second environment (e.g., a `uv shell`) is erroneously loaded when another is already active (e.g., a conda environment).
 
 ### Creating your own Pixi project
 
 To create a new project:
 
 ```bash
+# create project directory
+mkdir -p /glade/work/$USER/projects
 cd /glade/work/$USER/projects
+
+# initialize Pixi project
 pixi init example-analysis
 cd example-analysis
 ```
-This creates a project directory with a `pixi.toml` configuration file:
+This creates a project directory (`example-analysis`) with a `pixi.toml` configuration file:
 
 ```
 example-analysis/
@@ -123,6 +125,8 @@ pixi shell
 
 # Now you can run commands directly
 python analyze_data.py
+
+# Run tests
 pytest tests/
 ```
 
@@ -181,7 +185,6 @@ kernel will be named based on your project name.
 You can also manually create a kernel specification with a custom name:
 
 ```bash
-cd example-analysis
 pixi run python -m ipykernel install --user --name=my-example-analysis-kernel
 ```
 
