@@ -66,7 +66,7 @@ The `pixi.toml` file defines your project's dependencies and configuration.
 
     ```bash
     # Create a new project using pyproject.toml
-        pixi init --format pyproject example-analysis
+    pixi init --format pyproject example-analysis
 
     # Or add Pixi to an existing Python project with pyproject.toml
     cd my-existing-project
@@ -130,11 +130,10 @@ To exit the shell, type `exit` or press `Ctrl+D`.
 
 !!! note "Using lock files"
     To reproduce an environment from a Pixi project:
-
-        ```bash
-        pixi install --frozen
-        ```
-        The `--frozen` flag tells Pixi to use the exact versions in the lock file without attempting to update them.
+    ```
+    pixi install --frozen
+    ```
+    The `--frozen` flag tells Pixi to use the exact versions in the lock file without attempting to update them.
 
 !!! note "Lock files and version control"
     We strongly recommend committing `pixi.lock` files to version control (Git) alongside your `pixi.toml` (or `pyproject.toml`). This allows colleagues and your future self to reproduce exact environments.

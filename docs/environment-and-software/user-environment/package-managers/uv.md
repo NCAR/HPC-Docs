@@ -196,12 +196,14 @@ uv pip uninstall numpy
 ```
 
 Other useful `uv pip` commands include:
+
 - `uv pip check`: Check that the current environment has compatible packages.
 - `uv pip tree`: View the dependency tree for the environment.
-- `uv pip install -r pyproject.toml` : Install packages from a `pyproject.toml` file.
+- `uv pip install -r pyproject.toml`: Install packages from a `pyproject.toml` file.
 
 
 Locking packages in an environment can be done with:
+
 - `uv pip compile`: Compile requirements into a lockfile.
 - `uv pip sync`: Sync an environment with a lockfile.
 
