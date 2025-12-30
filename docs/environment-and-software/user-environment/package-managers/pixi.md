@@ -94,6 +94,18 @@ Each time you add packages, Pixi updates your `pixi.toml` file (or `pyproject.to
 This lock file pins exact versions of all packages and dependencies, ensuring anyone can reproduce
 your exact environment.
 
+You can also remove packages:
+
+```bash
+pixi remove matplotlib
+```
+
+or update packages:
+
+```bash
+pixi update pandas
+```
+
 !!! note "Project environments"
     Pixi stores environment files in a `.pixi` directory within your
     project. This directory should not be committed to version control. The
