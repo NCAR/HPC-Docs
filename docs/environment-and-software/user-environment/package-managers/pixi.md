@@ -16,7 +16,7 @@ This project workspace approach offers a more organized and efficient way to man
     alternative. For pure Python projects, consider `uv`
     instead.
 
-!!! info "To read more about `pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
+!!! abstract "To read more about `pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
 
 
 ## Using `pixi` on NSF NCAR HPC Systems

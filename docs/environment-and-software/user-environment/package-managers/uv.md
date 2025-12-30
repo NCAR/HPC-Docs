@@ -20,7 +20,7 @@ While `uv` is not a replacement for Conda in all scenarios, it excels at pure Py
       dependencies or packages in other languages. If your work requires these dependencies, use Conda or Pixi instead.
       `uv` works best when your project only needs Python packages available on [PyPI](https://pypi.org/).
 
-!!! info "To read more about `uv`, visit the [official documentation](https://docs.astral.sh/uv/)."
+!!! abstract "To read more about `uv`, visit the [official documentation](https://docs.astral.sh/uv/)."
 
 ---
 
@@ -276,3 +276,13 @@ This registers the `uv` environment as a Jupyter kernel named
     # Run your script
     uv run python analyze.py
     ```
+
+!!! abstract "Additional Resources"
+    - [uv Official Documentation](https://docs.astral.sh/uv/)
+    - [Getting Started with uv](https://docs.astral.sh/uv/getting-started/)
+    - [Working with Projects](https://docs.astral.sh/uv/concepts/projects/)
+    - [Managing Dependencies](https://docs.astral.sh/uv/concepts/projects/dependencies/)
+    - [Using pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
+    - [uv pip Interface](https://docs.astral.sh/uv/pip/)
+    - [Migrating from pip to uv](https://docs.astral.sh/uv/guides/migration/pip-to-project/)
+    - [Browse PyPI Packages](https://pypi.org/) 
