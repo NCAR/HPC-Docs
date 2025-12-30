@@ -6,6 +6,7 @@ managing dependencies across Python, R, C/C++, Julia, and other
 languages, with significantly faster performance than traditional conda.
 
 Pixi builds upon the foundation of the Conda ecosystem, introducing a workspace-centric approach rather than focusing solely on environments.
+
 This project workspace approach offers a more organized and efficient way to manage dependencies and run code, tailored to modern development practices.
 
 !!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
@@ -15,10 +16,12 @@ This project workspace approach offers a more organized and efficient way to man
     alternative. For pure Python projects, consider `uv`
     instead.
 
+!!! info "To read more about `pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
 
-## Using `pixi` on NCAR Systems
 
-Pixi is available as an environment module on NCAR systems.
+## Using `pixi` on NSF NCAR HPCSystems
+
+Pixi is available as an environment module on NCAR HPC systems.
 
 Before using `pixi`, ensure no conda environments are activated by running:
 ```bash
@@ -72,17 +75,15 @@ The `pixi.toml` file defines your project's dependencies and configuration.
 
         When using `pyproject.toml`, Pixi stores its configuration in a `[tool.pixi]` section alongside your standard Python project metadata, allowing you to manage both traditional packaging information and Pixi dependencies in a single file.
 
-        To learn more, see examples in the [Pixi documentation](https://pixi.prefix.dev/dev/python/pyproject_toml/).
+        To learn more, see examples in the [Pixi documentation](https://pixi.prefix.dev/dev/python/pyproject_toml/). `uv` also supports `pyproject.toml` files for Python projects; see [Working with Python Projects with `uv`](./uv.md) for details.
 
+### Managing Dependencies
 
-Now you can add packages:
+Now you can add packages to your project:
 
 ```bash
 # Add Python and packages
 pixi add python numpy pandas matplotlib xarray
-
-# Add system libraries
-pixi add hdf5
 ```
 
 Each time you add packages, Pixi updates your `pixi.toml` file (or `pyproject.toml`) and creates or updates a `pixi.lock` file. 
@@ -93,8 +94,7 @@ your exact environment.
 !!! note "Project environments"
     Pixi stores environment files in a `.pixi` directory within your
     project. This directory should not be committed to version control. The
-   `pixi.toml` (or `pyproject.toml`) and `pixi.lock` files contain everything needed to
-    recreate the environment.
+   `pixi.toml` (or `pyproject.toml`) and `pixi.lock` files contain everything needed to recreate the environment.
 
 ### Running commands in Pixi environments
 
@@ -130,11 +130,14 @@ To exit the shell, type `exit` or press `Ctrl+D`.
 
 !!! note "Using lock files"
     To reproduce an environment from a Pixi project:
-        
+
         ```bash
         pixi install --frozen
         ```
-        The `--frozen` flag tells Pixi to use the exact versions in the lock file without attempting to update them. 
+        The `--frozen` flag tells Pixi to use the exact versions in the lock file without attempting to update them.
+
+!!! note "Lock files and version control"
+    We strongly recommend committing `pixi.lock` files to version control (Git) alongside your `pixi.toml` (or `pyproject.toml`). This allows colleagues and your future self to reproduce exact environments.
 
 ### Sharing projects with colleagues
 
