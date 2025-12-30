@@ -17,7 +17,7 @@ Our HPC users can also use **`uv`**, an extremely fast package and project manag
 While `uv` is not a replacement for Conda in all scenarios, it excels at
 pure Python workloads where system-level dependencies are not required.
 
-!!! warning "uv vs. Conda vs. Pixi: Choosing the right tool"
+!!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
       `uv` is designed for pure Python projects and cannot install non-Python
       dependencies or packages in other languages. If your work requires these dependencies, use Conda or Pixi instead.
       `uv` works best when your project only needs Python packages available on [PyPI](https://pypi.org/).

@@ -8,7 +8,7 @@ languages, with significantly faster performance than traditional conda.
 Pixi builds upon the foundation of the Conda ecosystem, introducing a workspace-centric approach rather than focusing solely on environments.
 This project workspace approach offers a more organized and efficient way to manage dependencies and run code, tailored to modern development practices.
 
-!!! note "uv vs. Pixi vs. Conda"
+!!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
     Pixi uses the same package repositories as Conda (conda-forge, etc.)
     but with much faster dependency resolution and environment creation. If
     you currently use Conda and find it slow, Pixi may be an excellent
