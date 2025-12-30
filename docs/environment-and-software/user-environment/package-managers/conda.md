@@ -1,5 +1,7 @@
 # Using Conda
 
+Conda is an open-source package and environment management system available on all NCAR systems. It can be used to manage environments containing a wide range of open-source software packages, programming languages, and libraries—primarily Python and R, but also others such as Perl, Java, and Julia—along with all of their required dependencies.
+
 NCAR system users access Python via
 [Conda](https://docs.conda.io/projects/conda/en/latest/index.html)
 environments, which are self-contained installations of Python itself,
@@ -55,6 +57,25 @@ complex sets of requirements). Once loaded, the Conda module:
   locating your [cached package downloads](https://conda.io/projects/conda/en/latest/dev-guide/deep-dives/install.html?highlight=cache#download-and-extraction)
   in your scratch space, and locating your personal Python environments
   in your work space.
+
+
+!!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
+    Conda is a general-purpose package and environment manager that can
+    handle complex dependencies across multiple languages. If you need to
+    manage non-Python dependencies or require packages outside of the
+    Python ecosystem, Conda is the best choice. For faster dependency
+    resolution with Conda packages, consider using
+    [Pixi](./pixi.md). For pure Python projects, consider using
+    [uv](./uv.md) instead.
+
+    | Builtin Core Features       | Conda | Pixi | Pip    | uv        |
+    |-----------------------------|-------|------|--------|-----------|
+    | Installs Python             | ✅     | ✅    | ❌      | ✅         |
+    | Supports Multiple Languages | ✅     | ✅    | ❌      | ❌         |
+    | Lockfiles                   | ❌     | ✅    | ❌      | ✅         |
+    | Workspace Management        | ❌     | ✅    | ❌      | ✅         |
+    | Speed                       | Slow  | Fast | Medium | Very Fast |
+
 
 !!! warning "System-wide and personal `conda` installations"
     If you already have a personal
