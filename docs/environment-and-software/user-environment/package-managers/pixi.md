@@ -56,7 +56,24 @@ example-analysis/
 └── .gitignore     # Ignores Pixi environment directory
 ```
 
-The `pixi.toml` file defines your project's dependencies and configuration. 
+The `pixi.toml` file defines your project's dependencies and configuration.
+
+!!! tip "Using `pyproject.toml` instead of `pixi.toml`"
+        Pixi can also work with Python's standard `pyproject.toml` file instead of `pixi.toml`. This is particularly useful for existing Python projects or when you prefer following [PEP 621 packaging standards](https://peps.python.org/pep-0621/):
+
+        ```bash
+        # Create a new project using pyproject.toml
+        pixi init --format pyproject example-analysis
+
+        # Or add Pixi to an existing Python project
+        cd my-existing-project
+        pixi init --format pyproject
+        ```
+
+        When using `pyproject.toml`, Pixi stores its configuration in a `[tool.pixi]` section alongside your standard Python project metadata, allowing you to manage both traditional packaging information and Pixi dependencies in a single file.
+
+        To learn more, see examples in the [Pixi documentation](https://pixi.prefix.dev/dev/python/pyproject_toml/).
+
 
 Now you can add packages:
 
@@ -68,7 +85,7 @@ pixi add python numpy pandas matplotlib xarray
 pixi add hdf5
 ```
 
-Each time you add packages, Pixi updates your `pixi.toml` file and creates or updates a `pixi.lock` file. 
+Each time you add packages, Pixi updates your `pixi.toml` file (or `pyproject.toml`) and creates or updates a `pixi.lock` file. 
 
 This lock file pins exact versions of all packages and dependencies, ensuring anyone can reproduce
 your exact environment.
@@ -76,7 +93,7 @@ your exact environment.
 !!! note "Project environments"
     Pixi stores environment files in a `.pixi` directory within your
     project. This directory should not be committed to version control. The
-    `pixi.toml` and `pixi.lock` files contain everything needed to
+   `pixi.toml` and `pixi.lock` files contain everything needed to
     recreate the environment.
 
 ### Running commands in Pixi environments
