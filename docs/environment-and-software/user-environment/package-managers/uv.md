@@ -126,10 +126,10 @@ uv run python
 
 The `uv run` command automatically activates your project environment and keeps it in sync with your `pyproject.toml` and lockfile, guaranteeing your command runs in a consistent, locked environment.
 
-You can use `uv list` to see installed packages in your project environment:
+You can use `uv pip list` to see installed packages in your project environment:
 
 ```bash
-uv list
+uv pip list
 ```
 
 !!! note "Project environments"
@@ -197,7 +197,6 @@ uv pip uninstall numpy
 
 Other useful `uv pip` commands include:
 - `uv pip check`: Check that the current environment has compatible packages.
-- `uv pip list`: List installed packages.
 - `uv pip tree`: View the dependency tree for the environment.
 - `uv pip install -r pyproject.toml` : Install packages from a `pyproject.toml` file.
 
