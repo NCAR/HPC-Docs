@@ -71,7 +71,7 @@ The `pixi.toml` file defines your project's dependencies and configuration.
     # Or add Pixi to an existing Python project with pyproject.toml
     cd my-existing-project
     pixi init --format pyproject
-        ```
+    ```
 
     When using `pyproject.toml`, Pixi stores its configuration in a `[tool.pixi]` section alongside your standard Python project metadata, allowing you to manage both traditional packaging information and Pixi dependencies in a single file.
 
