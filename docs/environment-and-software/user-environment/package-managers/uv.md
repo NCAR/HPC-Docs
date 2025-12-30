@@ -48,8 +48,8 @@ By default, uv stores its cache in your home directory, which can quickly exceed
     module load uv
     ```
 
-## Working with Python Projects (Recommended)
-
+## Working with Python Projects using `uv`
+ 
 `uv` supports managing Python projects, which define their dependencies in a `pyproject.toml` file.
 
 You can create a new Python project using the `uv init` command:
@@ -70,7 +70,17 @@ my-analysis/
 
 The `pyproject.toml` file is where you define your project's dependencies.
 
-!!! note "Using `pyproject.toml`"
+!!! info "What is a project-based workflow?"
+    A project-based workflow organizes your code and dependencies around a central `pyproject.toml` file, rather than managing environments and packages separately. This approach:
+        
+    - **Declares dependencies explicitly** : all required packages are listed in `pyproject.toml`
+    - **Locks exact versions** : for example a `uv.lock` file will pin exact versions of all dependencies
+    - **Enables reproducibility** : recreate your environment months later with `uv sync`
+        
+    The project-based model is standard in modern Python tooling. This approach contrasts with the traditional approach of creating a conda or venv environment, installing packages ad-hoc, and doing `pip freeze > requirements.txt`. `uv` supports both workflows, but the project-based approach is recommended for better reproducibility.
+
+
+!!! abstract "Using `pyproject.toml`"
     See [the official pyproject.toml guide](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) for more details on getting started with the `pyproject.toml` format.
 
 ### Managing Dependencies
