@@ -160,13 +160,13 @@ Once activated, you can use `python` commands within this environment just like 
 !!! info "Specifying Python Versions with `uv`"
     You can create virtual environments with specific Python versions using the `--python` flag.
 
-        ```bash
-        uv venv /glade/work/$USER/uv-envs/myenv-py3.10 --python python3.10
+    ```bash
+    uv venv /glade/work/$USER/uv-envs/myenv-py3.10 --python python3.10
 
-        source /glade/work/$USER/uv-envs/myenv-py3.10/bin/activate
+    source /glade/work/$USER/uv-envs/myenv-py3.10/bin/activate
 
-        python --version
-        ```
+    python --version
+    ```
     If you do not specify a Python version, `uv` will use the default Python version available in your environment.
 
 !!! note "Environment location"
