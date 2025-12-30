@@ -123,13 +123,13 @@ To exit the shell, type `exit` or press `Ctrl+D`.
 
 
 !!! note "Using lock files"
-        To reproduce an environment from a Pixi project:
+
+    To reproduce an environment from a Pixi project:
+        
         ```bash
         pixi install --frozen
         ```
         The `--frozen` flag tells Pixi to use the exact versions in the lock file without attempting to update them. 
-
-        This ensures you get an identical environment to the original, which is critical for reproducible science.
 
 ### Sharing projects with colleagues
 
