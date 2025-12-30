@@ -19,7 +19,7 @@ This project workspace approach offers a more organized and efficient way to man
 !!! info "To read more about `pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
 
 
-## Using `pixi` on NSF NCAR HPCSystems
+## Using `pixi` on NSF NCAR HPC Systems
 
 Pixi is available as an environment module on NCAR HPC systems.
 
