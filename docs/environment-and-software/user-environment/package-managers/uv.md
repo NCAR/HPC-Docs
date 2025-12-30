@@ -1,7 +1,6 @@
 # Using `uv` for Python Package Management
 
 Our HPC users can also use **`uv`**, an extremely fast package and project manager written in Rust.
-
 `uv` can act as a drop-in replacement for `pip` and `venv`, and is designed for high performance and reproducible Python workflows.
 
 ## What is `uv`?
@@ -14,8 +13,7 @@ Our HPC users can also use **`uv`**, an extremely fast package and project manag
   - `venv` for creating virtual environments.
 - A modern, reproducible workflow for Python projects (including `pyproject.toml`-based projects).
 
-While `uv` is not a replacement for Conda in all scenarios, it excels at
-pure Python workloads where system-level dependencies are not required.
+While `uv` is not a replacement for Conda in all scenarios, it excels at pure Python workloads where system-level dependencies are not required.
 
 !!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
       `uv` is designed for pure Python projects and cannot install non-Python
@@ -26,9 +24,9 @@ pure Python workloads where system-level dependencies are not required.
 
 ---
 
-## Using `uv` on NSF NCAR Systems
+## Using `uv` on NSF NCAR HPC Systems
 
-`uv` is available as an environment module on NCAR systems.
+`uv` is available as an environment module on NCAR HPC systems.
 
 Before using `uv`, ensure no conda environments are active:
 ```bash
@@ -50,60 +48,11 @@ By default, uv stores its cache in your home directory, which can quickly exceed
     module load uv
     ```
 
-## Creating and Activating a Virtual Environment with `uv`
+## Working with Python Projects (Recommended)
 
-`uv` can create virtual environments similar to `python -m venv`, but with improved performance and additional features.
+`uv` supports managing Python projects, which define their dependencies in a `pyproject.toml` file.
 
-To create an environment:
-
-```bash
-mkdir -p /glade/work/$USER/uv-envs
-
-# Create a new uv virtual environment
-uv venv /glade/work/$USER/uv-envs/myenv
-
-# Activate the environment
-source /glade/work/$USER/uv-envs/myenv/bin/activate   
-```
-
-Once your `uv` environment is active, you can install packages using uv’s pip interface:
-```bash
-uv pip install numpy pandas matplotlib
-```
-
-This behaves similarly to `pip`, but with **much** faster dependency resolution. 
-
-Similarly you can update the `venv` using a `requirements.txt` file:
-```bash
-uv pip install -r requirements.txt
-```
-
-### Specifying Python Versions with `uv`
-You can create virtual environments with specific Python versions using the `--python` flag.
-
-```bash
-uv venv /glade/work/$USER/uv-envs/myenv-py3.10 --python python3.10
-
-source /glade/work/$USER/uv-envs/myenv-py3.10/bin/activate
-
-python --version
-```
-
-If you do not specify a Python version, `uv` will use the default Python version available in your environment.
-
-!!! tip "Environment location"
-    Create virtual environments in `/glade/work/$USER` to avoid filling
-    your home directory quota. Virtual environments can be several MBs-GBs 
-    or larger depending on installed packages.
-
-## Creating your own `uv` project
-
-`uv`'s project-based workflow is recommended for research code and any
-work you plan to share or reproduce later. Projects use a
-`pyproject.toml` file to specify dependencies and automatically manage
-lock files for exact reproducibility.
-
-To create a new project:
+You can create a new Python project using the `uv init` command:
 
 ```bash
 cd /glade/work/$USER
@@ -119,6 +68,13 @@ my-analysis/
 └── .python-version   # Pinned Python version
 ```
 
+The `pyproject.toml` file is where you define your project's dependencies.
+
+!!! note "Using `pyproject.toml`"
+    See [the official pyproject.toml guide](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) for more details on getting started with the `pyproject.toml` format.
+
+### Managing Dependencies
+
 Now you can add dependencies to your project:
 
 ```bash
@@ -132,7 +88,33 @@ or updates a `uv.lock` file that pins exact versions of all
 dependencies. This lock file ensures that anyone can reproduce your
 exact environment.
 
-To run Python in your project environment:
+You can also install packages from a `requirements.txt` file:
+
+```bash
+uv add -r requirements.txt
+```
+
+You can remove packages with `uv remove`:
+
+```bash
+uv remove numpy
+```
+
+To upgrade packages to their latest compatible versions, use:
+
+```bash
+uv lock --upgrade-package numpy
+```
+
+The `--upgrade-package` flag will attempt to update the specified package to the latest compatible version, while keeping the rest of the lockfile intact.
+
+!!! note
+    See [`uv` documentation on dependency management](https://docs.astral.sh/uv/concepts/projects/dependencies/) for more advanced dependency management commands and scenarios.
+
+
+### Running Commands in `uv` Project Environments
+
+Now, to run Python in your project environment:
 
 ```bash
 # Run a script
@@ -142,9 +124,13 @@ uv run python analyze_data.py
 uv run python
 ```
 
-The `uv run` command automatically activates your project environment
-before running the command, so you don't need to manually activate
-anything.
+The `uv run` command automatically activates your project environment and keeps it in sync with your `pyproject.toml` and lockfile, guaranteeing your command runs in a consistent, locked environment.
+
+You can use `uv list` to see installed packages in your project environment:
+
+```bash
+uv list
+```
 
 !!! note "Project environments"
     `uv` stores project environments in a `.venv` directory within your
@@ -152,20 +138,85 @@ anything.
     using `uv run`. Alternatively, you can activate it traditionally with
     `source .venv/bin/activate`; then use `python` as usual.
 
+---
 
-## Reproducing `uv` environments
+## Creating and Activating a Virtual Environment with `uv`
 
-One of `uv`'s key strengths is built-in support for reproducibility
-through lock files.
+`uv` can be used to create standalone virtual environments similar to `python -m venv`.
 
-### Using lock files
+To create an environment:
 
-When you create a `uv` project and add dependencies, `uv` automatically
-generates a `uv.lock` file that specifies exact versions of all
-packages and their dependencies. 
+```bash
+mkdir -p /glade/work/$USER/uv-envs
+
+# Create a new uv virtual environment
+uv venv /glade/work/$USER/uv-envs/myenv
+
+# Activate the environment
+source /glade/work/$USER/uv-envs/myenv/bin/activate   
+```
+Once activated, you can use `python` commands within this environment just like a conda environment. If you use `uv run` commands, you do not need to activate the environment manually.
+
+!!! info "Specifying Python Versions with `uv`"
+    You can create virtual environments with specific Python versions using the `--python` flag.
+
+        ```bash
+        uv venv /glade/work/$USER/uv-envs/myenv-py3.10 --python python3.10
+
+        source /glade/work/$USER/uv-envs/myenv-py3.10/bin/activate
+
+        python --version
+        ```
+    If you do not specify a Python version, `uv` will use the default Python version available in your environment.
+
+!!! note "Environment location"
+    Create virtual environments in `/glade/work/$USER` to avoid filling
+    your home directory quota. Virtual environments can be several MBs-GBs 
+    or larger depending on installed packages.
+
+
+### Low-level `uv pip` Commands
+These commands are intended for legacy workflows or cases where the high-level project commands (`uv init`, `uv add`, `uv run`) do not provide enough control.
+
+Once your `uv` environment is active, you can install packages using uv’s pip interface:
+```bash
+uv pip install numpy pandas matplotlib
+```
+
+This behaves similarly to `pip`, but with **much** faster dependency resolution.
+
+Similarly you can install from a `requirements.txt` file:
+```bash
+uv pip install -r requirements.txt
+```
+
+or you can uninstall packages:
+```bash
+uv pip uninstall numpy
+```
+
+Other useful `uv pip` commands include:
+- `uv pip check`: Check that the current environment has compatible packages.
+- `uv pip list`: List installed packages.
+- `uv pip tree`: View the dependency tree for the environment.
+- `uv pip install -r pyproject.toml` : Install packages from a `pyproject.toml` file.
+
+
+Locking packages in an environment can be done with:
+- `uv pip compile`: Compile requirements into a lockfile.
+- `uv pip sync`: Sync an environment with a lockfile.
+
+!!! warning
+    These commands do not exactly implement the interfaces and behavior of the tools they are based on. Consult the [pip compatibility guide](https://docs.astral.sh/uv/pip/compatibility/) for details.
+
+---
+## Reproducing `uv` Environments
+
+One of `uv`'s key strengths is built-in support for reproducibility through lock files.
+
+When you create a `uv` project and add dependencies, `uv` automatically generates a `uv.lock` file that specifies exact versions of all packages and their dependencies.
 
 To reproduce an environment from a project with a lock file:
-
 ```bash
 # Clone or copy a project with pyproject.toml and uv.lock
 cd my-analysis
@@ -174,22 +225,15 @@ cd my-analysis
 uv sync --frozen
 ```
 
-The `--frozen` flag tells `uv` to use the exact versions in the lock file
-without attempting to update them. This ensures you get an identical
-environment to the original.
+The `--frozen` flag tells `uv` to use the exact versions in the lock file without attempting to update them.
 
 !!! note "Lock files and version control"
-    We strongly recommend committing `uv.lock` files to version control
-    (Git) alongside your `pyproject.toml`. This allows colleagues and your
-    future self to reproduce exact environments. The lock file is
-    text-based and handles merge conflicts reasonably well.
+    We strongly recommend committing `uv.lock` files to version control (Git) alongside your `pyproject.toml`. This allows colleagues and your future self to reproduce exact environments.
 
 
 ## Creating Jupyter kernels for `uv` environments
 
-`uv` environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../compute-systems/jupyterhub/index.md) service. There are two approaches to making `uv` environments available as Jupyter kernels.
-
-### Creating Jupyter kernels for `uv` environments
+`uv` environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../compute-systems/jupyterhub/index.md) service.
 
 First, install the `ipykernel` package into your `uv` environment:
 
@@ -205,13 +249,15 @@ properly applied when the kernel launches.
 
 You can also manually create a kernel specification with a custom name:
 
-**For `uv` projects:**
 ```bash
 uv run python -m ipykernel install --user --name=my-uv-analysis-kernel
 ```
 This registers the `uv` environment as a Jupyter kernel named
 `my-uv-analysis-kernel`.
 
+
+
+## Using `uv` in Batch Jobs
 !!! example "Using `uv` in Batch Jobs"
     The `uv` module can be loaded in batch scripts just like on login nodes.
 
@@ -228,9 +274,6 @@ This registers the `uv` environment as a Jupyter kernel named
     # Load uv module
     module load uv
 
-    # Activate your virtual environment
-    source /glade/work/$USER/uv-envs/myenv/bin/activate
-
     # Run your script
-    python analyze.py
+    uv run python analyze.py
     ```
