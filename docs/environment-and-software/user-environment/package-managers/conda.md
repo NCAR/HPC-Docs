@@ -58,6 +58,25 @@ complex sets of requirements). Once loaded, the Conda module:
   in your scratch space, and locating your personal Python environments
   in your work space.
 
+
+!!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
+    Conda is a general-purpose package and environment manager that can
+    handle complex dependencies across multiple languages. If you need to
+    manage non-Python dependencies or require packages outside of the
+    Python ecosystem, Conda is the best choice. For faster dependency
+    resolution with Conda packages, consider using
+    [Pixi](./pixi.md). For pure Python projects, consider using
+    [uv](./uv.md) instead.
+
+    | Builtin Core Features       | Conda | Pixi | Pip    | uv        |
+    |-----------------------------|-------|------|--------|-----------|
+    | Installs Python             | ✅     | ✅    | ❌      | ✅         |
+    | Supports Multiple Languages | ✅     | ✅    | ❌      | ❌         |
+    | Lockfiles                   | ❌     | ✅    | ❌      | ✅         |
+    | Workspace Management        | ❌     | ✅    | ❌      | ✅         |
+    | Speed                       | Slow  | Fast | Medium | Very Fast |
+
+
 !!! warning "System-wide and personal `conda` installations"
     If you already have a personal
     [Miniconda](https://docs.conda.io/en/latest/miniconda.html) installation
