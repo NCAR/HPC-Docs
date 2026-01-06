@@ -38,7 +38,7 @@ NVIDIA's [NGC](https://catalog.ngc.nvidia.com) is a catalog of software optimize
     3. Run the container in an interactive session on a single Casper GPU. We will launch an interactive session, then run the container interactively with the `singularity shell` command.
        ```pre
        # Interactive PBS submission from a login node:
-       qsub -I -A <ACCOUNT> -q casper -l select=1:ncpus=4:mpiprocs=4:ngpus=1 -l gpu_type=v100 -l walltime=1:00:00
+       qsub -I -A <ACCOUNT> -q casper -l select=1:ncpus=4:mpiprocs=4:ngpus=1:gpu_type=cc70 -l walltime=1:00:00
 
        # Then on the GPU node:
        module load apptainer

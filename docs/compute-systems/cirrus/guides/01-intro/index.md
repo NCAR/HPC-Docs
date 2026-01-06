@@ -30,15 +30,15 @@ Choose your path based on your needs and experience level:
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>1. Review Architecture</strong><br/>Understand <a href="#platform-overview">Platform Overview</a> and <a href="#core-services">Core Services</a></td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Understand Team Process</strong><br/>Review <a href="../02-interact-with-cirrus-team/agile.md">Team Interaction</a> and <a href="../02-interact-with-cirrus-team/create-tickets.md">Creating Tickets</a></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study <a href="../03-deploying-applications/additions.md">Adding Applications</a> and <a href="../04-container-registry/index.md">Container Registry</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Understand Team Process</strong><br/>Review <a href="../02-interact-with-cirrus-team/agile">Team Interaction</a> and <a href="../02-interact-with-cirrus-team/create-tickets">Creating Tickets</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study <a href="../03-deploying-applications/additions">Adding Applications</a> and <a href="../04-container-registry">Container Registry</a></td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Explore Services</strong><br/>Try <a href="../06-jupyter-on-cirrus/jupyterhub.md">JupyterHub</a> for interactive computing</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Set Up CI/CD</strong><br/>Configure <a href="../05-github-actions/scale-sets.md">GitHub Actions</a> and <a href="../07-secret-manager/openbao.md">Secrets Management</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Explore Services</strong><br/>Try <a href="../06-jupyter-on-cirrus/jupyterhub">JupyterHub</a> for interactive computing</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Set Up CI/CD</strong><br/>Configure <a href="../05-github-actions/scale-sets">GitHub Actions</a> and <a href="../07-secret-manager/openbao">Secrets Management</a></td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Request Access</strong><br/>Submit a <a href="../02-interact-with-cirrus-team/create-tickets.md">service request</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Request Access</strong><br/>Submit a <a href="../02-interact-with-cirrus-team/create-tickets">service request</a></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Deploy Applications</strong><br/>Use <a href="#gitops-deployment">GitOps workflow</a> with Helm charts</td>
     </tr>
   </tbody>

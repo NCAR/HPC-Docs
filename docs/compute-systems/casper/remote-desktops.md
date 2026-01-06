@@ -124,15 +124,16 @@ the command-line mode as follows:
         vncmgr create \
                --account PROJECT \
                --time 2:00:00 \
-               --job-opts="-l select=1:ncpus=4:mem=20GB -l gpu_type=l40"
+               --job-opts="-l select=1:ncpus=4:mem=20GB:gpu_type=l40"
         ```
 
-By default, all VNC jobs are automatically placed on nodes with NVIDIA
-Quadro GP100 GPUs. You can optionally request that NVIDIA L40 GPUs are used
-instead either via the `--gpu-model` flag to `vncmgr` or by specifying
-`-l gpu_type=l40` in your `--job-opts`. The L40 GPUs are faster than
-the GP100s and provide significantly more video RAM, so they are a good
-choice for more resource-intensive rendering tasks.
+By default, VNC jobs will use the first available visualization GPU provided by
+PBS, which may be a Quadro GP100 GPU or an L40 GPU. You can optionally ensure
+that NVIDIA L40 GPUs are used instead either via the `--gpu-model` flag to
+`vncmgr` or by specifying `gpu_type=l40` in your select statement via
+`--job-opts`. The L40 GPUs are faster than the GP100s and provide significantly
+more video RAM, so they are a good choice for more resource-intensive rendering
+tasks.
 
 Run `vncmgr --help` in a Casper login session for more
 information about using the script and customizing your session.

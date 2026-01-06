@@ -34,7 +34,7 @@ validation:
 nav:
   - Getting Started:
     - getting-started/index.md
-    - User Responsibilities: getting-started/user-responsibilities.md
+    - End User Agreement: getting-started/end-user-agreement.md
     - Accounts:
       - getting-started/accounts/index.md
       - CIT Passwords: getting-started/accounts/cit-passwords.md
@@ -94,6 +94,8 @@ nav:
       - Deploying Applications:
             - compute-systems/cirrus/guides/03-deploying-applications/containerize.md
             - compute-systems/cirrus/guides/03-deploying-applications/additions.md
+      - Kubernetes API Access: compute-systems/cirrus/guides/10-kubectl/kubectl.md
+      - S3 Storage: compute-systems/cirrus/guides/11-storage/s3.md
       - Container Registry:
         - compute-systems/cirrus/guides/04-container-registry/index.md
         - Image Management: compute-systems/cirrus/guides/04-container-registry/image-mgmt.md
@@ -158,12 +160,15 @@ nav:
     - environment-and-software/user-environment/index.md
     - Using Modules: environment-and-software/user-environment/modules.md
     - Customizing your Environment: environment-and-software/user-environment/customizing.md
-    - Conda: environment-and-software/user-environment/conda.md
+    - Environment & Package Managers:
+      - Conda: environment-and-software/user-environment/package-managers/conda.md
+      - Pixi: environment-and-software/user-environment/package-managers/pixi.md
+      - uv: environment-and-software/user-environment/package-managers/uv.md
+      - Spack: environment-and-software/user-environment/package-managers/spack/spack.md
     - Containers:
       - environment-and-software/user-environment/containers/index.md
       - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
       - Example Workflows: environment-and-software/user-environment/containers/examples.md
-    - Spack: environment-and-software/user-environment/spack/index.md
 
   - HPC Software:
     - environment-and-software/hpc-software/index.md
@@ -191,7 +196,6 @@ nav:
     - Dask Tutorial: tutorials/dask-tutorial.md
     - Profiling and Debugging: tutorials/profiling-and-debugging.md
     - Managing Permissions and Data Sharing: tutorials/permissions-and-data-sharing.md
-    - Advanced PBS: tutorials/advanced-pbs.md
     - Using Globus v5: tutorials/globus.md
     - NCAR Storage Spaces: tutorials/storage.md
     - JupyterHub:  tutorials/jupyterhub.md
@@ -214,7 +218,7 @@ INHERIT: theme.yml
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
-copyright: '&copy; 2023-2024 UCAR, Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>.'
+copyright: '&copy; 2023-2026 UCAR, Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>.'
 
 # ------------------------------------
 # -- configuration - extensions

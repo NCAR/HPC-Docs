@@ -23,7 +23,6 @@ jobs:
         with:
           activate-environment: mkdocs
           environment-file: conda.yaml
-          python-version: 3.9
           auto-activate-base: false
 
       - name: Interrogate Environment

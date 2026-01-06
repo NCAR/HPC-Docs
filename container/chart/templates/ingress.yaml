@@ -1,0 +1,27 @@
+{{- range .Values.branches }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .name }}-hpc-docs
+  annotations:
+    cert-manager.io/cluster-issuer: incommon
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-internal
+  rules:
+  - host: {{ .name }}-hpc-docs.k8s.ucar.edu
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .name }}-hpc-docs-nginx
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - {{ .name }}-hpc-docs.k8s.ucar.edu
+    secretName: {{ .name }}-hpc-docs-tls
+---
+{{- end }}
