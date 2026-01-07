@@ -1,5 +1,5 @@
 branches:
 - imageTag: 68bf840
   name: cirrus-kmh
-- imageTag: b0787ed
+- imageTag: 7425f96
   name: main
