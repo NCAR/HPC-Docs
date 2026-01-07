@@ -86,7 +86,7 @@ For the High-Throughput Computing nodes, requesting less than 350GB will ensure 
 
 ### Large Memory Nodes
 
-Select statements that have memory values greater than 400GB are routed to the
+Select statements that have memory values greater than 733GB are routed to the
 `largemem` queue.  There are fewer nodes that are assigned the `largemem` flag
 so queue times may be longer if you request enough memory to land on this
 routing method.
