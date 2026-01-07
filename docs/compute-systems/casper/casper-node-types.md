@@ -50,8 +50,8 @@ up to the maximum resource request:
 |--------------------------|----------------|-------|------------|-------------|--------------|------------|-------|--------------------------------------------------------------------------|
 | High-Throughput Computing| Intel Cascade Lake   | 34    | 2.6GHz     | 354 GB      |              |            | 62    | -l select=1:ncpus=[*1-34*]:mem=[*10-354*]gb:cpu_type=cascadelake                             |
 |                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 733 GB     |              |            | 64     | -l select=1:ncpus=[*1-62*]:mem=[*10-732*]gb:cpu_type=genoa                  |
-| Large Memory                         | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=[*1-36*]:mem=[*400-1500*]gb:cpu_type=cascadelake                  |
-|                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=[*1-62*]:mem=[*400-1525*]gb:cpu_type=genoa                 |
+| Large Memory                         | Intel Cascade Lake   | 36    | 2.3GHz     | 1500 GB     |              |            | 2     | -l select=1:ncpus=[*1-36*]:mem=[*733-1500*]gb:cpu_type=cascadelake                  |
+|                          | AMD Epyc 9554P           | 62    | 3.1GHz           | 1536 GB     |              |            | 6     | -l select=1:ncpus=[*1-62*]:mem=[*733-1525*]gb:cpu_type=genoa                 |
 | Data & Visualization     | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | GP100        | 16 GB      | 9     | -l select=1:ncpus=[*1-36*]:mem=[*10-384*]gb:ngpus=1:gpu_type=gp100                            |
 |                          | Intel Skylake  | 36    | 2.3GHz     | 384 GB      | A100         | 40 GB      | 3     | -l select=1:ncpus=[*1-36*]:mem=[*10-384*]gb:ngpus=1:gpu_type=a100_40gb            |
 |                          | AMD EPYC 9474F | 48   | 3.6GHz           | 733 GB            | L40          | 48 GB           | 6     | -l select=1:ncpus=[*1-48*]:mem=[*10-732*]gb:ngpus=1:gpu_type=l40            |
