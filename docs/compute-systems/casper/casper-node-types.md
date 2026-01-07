@@ -102,4 +102,4 @@ These nodes are primarily used for running applications that either have a Graph
 The L40 nodes are also capable of basic GPGPU tasks like AI inference and are less utilized than the nodes within the GPGPU queue. This could significantly reduce your wait time in the queue.
 
 !!! info
-    Data and Visualization node type requests will be submitted to the `vis` queue and these GPUs are shared among multiple users on a node. The maximum selectable GPUs is one and  exclusive access cannot be guaranteed on the Data and Visualization node types. If you need exclusive node access, use the ML & GPGPU node types.
+    Data and Visualization node type requests will be submitted to the `vis` queue and these GPUs are shared among multiple users on a node. The maximum selectable `ngpus` is one and  exclusive access cannot be guaranteed on the Data and Visualization node types. If you need exclusive node access, use the ML & GPGPU node types.
