@@ -120,6 +120,10 @@ Not recommended for:
       buckets if the admin granted access. Users **cannot** create
       buckets.
 
+## Logging into Globus
+
+      ![](log_using_globus/media/boreas_globus_step123.png){width="350"}
+
 ## Policies
 
 - The system is not backed up.
