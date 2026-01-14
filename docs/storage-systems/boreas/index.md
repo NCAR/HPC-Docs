@@ -122,7 +122,12 @@ Not recommended for:
 
 ## Logging into Globus
 
+There is an Globus endpoint for Boreas. The user needs to type "NCAR Boreas S3" in the search bar and select the endpoint. If this is the first time you are logging into Boreas using Globus, you need to follow the prompts to enter the Secret and Access Keys and authenticate with your CIT username and password. Below are the screenshots and steps to log into Boreas on Globus. 
+
 ![](log_using_globus/media/boreas_globus_step123.png){width="350"}
+![](log_using_globus/media/boreas_globus_step45.png){width="350"}
+
+To know more about using Globus please see the [documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/storage-systems/data-transfer/globus/). 
 
 ## Policies
 
