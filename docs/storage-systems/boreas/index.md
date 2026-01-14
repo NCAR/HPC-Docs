@@ -122,7 +122,7 @@ Not recommended for:
 
 ## Logging into Globus
 
-      ![](log_using_globus/media/boreas_globus_step123.png){width="350"}
+![](log_using_globus/media/boreas_globus_step123.png){width="350"}
 
 ## Policies
 
