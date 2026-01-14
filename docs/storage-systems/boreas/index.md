@@ -9,11 +9,13 @@ Boreas, the CISL object storage disk system described here, is for
 long-term data storage. Boreas is not available for university projects.
 
 ## System overview
-Architecture
 
-Boreas is implemented using IBM Cluster Export Services (CES) with NooBaa S3 services layered on top of a Storage Scale filesystem.
+### Architecture
 
-Core Components
+Boreas uses IBM Cluster Export Services (CES) to provide S3 access to data 
+stored on an IBM Storage Scale (GPFS) filesystem, with NooBaa providing the S3 service layer.
+
+### Core Components
 
 Cluster Export Services (CES)
  - CES provides the S3 protocol interface and connects directly to the underlying GPFS storage system.
@@ -22,7 +24,7 @@ NooBaa S3 Services
  - NooBaa services run on the CES nodes and process all S3 API requests.
 
 Clients and Applications
-Users and applications access Boreas using standard S3 APIs. Client requests are distributed across CES nodes using DNS round-robin.
+ - Users and applications access Boreas using standard S3 APIs. Client requests are distributed across CES nodes using DNS round-robin.
  
 ## Data sharing
 Boreas supports multiple access models for sharing S3 data, depending on security requirements and collaboration needs.
@@ -58,7 +60,8 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
 This option is intended for controlled public distribution or broad internal sharing of datasets.
 
 ## Choosing an Access Model 
-Anonymous Object Access (Signed URLs)
+
+### Anonymous Object Access (Signed URLs)
 
 Use this option when:
 
@@ -79,7 +82,7 @@ Not recommended for:
  - Large collections of files.
  - Ongoing collaborative workflows.
 
-Identity-Based Bucket Policies
+### Identity-Based Bucket Policies
 
 Use this option when:
 
@@ -97,6 +100,8 @@ Not recommended for:
 
  - External users without S3 accounts.
  - Public or anonymous access requirements.
+
+## Additional information to access Boreas
 
 - Data and metadata can be accessed either via a library (such as
   Python's `boto3`) or a web browser (e.g. Globus)
@@ -134,39 +139,6 @@ Contact CISL to request an account. You will be asked to:
 
 ## Documentation and additional information
 
-This related page will help you get started as an object storage
-admin: [Getting started with object storage admin account](./getting-started-with-an-object-storage-admin-account.md).
-
 - Additional documentation is attached below.
-
-- The system is accessible only via the NSF NCAR VPN. This is important
-  mostly for browser-based access to both the admin interface and to objects
-  in storage buckets with public read-access, since CISL anticipates that
-  server-based access will be from an internal server anyway.
-
-- The access and secret credentials will be sent via email. They are all
-  it takes a user to login (there is no UCAS, CIT, or Duo login). The NSF
-  NCAR username is irrelevant for this system.
-
-- The way that these credentials are (unlike username/password) seems to
-  nudge users towards nonoptimal patterns, such as hardcoding them into
-  the source code. Users are strongly advised to **NOT** do that.
-  Instead, use a separate file (outside of version control) similar to
-  the following and source that file before running your code. This
-  applies to both admin and user accounts.
-
-```bash
-export AWS_ACCESS_KEY_ID='xxx'
-export AWS_SECRET_ACCESS_KEY='yyy'
-```
-
-- Admins might want to create a separate user account for themselves
-  with just reading (and perhaps writing) capabilities and not admin
-  capabilities. This would require use of a different email address,
-  since the system does not allow reuse of existing emails. Admins
-  might use a personal email, or a (group) alias setup in PeopleDB.
-
-#### Additional Resources
-
-- [ActiveScale Object Storage S3 API Reference](ActiveScale_OS_S3_API_Reference.pdf)
-- [ActiveScale Object Storage View User Guide](ActiveScale_OS_View_User_Guide.pdf)
+- The system is accessible only via the NSF NCAR VPN.
+- The access and secret credentials will be sent via email.
