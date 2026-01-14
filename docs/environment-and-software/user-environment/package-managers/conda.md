@@ -9,6 +9,10 @@ Python packages, and the software dependencies those packages rely on.
 The Conda environment manager is accessible by loading an environment
 module as described below.
 
+```bash
+module load conda
+```
+
 After loading the module, you can create your own environments or use
 NCAR Python Library (NPL) environments, which include Python 3.10 and a
 wide array of pre-installed geoscience, math, and computing packages.
