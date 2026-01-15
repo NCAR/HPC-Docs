@@ -1,7 +1,7 @@
 # Boreas object storage system
 
 Boreas is an object storage service that provides S3-compatible access 
-backed by an IBM Storage Scale (GPFS) filesystem. It is designed to
+backed by an IBM Storage Scale General Parallel File System (GPFS). It is designed to
 support high-throughput data access for users and integrates 
 tightly with existing HPC infrastructure.
 
@@ -26,6 +26,25 @@ NooBaa S3 Services
 Clients and Applications
  - Users and applications access Boreas using standard S3 APIs. Client requests are distributed across CES nodes using DNS round-robin.
  
+### Performance and capacity
+
+Boreas is designed to provide scalable object storage performance and capacity for data-intensive workflows.
+
+ - Single-client throughput: Approximately 1–4 GB/s, depending on workload characteristics and access patterns.
+
+ - Total usable capacity: Approximately 6.9 PB.
+
+ - Maximum objects per bucket: Up to 100 million objects.
+
+ - Request distribution: Client requests are load-balanced across CES nodes using DNS round-robin.
+
+ - Hardware platform: Uses the same hardware model as Campaign Storage, at approximately one-half the size of a Campaign Storage building block.
+
+### Network Connectivity
+
+ - Protocol (CES) nodes are connected to other HPC resources via 100 Gb/s networking over Bifrost, enabling high-throughput data transfers between compute systems and storage.
+
+
 ## Data sharing
 Boreas supports multiple access models for sharing S3 data, depending on security requirements and collaboration needs.
 
@@ -60,6 +79,13 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
 This option is intended for controlled public distribution or broad internal sharing of datasets.
 
 ## Choosing an Access Model 
+
+| Access Model | Authentication Required | Scope of Access | Typical Use | Not Recommended For |
+|--------------|---------------------------|------------------|--------------|----------------------|
+| Signed URLs (Anonymous Object Access) | No | Individual objects only | Temporary sharing of single files with external collaborators or automated workflows | Long-term sharing, large datasets, ongoing collaboration |
+| Identity-Based Bucket Policies | Yes (S3 account + access/secret keys) | Bucket-level read/write access | Team-based collaboration with persistent authenticated access | External users without S3 accounts, public distribution |
+| Resource-Based Bucket Policies (Anonymous Bucket Access) | No | Entire bucket (read/list) | Controlled public or broad internal dataset distribution | Sensitive data, write access, fine-grained access control |
+
 
 ### Anonymous Object Access (Signed URLs)
 
