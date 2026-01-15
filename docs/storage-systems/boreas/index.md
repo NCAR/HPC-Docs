@@ -1,19 +1,12 @@
 # Boreas object storage system
 
-Boreas is an object storage service that provides S3-compatible access 
-backed by an IBM Storage Scale General Parallel File System (GPFS). It is designed to
-support high-throughput data access for users and integrates 
-tightly with existing HPC infrastructure.
-
-Boreas, the CISL object storage disk system described here, is for
-long-term data storage. Boreas is not available for university projects.
+Boreas is an S3-compatible object storage service backed by IBM Storage Scale (GPFS). It provides scalable, high-throughput access to long-term data and integrates with NCAR’s HPC environment. Boreas is operated by CISL and is not available for university projects.
 
 ## System overview
 
 ### Architecture
 
-Boreas uses IBM Cluster Export Services (CES) to provide S3 access to data 
-stored on an IBM Storage Scale (GPFS) filesystem, with NooBaa providing the S3 service layer.
+Boreas uses IBM Cluster Export Services (CES) to provide a Storage Scale (GPFS) filesystem through an S3-compatible interface. NooBaa provides the S3 service layer and handles API request processing.
 
 ### Core Components
 
@@ -28,55 +21,44 @@ Clients and Applications
  
 ### Performance and capacity
 
-Boreas is designed to provide scalable object storage performance and capacity for data-intensive workflows.
+ - Single-client throughput: ~1–4 GB/s, depending on workload.
 
- - Single-client throughput: Approximately 1–4 GB/s, depending on workload characteristics and access patterns.
+ - Total usable capacity: ~6.9 PB.
 
- - Total usable capacity: Approximately 6.9 PB.
+ - Maximum objects per bucket: Up to 100 million.
 
- - Maximum objects per bucket: Up to 100 million objects.
+ - Request distribution: DNS round-robin across CES nodes.
 
- - Request distribution: Client requests are load-balanced across CES nodes using DNS round-robin.
-
- - Hardware platform: Uses the same hardware model as Campaign Storage, at approximately one-half the size of a Campaign Storage building block.
+ - Hardware platform: Uses the same as Campaign Storage.
 
 ### Network Connectivity
 
  - Protocol (CES) nodes are connected to other HPC resources via 100 Gb/s networking over Bifrost, enabling high-throughput data transfers between compute systems and storage.
 
 
-## Data sharing
-Boreas supports multiple access models for sharing S3 data, depending on security requirements and collaboration needs.
+## Data Sharing and Access Controls
+Boreas supports multiple access models based on security and collaboration requirements. All access is restricted to the UCAR VPN unless explicitly approved.
 
 Anonymous Object Access (Signed URLs)
 
- - Signed URLs allow users to grant temporary access to individual objects without requiring authentication.
- - Users may upload or download objects using a time-limited signed URL.
- - Access can be restricted by specifying an expiration date and time when the URL is created.
- - No S3 account or Access/Secret key credentials are required to use a signed URL.
- - Access is restricted to the UCAR VPN, with approved exceptions.
-
-This method is appropriate for short-term sharing of individual files with external collaborators or automated workflows.
+ - Allow users to grant temporary access to individual objects without requiring authentication.
+ - URLs may include an expiration time.
+ - No S3 account or Access/Secret key credentials are required.
+ - Intended for short-term or ad hoc sharing.
 
 Identity-Based Bucket Policies
 
  - Identity-based policies allow controlled sharing of buckets with authenticated users.
+ - Requires S3 accounts and Access/Secret key credentials.
  - Users may grant read and/or write access to specific S3 users or to all authenticated users.
- - All users accessing the bucket must have a valid S3 account.
- - Access and Secret key credentials are required to authenticate and access shared data.
- - Access is restricted to the UCAR VPN, with approved exceptions.
-
-This model is recommended for collaborative projects where persistent authenticated access is required.
+ - Recommended for collaborative project workflows.
 
 Resource-Based Bucket Policies (Anonymous Bucket Access)
 
  - Resource-based policies allow anonymous access to entire buckets when approved.
  - Users may request that anonymous access be enabled for a bucket.
  - No S3 account is required to access an anonymous bucket.
- - Access and Secret key credentials are not required for read and list operations on anonymous buckets.
- - Access is restricted to the UCAR VPN, with approved exceptions.
-
-This option is intended for controlled public distribution or broad internal sharing of datasets.
+ - Intended for controlled public distribution or broad internal sharing of datasets.
 
 ## Choosing an Access Model 
 
@@ -87,73 +69,21 @@ This option is intended for controlled public distribution or broad internal sha
 | Resource-Based Bucket Policies (Anonymous Bucket Access) | No | Entire bucket (read/list) | Controlled public or broad internal dataset distribution | Sensitive data, write access, fine-grained access control |
 
 
-### Anonymous Object Access (Signed URLs)
+## Access Methods
 
-Use this option when:
-
- - You need to share individual files temporarily with collaborators who do not have S3 accounts.
- - Access should automatically expire after a defined time window.
- - The data should not remain publicly accessible long term.
- - You want minimal setup and no account provisioning.
-
-Typical use cases:
-
- - Sharing a single dataset or result file with an external collaborator.
- - Automated workflows that require short-lived download or upload access.
- - One-time data delivery.
-
-Not recommended for:
-
- - Long-term sharing.
- - Large collections of files.
- - Ongoing collaborative workflows.
-
-### Identity-Based Bucket Policies
-
-Use this option when:
-
- - Multiple users need persistent read and/or write access to the same bucket.
- - Users already have (or can request) S3 accounts and credentials.
- - Access needs to be auditable and managed per user or group.
-
-Typical use cases:
-
- - Research teams sharing active project data.
- - Collaborative model output generation and analysis.
- - Controlled internal data distribution.
-
-Not recommended for:
-
- - External users without S3 accounts.
- - Public or anonymous access requirements.
-
-## Additional information to access Boreas
-
-- Data and metadata can be accessed either via a library (such as
-  Python's `boto3`) or a web browser (e.g. Globus)
-- Accounts are identified by a key pair: access key and secret key, as
-  in these examples:
-    - **Access key:** `AK0IYXKCCIA63BMNCOUN`
-    - **Secret key:** `Joeke2uHHebQdKJBgTVUzp+j7uRDthPdIBl5YaLE`
-- Accounts are associated with email, and each email address can have
-  only a single account with a single role. A person who needs two roles
-  must use two separate emails.
-- Two roles exist:
-    - **Admin** – An admin can create buckets and users, set up read/write
-      access control for users, and do everything a user can do; owns data
-      created by users.
-    - **Users** – Users may access buckets and read or write data inside
-      buckets if the admin granted access. Users **cannot** create
-      buckets.
+ - Programmatic access using standard S3 libraries and tools.
+ - Web-based access and transfers via the “NCAR Boreas S3” Globus collection.
 
 ## Logging into Globus
 
-There is an Globus endpoint for Boreas. The user needs to type "NCAR Boreas S3" in the Collections search bar and select the Boreas endpoint. If this is the first time you are logging into Boreas using Globus, you need to follow the prompts to enter the Secret and Access Keys and authenticate with your CIT username and password. Below are the screenshots and steps to log into Boreas on Globus. 
+Boreas is available through the Globus collection “NCAR Boreas S3.”
+Users authenticate using their S3 credentials and NCAR identity.
+For users logging into Boreas using Globus, you need to follow the prompts to enter the Secret and Access Keys and authenticate with your CIT username and password. Below are the screenshots and steps to log into Boreas on Globus. 
 
 ![](log_using_globus/media/boreas_globus_step123.png)
-![](log_using_globus/media/boreas_globus_step45.png){width="350"}
+![](log_using_globus/media/boreas_globus_step45.png)
 
-To know more about transferring data using Globus please see the [documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/storage-systems/data-transfer/globus/). 
+Refer to the NSF NCAR [Globus documentation](https://ncar-hpc-docs.readthedocs.io/en/latest/storage-systems/data-transfer/globus/) for data transfer instructions.
 
 ## Policies
 
@@ -171,9 +101,3 @@ Contact CISL to request an account. You will be asked to:
 - Give a brief description (one sentence) of your intended use case.
 - Acknowledge that you will be the admin and will manage buckets and
   users.
-
-## Documentation and additional information
-
-- Additional documentation is attached below.
-- The system is accessible only via the NSF NCAR VPN.
-- The access and secret credentials will be sent via email.
