@@ -1,8 +1,11 @@
 # Boreas object storage system
 
-Boreas is an S3-compatible object storage service backed by IBM Storage Scale (GPFS). It provides scalable, high-throughput access to long-term data and integrates with NCAR’s HPC environment. Boreas is operated by CISL and is not available for university projects.
+!!!info "About this page" This document describes the Boreas S3-compatible object storage platform, including its underlying architecture, performance capabilities, networking, and access control models. It explains supported access methods using S3 APIs and Globus, as well as operational policies and account provisioning. Boreas is operated by CISL and restricted to approved use cases.
 
 ## System overview
+
+Boreas is an S3-compatible object storage service backed by IBM Storage Scale (GPFS). It provides scalable, high-throughput access to long-term data and integrates with NCAR’s HPC environment. Boreas is operated by CISL and is not available for university projects.
+
 
 ### Architecture
 
