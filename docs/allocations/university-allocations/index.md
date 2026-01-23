@@ -222,9 +222,9 @@ NSF NCAR’s HPC resource, fall within the scope of a Data Analysis project.
 [Submit a Data Analysis Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
 
-## Classroom Allocations
+## Classroom and Workshop Allocations
 
-!!! info "Classroom Allocation Requests can be submitted at any time and decisions are generally made within a few days."
+!!! info "Classroom and Workshop Allocation Requests can be submitted at any time and decisions are generally made within a few days."
 
 CISL offers opportunities to undergraduate and graduate faculty and
 instructors at U.S. 2- and 4-year institutions to use NSF NCAR HPC and
@@ -232,20 +232,26 @@ analysis resources in their courses in Earth system science and related
 areas. “Special projects” or honors thesis courses under the guidance of
 a faculty member are eligible.
 
-Classroom allocations can also be used for shorter-term training courses
+Classroom and Workshop allocations can also be used for shorter-term training courses
 and workshops aimed at the university community with the goal of
 developing a skilled workforce relevant to all aspects of NSF NCAR’s
-mission.
+mission. Classroom allocations are typically made for the duration of 
+the course, plus a reasonable limited period afterwards.
 
-Individual accounts are provided to all students and the instructor(s),
-so be sure to allow at least a week for setting up accounts. Very large
-classes may require more setup time. NSF NCAR can provide consulting
-assistance to the instructors.
+During the submission process, additional information will be requested. 
+This will include start and end dates of the course, dates and times for
+any needed compute reservations, whether a managed compute environment is
+required, and other information. Individual accounts are provided to all 
+students and instructor(s) and a list of all verified students or 
+participants with name, email, and affiliations will be required.
 
-Classroom allocations are typically made for the duration of the course,
-plus a reasonable limited period afterwards.
+Please make sure all the above information is provided within two weeks of 
+the start of the educational activity so that CISL staff have sufficient 
+time to complete the request and setup new accounts, reservations, and 
+compute environments as needed. Very large classes may require more setup 
+time. NSF NCAR can provide consulting assistance to the instructors. 
 
-[Submit a Classroom Allocation Request
+[Submit a Classroom and Workshop Allocation Request
 here](https://arc.ucar.edu/xras_submit/opportunities).
 
 ## Eligibility Details
