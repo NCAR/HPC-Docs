@@ -248,7 +248,7 @@ participants with name, email, and affiliations will be required.
 Please make sure all the above information is provided within two weeks of 
 the start of the educational activity so that CISL staff have sufficient 
 time to complete the request and setup new accounts, reservations, and 
-compute environemnts as needed. Very large classes may require more setup 
+compute environments as needed. Very large classes may require more setup 
 time. NSF NCAR can provide consulting assistance to the instructors. 
 
 [Submit a Classroom and Workshop Allocation Request
