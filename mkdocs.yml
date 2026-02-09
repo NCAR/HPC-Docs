@@ -340,7 +340,7 @@ plugins:
 # -- configuration - extras
 # ------------------------------------
 extra:
-  next_chap_deadline: early March 2026
+  next_chap_deadline: March 4th 2026
   next_nsc_deadline: mid March 2026
   analytics:
     provider: google
