@@ -2,7 +2,13 @@
 
 CIRRUS has the ability to connect to GitHub repositories and automatically provision and scale GitHub runners on demand. The GitHub runner scale sets require a Personal Access Token (PAT) to connect to the repository.
 
-## Setup Process
+## Setup for NCAR Organization Repositories
+
+For repositories in the NCAR GitHub organization, a CIRRUS admin can be add a runner group directly to the repository. Contact the CIRRUS team through the ticket system with the GitHub repository URL you'd like a runner group to be added to. Please specify if you need access to GPUs.
+
+**Note:** For security reasons, if the runners need access to Glade then runners should be provisioned for individual repositories following the instructions below.
+
+## Setup for Individual Repositories
 ### Create a Github PAT
 
 See this Github documentation for in depth PAT details [Github PAT Documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
@@ -31,7 +37,7 @@ Your token will be displayed and this is the only time you can view it without r
 - Open the [OpenBao OIDC login page](https://bao.k8s.ucar.edu/ui/vault/auth?with=oidc) and log in with your UCAR email address and password
 - You will be brought to a screen that resembles this
 
-![Bao Home Screen](../../media/bao1.png "Bao Home Screen")
+![Bao Home Screen](../../media/openbao/bao1.png "Bao Home Screen")
 
 - Choose `kv` (key/value)
 - In the upper right choose the `Create Secret` button
@@ -39,7 +45,7 @@ Your token will be displayed and this is the only time you can view it without r
 - You can store multiple key/value pairs under each secret. Our preference is one github repository per token so each repository can have it's own pair under this single `github_pat` secret
 - Set the key to the repository name (not the full url) and set the value to the PAT you generated
 
-![Bao Secret Screen](../../media/bao2.png "Bao Secret Screen")
+![Bao Secret Screen](../../media/openbao/bao2.png "Bao Secret Screen")
 
 - Save the secret
 
@@ -58,16 +64,19 @@ Thank you
 
 A CIRRUS admin will add a scale set to the repository and will update the ticket with details once it's completed or if there are any issues.
 
-### Alternative Setup for NCAR Organization Repositories
-
-For repositories in the NCAR GitHub organization where adding your own PAT is not feasible, a CIRRUS admin can be added as a collaborator instead. Contact the CIRRUS team through the ticket system, and they will provide a GitHub username to add as an admin collaborator to your repository at:
-
-```
-https://github.com/NCAR/<respository-name>/settings/access
-```
-
 ## Using the Scale Set
 
+### Organizational Repositories
+Once the CIRRUS admin has connected a scale set group to your repository they will provide the exact name of the runner group to use in the Actions workflow. Use this group name when defining the `runs-on:` line in the Action workflow yaml file like the following
+
+```
+jobs:
+  testing:
+    runs-on:
+      group: CIRRUS-4x8
+```
+
+### Individual Repositories
 Once the CIRRUS admin has connected a scale set to your repository they will provide the name of the scale set to use in the Actions workflow. Use this name when defining the `runs-on:` line in the Action workflow yaml file like the following
 
 ```

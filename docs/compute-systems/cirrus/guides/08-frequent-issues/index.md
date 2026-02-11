@@ -24,6 +24,7 @@ This page lists common problems CIRRUS users run into , and quick pointers to th
 | Symptom | Quick Fix |
 |---------|-----------|
 | Image pulls are very slow | Ensure you’re pulling from `hub.k8s.ucar.edu`, not Docker Hub. |
+| PVC out of space | Increase `resources.requests.storage` in your Helm chart (e.g., `5Gi` → `50Gi`), commit the changes, and the volume will autoresize. |
 | Pod OOM-killed | Increase `resources.limits.memory` in your Helm chart (see [adding applications](../03-deploying-applications/additions.md#unique-helm-values)). |
 
 ## GitHub Actions
