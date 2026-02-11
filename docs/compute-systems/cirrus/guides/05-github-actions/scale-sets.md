@@ -4,7 +4,7 @@ CIRRUS has the ability to connect to GitHub repositories and automatically provi
 
 ## Setup for NCAR Organization Repositories
 
-For repositories in the NCAR GitHub organization, a CIRRUS admin can be add a runner group directly to the repository. Contact the CIRRUS team through the ticket system with the GitHub repository URL you'd like a runner group to be added to. Please specify if you need access to GPUs.
+For repositories in the NCAR GitHub organization, a CIRRUS admin can add a runner group directly to the repository. Contact the CIRRUS team through the ticket system with the GitHub repository URL you'd like a runner group to be added to. Please specify if you need access to GPUs.
 
 **Note:** For security reasons, if the runners need access to Glade then runners should be provisioned for individual repositories following the instructions below.
 
