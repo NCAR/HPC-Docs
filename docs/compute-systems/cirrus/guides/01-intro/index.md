@@ -57,13 +57,13 @@ This documentation is organized into focused sections to help you find what you 
 ### **[Introduction](index.md)**
 Platform overview, services, and hardware specs. Start here to understand CIRRUS capabilities.
 
-### **[Interact with CIRRUS Team](../02-interact-with-cirrus-team/)**
+### **Interact with CIRRUS Team**
 Learn how to work with the CIRRUS team and get support.
 
 - **[agile methodology](../02-interact-with-cirrus-team/agile.md)**<br/>How the team works and manages requests. Use this to understand our development process.
 - **[create tickets](../02-interact-with-cirrus-team/create-tickets.md)**<br/>How to submit requests and report issues. Use when you need help or want to request services.
 
-### **[Deploying Applications](../03-deploying-applications/)**
+### **Deploying Applications**
 Everything you need to containerize and deploy applications on CIRRUS.
 
 - **[create containers](../03-deploying-applications/containerize.md)**<br/>Step-by-step containerization guide. Perfect if you're new to containers or Docker.
@@ -76,13 +76,13 @@ Store, manage, and secure your container images with Harbor.
 - **[image management](../04-container-registry/image-mgmt.md)**<br/>Push/pull images, CLI usage. Use when you need to work with container images.
 - **[vulnerability scanner](../04-container-registry/vulnerability-scan.md)**<br/>Security scanning for images. Use to ensure image security.
 
-### **[GitHub Actions](../05-github-actions/)**
+### **GitHub Actions**
 Automate your CI/CD workflows with GitHub Actions on CIRRUS.
 
 - **[runner scale sets](../05-github-actions/scale-sets.md)**<br/>Automated CI/CD setup. Use to automate builds and deployments.
 - **[best practices](../05-github-actions/best-practices.md)**<br/>Security and operational guidelines. Use to secure your CI/CD pipelines.
 
-### **[Jupyter on CIRRUS](../06-jupyter-on-cirrus/)**
+### **Jupyter on CIRRUS**
 Interactive computing, data analysis, and research environments.
 
 - **[jupyterhub](../06-jupyter-on-cirrus/jupyterhub.md)**<br/>Interactive computing environment. Use for data analysis and research.
@@ -91,17 +91,17 @@ Interactive computing, data analysis, and research environments.
 - **[dask integration](../06-jupyter-on-cirrus/jhub-dask.md)**<br/>Distributed computing. Use to scale computations across nodes.
 - **[binder](../06-jupyter-on-cirrus/binderhub.md)**<br/>Reproducible research environments. Use to share interactive notebooks.
 
-### **[Secret Manager](../07-secret-manager/)**
+### **[Secret Manager](../07-secret-manager/openbao.md)**
 Securely store and manage sensitive data like API keys and credentials.
 
 - **[openbao](../07-secret-manager/openbao.md)**<br/>Secure credential storage. Use to manage API keys and secrets.
 
-### **[Service Level Agreements](../08-service-level-agreements/)**
+### **[Service Level Agreements](../08-service-level-agreements/slas.md)**
 Understand our service commitments and support levels.
 
 - **[slas](../08-service-level-agreements/slas.md)**<br/>Support levels and response times. Use to understand service commitments.
 
-### **[Frequent Issues](../09-frequent-issues/)**
+### **[Frequent Issues](../09-frequent-issues/index.md)**
 Troubleshooting guide for common problems and solutions.
 
 - **[troubleshooting guide](../09-frequent-issues/index.md)**<br/>Common problems and solutions. Use when encountering issues or errors.
