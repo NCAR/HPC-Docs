@@ -254,7 +254,9 @@ mv /local_scratch/pbs.$PBS_JOBID/output_data ${SCRATCH}
 
 ---
 
-## Status
+## System Status
+System status information is directly sourced from [arc.ucar.edu/system_status](https://arc.ucar.edu/system_status) and copied below for convenience.
+
 ### Nodes
 <p align="left"><iframe width="680" height="1100" frameborder="0" src="https://status.cisl.ucar.edu/uss/queues_table/casper_nodes_BSK.html"></iframe></p>
 
