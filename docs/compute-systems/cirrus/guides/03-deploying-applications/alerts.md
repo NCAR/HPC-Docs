@@ -65,6 +65,7 @@ Popular receiver types include:
 - **Microsoft Teams** - Post to Teams channels
 
 !!! example "Slack Receiver Example"
+{% raw %}
     ```yaml
     receivers:
       - name: {{ .Values.appName }}-slack
@@ -74,7 +75,7 @@ Popular receiver types include:
             title: 'Alert: {{ .Values.appName }}'
             text: '{{ "{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}" }}'
     ```
-
+{% endraw %}
 ---
 
 ## PrometheusRule
@@ -107,6 +108,7 @@ By default, Prometheus collects basic container metrics (CPU, memory, network). 
 
 Ensure your `service.yaml` includes a port for metrics:
 
+{% raw %}
 ```yaml
 apiVersion: v1
 kind: Service
@@ -124,6 +126,7 @@ spec:
       port: 9090
       targetPort: 9090
 ```
+{% endraw %}
 
 ---
 
@@ -166,6 +169,7 @@ When setting up alerts for the first time, create an **always-firing test alert*
 
 Add this temporary rule to your `prometheus-rule.yaml`:
 
+{% raw %}
 ```yaml
 - alert: TestAlert
   expr: vector(1)
@@ -176,6 +180,7 @@ Add this temporary rule to your `prometheus-rule.yaml`:
     summary: "Test alert - always firing"
     description: "This is a test alert to verify notification delivery. Remove this rule once confirmed working."
 ```
+{% endraw %}
 
 **Testing workflow:**
 
