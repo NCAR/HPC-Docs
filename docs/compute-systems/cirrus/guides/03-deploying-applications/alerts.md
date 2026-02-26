@@ -11,9 +11,7 @@ Custom alerts allow you to monitor application specific metrics and receive noti
 Before configuring custom alerts, ensure:
 
 - Your application is exporting prometheus metrics 
-- Your application is already deployed and syncing with Argo CD
 - You have a Helm chart repository configured for your application
-- Your application namespace is set up in the CIRRUS cluster
 
 !!! note
     If you need assistance with initial application setup, see [Adding Applications](../03-adding-applications/index.md).
