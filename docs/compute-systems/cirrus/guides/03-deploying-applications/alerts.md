@@ -25,7 +25,7 @@ Before configuring custom alerts, ensure:
 By default, Prometheus collects basic container metrics (CPU, memory, network). To monitor application specific metrics, you need to:
 
 1. **Export metrics** from your application (typically on a `/metrics` endpoint)
-2. **Configure a PodMonitor** or ServiceMonitor to tell Prometheus where to scrape metrics
+2. Configure a **PodMonitor** or **ServiceMonitor** to tell Prometheus where to scrape metrics
 
 !!! note
     Many popular official images include a prometheus exporter by default. Make sure this is enabled in your applications configuration. 
