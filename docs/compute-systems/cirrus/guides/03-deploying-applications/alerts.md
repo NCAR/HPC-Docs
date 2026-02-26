@@ -10,12 +10,60 @@ Custom alerts allow you to monitor application specific metrics and receive noti
 
 Before configuring custom alerts, ensure:
 
+- Your application is exporting prometheus metrics 
 - Your application is already deployed and syncing with Argo CD
 - You have a Helm chart repository configured for your application
 - Your application namespace is set up in the CIRRUS cluster
 
 !!! note
     If you need assistance with initial application setup, see [Adding Applications](../03-adding-applications/index.md).
+
+---
+
+## Collecting Application Metrics
+
+By default, Prometheus collects basic container metrics (CPU, memory, network). To monitor application specific metrics, you need to:
+
+1. **Export metrics** from your application (typically on a `/metrics` endpoint)
+2. **Configure a PodMonitor** or ServiceMonitor to tell Prometheus where to scrape metrics
+
+!!! note
+    Many popular official images include a prometheus exporter by default. Make sure this is enabled in your applications configuration. 
+
+### Monitor Examples
+
+
+!!! note
+    Your application must expose a metrics endpoint that returns data in Prometheus format. Popular libraries include:
+    
+    - **Python**: `prometheus_client`
+    - **Node.js**: `prom-client`
+    - **Java**: Micrometer or Prometheus JVM Client
+    - **Go**: `prometheus/client_golang`
+
+### Updating Your Service Definition
+
+Ensure your `service.yaml` includes a port for metrics:
+
+{% raw %}
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: {{ .Values.appName }}
+  ports:
+    - name: http
+      port: 80
+      targetPort: {{ .Values.containerPort }}
+    - name: metrics        # Metrics port
+      port: 9090
+      targetPort: 9090
+```
+{% endraw %}
 
 ---
 
@@ -85,50 +133,6 @@ The `PrometheusRule` defines the actual alert conditions - what metrics to monit
 ### Basic Alert Example
 
 See [CIRRUS Alerts Examples Repository](https://github.com/NCAR/cirrus-examples/tree/main/helm/alerts-helm) for templates to copy and a README explaining how to customize these to your needs.
-
-## Collecting Application Metrics
-
-By default, Prometheus collects basic container metrics (CPU, memory, network). To monitor application specific metrics, you need to:
-
-1. **Export metrics** from your application (typically on a `/metrics` endpoint)
-2. **Configure a PodMonitor** or ServiceMonitor to tell Prometheus where to scrape metrics
-
-### Monitor Examples
-
-
-!!! note
-    Your application must expose a metrics endpoint that returns data in Prometheus format. Popular libraries include:
-    
-    - **Python**: `prometheus_client`
-    - **Node.js**: `prom-client`
-    - **Java**: Micrometer or Prometheus JVM Client
-    - **Go**: `prometheus/client_golang`
-
-### Updating Your Service Definition
-
-Ensure your `service.yaml` includes a port for metrics:
-
-{% raw %}
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ .Values.appName }}
-  namespace: {{ .Values.namespace }}
-spec:
-  selector:
-    app: {{ .Values.appName }}
-  ports:
-    - name: http
-      port: 80
-      targetPort: {{ .Values.containerPort }}
-    - name: metrics        # Metrics port
-      port: 9090
-      targetPort: 9090
-```
-{% endraw %}
-
----
 
 ## Updating values.yaml
 
