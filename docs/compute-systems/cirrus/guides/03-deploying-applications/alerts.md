@@ -92,15 +92,15 @@ k8s/
 
 ---
 
-## AlertmanagerConfig
+### AlertmanagerConfig
 
 The `AlertmanagerConfig` determines how alerts are routed and which notification channels (receivers) are used.
 
-### Email Notification Example
+#### Email Notification Example
 
 See [CIRRUS Alerts Examples Repository](https://github.com/NCAR/cirrus-examples/tree/main/helm/alerts-helm) for templates to copy and a README explaining how to customize these to your needs.
 
-### Alternative Receivers
+#### Alternative Receivers
 
 Alertmanager supports multiple notification channels beyond email. For complete configuration options, see the [Prometheus Alerting documentation](https://prometheus.io/docs/alerting/latest/configuration/).
 
@@ -126,11 +126,11 @@ Popular receiver types include:
 {% endraw %}
 ---
 
-## PrometheusRule
+### PrometheusRule
 
 The `PrometheusRule` defines the actual alert conditions - what metrics to monitor and when to trigger alerts.
 
-### Basic Alert Example
+#### Basic Alert Example
 
 See [CIRRUS Alerts Examples Repository](https://github.com/NCAR/cirrus-examples/tree/main/helm/alerts-helm) for templates to copy and a README explaining how to customize these to your needs.
 
