@@ -1,7 +1,5 @@
 branches:
 - imageTag: 68bf840
   name: cirrus-kmh
-- imageTag: 07e6e3a
-  name: cirrus-ncote-imgfixes
-- imageTag: 93edefe
+- imageTag: 4b235ba
   name: main
