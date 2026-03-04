@@ -353,7 +353,7 @@ Executing the command *code* from an interactive job will execute on the compute
 Microsoft provides [comprehensive documentation](https://code.visualstudio.com/docs) on how to modify the GUI, add shortcuts, integrate external technologies into VS Code, and more.
 
 ### NCAR CISL VS Code Tutorial
-NCAR's Computional and Information Systems Laboratory (CISL) ran an interactive VS Code tutorial with a focus on running VS Code on our HPC systems. The repository provides documents and examples to get started with connecting to the supercomputer, launching compute node jobs, Jupyterhub workflows, debugging, and an overview on AI integrations.
+NCAR's Computational and Information Systems Laboratory (CISL) provided an interactive VS Code tutorial with a focus on running VS Code on our HPC systems. The repository provides documents and examples to get started with connecting to the supercomputer, launching compute node jobs, Jupyterhub workflows, debugging, and an overview on AI integrations.
 
 [NCAR VS Code Tutorial - Interfacing with NCAR's High-Performance Computing Systems](https://github.com/NCAR/vscode-tutorial)
 
