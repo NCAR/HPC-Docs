@@ -1,5 +1,5 @@
 branches:
-- imageTag: b3ae7ad
+- imageTag: c9882c4
   name: cirrus-deploy-addv1
 - imageTag: 68bf840
   name: cirrus-kmh
