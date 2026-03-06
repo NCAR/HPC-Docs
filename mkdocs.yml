@@ -91,7 +91,8 @@ nav:
       - Interact with CIRRUS team:
             - compute-systems/cirrus/guides/02-interact-with-cirrus-team/agile.md
             - compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets.md
-      - Deploying Applications: compute-systems/cirrus/guides/03-deploying-applications/index.md
+      - Deploying Applications: 
+            - compute-systems/cirrus/guides/03-deploying-applications/index.md
             - compute-systems/cirrus/guides/03-deploying-applications/containerize.md
             - compute-systems/cirrus/guides/03-deploying-applications/additions.md
             - compute-systems/cirrus/guides/03-deploying-applications/alerts.md
