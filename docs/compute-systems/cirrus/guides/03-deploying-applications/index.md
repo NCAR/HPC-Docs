@@ -53,3 +53,8 @@ GitOps is a deployment methodology where the desired state of workloads is defin
 Argo CD is the continuous delivery (CD) tool CIRRUS uses to implement GitOps. Argo CD continuously watches Git repositories for any changes between what's currently running, and what's defined in Git. If they become out of sync, Argo CD can automatically update the running workload to match the Git state.
 
 ---
+
+## What's Next
+
+- [Creating a container image](../03-deploying-applications/containerize.md)
+- [Creating a Helm chart](../03-deploying-applications/additions.md)
