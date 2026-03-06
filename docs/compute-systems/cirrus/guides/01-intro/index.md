@@ -63,7 +63,7 @@ Learn how to work with the CIRRUS team and get support.
 - **[agile methodology](../02-interact-with-cirrus-team/agile.md)**<br/>How the team works and manages requests. Use this to understand our development process.
 - **[create tickets](../02-interact-with-cirrus-team/create-tickets.md)**<br/>How to submit requests and report issues. Use when you need help or want to request services.
 
-### **Deploying Applications**
+### **[Deploying Applications](../03-deploying-applications/)**
 Everything you need to containerize and deploy applications on CIRRUS.
 
 - **[create containers](../03-deploying-applications/containerize.md)**<br/>Step-by-step containerization guide. Perfect if you're new to containers or Docker.
