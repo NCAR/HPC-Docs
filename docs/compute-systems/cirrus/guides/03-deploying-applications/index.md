@@ -9,6 +9,9 @@ CIRRUS is a cloud-native platform built on top of Kubernetes. It utilizes GitOps
  - **A container image** to run the workloads
  - A Git repository containing a collection of YAML files known as **a Helm chart**
 
+!!! note
+    The Helm chart defines how CIRRUS deploys your workload, including which container images to run.
+
 ---
 
 ## Key Concepts
