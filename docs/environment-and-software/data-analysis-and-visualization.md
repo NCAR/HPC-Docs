@@ -96,11 +96,6 @@ visualizations and analyzing data, either interactively in 3D or
 through batch processing.
 See [ParaView.org](http://www.paraview.org/) for documentation.
 
-
-### **PyNGL and PyNIO**
-[Python packages](http://www.pyngl.ucar.edu/) that CISL developed for
-scientific visualization, file input/output, and data analysis.
-
 ### **VAPOR**`*`
 The Visualization and Analysis Platform for Ocean,
 Atmosphere, and Solar Researchers is a desktop platform that provides
