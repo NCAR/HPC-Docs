@@ -174,8 +174,8 @@ nav:
 
   - HPC Software:
     - environment-and-software/hpc-software/index.md
-    - Community Models: environment-and-software/community-models.md
-      children:
+    - Community Models: 
+        - Available Models: environment-and-software/community-models.md
         - Compiling WRF: environment-and-software/wrf_on_derecho.md
         - Compiling WRF-Chem: environment-and-software/wrfchem_on_derecho.md
     - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
