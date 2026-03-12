@@ -141,4 +141,4 @@ spec:
            property: my-secret-key
 ```
 
-For an example Helm chart that uses ExternalSecrets, see [external-secret-helm](https://github.com/NCAR/cirrus-helm-examples/tree/main/external-secret-helm).
+For an example Helm chart that uses ExternalSecrets, see [external-secret-helm](https://github.com/NCAR/cirrus-examples/tree/main/helm/external-secret-helm).
