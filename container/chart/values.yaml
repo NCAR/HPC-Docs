@@ -5,5 +5,5 @@ branches:
   name: cirrus-eso-v1-fix
 - imageTag: 68bf840
   name: cirrus-kmh
-- imageTag: e7f9eeb
+- imageTag: 6c9367e
   name: main
