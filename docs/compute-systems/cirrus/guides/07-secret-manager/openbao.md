@@ -122,7 +122,7 @@ For updating an existing app with secrets, please [create a ticket](../02-intera
 This example configures Kubernetes to retrieve a secret from OpenBao using the `openbao-backend` SecretStore in your app's namespace. It looks up the secret stored at `ncote@ucar.edu/cirrus-secrets` and retrieves the property `my-secret-key`. The result is injected into your container as an environment variable.
 
 ```yaml
-apiVersion: external-secrets.io/v1beta1
+apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
    name: myapp-esos
