@@ -1,6 +1,8 @@
 branches:
 - imageTag: c9882c4
   name: cirrus-deploy-addv1
+- imageTag: '5957476'
+  name: cirrus-eso-v1-fix
 - imageTag: 68bf840
   name: cirrus-kmh
 - imageTag: e7f9eeb
