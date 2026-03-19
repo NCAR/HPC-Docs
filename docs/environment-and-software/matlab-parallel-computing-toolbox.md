@@ -171,59 +171,6 @@ MPI library to enable communication between remote workers.
     parallel cluster as in this example, which embeds MATLAB code into a
     driver script `submit_server.sh`:
 
-    === "NCAR Profile v1"
-        ```bash
-        #!/bin/bash
-
-        # This script doesn't need to run on a batch node... we can simply submit
-        # the parallel job by running this script on the login node
-
-        module load ncarenv/23.10
-        module load matlab
-
-        mkdir -p output
-
-        # Job parameters
-        MPSNODES=2
-        MPSTASKS=4
-        MPSACCOUNT=<PROJECT>
-        MPSQUEUE=casper@casper-pbs
-        MPSWALLTIME=300
-        SECONDS=0
-
-        matlab -nodesktop -nosplash << EOF
-        % Add cluster profile if not already present
-        if ~any(strcmp(parallel.clusterProfiles, 'ncar_mps'))
-            ncar_mps = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps.mlsettings');
-        end
-
-        % Start PBS cluster and submit job with custom number of workers
-        c = parcluster('ncar_mps');
-
-        % Matlab workers will equal nodes * tasks-per-node - 1
-        jNodes = '$MPSNODES';
-        jTasks = '$MPSTASKS';
-        jWorkers = str2num(jNodes) * str2num(jTasks) - 1;
-
-        c.ClusterMatlabRoot = getenv('NCAR_ROOT_MATLAB');
-        c.ResourceTemplate = append('-l select=', jNodes, ':ncpus=', jTasks, ':mpiprocs=', jTasks);
-        c.SubmitArguments = append('-A $MPSACCOUNT -q $MPSQUEUE -l walltime=$MPSWALLTIME');
-        c.JobStorageLocation = append(getenv('PWD'), '/output');
-
-        % Output cluster settings
-        c
-
-        % Submit job to batch scheduler (PBS)
-        j = batch(c, @parallel_sum, 1, {100}, 'pool', jWorkers);
-
-        % Wait for job to finish and get output
-        wait(j);
-        diary(j);
-        exit;
-        EOF
-
-        echo "Time elapsed = $SECONDS s"
-        ```
     === "NCAR Profile v2"
         ```bash
         #!/bin/bash
@@ -232,7 +179,7 @@ MPI library to enable communication between remote workers.
         # the parallel job by running this script on the login node
 
         module purge
-        module load ncarenv/24.12
+        module load ncarenv/25.10
         module load matlab
 
         mkdir -p output
@@ -280,6 +227,59 @@ MPI library to enable communication between remote workers.
         % Here arguments are (cluster object, function to run, number of return values from function,
         %                     function inputs, parpool toggle, workers in pool)
         j = batch(c, @parallel_sum, 1, {100}, 'pool', $MPS_num_workers);
+
+        % Wait for job to finish and get output
+        wait(j);
+        diary(j);
+        exit;
+        EOF
+
+        echo "Time elapsed = $SECONDS s"
+        ```
+    === "NCAR Profile v1"
+        ```bash
+        #!/bin/bash
+
+        # This script doesn't need to run on a batch node... we can simply submit
+        # the parallel job by running this script on the login node
+
+        module load ncarenv/23.10
+        module load matlab
+
+        mkdir -p output
+
+        # Job parameters
+        MPSNODES=2
+        MPSTASKS=4
+        MPSACCOUNT=<PROJECT>
+        MPSQUEUE=casper@casper-pbs
+        MPSWALLTIME=300
+        SECONDS=0
+
+        matlab -nodesktop -nosplash << EOF
+        % Add cluster profile if not already present
+        if ~any(strcmp(parallel.clusterProfiles, 'ncar_mps'))
+            ncar_mps = parallel.importProfile('/glade/u/apps/opt/matlab/parallel/ncar_mps.mlsettings');
+        end
+
+        % Start PBS cluster and submit job with custom number of workers
+        c = parcluster('ncar_mps');
+
+        % Matlab workers will equal nodes * tasks-per-node - 1
+        jNodes = '$MPSNODES';
+        jTasks = '$MPSTASKS';
+        jWorkers = str2num(jNodes) * str2num(jTasks) - 1;
+
+        c.ClusterMatlabRoot = getenv('NCAR_ROOT_MATLAB');
+        c.ResourceTemplate = append('-l select=', jNodes, ':ncpus=', jTasks, ':mpiprocs=', jTasks);
+        c.SubmitArguments = append('-A $MPSACCOUNT -q $MPSQUEUE -l walltime=$MPSWALLTIME');
+        c.JobStorageLocation = append(getenv('PWD'), '/output');
+
+        % Output cluster settings
+        c
+
+        % Submit job to batch scheduler (PBS)
+        j = batch(c, @parallel_sum, 1, {100}, 'pool', jWorkers);
 
         % Wait for job to finish and get output
         wait(j);
