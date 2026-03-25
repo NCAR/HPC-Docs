@@ -205,6 +205,7 @@ nav:
     - NCAR Storage Spaces: tutorials/storage.md
     - JupyterHub:  tutorials/jupyterhub.md
     - Remote Desktop Services: tutorials/remote-desktops.md
+    - Sample Notebook: tutorials/sample-notebook.ipynb
 #    - Containers: tutorials/containers.md
 #    - GPU Workshop: tutorials/gpu-workshop.md
 
@@ -318,6 +319,9 @@ plugins:
   - minify:
       minify_html: true
   - open-in-new-tab
+  - mkdocs-jupyter:
+      include_source: true
+      ignore_h1_titles: true
   - redirects:
       redirect_maps:
         'nhug/index.md': 'https://nhug.readthedocs.io/en/latest/'
