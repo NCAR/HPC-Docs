@@ -205,7 +205,6 @@ nav:
     - NCAR Storage Spaces: tutorials/storage.md
     - JupyterHub:  tutorials/jupyterhub.md
     - Remote Desktop Services: tutorials/remote-desktops.md
-    - Sample Notebook: tutorials/sample-notebook.ipynb
 #    - Containers: tutorials/containers.md
 #    - GPU Workshop: tutorials/gpu-workshop.md
 
