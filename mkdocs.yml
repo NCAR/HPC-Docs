@@ -318,6 +318,9 @@ plugins:
   - minify:
       minify_html: true
   - open-in-new-tab
+  - mkdocs-jupyter:
+      include_source: true
+      ignore_h1_titles: true
   - redirects:
       redirect_maps:
         'nhug/index.md': 'https://nhug.readthedocs.io/en/latest/'
