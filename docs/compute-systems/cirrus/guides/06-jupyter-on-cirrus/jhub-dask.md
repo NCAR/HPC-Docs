@@ -48,19 +48,23 @@ Just like with LocalCluster, the dashboard URL can be used with the Dask extensi
 
 ## Dask GatewayCluster
 
-When LocalCluster isn't sufficient, you can scale your application with Dask Gateway. On NCAR's Kubernetes JupyterHub, the `dask-gateway` package allows users to launch distributed Dask clusters with dedicated resources.
+When LocalCluster isn't sufficient, you can scale your application with Dask Gateway. On NCAR's CIRRUS JupyterHub, the `dask-gateway` package allows users to launch distributed Dask clusters with dedicated resources.
 
 Here's an example of using GatewayCluster:
 
 ```python
 from dask.distributed import Client
-from dask_gateway import GatewayCluster
+from dask_gateway import Gateway
+import os
 
-# Connect to Gateway and create a cluster
-cluster = GatewayCluster("http://traefik-dask-gateway/services/dask-gateway/", 
-                        public_address="https://jupyter.k8s.ucar.edu/services/dask-gateway/", 
-                        auth='jupyterhub')  
+gateway = Gateway(
+    address="https://jupyter.k8s.ucar.edu/services/dask-gateway",
+    proxy_address="gateway://dg.k8s.ucar.edu:80",
+    auth="jupyterhub"
+) # connect to Gateway and create a cluster
 
+cluster = gateway.new_cluster(image=os.getenv("JUPYTER_IMAGE")) # Specify the same image running so there's no version mismatches
+    
 cluster.adapt(minimum=2, maximum=20)  # Make an adaptable cluster with a min and max number of workers
 
 client = Client(cluster)  # connect Client to Cluster
@@ -79,6 +83,42 @@ The Dashboard URL will bring you to a page where Dask cluster resources can be v
 <img src="../../../media/dask/dask-extension.png"/>
 
 Each box can be dragged into your workspace and arranged as different tiles alongside your notebook. This enables you to monitor Dask resources while watching your notebooks run.
+
+### Using CIRRUS Dask Gateway from remote system
+
+The Dask Gateway hosted on CIRRUS is setup to allow Dask clusters to be spun up and utilized by remote systems outside of the CIRRUS JupyterHub. This is a great way to test out code at scale without having to eat up allocations on Derecho/Casper. This requires a token from the CIRRUS JupyterHub in order to authenticate.
+
+#### Getting a JupyterHub Token
+
+Login to the CIRRUS JupyterHub at - [https://jupyter.k8s.ucar.edu/](https://jupyter.k8s.ucar.edu/). On the Server Options page, at the top, there is a link for Token. Click this to be taken to the API Token page. Enter a name/note that will help track what the token is used for, set an expiration, and set the permissions so that the token only can access services.
+
+<img src="../../../media/dask/jhub-token.png"/>
+
+Click the `Request new API token` button to display an API token that can be used to connect to Dask Gateway remotely. 
+
+#### Connecting to Dask Gateway
+
+The best way to access the JupyterHub API token is to export it as an environment variable like `export JUPYTERHUB_API_TOKEN='my-jupyterhub-api-token` or add it to your shell configuration file `~/.bashrc`, `~/.zshrc`, `~/.profile`, etc.. Dask Gateway will look for `JUPYTERHUB_API_TOKEN` specifically when using jupyterhub auth. With that in place the python code to launch a Dask Gateway cluster is
+
+```python
+import os
+from dask_gateway import Gateway
+from dask.distributed import Client
+
+gateway = Gateway(
+    address="https://jupyter.k8s.ucar.edu/services/dask-gateway/",
+    proxy_address="gateway://dg.k8s.ucar.edu:80",
+    auth="jupyterhub"
+)
+
+cluster = gateway.new_cluster(image="hub.k8s.ucar.edu/cirrus-jhub/jhub-cpu-nb:0.1.2") 
+client = Client(cluster)
+```
+
+In the example we specify an image to use for the Dask Gateway containers so that there are no version mismatches between the JupyterHub environment and the Dask Gateway environment. If you need help specifying an image that works for your configuration please contact the [CIRRUS admins](mailto:cirrus-admin@ucar.edu).
+
+!!! note
+    If for some reason your Jupyter notebook is having difficulty accessing the JupyterHub API token add a line to assign it before creating the gateway like `os.environ['JUPYTERHUB_API_TOKEN'] = 'my-jupyterhub-api-token'`
 
 ## Dask-Jobqueue
 
