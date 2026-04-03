@@ -1,5 +1,5 @@
 branches:
-- imageTag: dee8b62
+- imageTag: 5b8f124
   name: cirrus-dask-gw-v1
 - imageTag: c9882c4
   name: cirrus-deploy-addv1
