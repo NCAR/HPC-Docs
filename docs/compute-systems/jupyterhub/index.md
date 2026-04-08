@@ -81,7 +81,7 @@ which change periodically as new releases are installed, include:
 
 - Multiple Python 3 interpreters with varying package support including
   a basic install (Python 3), the Pangeo stack installed with conda
-  (Pangeo), and the [NCAR Python Library](../../environment-and-software/user-environment/conda.md) (NPL) that is
+  (Pangeo), and the [NCAR Python Library](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs/?h=npl#npl-ncar-python-library) (NPL) that is
   also provided at the command-line by the `conda` environment module.
 
 - R
@@ -96,4 +96,4 @@ which change periodically as new releases are installed, include:
 
 See these related CISL documentation pages for additional support:
 
-- [Using Conda and Python](../../environment-and-software/user-environment/conda.md)
+- [Using Conda and Python](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs/?h=conda)
