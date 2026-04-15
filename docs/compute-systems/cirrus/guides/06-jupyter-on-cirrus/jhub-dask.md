@@ -55,6 +55,7 @@ Here's an example of using GatewayCluster:
 ```python
 from dask.distributed import Client
 from dask_gateway import Gateway
+import os
 
 gateway = Gateway(
     address="https://jupyter.k8s.ucar.edu/services/dask-gateway",
