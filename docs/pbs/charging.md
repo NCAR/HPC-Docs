@@ -29,14 +29,14 @@ exclusive use of CPU or GPU compute nodes for an extended period of time. A
 limited number of shared compute nodes are also available via the **develop**
 queue.
 
-|**Submission Queue**        |**Execution Queue**|**Wall Clock Limit**   |**Resource Limits**                           |**Queue Description**|
-| :-                         | :-                | :-                    | :-                                           | :-                  |
-|**main** {: rowspan=2}      |cpu                |12 hours {: rowspan=2} | 2488 nodes; 128 cores / 235 GB per node       |Primary queue for production CPU and GPU workflows. Nodes are allocated for exclusive use by jobs. {: rowspan=2}|
-                             |gpu                                        | 82 nodes; 64 cores / 4 GPUs / 487 GB per node |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
-|**develop** {: rowspan=2}   |cpudev             |6 hours {: rowspan=2}  | 2 nodes; 128 cores / 235 GB per node         |Interactive and batch use for debugging and development on shared nodes. A user can run multiple jobs in this queue concurrently if the total number of cores or GPUs used does not exceed the stated resource limits. {: rowspan=2}|
-                             |gpu                                        | 2 nodes; 4 GPUs / 487 GB per node            |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
-|**preempt** {: rowspan=2}   |pcpu               |100 hours {: rowspan=2}| Same as **main** {: rowspan=2}       |Jobs will only run on resources otherwise idle.  Jobs may be [preempted](./preemption.md) with a short grace period to make room for higher priority jobs. {: rowspan=2}|
-                             |pgpu|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+|**Submission Queue**       |**Execution Queue**|**Wall Clock Limit**   |**Resource Limits**                          |**Queue Description**|
+|:-                         |:-                 |:-                     |:-                                           |:-                   |
+|**main** {: rowspan=2}     |cpu                |12 hours {: rowspan=2} | 2488 nodes; 128 cores / 235 GB per node     |Primary queue for production CPU and GPU workflows. Nodes are allocated for exclusive use by jobs. {: rowspan=2}|
+                            |gpu                                        | 82 nodes; 64 cores / 4 GPUs / 487 GB per node |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+|**develop** {: rowspan=2}  |cpudev             |6 hours {: rowspan=2}  | 2 nodes; 128 cores / 235 GB per node        |Interactive and batch use for debugging and development on shared nodes. A user can run multiple jobs in this queue concurrently if the total number of cores or GPUs used does not exceed the stated resource limits. {: rowspan=2}|
+                            |gpu                                        | 2 nodes; 4 GPUs / 487 GB per node           |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+|**preempt** {: rowspan=2}  |pcpu               |100 hours {: rowspan=2}| Same as **main** {: rowspan=2}              |Jobs will only run on resources otherwise idle.  Jobs may be [preempted](./preemption.md) with a short grace period to make room for higher priority jobs. {: rowspan=2}|
+                            |pgpu|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 
 Some additional queues on the system are for dedicated purposes and accessible
 only to authorized users.
@@ -48,12 +48,12 @@ visualization, and general purpose GPU computing. While many *execution* queues
 exist, most Casper jobs will be submitted via the primary **casper**
 *submission* queue.
 
-| **Submission  Queue**       | **Execution Queue** | **Wall Clock Limit**  | **Resource Limits**                   | **Queue Description** |
-| :-                          | :-                  | :-                    | :-                                    | :-                    |
+| **Submission  Queue**      | **Execution Queue**| **Wall Clock Limit** | **Resource Limits**                  | **Queue Description** |
+|:-                          |:-                  |:-                    |:-                                    |:-                     |
 |**casper** {: rowspan=4}     |htc                  |24 hours {: rowspan=4} | 144 cores per job; 34 cores / 360 GB (Intel) or 62 cores / 733 GB (AMD) per node; 720 cores, 7200 GB RAM concurrent usage |High-throughput computing jobs are routed shared CPU nodes. Data analysis jobs typically end up here (e.g., Dask workers) |
                               |largemem                                     | 1 node per job; 36 cores / 1,488.2 GB (Intel) or 64 cores / 1,488.9 GB (AMD) per node; 3 jobs limit | Serial or shared-memory parallel jobs which need an exceptionally large amount of RAM.  |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"} |
                               |vis                                          | 2 GPUs concurrently; 36 cores / 354 GB (6-way GP100) or 48 cores / 732.9 GB (7-way L40) per node | For jobs which need to use GPU rendering and/or an accelerated remote desktop ([VNC](../compute-systems/casper/remote-desktops.md#using-vnc)). |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
-                              |nvgpu, amdgpu                                | 32 GPUs (8 for H100s, MI300As) concurrently; 36 cores / 732 GB (4-way V100) or 36 cores / 1,110 GB (8-way V100) or 128 cores / 985 GB (4-way A100) or 64 cores / 985 GB (4-way H100) per node      |For general purpose GPU modeling and machine learning. 4-way and 8-way V100s, 4-way A100s, 4-way H100, and 4-way MI300A nodes are available. |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+                              |nvgpu, amdgpu                                | 32 GPUs (8 for H100s, MI300As) concurrently; 36 cores / 732 GB (4-way V100) or 36 cores / 1,110 GB (8-way V100) or 128 cores / 985 GB (4-way A100) or 64 cores / 985 GB (4-way H100) or 192 cores / 495.9 GB (4-way MI300A) per node    |For general purpose GPU modeling and machine learning. 4-way and 8-way V100s, 4-way A100s, 4-way H100, and 4-way MI300A nodes are available. |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 
 ## Job priority
 
