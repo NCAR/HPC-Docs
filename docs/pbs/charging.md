@@ -34,7 +34,7 @@ queue.
 |**main** {: rowspan=2}     |cpu                |12 hours {: rowspan=2} | 2488 nodes; 128 cores / 235 GB per node     |Primary queue for production CPU and GPU workflows. Nodes are allocated for exclusive use by jobs. {: rowspan=2}|
                             |gpu                                        | 82 nodes; 64 cores / 4 GPUs / 487 GB per node |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 |**develop** {: rowspan=2}  |cpudev             |6 hours {: rowspan=2}  | 2 nodes; 128 cores / 235 GB per node        |Interactive and batch use for debugging and development on shared nodes. A user can run multiple jobs in this queue concurrently if the total number of cores or GPUs used does not exceed the stated resource limits. {: rowspan=2}|
-                            |gpu                                        | 2 nodes; 4 GPUs / 487 GB per node           |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+                            |gpudev                                     | 2 nodes; 4 GPUs / 487 GB per node           |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 |**preempt** {: rowspan=2}  |pcpu               |100 hours {: rowspan=2}| Same as **main** {: rowspan=2}              |Jobs will only run on resources otherwise idle.  Jobs may be [preempted](./preemption.md) with a short grace period to make room for higher priority jobs. {: rowspan=2}|
                             |pgpu|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 
