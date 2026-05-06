@@ -81,29 +81,29 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
      ```
    - Useful commands to initialize S3 Client, Listing, Displaying, Uploading and Downloading buckets
      ```
-import boto3
-from botocore.config import Config
+     import boto3
+     from botocore.config import Config
 
-config = Config(retries={'max_attempts': 10})
+     config = Config(retries={'max_attempts': 10})
 
-s3 = boto3.client(
-    "s3",
-    endpoint_url="https://boreas.hpc.ucar.edu:6443",
-    aws_access_key_id="YOUR_ACCESS_KEY",
-    aws_secret_access_key="YOUR_SECRET_KEY",
-    verify=False  # set to True if certificates are properly configured
-)
+     s3 = boto3.client(
+         "s3",
+         endpoint_url="https://boreas.hpc.ucar.edu:6443",
+         aws_access_key_id="YOUR_ACCESS_KEY",
+         aws_secret_access_key="YOUR_SECRET_KEY",
+         verify=False  # set to True if certificates are properly configured
+     )
 
-# List buckets
-response = s3.list_buckets()
-for bucket in response["Buckets"]:
-    print(bucket["Name"])
+     # List buckets
+     response = s3.list_buckets()
+     for bucket in response["Buckets"]:
+         print(bucket["Name"])
 
-# Upload a file
-s3.upload_file("local_file.nc", "my-bucket", "local_file.nc")
+     # Upload a file
+     s3.upload_file("local_file.nc", "my-bucket", "local_file.nc")
 
-# Download a file
-s3.download_file("my-bucket", "local_file.nc", "local_file.nc")
+     # Download a file
+     s3.download_file("my-bucket", "local_file.nc", "local_file.nc")
      ```
  - Web-based access and transfers via the “NCAR Boreas S3” Globus collection.
 
