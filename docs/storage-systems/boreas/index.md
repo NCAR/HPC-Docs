@@ -75,11 +75,11 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
 ## Access Methods
 
  - Programmatic access using standard S3 libraries and tools.
-   Generate a Presigned URL — Creates a temporary, shareable URL for the object myfile.txt in my-bucket on the UCAR Boreas S3 endpoint. The URL grants time-limited download access (valid for 24,000 seconds, ~6.7 hours) without requiring the recipient to have AWS credentials, making it useful for sharing HPC data with collaborators who don't have direct access to the object store.
+   - Generate a Presigned URL — Create a temporary URL (24,000s) to share `myfile.txt` from `my-bucket` without requiring credentials.
 ```
   aws s3 presign --expires 24000 s3://my-bucket/myfile.txt --endpoint https://boreas.hpc.ucar.edu:6443
 ```
- Useful commands to initialize S3 Client, Listing, Displaying, Uploading and Downloading buckets
+   - Useful commands to initialize S3 Client, Listing, Displaying, Uploading and Downloading buckets
 ```
 import boto3
 from botocore.config import Config
