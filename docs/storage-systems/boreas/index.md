@@ -75,6 +75,29 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
 ## Access Methods
 
  - Programmatic access using standard S3 libraries and tools.
+   - List Buckets via Python SDK.
+     ```
+     #!/usr/bin/python3
+     import boto3
+     import os
+     from botocore.config import Config
+     import urllib3
+     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+     config = Config(retries={'max_attempts': 40})
+
+     session = boto3.session.Session()
+
+     s3_client = session.client('s3', verify=False,
+                                endpoint_url="https://boreas.ucar.edu",
+                                aws_access_key_id='xxx',
+                                aws_secret_access_key='xxx',
+                                config=config)
+
+     response = s3_client.list_buckets()
+     for bucket in response['Buckets']:
+         print(bucket['Name'])
+     ```
    - Generate a Presigned URL — Create a temporary URL (24,000s) to share `myfile.txt` from `my-bucket` without requiring credentials.
      ```
      aws s3 presign --expires 24000 s3://my-bucket/myfile.txt --endpoint https://boreas.hpc.ucar.edu:6443.
@@ -118,6 +141,32 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
         "Action": [ "s3:GetObject", "s3:ListBucket" ],
         "Resource": "*"
        }]
+      }'
+     ```
+   - Make a Bucket Publicly Readable — Allows any authenticated user on the Boreas endpoint to read and list objects in proj1-bucket.
+     ```
+     aws --endpoint-url https://boreas.ucar.edu:6443 --profile ncar-boreas \
+     s3api put-bucket-policy \
+     --bucket proj1-bucket --policy '{
+       "Version": "2021-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": [
+            "s3:GetObject"
+         ],
+         "Resource": "arn:aws:s3:::proj1-bucket/*"
+        },
+        {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": [
+            "s3:ListBucket"
+         ],
+         "Resource": "arn:aws:s3:::proj1-bucket"
+        }
+       ]
       }'
      ```
  - Web-based access and transfers via the “NCAR Boreas S3” Globus collection.
