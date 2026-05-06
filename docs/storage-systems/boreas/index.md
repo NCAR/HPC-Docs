@@ -75,6 +75,36 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
 ## Access Methods
 
  - Programmatic access using standard S3 libraries and tools.
+  - Generate a Presigned URL — Creates a temporary, shareable URL for the object myfile.txt in my-bucket on the UCAR Boreas S3 endpoint. The URL grants time-limited download access (valid for 24,000 seconds, ~6.7 hours) without requiring the recipient to have AWS credentials, making it useful for sharing HPC data with collaborators who don't have direct access to the object store.
+```
+  aws s3 presign --expires 24000 s3://my-bucket/myfile.txt --endpoint https://boreas.hpc.ucar.edu:6443
+```
+ - Useful commands to initialize S3 Client, Listing, Displaying, Uploading and Downloading buckets
+```
+import boto3
+from botocore.config import Config
+
+config = Config(retries={'max_attempts': 10})
+
+s3 = boto3.client(
+    "s3",
+    endpoint_url="https://boreas.hpc.ucar.edu:6443",
+    aws_access_key_id="YOUR_ACCESS_KEY",
+    aws_secret_access_key="YOUR_SECRET_KEY",
+    verify=False  # set to True if certificates are properly configured
+)
+
+# List buckets
+response = s3.list_buckets()
+for bucket in response["Buckets"]:
+    print(bucket["Name"])
+
+# Upload a file
+s3.upload_file("local_file.nc", "my-bucket", "local_file.nc")
+
+# Download a file
+s3.download_file("my-bucket", "local_file.nc", "local_file.nc")
+```
  - Web-based access and transfers via the “NCAR Boreas S3” Globus collection.
 
 ## Logging into Globus
