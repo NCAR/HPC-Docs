@@ -76,9 +76,9 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
 
  - Programmatic access using standard S3 libraries and tools.
    - Generate a Presigned URL — Create a temporary URL (24,000s) to share `myfile.txt` from `my-bucket` without requiring credentials.
-```
-  aws s3 presign --expires 24000 s3://my-bucket/myfile.txt --endpoint https://boreas.hpc.ucar.edu:6443
-```
+     ```
+     aws s3 presign --expires 24000 s3://my-bucket/myfile.txt --endpoint https://boreas.hpc.ucar.edu:6443. ::
+     ```
    - Useful commands to initialize S3 Client, Listing, Displaying, Uploading and Downloading buckets
 ```
 import boto3
