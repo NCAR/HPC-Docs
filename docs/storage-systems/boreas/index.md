@@ -79,7 +79,7 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
      ```
      aws s3 presign --expires 24000 s3://my-bucket/myfile.txt --endpoint https://boreas.hpc.ucar.edu:6443.
      ```
-   - Useful commands to initialize S3 Client, Listing, Displaying, Uploading and Downloading buckets
+   - Programmatic S3 Access via boto3: Initialization and Core Operations 
      ```
      import boto3
      from botocore.config import Config
@@ -104,6 +104,21 @@ Resource-Based Bucket Policies (Anonymous Bucket Access)
 
      # Download a file
      s3.download_file("my-bucket", "local_file.nc", "local_file.nc")
+     ```
+   - Apply a Bucket Access Policy — Grants user tomb read and list access to the benchmarking bucket.
+     ```
+     aws --endpoint-url https://boreas.ucar.edu:6443 s3api put-bucket-policy \
+     --bucket benchmarking \
+     --policy '{
+       "Version": "2021-10-17",
+       "Statement": [{
+        "Sid": "read and list bucket",
+        "Effect": "Allow",
+        "Principal": { "AWS": "tomb" },
+        "Action": [ "s3:GetObject", "s3:ListBucket" ],
+        "Resource": "*"
+       }]
+      }'
      ```
  - Web-based access and transfers via the “NCAR Boreas S3” Globus collection.
 
