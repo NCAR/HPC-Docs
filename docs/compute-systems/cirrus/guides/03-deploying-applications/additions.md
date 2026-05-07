@@ -67,6 +67,8 @@ k8s/
 
 These core Kubernetes manifests ensure your application can be properly deployed, accessed, and managed within the CIRRUS environment.
 
+CIRRUS uses [Traefik](https://doc.traefik.io/traefik/getting-started/) as the ingress controller for application routing and TLS termination. For middleware configuration and advanced ingress patterns, see the official [Traefik Middleware documentation](https://doc.traefik.io/traefik/middlewares/overview/).
+
 If you already have a containerized version of your application and want to deploy it on CIRRUS, we recommend starting by [submit a ticket](../02-interact-with-cirrus-team/create-tickets.md). A CIRRUS team member will assist in configuring and validating your deployment.
 
 ### Unique Helm Values
