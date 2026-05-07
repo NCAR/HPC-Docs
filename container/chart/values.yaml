@@ -5,5 +5,7 @@ branches:
   name: cirrus-deploy-addv1
 - imageTag: 68bf840
   name: cirrus-kmh
+- imageTag: 74f714d
+  name: cirrus-varsha-traefik
 - imageTag: 0a19866
   name: main
