@@ -2,7 +2,7 @@
 
 This page describes how to develop interactive applications for Open OnDemand (OOD) and the Appverse ecosystem. [Appverse](https://openondemand.connectci.org/appverse) is a  community-driven catalog of software, interactive apps, dashboards, and widgets.
 
-!!! tip
+!!! note
     NSF NCAR CISL staff would highly value suggestions or feedback for specific applications that should be priortitized to be made available via OOD. Please reach out to the [NSF NCAR Research Computing Help Desk](https://rchelp.ucar.edu) to submit a request.
 
 ## Overview
