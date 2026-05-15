@@ -4,7 +4,7 @@
 !!! warning
     The Open OnDemand service was released for general users in May 2026 and additional features and services will be developed over time. Any issues or bugs should be reported to the [NSF NCAR Research Computing Help Desk](https://rchelp.ucar.edu).
 
-Open OnDemand (OOD) is a web-based HPC portal that provides access to NSF NCAR's computing resources through an intuitive graphical interface. Through OOD, users can:
+[Open OnDemand (OOD)](https://www.openondemand.org/) is a web-based HPC portal that provides access to NSF NCAR's computing resources through an intuitive graphical user interface. Through OOD, users can:
 
 - Open a Derecho or Casper shell environment in the browser
 - Run VNC and virtual desktop sessions on Casper
