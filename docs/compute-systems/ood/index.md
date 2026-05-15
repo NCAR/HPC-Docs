@@ -34,7 +34,7 @@ The file explorer allows you to browse, upload, and manage files on HPC systems.
 
 ## Job Status and Composer
 
-OOD provides an active jobs dashboard. Select the dropdown tab **Jobs → Active Jobs** to review all jobs running across both Derecho and Casper. This interface may be used to review job parameters, access the active jobs via shell, or delete running jobs.
+OOD provides an active jobs dashboard. Select the dropdown tab **Jobs → Active Jobs** to review all jobs running across both Derecho and Casper. This interface may be used to review job parameters, manage job related files, access the active jobs via shell, or delete running jobs.
 
 ![Open OnDemand active jobs dashboard example](media/OOD_ActiveJobs.png)
 
@@ -54,10 +54,10 @@ Launch interactive applications including Jupyter notebooks, VS Code, and GUI vi
 
 Additional applications will be provided through Open OnDemand over time and depending on community interest. Examples of applications built across the HPC community can be found at the [Open OnDemand Community Hub Appverse](https://openondemand.connectci.org/appverse).
 
+## Resources and Getting Help
+
 Specific applications for classroom and educational purposes are also supported with OOD. Educators are encouraged to engage with the [OOD in the Classroom ACCESS Affinity groups](https://support.access-ci.org/affinity-groups/ood-classroom) to learn more.
 
 To learn how to develop an OOD application, please see [Interactive Apps for Open OnDemand and Appverse](sandbox-apps-and-appverse.md).
-
-## Getting Help
 
 For general user for using Open OnDemand at NSF NCAR, reach out to the [Consulting Services Group User Support Team](../../user-support/index.md) or contact the [CISL Support Team](mailto:cislhelp@ucar.edu).
