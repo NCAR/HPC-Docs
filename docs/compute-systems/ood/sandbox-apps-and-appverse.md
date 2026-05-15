@@ -10,6 +10,7 @@ This page describes how to develop interactive applications for Open OnDemand (O
 Open OnDemand provides a web-based interface for launching and managing interactive sessions on HPC systems. [Appverse](https://openondemand.connectci.org/appverse) is the community driven framework used to build and expose custom, interactive apps within OOD.
 
 Interactive apps can include:
+
 - web-based notebooks
 - bespoke GUI applications
 - visualization tools
@@ -24,7 +25,7 @@ Interactive apps can include:
 
 ## Developing Interactive Applications for Open OnDemand
 
-1. Review the [NSF NCAR OOD documentation](index.md) and the [Appverser Contributor's Guide](https://openondemand.connectci.org/appverse-contributor-documentation).
+1. Review the [NSF NCAR OOD documentation](index.md) and the [Appverser Contributor Guide](https://openondemand.connectci.org/appverse-contributor-documentation).
 2. Consult the [Batch Connect](https://osc.github.io/ood-documentation/release-2.0/reference/files/submit-yml/basic-bc-options.html) and app manifest format for OOD.
 3. [Request developer access](#developer-access) for NSF NCAR OOD.
 3. Build the app, ideally in a publicly accessible git repository.
@@ -40,7 +41,7 @@ To develop and test apps in NSF NCAR OOD environment, you must have access to th
 
 - Contact the [NSF NCAR Research Computing Help Desk](https://rchelp.ucar.edu)
 - Request developer access for the Open OnDemand interactive application interface
-- Additional support or recommendations for applications CISL staff should develop may also be requested when contacting the help desk.
+- Additional support or recommendations for applications CISL staff should support also be requested when contacting the help desk.
 
 ## Recommended Resources
 
