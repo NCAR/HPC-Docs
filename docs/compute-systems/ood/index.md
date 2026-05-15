@@ -35,7 +35,9 @@ Launch interactive applications including Jupyter notebooks, VS Code, and GUI vi
 - MATLAB
 - VNC Desktop (Casper Only)
 
-Additional applications will be provided through Open OnDemand over time and depending on community interest. Examples of applications built across the HPC community can be found at the [Open OnDemand Community Hub Appverse](https://openondemand.connectci.org/appverse). If you have a specific application you'd like to request or ideas for an application to develop, please create a ticket via the NSF NCAR Research Computing Helpdesk [rchelp.ucar.edu](https://rchelp.ucar.edu)
+Additional applications will be provided through Open OnDemand over time and depending on community interest. Examples of applications built across the HPC community can be found at the [Open OnDemand Community Hub Appverse](https://openondemand.connectci.org/appverse).
+
+To learn how to develop an OOD application, please see [Interactive Apps for Open OnDemand and Appverse](sandbox-apps-and-appverse.md).
 
 ## Getting Help
 
