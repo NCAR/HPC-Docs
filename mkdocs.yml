@@ -116,7 +116,7 @@ nav:
       - Service Level Agreements: compute-systems/cirrus/guides/09-service-level-agreements/slas.md
     - Open OnDemand:
       - compute-systems/ood/index.md
-      - Job Status and Composer: compute-systems/ood/job-composer.md
+      - Job Composer: compute-systems/ood/job-composer.md
       - Sandbox Apps and Appverse: compute-systems/ood/sandbox-apps-and-appverse.md
     - JupyterHub:
       - compute-systems/jupyterhub/index.md

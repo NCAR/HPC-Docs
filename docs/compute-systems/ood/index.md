@@ -1,5 +1,9 @@
 
 # Open OnDemand
+
+!!! warning
+    The Open OnDemand service was released for general users in May 2026 and additional features and services will be developed over time. Any issues or bugs should be reported to the [NSF NCAR Research Computing Help Desk](https://rchelp.ucar.edu).
+
 Open OnDemand (OOD) is a web-based HPC portal that provides access to NSF NCAR's computing resources through an intuitive graphical interface. Through OOD, users can:
 
 - Open a Derecho or Casper shell environment in the browser
@@ -8,14 +12,11 @@ Open OnDemand (OOD) is a web-based HPC portal that provides access to NSF NCAR's
 - Submit and run HPC job workflows
 - Launch GUI based interactive applications
 
-!!! warning
-    The Open OnDemand service was released for general users in May 2026 and additional features and services will be developed over time. Any issues or bugs should be reported to the [NSF NCAR Research Computing Help Desk](https://rchelp.ucar.edu).
-
 ![Interactive applications screenshot](media/OOD_HomePage.png)
 
 ## Portal Access
 
-Access the Open OnDemand portal at: [ondemand.hpc.ucar.edu](https://ondemand.hpc.ucar.edu)
+Access and bookmark the Open OnDemand portal at: [ondemand.hpc.ucar.edu](https://ondemand.hpc.ucar.edu)
 
 NSF NCAR Open OnDemand portal is only available to users who have an active CIT account and credentials. Upon visiting the NSF NCAR Open OnDemand web portal, a Microsoft enterprise login form including NSF NCAR branding will be presented in order to authenticate with your CIT credentials. Please refer to [authentication and security](../../getting-started/accounts/index.md#authentication-and-security) for more information.
 
@@ -33,9 +34,9 @@ The file explorer allows you to browse, upload, and manage files on HPC systems.
 
 ## Job Status and Composer
 
-OOD provides an active jobs dashboard. Select the dropdown tab _Jobs_ -> _Active Jobs_ to review all jobs running across both Derecho and Casper. This interface may be used to review job parameters, access the active jobs via shell, or delete running jobs.
+OOD provides an active jobs dashboard. Select the dropdown tab **Jobs → Active Jobs** to review all jobs running across both Derecho and Casper. This interface may be used to review job parameters, access the active jobs via shell, or delete running jobs.
 
-![Open OnDemand active jobs dashboard example](media/OOD_InteractiveAppStatus.png)
+![Open OnDemand active jobs dashboard example](media/OOD_ActiveJobs.png)
 
 Jobs may also be submitted to Casper or Derecho via the [Job Composer](job-composer.md).
 
@@ -47,7 +48,7 @@ Launch interactive applications including Jupyter notebooks, VS Code, and GUI vi
 
 ### Available Applications
 - JupyterLab Environment
-- VS Code Server (default runs)
+- VS Code Server (default runs with 10GB)
 - MATLAB
 - VNC Desktop (Casper Only)
 
