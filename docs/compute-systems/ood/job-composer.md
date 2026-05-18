@@ -102,7 +102,7 @@ Replace `<project_code>` with your active allocation. See [Job Script Examples](
 
 ## Creating and Managing Job Templates
 
-Templates allow you to define a reusable job configuration — including the submission script and any supporting files — that can be shared across multiple job runs.
+Templates allow you to define a reusable job configuration including the submission script and any supporting files that can be shared across multiple job runs.
 
 ### Creating a Template
 
