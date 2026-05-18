@@ -91,7 +91,7 @@ nav:
       - Interact with CIRRUS team:
             - compute-systems/cirrus/guides/02-interact-with-cirrus-team/agile.md
             - compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets.md
-      - Deploying Applications: 
+      - Deploying Applications:
             - compute-systems/cirrus/guides/03-deploying-applications/index.md
             - compute-systems/cirrus/guides/03-deploying-applications/containerize.md
             - compute-systems/cirrus/guides/03-deploying-applications/additions.md
@@ -114,6 +114,10 @@ nav:
       - Secret Manager: compute-systems/cirrus/guides/07-secret-manager/openbao.md
       - Frequent Issues: compute-systems/cirrus/guides/08-frequent-issues/index.md
       - Service Level Agreements: compute-systems/cirrus/guides/09-service-level-agreements/slas.md
+    - Open OnDemand:
+      - compute-systems/ood/index.md
+      - Job Composer: compute-systems/ood/job-composer.md
+      - Sandbox Apps and Appverse: compute-systems/ood/sandbox-apps-and-appverse.md
     - JupyterHub:
       - compute-systems/jupyterhub/index.md
       - Jupyter and IPython: compute-systems/jupyter-and-ipython.md
@@ -174,7 +178,7 @@ nav:
 
   - HPC Software:
     - environment-and-software/hpc-software/index.md
-    - Community Models: 
+    - Community Models:
         - Available Models: environment-and-software/community-models.md
         - Compiling WRF: environment-and-software/wrf_on_derecho.md
         - Compiling WRF-Chem: environment-and-software/wrfchem_on_derecho.md
