@@ -117,7 +117,7 @@ Templates allow you to define a reusable job configuration including the submiss
 4. Click **Save**. The template will appear in the Templates list and can be selected when creating new jobs.
 
 !!! warning
-    When a job is created from a template, all files in the template directory are copied into a new job workspace. Keep template directories lean — large input files should be referenced by path in the script rather than stored in the template directory itself.
+    When a job is created from a template, all files in the template directory are copied into a new job workspace. Keep template directories lean! Large input files should be referenced by a path in the script rather than stored in the template directory itself.
 
 ### Editing a Template
 
