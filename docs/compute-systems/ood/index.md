@@ -53,7 +53,7 @@ Launch interactive applications including Jupyter notebooks, VS Code, and GUI vi
 - VNC Desktop (Casper Only)
 
 !!! note
-    VS Code Server by default runs with 2 CPU cores and 10 GB of memory via OOD. See [Visual Studio Code](../../environment-and-software/vscode.md) for more tips on how to use VS Code on Casper and Derecho as well as how to run with alternate sets of compute resources.
+    VS Code Server by default runs with 2 CPU cores and 10 GB of memory via OOD on shared nodes in the `develop` queue. See [Visual Studio Code](../../environment-and-software/vscode.md) for more tips on how to use VS Code on Casper and Derecho as well as how to run with alternate sets of compute resources.
 
 Additional applications will be provided through Open OnDemand over time and depending on community interest. Examples of applications built across the HPC community can be found at the [Open OnDemand Community Hub Appverse](https://openondemand.connectci.org/appverse).
 
