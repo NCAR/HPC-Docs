@@ -23,9 +23,9 @@ That’s all — really!
 
 ## We're here to help
 
-Having a problem? No worries! 
+Having a problem? No worries!
 
-Search through our comprehensive user documentation or contact the [Help Desk](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) — our team of live 
+Search through our comprehensive user documentation or contact the [Help Desk](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) — our team of live
 consultants are happy to communicate with you personally to solve your problem.
 
 Getting back on track is quick and easy!
@@ -74,7 +74,9 @@ The `-X` is optional and requests simple `X11` graphics forwarding to your clien
 ---
 
 ## New User Resources
-* [New User Orientation](../tutorials/new-user-training.md)
-* [New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
+* [New User Training](../tutorials/new-user-training.md)
+* [Video - New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
 * [Getting Started on Derecho](../compute-systems/derecho/index.md)
 * [Getting Started on Casper](../compute-systems/casper/index.md)
+
+<iframe src="https://docs.google.com/presentation/d/1n6uu1dWlYWXS21ia4Qlreuzar-9XYgHldlT2lBlLSns/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="836" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

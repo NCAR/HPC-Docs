@@ -1,7 +1,6 @@
 
 This page is intended to provide a high-level comparison of Derecho to Cheyenne, particularly for users comfortable with Cheyenne operations and looking for a reference guide for transitioning workflows.
 
-
 ## Processes & Procedures for Derecho vs. Cheyenne
 
 - **Allocations**: Users must have a project allocation to use Derecho.  Derecho CPU and GPU resources are allocated as separate entities.
@@ -136,7 +135,7 @@ This page is intended to provide a high-level comparison of Derecho to Cheyenne,
 
 - <strong><tt>cron</tt></strong> **automation**: Some users leverage `cron` on Cheyenne to automate workflows. NCAR/CISL has deployed a new `cron` service independent of the HPC systems. This separated, high-availability solution allows us to perform maintenance on the HPC resources while not interrupting `cron` workflows that can tolerate the downtime. Additional details are [here](../additional-resources/cron.md).
 
-## Going Further
+## 2023 Transition from Cheyenne to Derecho (Slides)
 
 Much more information on Derecho hardware, software, and general user
 environment can be found in the
