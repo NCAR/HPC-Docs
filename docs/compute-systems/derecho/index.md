@@ -89,7 +89,7 @@ Derecho users have access to Intel, NVIDIA, GNU, and Cray compilers. The **Intel
 
 See this page for [a full discussion of compiling on Derecho](./compiling-code-on-derecho/index.md).
 
-Many Derecho AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+Many Derecho AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/package-managers/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/package-managers/conda.md#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
 
 -----
 
@@ -118,13 +118,6 @@ Users already familiar with PBS and batch submission may find [Derecho-specific 
 |**HPE Slingshot v11 high-speed interconnect**|Dragonfly topology, 200 Gb/sec per port per direction<br>1\.7-2.6 usec MPI latency<br>CPU-only nodes - one Slingshot injection port<br>GPU nodes - 4 Slingshot injection ports per node|
 |**~3.5 times Cheyenne computational capacity**|Comparison based on the relative performance of CISL's High Performance Computing Benchmarks run on each system.|
 |**> 3.5 times Cheyenne peak performance**|19\.87 peak petaflops (vs 5.34)|
-
-
----
-
-## Introducing the Derecho Supercomputer (Slides)
-
-<iframe src="https://docs.google.com/presentation/d/1ExiYUd6sHNwIQmCoR7aTGZavxjHglDRUDQTeOiHYLQI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="836" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ---
 
