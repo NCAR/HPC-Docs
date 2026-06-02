@@ -1,7 +1,7 @@
 ### Introduction to the NSF NCAR Supercomputer Resources
 #### Presented on Friday, May 22, 2026
 
-A [jupyter notebook](https://github.com/NCAR/Intro-to-HPC/blob/main/01_First_NCAR_Job/job_submission.ipynb) is also provided to provide a step by step process for run your first NSF NCAR HPC job submission. Feel free to clone the repository to follow along.
+A [jupyter notebook](https://github.com/NCAR/Intro-to-HPC/blob/main/01_First_NCAR_Job/job_submission.ipynb) is also provided to provide a step by step process for running your first NSF NCAR HPC job submissions. Feel free to clone the repository to follow along.
 
 ```bash
 git clone https://github.com/NCAR/Intro-to-HPC.git
