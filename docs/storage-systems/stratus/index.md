@@ -1,7 +1,7 @@
 # Stratus object storage system
 
 !!! warning
-  The Stratus object storage system is deprecated and no longer available. Please refer to the [Boreas object storage system](../boreas/index.md] which replaced this service.
+    The Stratus object storage system is deprecated and no longer available. Please refer to the [Boreas object storage system](../boreas/index.md] which replaced this service.
 
 Stratus, the CISL object storage disk system described here, is for
 long-term data storage. Stratus is not available for university projects.
