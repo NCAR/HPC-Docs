@@ -7,5 +7,5 @@ branches:
   name: cirrus-kmh
 - imageTag: 74f714d
   name: cirrus-varsha-traefik
-- imageTag: be32d04
+- imageTag: 69e9f8a
   name: main
