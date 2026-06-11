@@ -1,6 +1,7 @@
 # Boreas object storage system
 
-!!!info "About this page" This document describes the Boreas S3-compatible object storage platform, including its underlying architecture, performance capabilities, networking, and access control models. It explains supported access methods using S3 APIs and Globus, as well as operational policies and account provisioning. Boreas is operated by CISL and restricted to approved use cases.
+!!! info "About this page" 
+    This document describes the Boreas S3-compatible object storage platform, including its underlying architecture, performance capabilities, networking, and access control models. It explains supported access methods using S3 APIs and Globus, as well as operational policies and account provisioning. Boreas is operated by CISL and restricted to approved use cases.
 
 ## System overview
 
@@ -196,5 +197,4 @@ Refer to the NSF NCAR [Globus documentation](https://ncar-hpc-docs.readthedocs.i
 Contact CISL to request an account. You will be asked to:
 - Specify how much disk space you need.
 - Give a brief description (one sentence) of your intended use case.
-- Acknowledge that you will be the admin and will manage buckets and
-  users.
+- Acknowledge that you will be the admin and will manage buckets and users.
