@@ -2,7 +2,7 @@
 # Open OnDemand
 
 !!! warning
-    The Open OnDemand service was released for general users in May 2026 and additional features and services will be developed over time. Any issues or bugs should be reported to the [NSF NCAR Research Computing Help Desk](https://rchelp.ucar.edu).
+    The Open OnDemand service was released for general users in May 2026 and additional features and services will be developed over time. Any issues or bugs should be reported to the [NSF NCAR Research Computing Help Desk](https://rchelp.ucar.edu). Alternatively, feedback and suggestions for improvement of the Open OnDemand service may be submitted to [this Google form](https://docs.google.com/forms/d/1_BFW1PPzNeGjDwVjrdtrCTcLGH7DEvY8zJW758j6lG8/edit).
 
 [Open OnDemand (OOD)](https://www.openondemand.org/) is a web-based HPC portal that provides access to NSF NCAR's computing resources through an intuitive graphical user interface. Through OOD, users can:
 
@@ -63,4 +63,4 @@ Specific applications for classroom and educational purposes are also supported 
 
 To learn how to develop an OOD application, please see [Interactive Apps for Open OnDemand and Appverse](sandbox-apps-and-appverse.md).
 
-For general user for using Open OnDemand at NSF NCAR, reach out to the [Consulting Services Group User Support Team](../../user-support/index.md) or contact the [CISL Support Team](mailto:cislhelp@ucar.edu).
+For general user support regarding Open OnDemand at NSF NCAR, reach out to the [Consulting Services Group User Support Team](../../user-support/index.md) or contact the [CISL Support Team](mailto:cislhelp@ucar.edu).
