@@ -153,7 +153,7 @@ nav:
     - Quasar (Tape Storage):
       - storage-systems/quasar/index.md
       - Quasar system specifications : storage-systems/quasar/quasar+system+specifications.md
-    - Stratus (Object Storage): storage-systems/stratus/index.md
+    - Boreas (Object Storage): storage-systems/boreas/index.md
     - Transferring Data:
       - storage-systems/data-transfer/index.md
       - Globus:
