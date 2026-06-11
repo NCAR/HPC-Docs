@@ -195,6 +195,7 @@ Refer to the NSF NCAR [Globus documentation](https://ncar-hpc-docs.readthedocs.i
 ## Requesting account
 
 Contact CISL to request an account. You will be asked to:
+
 - Specify how much disk space you need.
 - Give a brief description (one sentence) of your intended use case.
 - Acknowledge that you will be the admin and will manage buckets and users.
