@@ -1,7 +1,7 @@
 # How to compile and conduct a basic WRF on Derecho 
 
 !!! info "About this page"
-    This documentation provides information on how to download and compile WRF and WPS on NSF NCAR Derecho. Users may also reference the NSF NCAR [MMM Laboratory documentation for building WRF and WPS on Derecho](https://www2.mmm.ucar.edu/wrf/users/using_derecho.html).
+    This documentation provides information on how to download and compile [WRF](https://www.mmm.ucar.edu/models/wrf) and [WPS](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/wps.html) on NSF NCAR Derecho. Users may also reference the NSF NCAR [MMM Laboratory documentation for building WRF and WPS on Derecho](https://www2.mmm.ucar.edu/wrf/users/using_derecho.html).
     Also, an example of a PBS script is provided to help new users get an idea of how to submit batch jobs efficiently on the system, including setting resource requests, loading modules, and launching the WRF executable.
 
 !!! warn "WRF Long Term Support"
