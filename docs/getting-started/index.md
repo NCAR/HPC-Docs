@@ -15,7 +15,7 @@ That’s all — really!
 * Visit the [allocations](https://arc.ucar.edu/xras_submit/opportunities) page on the [ARC Portal](https://arc.ucar.edu/).
 * Make sure you are signed in, or create a new profile.
 * Click [Opportunities](https://arc.ucar.edu/xras_submit/opportunities).
-* Select a project type. You may refer to [project type descriptions](https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/).
+* Select a project type. You may refer to [project type descriptions](../allocations/index.md).
 * Fill out a brief request form with information about your project.
 * Our team will review your request — most requests are approved within a day or two.
 * You can keep track of your request’s status through the [“My Allocations”](https://arc.ucar.edu/xras_submit/opportunities) tab.
@@ -26,7 +26,7 @@ That’s all — really!
 Having a problem? No worries!
 
 Search through our comprehensive user documentation or contact the [Help Desk](https://ithelp.ucar.edu/plugins/servlet/desk/site/rc) — our team of live
-consultants are happy to communicate with you personally to solve your problem.
+consultants are happy to communicate with you personally to solve your problem. More details on our support offerings, including in-person and video consultation calls, may found on the page [HPC Consulting Services](../user-support/index.md).
 
 Getting back on track is quick and easy!
 
@@ -64,9 +64,7 @@ To log in, start your terminal or Secure Shell client and run an `ssh` command a
 
 After running the `ssh` command, you will be asked to authenticate to finish logging in.
 
-
 The `-X` is optional and requests simple `X11` graphics forwarding to your client.  You can omit `username` in the command above if your Casper username is the same as your  username on your local computer.
-
 
 !!! tip
     Some users (particularly on Macs) need to use -Y instead of -X when calling ssh to enable X11 forwarding.
@@ -74,7 +72,8 @@ The `-X` is optional and requests simple `X11` graphics forwarding to your clien
 ---
 
 ## New User Resources
-* [New User Training](../tutorials/new-user-training.md)
+
+* [New User Training Tutorial](./tutorials/new-user-training.md) - Includes archived slides and interactive notebook exercises.
 * [Video - New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
 * [Getting Started on Derecho](../compute-systems/derecho/index.md)
 * [Getting Started on Casper](../compute-systems/casper/index.md)
