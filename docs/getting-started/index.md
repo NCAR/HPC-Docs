@@ -35,12 +35,12 @@ Getting back on track is quick and easy!
 
 Once you are authorized to use NSF NCAR compute and storage resources, and you have [an account](./accounts/index.md) and the [necessary software](../environment-and-software/index.md), you can follow the procedures described below to log in.
 
-These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NSF NCAR resources unless otherwise noted:
+These documentation pages, which can be navigated using the table of contents or the search bar, provide information on compiling your code, submitting jobs, and performing other common tasks on all NSF NCAR computing resources. Some important pages are listed below:
 
+* [Managing Your Resource Allocation](../allocations/index.md)
 * Compiling Code on [Derecho](../compute-systems/derecho/compiling-code-on-derecho/index.md) or [Casper](../compute-systems/casper/compiling-code-on-casper/index.md)
 * Understanding and Customizing your [User and Software Environment](../environment-and-software/index.md )
 * [Starting and Managing Jobs with PBS](../pbs/index.md)
-* [Managing Your Resource Allocation](../allocations/index.md)
 
 ---
 
@@ -73,7 +73,7 @@ The `-X` is optional and requests simple `X11` graphics forwarding to your clien
 
 ## New User Resources
 
-* [New User Training Tutorial](./tutorials/new-user-training.md) - Includes archived slides and interactive notebook exercises.
+* [New User Training Tutorial](./tutorials-and-calendar/new-user-training.md) - Includes archived slides and interactive notebook exercises.
 * [Video - New User Training for HPC Systems](https://www.youtube.com/watch?v=CK5Hcl2eEj4)
 * [Getting Started on Derecho](../compute-systems/derecho/index.md)
 * [Getting Started on Casper](../compute-systems/casper/index.md)
