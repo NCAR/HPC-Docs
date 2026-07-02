@@ -60,22 +60,24 @@ nav:
     - VPN access : getting-started/vpn-access.md
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md
-    - Tutorials:
-      - getting-started/tutorials/index.md
-      - New User Training: getting-started/tutorials/new-user-training.md
-      - Dask Tutorial: getting-started/tutorials/dask-tutorial.md
-      - Profiling and Debugging: getting-started/tutorials/profiling-and-debugging.md
-      - Managing Permissions and Data Sharing: getting-started/tutorials/permissions-and-data-sharing.md
-      - Using Globus v5: getting-started/tutorials/globus.md
-      - NCAR Storage Spaces: getting-started/tutorials/storage.md
-      - JupyterHub:  getting-started/tutorials/jupyterhub.md
-      - Remote Desktop Services: getting-started/tutorials/remote-desktops.md
-#     - Containers: getting-started/tutorials/containers.md
-#     - GPU Workshop: getting-started/tutorials/gpu-workshop.md
+    - Tutorial Archive and Events Calendar:
+      - getting-started/tutorials-and-calendar/index.md
+      - New User Training: getting-started/tutorials-and-calendar/new-user-training.md
+      - Dask Tutorial: getting-started/tutorials-and-calendar/dask-tutorial.md
+      - Profiling and Debugging: getting-started/tutorials-and-calendar/profiling-and-debugging.md
+      - Managing Permissions and Data Sharing: getting-started/tutorials-and-calendar/permissions-and-data-sharing.md
+      - Using Globus v5: getting-started/tutorials-and-calendar/globus.md
+      - NCAR Storage Spaces: getting-started/tutorials-and-calendar/storage.md
+      - JupyterHub:  getting-started/tutorials-and-calendar/jupyterhub.md
+      - Remote Desktop Services: getting-started/tutorials-and-calendar/remote-desktops.md
+#     - Containers: getting-started/tutorials-and-calendar/containers.md
+#     - GPU Workshop: getting-started/tutorials-and-calendar/gpu-workshop.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
   - Getting Help:
     - user-support/index.md
+    - NCAR HPC Users Group (NHUG): user-support/nhug.md
+    - NHUG and NCAR Compute and Data Commons Slack: https://ncarhpcusergroup.slack.com/
 #   - Troubleshooting Tips:
 #     - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
 #     - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
@@ -216,9 +218,6 @@ nav:
       - environment-and-software/benchmarks/index.md
       - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
       - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
-
-  - NCAR User Group (NHUG):
-    - nhug/index.md
 
   - Contributing to the Documentation:
     - contributing/index.md
