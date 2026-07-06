@@ -111,6 +111,8 @@ nav:
         - GPU Use: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-gpu.md
         - Dask: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-dask.md
         - Binder: compute-systems/cirrus/guides/06-jupyter-on-cirrus/binderhub.md
+      - Functions as a Service:
+        - compute-systems/cirrus/guides/12-faas/faas.md
       - Secret Manager: compute-systems/cirrus/guides/07-secret-manager/openbao.md
       - Frequent Issues: compute-systems/cirrus/guides/08-frequent-issues/index.md
       - Service Level Agreements: compute-systems/cirrus/guides/09-service-level-agreements/slas.md
