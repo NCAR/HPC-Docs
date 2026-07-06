@@ -36,7 +36,7 @@ completion; supply your project code with `-A` or the `PBS_ACCOUNT`
 environment variable. For interactive development on a compute node, the
 assistant can instead work inside a `qinteractive` session. See
 [Submitting your first job](../pbs/index.md#submitting-your-first-job)
-for `qcmd`, `qinteractive`, and `qsub`. The example configuration file
+for `qcmd`, `qinteractive`, and `qsub`. The example configuration file ([AGENTS.md](#example-agentsmd-file))
 below encodes this rule.
 
 ## Require approval before the assistant runs commands
