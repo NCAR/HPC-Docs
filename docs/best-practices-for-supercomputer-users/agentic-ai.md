@@ -12,7 +12,7 @@ users.
 
 ## Schedule heavy commands rather than running them on a login node
 
-Light use of an assistant on a login node is fine. Use case such as editing files,
+Light use of an assistant on a login node is fine. Use cases such as editing files,
 inspecting code, small serial scripts, and short builds are all
 appropriate, just as they are for any login-node work. The problem is
 that assistants readily reach for heavier operations: long compilations,
