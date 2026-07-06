@@ -87,7 +87,7 @@ Lastly we add in whatever commands we need to run the application. In this simpl
 
 The three commands to submit a job are as follows:
 
-#### qsub
+#### `qsub`
 `qsub` submits a script to the job scheduler. Normally, this command is the fundamental building block for all PBS job submission. On NCAR HPC systems, it is primarily used for batch jobs.
 
 ```
@@ -103,7 +103,7 @@ qsub -A <your-account> -l walltime=00:10:00 <your-job-script>
 
 PBS commands are share among NCAR HPC Systems, but specific directive values will vary. Check out the more extensive [job scripts](./job-scripts/index.md) documentation for more information.
 
-#### qcmd
+#### `qcmd`
 `qcmd` is an NCAR provided submission command that submits a single command to the job scheduler and waits for the jobs completion. This command is great for smaller tasks that would be CPU or memory constrained on a login node.
 
 ```
@@ -112,9 +112,9 @@ qcmd <PBS-Directives> -- <your-command>
 
 By default, `qcmd` will request a single node with 32 cores on the `develop` queue. An account must be provided at run time or through the `PBS_ACCOUNT` environment variable.
 
-#### `qinteractive`
+#### `qinteractive` and `execcasper`
 
-`qinteractive` is an another NCAR provided submission command that provides a convenient way to start an interactive job. By default, when you run `qinteractive` on Casper, it starts an interactive job with 1 CPU and 10GB of memory. On Derecho, `qinteractive` starts an interactive job with 32 CPUs and 55GB of memory on the `develop` queue.
+`qinteractive` is an another NCAR provided submission command that provides a convenient way to start an interactive job. By default, when you run `qinteractive` on Casper, it starts an interactive job with 1 CPU and 10GB of memory. On Derecho, `qinteractive` starts an interactive job with 32 CPUs and 55GB of memory on the `develop` queue. You can also run `execcasper` from either Derecho or Casper and the submission command will run as if `qinteractive` was run on Casper, creating an interactive job on a Casper node with 1 CPU and 10GB of memory.
 
 The following example shows how to start an interactive job on either Derecho or Casper :
 
