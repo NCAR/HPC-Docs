@@ -125,7 +125,7 @@ The example below is a starting point you can copy into a `CLAUDE.md` or
 !!! tip
     To support multiple tools from a single source, keep the content in
     `AGENTS.md` and make `CLAUDE.md` a symlink to it, or have `CLAUDE.md`
-    contain a single line importing it.
+    contain a single line importing it using the syntax `@path/to/AGENTS.md`.
 
 ## Example `AGENTS.md` file
 
