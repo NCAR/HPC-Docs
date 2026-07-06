@@ -105,8 +105,8 @@ would for any large run.
 Assistants read files in their working directory and may transmit that
 content to a cloud model. Do not run an assistant in a directory that
 contains SSH private keys, API tokens, passwords, or restricted or
-embargoed data. Keep secrets in environment variables or a secrets
-store rather than in tracked files and tell the assistant which paths
+embargoed data. Instruct the assistant to keep secrets in environment variables or a secrets
+store rather than in tracked files, and tell it which paths
 to ignore.
 
 ## Give the assistant project context with an `AGENTS.md` file
