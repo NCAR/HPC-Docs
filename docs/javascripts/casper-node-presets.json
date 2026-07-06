@@ -1,0 +1,434 @@
+{
+  "queues": [
+    {
+      "value": "develop",
+      "label": "develop"
+    },
+    {
+      "value": "htc",
+      "label": "htc"
+    },
+    {
+      "value": "largemem",
+      "label": "largemem"
+    },
+    {
+      "value": "vis",
+      "label": "vis"
+    },
+    {
+      "value": "nvgpu",
+      "label": "nvgpu"
+    },
+    {
+      "value": "amdgpu",
+      "label": "amdgpu"
+    }
+  ],
+  "nodeTypes": [
+    {
+      "value": "gp100-vis",
+      "label": "Data & visualization / GP100",
+      "family": "vis",
+      "queue": "vis",
+      "gpuMode": "single",
+      "mpiprocsEnabled": false,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuType",
+            "operator": "===",
+            "value": "l40"
+          },
+          "queue": "vis",
+          "message": "This targets a visualization node, so the \"vis\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 36,
+      "maxMem": 354,
+      "nodeCount": 9,
+      "gpuType": "gp100",
+      "gpuLabel": "NVIDIA GP100 \u2022 16 GB",
+      "cpuSummary": "Intel Skylake \u2022 36 cores \u2022 2.3 GHz",
+      "gpuSummary": "1\u00d7 NVIDIA GP100 \u2022 16 GB",
+      "memorySummary": "354 GB RAM",
+      "nodeSummary": "9"
+    },
+    {
+      "value": "l40-vis",
+      "label": "Data & visualization / L40",
+      "family": "vis",
+      "queue": "vis",
+      "gpuMode": "single",
+      "mpiprocsEnabled": false,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuType",
+            "operator": "===",
+            "value": "l40"
+          },
+          "queue": "vis",
+          "message": "This targets a visualization node, so the \"vis\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 48,
+      "maxMem": 732,
+      "nodeCount": 6,
+      "gpuType": "l40",
+      "gpuLabel": "NVIDIA L40 \u2022 48 GB",
+      "cpuSummary": "AMD EPYC 9474F \u2022 48 cores \u2022 3.6 GHz",
+      "gpuSummary": "1\u00d7 NVIDIA L40 \u2022 48 GB",
+      "memorySummary": "732 GB RAM",
+      "nodeSummary": "6"
+    },
+    {
+      "value": "genoa-htc",
+      "label": "High-throughput / AMD Genoa",
+      "family": "cpu",
+      "queue": "htc",
+      "gpuMode": "none",
+      "mpiprocsEnabled": false,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "memPerNode",
+            "operator": ">",
+            "value": 733
+          },
+          "queue": "largemem",
+          "message": "Memory above 733 GB usually means the \"largemem\" queue. This helps match large-memory jobs to the right resources."
+        }
+      ],
+      "maxCpus": 62,
+      "maxMem": 732,
+      "nodeCount": 64,
+      "gpuType": "",
+      "gpuLabel": "No GPU",
+      "cpuSummary": "AMD Genoa \u2022 62 cores \u2022 3.1 GHz",
+      "gpuSummary": "No GPU",
+      "memorySummary": "732 GB RAM",
+      "nodeSummary": "64",
+      "cpuType": "genoa"
+    },
+    {
+      "value": "cascadelake-htc",
+      "label": "High-throughput / Intel Cascade Lake",
+      "family": "cpu",
+      "queue": "htc",
+      "gpuMode": "none",
+      "mpiprocsEnabled": false,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "memPerNode",
+            "operator": ">",
+            "value": 733
+          },
+          "queue": "largemem",
+          "message": "Memory above 733 GB usually means the \"largemem\" queue. This helps match large-memory jobs to the right resources."
+        }
+      ],
+      "maxCpus": 34,
+      "maxMem": 354,
+      "nodeCount": 50,
+      "gpuType": "",
+      "gpuLabel": "No GPU",
+      "cpuSummary": "Intel Cascade Lake \u2022 34 cores \u2022 2.6 GHz",
+      "gpuSummary": "No GPU",
+      "memorySummary": "354 GB RAM",
+      "nodeSummary": "50",
+      "cpuType": "cascadelake"
+    },
+    {
+      "value": "skylake-htc",
+      "label": "High-throughput / Intel Skylake",
+      "family": "cpu",
+      "queue": "htc",
+      "gpuMode": "none",
+      "mpiprocsEnabled": false,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "memPerNode",
+            "operator": ">",
+            "value": 733
+          },
+          "queue": "largemem",
+          "message": "Memory above 733 GB usually means the \"largemem\" queue. This helps match large-memory jobs to the right resources."
+        }
+      ],
+      "maxCpus": 36,
+      "maxMem": 354,
+      "nodeCount": 4,
+      "gpuType": "",
+      "gpuLabel": "No GPU",
+      "cpuSummary": "Intel Skylake \u2022 36 cores \u2022 2.3 GHz",
+      "gpuSummary": "No GPU",
+      "memorySummary": "354 GB RAM",
+      "nodeSummary": "4",
+      "cpuType": "skylake"
+    },
+    {
+      "value": "genoa-largemem",
+      "label": "Large memory / AMD Genoa",
+      "family": "large-memory",
+      "queue": "largemem",
+      "gpuMode": "none",
+      "mpiprocsEnabled": false,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "memPerNode",
+            "operator": "<=",
+            "value": 733
+          },
+          "queue": "htc",
+          "message": "This request uses a large-memory node type, but the memory request is below the usual large-memory routing threshold."
+        }
+      ],
+      "maxCpus": 64,
+      "maxMem": 1488,
+      "nodeCount": 6,
+      "gpuType": "",
+      "gpuLabel": "No GPU",
+      "cpuSummary": "AMD Genoa \u2022 64 cores \u2022 3.1 GHz",
+      "gpuSummary": "No GPU",
+      "memorySummary": "1.5 TB RAM",
+      "nodeSummary": "6",
+      "cpuType": "genoa"
+    },
+    {
+      "value": "cascadelake-largemem",
+      "label": "Large memory / Intel Cascade Lake",
+      "family": "large-memory",
+      "queue": "largemem",
+      "gpuMode": "none",
+      "mpiprocsEnabled": false,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "memPerNode",
+            "operator": "<=",
+            "value": 733
+          },
+          "queue": "htc",
+          "message": "This request uses a large-memory node type, but the memory request is below the usual large-memory routing threshold."
+        }
+      ],
+      "maxCpus": 36,
+      "maxMem": 1488,
+      "nodeCount": 2,
+      "gpuType": "",
+      "gpuLabel": "No GPU",
+      "cpuSummary": "Intel Cascade Lake \u2022 36 cores \u2022 2.3 GHz",
+      "gpuSummary": "No GPU",
+      "memorySummary": "1.5 TB RAM",
+      "nodeSummary": "2",
+      "cpuType": "cascadelake"
+    },
+    {
+      "value": "a100-80gb",
+      "label": "ML / GPGPU / A100 80GB",
+      "family": "gpu",
+      "queue": "nvgpu",
+      "gpuMode": "multi",
+      "mpiprocsEnabled": true,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuCount",
+            "operator": ">=",
+            "value": 4
+          },
+          "queue": "nvgpu",
+          "message": "This targets NVIDIA GPU resources, so the \"nvgpu\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 128,
+      "maxMem": 985,
+      "nodeCount": 8,
+      "gpuType": "a100_80gb",
+      "gpuLabel": "NVIDIA A100 \u2022 80 GB each",
+      "cpuSummary": "AMD EPYC Milan \u2022 128 cores \u2022 2.45 GHz",
+      "gpuSummary": "4\u00d7 NVIDIA A100 \u2022 80 GB each",
+      "memorySummary": "985 GB RAM",
+      "nodeSummary": "8",
+      "defaultGpuCount": 4
+    },
+    {
+      "value": "h100",
+      "label": "ML / GPGPU / H100",
+      "family": "gpu",
+      "queue": "nvgpu",
+      "gpuMode": "multi",
+      "mpiprocsEnabled": true,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuCount",
+            "operator": ">=",
+            "value": 4
+          },
+          "queue": "nvgpu",
+          "message": "This targets NVIDIA GPU resources, so the \"nvgpu\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 64,
+      "maxMem": 985,
+      "nodeCount": 2,
+      "gpuType": "h100",
+      "gpuLabel": "NVIDIA H100 \u2022 80 GB each",
+      "cpuSummary": "Intel Xeon Gold (Sapphire Rapids) \u2022 64 cores \u2022 2.1 GHz",
+      "gpuSummary": "4\u00d7 NVIDIA H100 \u2022 80 GB each",
+      "memorySummary": "985 GB RAM",
+      "nodeSummary": "2",
+      "defaultGpuCount": 4
+    },
+    {
+      "value": "mi300a",
+      "label": "ML / GPGPU / MI300A",
+      "family": "mi300a",
+      "queue": "amdgpu",
+      "gpuMode": "multi",
+      "mpiprocsEnabled": true,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuCount",
+            "operator": ">=",
+            "value": 4
+          },
+          "queue": "amdgpu",
+          "message": "This targets AMD GPU resources, so the \"amdgpu\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 192,
+      "maxMem": 495,
+      "nodeCount": 2,
+      "gpuType": "mi300a",
+      "gpuLabel": "AMD MI300A \u2022 128 GB each",
+      "cpuSummary": "AMD MI300A \u2022 192 cores \u2022 3.7 GHz",
+      "gpuSummary": "4\u00d7 AMD MI300A \u2022 128 GB each",
+      "memorySummary": "495 GB RAM",
+      "nodeSummary": "2",
+      "defaultGpuCount": 4
+    },
+    {
+      "value": "v100-4way",
+      "label": "ML / GPGPU / V100 4-way",
+      "family": "gpu",
+      "queue": "nvgpu",
+      "gpuMode": "multi",
+      "mpiprocsEnabled": true,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuCount",
+            "operator": ">=",
+            "value": 4
+          },
+          "queue": "nvgpu",
+          "message": "This targets NVIDIA GPU resources, so the \"nvgpu\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 36,
+      "maxMem": 732,
+      "nodeCount": 2,
+      "gpuType": "v100_4way",
+      "gpuLabel": "NVIDIA V100 \u2022 32 GB each",
+      "cpuSummary": "Intel Cascade Lake \u2022 36 cores \u2022 2.6 GHz",
+      "gpuSummary": "4\u00d7 NVIDIA V100 \u2022 32 GB each",
+      "memorySummary": "732 GB RAM",
+      "nodeSummary": "2",
+      "defaultGpuCount": 4
+    },
+    {
+      "value": "skylake-v100-4way",
+      "label": "ML / GPGPU / V100 4-way (Skylake)",
+      "family": "gpu",
+      "queue": "nvgpu",
+      "gpuMode": "multi",
+      "mpiprocsEnabled": true,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuCount",
+            "operator": ">=",
+            "value": 4
+          },
+          "queue": "nvgpu",
+          "message": "This targets NVIDIA GPU resources, so the \"nvgpu\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 36,
+      "maxMem": 732,
+      "nodeCount": 1,
+      "gpuType": "v100_4way",
+      "gpuLabel": "NVIDIA V100 \u2022 32 GB each",
+      "cpuSummary": "Intel Skylake \u2022 36 cores \u2022 2.3 GHz",
+      "gpuSummary": "4\u00d7 NVIDIA V100 \u2022 32 GB each",
+      "memorySummary": "732 GB RAM",
+      "nodeSummary": "1",
+      "defaultGpuCount": 4
+    },
+    {
+      "value": "v100-8way",
+      "label": "ML / GPGPU / V100 8-way",
+      "family": "gpu",
+      "queue": "nvgpu",
+      "gpuMode": "multi",
+      "mpiprocsEnabled": true,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuCount",
+            "operator": ">=",
+            "value": 4
+          },
+          "queue": "nvgpu",
+          "message": "This targets NVIDIA GPU resources, so the \"nvgpu\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 36,
+      "maxMem": 1110,
+      "nodeCount": 2,
+      "gpuType": "v100_8way",
+      "gpuLabel": "NVIDIA V100 \u2022 32 GB each",
+      "cpuSummary": "Intel Cascade Lake \u2022 36 cores \u2022 2.6 GHz",
+      "gpuSummary": "8\u00d7 NVIDIA V100 \u2022 32 GB each",
+      "memorySummary": "1.1 TB RAM",
+      "nodeSummary": "2",
+      "defaultGpuCount": 8
+    },
+    {
+      "value": "skylake-v100-8way",
+      "label": "ML / GPGPU / V100 8-way (Skylake)",
+      "family": "gpu",
+      "queue": "nvgpu",
+      "gpuMode": "multi",
+      "mpiprocsEnabled": true,
+      "queueGuidance": [
+        {
+          "when": {
+            "field": "gpuCount",
+            "operator": ">=",
+            "value": 4
+          },
+          "queue": "nvgpu",
+          "message": "This targets NVIDIA GPU resources, so the \"nvgpu\" queue is usually the right fit."
+        }
+      ],
+      "maxCpus": 36,
+      "maxMem": 1110,
+      "nodeCount": 3,
+      "gpuType": "v100_8way",
+      "gpuLabel": "NVIDIA V100 \u2022 32 GB each",
+      "cpuSummary": "Intel Skylake \u2022 36 cores \u2022 2.3 GHz",
+      "gpuSummary": "8\u00d7 NVIDIA V100 \u2022 32 GB each",
+      "memorySummary": "1.1 TB RAM",
+      "nodeSummary": "3",
+      "defaultGpuCount": 8
+    }
+  ]
+}

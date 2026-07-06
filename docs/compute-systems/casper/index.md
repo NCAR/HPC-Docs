@@ -110,6 +110,8 @@ Users can run a variety of types of jobs on Casper, including both traditional
 Job scripts are discussed broadly [here](../../pbs/job-scripts/index.md).
 Users already familiar with PBS and batch submission may find [Casper-specific PBS job scripts](../../pbs/job-scripts/casper-job-script-examples.md) helpful in porting their work.
 
+If you are still learning which PBS resources to request, try the [Casper qsub command picker](./qsub-picker.md) to build a starting command for common queue and node combinations.
+
 ---
 
 ### NVMe node-local storage

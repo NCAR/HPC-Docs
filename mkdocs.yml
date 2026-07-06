@@ -85,6 +85,7 @@ nav:
       - Compiling Code on Casper: compute-systems/casper/compiling-code-on-casper/index.md
       - Using Remote Desktops: compute-systems/casper/remote-desktops.md
       - Casper Software: compute-systems/casper/casper-modules.md
+      - Casper qsub command picker: compute-systems/casper/qsub-picker.md
     - CIRRUS:
       - compute-systems/cirrus/guides/01-intro/index.md
       - Introduction: compute-systems/cirrus/guides/01-intro/index.md
@@ -225,6 +226,10 @@ INHERIT: theme.yml
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  - javascripts/casper-qsub-picker.js
+
+extra:
+  casper_node_presets_path: javascripts/casper-node-presets.json
 
 copyright: '&copy; 2023-2026 UCAR, Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>.'
 
