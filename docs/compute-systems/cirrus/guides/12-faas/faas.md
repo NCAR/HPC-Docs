@@ -71,7 +71,7 @@ fission fn create --name hello --env python --code hello.py -n <your-namespace>
 
 #### **With pip dependencies**
 
-Functions with pip dependencies can use Fission's builder. Read the official [fission packages](https://fission.io/docs/usage/function/package/) documentation. Letting fission build the environment is preferred if the package is simple and doesn't require any complex packages. If you are using a more complex environemnt with additional libraries or conda packages it is recommended to build your environment runtime image separately and use that instead of relying on the builder. 
+Functions with pip dependencies can use Fission's builder. Read the official [fission packages](https://fission.io/docs/usage/function/package/) documentation. Letting fission build the environment is preferred if the package is simple and doesn't require any complex packages. If you are using a more complex environment with additional libraries or conda packages it is recommended to build your environment runtime image separately and use that instead of relying on the builder. 
 
 Create your function file (e.g. `myfunc.py` — don't name it after a package you import) and a `requirements.txt`, then:
 
