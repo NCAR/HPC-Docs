@@ -109,6 +109,6 @@ fission route create --function hello --name hello --url /<username>/hello \
 
 ### Test and troubleshoot
 
-You can use `fission (env|fn|route|pkg) list` to view objects. To test the hello-world function use your browser to access `https://fn.k8s.ucar.edu/hello-<username>`.
+You can use `fission (env|fn|route|pkg) list` to view objects. To test the hello-world function use your browser to access `https://fn.k8s.ucar.edu/<username>/hello`.
 
 If for some reason the URL returns a `404 page not found` error use `fission route list` to check the status of the route. If the value in the `READY` column is not True check to make sure everything got deployed to your assigned namespace. If that all looks right and it still doesn't work, create a [New Issue](https://jira.ucar.edu/secure/CreateIssueDetails!init.jspa?pid=18470&issuetype=10903&customfield_10281=CCPP-108) in Jira and a CIRRUS team member will reach out to get it working.
