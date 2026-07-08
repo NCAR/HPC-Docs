@@ -71,7 +71,9 @@ fission fn create --name hello --env python --code hello.py -n <your-namespace>
 
 #### **With pip dependencies**
 
-Functions with pip dependencies use Fission's builder. Create your function file (e.g. `myfunc.py` — don't name it after a package you import) and a `requirements.txt`, then:
+Functions with pip dependencies can use Fission's builder. Read the official [fission packages](https://fission.io/docs/usage/function/package/) documentation. Letting fission build the environment is preferred if the package is simple and doesn't require any complex packages. If you are using a more complex environemnt with additional libraries or conda packages it is recommended to build your environment runtime image separately and use that instead of relying on the builder. 
+
+Create your function file (e.g. `myfunc.py` — don't name it after a package you import) and a `requirements.txt`, then:
 
 ```
 zip -r src.zip myfunc.py requirements.txt
@@ -102,6 +104,8 @@ fission route create --function hello --name hello --url /<username>/hello \
     so a route stuck at `False` with no other errors usually means the path
     is taken. Pick a different path (`fission route delete --name <route-name>`,
     then recreate with a new `--url`).
+
+    You can create functions under a custom url but that will require additional kubernetes objects (gateway api) to work.
 
 ### Test and troubleshoot
 
