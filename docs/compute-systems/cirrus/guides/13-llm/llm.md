@@ -11,7 +11,7 @@ This guide covers how to access and use Large Language Model (LLM) services on t
 
 ## Accessing LLMs via Open WebUI
 
-The LLM service is accessible through Open WebUI at [https://llm.k8s.ucar.edu](https://llm.k8s.ucar.edu).
+The LLM service is accessible while on the UCAR network or VPN through Open WebUI at [https://llm.k8s.ucar.edu](https://llm.k8s.ucar.edu).
 
 ### Step 1: Access the Web Interface
 
@@ -74,12 +74,14 @@ On the following screen setup it as follows, the API key can be any string of ch
 2. Send a simple message like "Hello"
 3. Verify you receive a response from the model
 
-[!WARNING]
->The use of LLM agents that have permissions to read, edit, and execute commands can be dangerous. Cline has two modes, "plan" and "act" which can be toggled on the bottom of the chat window. Use plan mode to start planning your changes and get a summary of what it will do before letting the model make any changes. On the bottom of the chat window is a eay to easily access permissions that cline has without prompting for your input. Cline can and will with the correct instruction run builds, makes, tests, edits, repeat...
->A few best practice items:
->1. Have your VSCode window only have the project files open that you need. Don't let it run on your whole home directory or other large areas.
->2. In your VSCode terminal do not let the session have privileged access. If your session is sudo'd to root then cline would run commands as root.
->3. If your CLI session has access to CIRRUS it could start executing helm commands (if that is something you are working on) and depending on your shell, kubectl, and helm config it could start running commands that affect a production deployment in CIRRUS.
+!!! warning
+    The use of LLM agents that have permissions to read, edit, and execute commands can be dangerous. Cline has two modes, "plan" and "act" which can be toggled on the bottom of the chat window. Use plan mode to start planning your changes and get a summary of what it will do before letting the model make any changes. On the bottom of the chat window is a eay to easily access permissions that cline has without prompting for your input. Cline can and will with the correct instruction run builds, makes, tests, edits, repeat...
+
+    A few best practice items:
+    
+      1. Have your VSCode window only have the project files open that you need. Don't let it run on your whole home directory or other large areas.
+      2. In your VSCode terminal do not let the session have privileged access. If your session is sudo'd to root then cline would run commands as root.
+      3. If your CLI session has access to CIRRUS it could start executing helm commands (if that is something you are working on) and depending on your shell, kubectl, and helm config it could start running commands that affect a production deployment in CIRRUS.
 
 ### Troubleshooting
 
