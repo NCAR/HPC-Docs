@@ -7,7 +7,7 @@ branches:
   name: cirrus-faas
 - imageTag: 68bf840
   name: cirrus-kmh
-- imageTag: e8b6c20
+- imageTag: b956606
   name: cirrus-llm
 - imageTag: 74f714d
   name: cirrus-varsha-traefik
