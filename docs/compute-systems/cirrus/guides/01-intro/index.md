@@ -405,7 +405,7 @@ CIRRUS operates on **18 high-performance nodes**, split between Mesa Lab & NWSC,
 
 Ready to deploy on CIRRUS? Here's your path forward:
 
-1. **Review** the [service level agreements](../08-service-level-agreements/slas.md)
+1. **Review** the [service level agreements](../09-service-level-agreements/slas.md)
 2. **Containerize** your application using our [create containers](../03-deploying-applications/containerize.md)
 3. **Submit** a deployment request via our [create tickets](../02-interact-with-cirrus-team/create-tickets.md)
 4. **Deploy** using our GitOps workflow with Helm charts
