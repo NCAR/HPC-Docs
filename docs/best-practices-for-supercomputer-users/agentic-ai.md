@@ -10,6 +10,15 @@ allocation. You remain fully responsible for the assistant's actions.
 The practices below help you use these tools without disrupting other
 users.
 
+## Require approval before the assistant runs commands
+
+Most assistants offer an automatic or "auto-accept" mode that runs
+commands without asking. Do not use it on shared systems. Keeping a
+human in the loop for shell commands lets you catch a runaway `qsub`
+loop, a recursive delete, or a job that would consume a large portion of
+your allocation before it executes. Review proposed commands, and
+especially proposed job scripts, before approving them.
+
 ## Schedule heavy commands rather than running them on a login node
 
 Light use of an assistant on a login node is fine. Use cases such as editing files,
@@ -24,29 +33,22 @@ a login node (see
 Instruct the assistant to schedule heavy commands instead of running
 them directly. The NCAR-provided `qcmd` command is well suited to this:
 it submits a single command as a batch job and waits for it to finish,
-so an assistant can use it as a drop-in wrapper for an expensive step.
+so an assistant can use it as a drop-in wrapper for an expensive step. Keep in mind that
+tasks agentic agents submit via `qcmd` will not be interactive and the agent process itself
+should not run in automatic mode via `qcmd`.
 
 ```bash
 # Run a heavy build on a batch node instead of the login node
 qcmd -A <PROJECT> -- make -j 4
 ```
 
-By default `qcmd` requests one node on the `develop` queue and waits for
+By default `qcmd` requests a shared node and 32 cores on the `develop` queue and waits for
 completion; supply your project code with `-A` or the `PBS_ACCOUNT`
 environment variable. For interactive development on a compute node, the
 assistant can instead work inside a `qinteractive` session. See
 [Submitting your first job](../pbs/index.md#submitting-your-first-job)
 for `qcmd`, `qinteractive`, and `qsub`. The example configuration file ([AGENTS.md](#example-agentsmd-file))
 below encodes this rule.
-
-## Require approval before the assistant runs commands
-
-Most assistants offer an automatic or "auto-accept" mode that runs
-commands without asking. Do not use it on shared systems. Keeping a
-human in the loop for shell commands lets you catch a runaway `qsub`
-loop, a recursive delete, or a job that would consume a large portion of
-your allocation before it executes. Review proposed commands, and
-especially proposed job scripts, before approving them.
 
 ## Protect shared file spaces and permissions
 
