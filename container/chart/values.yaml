@@ -11,5 +11,5 @@ branches:
   name: cirrus-llm
 - imageTag: 74f714d
   name: cirrus-varsha-traefik
-- imageTag: 820cca5
+- imageTag: fab4604
   name: main
