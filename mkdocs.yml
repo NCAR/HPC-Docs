@@ -60,15 +60,36 @@ nav:
     - VPN access : getting-started/vpn-access.md
     - System Usage Policies: getting-started/system-usage-policies.md
     - Data Retention Policies: getting-started/data-retention-policies.md
-    - Best Practices for Supercomputer Users: getting-started/best-practices-for-supercomputer-users.md
+    - Tutorial Archive and Events Calendar:
+      - getting-started/tutorials-and-calendar/index.md
+      - New User Training: getting-started/tutorials-and-calendar/new-user-training.md
+      - Dask Tutorial: getting-started/tutorials-and-calendar/dask-tutorial.md
+      - Profiling and Debugging: getting-started/tutorials-and-calendar/profiling-and-debugging.md
+      - Managing Permissions and Data Sharing: getting-started/tutorials-and-calendar/permissions-and-data-sharing.md
+      - Using Globus v5: getting-started/tutorials-and-calendar/globus.md
+      - NCAR Storage Spaces: getting-started/tutorials-and-calendar/storage.md
+      - JupyterHub:  getting-started/tutorials-and-calendar/jupyterhub.md
+      - Remote Desktop Services: getting-started/tutorials-and-calendar/remote-desktops.md
+#     - Containers: getting-started/tutorials-and-calendar/containers.md
+#     - GPU Workshop: getting-started/tutorials-and-calendar/gpu-workshop.md
     - Acknowledging NCAR and CISL: getting-started/acknowledging-ncar-and-cisl.md
 
   - Getting Help:
     - user-support/index.md
+    - NCAR HPC Users Group (NHUG): user-support/nhug.md
+    - NHUG and NCAR Compute and Data Commons Slack: https://ncarhpcusergroup.slack.com/
 #   - Troubleshooting Tips:
 #     - Killed processes on login nodes: user-support/troubleshooting-tips/killed-processes-on-login-nodes.md
 #     - Common causes of job failures: user-support/troubleshooting-tips/common-causes-of-job-failures.md
 #     - Batch jobs crashing: user-support/troubleshooting-tips/batch-job-crashing.md
+
+  - Best Practices for Supercomputer Users:
+    - best-practices-for-supercomputer-users/index.md
+    - Using Shared Resources:  best-practices-for-supercomputer-users/shared-resources.md
+    - Managing Allocations: best-practices-for-supercomputer-users/managing-allocations.md
+    - Writing Job Scripts: best-practices-for-supercomputer-users/job-scripts.md
+    - Managing Files: best-practices-for-supercomputer-users/managing-files.md
+    - Using Agentic Coding Assistants: best-practices-for-supercomputer-users/agentic-ai.md
 
   - Compute Systems and Services:
     - Derecho:
@@ -199,22 +220,6 @@ nav:
       - environment-and-software/benchmarks/index.md
       - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
       - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
-
-  - Tutorials:
-    - tutorials/index.md
-    - New User Training: tutorials/new-user-training.md
-    - Dask Tutorial: tutorials/dask-tutorial.md
-    - Profiling and Debugging: tutorials/profiling-and-debugging.md
-    - Managing Permissions and Data Sharing: tutorials/permissions-and-data-sharing.md
-    - Using Globus v5: tutorials/globus.md
-    - NCAR Storage Spaces: tutorials/storage.md
-    - JupyterHub:  tutorials/jupyterhub.md
-    - Remote Desktop Services: tutorials/remote-desktops.md
-#    - Containers: tutorials/containers.md
-#    - GPU Workshop: tutorials/gpu-workshop.md
-
-  - NCAR User Group (NHUG):
-    - nhug/index.md
 
   - Contributing to the Documentation:
     - contributing/index.md
