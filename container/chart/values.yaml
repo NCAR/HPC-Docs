@@ -9,6 +9,8 @@ branches:
   name: cirrus-kmh
 - imageTag: b956606
   name: cirrus-llm
+- imageTag: fd69a58
+  name: cirrus-mpi
 - imageTag: 74f714d
   name: cirrus-varsha-traefik
 - imageTag: fab4604
