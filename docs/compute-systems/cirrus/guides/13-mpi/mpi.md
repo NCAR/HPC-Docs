@@ -291,6 +291,7 @@ spec:
 For frameworks like PyTorch that need to know the cluster topology, use environment variables:
 
 ```yaml
+apiVersion: kubeflow.org/v2beta1
 kind: MPIJob
 metadata:
   name: mpi-gpu-job
@@ -403,7 +404,7 @@ spec:
                 - key: sshd
                   path: sshd_config
 ```
----
+
 
 ### Example 3: Running tensorflow multi node CPU only
 
@@ -483,9 +484,6 @@ spec:
               items:
                 - key: sshd
                   path: sshd_config
-```
-
-
             volumeMounts:
             - name: sshd
               mountPath: /root/.sshd_config
@@ -499,7 +497,6 @@ spec:
                 - key: sshd
                   path: .sshd_config
 ```
----
 
 ## Running Jobs from Within a Pod
 
