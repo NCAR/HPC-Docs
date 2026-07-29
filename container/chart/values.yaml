@@ -13,5 +13,5 @@ branches:
   name: cirrus-mpi
 - imageTag: 74f714d
   name: cirrus-varsha-traefik
-- imageTag: dcc2e5e
+- imageTag: 6ed1862
   name: main
