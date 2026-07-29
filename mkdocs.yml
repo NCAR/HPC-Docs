@@ -200,11 +200,11 @@ nav:
       - Example Workflows: environment-and-software/user-environment/containers/examples.md
 
   - HPC Software:
-    - environment-and-software/hpc-software/index.md
+    - environment-and-software/index.md
     - Community Models:
-        - environment-and-software/community-models.md
-        - Compiling WRF: environment-and-software/wrf_on_derecho.md
-        - Compiling WRF-Chem: environment-and-software/wrfchem_on_derecho.md
+        - environment-and-software/community-models/index.md
+        - Compiling WRF: environment-and-software/community-models/wrf_on_derecho.md
+        - Compiling WRF-Chem: environment-and-software/community-models/wrfchem_on_derecho.md
     - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
     - NCL : environment-and-software/ncl.md
     - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
