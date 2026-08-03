@@ -2,12 +2,10 @@
 <!-- OLD CONTENT REMOVE LATER -->
 <!-- OLD CONTENT REMOVE LATER -->
 
-
 # Getting started with an object storage admin account
 
 This page describes and shows how to get started as an admin for the
 Stratus object storage system.
-
 
 ## Using the web GUI to log into your S3 admin account
 
@@ -118,7 +116,7 @@ system. To grant permissions to public users, click on "Public
 Permissions" in the screen that was visited earlier and shown in Figure
 6.
 
-![](getting-started-with-an-object-storage-admin-account/media/image6.png) 
+![](getting-started-with-an-object-storage-admin-account/media/image6.png)
 
 *Figure 6.*
 

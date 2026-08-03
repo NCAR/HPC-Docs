@@ -51,6 +51,6 @@ necessary to ensure fair access for all users.
 Users share a limited number of licenses for running IDL, MATLAB,
 Mathematica, and some other applications. Be familiar with and follow
 the established
-[license-use guidelines](../environment-and-software/data-analysis-and-visualization.md) to
+[license-use guidelines](../environment-and-software/data-analysis-and-visualization/index.md) to
 ensure fair access for all users. CISL reserves the right to kill
 jobs/tasks of users who monopolize these licenses.

@@ -1,18 +1,18 @@
 # Using `Pixi` for Package Management
 
-NCAR system users can use [**`Pixi`**](https://pixi.sh/latest/), a fast, modern package manager written in Rust that builds on the Conda ecosystem. 
+NCAR system users can use [**`Pixi`**](https://pixi.sh/latest/), a fast, modern package manager written in Rust that builds on the Conda ecosystem.
 Pixi provides a project-based workflow for managing dependencies across Python, R, C/C++, Julia, and other languages, while offering significantly faster dependency resolution and environment creation than Conda.
 
 Pixi builds upon the foundation of the Conda ecosystem, but organizes dependencies around projects rather than user-level environments.
 
-Each project has its own directory with a configuration file (`pixi.toml` or `pyproject.toml`) and a lock file that pins exact package versions, making it easy to reproduce and share environments. 
+Each project has its own directory with a configuration file (`pixi.toml` or `pyproject.toml`) and a lock file that pins exact package versions, making it easy to reproduce and share environments.
 
 !!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
     Pixi uses the same package repositories as Conda (conda-forge, etc.)
     but with much faster dependency resolution and environment creation. If
     you currently use Conda and find it slow, Pixi may be an excellent
     alternative. For pure Python projects, consider `uv`
-    instead. 
+    instead.
 
 !!! abstract "To read more about `Pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
 
@@ -89,7 +89,7 @@ Now you can add packages to your project:
 pixi add python numpy pandas matplotlib xarray
 ```
 
-Each time you add packages, Pixi updates your `pixi.toml` file (or `pyproject.toml`) and creates or updates a `pixi.lock` file. 
+Each time you add packages, Pixi updates your `pixi.toml` file (or `pyproject.toml`) and creates or updates a `pixi.lock` file.
 
 This lock file pins exact versions of all packages and dependencies, ensuring anyone can reproduce
 your exact environment.
@@ -182,7 +182,7 @@ Because Pixi uses conda channels, the same packages are available across differe
 
 ## Using Pixi environments in Jupyter
 
-Pixi environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../compute-systems/jupyterhub/index.md) service.
+Pixi environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../../compute-systems/jupyterhub/index.md) service.
 
 First, add `ipykernel` to your Pixi project:
 
@@ -217,6 +217,6 @@ This registers the Pixi environment as a Jupyter kernel named `my-example-analys
 
 !!! abstract "Additional Resources"
     - [Pixi Official Documentation](https://pixi.sh/latest/)
-    - [Getting Started with Pixi](https://pixi.sh/latest/getting-started/)
-    - [Switching from Conda to Pixi](https://pixi.sh/latest/switching_from/conda/)
-    - [Browse Conda Packages](https://conda-metadata-app.streamlit.app/?q=conda-forge)
+    - [Getting Started with Pixi](https://pixi.prefix.dev/latest/getting_started/)
+    - [Switching from Conda to Pixi](https://pixi.prefix.dev/latest/switching_from/conda/)
+    - [Browse `conda-forge` Packages](https://conda-forge.org/packages/)

@@ -10,7 +10,7 @@ VSCode is available for NCAR issued laptops in the *Self Service* application or
 
 The Visual Studio Code Remote SSH extension allows you to connect to Derecho, Casper, and the GLADE filesystem. Once connected to a server, you can interact with files and folders anywhere on GLADE.  You can connect to the Derecho or Casper login nodes by following these steps:
 
-!!! example "Connecting to NCAR system login nodes" 
+!!! example "Connecting to NCAR system login nodes"
     === "Derecho"
 
         1. Press F1 and run the *Remote-SSH: Open SSH Host* command.
@@ -26,10 +26,10 @@ The Visual Studio Code Remote SSH extension allows you to connect to Derecho, Ca
         4. Accept the DUO Push request.
 
 
-!!! tip 
+!!! tip
     You can connect to recently used remote paths by creating a new window, tab, or the *File > Open Recent* dropdown and selecting it from the *Recent* list.
 
-!!! tip 
+!!! tip
     The *Open a Remote Window* button in the bottom left corner is an alternative to opening a remote server and shows the available remote connection options.  *Connect Current Window to Host* is a useful command to reload the session if you have been disconnected.
 
 
@@ -42,7 +42,7 @@ It may be necessary to first add Derecho or Casper if you have never connected t
 ssh -Y <user>@derecho.hpc.ucar.edu
 ```
 
-!!! danger 
+!!! danger
     Connecting to Derecho or Casper using VS Code Remote-SSH will place you on a login node.  Be respectful of users on this shared resource and do not launch computationally or memory intensive tasks while connected to the login nodes.  VS Code uses more memory than most processes running on the login nodes and you can easily be flagged for login node abuse by our automated systems.  If you are interested in using VS Code for more computationally or memory intensive applications then view the [Connecting to Compute Nodes](#connecting-to-compute-nodes) section to run on the compute nodes.
 
 ## Connecting to Compute Nodes
@@ -53,13 +53,13 @@ There are two methods to connect to Casper compute nodes from the login nodes.  
 
 #### qvscode
 
-The *qvscode* script starts a new VSCode session on a Casper compute node.  The script handles job resource assembly, compute node identification, and launching a new VSCode window onto the compute node allocated by the job. 
+The *qvscode* script starts a new VSCode session on a Casper compute node.  The script handles job resource assembly, compute node identification, and launching a new VSCode window onto the compute node allocated by the job.
 
 !!! info
     The qvscode script must be launched from a VSCode terminal that is connected to a Casper login node.
 
 The script can either take user input via terminal prompts or source a settings file to allocate resources for a compute node job.  The two modes available are:
-    
+
 - [Prompt mode](#prompt-mode): user inputs job resources manually via the terminal
 - [Settings mode](#settings-mode): qvscode pulls job resource information from a settings file with a specific format
 
@@ -86,45 +86,45 @@ A new VSCode window will launch on the compute node after user input or reading 
 !!! info
     Step 6 will not prompt you for a project code if you have PBS_ACCOUNT defined.
 
-!!! warning 
+!!! warning
     You *must* have a running VSCode Casper login session to launch the *qvscode* script. [Connect to a login node](#connecting-to-derecho-or-casper-login-nodes) and then launch the *qvscode* script from VSCode's built-in terminal.  This script will not work if you are connected to your local machine or launch it from outside of VSCode.
 
 ##### Operating Modes
 
-[Prompt Mode]($prompt-mode) will prompt the user for the values needed to launch the PBS job.  It contains default values to make launching a job faster.
+[Prompt Mode](#prompt-mode) will prompt the user for the values needed to launch the PBS job.  It contains default values to make launching a job faster.
 
-[Settings Mode]($settings-mode) reads in variables from a user defined settings file and quickly launches a compute node with these settings.  It requires a specific path and format.
+[Settings Mode](#settings-mode) reads in variables from a user defined settings file and quickly launches a compute node with these settings.  It requires a specific path and format.
 
 ###### Prompt Mode
 
-This mode will be used when the script does not find the file `.qvscode_settings` in your home directory or you use the bypass argument.  You will be prompted for the PBS select statement arguments. 
+This mode will be used when the script does not find the file `.qvscode_settings` in your home directory or you use the bypass argument.  You will be prompted for the PBS select statement arguments.
 
 ```
 bneuman@casper-login2:~> qvscode
 Submitting job to Casper
-Enter Project []: 
+Enter Project []:
 ```
 
-If you do not have a variable `PBS_ACCOUNT` setup then you will always be prompted to enter a valid project.  After the project prompt you will be asked if you would like to use the default values for the PBS select statements.  Answering 'N' to the default values prompts the user to enter variables for each of these basic job settings.  Note that the bracketed values are the default values and will be used if you do not enter any value when prompted.  
+If you do not have a variable `PBS_ACCOUNT` setup then you will always be prompted to enter a valid project.  After the project prompt you will be asked if you would like to use the default values for the PBS select statements.  Answering 'N' to the default values prompts the user to enter variables for each of these basic job settings.  Note that the bracketed values are the default values and will be used if you do not enter any value when prompted.
 
 The defaults for the basic settings are for a serial CPU session with values of:
 
 ```
 Account:  $PBS_ACCOUNT
-Nodes:    1         
-CPUs:     1         
-Memory:   10GB         
-GPUs:     0         
-Walltime: 02:00:00         
+Nodes:    1
+CPUs:     1
+Memory:   10GB
+GPUs:     0
+Walltime: 02:00:00
 Path:     $(pwd)
 ```
 
 After finishing the basic settings you will be prompted to enter advanced options.  The advanced options and defaults are:
 
 ```
-CPU Type:    
-GPU Type:    
-MPI Procs:   1   
+CPU Type:
+GPU Type:
+MPI Procs:   1
 OMP Threads: 1
 ```
 
@@ -219,17 +219,17 @@ Pressing `Ctrl+C` from the login node terminal will kill the PBS job and end you
 
 ##### Log Files and Other Considerations
 
-Log files are stored in `$SCRATCH/.qvscode_logs` and show the user arguments with job submission details. 
+Log files are stored in `$SCRATCH/.qvscode_logs` and show the user arguments with job submission details.
 
 #### Manual Job Submission and Connection
 
 You can connect to Casper compute node by launching your PBS job and then SSH directly into the compute node.  Derecho does not allow external connections to the compute nodes.  For connecting to Casper compute nodes, follow these steps:
 
 !!! example "Connecting to Casper compute nodes"
-    Please follow these steps to connect to a Casper compute nodes:  
-    1. Connect to a Casper login node using Remote-SSH.  
-    2. From the Terminal, launch an interactive job using `qsub -I` or use the [`qinteractive` command](../pbs/index.md#qinteractive).  
-    3. Identify the assigned compute node name.  
+    Please follow these steps to connect to a Casper compute nodes:
+    1. Connect to a Casper login node using Remote-SSH.
+    2. From the Terminal, launch an interactive job using `qsub -I` or use the [`qinteractive` command](../pbs/index.md#qinteractive-and-execcasper).
+    3. Identify the assigned compute node name.
     4. Launch a new window and connect directly to the Casper compute node using Remote-SSH.
 
 ### Derecho
@@ -266,7 +266,7 @@ After connecting to a Remote SSH NCAR login node, you can bring up the File Expl
 
 The Explorer tab allows a graphical file structure for the path that you provide.  If you are already connected to a Derecho or Casper login node then you will see the GLADE file structure populated.
 
-!!! warning 
+!!! warning
     VS Code will be able to view all subdirectories of your path when connecting the Explorer. Be mindful that a higher total number of files in the Explorer space will increase your memory and CPU utilization on the login nodes by default.  We recommend only selecting the path for your current project and the files that you need to directly interact with during that session.  Instead of connecting to `/glade/work/$USER`, connect to your project folder of `/glade/work/$USER/myproject/code`.  Smaller Explorer spaces also help with performance for addons that use code completion like Intellisense.
 
 !!! tip
@@ -314,7 +314,7 @@ Search for extensions within the Extensions tab and click the extension to insta
 
 ![Extension Details](vscode/media/extensions-list.png)
 
-!!! danger 
+!!! danger
     Extensions are a powerful tool within the VS Code environment but not all extensions are sponsored by reputable sources.  Extension problems can manifest in errors, poor memory management, and excessive CPU utilization.  We are unable to support all possible extensions that exist so we recommend disabling all but the core extensions before reporting a problem to the NCAR HPC support team.
 
 ## Conda and Python Environments
@@ -323,12 +323,12 @@ Search for extensions within the Extensions tab and click the extension to insta
 
 Terminal mode ignores the VS Code environment and uses the NCAR system module stack.  This is identical to the behavior of running within the Mac Terminal over SSH.  You can perform module loads and activate Conda environments directly from the terminal.
 
-!!! tip 
+!!! tip
     Interacting with a file that was opened with the `code` command will require the Interactive method for running the code.
 
 ### Interactive mode
 
-VS Code can use the Python Interactive mode to launch Jupyter notebooks, Python scripts, or debug code with the proper extensions.  
+VS Code can use the Python Interactive mode to launch Jupyter notebooks, Python scripts, or debug code with the proper extensions.
 
 The *Python Interpreter* is used to set the environment for interactive mode.  To select an environment, use the *Python: Select Interpreter* command from the Command Palette (⇧⌘P).  A valid environment is required to properly run Jupyter notebooks within VS Code and is a common use case for NCAR users.
 
@@ -338,7 +338,7 @@ If you are connected to Derecho or Casper and have a Jupyter notebook or Python 
 
 Open a Jupyter notebook or Python file using either the terminal command `code` or with the File Explorer.  This will put you in the default kernel.  Like Jupyterhub, you will need to specify which kernel to use when executing cells in the notebook.  Not specifying a kernel will use your default kernel and could lead to import failures or unexpected behavior.
 
-!!! info 
+!!! info
     Adding your conda-envs folder to the list of *Trusted* kernels will allow you to run notebooks with these kernels without being prompted to trust the kernel each time you run select a new kernel.
 
 ## Jupyter Notebooks
@@ -346,7 +346,7 @@ You can run cells similarly to Jupyterhub with the 'Run All' or an individual ce
 
 ![Jupyter Notebook](vscode/media/jnbkernel.png)
 
-Be mindful of the location of launching your notebooks.  If you use the File Explorer tab then you will be running on the login nodes.  
+Be mindful of the location of launching your notebooks.  If you use the File Explorer tab then you will be running on the login nodes.
 Executing the command *code* from an interactive job will execute on the compute node.
 
 ## Additional Resources
@@ -356,4 +356,3 @@ Microsoft provides [comprehensive documentation](https://code.visualstudio.com/d
 NCAR's Computational and Information Systems Laboratory (CISL) provided an interactive VS Code tutorial with a focus on running VS Code on our HPC systems. The repository provides documents and examples to get started with connecting to the supercomputer, launching compute node jobs, Jupyterhub workflows, debugging, and an overview on AI integrations.
 
 [NCAR VS Code Tutorial - Interfacing with NCAR's High-Performance Computing Systems](https://github.com/NCAR/vscode-tutorial)
-

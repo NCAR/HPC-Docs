@@ -1,3 +1,5 @@
+# Thunder Test System
+
 The **Thunder** cluster is a test system that features Marvell's
 ThunderX2 Arm processors. These processors use the `aarch64` instruction
 set, rather than the `x86-64` instruction set used by Intel and AMD
@@ -38,26 +40,26 @@ An individual user can request or lease one or more nodes for up to
 seven (7) days and create an IP address for accessing them.
 Follow these steps:
 
-1.  From the Project menu, select *Reservations*, then *Leases*.
+1. From the Project menu, select *Reservations*, then *Leases*.
 
-2.  Select the *Create Lease* button.
+2. Select the *Create Lease* button.
 
-3.  Complete the General section by specifying a name (required), start
+3. Complete the General section by specifying a name (required), start
     time (defaults to now), and the length of your lease (defaults to 1
     day).
 
-4.  Complete the Hosts section by checking the *Reserve Hosts* box and
+4. Complete the Hosts section by checking the *Reserve Hosts* box and
     selecting the minimum and maximum number of hosts (both default to
     1). There is only one type of node on Thunder, so there is no need
     to select *Resource Properties*.
 
-5.  Complete the Networks section by checking the *Reserve Floating IPs*
+5. Complete the Networks section by checking the *Reserve Floating IPs*
     box and specifying the number of Floating IP addresses you want to
     reserve (typically 1). There is only one physical network on Thunder
     controlled by Chameleon, so there is no need to select *Reserve
     Network*.
 
-![](media/image1.png)
+![Reserve Floating IPs](./media/image1.png)
 
 Once you have entered all your selections, select the *Create* button.
 
@@ -66,20 +68,20 @@ Once you have entered all your selections, select the *Create* button.
 When your lease status is ACTIVE, you can launch an instance on your
 leased Thunder nodes.
 
-1.  From the Project menu, select *Compute*, then *Instances*.
+1. From the Project menu, select *Compute*, then *Instances*.
 
-2.  Select the *Launch Instance* button.
+2. Select the *Launch Instance* button.
 
-3.  Complete the Details section by specifying an *Instance Name*,
+3. Complete the Details section by specifying an *Instance Name*,
     selecting your lease in the *Reservation* box, and selecting the
     number of instances you want to start in the *Count* box (defaults
     to 1).
 
-4.  Complete the Source section by choosing an image: Click the **^**
+4. Complete the Source section by choosing an image: Click the **^**
     next to the **CC-Ubuntu20.04-ARM64** RAW image to choose the default
     image.
 
-5.  Complete the Key Pair section by selecting either the *Create Key
+5. Complete the Key Pair section by selecting either the *Create Key
     Pair* button or the *Import KeyPair* button. This key will be used
     to log in to your instance using the "cc" user account. If you have
     already uploaded a key pair to `CHI@NCAR`, that key pair will already
@@ -96,15 +98,17 @@ next to your reserved IP address.
 Associate your floating IP address with a port by selecting your
 instance under "Port to be associated." (See image).
 
-![](media/image2.png)
+![Manage Floating IP Associations](./media/image2.png)
 
 Once the status of that association is "Up" you can use your IP address
 and your key to `ssh` to your active instance by following this
 example (substituting your own IP address):
-```pre
+
+```console
 ssh cc@128.117.250.23
 ```
 
+1. From the Project menu, select *Floating IPs* on the Network menu, then the *Associate* button
 At that point, you can use the reserved Thunder nodes for your work.
 
 ## More information and getting help

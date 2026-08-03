@@ -269,7 +269,7 @@ mamba env create -f npl-environment.yml -n my-npl
 
 Managed environments can be accessed easily in a
 [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) session using
-the [NCAR JupyterHub](../../compute-systems/jupyterhub/index.md) service.
+the [NCAR JupyterHub](../../../compute-systems/jupyterhub/index.md) service.
 Once you initiate a JupyterHub server, the managed kernels mentioned
 above (e.g., `NPL 2022b`) should be visible on the main launcher page.
 You can use them to run both Notebooks and Consoles.

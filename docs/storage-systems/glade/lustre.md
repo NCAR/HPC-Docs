@@ -1,6 +1,6 @@
 # Lustre scratch file system
 
-The <strong>De</strong>recho <strong>Stor</strong>age subsystem (**Destor**)
+The **De**recho **Stor**age subsystem (**Destor**)
 scratch file system is a Lustre-based
 [Cray ClusterStor E1000](https://buy.hpe.com/us/en/enterprise-solutions/storage-solutions/cray-clusterstor-storage-systems/cray-clusterstor-e1000-storage-systems/cray-clusterstor-e1000-storage-systems/p/1012842049) product
 configured as shown in the table below. An open-source, parallel system,
@@ -43,14 +43,10 @@ accessible from two different servers, providing fault tolerance and
 failover capabilities. A typical Lustre file system is shown in Figure 1
 below.
 
-
-
 ![](lustre/media/image1_new.png)
 <br>**Figure 1:** Sample Lustre file system: 4 metadata servers (MDS), 4
 object storage servers (OSS).
 Credit: [*Introduction to Lustre Wiki*](https://wiki.lustre.org/Introduction_to_Lustre).
-
-
 
 A file system may employ several metadata servers for scalability and
 load balancing, and several object storage servers for capacity and
@@ -79,28 +75,23 @@ the same size while the fifth is smaller and contains the "remainder" of
 the file. This introduces an important striping concept: the ***stripe
 size***.
 
+![Logical view of a file, broken into five "stripe" segments](lustre/media/image2.jpeg){width="400"}
 
-
-![](lustre/media/image2.jpeg){width="400"}
-<br>**Figure 2:** Logical view of a file, broken into five "stripe"
+**Figure 2:** Logical view of a file, broken into five "stripe"
 segments. The first four are the same size while the fifth is smaller
 and contains the "remainder" of the file.
-Credit: [*Lustre User Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
-
-
+Credit: [*Lustre Striping Guide*](https://oit.utk.edu/hpsc/lustre-striping-guide/).
 
 Figure 3 shows how the stripes can be mapped onto several OSTs as
 defined by the *stripe count*. In this example, the stripe count is four
 and the stripe segments are assigned in a round-robin fashion.
 
+![Physical view of a file broken into five stripes across
+four OST devices](lustre/media/image3.jpeg){width="400"}
 
-
-![](lustre/media/image3.jpeg){width="400"}
-<br>**Figure 3:** Physical view of a file broken into five stripes across
+**Figure 3:** Physical view of a file broken into five stripes across
 four OST devices.
-Credit: [*Lustre User Guide*](https://oit.utk.edu/hpsc/isaac-open/lustre-user-guide/).
-
-
+Credit: [*Lustre Striping Guide*](https://oit.utk.edu/hpsc/lustre-striping-guide/).
 
 Striping has important benefits as well as some drawbacks. Striping over
 more OSTs allows for more bandwidth. In general, as more OSTs are used,
@@ -452,13 +443,11 @@ the `chgrp` example.
 
 ## More resources
 
-- [Introduction to
-  Lustre](https://wiki.lustre.org/Introduction_to_Lustre)
+* [Introduction to Lustre](https://wiki.lustre.org/Introduction_to_Lustre)
 
-- [lustre.org](https://www.lustre.org/)
+* [lustre.org](https://www.lustre.org/)
 
-- [Oak Ridge Leadership Computing Facility Lustre 101
-  resources](https://lustre.ornl.gov/lustre101-courses/)
+* [Oak Ridge Leadership Computing Facility Lustre 101 resources](https://wiki.lustre.org/Lustre_101)
 
 <!--  LocalWords:  Destor graphana
  -->

@@ -9,14 +9,14 @@ If a GitHub repository contains Jupyter Notebooks along with configuration files
 
 The documentation below covers the Binder instance hosted on **CIRRUS**, NCAR's on-prem cloud platform.
 
-For additional background or advanced functionality, refer to the official **[Binder documentation](https://mybinder.readthedocs.io/en/latest/index.html)**.  
+For additional background or advanced functionality, refer to the official **[Binder documentation](https://mybinder.readthedocs.io/en/latest/index.html)**.
 
 
 ---
 
 ## Web Interface
 
-Access CIRRUS Binder through the JupyterHub portal:  
+Access CIRRUS Binder through the JupyterHub portal:
 **https://jupyter.k8s.ucar.edu/**
 
 Binder is integrated directly into the NCAR Kubernetes JupyterHub. After logging in with your UCAR CIT credentials:
@@ -27,7 +27,7 @@ Binder is integrated directly into the NCAR Kubernetes JupyterHub. After logging
 
 3. You'll see a form like this:
 
-<img src="../../../media/binder/binder.png"/>
+![Server Options for Binder](../../media/binder/binder.png)
 
 4. **Repository URL** - Paste the URL to the code repository containing your notebooks and environment configuration files.
 

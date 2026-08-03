@@ -1,16 +1,16 @@
-# How to compile and conduct a basic WRF on Derecho 
+# How to compile and conduct a basic WRF on Derecho
 
 This documentation provides information on how to download and compile [WRF](https://www.mmm.ucar.edu/models/wrf) and [WPS](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/wps.html) on NSF NCAR Derecho. Users may also reference the NSF NCAR [MMM Laboratory documentation for building WRF and WPS on Derecho](https://www2.mmm.ucar.edu/wrf/users/using_derecho.html).
 Also, an example of a PBS script is provided to help new users get an idea of how to submit batch jobs efficiently on the system, including setting resource requests, loading modules, and launching the WRF executable.
 
 !!! warn "WRF Long Term Support"
-	Users should be aware that the NSF NCAR MMM Laboratory have detailed the current support framework they continue to provide for WRF family models via the [public WRF Support page](https://www.mmm.ucar.edu/models/wrf/support) and [this community statement](https://www.mmm.ucar.edu/about/wrf-mpas-support). 
+	Users should be aware that the NSF NCAR MMM Laboratory have detailed the current support framework they continue to provide for WRF family models via the [public WRF Support page](https://www.mmm.ucar.edu/models/wrf/support) and [this community statement](https://www.mmm.ucar.edu/about/wrf-mpas-support).
 	Although the community is encouraged to consider transitioning to the [Model for Prediction Across Scales (MPAS)](https://www.mmm.ucar.edu/models/mpas), WRF support will still be provided but in a reduced capacity.
 ---
 
-## Obtaining WRF and WPS code 
-The WRF and WPS codes can be downloaded from 
-the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/). 
+## Obtaining WRF and WPS code
+The WRF and WPS codes can be downloaded from
+the [WRF webpage](https://www.mmm.ucar.edu/models/wrf/).
 Please refer to the [download instructions](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html) for more information.
 If you do not plan to modify the WRF and WPS code, you can use (latest version recommended) the pre-compiled versions of the code available on Derecho at:
 ```bash
@@ -37,7 +37,7 @@ Use the following command to extract the downloaded archive:
 ```bash
 tar -xvf WPS-4.6.0.tar.gz
 ```
-You will get a directory called WPS-4.6.0.
+You will get a directory called `WPS-4.6.0`.
 
 Next, the needed libraries are loaded to compile WRF and WPS.
 
@@ -76,31 +76,31 @@ Using default install directory : /glade/derecho/scratch/biswas/CSG/WRF4.7.1/ins
 !! - Compiler not found, some configurations will not work and will be hidden
 Select configuration [0-1] Default [0] (note !!)  : 1
 ```
-Next, you will be prompted to choose options for various build components, such as WRF core type, nesting capability, case type, and MPI support. For most research applications, the default or commonly selected options are sufficient. The default values are shown. You can press Enter/Return to select the default options. 
+Next, you will be prompted to choose options for various build components, such as WRF core type, nesting capability, case type, and MPI support. For most research applications, the default or commonly selected options are sufficient. The default values are shown. You can press Enter/Return to select the default options.
 ```
-Select option for WRF_CORE from WRF_CORE_OPTIONS [0-4] 
+Select option for WRF_CORE from WRF_CORE_OPTIONS [0-4]
 	0 : ARW
 	1 : CONVERT
 	2 : DA
 	3 : DA_4D_VAR
-	4 : PLUS 
+	4 : PLUS
 Default [0] : 0
 ```
 ```
-Select option for WRF_NESTING from WRF_NESTING_OPTIONS [0-3] 
+Select option for WRF_NESTING from WRF_NESTING_OPTIONS [0-3]
 	0 : NONE
 	1 : BASIC
 	2 : MOVES
-	3 : VORTEX 
+	3 : VORTEX
 Default [1] : 1
 ```
 ```
-Select option for WRF_CASE from WRF_CASE_OPTIONS [0-14] 
+Select option for WRF_CASE from WRF_CASE_OPTIONS [0-14]
 	0 : EM_REAL
 	1 : EM_FIRE
 	...
 	...
-	14 : NONE 
+	14 : NONE
 Default [0] : 0
 ```
 ```
@@ -159,7 +159,7 @@ Enter selection [1-83] : 50
 ------------------------------------------------------------------------
 Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 1
 
-Configuration successful! 
+Configuration successful!
 ```
 Upon successful execution of the ./configure command, a configure.wrf file is generated. This file includes compilation settings and rules tailored to Derecho. Advanced users may edit this file to modify specific compile options if needed.
 
@@ -170,7 +170,7 @@ To compile WRF, use the ./compile command with the desired case option. In this 
 ```
 Note: It is strongly recommended to redirect the output of the compile process to a log file (e.g., compile.log) for easier debugging in case of errors. The redirection syntax may differ based on the shell used; the example above is for bash.
 
-After the compilation is finished, if successful, you will see the following lines at the end of the compile.log file.  
+After the compilation is finished, if successful, you will see the following lines at the end of the compile.log file.
 ```
 ==========================================================================
 build started:   Wed 23 Apr 2025 10:04:19 AM MDT
@@ -187,7 +187,7 @@ Type the command
 ```bash
 ls main/*.exe
 ```
-If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug. 
+If the compilations fail, follow the [WRF Users Guide](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html) for directions to debug.
 
 ## Compiling the WRF Preprocessing System (WPS)
 Once WRF is successfully compiled, the next step is to compile the WRF Preprocessing System (WPS), which is required to process input data for WRF.
@@ -240,7 +240,7 @@ Configuration successful. To build the WPS, type: compile
 ------------------------------------------------------------------------
 
 ```
-The next step is to compile the WPS code. 
+The next step is to compile the WPS code.
 
 ```bash
 ./compile >compile.log 2>&1 &
@@ -250,13 +250,13 @@ If the build finishes successfully, the three executables (ungrib.exe, geogrid.e
 ls *exe
 geogrid.exe  metgrid.exe  ungrib.exe
 ```
-Now, WPS and WRF codes are compiled, and the necessary executables are obtained. Refer to the WRF documentation for next steps. 
+Now, WPS and WRF codes are compiled, and the necessary executables are obtained. Refer to the WRF documentation for next steps.
 
 ## Submitting jobs
-WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script. 
-To know more about PBS batch jobs, please refer to the [PBS batch jobs scripts](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/derecho/starting-derecho-jobs/derecho-job-script-examples/).
+WPS jobs can be run in an interactive mode. However, WRF jobs are more memory-intensive and should be submitted using a PBS batch script.
+To know more about PBS batch jobs, please refer to the [PBS batch jobs scripts](../../pbs/job-scripts/index.md).
 
-Below is a sample job to run WRF using 1 node and utilizing 128 processors. 
+Below is a sample job to run WRF using 1 node and utilizing 128 processors.
 ```bash
 #!/bin/bash -l
 #PBS -N wrf_run

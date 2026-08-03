@@ -2,7 +2,7 @@
 
 ## Harbor WebUI Login
 
-The Harbor web interface can be accessed at the following URL: https://hub.k8s.ucar.edu/
+The Harbor web interface can be accessed at the following URL: [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/)
 
 To log in:
 
@@ -21,19 +21,19 @@ This login flow uses your UCAR credentials via Microsoft Azure for secure access
 
 Harbor requires a CLI secret to authenticate with an email address via the command line.
 
-### To obtain a CLI secret:
+### Steps to obtain a CLI secret
 
-1. Log in to https://hub.k8s.ucar.edu/
+1. Log in to [https://hub.k8s.ucar.edu/](https://hub.k8s.ucar.edu/)
 2. Click your **email address** (top right hand corner)
 3. Select **User Profile**
 4. **Copy the CLI secret** using the copy button next to it
 
-<img src="../../../media/harbor/harbor-user-profile.png"/>
+![Harbor User Profile](../../media/harbor/harbor-user-profile.png)
 
 !!! tip
     Harbor recommends using robot accounts instead of personal credentials for CLI automation. See [Using Robot Accounts](#using-robot-accounts) below for more.
 
-### To log in using Docker:
+### To log in using Docker
 
 The command line syntax to log in to Harbor with Docker is:
 
@@ -42,6 +42,7 @@ docker login https://hub.k8s.ucar.edu/
 ```
 
 You will be prompted for a **Username** and **Password**:
+
 - Use your **UCAR email** as the username
 - Paste the **CLI secret** as the password
 
@@ -56,7 +57,7 @@ A successful login message confirms access and enables you to push/pull from pri
 
 An image is pulled from Harbor using the `docker pull` command and specified to pull it from the Harbor URL.
 
-**Example:**
+### Example
 
 ```bash
 docker image pull hub.k8s.ucar.edu/cirrus-jhub/cirrus-base:v1-stable
@@ -68,16 +69,16 @@ docker image pull hub.k8s.ucar.edu/cirrus-jhub/cirrus-base:v1-stable
 
 !!! important
     Before you can push an image to Harbor, a project must first be created for you. At this time, only Harbor administrators can create new projects and assign user permissions.
-    
+
     To request a new project or to be added to an existing project with the appropriate role (Developer, Maintainer, or Project Admin), please **[open a request](https://jira.ucar.edu/secure/CreateIssueDetails!init.jspa?pid=18470&issuetype=10905)**.
-    
+
     You will not be able to push images until your access has been provisioned by an admin.
 
 Assuming you've already built a local image, follow the steps below to push to Harbor:
 
 *Information on how to create container images locally can be found in our [create containers](../03-deploying-applications/containerize.md)*
 
-### Steps:
+### Steps to push images
 
 1. **Tag the image** with the Harbor Project and repository info. Once the image is tagged it can be pushed to Harbor.
 
@@ -102,7 +103,7 @@ docker push hub.k8s.ucar.edu/PROJECT/REPOSITORY[:TAG]
 
 !!! tip
     After pushing, your image will appear in the Harbor project. Harbor contains a vulnerability scanner that automatically scans your images for any known vulnerabilities and provides detailed reports on what it finds.
-    
+
     For more information on how to use the scanner, please see [vulnerability scanner](vulnerability-scan.md).
 
 !!! info
@@ -117,7 +118,7 @@ A Project in Harbor can have multiple robot accounts with configurable permissio
 !!! note
     You must have the role of **Project Admin** in Harbor to create or manage robot accounts.
 
-### To create a robot account:
+### To create a robot account
 
 1. **Log in** to the [Harbor Web UI](https://hub.k8s.ucar.edu/) using your CIT credentials.
 2. **Navigate** to your project

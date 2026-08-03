@@ -54,13 +54,13 @@ You will now have access to Spack and its subcommands directly from your shell.
         setenv SPACK_DISABLE_LOCAL_CONFIG true
         ```
 
-### Installing a package
+## Installing a package
 
 Spack provides many options for configuring and installing packages. If you request a package that is already installed into our upstream instance, Spack will recognize this and not repeat the install.
 
 As an example, let's say you wish to install a version of **parallel-netcdf** with debugging symbols on (i.e. `-g -O0`). Assuming you have already set up Spack in your shell, you can initiate the installation by running the following command:
 
-```
+```sh
 spack install parallel-netcdf@1.12.3 %oneapi@2023.2.1 cppflags="-g -O0" ^cray-mpich@8.1.27
 ```
 
@@ -91,19 +91,19 @@ If all goes well, you should see that Spack installs the package with the **Inte
     [^]  g42iifh          ^zlib@1.2.13%gcc@7.5.0+optimize+pic+shared build_system=makefile arch=linux-sles15-x86_64_v3
     ```
 
-### Using the package
+## Using the package
 
 At this point, you could simply access the program or library from the install prefix provided by Spack (use `spack location -i <pkg>` to get the prefix). However, you may want to access the package via environment modules, as you would do with software installed by CISL. You can enable this using Spack downstreams as well.
 
 When you created your downstream instance, the script configured Spack to create modules in `/glade/work/$USER/spack-downstreams/derecho/modules`. If you are installing a package that already exists in our software stack, as would be the case for the parallel-netcdf example above, it can be helpful to provide a custom name for the package module to help disambiguate each version. Spack allows for such customization in the *modules.yaml* configuration file. Access the file using this command:
 
-```
+```sh
 spack config edit modules
 ```
 
 There are many configuration settings available to you to customize module generation, but for module naming you will want to edit the *projections* block. Here, add a line to identify a `-g -00` build of any package as a debug version:
 
-```
+```json
   modules:
     'default:':
         lmod:
@@ -115,7 +115,7 @@ There are many configuration settings available to you to customize module gener
 
 You could also limit the scope of this specific projection to **parallel-netcdf** only - see [this documentation](https://spack.readthedocs.io/en/latest/module_file_support.html#module-file-customization) for more information on Spack module customization. Once you have your configuration saved, you can generate the module file using this command:
 
-```
+```sh
 spack module lmod refresh
 ```
 
@@ -130,12 +130,12 @@ In this example we show how to install various configurations of PETSc using the
 
 PETSc, the Portable, Extensible Toolkit for Scientific Computation, is for the scalable (parallel) solution of scientific applications modeled by partial differential equations (PDEs). It has bindings for C, Fortran, and Python. PETSc also contains TAO, the Toolkit for Advanced Optimization, software library. It supports MPI, and GPUs through CUDA, HIP, Kokkos, or OpenCL, as well as hybrid MPI-GPU parallelism.  See the [PETSc overview page for more information](https://petsc.org/release/overview/).
 
-**Versions and configuration options**
+#### Versions and configuration options
 
 Many versions of PETSc are available through Spack, and each supports many optional configurations. Further, the PETSc API changes somewhat regularly across versions. This makes it an ideal candidate for a customized installation since it is difficult to define one particular configuration that will satisfy all users.   The Spack `info` subcommand provides an overview of the supported versions and configuration options (expand the example box below for full details).
 
 ??? example "`$ spack info petsc` - Spack-supported PETSc versions and options "
-    ```pre
+    ```console
     $ spack info petsc
     Package:   petsc
 
@@ -297,14 +297,14 @@ Many versions of PETSc are available through Spack, and each supports many optio
         None
     ```
 
-**Concretization and installation**
+#### Concretization and installation
 
 As indicated above, Spack can be *very* complex and often requires iteration to behave as intended - this is certainly the case with PETSc.  Below we walk through some common issues and their resolution.
 
 As a first attempt, we use the `spec` subcommand to inspect the results of Spack's concretization. Inspecting the output of `spack spec -I -l petsc %gcc@12.2.0 ^cray-mpich@8.1.27` shows an incompatible mix of compilers are chosen for PETSc and some of its dependencies. (expand the box below for full details).
 ??? danger "Simple `spack spec` concretization - *FAILS to build*"
     In this case a first attempt to concretize the package produces an environment that will fail to compile.
-    ```pre
+    ```console
     $ spack spec -I -l petsc %gcc@12.2.0 ^cray-mpich@8.1.27
     Input spec
     --------------------------------
@@ -420,7 +420,7 @@ To fix this issue we need to be very explicit with the concretization by requiri
 
 ???+ example "Fully specified `spack spec` concretization - *build succeeds*"
     === "CPU Only"
-        ```pre
+        ```console
         $ spack spec -I -l petsc %gcc@12.2.0 ^cray-mpich@8.1.27  ^hypre%gcc@12.2.0 ^superlu-dist%gcc@12.2.0
         Input spec
         --------------------------------
@@ -665,14 +665,15 @@ To fix this issue we need to be very explicit with the concretization by requiri
         [+] /glade/work/benkirk/spack-downstreams/derecho/23.09/opt/spack/petsc/3.20.2/cray-mpich/8.1.27/gcc/12.2.0/o4gw
         ```
 
-
-**Module customization**
+#### Module customization
 
 We now have two different configurations of the same PETSc version available. To distinguish between them at the module level we can use `spack config edit modules` to define a custom rule for when `+cuda` is used:
-```pre
+
+```json
       projections:
         all: '{name}/{version}'
         [...]
         petsc+cuda: petsc/{version}-cuda
 ```
+
 Then after running `spack module lmod refresh && module avail` we can access our custom installations as usual.

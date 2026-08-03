@@ -24,8 +24,8 @@ For additional information, see [Jupyter documentation](https://jupyter.readthed
 
 - Start an interactive job using the `qinteractive @casper` command.
   (Alternative: Start the job on Derecho using `qinteractive @derecho`.
-  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
-  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
+  Keep in mind that each CPU or GPU [Derecho node](./derecho/index.md#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](./casper/index.md#casper-hardware))
 
 - Load the `ncarenv` and `conda` modules.
 
@@ -41,7 +41,7 @@ also prevents you from actually opening a second ssh session. If you
 prefer to have a second session open, omit the `-N`. When you close
 that session, you will be closing your browser connection to JupyterLab.
 
-![](media/jupyter_ipython1.png)
+![start-jupyter Terminal Usage Example](media/jupyter_ipython1.png)
 
 On your local computer, run the `ssh` command as instructed.
 
@@ -53,25 +53,25 @@ JupyterLab will request a password or "token," which is a long string as
 shown in the output above that you can copy and paste from your
 terminal.
 
-![](media/jupyter_ipython2.png)
+![Password or Token Entry](media/jupyter_ipython2.png)
 
 Your browser will open the JupyterLab web interface after you log in
 with the token.
 
-![](media/jupyter_ipython3.png)
+![JupyterLab web interface](media/jupyter_ipython3.png)
 
-### Related links
+<!-- ### Related links
 
 - [Notebook: Extract NECOFS water levels using NetCDF4-Python and analyze/visualize with Pandas](https://nbviewer.jupyter.org/gist/rsignell-usgs/4740419)
 
-- [Notebook: Access data from the NECOFS (New England Coastal Ocean Forecast System) via OPeNDAP](https://nbviewer.jupyter.org/gist/rsignell-usgs/5092905)
+- [Notebook: Access data from the NECOFS (New England Coastal Ocean Forecast System) via OPeNDAP](https://nbviewer.jupyter.org/gist/rsignell-usgs/5092905) -->
 
 ## Starting IPython shell
 
 - Start an interactive job using the `qinteractive @casper` command.
   (Alternative: Start the job on Derecho using `qinteractive @derecho`.
-  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
-  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
+  Keep in mind that each CPU or GPU [Derecho node](./derecho/index.md#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](./casper/index.md#casper-hardware))
 
 - Load the `ncarenv` and `conda` modules.
 
@@ -80,7 +80,7 @@ with the token.
 
 - Run the `ipython` command to start the shell.
 
-![](media/jupyter_ipython4.png)
+![Interactive ipython in terminal example](media/jupyter_ipython4.png)
 
 ## Starting Jupyter QtConsole
 
@@ -88,8 +88,8 @@ with the token.
 
 - Start an interactive job using the `qinteractive @casper` command.
   (Alternative: Start the job on Derecho using `qinteractive @derecho`.
-  Keep in mind that each CPU or GPU [Derecho node](docs/compute-systems/derecho/#derecho-hardware)
-  has less memory than each CPU or GPU [Casper node](docs/compute-systems/casper/#casper-hardware))
+  Keep in mind that each CPU or GPU [Derecho node](./derecho/index.md#derecho-hardware)
+  has less memory than each CPU or GPU [Casper node](./casper/index.md#casper-hardware))
 
 - Load the `ncarenv` and `conda` modules.
 
@@ -98,7 +98,7 @@ with the token.
 
 - Run the `jupyter qtconsole` command to start the console.
 
-![](media/jupyter_ipython5.png)
+![Interactive ipython QtConsole example](media/jupyter_ipython5.png)
 
 ## Using alternative language kernels
 
@@ -107,16 +107,15 @@ The Python interpreter is loaded by default as the language kernel when
 using Jupyter, but you can specify use of another kernel when invoking a
 particular command. To see a list of installed language kernels, run
 this command:
-```bash
-jupyter kernelspec list
-```
+
+    jupyter kernelspec list
 
 To use a kernel, specify it by name when invoking a command. For
 example, to use the R 4.3.0 interpreter on Casper in the Jupyter
 QtConsole, enter the following:
-```bash
-jupyter qtconsole --kernel=r-4.3
-```
+
+    jupyter qtconsole --kernel=r-4.3
+
 The console will load with the R command line interpreter active.
 
 If you need a language kernel that has not been installed, you can

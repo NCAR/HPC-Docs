@@ -1,21 +1,28 @@
+# Numerical Libraries
 
+Multiple libraries are provided through various modules and software packages that offer optimized
+implementations of mathematical routines and algorithms commonly used in scientific applications. Some
+specific libraries are detailed below although you are encouraged to seek out others that may be
+suitable for your needs.
+
+---
 
 ## Intel's Math Kernel Library
 
 The Intel Math Kernel Library ([Intel MKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html)) contains highly optimized, extensively threaded math routines for science, engineering, and financial applications. Core math functions include BLAS, LAPACK, ScaLAPACK, Sparse Solvers, Fast Fourier Transforms, Vector Math, and more.
 
-On NCAR systems the MKL is available through the `mkl` module.  (See [here](./user-environment/modules.md) for more discussion on interacting with the module system.)
+On NCAR systems the MKL is available through the `mkl` module. See the [Modules page](../user-environment/modules.md) for more discussion on interacting with the module system.
 
 Intel MKL has the following [functional categories](https://en.wikipedia.org/wiki/Math_Kernel_Library):
 
 - **Linear algebra**:
-    - BLAS routines are vector-vector (Level 1), matrix-vector (Level 2) and matrix-matrix (Level 3) operations for real and complex single and double precision data.
-    - LAPACK consists of tuned LU, Cholesky and QR factorizations, eigenvalue and least squares solvers.
-    - Sparse BLAS, ScaLAPACK, Sparse Solver, Extended Eigensolver (FEAST, PARDISO), PBLAS and BLACS.
+  - BLAS routines are vector-vector (Level 1), matrix-vector (Level 2) and matrix-matrix (Level 3) operations for real and complex single and double precision data.
+  - LAPACK consists of tuned LU, Cholesky and QR factorizations, eigenvalue and least squares solvers.
+  - Sparse BLAS, ScaLAPACK, Sparse Solver, Extended Eigensolver (FEAST, PARDISO), PBLAS and BLACS.
 
 - **Fast Fourier Transforms (FFTs)** from 1D to multidimensional, complex to complex, real to complex, and real to real transforms of arbitrary lengths. Applications written with the open source FFTW can be easily ported to MKL by linking with interface wrapper libraries provided as part of MKL for easy migration.
 
-    - Cluster versions of LAPACK and FFTs are also available as part of MKL to take advantage of MPI parallelism in addition to single node parallelism from multithreading.
+  - Cluster versions of LAPACK and FFTs are also available as part of MKL to take advantage of MPI parallelism in addition to single node parallelism from multithreading.
 
 - **Vector math functions** include computationally intensive core mathematical operations for single and double precision real and complex data types. These are similar to `libm` functions from compiler libraries but operate on vectors rather than scalars to provide better performance. There are various controls for setting accuracy, error mode and denormalized number handling to customize the behavior of the routines.
 
@@ -23,8 +30,8 @@ Intel MKL has the following [functional categories](https://en.wikipedia.org/wik
 
 - **Data fitting functions** include splines (linear, quadratic, cubic, look-up, stepwise constant) for 1-dimensional interpolation that can be used in data analytics, geometric modeling and surface approximation applications.
 
-
 ### Linking with the MKL
+
 The MKL ships with both serial and parallel versions of many of its core components, and with support for normal and "long" (64-bit) indexing integers. See the
 [Link Line Advisor](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html) for guidance on how to select precise combinations of the MKL functionality when linking into your application.
 
@@ -58,9 +65,10 @@ Most `LibSci` components contain both serial and and parallel routines optimized
    systems. (For further information, see `man intro_blas3`.)
 
 For additional details see:
+
 ```console
-$ module load cray-libsci
-$ man intro_libsci
+module load cray-libsci
+man intro_libsci
 ```
 
 ---
@@ -69,4 +77,4 @@ $ man intro_libsci
 
 [FFTW](https://www.fftw.org/) is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST).
 
-On NCAR systems single-node and distributed-memory parallel implementations of FFTW are available through the `fftw` and `fftw-mpi` modules, respectively. (See [here](./user-environment/modules.md) for more discussion on interacting with the module system.)
+On NCAR systems single-node and distributed-memory parallel implementations of FFTW are available through the `fftw` and `fftw-mpi` modules, respectively. See the [Modules page](../user-environment/modules.md) for more discussion on interacting with the module system.

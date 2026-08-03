@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
 That's all that's required to spin up a web application to display "Hello World". This can be run locally with `python3 app.py`. The output after being launched should look like the following:
 
-<img src="../../../media/hosting/flask-run.png" width="70%" class="center" alt="Flask Hello World output"/>
+![Flask Hello World output](../../media/hosting/flask-run.png)
 
 !!! info
     There is a Warning about running WSGI in production. This is absolutely something that needs to be done if you are deploying this framework in other places. K8s handles this for the CISL cloud containerized application deployment.

@@ -25,10 +25,10 @@ Casper is composed of over 100 nodes featuring a mixture of Intel and AMD proces
 
 Please refer to the [hardware summary table](#casper-hardware) below for detailed specifications.
 
-
 ---
 
 ## Quick Start
+
 ### Logging in
 
 Once you have [an account](../../getting-started/accounts/index.md),
@@ -37,7 +37,8 @@ and have a Casper [resource allocation](../../getting-started/managing-your-allo
 you can log in and run jobs on the Casper data analysis and visualization cluster.
 
 To log in, start your terminal or Secure Shell client and run an ssh command as shown here:
-```
+
+```sh
 ssh -X username@casper.hpc.ucar.edu
 
 ```
@@ -48,17 +49,14 @@ You can omit `username` in the command above if your Casper username is the same
 
 After running the `ssh` command, you will be [asked to authenticate](../../getting-started/accounts/duo/index.md#hpc-and-ssh-logins) to finish logging in.
 
-
 Casper has full access to [NSF NCAR storage resources](../../storage-systems/index.md),
 including [GLADE](../../storage-systems/glade/index.md).
 Users can [transfer data](../../storage-systems/data-transfer/index.md) to and from Casper.
-
 
 To run data analysis and visualization jobs on the Casper system's nodes, follow the
 [procedures described here](../../pbs/).
 There is no need to transfer output files from Derecho for this since
 Derecho and Casper mount the same `GLADE` file systems.
-
 
 !!! danger "Don’t run `sudo` on NSF NCAR systems!"
     If you need help with tasks that you think require `sudo`
@@ -67,14 +65,16 @@ Derecho and Casper mount the same `GLADE` file systems.
     unauthorized users run it and sends a security alert to system
     administrators.
 
------
+---
 
 ### Environment
+
 The Casper HPC system uses **OpenSUSE Linux Version 15** and supports
 widely used shells on its login and compute nodes. Users also have
 several compiler and MPI library choices.
 
 #### Shells
+
 The default login shell for new Casper users is `bash`. You can
 change the default after logging in to the Systems Accounting Manager
 [(SAM)](../../getting-started/managing-your-allocation.md#using-sam).
@@ -83,6 +83,7 @@ can confirm which shell is set as your default by entering `echo $SHELL`
 on your Casper command line.
 
 #### Environment modules
+
 The Casper `module` utility enables users to easily load and unload
 compilers and compatible software packages as needed, and to create
 multiple customized environments for various tasks. See the
@@ -90,23 +91,25 @@ multiple customized environments for various tasks. See the
 a general discussion of `module` usage.  Casper's default module
 environment is listed [here](./casper-modules.md).
 
------
-
+---
 
 ### Accessing software and compiling code
-Casper users have access to Intel, NVIDIA, and GNU compilers. The **Intel** compiler and **OpenMPI** modules are loaded by default and provide access to pre-compiled [HPC Software](../../environment-and-software/hpc-software/index.md) and [Data Analysis and Visualization Resources](../../environment-and-software/data-analysis-and-visualization.md).
+
+Casper users have access to Intel, NVIDIA, and GNU compilers. The **Intel** compiler and **OpenMPI** modules are loaded by default and provide access to pre-compiled [HPC Software](../../environment-and-software/hpc-software/index.md) and [Data Analysis and Visualization Resources](../../environment-and-software/data-analysis-and-visualization/index.md).
 
 See this page for [a full discussion of compiling on Casper](./compiling-code-on-casper/index.md).
 
-Many Casper data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/conda.md), especially [NSF NCAR's Python Library (NPL)](../../environment-and-software/user-environment/conda.md/#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+Many Casper data analysis and AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/package-managers/conda.md), especially [NSF NCAR's Python Library (NPL)](../../environment-and-software/user-environment/package-managers/conda.md#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/hpc-software/machine-learning-and-deep-learning.md).
 
------
+---
 
 ### Running jobs on Casper
+
 Users can run a variety of types of jobs on Casper, including both traditional
-[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and/or graphics-intensive analysis, often through [remote desktops on Casper](./remote-desktop.md).
+[batch jobs submitted through PBS](../../pbs/index.md) and also interactive and/or graphics-intensive analysis, often through [remote desktops on Casper](./remote-desktops.md).
 
 #### Job scripts
+
 Job scripts are discussed broadly [here](../../pbs/job-scripts/index.md).
 Users already familiar with PBS and batch submission may find [Casper-specific PBS job scripts](../../pbs/job-scripts/casper-job-script-examples.md) helpful in porting their work.
 
@@ -160,12 +163,12 @@ mv /local_scratch/pbs.$PBS_JOBID/output_data ${SCRATCH}
         1 Mellanox ConnectX-6 HDR100 InfiniBand link<br>
         1 NVIDIA Quadro GP100 GPU 16GB PCIe on each of 9 nodes<br>
         1 NVIDIA Ampere A100 GPU 40 GB PCIe on each of 3 nodes<br><br>
-          
+
         <strong>6 Supermicro L40 GPU Visualization nodes</strong><br>
         768 GB DDR5 memory per node<br>
-        1x 48-core AMD EPYC processor per node<br>        
+        1x 48-core AMD EPYC processor per node<br>
         1.6 TB local NVMe Solid State Disk<br>
-        1 Mellanox ConnectX-6 100Gb Ethernet VPI adapter          
+        1 Mellanox ConnectX-6 100Gb Ethernet VPI adapter
       </td>
     </tr>
     <tr>
@@ -195,7 +198,7 @@ mv /local_scratch/pbs.$PBS_JOBID/output_data ${SCRATCH}
         1.5 TB local NVMe Solid State Disk<br>
         4 Mellanox ConnectX-6 network adapters<br>
         4 NVIDIA Ampere A100 80GB SXM4 GPUs with NVLink<br><br>
-        
+
         <strong>2 Supermicro nodes with 4 H100 GPUs</strong><br>
         1024 GB DDR5 memory per node<br>
         2 32-core Intel Xeon Gold processors per node<br>
@@ -222,7 +225,7 @@ mv /local_scratch/pbs.$PBS_JOBID/output_data ${SCRATCH}
         1.6 TB local NVMe Solid State Disk<br>
         1 Mellanox ConnectX-5 100Gb Ethernet VPI adapter (GLADE, Campaign Storage, external connectivity)<br>
         1 Mellanox ConnectX-6 HDR200 InfiniBand VPI adapter, HDR100 link on each CPU socket<br><br>
-        
+
         <strong>6 large-memory 64-core workstation nodes</strong><br>
         1.5 TB DDR5 memory per node <br>
         1 64-core AMD EPYC processor per node<br>
