@@ -201,7 +201,7 @@ volumes:
 
 ### Example: Complete SSH Setup
 
-See the [tensorflow-mnist.yaml](tensorflow-mnist.yaml) example for a working SSH configuration with proper ConfigMaps and volume mounts.
+See the [tensorflow-mnist.yaml](#example-3-running-tensorflow-multi-node-cpu-only) example for a working SSH configuration with proper ConfigMaps and volume mounts.
 
 ---
 
