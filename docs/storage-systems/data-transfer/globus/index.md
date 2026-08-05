@@ -20,11 +20,11 @@ Several *mapped collections*, which provide access to different file
 system locations on a public endpoint, are set up on the Globus system
 for transferring files to and from NSF NCAR storage systems. These include:
 
-- **NSF NCAR GLADE**
+- **NCAR GLADE**
 
-- **NSF NCAR Campaign Storage**
+- **NCAR Campaign Storage**
 
-- **NSF NCAR Data Sharing Service**
+- **NCAR Data Sharing Service**
 
 Users can also create their own *guest collections* [as described here](Sharing+data+and+making+unattended+transfers.md)
 in order to facilitate data sharing with colleagues and to accommodate
