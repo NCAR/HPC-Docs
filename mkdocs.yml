@@ -128,10 +128,10 @@ nav:
         - compute-systems/cirrus/guides/05-github-actions/scale-sets.md
       - Jupyter on CIRRUS:
         - compute-systems/cirrus/guides/06-jupyter-on-cirrus/jupyterhub.md
-        - Conda Environments: compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs.md
-        - GPU Use: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-gpu.md
-        - Dask: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-dask.md
-        - Binder: compute-systems/cirrus/guides/06-jupyter-on-cirrus/binderhub.md
+        - Conda Environments on CIRRUS: compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs.md
+        - GPUs on CIRRUS: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-gpu.md
+        - Dask on CIRRUS: compute-systems/cirrus/guides/06-jupyter-on-cirrus/jhub-dask.md
+        - Binder on CIRRUS: compute-systems/cirrus/guides/06-jupyter-on-cirrus/binderhub.md
       - Functions as a Service:
         - compute-systems/cirrus/guides/12-faas/faas.md
       - Secret Manager: compute-systems/cirrus/guides/07-secret-manager/openbao.md

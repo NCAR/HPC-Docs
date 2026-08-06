@@ -1,4 +1,4 @@
-# Using Conda
+# Using `conda` for Python Package Management
 
 Conda is an open-source package and environment management system available on all NCAR systems. It can be used to manage environments containing a wide range of open-source software packages, programming languages, and libraries—primarily Python and R, but also others such as Perl, Java, and Julia—along with all of their required dependencies.
 
@@ -119,7 +119,7 @@ conda env list
 The output will include both managed environments and any personal
 environments you have created, provided they are in Conda’s search path.
 
-#### The NCAR Python Library
+## The NCAR Python Library
 Our primary managed environment is the NCAR Python Library (**NPL**),
 which contains a large collection of packages related to geoscience
 and data processing. (It does not currently contain GPU or machine
@@ -140,7 +140,7 @@ following command:
 conda list --name npl-2022b
 ```
 
-##### Update schedule for the NCAR Python Library
+### Update schedule for the NCAR Python Library
 
 The NPL is updated twice a year and identified with environment names
 such as `npl-2022b` and `npl-2023a`. New NPL versions contain the
@@ -153,7 +153,7 @@ points to the most recent version of the NPL. We recommend that you load
 a specific version instead if you want to ensure consistent behavior
 from each installed package.
 
-### Creating your own Conda environment
+## Creating your own Conda environment
 
 There are many reasons you might prefer to install your own Conda
 environment rather than use one of the managed environments mentioned
@@ -171,15 +171,17 @@ above. These may include:
 
 To install your own environment using Conda:
 
-1.  Load our Conda module (or use your own Miniconda install)
+1. Load our Conda module (or use your own Miniconda install)
 
-2.  Use `mamba create` to [create an
-    environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=init#creating-an-environment-with-commands)
-    from a set of requirements, as in the following example:
-```bash
+2. Use `mamba create` to [create an
+   environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=init#creating-an-environment-with-commands)
+   from a set of requirements, as in the following example:
+
+```sh
 mamba create -n my-env python=3.10 numpy scipy matplotlib pandas
 geocat-comp wrf-python
 ```
+
 That command will create a new environment called `my-env` with a
 recent version of Python 3.10.x. (you can choose a different Python
 version than the NPL when creating your own environments) and a small
@@ -201,16 +203,16 @@ shell alias that calls initialization scripts. However, the alias does
 not carry over into batch jobs or other subshells. You can address this
 one of two ways:
 
-1.  Explicitly load the Conda module at the start of your batch job.
-    This will restore the alias in the shell environment and allow you
-    to activate Conda environments.
+1. Explicitly load the Conda module at the start of your batch job.
+   This will restore the alias in the shell environment and allow you
+   to activate Conda environments.
 
-2.  Run `conda init` (or `conda init tcsh` for tcsh users) after
-    loading the module on a login node. That will add initialization
-    commands to your `~/.bashrc` or `~/.tcshrc` file. Be aware that
-    `~/.bashrc` is not always sourced at the start of batch jobs, so
-    this approach may require some trial and error to cover your
-    individual use case.
+2. Run `conda init` (or `conda init tcsh` for tcsh users) after
+   loading the module on a login node. That will add initialization
+   commands to your `~/.bashrc` or `~/.tcshrc` file. Be aware that
+   `~/.bashrc` is not always sourced at the start of batch jobs, so
+   this approach may require some trial and error to cover your
+   individual use case.
 
 ## Reproducing Conda environments
 
@@ -221,7 +223,8 @@ It is possible to
 any environment in your `conda env list` using Mamba. For example, to
 clone the personal environment we created above, use the following
 command:
-```bash
+
+```sh
 mamba create -n my-clone --clone my-env
 ```
 
@@ -244,7 +247,8 @@ software like Git.
 
 First, use Conda to produce the YAML environment file from an existing
 environment. This example uses the NPL:
-```pre
+
+```sh
 conda env export [--from-history] -n npl > npl-environment.yml
 ```
 
@@ -258,9 +262,11 @@ additions and changes will be reflected in any new environments you
 create from the modified YAML file.
 
 You can then create new environments from the YAML file using Mamba:
-```bash
+
+```sh
 mamba env create -f npl-environment.yml -n my-npl
 ```
+
 !!! warning
     Large environments like the NPL can take a long time to clone or
     recreate using YAML files.
@@ -281,7 +287,8 @@ interface like NCAR’s JupyterHub. Both involve creating a kernel for the
 environment.
 
 First, install the `ipykernel` package into your environment:
-```bash
+
+```sh
 conda activate my-env
 mamba install ipykernel
 ```
@@ -301,7 +308,8 @@ you to share environments with colleagues, as they can simply activate
 your Conda environment on the command line and then create their own
 personal Jupyter kernel. With your environment activated, run the
 following:
-```bash
+
+```sh
 python -m ipykernel install --user --name=my-kernel
 ```
 
