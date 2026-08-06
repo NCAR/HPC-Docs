@@ -1,4 +1,4 @@
-# Using NCL in the NCAR HPC environment
+# Using NCL in the NCAR HPC Environment
 
 !!! danger "Warning: NCL is in maintenance mode"
     In 2019, NCL was put in maintenance mode and all official development ceased in favor of [a pivot to Python](https://www.ncl.ucar.edu/Document/Pivot_to_Python/#:~:text=NCAR%20has%20made%20the%20decision,for%20the%20future%20of%20NCL.).
@@ -13,7 +13,6 @@
     slow/limited due to staffing constraints. We also offer an NCL module on Casper and Derecho
     to enable legacy workflows, as documented below. **However, CISL may not provide common NCL
     installations on future systems.**
-
 
 Within the limits of the above deprecation warning, the NCAR HPC environment currently
 provides the use of NCAR Command Language ([NCL](http://www.ncl.ucar.edu/)) both
@@ -30,7 +29,34 @@ in to Derecho or Casper, then:
 Follow the instructions below to get started, and customize the scripts
 and commands as necessary to work with your own data.
 
-#### Other resources
+## Interactive use
+
+To start an interactive window from which to modify and execute NCL
+scripts, log in to Casper or Derecho. The convenience scripts
+[`qinteractive` and `execcasper`](../../pbs/index.md#qinteractive-and-execcasper)
+may be user to start an interactive job on compute nodes.
+
+When your job starts, load the default module for NCL.
+
+```bash
+module load ncl
+```
+
+Modify your NCL script if necessary using a UNIX editor, and execute it
+as shown here, substituting the name of your own NCL script
+for **script_name.ncl**.
+
+```bash
+ncl script_name.ncl
+```
+
+## Submitting a batch script
+
+If you expect running your NCL script to take longer than you would want
+to work interactively, for example overnight, submit your NCL script
+in a batch job so it can run unattended. See [Casper Job Script Examples](../../pbs/job-scripts/casper-job-script-examples.md).
+
+## Other resources
 
 See the [NCL web site](http://www.ncl.ucar.edu/) for complete
 documentation of the language's extensive analysis and visualization
@@ -39,37 +65,9 @@ capabilities.
 See the [NCL Applications page](http://www.ncl.ucar.edu/Applications/) for links to hundreds of
 complete NCL scripts that you can download and modify as needed.
 
-## Interactive use
-
-To start an interactive window from which to modify and execute NCL
-scripts, log in to Casper or Derecho.
-
-Start a job on Casper as described
-in [this documentation](file:////display/RC/Starting+Casper+jobs+with+PBS).
-
-When your job starts, load the default module for NCL.
-```pre
-module load ncl
-```
-
-Modify your NCL script if necessary using a UNIX editor, and execute it
-as shown here, substituting the name of your own NCL script
-for **script_name.ncl**.
-```pre
-ncl script_name.ncl
-```
-
-## Submitting a batch script
-
-If you expect running your NCL script to take longer than you would want
-to work interactively — overnight, for example — submit your NCL script
-in a batch job so it can run unattended. See [Starting jobs on Casper nodes](file:////display/RC/Starting+Casper+jobs+with+PBS) for batch
-job script examples and other details.
-
-
 ## Visualization examples
 
-#### Example 1
+### Example 1
 
 Make an NCL script file named `contour_ts_line.ncl` using the sample
 script below.
@@ -79,9 +77,9 @@ using a sample CMIP5 NetCDF data file in
 the `/glade/u/sampledata/ncl/CESM/CAM5` directory. The output to your
 working directory will be a graphic file called `contour_ts_line.png`.
 
-![](media/image1.png)
+![Global Surface Temperature Plot](media/image1.png)
 
-```pre
+```console
 ;----------------------------------------------------------------------
 ; This script creates a simple line contour plot of the first timestep
 ; of the "ts" variable on the given NetCDF file.
@@ -124,10 +122,10 @@ script below.
 When you run it on Casper, the output to your working directory will be
 a color-filled contour called `contour_ts_color.png`.
 
-![](media/image2.png)
+![Colorized Global Surface Temperature Plot](media/image2.png)
 
 
-```pre
+```console
 ;----------------------------------------------------------------------
 ; This script creates filled contour plot of the first timestep of
 ; the "ts" variable on the given NetCDF file.

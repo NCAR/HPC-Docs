@@ -5,7 +5,7 @@
 Dask works by splitting your job into many small tasks that can run in parallel. At its core it relies on three key components:
 
 - **Client** - the interface through which your code interacts with Dask
-- **Scheduler** - coordinates the execution of tasks  
+- **Scheduler** - coordinates the execution of tasks
 - **Workers** - execute the tasks in parallel
 
 Dask clusters can be launched in a variety of ways depending on the resources and environment available:
@@ -35,11 +35,11 @@ client
 
 This creates a Dask cluster with 4 workers sharing your system's local resources. On NCAR's JupyterHub, running this will automatically display a Dask dashboard widget. The dashboard provides real-time insights into your cluster's activity.
 
-<img src="../../../media/dask/dask-local.png"/>
+![Local Dask client information panel](../../media/dask/dask-local.png)
 
 You can also paste the dashboard URL into the Dask Lab Extension (available in the JupyterHub sidebar) to open visual dashboards and tile them next to your notebooks.
 
-<img src="../../../media/dask/dask-extension.png"/>
+![Dask gateway jupyter lab widget](../../media/dask/dask-extension.png)
 
 !!! note
     Be sure to run `cluster.close()` when your computations are finished. Idle clusters are automatically closed by default.
@@ -57,9 +57,9 @@ from dask.distributed import Client
 from dask_gateway import GatewayCluster
 
 # Connect to Gateway and create a cluster
-cluster = GatewayCluster("http://traefik-dask-gateway/services/dask-gateway/", 
-                        public_address="https://jupyter.k8s.ucar.edu/services/dask-gateway/", 
-                        auth='jupyterhub')  
+cluster = GatewayCluster("http://traefik-dask-gateway/services/dask-gateway/",
+                        public_address="https://jupyter.k8s.ucar.edu/services/dask-gateway/",
+                        auth='jupyterhub')
 
 cluster.adapt(minimum=2, maximum=20)  # Make an adaptable cluster with a min and max number of workers
 
@@ -72,11 +72,11 @@ client # Display the client information and Dashboard URL
 
 Just like with LocalCluster, the dashboard URL can be used with the Dask extension to visually monitor your job and cluster activity in real time.
 
-<img src="../../../media/dask/dask-gw-client.png"/>
+![Gateway Dask client information panel](../../media/dask/dask-gw-client.png)
 
 The Dashboard URL will bring you to a page where Dask cluster resources can be viewed in real time. The URL can also be copied and pasted into the Dask extension on the left as seen below.
 
-<img src="../../../media/dask/dask-extension.png"/>
+![Dask gateway jupyter lab widget](../../media/dask/dask-extension.png)
 
 Each box can be dragged into your workspace and arranged as different tiles alongside your notebook. This enables you to monitor Dask resources while watching your notebooks run.
 

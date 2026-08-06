@@ -26,7 +26,7 @@ receive an allocation only once a year.
 
 To be considered for an NSC allocation, a proposed project:
 
-* should relate to one or more specific priorities in the current [NSF NCAR Strategic Plan](https://ncar.ucar.edu/sites/default/files/documents/related-links/2020-06/NCAR_StrategicPlan_2020-24_Final.pdf).
+* should relate to one or more specific priorities in the current [NSF NCAR Strategic Plan](https://ncar.ucar.edu/who-we-are/strategic-plan).
 * must be ready to begin production runs from the start of the allocation period. (Lab allocations can be used to perform benchmarking and test runs, and proposals should provide sufficient details to convince reviewers of the project's readiness.)
 * must require significant computational resources, typically above and beyond the 10 million core-hour or 25,000 GPU-hours minimum levels.
 * should have a well-defined scope and completion timeline.

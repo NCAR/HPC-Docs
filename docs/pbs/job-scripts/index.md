@@ -8,6 +8,8 @@ shell; but instead are executed on specific resources allocated by the
 scheduler when available.  Scripts can also be written in other
 languages - commonly Python.
 
+!!! tip "Example Job Scripts"
+    Example job scripts may be referenced on both the [Derecho Job Script Examples](./derecho-job-script-examples.md) and the [Casper Job Script Examples](./casper-job-script-examples.md) pages.
 
 ## Anatomy of a Job Script
 Sample basic PBS scripts are listed below:

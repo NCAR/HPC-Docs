@@ -293,21 +293,21 @@ To use FastX without installing any software, connect to the NCAR VPN
 and use an updated version of any common browser. See the following
 section for an alternative to using the VPN.
 
-1.  Connect to the [NCAR VPN](../../getting-started/vpn-access.md).
+1. Connect to the [NCAR VPN](../../getting-started/vpn-access.md).
 
-2.  Go to [https://fastx.ucar.edu:3300](https://fastx.ucar.edu:3300/).
+2. Go to [https://fastx.ucar.edu:3300](https://fastx.ucar.edu:3300/).
 
-3.  Authenticate with your username and token response.
+3. Authenticate with your username and token response.
 
-4.  Click the **+** button in the upper-left corner of the FastX window.
+4. Click the **+** button in the upper-left corner of the FastX window.
 
     ![](remote-desktops/media/fastx1.png)
 
-5.  In the next window, click the **KDE** button and then **Launch**.
+5. In the next window, click the **KDE** button and then **Launch**.
 
     ![](remote-desktops/media/fastx2.png){width="350"}
 
-6.  The KDE desktop will open in a new tab or a new browser window.
+6. The KDE desktop will open in a new tab or a new browser window.
     Right-click on the desktop to start a Kconsole terminal window.
 
     ![](remote-desktops/media/fastx3.png)
@@ -339,7 +339,7 @@ to re-open the session.
 
 #### Terminating your FastX session
 If you do not want to retain your session, terminate it as shown
-here before logging out:  
+here before logging out:
 ![](remote-desktops/media/fastx5.png){width="400"}
 
 ### FastX via web browser and ssh tunnel
@@ -372,18 +372,16 @@ After creating the tunnel, proceed as described in the previous section.
 
 If you’re not connected to the NCAR VPN or prefer to use a faster, more
 robust remote desktop service, consider downloading and installing
-the [FastX desktop client](https://www.starnet.com/download/fastx-client).
-
-
+the [FastX desktop client](https://www.starnet.com/download-fastx-client/).
 
 !!! note "FastX desktop client for Windows users"
     If you do not have admin privileges to install the client on your machine, choose the “Windows Nonroot” client.
 
-1.  Start the FastX client.
-2.  Click the **+** button in the upper-left corner.  
+1. Start the FastX client.
+2. Click the **+** button in the upper-left corner.
     ![](remote-desktops/media/fastx6.png){width="450"}
 
-3.  Fill in the fields of the pop-up boxes as follows:
+3. Fill in the fields of the pop-up boxes as follows:
     - **Host:** `fastx.ucar.edu`
     - **User:**  *Enter your username*
     - **Port:** 22
@@ -392,15 +390,15 @@ the [FastX desktop client](https://www.starnet.com/download/fastx-client).
 
     ![](remote-desktops/media/fastx7.png){width="300"} ![](remote-desktops/media/fastx8.png){width="300"}
 
-4.  Click **OK**.
-5.  Select the remote desktop collection (double-click or press **Enter**).
-6.  Authenticate with your username and token response.
-7.  Click the **+** button in the upper-left corner of the next window.  
+4. Click **OK**.
+5. Select the remote desktop collection (double-click or press **Enter**).
+6. Authenticate with your username and token response.
+7. Click the **+** button in the upper-left corner of the next window.
     ![](remote-desktops/media/fastx6.png){width="450"}
 
-8.  Select the **KDE** icon that displays `startplasma-x11` in the required command field.
-    1.  Double-click the icon to start the KDE desktop. You can then
+8. Select the **KDE** icon that displays `startplasma-x11` in the required command field.
+    1. Double-click the icon to start the KDE desktop. You can then
         right-click on the desktop to get a Kconsole menu, **OR**
-    2.  Double-click the **xterm** icon instead to get a single xterm.
+    2. Double-click the **xterm** icon instead to get a single xterm.
 
      ![](remote-desktops/media/fastx9.png)

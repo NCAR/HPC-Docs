@@ -25,7 +25,7 @@ of wallclock hours). We encourage researchers to estimate GPU-hour needs
 by making test/benchmark runs on Derecho or Casper GPUs, but we will
 accept estimates based on runs on comparable non-NSF NCAR, GPU-based systems.
 You can use a table like this as a starting point. Such a table can be
-used as part of your [large-scale allocation proposal](../university-allocations/university-large-allocation-request-preparation-instructions/).
+used as part of your [large-scale allocation proposal](./university-allocations/university-large-allocation-request-preparation-instructions.md).
 
 <table style="width:100%;">
   <colgroup>
@@ -132,7 +132,7 @@ resources, consider these questions:
 - How large is any data set that you need to load?
 
 - How much memory needs to be available for you to complete a run?
-  [Several tools are available](../../pbs/checking-memory-use/) that can tell
+  [Several tools are available](../pbs/checking-memory-use/) that can tell
   you how much memory your program uses.
 
 Your answers will help you calculate the minimum number of nodes you can
@@ -215,9 +215,9 @@ with systems that are similar to Derecho.
 
 Use these links to download sample proposals:
 
-- [Example proposal 1](../university-allocations/Example_Proposal_1_Spring2020.pdf)
+- [Example proposal 1](./university-allocations/Example_Proposal_1_Spring2020.pdf)
 
-- [Example proposal 2](../university-allocations/Example_Proposal_2_Fall2019.pdf)
+- [Example proposal 2](./university-allocations/Example_Proposal_2_Fall2019.pdf)
 
 They are specific to university large-scale allocations but are good examples
 of documenting performance that you can follow for other types of

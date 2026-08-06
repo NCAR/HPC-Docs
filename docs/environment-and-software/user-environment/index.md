@@ -12,7 +12,7 @@ Users have the ability to customize and tailor their software environment to mee
     dependent software libraries, all compiled to achieve maximum performance
     on a particular host system CPU architecture.
 
-    Conversely, [Conda](conda.md) provides a convenient mechanism for creating and
+    Conversely, [Conda](./package-managers/conda.md) provides a convenient mechanism for creating and
     sharing stand-alone, consistent software environments;
     particularly for Python and R usage. Conda environments are
     commonplace in data analysis and AI/ML workflows, where software
@@ -25,8 +25,8 @@ Users have the ability to customize and tailor their software environment to mee
     optimal performance on "exotic" HPC networks.  If you run into difficulties
     with Conda and MPI packages, [reach out to consulting](../../user-support/index.md).
 
-
 ## Modules
+
 Software [*modules*](./modules.md)  helps you identify software that is available on
 the system and then load compatible packages. It manages complex
 combinations of paths, environment variables, and dependencies automatically,
@@ -35,11 +35,12 @@ system, built with different combinations of compilers, communications libraries
 
 Modules are a standard feature on most multi-user HPC systems to allow for
 multiple, potentially conflicting versions of compilers and software to be available
-to different users simultaneously.  See our
-[Modules](modules.md) page for a full discussion of module usage.
+to different users simultaneously.  See the
+[Modules](./modules.md) page for a full discussion of module usage.
 
 ## Conda
-[Conda](./conda.md) is an open source package management
+
+[Conda](./package-managers/conda.md) is an open source package management
 system and environment management system that runs on Windows, macOS,
 and Linux. Conda installs, runs and updates packages and their
 dependencies. Conda easily creates, saves, loads and switches between
@@ -56,7 +57,8 @@ normal environment.
 (*For more details, see the [conda project documentation](https://docs.conda.io).*)
 
 ### Conda within an HPC Environment
-NCAR system users [access Python via Conda environments](./conda.md), which
+
+NCAR system users [access Python via Conda environments](./package-managers/conda.md), which
 are self-contained installations of Python itself, Python packages,
 and the software dependencies those packages rely on. We provide a
 common `conda` module available through the [module system](./modules.md), and encourage all users to leverage

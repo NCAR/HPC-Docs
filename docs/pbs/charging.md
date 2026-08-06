@@ -181,6 +181,6 @@ may be able to save by using a less expensive queue.
 
 CISL can refund core-hours if system failures cause jobs to fail and the failed
 jobs are reported promptly. Use this [core-hours refund request
-form](https://helpdesk.ucar.edu/plugins/servlet/desk/portal/3/create/42) (login
+form](https://ithelp.ucar.edu/plugins/servlet/desk/portal/3/create/22) (login
 required) if you think a refund is warranted. It is easier for us to verify
 recent failures (from the past 3 days), so a prompt report is recommended.

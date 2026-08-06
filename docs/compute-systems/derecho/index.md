@@ -89,7 +89,7 @@ Derecho users have access to Intel, NVIDIA, GNU, and Cray compilers. The **Intel
 
 See this page for [a full discussion of compiling on Derecho](./compiling-code-on-derecho/index.md).
 
-Many Derecho AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/package-managers/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/package-managers/conda.md#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/machine-learning-and-deep-learning.md).
+Many Derecho AI/ML workflows benefit instead from [using Conda](../../environment-and-software/user-environment/package-managers/conda.md), especially [NCAR's Python Library (NPL)](../../environment-and-software/user-environment/package-managers/conda.md#the-ncar-python-library) or to gain access to several [Machine Learning Frameworks](../../environment-and-software/hpc-software/machine-learning-and-deep-learning.md).
 
 -----
 

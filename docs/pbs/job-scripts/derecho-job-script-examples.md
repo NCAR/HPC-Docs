@@ -1,4 +1,4 @@
-# Derecho batch job script examples
+# Derecho Job Script Examples
 
 When using these examples to create your own job scripts to run on
 Derecho, remember to substitute your own job name and project code,

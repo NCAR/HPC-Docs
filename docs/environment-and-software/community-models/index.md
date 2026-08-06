@@ -3,7 +3,7 @@
 The models described below are available for use on NCAR computers that
 CISL manages.
 
-![](community-models/media/image1.jpeg)
+![](media/image1.jpeg)
 
 Please contact the [NCAR Research Computing help
 desk](https://rchelp.ucar.edu/) if you need assistance.

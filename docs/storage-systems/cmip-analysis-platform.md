@@ -26,7 +26,7 @@ If what you need is not already on GLADE, the `esgfsearch` and
 These tools are based on the
 [intake-esgf](https://intake-esgf.readthedocs.io/en/latest/) project.
 
-This process assumes you are familiar with the typical CMIP *facets* and associated nomenclature, if not please refer to the [intake-esgf beginners guide](https://intake-esgf.readthedocs.io/en/latest/beginner.html) for an introduction or review the [CMIP6 Core Controlled Vocabularies](https://wcrp-cmip.github.io/CMIP6_CVs/) for additional details.
+This process assumes you are familiar with the typical CMIP *facets* and associated nomenclature, if not please refer to the [intake-esgf beginners guide](https://intake-esgf.readthedocs.io/en/latest/beginner/) for an introduction or review the [CMIP6 Core Controlled Vocabularies](https://wcrp-cmip.github.io/CMIP6_CVs/) for additional details.
 
 ### Searching
 The `esgfsearch` tool can be used to identify available data sets and
@@ -148,7 +148,7 @@ temporary staged files 7 days after last access time.
 `esgfdownload` supports two additional command line arguments that may be useful:
 
 - `--list-paths`: will list the GLADE paths to all the NetCDF files satisfying your query,
-- `--download-log`: will output the [download log](https://intake-esgf.readthedocs.io/en/latest/logging.html) when complete.
+- `--download-log`: will output the [download log](https://intake-esgf.readthedocs.io/en/latest/logging/) when complete.
   This option can be useful in identifying the reason for any download failures.
 
 Run `esgfdownload --help` to see all supported options.

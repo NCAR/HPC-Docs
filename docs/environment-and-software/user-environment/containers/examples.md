@@ -810,7 +810,7 @@ In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all instal
 #### The base layer
 
 ???+ example "The Rockylinx 8 + OpenHPC base layer"
-    For the base layer we deploy an [OpenHPC v2](https://openhpc.community/openhpc-2-0-released) installation on top of a Rocklinux v8 base image.  OpenHPC provides access to many pre-complied scientific libraries and applications, and supports a matrix of compilers and MPI permutations. and we will select one that works well with Derecho.  Notably, at present OpenHPC does **not** natively support CUDA installations, however we will address this limitation in the subsequent steps.
+    For the base layer we deploy an [OpenHPC v2](https://github.com/openhpc/ohpc/wiki/2.X) installation on top of a Rocklinux v8 base image.  OpenHPC provides access to many pre-complied scientific libraries and applications, and supports a matrix of compilers and MPI permutations. and we will select one that works well with Derecho.  Notably, at present OpenHPC does **not** natively support CUDA installations, however we will address this limitation in the subsequent steps.
 
     ```pre title="rocky8/OpenHPC-mpich/Dockerfile" linenums="1"
     ---8<--- "https://raw.githubusercontent.com/benkirk/containers/main/containers/rocky8/OpenHPC-mpich/Dockerfile"
@@ -907,7 +907,7 @@ In this case a simple Mac laptop with `git`, GNU `make`, and `docker` all instal
     ```
 
 ### Running the container on Derecho
-With the container built from the steps above (or simply pulling the resulting image from Docker Hub), we are now ready to run a sample test case on Derecho.  We choose `Example02_CBL.in` from the [FastEddy Tutorial](https://fasteddytutorial.readthedocs.io/en/latest/cases/CBL.html) and modify it to run on 24 GPUs (full steps listed [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial/apptainer/FastEddy)).  The PBS job script listed below shows the steps required to "bind" the host MPI into the container.
+With the container built from the steps above (or simply pulling the resulting image from Docker Hub), we are now ready to run a sample test case on Derecho.  We choose `Example02_CBL.in` from the [FastEddy Tutorial](https://fasteddy-model.readthedocs.io/en/latest/Tutorials/cases/CBL.html) and modify it to run on 24 GPUs (full steps listed [here](https://github.com/NCAR/hpc-demos/tree/main/containers/tutorial/apptainer/FastEddy)).  The PBS job script listed below shows the steps required to "bind" the host MPI into the container.
 
 ???+ example "Containerized FastEddy PBS Script"
     ```bash title="run_fasteddy_container.pbs"
