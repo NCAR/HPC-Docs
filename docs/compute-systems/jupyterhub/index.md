@@ -21,12 +21,12 @@ Chrome and Firefox are recommended for all users.
 
 Select **Production**.
 
-![](media/jhub1_new.png){width="450"}
+![JupyterHub production login page - Available NCAR resources](media/jhub1_new.png){width="450"}
 
 Log in with your NCAR username and Duo two-factor authentication, just
 as you would when logging directly in to either system.
 
-![](media/jhub2_new.png){width="600"}
+![JupyterHub login dialogue](media/jhub2_new.png){width="600"}
 
 After you authenticate, you will be able to start a new default server
 or create a named server. (See following image.) You can have up to four
@@ -38,13 +38,13 @@ named servers to use for accessing different compute resources.
     same notebook file in multiple servers concurrently can lead to kernel
     failures and other errors.
 
-![](media/jhub3_new.png)
+![JupyerHub server selection screen](media/jhub3_new.png)
 
 After starting a server, select the cluster you want to use. You can
 choose to work on a login node or a batch node on either Casper or
 Derecho.
 
-![](media/jhub4_new.png)
+![JupyterHub resource selection drop down](media/jhub4_new.png)
 
 If you choose a **login node**, launching the server will take you to
 the web interface.
@@ -59,8 +59,8 @@ Launch your job when ready. This job only gives you access to the
 JupyterLab instance. If you need more resources, you can launch another
 job or jobs from within JupyterLab.
 
-![](media/jhub5_new.png){align="left"}
-![](media/jhub6_new.png)
+![JupyterHub resource selection options for Derecho](media/jhub5_new.png){align="left"}
+![JupyterHub resource selection options for Casper](media/jhub6_new.png)
 
 After launching the job, you will have access to multiple kernels in the
 web interface (image below) for working with various languages and
@@ -71,7 +71,7 @@ applications.
     you to explore your home directory *only*. To change to your scratch or
     work space, create soft links in your home directory to those locations.
 
-![](media/jhub7_new.png)
+![JupyterLab home screen in JupyterHub](media/jhub7_new.png)
 
 ## Python environments and kernels
 
@@ -81,7 +81,7 @@ which change periodically as new releases are installed, include:
 
 - Multiple Python 3 interpreters with varying package support including
   a basic install (Python 3), the Pangeo stack installed with conda
-  (Pangeo), and the [NCAR Python Library](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs/?h=npl#npl-ncar-python-library) (NPL) that is
+  (Pangeo), and the [NCAR Python Library](../../environment-and-software/user-environment/package-managers/conda.md#the-ncar-python-library) (NPL) that is
   also provided at the command-line by the `conda` environment module.
 
 - R
@@ -96,4 +96,4 @@ which change periodically as new releases are installed, include:
 
 See these related CISL documentation pages for additional support:
 
-- [Using Conda and Python](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/06-jupyter-on-cirrus/conda-envs/?h=conda)
+- [Using Conda and Python](../../environment-and-software/user-environment/package-managers/conda.md)

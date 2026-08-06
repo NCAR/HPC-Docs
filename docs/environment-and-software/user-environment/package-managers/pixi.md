@@ -1,4 +1,4 @@
-# Using `Pixi` for Package Management
+# Using `pixi` for Python Package Management
 
 NCAR system users can use [**`Pixi`**](https://pixi.sh/latest/), a fast, modern package manager written in Rust that builds on the Conda ecosystem.
 Pixi provides a project-based workflow for managing dependencies across Python, R, C/C++, Julia, and other languages, while offering significantly faster dependency resolution and environment creation than Conda.
@@ -16,18 +16,19 @@ Each project has its own directory with a configuration file (`pixi.toml` or `py
 
 !!! abstract "To read more about `Pixi`, visit the [official documentation](https://pixi.prefix.dev/dev/)."
 
-
 ## Using `pixi` on NSF NCAR HPC Systems
 
 Pixi is available as an environment module on NCAR HPC systems.
 
 Before using `pixi`, ensure no conda environments are activated by running:
-```bash
+
+```sh
 conda deactivate
 ```
 
 Then, load the `pixi` module:
-```bash
+
+```sh
 module load pixi
 ```
 
@@ -54,9 +55,10 @@ cd /glade/work/$USER/projects
 pixi init example-analysis
 cd example-analysis
 ```
+
 This creates a project directory (`example-analysis`) with a `pixi.toml` configuration file:
 
-```
+```sh
 example-analysis/
 ├── pixi.toml      # Project configuration and dependencies
 └── .gitignore     # Ignores Pixi environment directory
@@ -67,7 +69,7 @@ The `pixi.toml` file defines your project's dependencies and configuration.
 !!! tip "Using `pyproject.toml` instead of `pixi.toml`"
     Pixi can also work with Python's standard `pyproject.toml` file instead of `pixi.toml`. This is particularly useful for existing Python projects or when you prefer following [PEP 621 packaging standards](https://peps.python.org/pep-0621/):
 
-    ```bash
+    ```sh
     # Create a new project using pyproject.toml
     pixi init --format pyproject example-analysis
 
@@ -84,7 +86,7 @@ The `pixi.toml` file defines your project's dependencies and configuration.
 
 Now you can add packages to your project:
 
-```bash
+```sh
 # Add Python and packages
 pixi add python numpy pandas matplotlib xarray
 ```
@@ -96,13 +98,13 @@ your exact environment.
 
 You can also remove packages:
 
-```bash
+```sh
 pixi remove matplotlib
 ```
 
 or update packages:
 
-```bash
+```sh
 pixi update pandas
 ```
 
@@ -115,7 +117,7 @@ pixi update pandas
 
 To run commands in your project environment:
 
-```bash
+```sh
 # Run Python script
 pixi run python analyze_data.py
 
@@ -125,13 +127,13 @@ pixi run pytest tests/
 
 At any time, you can see the list of installed packages with:
 
-```bash
+```sh
 pixi list
 ```
 
 Alternatively, you can start an interactive shell with the environment activated. This is analogous to activating a conda environment:
 
-```bash
+```sh
 # Start an interactive shell with environment activated (analogous to `conda activate myenv`)
 pixi shell
 
@@ -143,7 +145,6 @@ pytest tests/
 ```
 
 To exit the shell, type `exit` or press `Ctrl+D`.
-
 
 !!! note "Using lock files"
     To reproduce an environment from a Pixi project:
@@ -159,7 +160,7 @@ To exit the shell, type `exit` or press `Ctrl+D`.
 
 Pixi projects are self-contained and easy to share. See the example below:
 
-```bash
+```sh
 # Person A creates and shares project
 cd /glade/work/$USER/projects
 pixi init shared-analysis
@@ -186,7 +187,7 @@ Pixi environments can be used in JupyterLab sessions on the [NCAR JupyterHub](..
 
 First, add `ipykernel` to your Pixi project:
 
-```bash
+```sh
 cd /glade/work/$USER/projects/example-analysis
 pixi add ipykernel
 ```
@@ -196,12 +197,11 @@ kernel will be named based on your project name.
 
 You can also manually create a kernel specification with a custom name:
 
-```bash
+```sh
 pixi run python -m ipykernel install --user --name=my-example-analysis-kernel
 ```
 
 This registers the Pixi environment as a Jupyter kernel named `my-example-analysis-kernel`.
-
 
 ## Key Differences Between `Pixi` and `Conda/Mamba` commands
 
@@ -213,7 +213,6 @@ This registers the Pixi environment as a Jupyter kernel named `my-example-analys
 | Running a Task              | `conda run -n myenv python my_program.py`         | `pixi run python my_program.py`                                           |
 | Installing a Package        | `conda install numpy`                             | `pixi add numpy`                                                          |
 | Uninstalling a Package      | `conda remove numpy`                              | `pixi remove numpy`                                                       |
-
 
 !!! abstract "Additional Resources"
     - [Pixi Official Documentation](https://pixi.sh/latest/)
