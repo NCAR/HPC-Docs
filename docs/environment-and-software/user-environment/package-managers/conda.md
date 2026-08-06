@@ -62,7 +62,6 @@ complex sets of requirements). Once loaded, the Conda module:
   in your scratch space, and locating your personal Python environments
   in your work space.
 
-
 !!! note "uv vs. Pixi vs. Conda: Choosing the right tool"
     Conda is a general-purpose package and environment manager that can
     handle complex dependencies across multiple languages. If you need to
@@ -79,7 +78,6 @@ complex sets of requirements). Once loaded, the Conda module:
     | Lockfiles                   | ❌     | ✅    | ❌      | ✅         |
     | Workspace Management        | ❌     | ✅    | ❌      | ✅         |
     | Speed                       | Slow  | Fast | Medium | Very Fast |
-
 
 !!! warning "System-wide and personal `conda` installations"
     If you already have a personal
@@ -112,7 +110,8 @@ detailed in the following sections.
 You can access a number of pre-installed Python environments by loading
 the Conda module. To see available environments, run the `list`
 subcommand:
-```bash
+
+```sh
 conda env list
 ```
 
@@ -120,11 +119,13 @@ The output will include both managed environments and any personal
 environments you have created, provided they are in Conda’s search path.
 
 ## The NCAR Python Library
+
 Our primary managed environment is the NCAR Python Library (**NPL**),
 which contains a large collection of packages related to geoscience
 and data processing. (It does not currently contain GPU or machine
 learning packages.) The NPL can be accessed as follows:
-```bash
+
+```sh
 conda activate npl
 ```
 
@@ -136,7 +137,8 @@ updated.
 
 To see the full list of packages in a managed environment, run the
 following command:
-```bash
+
+```sh
 conda list --name npl-2022b
 ```
 
