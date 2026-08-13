@@ -196,6 +196,7 @@ nav:
             - Pixi: environment-and-software/user-environment/package-managers/pixi.md
             - uv: environment-and-software/user-environment/package-managers/uv.md
             - Spack: environment-and-software/user-environment/package-managers/spack/spack.md
+        - NCAR Python Library: environment-and-software/user-environment/npl.md
         - Containers:
             - environment-and-software/user-environment/containers/index.md
             - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md

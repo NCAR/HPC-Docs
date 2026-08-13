@@ -118,42 +118,9 @@ conda env list
 The output will include both managed environments and any personal
 environments you have created, provided they are in Conda’s search path.
 
-## The NCAR Python Library
+### NCAR Python Libraries (NPL)
 
-Our primary managed environment is the NCAR Python Library (**NPL**),
-which contains a large collection of packages related to geoscience
-and data processing. (It does not currently contain GPU or machine
-learning packages.) The NPL can be accessed as follows:
-
-```sh
-conda activate npl
-```
-
-Once the environment is activated, the `python` command in your shell
-will use the version provided by the NPL. Currently, it is version
-Python 3.10, which is supported by the majority of relevant packages.
-Once package compatibility improves in newer versions, the NPL will be
-updated.
-
-To see the full list of packages in a managed environment, run the
-following command:
-
-```sh
-conda list --name npl-2022b
-```
-
-### Update schedule for the NCAR Python Library
-
-The NPL is updated twice a year and identified with environment names
-such as `npl-2022b` and `npl-2023a`. New NPL versions contain the
-same collection of packages as the previous environments (plus any
-requested and approved additions), but we let the Mamba resolver find
-and use the latest compatible versions of each package.
-
-For convenience, we also provide an environment named `npl` that always
-points to the most recent version of the NPL. We recommend that you load
-a specific version instead if you want to ensure consistent behavior
-from each installed package.
+CISL manages collections of python packages pre-installed for your use. Navigate to the following page on details about [NCAR Python Library](../npl.md) releases.
 
 ## Creating your own Conda environment
 
