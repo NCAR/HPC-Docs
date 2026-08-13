@@ -58,17 +58,25 @@ You can configure Cline in VS Code to connect to the local LLM hosted at `https:
 3. Type "Cline" and select "Cline: Open Settings"
 4. Or click the Cline icon in the Activity Bar and select "Settings"
 
-### Step 3: Configure Custom Endpoint
+### Step 3: Retrieve API key from Open WubUI
+
+1. Log into Open WenUI with the Microsoft option
+2. In the top right corner select the profile icon then Settings
+3. On the left of the settings box choose "Account"
+4. Click "API Keys" to display your key
+
+
+### Step 4: Configure Custom Endpoint
 
 Go to the cline extension on the left. It will ask you to log in but that is optional. Choose "Bring my own API key"
 
 ![Cline api key](../../media/llm/cline1.png "Cline Setup")
 
-On the following screen setup it as follows, the API key can be any string of characters:
+On the following screen setup it as follows, the API key needs to be the key retrieved in Step 3, and the base url is `https://llm.k8s.ucar.edu/api`
 
 ![Cline Setup](../../media/llm/cline2.png "Cline Setup")
 
-### Step 4: Test the Connection
+### Step 5: Test the Connection
 
 1. Open the Cline chat interface
 2. Send a simple message like "Hello"
@@ -103,9 +111,9 @@ Set the following environment variables in your shell configuration file (`~/.ba
 
 ```bash
 # Claude Code with custom endpoint
-export ANTHROPIC_BASE_URL=http://qwen.k8s.ucar.edu 
+export ANTHROPIC_BASE_URL=https://llm.k8s.ucar.edu/api
 export ANTHROPIC_API_KEY=dummy 
-export ANTHROPIC_AUTH_TOKEN=dummy 
+export ANTHROPIC_AUTH_TOKEN=<openwebui-token-from-above>
 export ANTHROPIC_DEFAULT_OPUS_MODEL=qwen3-coder-next 
 export ANTHROPIC_DEFAULT_SONNET_MODEL=qwen3-coder-next 
 export ANTHROPIC_DEFAULT_HAIKU_MODEL=qwen3-coder-next
@@ -115,9 +123,9 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL=qwen3-coder-next
 
 ```bash
 claude-qwen() {
-  ANTHROPIC_BASE_URL=http://qwen.k8s.ucar.edu \
+  ANTHROPIC_BASE_URL=https://llm.k8s.ucar.edu/api \
   ANTHROPIC_API_KEY=dummy \
-  ANTHROPIC_AUTH_TOKEN=dummy \
+  ANTHROPIC_AUTH_TOKEN=<openwebui-token-from-above> \
   ANTHROPIC_DEFAULT_OPUS_MODEL=qwen3-coder-next \
   ANTHROPIC_DEFAULT_SONNET_MODEL=qwen3-coder-next \
   ANTHROPIC_DEFAULT_HAIKU_MODEL=qwen3-coder-next \
@@ -130,9 +138,9 @@ claude-qwen() {
 Alternatively, set them for your current session:
 
 ```bash
-export ANTHROPIC_BASE_URL=http://qwen.k8s.ucar.edu 
+export ANTHROPIC_BASE_URL=https://llm.k8s.ucar.edu/api 
 export ANTHROPIC_API_KEY=dummy 
-export ANTHROPIC_AUTH_TOKEN=dummy 
+export ANTHROPIC_AUTH_TOKEN=<openwebui-token-from-above>
 export ANTHROPIC_DEFAULT_OPUS_MODEL=qwen3-coder-next 
 export ANTHROPIC_DEFAULT_SONNET_MODEL=qwen3-coder-next 
 export ANTHROPIC_DEFAULT_HAIKU_MODEL=qwen3-coder-next
