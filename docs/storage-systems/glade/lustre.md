@@ -1,6 +1,6 @@
 # Lustre scratch file system
 
-The **De**recho **Stor**age subsystem (**Destor**)
+The Derecho Storage subsystem (Destor)
 scratch file system is a Lustre-based
 [Cray ClusterStor E1000](https://buy.hpe.com/us/en/enterprise-solutions/storage-solutions/cray-clusterstor-storage-systems/cray-clusterstor-e1000-storage-systems/cray-clusterstor-e1000-storage-systems/p/1012842049) product
 configured as shown in the table below. An open-source, parallel system,
