@@ -1,5 +1,5 @@
 branches:
-- imageTag: 63e9bc4
+- imageTag: fbc2cc0
   name: cirrus-aug26-rel
 - imageTag: ad05f49
   name: cirrus-dask-gw-v1
