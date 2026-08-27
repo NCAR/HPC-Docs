@@ -2,7 +2,7 @@ default_stages: [pre-commit, pre-push]
 
 repos:
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.4.3
     hooks:
       - id: codespell
         args:
@@ -10,13 +10,15 @@ repos:
           - --skip=LICENSE
 
   - repo: https://github.com/tcort/markdown-link-check
-    rev: v3.10.3
+    rev: v3.15.0
     hooks:
       - id: markdown-link-check
         files: \.md$
+        args:
+          - --config=.github/workflows/markdown-link-check-config.json
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace

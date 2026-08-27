@@ -151,7 +151,7 @@ nav:
       - Cron services: compute-systems/additional-resources/cron.md
       - Thunder test system: compute-systems/additional-resources/thunder-test-system.md
 
-  - Running Jobs (PBS):
+  - Running Jobs with PBS:
       - pbs/index.md
       - Job Scripts:
         - pbs/job-scripts/index.md
@@ -188,41 +188,45 @@ nav:
       - SSH based tools: storage-systems/data-transfer/scp-and-sftp.md
     - CMIP Analysis Platform: storage-systems/cmip-analysis-platform.md
 
-  - User Environment:
-    - environment-and-software/user-environment/index.md
-    - Using Modules: environment-and-software/user-environment/modules.md
-    - Customizing your Environment: environment-and-software/user-environment/customizing.md
-    - Environment & Package Managers:
-      - Conda: environment-and-software/user-environment/package-managers/conda.md
-      - Pixi: environment-and-software/user-environment/package-managers/pixi.md
-      - uv: environment-and-software/user-environment/package-managers/uv.md
-      - Spack: environment-and-software/user-environment/package-managers/spack/spack.md
-    - Containers:
-      - environment-and-software/user-environment/containers/index.md
-      - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
-      - Example Workflows: environment-and-software/user-environment/containers/examples.md
-
-  - HPC Software:
-    - environment-and-software/hpc-software/index.md
+  - HPC User Environment and Software:
+    - environment-and-software/index.md
+    - User Environment:
+        - environment-and-software/user-environment/index.md
+        - Using Modules: environment-and-software/user-environment/modules.md
+        - Customizing your Environment: environment-and-software/user-environment/customizing.md
+        - Environment & Package Managers:
+            - Conda: environment-and-software/user-environment/package-managers/conda.md
+            - Pixi: environment-and-software/user-environment/package-managers/pixi.md
+            - uv: environment-and-software/user-environment/package-managers/uv.md
+            - Spack: environment-and-software/user-environment/package-managers/spack/spack.md
+        - Containers:
+            - environment-and-software/user-environment/containers/index.md
+            - Working with Containers: environment-and-software/user-environment/containers/working_with_containers.md
+            - Example Workflows: environment-and-software/user-environment/containers/examples.md
+    - HPC Software:
+        - environment-and-software/hpc-software/index.md
+        - Full Software List: environment-and-software/hpc-software/full-software-list.md
+        - Numerical Libraries:
+            - environment-and-software/hpc-software/numerical-libraries.md
+            - NCAR Classic Libraries for Geophysics: environment-and-software/hpc-software/ncar-classic-libraries-for-geophysics.md
+        - Machine Learning and Deep Learning : environment-and-software/hpc-software/machine-learning-and-deep-learning.md
+        - Profiling & Debuggers:
+            - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
+            - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
+        - Benchmarks:
+            - environment-and-software/benchmarks/index.md
+            - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
+            - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
     - Community Models:
-        - Available Models: environment-and-software/community-models.md
-        - Compiling WRF: environment-and-software/wrf_on_derecho.md
-        - Compiling WRF-Chem: environment-and-software/wrfchem_on_derecho.md
-    - Data Analysis and Visualization : environment-and-software/data-analysis-and-visualization.md
-    - NCL : environment-and-software/ncl.md
-    - MATLAB Parallel Computing Toolbox: environment-and-software/matlab-parallel-computing-toolbox.md
-    - Numerical Libraries: environment-and-software/numerical-libraries.md
-    - Machine Learning and Deep Learning : environment-and-software/machine-learning-and-deep-learning.md
-    - NCAR Classic Libraries for Geophysics: environment-and-software/ncar-classic-libraries-for-geophysics.md
-    - Utilities: environment-and-software/user-environment/utilities.md
+        - environment-and-software/community-models/index.md
+        - Compiling WRF: environment-and-software/community-models/wrf_on_derecho.md
+        - Compiling WRF-Chem: environment-and-software/community-models/wrfchem_on_derecho.md
+    - Data Analysis and Visualization:
+        - environment-and-software/data-analysis-and-visualization/index.md
+        - MATLAB Parallel Computing Toolbox: environment-and-software/data-analysis-and-visualization/matlab-parallel-computing-toolbox.md
+        - NCL : environment-and-software/data-analysis-and-visualization/ncl.md
+    - Utilities: environment-and-software/utilities.md
     - VS Code: environment-and-software/vscode.md
-    - Profiling & Debuggers: # -- tentative placement
-      - Debugging and Profiling with Forge Tools: environment-and-software/hpc-software/profiling-and-debuggers/running-ddt-map-and-pr-jobs.md
-      - Intel Parallel Studio XE: environment-and-software/hpc-software/profiling-and-debuggers/intel-parallel-studio-xe.md
-    - Benchmarks:
-      - environment-and-software/benchmarks/index.md
-      - NCAR Benchmarking applications - 2015 release: environment-and-software/benchmarks/ncar-benchmarking-2015.md
-      - NCAR Benchmarking applications - 2019-2020 release: environment-and-software/benchmarks/ncar-benchmarking-2019-2020.md
 
   - Contributing to the Documentation:
     - contributing/index.md
@@ -361,8 +365,8 @@ plugins:
 # -- configuration - extras
 # ------------------------------------
 extra:
-  next_chap_deadline: March 4th 2026
-  next_nsc_deadline: mid March 2026
+  next_chap_deadline: Friday September 18, 2026
+  next_nsc_deadline: late September 2026
   analytics:
     provider: google
     property: G-RZLJ37D0K6

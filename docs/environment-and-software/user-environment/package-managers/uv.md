@@ -49,7 +49,7 @@ By default, uv stores its cache in your home directory, which can quickly exceed
     ```
 
 ## Working with Python Projects using `uv`
- 
+
 `uv` supports managing Python projects, which define their dependencies in a `pyproject.toml` file.
 
 You can create a new Python project using the `uv init` command:
@@ -72,11 +72,11 @@ The `pyproject.toml` file is where you define your project's dependencies.
 
 !!! info "What is a project-based workflow?"
     A project-based workflow organizes your code and dependencies around a central `pyproject.toml` file, rather than managing environments and packages separately. This approach:
-        
+
     - **Declares dependencies explicitly** : all required packages are listed in `pyproject.toml`
     - **Locks exact versions** : for example a `uv.lock` file will pin exact versions of all dependencies
     - **Enables reproducibility** : recreate your environment months later with `uv sync`
-        
+
     The project-based model is standard in modern Python tooling. This approach contrasts with the traditional approach of creating a conda or venv environment, installing packages ad-hoc, and doing `pip freeze > requirements.txt`. `uv` supports both workflows, but the project-based approach is recommended for better reproducibility.
 
 
@@ -163,7 +163,7 @@ mkdir -p /glade/work/$USER/uv-envs
 uv venv /glade/work/$USER/uv-envs/myenv
 
 # Activate the environment
-source /glade/work/$USER/uv-envs/myenv/bin/activate   
+source /glade/work/$USER/uv-envs/myenv/bin/activate
 ```
 Once activated, you can use `python` commands within this environment just like a conda environment. If you use `uv run` commands, you do not need to activate the environment manually.
 
@@ -181,7 +181,7 @@ Once activated, you can use `python` commands within this environment just like 
 
 !!! note "Environment location"
     Create virtual environments in `/glade/work/$USER` to avoid filling
-    your home directory quota. Virtual environments can be several MBs-GBs 
+    your home directory quota. Virtual environments can be several MBs-GBs
     or larger depending on installed packages.
 
 
@@ -244,7 +244,7 @@ The `--frozen` flag tells `uv` to use the exact versions in the lock file withou
 
 ## Creating Jupyter kernels for `uv` environments
 
-`uv` environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../compute-systems/jupyterhub/index.md) service.
+`uv` environments can be used in JupyterLab sessions on the [NCAR JupyterHub](../../../compute-systems/jupyterhub/index.md) service.
 
 First, install the `ipykernel` package into your `uv` environment:
 
@@ -297,4 +297,4 @@ This registers the `uv` environment as a Jupyter kernel named
     - [Using pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
     - [uv pip Interface](https://docs.astral.sh/uv/pip/)
     - [Migrating from pip to uv](https://docs.astral.sh/uv/guides/migration/pip-to-project/)
-    - [Browse PyPI Packages](https://pypi.org/) 
+    - [Browse PyPI Packages](https://pypi.org/)

@@ -10,11 +10,11 @@ Custom alerts allow you to monitor application specific metrics and receive noti
 
 Before configuring custom alerts, ensure:
 
-- Your application is exporting prometheus metrics 
+- Your application is exporting prometheus metrics
 - You have a Helm chart repository configured for your application
 
 !!! note
-    If you need assistance with initial application setup, see [Adding Applications](../03-adding-applications/index.md).
+    If you need assistance with initial application setup, see [Adding Applications](../03-deploying-applications/index.md).
 
 ---
 
@@ -26,14 +26,14 @@ By default, Prometheus collects basic container metrics (CPU, memory, network). 
 2. Configure a **PodMonitor** or **ServiceMonitor** to tell Prometheus where to scrape metrics
 
 !!! note
-    Many popular official images include a prometheus exporter by default. Make sure this is enabled in your applications configuration. 
+    Many popular official images include a prometheus exporter by default. Make sure this is enabled in your applications configuration.
 
 ### Monitor Examples
 
 
 !!! note
     Your application must expose a metrics endpoint that returns data in Prometheus format. Popular libraries include:
-    
+
     - **Python**: `prometheus_client`
     - **Node.js**: `prom-client`
     - **Java**: Micrometer or Prometheus JVM Client
@@ -156,7 +156,7 @@ Once you've added the alert configuration files to your Helm chart:
 3. **Verify the configuration** by checking Argo CD for any sync errors
 
 !!! tip
-    You can request read-only access to Argo CD to monitor your deployments. See [Argo CD Access](../03-adding-applications/index.md#argo-cd-access).
+    You can request read-only access to Argo CD to monitor your deployments. See [Argo CD Access](../03-deploying-applications/index.md#argo-cd).
 
 ---
 

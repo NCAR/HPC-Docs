@@ -5,7 +5,7 @@
 !!! tip
     This page is written with the assumption that you have some experience using
     PBS Pro to schedule compute jobs. If you are not yet familiar with job
-    submission, we recommend you review our [PBS Pro documentation](../../../pbs)
+    submission, we recommend you review our [PBS Pro documentation](../../pbs/index.md)
     first.
 
 Casper is a heterogeneous system that has several node architectures.  The
@@ -67,7 +67,7 @@ up to the maximum resource request:
 
 The table below provides all possible options for selecting an accelerator architectures on Casper. These values can be used for the `gpu_type` argument in PBS select statements to allow targeting of a single node architecture or the first available GPU matching the chosen compute capability.
 
-| Execution Queue | Node Type                | CC / Arch            | GPU | GPU_mem | GPU_num |                                               
+| Execution Queue | Node Type                | CC / Arch            | GPU | GPU_mem | GPU_num |
 |-------|--------------------------|----------------|-------|------------|-------------|
 | nvgpu | 4x V100 32gb   | cc70             | v100   | v100_32gb | v100_4way   |
 | | 8x V100 32gb   | cc70             | v100   | v100_32gb | v100_8way   |
@@ -97,7 +97,7 @@ These GPUs provide hardware and software capabilities for GPU accelerated parall
 
 ### Data & Visualization
 
-These nodes are primarily used for running applications that either have a Graphical User Interface (GUI) or provide visual output of data. A list of common applications that will benefit from the GPUs of these nodes can be found in the [Data Analysis and Visualization](../../environment-and-software/data-analysis-and-visualization.md) section.
+These nodes are primarily used for running applications that either have a Graphical User Interface (GUI) or provide visual output of data. A list of common applications that will benefit from the GPUs of these nodes can be found in the [Data Analysis and Visualization](../../environment-and-software/data-analysis-and-visualization/index.md) section.
 
 The L40 nodes are also capable of basic GPGPU tasks like AI inference and are less utilized than the nodes within the GPGPU queue. This could significantly reduce your wait time in the queue.
 

@@ -63,7 +63,7 @@ https://rchelp.ucar.edu
 ### NCAR HPC Users' Group
 The NCAR HPC Users’ Group, NHUG, is a dedicated community that aims to promote the productive use of high-performance computing (HPC) facilities at NCAR and increase collaboration among all of the NCAR HPC community.
 
-NHUG is open to all HPC users and holds monthly meetings featuring different HPC-related topics. [See the NHUG page](../nhug/index.md) for additional details.
+NHUG is open to all HPC users and holds monthly meetings featuring different HPC-related topics. See the [NHUG page](../user-support/nhug.md) for additional details.
 
 ### Daily Bulletin
 If you are not already receiving the Daily Bulletin, use this link to subscribe:

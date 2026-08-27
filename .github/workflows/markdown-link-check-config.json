@@ -1,0 +1,26 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https?://localhost"
+    },
+    {
+      "pattern": "^https?://127\\.0\\.0\\.1"
+    },
+    {
+      "pattern": "^https://fastx.ucar.edu"
+    },
+    {
+      "pattern": "^https://stratus-admin.ucar.edu"
+    },
+    {
+      "pattern": "^https://stratus.ucar.edu"
+    },
+    {
+      "pattern": "^https?://.*\\.k8s\\.ucar\\.edu/"
+    },
+    {
+      "pattern": "^mailto:"
+    }
+  ],
+  "aliveStatusCodes": [200, 403]
+}

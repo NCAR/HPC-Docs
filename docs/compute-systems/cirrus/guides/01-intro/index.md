@@ -2,10 +2,10 @@
 short_title: CIRRUS Overview
 ---
 
+# CIRRUS
+
 ![CIRRUS](../../media/CIRRUS_Logo_NCARBlue.png#only-light){width="640"}
 ![CIRRUS](../../media/CIRRUS_Logo_NCAR_DarkTheme.png#only-dark){width="640"}
-
-# CIRRUS
 
 **CIRRUS** (Cloud Infrastructure for Remote Research, Universities, and Scientists) is a Kubernetes-based cloud platform hosted at NSF NCAR. It provides flexible, scalable compute resources that complement traditional HPC systems, public cloud services, and local infrastructure.
 
@@ -30,16 +30,16 @@ Choose your path based on your needs and experience level:
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>1. Review Architecture</strong><br/>Understand <a href="#platform-overview">Platform Overview</a> and <a href="#core-services">Core Services</a></td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Understand Team Process</strong><br/>Review <a href="../02-interact-with-cirrus-team/agile">Team Interaction</a> and <a href="../02-interact-with-cirrus-team/create-tickets">Creating Tickets</a></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study <a href="../03-deploying-applications/additions">Adding Applications</a> and <a href="../04-container-registry">Container Registry</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Understand Team Process</strong><br/>Review [Team Interaction](../02-interact-with-cirrus-team/agile.md) and [Creating Tickets](../02-interact-with-cirrus-team/create-tickets.md)</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study [Adding Applications](../03-deploying-applications/additions.md) and [Container Registry](../04-container-registry/index.md)</td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Explore Services</strong><br/>Try <a href="../06-jupyter-on-cirrus/jupyterhub">JupyterHub</a> for interactive computing</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Set Up CI/CD</strong><br/>Configure <a href="../05-github-actions/scale-sets">GitHub Actions</a> and <a href="../07-secret-manager/openbao">Secrets Management</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Explore Services</strong><br/>Try [JupyterHub](../06-jupyter-on-cirrus/jupyterhub.md) for interactive computing</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Set Up CI/CD</strong><br/>Configure [GitHub Actions](../05-github-actions/scale-sets.md) and [Secrets Management](../07-secret-manager/openbao.md)</td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Request Access</strong><br/>Submit a <a href="../02-interact-with-cirrus-team/create-tickets">service request</a></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Deploy Applications</strong><br/>Use <a href="#gitops-deployment">GitOps workflow</a> with Helm charts</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Request Access</strong><br/>Submit a [service request](../02-interact-with-cirrus-team/create-tickets.md)</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Deploy Applications</strong><br/>Use [GitOps workflow](#gitops-deployment) with Helm charts</td>
     </tr>
   </tbody>
 </table>
@@ -96,15 +96,15 @@ Securely store and manage sensitive data like API keys and credentials.
 
 - **[openbao](../07-secret-manager/openbao.md)**<br/>Secure credential storage. Use to manage API keys and secrets.
 
-### **[Service Level Agreements](../08-service-level-agreements/slas.md)**
-Understand our service commitments and support levels.
-
-- **[slas](../08-service-level-agreements/slas.md)**<br/>Support levels and response times. Use to understand service commitments.
-
-### **[Frequent Issues](../09-frequent-issues/index.md)**
+### **[Frequent Issues](../08-frequent-issues/index.md)**
 Troubleshooting guide for common problems and solutions.
 
-- **[troubleshooting guide](../09-frequent-issues/index.md)**<br/>Common problems and solutions. Use when encountering issues or errors.
+- **[troubleshooting guide](../08-frequent-issues/index.md)**<br/>Common problems and solutions. Use when encountering issues or errors.
+
+### **[Service Level Agreements](../09-service-level-agreements/slas.md)**
+Understand our service commitments and support levels.
+
+- **[SLAs](../09-service-level-agreements/slas.md)**<br/>Support levels and response times. Use to understand service commitments.
 
 </div>
 

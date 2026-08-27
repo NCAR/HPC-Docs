@@ -45,6 +45,6 @@ To develop and test apps in NSF NCAR OOD environment, you must have access to th
 
 ## Recommended Resources
 
-Applications developed for NSF NCAR OOD are welcome to be presented to and seek feedback from the monthly [NCAR HPC User Group (NHUG)](../../nhug/index.md) meetings. Please reach out if you would like to present.
+Applications developed for NSF NCAR OOD are welcome to be presented to and seek feedback from the monthly [NCAR HPC User Group (NHUG)](../../user-support/nhug.md) meetings. Please reach out if you would like to present.
 
 Open OnDemand devopers and power users are recommended to review the comprehensive [Open OnDemand documentation](https://osc.github.io/ood-documentation/latest/) maintained by the [Ohio Supercomputing Center](https://www.osc.edu/) and broader OOD community. You may also consider attending the annual Global Open OnDemand (GOOD) conference. Specific recommendations on how to get involved with the OOD community may be found at [https://www.openondemand.org/get-involved](https://www.openondemand.org/get-involved).
