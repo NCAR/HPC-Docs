@@ -373,7 +373,7 @@ export USE_NETCDF4_FEATURES=0.         # NetCDF4 compression (serial) with the H
 The WRF community has developed some tools that may be of interest to users running WRF simulations detailed below.
 
 - [WRF Configuration Studio](https://hathewaywill.github.io/WRFConfigurationStudio/) ([GitHub](https://github.com/HathewayWill/WRFConfigurationStudio)) - A browser-based configuration environment for designing Weather Research and Forecasting Model domains
-- [WRFTailor](https://github.com/anikfal/wrftailor) - A namelist-based toolkit written in NCL and Bash allowing users to tailor and modify WRF input data (geo files, emissions data, etc.) based on geographic boundaries or spatial datasets.
+- [WRFtailor](https://github.com/anikfal/wrftailor) - A namelist-based toolkit written in NCL and Bash allowing users to tailor and modify WRF input data (geo files, emissions data, etc.) based on geographic boundaries or spatial datasets.
 
 Other recommended tools may be [contributed to this guide](../../../contributing).
 
