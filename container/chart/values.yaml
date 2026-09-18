@@ -1,6 +1,8 @@
 branches:
 - imageTag: 7799d4e
   name: cirrus-aug26-rel
+- imageTag: 70bbdc1
+  name: cirrus-binder
 - imageTag: ad05f49
   name: cirrus-dask-gw-v1
 - imageTag: 67ddfca
