@@ -26,7 +26,7 @@ By default, Prometheus collects basic container metrics (CPU, memory, network). 
 2. Configure a **PodMonitor** or **ServiceMonitor** to tell Prometheus where to scrape metrics
 
 !!! note
-    Many popular official images include a prometheus exporter by default. Make sure this is enabled in your applications configuration.
+    Many popular official images include a prometheus exporter by default. Make sure this is enabled in your application's configuration.
 
 ### Monitor Examples
 

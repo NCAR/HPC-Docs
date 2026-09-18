@@ -42,7 +42,7 @@ Your token will be displayed and this is the only time you can view it without r
 - Choose `kv` (key/value)
 - In the upper right choose the `Create Secret` button
 - Path for secret: `<your ucar email address>/github_pat`
-- You can store multiple key/value pairs under each secret. Our preference is one github repository per token so each repository can have it's own pair under this single `github_pat` secret
+- You can store multiple key/value pairs under each secret. Our preference is one github repository per token so each repository can have its own pair under this single `github_pat` secret
 - Set the key to the repository name (not the full url) and set the value to the PAT you generated
 
 ![Bao Secret Screen](../../media/openbao/bao2.png "Bao Secret Screen")
@@ -55,9 +55,9 @@ Administrator assistance is required to connect GitHub Runner scale sets on CIRR
 
 ```
 Hello,
-I have an repository that I would like to connect a GitHub runner scale set to. I have added my PAT to OpenBao following the documentation instructions.
+I have a repository that I would like to connect a GitHub runner scale set to. I have added my PAT to OpenBao following the documentation instructions.
 
-Link to GitHub repository: https://github.com/NCAR/<respository-name>
+Link to GitHub repository: https://github.com/NCAR/<repository-name>
 
 Thank you
 ```

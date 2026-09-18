@@ -58,9 +58,9 @@ You can configure Cline in VS Code to connect to the local LLM hosted at `https:
 3. Type "Cline" and select "Cline: Open Settings"
 4. Or click the Cline icon in the Activity Bar and select "Settings"
 
-### Step 3: Retrieve API key from Open WubUI
+### Step 3: Retrieve API key from Open WebUI
 
-1. Log into Open WenUI with the Microsoft option
+1. Log into Open WebUI with the Microsoft option
 2. In the top right corner select the profile icon then Settings
 3. On the left of the settings box choose "Account"
 4. Click "API Keys" to display your key

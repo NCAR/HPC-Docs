@@ -46,7 +46,7 @@ This ensures all code changes are reviewed by the appropriate experts.
 There are a number of action and workflow permissions that are controlled in the repository Settings tab. Browse to the Settings page for the repository, select Actions to open a dropdown, and click General to open the Actions permissions settings.
 
 - **Allow only the actions** that are required for your workflows and save them.
-- **Ensure that "Require approval for all outside collaborators"** is selected for the Fork pull request workflows from outside collaborators is selected and saved.
+- **Under "Require approval for all outside collaborators,"** select "Require approval for all external contributors" and save.
 - **Workflow permissions** set the default permissions granted to the `GITHUB_TOKEN` used in workflows and should match the minimum requirements for your workflows. The `GITHUB_TOKEN` permissions required should be included in your workflow to provide more granularity.
 
 ---
