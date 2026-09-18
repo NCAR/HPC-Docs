@@ -207,8 +207,6 @@ See the [tensorflow-mnist.yaml](#example-3-running-tensorflow-multi-node-cpu-onl
 
 ## Running MPI Jobs
 
-## Running MPI Jobs
-
 ### Step 1: Create Your MPIJob YAML
 
 Save your job configuration to a file, e.g., `myjob.yaml`.
@@ -408,7 +406,7 @@ spec:
 
 ### Example 3: Running tensorflow multi node CPU only
 
-This example container imager from mnist internally handles some of the ssh configuration so it has less ssh related config mounts.
+This example container image from mnist internally handles some of the ssh configuration so it has less ssh related config mounts.
 
 ```yaml
 apiVersion: kubeflow.org/v2beta1

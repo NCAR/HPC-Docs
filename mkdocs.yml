@@ -126,6 +126,7 @@ nav:
         - compute-systems/cirrus/guides/05-github-actions/scale-sets.md
       - MPI on CIRRUS: compute-systems/cirrus/guides/13-mpi/mpi.md
       - LLM Services: compute-systems/cirrus/guides/14-llm/llm.md
+      - Public Binder: compute-systems/cirrus/guides/15-binder/binder.md
       - Functions as a Service:
         - CIRRUS FaaS: compute-systems/cirrus/guides/12-faas/faas.md
         - GitOps: compute-systems/cirrus/guides/12-faas/gitops.md

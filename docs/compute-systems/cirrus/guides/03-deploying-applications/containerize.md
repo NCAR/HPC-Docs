@@ -132,4 +132,4 @@ docker run -p 5000:5000 ncote/docker-how-to:v1
 !!! info
     The run command used maps the localhost port 5000 to the container port 5000. This is the default port for Flask and this will vary based on the application. More often than not the port to run on can be specified explicitly as well.
 
-You can now open [http://localhost:5000](http://localhost:5000) in your browser and see "Hello World" served from your containerized app. This is a very basic example to get started, but it puts in place a foundation to expand upon. There's numerous web frameworks and complex applications that can be built with container images harnessing the power of kubernetes.
+You can now open [http://localhost:5000](http://localhost:5000) in your browser and see "Hello World" served from your containerized app. This is a very basic example to get started, but it puts in place a foundation to expand upon. There are numerous web frameworks and complex applications that can be built with container images harnessing the power of kubernetes.

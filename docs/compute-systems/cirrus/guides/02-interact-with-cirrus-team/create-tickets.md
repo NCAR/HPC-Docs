@@ -109,7 +109,7 @@ Click **Create** to submit your issue. You’ll be redirected to the *Issues* pa
 2. The **Product Owner** reviews, assigns, and prioritizes it.  
 3. You receive updates via Jira and email as the ticket progresses through the workflow.
 
-**Tip:** Keep your ticket clear and focused,concise detail helps the team respond faster and more accurately.
+**Tip:** Keep your ticket clear and focused, concise detail helps the team respond faster and more accurately.
 
 ---
 

@@ -1,6 +1,6 @@
 # Frequent Issues & Troubleshooting
 
-This page lists common problems CIRRUS users run into , and quick pointers to the right fix or reference guide.  Each issue links back to the detailed documentation so we don’t duplicate entire procedures.
+This page lists common problems CIRRUS users run into, and quick pointers to the right fix or reference guide.  Each issue links back to the detailed documentation so we don’t duplicate entire procedures.
 
 ---
 
