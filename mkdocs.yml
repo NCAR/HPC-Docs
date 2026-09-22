@@ -367,7 +367,7 @@ plugins:
 # ------------------------------------
 extra:
   next_chap_deadline: Friday September 18, 2026
-  next_nsc_deadline: late September 2026
+  next_nsc_deadline: Friday October 9, 2026
   analytics:
     provider: google
     property: G-RZLJ37D0K6
