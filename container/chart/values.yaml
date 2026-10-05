@@ -7,7 +7,7 @@ branches:
   name: cirrus-dask-gw-v1
 - imageTag: 67ddfca
   name: cirrus-faas
-- imageTag: 4d80f43
+- imageTag: e5f4d8a
   name: cirrus-hw-update
 - imageTag: 68bf840
   name: cirrus-kmh
