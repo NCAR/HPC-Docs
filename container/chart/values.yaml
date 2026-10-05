@@ -15,5 +15,5 @@ branches:
   name: cirrus-llm
 - imageTag: 85a163b
   name: cirrus-mpi
-- imageTag: 57fadb0
+- imageTag: eafc722
   name: main
