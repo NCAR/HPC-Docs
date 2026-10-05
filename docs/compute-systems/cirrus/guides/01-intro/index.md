@@ -30,16 +30,16 @@ Choose your path based on your needs and experience level:
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>1. Review Architecture</strong><br/>Understand <a href="#platform-overview">Platform Overview</a> and <a href="#core-services">Core Services</a></td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Understand Team Process</strong><br/>Review [Team Interaction](../02-interact-with-cirrus-team/agile.md) and [Creating Tickets](../02-interact-with-cirrus-team/create-tickets.md)</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study [Adding Applications](../03-deploying-applications/additions.md) and [Container Registry](../04-container-registry/index.md)</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Understand Team Process</strong><br/>Review <a href="../02-interact-with-cirrus-team/agile/">Team Interaction</a> and <a href="../02-interact-with-cirrus-team/create-tickets/">Creating Tickets</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>2. Plan Your Deployment</strong><br/>Study <a href="../03-deploying-applications/additions/">Adding Applications</a> and <a href="../04-container-registry/">Container Registry</a></td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Explore Services</strong><br/>Try [JupyterHub](../06-jupyter-on-cirrus/jupyterhub.md) for interactive computing</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Set Up CI/CD</strong><br/>Configure [GitHub Actions](../05-github-actions/scale-sets.md) and [Secrets Management](../07-secret-manager/openbao.md)</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Explore Services</strong><br/>Try <a href="../06-jupyter-on-cirrus/jupyterhub/">JupyterHub</a> for interactive computing</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>3. Set Up CI/CD</strong><br/>Configure <a href="../05-github-actions/scale-sets/">GitHub Actions</a> and <a href="../07-secret-manager/openbao/">Secrets Management</a></td>
     </tr>
     <tr>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Request Access</strong><br/>Submit a [service request](../02-interact-with-cirrus-team/create-tickets.md)</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Deploy Applications</strong><br/>Use [GitOps workflow](#gitops-deployment) with Helm charts</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Request Access</strong><br/>Submit a <a href="../02-interact-with-cirrus-team/create-tickets/">service request</a></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>4. Deploy Applications</strong><br/>Use <a href="#gitops-deployment">GitOps workflow</a> with Helm charts</td>
     </tr>
   </tbody>
 </table>
@@ -63,13 +63,13 @@ Learn how to work with the CIRRUS team and get support.
 - **[agile methodology](../02-interact-with-cirrus-team/agile.md)**<br/>How the team works and manages requests. Use this to understand our development process.
 - **[create tickets](../02-interact-with-cirrus-team/create-tickets.md)**<br/>How to submit requests and report issues. Use when you need help or want to request services.
 
-### **[Deploying Applications](../03-deploying-applications/)**
+### **[Deploying Applications](../03-deploying-applications/index.md)**
 Everything you need to containerize and deploy applications on CIRRUS.
 
 - **[create containers](../03-deploying-applications/containerize.md)**<br/>Step-by-step containerization guide. Perfect if you're new to containers or Docker.
 - **[adding applications](../03-deploying-applications/additions.md)**<br/>GitOps deployment with Helm charts. Use when you're ready to deploy your application.
 
-### **[Container Registry](../04-container-registry/)**
+### **[Container Registry](../04-container-registry/index.md)**
 Store, manage, and secure your container images with Harbor.
 
 - **[harbor overview](../04-container-registry/index.md)**<br/>Container registry introduction. Use to understand how to store and manage container images.
@@ -195,7 +195,7 @@ Learn more: [jupyter on CIRRUS](../06-jupyter-on-cirrus/jupyterhub.md)
 
 ## Hardware Resources
 
-CIRRUS operates on **18 high-performance nodes**, split between Mesa Lab & NWSC, providing substantial computing power:
+CIRRUS operates on **20 high-performance nodes**, split between Mesa Lab & NWSC, providing substantial computing power:
 
 ### Compute Specifications
 

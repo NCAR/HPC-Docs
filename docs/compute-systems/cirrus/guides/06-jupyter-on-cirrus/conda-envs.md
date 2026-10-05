@@ -51,12 +51,6 @@ The NCAR JupyterHub has a custom conda environment, `cirrus-base`, as the defaul
 
 An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cirrus-jhub-images/blob/main/notebook-images/conda/cirrus-base.yml)
 
-<!-- ### NPL (NCAR Python Library)
-
-We also include the most recent version of **NCAR Python Library (NPL)** conda environment and Python Kernel to users. This is a copy of the packages utilized for NPL that is hosted on HPC.
-
-An up to date list of packages and versions can be found directly at this [link to the file in GitHub](https://github.com/NCAR/cirrus-jhub-images/blob/main/images/base-notebook/packages/npl-2025a.yml) -->
-
 ### r-4.4
 
 We provide a base R environment with packages mirroring the package set used in the HPC-hosted JupyterHub for R users.
