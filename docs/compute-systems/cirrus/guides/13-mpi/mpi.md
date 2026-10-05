@@ -12,7 +12,7 @@ This guide explains how to run MPI (Message Passing Interface) jobs on Kubernete
 6. [Common Patterns and Examples](#common-patterns-and-examples)
 7. [Running Jobs from Within a Pod](#running-jobs-from-within-a-pod)
 8. [Multi-GPU and Multi-Node configurations](#multi-gpu-and-multi-node-configurations)
-9. [Using GitHub Actions with MPIJob](#using-github-actions-mpijob)
+9. [Using GitHub Actions with MPIJob](#using-github-actions-with-mpijob)
 10. [Troubleshooting](#troubleshooting)
 
 ---
@@ -813,7 +813,7 @@ kubectl delete mpijob my-mpijob
 ## Additional Resources
 
 - [MPI Operator GitHub](https://github.com/kubeflow/mpi-operator)
-- [Kubeflow MPI Operator Docs](https://www.kubeflow.org/docs/components/mpi-operator/)
+- [Kubeflow MPI Operator Docs](https://trainer.kubeflow.org/en/latest/legacy-v1/user-guides/mpi.html)
 - [OpenMPI Documentation](https://www.open-mpi.org/doc/)
 - [Horovod with MPI](https://github.com/horovod/horovod)
 
