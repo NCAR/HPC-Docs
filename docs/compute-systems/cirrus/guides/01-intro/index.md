@@ -313,10 +313,10 @@ CIRRUS operates on **20 high-performance nodes**, split between Mesa Lab & NWSC,
     </tr>
     <tr style="background-color:#f8f9fa;">
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Type</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × AMD EPYC 9354P</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">1 × AMD EPYC 9354P</td>
       <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Type</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × AMD EPYC 9354P</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">1 × AMD EPYC 9354P</td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Speed</strong></td>
@@ -352,6 +352,77 @@ CIRRUS operates on **20 high-performance nodes**, split between Mesa Lab & NWSC,
       <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">8 × 1.6TB NVMe</td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding:8px 12px; border:1px solid #ccc; background-color:#53565A; color:#fff; font-weight:bold; text-align:center;">Former Casper Nodes (2)</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Manufacturer</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">Supermicro</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Model</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">SYS-7049GP-TRT</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Type</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × Intel Xeon Gold 6140</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Speed</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2.30 GHz</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">18 x 2</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>GPU</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × NVIDIA A100 40GB (nwc1w11 only)</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CUDA Driver</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">575.51.03</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CUDA Runtime</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">12.9</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>RAM</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">384 GB</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>NICs</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">2 × 25G</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
+    </tr>
+    <tr style="background-color:#f8f9fa;">
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">1 × 2.0TB NVMe</td>
+      <td style="padding:2px 4px; background-color:#f8f9fa; border:none;"></td>
+      <td colspan="2" style="padding:6px 12px; border:none;"></td>
     </tr>
   </tbody>
 </table>
@@ -369,31 +440,34 @@ CIRRUS operates on **20 high-performance nodes**, split between Mesa Lab & NWSC,
   <tbody>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>CPU Cores</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">832 cores</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">AMD EPYC 9354P + Intel Xeon Gold 6326</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">648 cores</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">AMD EPYC 9354P + Intel Xeon Gold 6326 + Intel Xeon Gold 6140</td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Memory</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">9.2 TB</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">512 GB per node</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">10 TB</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">512 GB per node (384 GB on the former Casper nodes)</td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>GPU Nodes</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">10 nodes</td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">5× NVIDIA A10, 5× NVIDIA A2</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">11 nodes</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">5× NVIDIA A10, 5× NVIDIA A2, 1 node with 2× NVIDIA A100 40GB</td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Storage</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">246.4 TB</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">250.4 TB</td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">High-speed NVMe across all nodes</td>
     </tr>
     <tr>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;"><strong>Network</strong></td>
-      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">25G/10G</td>
+      <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">25G</td>
       <td style="padding:6px 12px; border:1px solid #ccc; white-space:nowrap;">High-bandwidth interconnect</td>
     </tr>
   </tbody>
 </table>
+
+!!! note "GPU sharing"
+    The A2 and A10 GPUs are time-sliced (10 slots per card), so pods on those nodes share a GPU. The A100s are not time-sliced: a pod that requests one gets the whole card.
 
 ### Infrastructure Status
 
