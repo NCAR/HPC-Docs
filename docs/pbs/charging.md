@@ -29,14 +29,17 @@ exclusive use of CPU or GPU compute nodes for an extended period of time. A
 limited number of shared compute nodes are also available via the **develop**
 queue.
 
-|**Submission Queue**        |**Execution Queue**|**Wall Clock Limit**   |**Resource Limits**                   |**Queue Description**|
-| :-                         | :-                | :-                    | :-                                   | :-                  |
-|**main** {: rowspan=2}      |cpu                |12 hours {: rowspan=2} | 2488 nodes; 128 cores per node       |Primary queue for production CPU and GPU workflows. Nodes are allocated for exclusive use by jobs. {: rowspan=2}|
-                             |gpu                                        | 82 nodes; 4 GPUs per node            |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
-|**develop** {: rowspan=2}   |cpudev             |6 hours {: rowspan=2}  | 256 cores; 235 GB per node           |Interactive and batch use for debugging and development on shared nodes. A user can run multiple jobs in this queue concurrently if the total number of cores or GPUs used does not exceed the stated resource limits. {: rowspan=2}|
-                             |gpu                                        | 8 GPUs; 487 GB per node              |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
-|**preempt** {: rowspan=2}   |pcpu               |100 hours {: rowspan=2}| Same as **main** {: rowspan=2}       |Jobs will only run on resources otherwise idle.  Jobs may be [preempted](./preemption.md) with a short grace period to make room for higher priority jobs. {: rowspan=2}|
+|**Submission Queue**        |**Execution Queue**|**Wall Clock Limit**   |**Resource Limits**                                      |**Queue Description**|
+| :-                         | :-                | :-                    | :-                                                      | :-                  |
+|**main** {: rowspan=2}      |cpu                |12 hours {: rowspan=2} | 2488 nodes; 128 cores per node                          |Primary queue for production CPU and GPU workflows. Nodes are allocated for exclusive use by jobs. {: rowspan=2}|
+                             |gpu                                        | 82 nodes; 4 GPUs per node                               |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+|**develop** {: rowspan=2}   |cpudev             |6 hours {: rowspan=2}  | 256 cores; 235 GB per node; 4 indices per job array     |Interactive and batch use for debugging and development on shared nodes. A user can run multiple jobs in this queue concurrently if the total number of cores, GPUs, or indices of a job array used does not exceed the stated resource limits. {: rowspan=2}|
+                             |gpudev                                     | 8 GPUs; 487 GB per node; 4 indices per job array        |&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+|**preempt** {: rowspan=2}   |pcpu               |100 hours {: rowspan=2}| Same as **main** {: rowspan=2}                          |Jobs will only run on resources otherwise idle.  Jobs may be [preempted](./preemption.md) with a short grace period to make room for higher priority jobs. {: rowspan=2}|
                              |pgpu|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
+
+!!! warning
+    The develop queue for Derecho is designed to *only run development workflows* for rapid prototyping, debugging, and testing for main workflows. It is not a queue to run subjobs that are part of another workflow such as postprocessing or operating on subsets of data using job arrays. Attempting to circumvent the main queue by submitting real workflows to the develop queue is poor etiquette on a shared system, blocks legitimate use of this queue, and will result in a corrective action response plan from CISL support.
 
 Some additional queues on the system are for dedicated purposes and accessible
 only to authorized users.
