@@ -38,8 +38,8 @@ queue.
 |**preempt** {: rowspan=2}   |pcpu               |100 hours {: rowspan=2}| Same as **main** {: rowspan=2}                          |Jobs will only run on resources otherwise idle.  Jobs may be [preempted](./preemption.md) with a short grace period to make room for higher priority jobs. {: rowspan=2}|
                              |pgpu|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 
-!!! warning "Appropriate use of the develop queue"
-    The develop queue for Derecho is designed to *only run development workflows* for rapid prototyping, debugging, and testing for main workflows. It is not a queue to run subjobs that are part of another workflow such as postprocessing or operating on subsets of data using job arrays. Attempting to circumvent the main queue by submitting real workflows to the develop queue can unnecessarily impact other users on a shared system by interfering with legitimate use of this queue and may result in an email from CISL support or your jobs being held or deleted.
+!!! warning "Appropriate use of the Derecho develop queue"
+    The develop queue for Derecho is designed to *only run development workflows* for rapid prototyping, debugging, and testing for main workflows. It is not a queue to run subjobs that are part of another workflow such as postprocessing or operating on subsets of data using job arrays. Attempting to circumvent the main queue by submitting real workflows to the develop queue can unnecessarily impact other users and may result in an email from CISL support or your jobs being held or deleted..
 
 Some additional queues on the system are for dedicated purposes and accessible
 only to authorized users.
