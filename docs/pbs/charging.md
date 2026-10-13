@@ -39,7 +39,7 @@ queue.
                              |pgpu|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|&#8288 {: style="padding:0"}|
 
 !!! warning "Appropriate use of the Derecho develop queue"
-    The develop queue for Derecho is designed to *only run development workflows* for rapid prototyping, debugging, and testing for main workflows. It is not a queue to run subjobs that are part of another workflow such as postprocessing or operating on subsets of data using job arrays. Attempting to circumvent the main queue by submitting real workflows to the develop queue can unnecessarily impact other users and may result in an email from CISL support or your jobs being held or deleted..
+    The develop queue for Derecho is designed to *only run development workflows* for rapid prototyping, debugging, and testing for main workflows. It is not a queue to run subjobs that are part of another workflow such as postprocessing or operating on subsets of data using job arrays. Attempting to circumvent the main queue by submitting real workflows to the develop queue can unnecessarily impact other users and may result in an email from CISL support or your jobs being held or deleted.
 
 Some additional queues on the system are for dedicated purposes and accessible
 only to authorized users.
