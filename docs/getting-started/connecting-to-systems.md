@@ -13,7 +13,7 @@ or
 ```
 If the username on the local workstation is the same as the NCAR systems, then that can be omitted. Similarly, to log on to Derecho, issue commands like this
 ```
- $ ssh <user-name>@derecho.hpc.edu
+ $ ssh <user-name>@derecho.hpc.ucar.edu
 ```
 `ssh` will prompt you for a password and ask you to confirm using the two-factor authentication with DUO as described in [Authenticating with Duo](accounts/duo/index.md#hpc-and-ssh-logins).
 
@@ -29,7 +29,7 @@ host casper
 host derecho
      HostName derecho.hpc.ucar.edu
 ```
-will allow you to connect by using the short-hand `ssh <user-name>@derecho`. As suggested in an NCAR HPC User Group blog post, "Streamling two-factor authentication with `ssh`", you can limit the number of authentications for each cluster separately by including this in your `~/.ssh/config` file.
+will allow you to connect by using the short-hand `ssh <user-name>@derecho`. As suggested in an NCAR HPC User Group blog post, "Streamlining two-factor authentication with `ssh`", you can limit the number of authentications for each cluster separately by including this in your `~/.ssh/config` file.
 ```
 host casper derecho *.hpc.ucar.edu
     ControlMaster auto
@@ -38,7 +38,7 @@ host casper derecho *.hpc.ucar.edu
     ServerAliveInterval 120s
     ServerAliveCountMax 5
 ```
-This creates a unique ControlPath file in `~/.ssh/` for each cluster. With this enabled, you will only be required to authenticate on the first connection to each cluster, `casper` or `derecho`, from your local computer. If you are connecting to both clusters, you will need to authenticate twice for multiple connections to both. Using `bao-getkey` on a Mac, as described below, it is possible limit that to one authentication for connecting multiple times to both clusters.
+This creates a unique ControlPath file in `~/.ssh/` for each cluster. With this enabled, you will only be required to authenticate on the first connection to each cluster, `casper` or `derecho`, from your local computer. If you are connecting to both clusters, you will need to authenticate twice for multiple connections to both. Using `bao-getkey` on a Mac or Linux computer, as described below, it is possible to limit that to one authentication for connecting multiple times to both clusters.
 
 ### OpenBao Certificates
 
@@ -59,22 +59,49 @@ It is a BASH script installed in the default PATH on Casper and Derecho. You may
 Options:
 
 *  `-a`   Request a certificate with necessary options for administrators. This will only work for system administrators
-*  `-u <username>`   Specify the NCAR username to authenticate with. This is useful if your username on the NSF NCAR clusters is different than your on your local system. Most users who are not NCAR employees will need to use this option.
+*  `-u <username>`   Specify the NCAR username to authenticate with. This is useful if your username on the NSF NCAR clusters is different than the one on your local system. Most users who are not NCAR employees will need to use this option.
 
 #### Running bao-getkey from your local computer
 
-`bao-getkey` is in the PATH by default on Casper and Derecho. You can determine the path by logging in and typing,
+**Step 1: Copy the script to your computer.** Log in to Derecho or Casper and find where the script is:
 ```
  $ which bao-getkey
- $ scp -l <user-name> derecho:/path/to/bao-getkey # or use full hostname
 ```
-Once in your path on your local computer,
+Then, on your local computer, copy it to a directory in your `PATH` (`~/bin` in this example) and make it executable:
 ```
-   $ bao-getkey -u <user-name> # -u <user-name> is optional if it is the same on both computers
-   $ ssh -A <hostname>
+ $ scp <user-name>@derecho.hpc.ucar.edu:/path/to/bao-getkey ~/bin/
+ $ chmod +x ~/bin/bao-getkey
 ```
 
-If your local computer has `$SSH_AUTH_SOCK` set when your user environment is initialized, then the agent is available from any terminal or shell. You can check this with `echo $SSH_AUTH_SOCK`. If this is set to a system directory and is available from the first `ssh -A` connection that invoked `bao-getkey`, then the OpenBao key and certificate are available from any terminal. In this case, `ssh` from other terminals will not need additional authentication. *This case will only require one multi-factor authentication to access Casper and Derecho as many times as you need while the OpenBao key is still valid.* If you use this method, the `ContolPath` options are not needed in your `~/.ssh/config` file.
+**Step 2: Make sure an `ssh-agent` is running.** `bao-getkey` stores the new key in your `ssh-agent`, so it fails if no agent is running. To check, run:
+```
+ $ ssh-add -l
+```
+If it lists keys or prints "The agent has no identities", an agent is running. If it prints "Could not open a connection to your authentication agent", there is none.
+
+**Step 3: Get a key and connect.**
+
+=== "Agent already running"
+
+    Most macOS and Linux desktop sessions start an agent for you when you log in, and every terminal shares it. One `bao-getkey` authentication then works for Casper and Derecho, from any terminal, until the certificate expires. You don't need the `ControlPath` options in `~/.ssh/config`.
+    ```
+     $ bao-getkey -u <user-name>            # -u is optional if your local username matches
+     $ ssh <user-name>@derecho.hpc.ucar.edu # <user-name> is optional if your local username matches
+    ```
+
+=== "No agent running"
+
+    Start an agent first, then get the key:
+    ```
+     $ eval $(ssh-agent)                    # BASH/ZSH; for TCSH use: eval `ssh-agent -c`
+     $ bao-getkey -u <user-name>            # -u is optional if your local username matches
+     $ ssh <user-name>@derecho.hpc.ucar.edu # <user-name> is optional if your local username matches
+    ```
+    Only this terminal knows about this agent. To use the key from other terminals, see [Managing local agents](#managing-local-agents).
+
+!!! tip
+    Add `-A` to `ssh`, or set `ForwardAgent yes` in `~/.ssh/config`, if you also want to `ssh` from Derecho to Casper without authenticating again.
+
 
 #### Running bao-getkey from Derecho or Casper
 
@@ -98,7 +125,7 @@ Note that you don't need the `-u` option here, since the script defaults to your
 This workflow relies on your local agent accepting keys added over the forwarded connection. The OpenSSH client and agent included with Windows support this. PuTTY and Pageant may not, so PuTTY users may need to use the OpenSSH client instead.
 
 #### Managing local agents
-If you local operating system does not create an agent file for you, you may manage the agent file yourself. After the exiting back your local workstation, you can make a note of `$SSH_AUTH_SOCK` and use it in subsequent terminals for connections. For example, in the first terminal
+If your local operating system does not create an agent file for you, you may manage the agent file yourself. After the exiting back your local workstation, you can make a note of `$SSH_AUTH_SOCK` and use it in subsequent terminals for connections. For example, in the first terminal
 ```
  $ echo $SSH_AUTH_SOCK > ~/my_agent_dir
 ```
@@ -107,7 +134,7 @@ Then in subsequent terminals, where SSH_AUTH_SOCK is not set,
  $ export SSH_AUTH_SOCK=$(cat ~/my_agent_dir)
  $ ssh -A <user-name>@<host>
 ```
-This will use the key from the agent and not require authentication. You can also create an alias or wrapper script do automate this.
+This will use the key from the agent and not require authentication. You can also create an alias or wrapper script to automate this.
 
 You can examine the OpenBao certificate using this command string:
 ```
@@ -117,7 +144,9 @@ The `grep` string "-cert-v01" selects the OpenBao certificate, and the `ssh-keyg
 
 #### Enabling agent forwarding by default and other useful configuration options
 
-Adding `ForwardAgent yes` to your `~/.ssh/conf` file will allow you to drop the `-A` argument for `bao-getkey` on your local computer (but not on the remote systems). Here are some suggestions.
+Adding `ForwardAgent yes` to your local `~/.ssh/config` file will allow you to drop the `-A` argument for `ssh` on your local computer (but not on the remote systems). Without forwarding enabled, you will not be able to make an additional `ssh` connection on the remote system to other HSG-managed hosts without authenticating again. With forwarding enabled, you will be able to make one additional hop without authenticating, because the remote system can use your local agent through the connection. To make further hops between HSG-managed systems, you need to use agent forwarding (ssh -A) there as well.
+
+Here are some recommended settings for your local `~/.ssh/config`.
 ```
 Host casper
     HostName casper.hpc.ucar.edu
