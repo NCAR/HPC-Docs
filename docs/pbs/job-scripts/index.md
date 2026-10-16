@@ -481,7 +481,7 @@ job. This process is outlined in the example below.
     launch_cf -A PBS_ACCOUNT -l walltime=1:00:00
 
     # launches the OpenMP-threaded commands listed in ./omp_cmdfile:
-    #  (requires ppn=128 = (32 steps/node) * (4 threads/step)
+    #  requires ppn=128 = (32 steps/node) * (4 threads/step)
     launch_cf -A PBS_ACCOUNT -l walltime=1:00:00 --nthreads 4 --steps-per-node 32 ./omp_cmdfile
     ```
 
