@@ -78,6 +78,13 @@ Derecho GPU: 1,500 GPU-hours</td>
 </tbody>
 </table>
 
+!!! warning 
+    [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space) space is generally not available for University allocations.
+    Researchers requiring dedicated data storage resources should first review the default storage spaces available for all users of the [GLADE filesystem](../../storage-systems/glade/index.md).
+    Additional storage space via the [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space) 
+    may only be requested with substantial justification for up to 10TB via small or large allocation requests.
+    Campaign storage should not be utilized for long term data storage and users should review [NSF NCAR data retention policies](../../storage-systems/glade/index.md#data-retention-policy) for more info.
+
 **Submitting Your Request.** For all types of university allocations,
 including any subsequent extension or supplement requests, requests should be
 submitted via the [ARC portal’s Allocations section](https://arc.ucar.edu/xras_submit/opportunities).
@@ -207,11 +214,14 @@ We are pleased to make Data Analysis allocations available to
 researchers from any eligible institution *regardless of the source of
 funding* for the planned analysis. Researchers are only required to
 identify the specific NSF NCAR-hosted data sets that are essential to
-completing their science objectives. (Because of this expanded
-eligibility, Data Analysis projects cannot make use of Derecho.) In
-addition, Data Analysis projects may request Campaign Storage space
+completing their science objectives. Because of this expanded
+eligibility, Data Analysis projects cannot make use of Derecho. 
+
+In addition, Data Analysis projects may utilize the default storage spaces 
+available for all users of the [GLADE filesystem](../../storage-systems/glade/index.md)
 to temporarily store external datasets beyond the NCAR-hosted datasets
-being analyzed.
+being analyzed. This includes 30TB of temporary storage allocated to each user 
+via the [GLADE scratch file space](../../storage-systems/glade/index.md#scratch-file-space).
 
 Data Analysis allocations are made for one year, but may be extended up
 to two additional years to complete the project.

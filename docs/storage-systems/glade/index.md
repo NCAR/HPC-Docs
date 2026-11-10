@@ -188,8 +188,13 @@ automatically purged).
 
 If you will need to occupy more than your quota of scratch space at
 some point, contact the [NSF NCAR Research Computing help desk](https://rchelp.ucar.edu/)
-to request a temporary increase. Include a paragraph justifying your
-need for additional space when making your request.
+to request a temporary increase and include the below information:
+
+1. The username of the account needing the increased scratch storage space.
+2. A brief justification for the need of this additional storage.
+3. The total amount of scratch space required in number of terabytes (TB).
+4. If file counts are expected to exceed 10 million, provide an upper file count limit needed and reason for exception to this limit.
+5. The end date when this additional storage is no longer required.
 
 ### Purge policy
 
@@ -239,8 +244,7 @@ Storage space, contact the [NSF NCAR Research Computing help desk](https://rchel
 to request changes. Identify the directories and the permissions you
 are requesting.
 
-See [here](./campaign.md) for additional technical details on the
-Campaign Storage file system.
+See the dedicated [Campaign Storage file system](./campaign.md) page for additional technical details.
 
 ### Campaign Storage allocations
 
@@ -284,7 +288,8 @@ following policies apply to Campaign Storage allocations:
 
 ### Managing Campaign Storage usage
 
-Project-level Campaign Storage usage and data access reports are available as described in detail [here](campaign.md#usage-reporting).  These reports can help you understand how frequently your data is being accessed, quickly identify your largest directories, locate old data that has not been accessed recently, etc...
+Project-level Campaign Storage usage and data access reports are available as described in detail on the dedicated [Campaign Storage file system](campaign.md#usage-reporting) page. 
+These reports can help you understand how frequently your data is being accessed, quickly identify your largest directories, locate old data that has not been accessed recently, etc...
 
 ## Checking space usage
 
