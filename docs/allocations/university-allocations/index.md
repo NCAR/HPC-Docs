@@ -83,7 +83,7 @@ Derecho GPU: 1,500 GPU-hours</td>
     Researchers requiring dedicated data storage resources should first review the default storage spaces available for all users of the [GLADE filesystem](../../storage-systems/glade/index.md).
     Additional storage space via the [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space) 
     may only be requested with substantial justification for up to 10TB via small or large allocation requests.
-    Campaign storage should not be utilized for long term data storage and users should review [NSF NCAR data retention policies](../../getting-started/data-retention-policies/index.md) for more info.
+    Campaign storage should not be utilized for long term data storage and users should review [NSF NCAR data retention policies](../../storage-systems/glade/index.md#data-retention-policy) for more info.
 
 **Submitting Your Request.** For all types of university allocations,
 including any subsequent extension or supplement requests, requests should be
