@@ -79,7 +79,7 @@ Derecho GPU: 1,500 GPU-hours</td>
 </table>
 
 !!! warning 
-    [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space) is generally not available for University allocations.
+    [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space) space is generally not available for University allocations.
     Researchers requiring dedicated data storage resources should first review the default storage spaces available for all users of the [GLADE filesystem](../../storage-systems/glade/index.md).
     Additional storage space via the [Campaign Storage file system](../../storage-systems/glade/index.md#campaign-storage-space) 
     may only be requested with substantial justification for up to 10TB via small or large allocation requests.
