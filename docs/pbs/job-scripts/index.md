@@ -483,6 +483,15 @@ job. This process is outlined in the example below.
     # launches the OpenMP-threaded commands listed in ./omp_cmdfile:
     #  requires ppn=128 = (32 steps/node) * (4 threads/step)
     launch_cf -A PBS_ACCOUNT -l walltime=1:00:00 --nthreads 4 --steps-per-node 32 ./omp_cmdfile
+
+    # gives each node 3 waves of 128 steps (384 steps per node on Derecho):
+    launch_cf -A PBS_ACCOUNT -l walltime=3:00:00 --waves 3 ./cmdfile
+
+    # the same, giving the number of steps per node instead:
+    launch_cf -A PBS_ACCOUNT -l walltime=3:00:00 --steps-per-node 384 ./cmdfile
+
+    # writes the PBS job script and reports what would be requested, without submitting it:
+    launch_cf -A PBS_ACCOUNT -l walltime=1:00:00 --dry-run ./cmdfile
     ```
 
     The jobs listed in the `cmdfile` will be launched from a `bash` shell in the
@@ -496,11 +505,17 @@ job. This process is outlined in the example below.
     see `launch_cf --help`:
     ```pre title="launch_cf command line options"
     launch_cf <-h|--help>
-         <--queue PBS_QUEUE>
+         <-q|--queue PBS_QUEUE>
          <--ppn|--processors-per-node #CPUS>
-         <--steps-per-node #Steps/node>
+         <--steps-per-node #Steps/node | --nodes #Nodes | --waves #Waves>
          <--nthreads|--threads-per-step #Threads/step>
+         <--sync-waves>
          <--mem|--memory RAM/node>
+         <--cpu_type TYPE>
+         <--random_start_delay MAX_DELAY (sec)>
+         <--script PBS_SCRIPT_NAME>
+         <--rerun JOBID>
+         <--dryrun|--dry-run>
          -A PBS_ACCOUNT -l walltime=01:00:00
          ... other PBS args ...
          <command file>
@@ -514,6 +529,70 @@ job. This process is outlined in the example below.
     The two PBS required arguments are `-A <project_code>` and `-l walltime=...`.
     Any command line argument not interpreted directly by `launch_cf` are assumed PBS
     arguments and are passed along to `qsub`.
+
+    ---
+
+    **Running more steps per node than fit at once: waves**
+
+    Each node runs up to (CPUs ÷ threads per step) steps at once: 128 on a
+    Derecho node with one thread per step, or 32 with `--nthreads 4`.
+    A node can be given more steps than that. It then starts its next step
+    each time a running one finishes, so its steps run in *waves*.
+    This lets a large command file run on fewer nodes, and helps when steps
+    are short compared with the time a job waits in the queue.
+    There are two ways to ask for it:
+
+    - **`--waves N`** gives each node *N* waves of steps, that is, *N* times as
+      many steps as it runs at once, so you don't have to work out the number yourself.
+      On Derecho, `--waves 3` gives each node 3 × 128 = 384 steps, and
+      `--nthreads 4 --waves 3` gives it 3 × 32 = 96.
+      The CPUs per node come from `--ppn` or the system default. On Casper the default is
+      one CPU, which would mean one step at a time, so give `--ppn` as well,
+      e.g. `--ppn 36 --waves 3`.
+      The command file must have enough steps to fill that many waves (for 3 waves
+      of 128 at once, more than 256 steps); otherwise `launch_cf` stops and
+      says how many waves the steps fill.
+    - **`--steps-per-node N`** with *N* larger than the steps a node runs at once.
+      For example, on Derecho `--steps-per-node 384` gives the same 3 waves of 128 as `--waves 3`.
+      Unless `--ppn` is also given, each node is assigned enough CPUs to run all of its
+      steps at once, up to a full node; any steps beyond that run in waves.
+
+    Give only one of `--waves`, `--steps-per-node` and `--nodes`.
+    `launch_cf` reports how the steps will run, for example:
+    ```pre
+    Running 3 jobs with 384 steps / node on NCAR resource derecho
+    NOTE: --waves 3: each node runs 128 steps at once (128 CPUs / 1 thread per step),
+          so it is given 3 x 128 = 384 steps, in 3 waves.
+          The last node has only the 232 steps left over, in 2 waves.
+          Request walltime for up to 3 steps in a row.
+    ```
+
+    !!! tip "Request walltime for every wave"
+        `launch_cf` cannot know how long your steps take. Each node's steps now run
+        one after another in several waves, so request enough walltime for that many
+        steps in a row, e.g. three times the run time of your longest step for `--waves 3`.
+
+    ---
+
+    **Checking a job before submitting it: `--dry-run`**
+
+    `launch_cf` writes a complete, self-contained PBS job script to the current directory,
+    and that script is what it submits. Every resource request appears in it as an
+    ordinary `#PBS` directive.  With `--dry-run` (or `--dryrun`), `launch_cf`
+    writes the script and reports what it would request (nodes, steps per node, waves),
+    but does not submit anything:
+    ```pre
+    launch_cf -A PBS_ACCOUNT -l walltime=3:00:00 --waves 3 --dry-run ./cmdfile
+    ...
+    Generated PBS job script: ./launch_cf.cmdfile.20261117-100358.pbs
+    ...
+    DRYRUN: nothing was submitted.  To submit this job as-is, run:
+      qsub ./launch_cf.cmdfile.20261117-100358.pbs
+    ```
+    This is a convenient way to check the job's size and walltime before it goes in the queue,
+    especially when using waves.  The script can then be submitted as-is with `qsub`, or
+    edited first, without running `launch_cf` again.  Use `--script` to choose the
+    script's name.
 
     ---
 
