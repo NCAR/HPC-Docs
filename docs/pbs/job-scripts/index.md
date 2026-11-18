@@ -534,6 +534,15 @@ job. This process is outlined in the example below.
 
     **Running more steps per node than fit at once: waves**
 
+    !!! tip "Running multiple waves per node can save core hours"
+        If your command execution times vary from step to step, you can run
+        more efficiently by using one or a few nodes with multiple waves.
+        It reduces overhead for job startup and allows load balancing,
+        because a new wave of steps doesn't wait until all the steps per node from
+        a previous wave completes. This is sometimes referred to as task oversubscription.
+        This scenario is likely to be in play when IO is involved, the tasks are memory
+        bound, or the steps are a mix of different commands.
+
     Each node runs up to (CPUs ÷ threads per step) steps at once: 128 on a
     Derecho node with one thread per step, or 32 with `--nthreads 4`.
     A node can be given more steps than that. It then starts its next step
@@ -556,6 +565,17 @@ job. This process is outlined in the example below.
       For example, on Derecho `--steps-per-node 384` gives the same 3 waves of 128 as `--waves 3`.
       Unless `--ppn` is also given, each node is assigned enough CPUs to run all of its
       steps at once, up to a full node; any steps beyond that run in waves.
+      With `--ppn`, each node is assigned just those CPUs, runs as many steps at once
+      as fit in them, and runs the rest in waves.
+
+    !!! warning "`--ppn` with a larger `--steps-per-node` now runs in waves"
+        Earlier versions of `launch_cf` raised `--ppn` to fit all of a node's steps at once.
+        `launch_cf` now requests the CPUs `--ppn` gives, and runs the steps that don't fit
+        in waves. For example, `--ppn 32 --steps-per-node 64` used to run 64 steps at once
+        on 64 CPUs; it now runs them 32 at a time, in 2 waves, which takes about twice as long.
+        To run them all at once, leave out `--ppn` or give a larger one. If you have scripts
+        written for the old behavior, check that their walltime allows for the waves.
+        `launch_cf` points this out when it happens.
 
     Give only one of `--waves`, `--steps-per-node` and `--nodes`.
     `launch_cf` reports how the steps will run, for example:
@@ -571,6 +591,42 @@ job. This process is outlined in the example below.
         `launch_cf` cannot know how long your steps take. Each node's steps now run
         one after another in several waves, so request enough walltime for that many
         steps in a row, e.g. three times the run time of your longest step for `--waves 3`.
+
+    By default, a node starts its next step as soon as any running step finishes, so its
+    waves overlap. With **`--sync-waves`**, a node starts its next wave only once every
+    step of the wave before it has finished. This is useful when steps bind their threads
+    to particular cores, since a step of one wave then never lands on cores still in use by
+    a step of another. The cost is that each wave takes as long as its longest step.
+
+    ---
+
+    **Rerunning the steps that didn't succeed: `--rerun`**
+
+    `launch_cf --rerun JOBID` finds the steps of an earlier `launch_cf` job that didn't
+    succeed, and submits just those: steps that exited with an error, steps cut short when
+    a node ran out of walltime or memory or was preempted, and steps that never ran.
+    Run it from the directory the earlier job was submitted from, once that job has finished:
+    ```pre
+    launch_cf -A PBS_ACCOUNT -l walltime=0:10:00 --rerun 6285048
+    Job 6285048: 1 of 1200 steps did not succeed:
+      step 332 of job 6285048: never ran: subjob 331 did not run
+    Wrote ./cmdfile.6285048.rerun, to submit as the command file.
+    ...
+    ```
+
+    - The steps are written to a new command file, `./<command file>.<JOBID>.rerun`, with a
+      comment saying why each is rerun, and submitted like any other. Add `--dry-run` to see
+      the list without submitting it.
+    - The other options aren't taken from the earlier job. Give `-A`, `-l walltime=` and any
+      others again, and choose `--steps-per-node`, `--nodes` or `--waves` for the smaller
+      number of steps.
+    - Each rerun step keeps its step number from the original job, in its `${step}` variable
+      and in the name of its log file, so steps that use it to name their output write the
+      same files as before.
+    - `--rerun` stops if the job is still queued or running, or if `qstat` can't reach PBS to
+      check.
+    - On Derecho, a preempted job is deleted rather than put back in the queue. `--rerun` is
+      the way to run the steps it didn't finish.
 
     ---
 
