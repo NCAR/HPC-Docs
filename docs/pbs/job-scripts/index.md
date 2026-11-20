@@ -449,14 +449,14 @@ CPU cores are scheduled.  This allows a job array sub-job to be as small as a si
 When entire compute nodes are assigned to jobs (and therefore also array sub-jobs) we need a slightly different approach,
 as employed in the following use case.
 
-### Using job arrays to launch a "command file"
-Multiple Program, Multiple Data (MPMD) jobs run multiple independent,
-typically serial executables simultaneously. Such jobs can easily be
+### Using job arrays to launch a "command file" with `launch_cf`
+The multiple program multiple data (MPMD) method runs
+executables with independent inputs simultaneously. Such jobs can easily be
 dispatched with PBS job arrays, even on machines like Derecho where
 compute nodes are exclusively and entirely assigned to a users'
 job. This process is outlined in the example below.
 
-!!! example "Command File / MPMD jobs with PBS Job Arrays"
+!!! example "`launch_cf` and a Command File gives MPMD jobs with PBS Job Arrays"
     For this example, executable commands appear in a command file (`cmdfile`).
 
     ```bash title="cmdfile"
@@ -483,6 +483,15 @@ job. This process is outlined in the example below.
     # launches the OpenMP-threaded commands listed in ./omp_cmdfile:
     #  requires ppn=128 = (32 steps/node) * (4 threads/step)
     launch_cf -A PBS_ACCOUNT -l walltime=1:00:00 --nthreads 4 --steps-per-node 32 ./omp_cmdfile
+
+    # gives each node 3 waves of 128 steps (384 steps per node on Derecho):
+    launch_cf -A PBS_ACCOUNT -l walltime=3:00:00 --waves 3 ./cmdfile
+
+    # the same, giving the number of steps per node instead:
+    launch_cf -A PBS_ACCOUNT -l walltime=3:00:00 --steps-per-node 384 ./cmdfile
+
+    # writes the PBS job script and reports what would be requested, without submitting it:
+    launch_cf -A PBS_ACCOUNT -l walltime=1:00:00 --dry-run ./cmdfile
     ```
 
     The jobs listed in the `cmdfile` will be launched from a `bash` shell in the
@@ -496,11 +505,17 @@ job. This process is outlined in the example below.
     see `launch_cf --help`:
     ```pre title="launch_cf command line options"
     launch_cf <-h|--help>
-         <--queue PBS_QUEUE>
+         <-q|--queue PBS_QUEUE>
          <--ppn|--processors-per-node #CPUS>
-         <--steps-per-node #Steps/node>
+         <--steps-per-node #Steps/node | --nodes #Nodes | --waves #Waves>
          <--nthreads|--threads-per-step #Threads/step>
+         <--sync-waves>
          <--mem|--memory RAM/node>
+         <--cpu_type TYPE>
+         <--random_start_delay MAX_DELAY (sec)>
+         <--script PBS_SCRIPT_NAME>
+         <--rerun JOBID>
+         <--dryrun|--dry-run>
          -A PBS_ACCOUNT -l walltime=01:00:00
          ... other PBS args ...
          <command file>
@@ -515,28 +530,155 @@ job. This process is outlined in the example below.
     Any command line argument not interpreted directly by `launch_cf` are assumed PBS
     arguments and are passed along to `qsub`.
 
-    ---
+---
 
-    **Discussion**
+**Running more steps per node than fit at once with "waves" in `launch_cf`**
 
-    This PBS array implementation is a departure from the command file technique
-    used previously on Cheyenne, where MPI was used to launch the desired commands on each rank.  While slightly more complex,
-    the array approach has several advantages.  Since the array steps are independent, the job can begin
-    execution as soon as even a single node is available, and can scale to fill the available resources.
+Each node runs up to (CPUs ÷ threads per step) steps at once. A Derecho node with 128
+cores and one thread per step will run 128 steps at once by default. With `--nthreads 4`,
+it will run 32 steps at once.
+A node can be given more steps than that, however. It then starts its next step
+each time a running one finishes, so its steps run in *waves*.
+This lets a large command file run on fewer nodes. See the Figure below.
 
-    Additionally, the array approach is well suited for when the run times of the specific commands varies.
-    In the previous MPI approach, all nodes were held until the slowest step completed, with the consequence
-    of idle resources for varied command run times. With the array approach each node completes independently,
-    when the slowest of its unique steps has completed.  Thus the utilization of *each node* is controlled by
-    the run times of its own steps, rather than all steps.
+There are two ways to ask for it:
 
-    ---
+- **`--waves N`** gives each node *N* waves of steps, that is, *N* times as
+  many steps as it runs at once, so you don't have to work out the number yourself.
+  On Derecho, `--waves 3` gives each node 3 × 128 = 384 steps, and
+  `--nthreads 4 --waves 3` gives it 3 × 32 = 96.
+  The CPUs per node come from `--ppn` or the system default. On Casper the default is
+  one CPU, which would mean one step at a time, so give `--ppn` as well,
+  e.g. `--ppn 36 --waves 3`.
+  The command file must have enough steps to fill that many waves (for 3 waves
+  of 128 at once, more than 256 steps); otherwise `launch_cf` stops and
+  says how many waves the steps fill.
+- **`--steps-per-node N`** with *N* larger than the steps a node runs at once, will run
+  multiple waves per node. For example, on Derecho `--steps-per-node 384` gives the
+  same 3 waves of 128 as `--waves 3`.  If `--ppn M` is also given, each node is
+  will run *M* steps at once. Any steps beyond that will run in waves. For example,
+  if `--ppn 64` is given in this example, the 384 steps will run in 6 waves.
 
-    The implementation details are unimportant for general users exercising this
-    capability, however may be interesting for advanced users wishing to leverage
-    PBS job arrays in different scenarios.  See the
-    [hpc-demos GitHub repository](https://github.com/NCAR/hpc-demos/tree/main/PBS/job_arrays/command_files)
-    for source code.
+<figure markdown="span">
+  ![Timeline of 32 slots on one node, each running 8 steps back to back](media/launch_cf-waves.png)<figcaption markdown="span" style="max-width: 100%; text-align: left; margin-top: 0.4em; font-size: 0.7rem">**Figure:** One node with 256 steps and 32 slots (specified by `-ppn 32`) running 8 overlapping waves. Each row is a slot, and each bar is one step. Time runs left to right.  A slot starts its next step as soon as its current one finishes, so the node stays busy until its last steps finish.</figcaption>
+</figure>
+
+
+!!! warning "`--ppn` with a larger `--steps-per-node` now runs in waves"
+    Earlier versions of `launch_cf` raised `--ppn` to fit all of a node's steps at once.
+    `launch_cf` now requests the CPUs `--ppn` gives, and runs the steps that don't fit
+    in waves. For example, `--ppn 32 --steps-per-node 64` used to run 64 steps at once
+    on 64 CPUs; it now runs them 32 at a time, in 2 waves, which takes about twice as long.
+    To run them all at once, leave out `--ppn` or give a larger one. If you have scripts
+    written for the old behavior, check that their walltime allows for the waves.
+    `launch_cf` points this out when it happens.
+
+Give only one of `--waves`, `--steps-per-node` and `--nodes`.
+`launch_cf` reports how the steps will run, for example:
+```pre
+Running 3 jobs with 384 steps / node on NCAR resource derecho
+NOTE: --waves 3: each node runs 128 steps at once (128 CPUs / 1 thread per step),
+      so it is given 3 x 128 = 384 steps, in 3 waves.
+      The last node has only the 232 steps left over, in 2 waves.
+      Request walltime for up to 3 steps in a row.
+```
+
+By default, a node starts its next step as soon as any running step finishes, so its
+waves overlap. With **`--sync-waves`**, a node starts its next wave only once every
+step of the wave before it has finished. This is useful when steps bind their threads
+to particular cores, since a step of one wave then never lands on cores still in use by
+a step of another. The cost is that each wave takes as long as its longest step.
+
+!!! tip "Running multiple waves per node can save core hours"
+    If your command execution times vary from step to step, you can run
+    more efficiently by using one or a few nodes with multiple waves.
+    It reduces overhead for job startup and allows load balancing,
+    because a new wave of steps doesn't wait until all the steps per node from
+    a previous wave completes. This is sometimes referred to as task oversubscription,
+    and the Figure above illustrates the concept. This scenario is likely to be in play
+    when IO is involved, the tasks are memory bound, or the steps are a mix of different
+    commands.
+
+---
+
+**Rerunning the steps that didn't succeed: `--rerun`**
+
+`launch_cf --rerun JOBID` finds the steps of an earlier `launch_cf` job that didn't
+succeed, such as steps that exited with an error, steps cut short when
+a node ran out of walltime or memory or was preempted, and steps that never ran, and submits
+just those in a new job, automatically taking care of step numbers and properly naming files.
+Run it from the directory the earlier job was submitted from, once that job has finished:
+```pre
+launch_cf -A PBS_ACCOUNT -l walltime=0:10:00 --rerun 6285048
+Job 6285048: 1 of 1200 steps did not succeed:
+  step 332 of job 6285048: never ran: subjob 331 did not run
+Wrote ./cmdfile.6285048.rerun, to submit as the command file.
+...
+```
+
+- The steps are written to a new command file, `./<command file>.<JOBID>.rerun`, with a
+  comment saying why each is rerun, and submitted like any other. Add `--dry-run` to see
+  the list without submitting it.
+- The other options aren't taken from the earlier job. Give `-A`, `-l walltime=` and any
+  others again, and choose `--steps-per-node`, `--nodes` or `--waves` for the smaller
+  number of steps.
+- Each rerun step keeps its step number from the original job, in its `${step}` variable
+  and in the name of its log file, so steps that use it to name their output write the
+  same files as before.
+- `--rerun` stops if the job is still queued or running, or if `qstat` can't reach PBS to
+  check.
+- On Derecho, a preempted job is deleted rather than put back in the queue. `--rerun` is
+  the way to run the steps it didn't finish.
+
+---
+
+**Checking a job before submitting it: `--dry-run`**
+
+`launch_cf` writes a complete, self-contained PBS job script to the current directory,
+and that script is what it submits. Every resource request appears in it as an
+ordinary `#PBS` directive.  With `--dry-run` (or `--dryrun`), `launch_cf`
+writes the script and reports what it would request (nodes, steps per node, waves),
+but does not submit anything:
+```pre
+launch_cf -A PBS_ACCOUNT -l walltime=3:00:00 --waves 3 --dry-run ./cmdfile
+...
+Generated PBS job script: ./launch_cf.cmdfile.20261117-100358.pbs
+...
+DRYRUN: nothing was submitted.  To submit this job as-is, run:
+  qsub ./launch_cf.cmdfile.20261117-100358.pbs
+```
+This is a convenient way to check the job's size and walltime before it goes in the queue,
+especially when using waves.  The script can then be submitted as-is with `qsub`, or
+edited first, without running `launch_cf` again.  Use `--script` to choose the
+script's name.
+
+---
+
+!!! tip "Request walltime for every wave"
+    `launch_cf` cannot know how long your steps take. Each node's steps now run
+    one after another in several waves, so request enough walltime for that many
+    steps in a row, e.g. three times the run time of your longest step for `--waves 3`.
+
+**Discussion**
+
+This PBS array implementation is a departure from the command file technique
+used previously on Cheyenne, where MPI was used to launch the desired commands on each rank.  While slightly more complex,
+the array approach has several advantages.  Since the array steps are independent, the job can begin
+execution as soon as even a single node is available, and can scale to fill the available resources.
+
+Additionally, the array approach is well suited for when the run times of the specific commands varies.
+In the previous MPI approach, all nodes were held until the slowest step completed, with the consequence
+of idle resources for varied command run times. With the array approach each node completes independently,
+when the slowest of its unique steps has completed.  Thus the utilization of *each node* is controlled by
+the run times of its own steps, rather than all steps.
+
+---
+
+The implementation details are unimportant for general users exercising this
+capability, however may be interesting for advanced users wishing to leverage
+PBS job arrays in different scenarios.  See the
+[hpc-demos GitHub repository](https://github.com/NCAR/hpc-demos/tree/main/PBS/job_arrays/command_files)
+for source code.
 
 <!--  LocalWords:  mpiprocs MPI ompthreads OpenMP mem ngpus GPUs  ncpus
  -->
