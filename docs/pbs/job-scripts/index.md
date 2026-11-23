@@ -456,7 +456,7 @@ dispatched with PBS job arrays, even on machines like Derecho where
 compute nodes are exclusively and entirely assigned to a users'
 job. This process is outlined in the example below.
 
-!!! example "`launch_cf` and a Command File gives MPMD jobs with PBS Job Arrays"
+!!! example "`launch_cf` and a Command File give MPMD jobs with PBS Job Arrays"
     For this example, executable commands appear in a command file (`cmdfile`).
 
     ```bash title="cmdfile"
@@ -555,12 +555,12 @@ There are two ways to ask for it:
   says how many waves the steps fill.
 - **`--steps-per-node N`** with *N* larger than the steps a node runs at once, will run
   multiple waves per node. For example, on Derecho `--steps-per-node 384` gives the
-  same 3 waves of 128 as `--waves 3`.  If `--ppn M` is also given, each node is
+  same 3 waves of 128 as `--waves 3`.  If `--ppn M` is also given, each node
   will run *M* steps at once. Any steps beyond that will run in waves. For example,
   if `--ppn 64` is given in this example, the 384 steps will run in 6 waves.
 
 <figure markdown="span">
-  ![Timeline of 32 slots on one node, each running 8 steps back to back](media/launch_cf-waves.png)<figcaption markdown="span" style="max-width: 100%; text-align: left; margin-top: 0.4em; font-size: 0.7rem">**Figure:** One node with 256 steps and 32 slots (specified by `-ppn 32`) running 8 overlapping waves. Each row is a slot, and each bar is one step. Time runs left to right.  A slot starts its next step as soon as its current one finishes, so the node stays busy until its last steps finish.</figcaption>
+  ![Timeline of 32 slots on one node, each running 8 steps back to back](media/launch_cf-waves.png)<figcaption markdown="span" style="max-width: 100%; text-align: left; margin-top: 0.4em; font-size: 0.7rem">**Figure:** One node with 256 steps and 32 slots (specified by `--ppn 32`) running 8 overlapping waves. Each row is a slot, and each bar is one step. Time runs left to right.  A slot starts its next step as soon as its current one finishes, so the node stays busy until its last steps finish.</figcaption>
 </figure>
 
 
@@ -594,10 +594,10 @@ The cost is that each wave takes as long as its longest step.
     more efficiently by using one or a few nodes with multiple waves.
     It reduces overhead for job startup and allows load balancing,
     because a new wave of steps doesn't wait until all the steps per node from
-    a previous wave completes. This is sometimes referred to as task oversubscription,
-    and the Figure above illustrates the concept. This scenario is likely to be in play
-    when IO is involved, the tasks are memory bound, or the steps are a mix of different
-    commands.
+    a previous wave completes unless `--sync-waves` is given. This is sometimes
+    referred to as task oversubscription, and the Figure above illustrates the
+    concept. This scenario is likely to be in play when IO is involved, the tasks
+    are memory bound, or the steps are a mix of different commands.
 
 ---
 
@@ -607,7 +607,8 @@ The cost is that each wave takes as long as its longest step.
 succeed, such as steps that exited with an error, steps cut short when
 a node ran out of walltime or memory or was preempted, and steps that never ran. It then submits
 just those in a new job, automatically taking care of step numbers and properly naming files.
-Run it from the directory the earlier job was submitted from, once that job has finished:
+Run it from the directory the earlier job was submitted from, once that job has finished.
+For example, for a one step per node job, you might find output similar to this:
 ```pre
 launch_cf -A PBS_ACCOUNT -l walltime=0:10:00 --rerun 6285048
 Job 6285048: 1 of 1200 steps did not succeed:
@@ -655,9 +656,10 @@ script's name.
 ---
 
 !!! tip "Request walltime for every wave"
-    `launch_cf` cannot know how long your steps take. Each node's steps now run
-    one after another in several waves, so request enough walltime for that many
-    steps in a row, e.g. three times the run time of your longest step for `--waves 3`.
+    `launch_cf` cannot know how long your steps take. When using `--waves` or a larger
+    `--steps-per-node`, each node's steps now run one after another in several waves,
+    so request enough walltime for that many steps in a row, e.g. three times the run
+    time of your longest step for `--waves 3`.
 
 **Discussion**
 
@@ -665,8 +667,8 @@ This PBS array implementation is a departure from the command file technique
 used previously on Cheyenne, where MPI was used to launch the desired commands on each rank.  While slightly more complex,
 the array approach has several advantages.  Since the array steps are independent, the job can begin
 execution as soon as even a single node is available, and can scale to fill the available resources. This
-approach, while convenient for high throughput, will usually cost more core hours and can negatively
-impact the queues.
+approach, while convenient for high throughput, will usually cost more core hours than using
+multiple waves per node and can negatively impact the queues.
 
 Additionally, the array approach is well suited for when the run times of the specific commands varies.
 In the previous MPI approach, all nodes were held until the slowest step completed, with the consequence
