@@ -657,7 +657,7 @@ script's name.
 
 !!! tip "Request walltime for every wave"
     `launch_cf` cannot know how long your steps take. When using `--waves` or a larger
-    `--steps-per-node`, each node's steps now run one after another in several waves,
+    `--steps-per-node`, each node's steps run one after another in several waves,
     so request enough walltime for that many steps in a row, e.g. three times the run
     time of your longest step for `--waves 3`.
 
@@ -666,9 +666,9 @@ script's name.
 This PBS array implementation is a departure from the command file technique
 used previously on Cheyenne, where MPI was used to launch the desired commands on each rank.  While slightly more complex,
 the array approach has several advantages.  Since the array steps are independent, the job can begin
-execution as soon as even a single node is available, and can scale to fill the available resources. This
-approach, while convenient for high throughput, will usually cost more core hours than using
-multiple waves per node and can negatively impact the queues.
+execution as soon as even a single node is available, and can scale to fill the available resources.
+However, running only one wave of steps per node, while convenient for high throughput, will usually cost
+more core hours than using multiple waves per node and can negatively impact the queues.
 
 Additionally, the array approach is well suited for when the run times of the specific commands varies.
 In the previous MPI approach, all nodes were held until the slowest step completed, with the consequence
