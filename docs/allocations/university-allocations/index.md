@@ -239,9 +239,9 @@ mission. Classroom allocations are typically made for the duration of
 the course, plus a reasonable limited period afterwards.
 
 During the submission process, additional information will be requested. 
-This will include start and end dates of the course, dates and times for
-any needed compute reservations, whether a managed compute environment is
-required, and other information. Individual accounts are provided to all 
+This will include start and end dates of the course, a syllabus detailing the course, 
+dates and times for any needed compute reservations, and whether 
+a managed compute environment is required. Individual accounts are provided to all 
 students and instructor(s) and a list of all verified students or 
 participants with name, email, and affiliations will be required.
 
