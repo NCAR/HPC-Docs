@@ -243,7 +243,9 @@ This will include start and end dates of the course, dates and times for
 any needed compute reservations, whether a managed compute environment is
 required, and other information. Individual accounts are provided to all 
 students and instructor(s) and a list of all verified students or 
-participants with name, email, and affiliations will be required.
+participants with name, email, and affiliations will be required. At the 
+end of the online request form, applicants must upload a document containing 
+the course syllabus and other details about the proposed curriculum.
 
 Please make sure all the above information is provided within two weeks of 
 the start of the educational activity so that CISL staff have sufficient 
