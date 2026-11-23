@@ -549,7 +549,7 @@ There are two ways to ask for it:
   `--nthreads 4 --waves 3` gives it 3 × 32 = 96.
   The CPUs per node come from `--ppn` or the system default. On Casper the default is
   one CPU, which would mean one step at a time, so give `--ppn` as well,
-  e.g. `--ppn 36 --waves 3`.
+  e.g. `--ppn 34 --waves 3`.
   The command file must have enough steps to fill that many waves (for 3 waves
   of 128 at once, more than 256 steps); otherwise `launch_cf` stops and
   says how many waves the steps fill.
@@ -584,10 +584,10 @@ NOTE: --waves 3: each node runs 128 steps at once (128 CPUs / 1 thread per step)
 ```
 
 By default, a node starts its next step as soon as any running step finishes, so its
-waves overlap. With **`--sync-waves`**, a node starts its next wave only once every
+waves overlap. With **`--sync-waves`**, a node starts its next wave only after every
 step of the wave before it has finished. This is useful when steps bind their threads
-to particular cores, since a step of one wave then never lands on cores still in use by
-a step of another. The cost is that each wave takes as long as its longest step.
+to particular cores, using `numactl` for example. `--sync-waves` prevents a step of a wave from landing on cores still in use by the previous step.
+The cost is that each wave takes as long as its longest step.
 
 !!! tip "Running multiple waves per node can save core hours"
     If your command execution times vary from step to step, you can run
@@ -605,7 +605,7 @@ a step of another. The cost is that each wave takes as long as its longest step.
 
 `launch_cf --rerun JOBID` finds the steps of an earlier `launch_cf` job that didn't
 succeed, such as steps that exited with an error, steps cut short when
-a node ran out of walltime or memory or was preempted, and steps that never ran, and submits
+a node ran out of walltime or memory or was preempted, and steps that never ran. It then submits
 just those in a new job, automatically taking care of step numbers and properly naming files.
 Run it from the directory the earlier job was submitted from, once that job has finished:
 ```pre
@@ -664,7 +664,9 @@ script's name.
 This PBS array implementation is a departure from the command file technique
 used previously on Cheyenne, where MPI was used to launch the desired commands on each rank.  While slightly more complex,
 the array approach has several advantages.  Since the array steps are independent, the job can begin
-execution as soon as even a single node is available, and can scale to fill the available resources.
+execution as soon as even a single node is available, and can scale to fill the available resources. This
+approach, while convenient for high throughput, will usually cost more core hours and can negatively
+impact the queues.
 
 Additionally, the array approach is well suited for when the run times of the specific commands varies.
 In the previous MPI approach, all nodes were held until the slowest step completed, with the consequence
